@@ -26,7 +26,7 @@
     <!--[if gte IE 9]>
     <style type="text/css">
         .gradient {
-        filter: none;
+            filter: none;
         }
     </style>
     <![endif]-->
@@ -43,40 +43,45 @@
           href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
     <script>
-    window.addEventListener("load", function(){
-        window.cookieconsent.initialise({
-            "palette": {
-                "popup": {
-                    "background": "#D3643B"
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#D3643B"
+                    },
+                    "button": {
+                        "background": "#FFFFFF"
+                    }
                 },
-                "button": {
-                    "background": "#FFFFFF"
+                "theme": "classic",
+                "position": "bottom-right",
+                "content": {
+                    "message": "Ya sabes, la UE nos obliga a recordarte que utilizamos cookies...",
+                    "dismiss": "OK",
+                    "link": "Saber más"
                 }
-            },
-            "theme": "classic",
-            "position": "bottom-right",
-            "content": {
-                "message": "Ya sabes, la UE nos obliga a recordarte que utilizamos cookies...",
-                "dismiss": "OK",
-                "link": "Saber más"
-            }
-        })});
-
+            })
+        });
 
 
     </script>
     <!-- End cookie consent -->
     <!-- Google Analytics -->
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-88444319-1', 'auto');
-  ga('send', 'pageview');
-
-
+        ga('create', 'UA-88444319-1', 'auto');
+        ga('send', 'pageview');
 
 
     </script>
@@ -191,26 +196,20 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="home">
-            <div class="well orange fixed-height">
+            <div class="well orange">
                 <!-- Fixed height for 300px on all devices, shadow for a shadow and orange for the color -->
-                <img class="img-responsive" src="assets/img/white600.png" style="width: 70%" alt="logo Nubart">
+                <img src="assets/img/white600.png" style="width: 70%" alt="logo Nubart">
 
                 <h1>La audioguía que te puedes llevar</h1>
             </div>
         </div>
-
-    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="imagebg-24 well fixed-height">
-                <form action="https://www.digitaltangible.com/mailform" method="GET" target="_blank"
-                      class="form-inline pull-left" id="token-form">
+                <form action="https://www.digitaltangible.com/mailform" method="GET" target="_blank" class="form-inline pull-left" id="token-form">
 
-                    <h2>Introduce aquí el código de tu tarjeta de muestra:</h2>
-
-
-                    <input type="text" name="token" class="input-xlarge" placeholder="Código" maxlength="300"
-                           autofocus="autofocus">
-                    <button class="btn btn-primary" type="submit"> OK</button>
+                    <h3>Introduce aquí el código de tu tarjeta de muestra:</h3>
+                    <input type="text" name="token" placeholder="Código" maxlength="100" style="width: 100%; margin-bottom: 5px"  autofocus="autofocus">
+                    <button class="btn btn-warning" type="submit"><strong>OK</strong></button>
                 </form>
             </div>
         </div>
@@ -624,5 +623,5 @@ blogposts();
 
 
 </script>
-</div></body>
+</body>
 </html>
