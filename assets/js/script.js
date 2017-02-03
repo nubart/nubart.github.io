@@ -121,12 +121,3 @@ function contentslider() {
 		directionNav: false
 	});
 }
-
-function map() {
-	new GMaps({
-		div: '#map',
-		lat: 40.71435,
-		lng: -74.00597,
-		scrollwheel: false
-	});
-}
