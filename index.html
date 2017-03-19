@@ -15,6 +15,18 @@ digital tangible, audioguias baratas, audio tour, audioguias exposiciones">
 desde el móvil. Fácil de adaptar, con datos y feedback del visitante. En un cómodo formato de
 tarjeta.">
     <meta name="author" content="Nubart">
+
+    <script>
+        "use strict";
+        var userLang = navigator.language || navigator.browserLanguage;
+        var refDomain = document.referrer.split('/')[2];
+        console.info(refDomain);
+        console.info(userLang);
+        if(userLang.substring(0,2) == 'de' && location.hostname != refDomain){
+            window.location.href = '/de';
+        }
+    </script>
+
     <!-- Le styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="assets/css/flexslider.css" rel="stylesheet">
