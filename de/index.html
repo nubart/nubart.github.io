@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- Its not valid html but it works -->
+    <title>Nubart – ein Audioguide für Museen ohne Geräte und ohne Apps.</title>
+    <meta name="keywords"
+          content="Audioführer, Audioguide, Audioführungen, Audioproduktionen, Besucherführungen, Besucherführungssysteme, Hörführung, Multimediaführung, BYOD, Besucherdaten, Feedback">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description"
+          content="Ein innovatives Konzept für Audioguides in Museen. Kärtchen zum Mitnehmen. Ohne Geräte und ohne Apps. Vom Smartphone abrufbare Besucherführung  - BYOD.">
+    <meta name="author" content="Nubart">
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/flexslider.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+    </style>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+
+    <!-- cookie consent -->
+    <link rel="stylesheet" type="text/css"
+          href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#D3643B"
+                    },
+                    "button": {
+                        "background": "#FFFFFF"
+                    }
+                },
+                "theme": "classic",
+                "position": "bottom-right",
+                "content": {
+                    "message": "Auch Nubart.eu verwendet Cookies. Wenn Sie auf der Seite weitersurfen stimmen Sie der Cookie-Nutzung zu",
+                    "dismiss": "OK",
+                    "link": "Mehr erfahren"
+                }
+            })
+        });
+
+
+
+
+
+
+
+    </script>
+    <!-- End cookie consent -->
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-88444319-1', 'auto');
+        ga('send', 'pageview');
+
+
+
+
+
+
+
+    </script>
+</head>
+
+
+<body>
+<div class="nav-section">
+    <ul class="nav">
+        <li><a href="#home" class="scroll home">Nubart</a></li>
+        <li><a href="#modalities" class="scroll modalities">Anwendungsmöglichkeiten</a></li>
+        <li><a href="#data" class="scroll data">Benutzerdaten</a></li>
+        <li><a href="#about" class="scroll about">Über uns</a></li>
+        <li><a href="http://lb.benchmarkemail.com//listbuilder/signupnew?Ed18KRp8yhT2DasZVutKKvG6VTMKFmIo7Hw0v9szik8fmUk2I%252FH8zQnYbuLPpxb0">Probe erhalten</a></li>
+
+        <li><a href="#contact" class="scroll contact">Kontakt</a></li>
+    </ul>
+</div>
+<div class="panel"> <!--Panels for content -->
+    <div class="album"> <!-- Album panel -->
+        <span class="closeicon"><i class="icon-remove"></i></span>
+        <span class="closeicon"><i class="icon-remove"></i></span>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hidden-xs">
+                <div class="well imagebg-4 fixed-height"></div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="well imagebg-5 fixed-height"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hidden-xs">
+                <div class="well imagebg-6 fixed-height"></div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="well imagebg-7 fixed-height"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hidden-xs">
+                <div class="well imagebg-8 fixed-height"></div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="well imagebg-9 fixed-height"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="well imagebg-10 fixed-height"></div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hidden-xs">
+                <div class="well imagebg-11 fixed-height"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hidden-xs">
+                <div class="well imagebg-12 fixed-height"></div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="well imagebg-13 fixed-height"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="work"> <!-- Work panel -->
+        <span class="closeicon"><i class="icon-remove"></i></span>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hidden-xs">
+                <div class="well imagebg-3 fixed-height"></div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="well purple fixed-height">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="well plum fluid-height overflow-show">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-narrow">
+    <div class="menu">
+        <div class="nav-bar"></div>
+        <div class="nav-bar"></div>
+        <div class="nav-bar"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="home">
+            <div class="well orange">
+                <!-- Fixed height for 300px on all devices, shadow for a shadow and orange for the color -->
+                <img src="assets/img/white600.png" style="width: 70%" alt="logo Nubart">
+
+                <h1>Der Audioguide zum Mitnehmen</h1>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="imagebg-24 well fixed-height">
+                <form action="https://www.digitaltangible.com/mailform" method="GET" target="_blank"
+                      class="form-inline pull-left" id="token-form">
+
+                    <h3>Bitte hier den Code aus der Karte eingeben:</h3>
+                    <input type="text" name="token" placeholder="Código" maxlength="100" style="width: 100%; margin-bottom: 5px; font-weight: bold" autofocus="autofocus">
+                    <button class="btn btn-warning" type="submit"><strong>OK</strong></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <!-- Overflow-show is used when .outer-box is used for example since it enables it to show outside the div -->
+            <div class="well sage overflow-show large">
+                <h2>Ein Audioguide als Kärtchen</h2>
+
+                <div class="outer-box">
+                    <p>Mit Nubart sind Audioguides endlich praktisch geworden! Ohne Wartung,
+                        <strong>ohne Geräte</strong> und ohne die Entwicklung teuer Apps. Der Multimedia Inhalt wird direkt vom Smartphone aus <strong>gestreamt
+                            </strong>. Der individuelle Code auf jeder Karte kontrolliert den Zugang. Wir ermitteln
+                        <strong>wertvolle Daten</strong> über die Nutzung und Herkunft der Besucher. Unsere Audioguides sind günstig, <strong>rentabel</strong> und bieten ein hübsches Sammelobjekt.
+                    </p>
+                </div>
+                <p>
+                    Wir bieten auch Service! Beratung, <strong>Übersetzung</strong> und
+                    <strong>Vertonung</strong> des Inhalts in verschiedenen Sprachen im Tarif inbegriffen.
+                </p>
+
+                <div class="outside"> <!-- position changeable in css -->
+                    <h3 class="text-right" style="color:white;">Wir beraten Sie über den Inhalt</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+
+            <div class="well person-square3 fixed-height">
+                <h3 class="text-left">Unkompliziert</h3>
+
+                <p class="text-left">und praktisch</p>
+            </div>
+
+            <div class="well person-square5 fixed-height">
+                <h3 class="text-left">In beliebig vielen Sprachen</h3>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="imagebg-9 well fixed-height"> <!-- using css for full div background -->
+                <h3>Besucherdaten</h3>
+
+                <p class="text-left">Erfahren Sie mehr über Ihr Publikum</p>
+                <a class="btn btn-warning btn-lg" role="button" href="assets/img/besucherdaten-web.pdf"><strong style="font-size:1.5em">Mehr Info</strong></a>
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <div class="well no-padding fixed-height hidden-xs">
+                <div class="flexslider" id="slider">
+                    <ul class="slides">
+                        <li>
+                            <img src="assets/img/slider-1.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="assets/img/slider-3.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="assets/img/slider-2.jpg" alt=""/>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 large" id="modalities">
+            <div class="well sage overflow-show large">
+                <h2>Ein anpassungsfähiges Audioguide-Konzept!</h2>
+
+                <h3>Dauerausstellungen</h3>
+
+                <p>Wir liefern die Kärtchen <strong>nach Bedarf</strong> nach. Änderungen im Inhalt sind schnell und einfach.</p>
+
+                <div class="outer-box-work"> <!-- changeable in css -->
+                    <h3>Audioführer für Routen</h3>
+
+                    <p>Führen Sie ein Freilichtmuseum oder wünschen Sie eine Stadführung? Wir können auch Streckenkarten einführen.</p>
+
+                </div>
+                <h3>Wechselausstellungen</h3>
+
+                <p>Warum bei temporären Ausstellungen auf Audioguides verzichten? Unsere Lösung ist
+                    <strong>günstig und rentabel</strong>.</p>
+
+                <div class="outside"> <!-- position changeable in css -->
+                    <h3 class="text-left" style="color:white;">Passend für jede Gelegenheit</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"> <!-- .imagebg-2 css used for full div image -->
+            <div class="imagebg-10 well fixed-height"> <!-- using css for full div background -->
+
+                <h3>Verzichten Sie auf Geräte und Apps</h3>
+
+            </div>
+
+            <div class="imagebg-13 well fixed-height"> <!-- using css for full div background -->
+                <h3>Möchten Sie ein Audioguide sponsorn?</h3>
+
+                <p class="text-left">Wir suchen für Sie das passende Museum!</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="well person-square fixed-height">
+                <h3 class="text-left">Vielleicht besser mit Kopfhörer?</h3>
+
+                <p class="text-left">Dann aber mit Ihrem Logo drauf!</p>
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <div class="image">
+
+                <img class="img-responsive fixed-height" src="assets/img/escaneo-muestra-baja.jpg"
+                     alt="Audioguías con código QR para escanear desde el móvil">
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" id="data">
+            <!-- Overflow-show is used when .outer-box is used for example since it enables it to show outside the div -->
+            <div class="well sage overflow-show large">
+                <h2>Lernen Sie Ihre Besucher kennen!</h2>
+
+                <div class="outer-box">
+                    <p>Nubart Audioguides vermitteln anonyme <strong>Daten und Statistiken über Ihre Besucher</strong>, ohne eindringlich zu sein. Erfahren Sie u.a. ihre Herkunft, Datum und Uhrzeit des Besuches und welche Exponate sie am meisten interessiert haben.
+                    </p>
+                </div>
+                <p>
+                    Möchten Sie auch <strong>die Meinung Ihrer Besucher</strong> erfahren? Mit unserem Audioguide können Sie in Echtzeit ihr Feedback kennen: persönliche Bemerkungen, Bewertung der Ausstellung... Sie werden sich über die Menge und Qualitat der Information wundern!
+                </p>
+
+                <div class="outside"> <!-- position changeable in css -->
+                    <h3 class="text-right" style="color:white;">Hören Sie Ihrem Besucher zu!</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+
+
+            <div class="imagebg-16 well hidden-xs"> <!-- using css for full div background -->
+                <a class="btn btn-warning btn-lg" role="button" href="/audioguide-de"><strong style="font-size:1.5em">Mehr Information</strong></a>
+            </div>
+
+
+            <div class="imagebg-18 well fixed-height"> <!-- using css for full div background -->
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="well orange fixed-height hidden-xs">
+                <!-- Fixed height for 300px on all devices, shadow for a shadow and orange for the color -->
+                <img class="img-responsive" src="assets/img/white600.png" style="width: 70%" alt="logo Nubart">
+
+                <h1>Innovativer Audoguide der Zukunft</h1>
+            </div>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hidden-xs">
+            <img class="img-responsive fixed-height" src="assets/img/auriculares-cccb-baja.jpg"
+                 alt="auriculares junto con audioguía Nubart">
+
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 large" id="about">
+            <div class="well sage overflow-show large">
+                <h2>Über uns</h2>
+
+                <p>Wir sind eine Firma mit Sitz in Barcelona die sich vorgenommen hat, digitale Inhalte im Kulturbereich anfassbar zu machen. </p>
+
+                <p>
+                    Bei uns arbeiten hervorragende Entwickler, aber auch Kunsthistoriker, Touristenführer und Sprachexperten.
+                </p>
+
+                <div class="outer-box-work"> <!-- changeable in css -->
+                    <p>
+                        Denn wir wissen, dass ein Museum kein gewöhnlicher Kunde ist. Es reicht nicht, wenn wir nur eine technologische Lösung anbieten: was zählt ist persönliche Beratung, ein guter Inhalt und die Zufriedenheit Ihrer Besucher.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="imagebg-4 well hidden-xs"> <!-- using css for full div background -->
+
+                <h3 class="text-left" style="color:white;">Rosa Sala</h3>
+
+                <p class="text-left" style="color:white;">CEO</p>
+
+                <div class="overlay"></div>
+
+
+                <div class="eye-open click" style="color:white;"><a
+                        href="https://www.xing.com/profile/Rosa_SalaRose2"><i
+                        class="icon-xing"></i></a></div>
+                <div class="eye-open click" style="color:white;"><a
+                        href="https://es.linkedin.com/in/rosasalarose"><i
+                        class="icon-linkedin"></i></a></div>
+            </div>
+            <div class="imagebg-5 well hidden-xs"> <!-- using css for full div background -->
+                <h3 class="text-left" style="color:white;">Jordi Pérez</h3>
+
+                <p class="text-left" style="color:white;">COO</p>
+
+                <div class="overlay"></div>
+
+                <div class="eye-open click" style="color:white;"><a href="https://es.linkedin.com/in/perezjordi"><i
+                        class="icon-linkedin"></i></a></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="imagebg-7 well hidden-xs"> <!-- using css for full div background -->
+                <h3 class="text-left" style="color:white;">Simon Effing</h3>
+
+                <p class="text-left" style="color:white;">CTO</p>
+
+                <div class="overlay"></div>
+
+                <div class="eye-open click" style="color:white;"><a
+                        href="https://www.xing.com/profile/Simon_Effing"><i
+                        class="icon-xing"></i></a></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="imagebg-6 well hidden-xs"> <!-- using css for full div background -->
+                <h3 class="text-left" style="color:white;">Helena Cuesta</h3>
+
+                <p class="text-left" style="color:white;">Koordination</p>
+
+                <div class="overlay"></div>
+
+                <div class="eye-open click" style="color:white;"><a
+                        href="https://es.linkedin.com/in/helenacuesta"><i
+                        class="icon-linkedin"></i></a></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="imagebg-3 well hidden-xs"> <!-- using css for full div background -->
+                <h3 class="text-left" style="color:white;">Steve Zitkovich</h3>
+
+                <p class="text-left" style="color:white;">Vertretung Deutschland</p>
+
+                <div class="overlay"></div>
+
+                <div class="eye-open click" style="color:white;"><a
+                        href="https://www.xing.com/profile/Steve_Zitkovich/"><i
+                        class="icon-xing"></i></a></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="muestra">
+            <div class="well sage overflow-show">
+                <h3>Fordern Sie eine Probe an!</h3>
+
+                <p>Möchten Sie ganz genau wissen, wie unsere Audioguides funktionieren? Fordern Sie eine Gratisprobe an.</p>
+
+                <p>
+
+                </p>
+
+                <div class="outer-box-work"> <!-- changeable in css -->
+                    <!-- BEGIN: Signup Form Text Code from Benchmark Email Ver 2.0 -->
+
+
+                    <a class="btn btn-warning btn-lg pull-right" style="font-size: 2em;"
+                       href="http://lb.benchmarkemail.com//listbuilder/signupnew?rkJzc0IBBbahnOlu2ndsKfG6VTMKFmIo7Hw0v9szik9MX8Seba8GFNSLITi2AEUS"><strong>Hier klicken</strong></a>
+
+
+                    <!-- END: Signup Form Text Code from Benchmark Email Ver 2.0  -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 large hidden-xs">
+            <div class="well plum large overflow-show">
+                <a href="https://twitter.com/nub_art">
+                    <div class="social-box"><i class="icon-twitter"></i></div>
+                </a>
+                <a class="twitter-timeline" data-height="450" href="https://twitter.com/nub_art"></a>
+                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <div class="well purple">
+                <h2>Neuigkeiten in Nubart</h2>
+
+                <div class="article">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <img class="img-responsive" src="assets/img/frontal-audioguia-desig.png" alt="">
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            <p>
+                                Unser Audioguide für das CCCB Barcelona für die Ausstellung <a
+                                    href="http://www.cccb.org/en/exhibitions/file/1000-m2-of-desire/223704"><i>1000
+                                m2
+                                of Desire</i></a> über Architektur und Erotik. Bis zum 19. März 2017.
+                            </p>
+
+                            <p>07/07/16 <span class="pull-right"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="well no-padding fixed-height click hidden-xs" id="blogtwo">
+                <!-- click used n clickable items -->
+                <div class="bp-post two">
+
+
+                    <div class="title">
+                        <h2><a
+                                href="http://www.nubart.eu/blog/">Blog de Nubart</a></h2>
+
+                        <h3><a
+                                href="http://www.nubart.eu/blog/2016/12/12/difusion-visitantes-twitter-audioguia-nubart/">Cómo
+                            hacer que los visitantes difundan tu exposición en Twitter</a></h3>
+                        <h4>En un mundo cada vez más saturado de ofertas culturales, a menudo lo único capaz de
+                            llevarnos a ver una exposición es la recomendación de un amigo o conocido. Como es bien
+                            sabido, en el mundo virtual ese ansiado boca a oreja tiene su equivalente en las redes
+                            sociales. </h4>
+                        <h5><a
+                                href="http://www.nubart.eu/blog/2016/12/12/difusion-visitantes-twitter-audioguia-nubart/">(Seguir
+                            leyendo)</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="sage well">
+                <h3>Nubart</h3>
+
+                <p>Digital Tangible SL</p>
+
+                <p>C/Girona 130 ppal. 2</p>
+
+                <p>08037-Barcelona</p>
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <div class="redplum well" id="contact">
+                <p><i class="icon-phone contact-icon"></i>+34 933 003 343</p>
+
+                <p><i class="icon-envelope-alt contact-icon"></i><a href="mailto:info@nubart.eu">info@nubart.eu</a>
+                </p>
+                <a href="https://www.facebook.com/Nubart/">
+                    <p class="social"><i class="icon-facebook"></i></p>
+                </a>
+                <a href="https://twitter.com/nub_art">
+                    <p class="social"><i class="icon-twitter"></i></p>
+                </a>
+                <a href="https://www.linkedin.com/company/nubart">
+                    <p class="social"><i class="icon-linkedin"></i></p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /container -->
+<!-- Le javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="assets/js/jquery.flexslider-min.js"></script>
+<script src="assets/js/jquery.fitvids.js"></script>
+<script src="assets/js/jquery.smooth-scroll.min.js"></script>
+<script src="assets/js/jquery.backstretch.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/script.js" type="text/javascript"></script>
+<script>menu();
+backstretch();
+slider();
+contentslider();
+panels();
+blogposts();
+</script>
+</body>
+</html>
