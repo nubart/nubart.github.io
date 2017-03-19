@@ -18,7 +18,7 @@ tarjeta.">
 
     <script>
         "use strict";
-        var userLang = navigator.language || navigator.browserLanguage;
+        var userLang = navigator.language || navigator.userLanguage || navigator.browserLanguage || navigator.systemLanguage || 'en';
         var refDomain = document.referrer.split('/')[2];
         console.info(refDomain);
         console.info(userLang);
