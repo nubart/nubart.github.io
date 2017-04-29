@@ -70,7 +70,7 @@
 <div class="nav-section">
 
     <ul class="nav">
-        <li><a href="#home" class="scroll home">Nubart</a></li>
+        <li><a href="#descubrenos" class="scroll home">Entdecken Sie uns</a></li>
         <li><a href="#modalities" class="scroll modalities">Anwendungsmöglichkeiten</a></li>
         <li><a href="#data" class="scroll data">Benutzerdaten</a></li>
         <li><a href="#about" class="scroll about">Über uns</a></li>
@@ -177,7 +177,31 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="descubrenos">
+            <!-- Overflow-show is used when .outer-box is used for example since it enables it to show outside the div -->
 
+            <h2 class="text-left" style="color:white;">Entdecken Sie uns in zwei Minuten:</h2>
+
+
+            <section id="video-banner">
+                <div class="row-fluid">
+                    <div class="span12 offset2">
+                        <div class="embed-responsive embed-responsive-16by9">
+
+
+
+                            <iframe src="https://player.vimeo.com/video/215192487" width="973" height="547" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            </br></br>
+        </div>
+
+    </div>
 
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -194,7 +218,7 @@
                     Wir bieten auch Service! Beratung, <strong>Übersetzung</strong> und
                     <strong>Vertonung</strong> des Inhalts in verschiedenen Sprachen sind in unserem Tarif inbegriffen.
                 </p>
-                <a class="btn btn-warning btn-lg pull-right" role="button" href="/audioguide-de"><strong style="font-size:1.5em">Mehr Information</strong></a>
+
                 <div class="outside"> <!-- position changeable in css -->
                     <h3 class="text-right" style="color:white;">Wir beraten Sie bei der Inhalt- gestaltung</h3>
                 </div>
@@ -202,13 +226,13 @@
         </div>
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
-            <div class="imagebg-10 well fixed-height"> <!-- using css for full div background -->
+            <div class="imagebg-10 well fixed-height  hidden-xs"> <!-- using css for full div background -->
 
                 <h3>Verzichten Sie auf Geräte und Apps</h3>
 
             </div>
 
-            <div class="well person-square5 fixed-height">
+            <div class="well person-square5 fixed-height hidden-xs">
                 <h3 class="text-left">In beliebig vielen Sprachen</h3>
 
             </div>
@@ -282,7 +306,7 @@
 
 
             <div class="imagebg-13 well fixed-height"> <!-- using css for full div background -->
-                <h3>Möchten Sie ein Audioguide sponsorn?</h3>
+                <h3>Möchten Sie einen Audioguide sponsorn?</h3>
 
                 <p class="text-left">Wir suchen für Sie das passende Museum!</p>
             </div>
@@ -299,7 +323,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-            <div class="image">
+            <div class="image hidden-xs">
 
                 <img class="img-responsive fixed-height" src="assets/img/escaneo-muestra-baja.jpg"
                      alt="Audioguide als Kärtchen mit QR-Code, direkt mit dem Smartphone nutzbar">
@@ -534,7 +558,7 @@
 
                 <p>Digital Tangible SL</p>
 
-                <p>C/Girona 130 ppal. 2</p>
+                <p>C/Pau Claris 147 ppal. 2</p>
 
                 <p>08037-Barcelona</p>
                 <p>Spanien</p>
@@ -599,7 +623,12 @@
 <script src="assets/js/jquery.backstretch.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/script.js" type="text/javascript"></script>
-<script>menu();
+<script src="assets/js/jquery.fitvids.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#video-banner").fitVids();
+    });
+menu();
 backstretch();
 slider();
 contentslider();
