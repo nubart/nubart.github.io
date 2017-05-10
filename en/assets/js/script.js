@@ -1,5 +1,5 @@
 function menu() {
-	$(".menu,.nav .descubrenos,.nav .about,.nav .work,.nav .contact,.nav .modalities,.nav .data,.nav .preise").click(function(){
+	$(".menu,.nav .home,.nav .about,.nav .work,.nav .contact,.nav .modalities,.nav .data,.nav .preise").click(function(){
 		$(".nav-section").toggleClass("show");
 		$(".menu .nav-bar:nth(0)").toggleClass("animate-0");
 		$(".menu .nav-bar:nth(1)").toggleClass("animate-1");
