@@ -29,8 +29,13 @@ tarjeta.">
         var refDomain = document.referrer.split('/')[2];
         console.info(refDomain);
         console.info(userLang);
-        if(userLang.substring(0,2) == 'de' && location.hostname != refDomain){
-            window.location.href = '/de';
+        if (location.hostname !== refDomain) {
+            var lang = userLang.substring(0, 2);
+            if (lang === 'de') {
+                window.location.href = '/de';
+            } else if (lang === 'en') {
+                window.location.href = '/en';
+            }
         }
     </script>
 
