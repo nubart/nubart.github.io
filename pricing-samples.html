@@ -57,38 +57,7 @@
 
     <!-- End Structured data -->
 
-    <!-- Redirection by language -->
-    <!-- DO NOT COPY TO OTHER PAGES  -->
-    <script>
-        "use strict";
-        var userLang = navigator.language || navigator.userLanguage || navigator.browserLanguage || navigator.systemLanguage || 'en';
-        var refDomain = document.referrer.split('/')[2];
-        console.info(refDomain);
-        console.info(userLang);
-        if (location.hostname !== refDomain) {
-            var lang = userLang.substring(0, 2);
-            if (lang === 'de') {
-                window.location.href = '/de';
-            } else if (lang === 'nl') {
-                window.location.href = '/nl';
-            } else if (lang === 'bg') {
-                window.location.href = '/bg';
-            } else if (lang === 'no') {
-                window.location.href = '/no';
-            } else if (lang === 'es' || lang === 'ca' || lang === 'eu' || lang === 'gl') {
-                window.location.href = '/es';
-            } else if (lang === 'pl') {
-                window.location.href = '/pl';
-            }
-        }
 
-
-
-
-
-
-
-    </script>
 
     <title>Nubart – the Audio Guide Visitors Keep.</title>
     <link href="https://www.nubart.eu" rel="canonical"/>
