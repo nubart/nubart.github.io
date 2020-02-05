@@ -670,7 +670,7 @@
       diagFrame.setAttribute('style', 'visibility: hidden; position: absolute; height: 0; width: 0;');
       var testIconId = 'fa-test-icon-' + md5;
       var iTag = DOCUMENT.createElement('i');
-      iTag.setAttribute('class', 'fa fa-coffee');
+      iTag.setAttribute('class', 'fab fa-coffee');
       iTag.setAttribute('id', testIconId);
       var diagScript = DOCUMENT.createElement('script');
       diagScript.setAttribute('id', diagScriptId); // WARNING: this function will be toString()'d and assigned to innerText of the diag script
