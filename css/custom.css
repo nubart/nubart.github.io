@@ -429,6 +429,22 @@ a.index-item:hover {
     font-weight: bolder;
 }
 
+/* smaller index for multimedia menu */
+
+a.index-item2 {
+    width: 100%;
+    font-size: 15px;
+    border: solid 1px;
+    display: block;
+    padding: 3px;
+     padding-left: 11px;
+    border-radius: 5px;
+}
+
+a.index-item2:hover {
+    font-weight: bolder;
+}
+
 /* css for process on ticketing */
 
 .smpl-step {
@@ -522,11 +538,16 @@ a.index-item:hover {
 
 
 @media only screen and (min-width: 992px) {
+
+
+
     /* sidebar for FAQ and multimedia elements*/
     .fixed-sidebar {
         position: fixed;
+        max-height: 100%;
         width: 300px;
         margin-top: 20px;
+          overflow-y: scroll;
     }
 
     .fixed-sidebar-target {
