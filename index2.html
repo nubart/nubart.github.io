@@ -2,6 +2,7 @@
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
+    <meta name="robots" content="noindex">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,6 +21,13 @@
             'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-TRW7KZS');
+
+
+
+
+
+
+
 
 
 
@@ -66,13 +74,66 @@
 
 
 
+
+
+
+
+
+
+
     </script>
 
 
     <!-- End Structured data -->
 
+    <!-- Redirection by language -->
+    <!-- DO NOT COPY TO OTHER PAGES  -->
+    <script>
+        "use strict";
+        var userLang = navigator.language || navigator.userLanguage || navigator.browserLanguage || navigator.systemLanguage || 'en';
+        var refDomain = document.referrer.split('/')[2];
+        console.info(refDomain);
+        console.info(userLang);
+        if (location.hostname !== refDomain) {
+            var lang = userLang.substring(0, 2);
+            if (lang === 'de') {
+                window.location.href = '/de';
+            } else if (lang === 'nl') {
+                window.location.href = '/nl';
+            } else if (lang === 'bg') {
+                window.location.href = '/bg';
+            } else if (lang === 'no') {
+                window.location.href = '/no';
+            } else if (lang === 'es' || lang === 'ca' || lang === 'eu' || lang === 'gl') {
+                window.location.href = '/es';
+            } else if (lang === 'pl') {
+                window.location.href = '/pl';
+            }
+        }
 
-    <title>Our latest Blog Entries</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <title>Nubart – the Audio Guide Visitors Keep.</title>
     <link href="https://www.nubart.eu" rel="canonical"/>
     <meta name="keywords"
           content="Audio guide, innovative, audioguide, audio tour, audiotour, museums, museum, audioguide equipment, interpretation guides, tourist sites, visitor centers, tourism, tours, multimedia, soundtracks">
@@ -183,6 +244,13 @@
 
 
 
+
+
+
+
+
+
+
     </script>
     <!-- Icons 	-->
 
@@ -196,7 +264,7 @@
 
     <!-- ./Icons 	-->
 </head>
-<body class="static-background">
+<body class="static-background7">
 
 
 <!-- pattern -->
@@ -258,44 +326,17 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features <b
-                            class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li itemprop="name"><a itemprop="url" href="/index.html#no-devices">No devices</a></li>
-                            <li itemprop="name"><a itemprop="url" href="/index.html#no-apps">No apps</a></li>
-                            <li><a href="/multimedia-audioguide.html">Multimedia Elements</a></li>
-                            <li itemprop="name"><a itemprop="url" href="/index.html#produced-ag">Full production</a>
-                            </li>
-                            <li><a data-scroll href="#visitors-data">Visitors data</a></li>
-                            <li itemprop="name"><a itemprop="url" href="/index.html#visitors-feedback">Visitors
-                                feedback</a></li>
-                            <li itemprop="name"><a itemprop="url" href="/index.html#geolocation">Geolocation</a></li>
-                            <li itemprop="name"><a itemprop="url" href="/index.html#offline">Offline</a></li>
-                            <li itemprop="name"><a itemprop="url" href="/index.html#low-cost">Affordable &
-                                profitable</a></li>
+                    <li><a href="/audio guides.html">Audio Guides</a></li>
+                    <li><a href="/live-guide-group-guiding-system.html">Tour Guiding</a></li>
 
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Solutions <b
-                            class="caret"></b></a>
-                        <ul class="dropdown-menu">
 
-                            <li><a href="/">Audio guides in general</a></li>
-                            <li><a href="/ticket-audioguide-in-one">Ticket + Audio Guide in one</a></li>
-                            <li><a href="/on-site-campus-tours-guide.html">Guiding solution for on-site Campus tours</a></li>
-                            <li><a href="/boats-cruisers-audioguide.html">Boat tours & harbour cruises</a></li>
-                            <li><a href="/networking-tool-tradeshows-events.html">Networking & matching tool</a></li>
-                        </ul>
-                    </li>
-
-                    <li itemprop="name"><a data-scroll itemprop="url"></a></li>
-                    <li><a href="/pricing-samples.html">Get a quote or samples</a></li>
+                    <li><a href="/pricing-samples.html">Request quote or samples</a></li>
                     <li><a href="/nubart-clients-projects.html">Customers</a></li>
                     <li><a href="/faq.html">FAQ</a></li>
+                    <li><a href="/blog-list.html">Blog</a></li>
+                    <li><a href="/about-nubart.html">About</a></li>
 
-                    <li><a href="/about-nubart.html">About us</a></li>
-
-                    <li><a href="/index.html#contact">Contact</a></li>
+                    <li><a data-scroll href="#contact">Contact</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -306,143 +347,281 @@
 <!-- ./header -->
 
 
-<!-- blog3 -->
-<section id="news" class="section">
+<!-- landing-banner -->
+<section id="landing-banner" class="section">
+    <div class="banner-content">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 col-md-offset-6">
+                    <div class="well" style="text-align: center; background: transparent;">
+                        <form action="https://www.nub.art/external" method="GET" target="_blank">
+                            <p>If you have a card with a code, enter it here:</p>
+                            <input type="text" name="token" autocomplete="off" autocapitalize="off"
+                                   placeholder=" Code" maxlength="100"
+                                   style="background: transparent;" autofocus="autofocus">
+                            <button class="btn-group btn-warning" type="submit"><strong>OK</strong></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row"><br/>
+                <div class="col-md-12">
+                <div class="headline">
+                    <h1>The only <i>digital</i> audio guide system that can be <i>profitable</i></h1>
+                </div>
+                <h2>No devices, no apps and no logins required</h2>
+
+
+                <br/>
+                <p class="lead">Nubart<sup>®</sup> is a branded card that acts as a unique key to access a web-app
+                    directly from a
+                    smartphone. </p>
+                <p class="lead">Visitors keep the card to listen again later. The cards are hygienic and Covid-proof.</p>
+                <p class="lead">They are also non-transferable. Therefore they can be sold and generate an additional revenue
+                    stream to the museum.
+                </p>
+
+
+            </div></div>
+
+            <!-- ./row -->
+        </div>
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-md-6 col-sm-8 text-center">
+                    <h3>Audio Guide</h3>
+                    <img src="img/main-audio guide.png" class="img-responsive"
+
+
+                         alt="Example of a Nubart audio guide card">
+
+
+                </div>
+                <div class="col-md-6 col-sm-8  text-center">
+                    <h3>Group Guiding System</h3>
+                    <img src="img/main-group-guiding.png" class="img-responsive"
+
+
+                         alt="Example of a Nubart audio guide card">
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section wow" style="padding-bottom: 40px;">
+
     <div class="container">
+        <div class="col-md-6 col-sm-8">
+            <img src="img/main-nubart-audioguide.png" class="img-responsive"
 
-        <div class="section-heading">
-            <h3>Nubart's Blog</h3>
 
-            <div class="separator"></div>
+                 alt="Example of a Nubart audio guide card">
+
+
         </div>
+        <div class="col-md-6 col-sm-8">
+            <img src="img/como-funciona-nubart2.png" class="img-responsive"
 
 
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="blog-box3">
-                    <figure>
-                        <img src="img/traveling-audioguide.jpg"
-                             alt="Nubart's travelling audioguide as museum's postcard"
-                             class="img-responsive">
-                    </figure>
-                    <div class="content">
-                        <a href="/blog-en/2018/07/11/sell-travelling-audioguide/"><h4>We launched the travelling
-                            audioguide!</h4></a>
-                        <ul>
-                            <li><i class="fab fa-calendar"></i> <span>November 7, 2019</span></li>
+                 alt="Example of a Nubart audio guide card">
 
-                        </ul>
-
-                        <p>Postcards are still the best-selling product in museum shops. Why not offer your
-                            audioguide as a
-                            postcard?</p>
-                        <a href="/blog-en/2018/07/11/sell-travelling-audioguide/"
-                           target="_blank" class="link">Read more...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="blog-box3">
-                    <figure>
-                        <img src="img/accessibility-nubart.jpg" alt="Nubart's audio guides are accessible"
-                             class="img-responsive">
-                    </figure>
-                    <div class="content">
-                        <a href="/blog-en/2018/07/11/nubart-accessible-audioguides/"><h4>Nubart's audio guides are
-                            accessible</h4></a>
-                        <ul>
-                            <li><i class="fab fa-calendar"></i> <span>July 10, 2018</span></li>
-
-                        </ul>
-
-
-                        <p> Find out how we made our card-shapes audio guides fully accessible for visually or hearing
-                            impaired museum visitors.</p>
-                        <a href="/blog-en/2018/07/11/nubart-accessible-audioguides/"
-                           target="_blank" class="link">Read more...</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="blog-box3">
-                    <figure>
-                        <img src="img/audio-route-offline-mode-nubart.jpg" alt="Nubart audio route in offline mode"
-                             class="img-responsive">
-                    </figure>
-                    <div class="content">
-                        <a href="blog-en/2018/06/14/digital-audio guides-tours-offline/"><h4>Why we can offer digital
-                            audio guides in offline mode (no apps!)</h4></a>
-                        <ul>
-                            <li><i class="fab fa-calendar"></i> <span>June 14, 2018</span></li>
-
-                        </ul>
-
-                        <p> Museums with bad data coverage or no Wifi? Now we offer digital audio guides in offline
-                            mode.</p>
-                        <a href="/blog-en/2018/06/14/digital-audio guides-tours-offline/"
-                           target="_blank" class="link">Read more...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="col-md-6 col-sm-6">
-                    <div class="blog-box3">
-                        <figure>
-                            <img src="img/nubart-as-tool-to-collect-data-museum.jpg" alt="Nubart as a data collector"
-                                 class="img-responsive">
-                        </figure>
-                        <div class="content">
-                            <a href="/blog-en/2017/12/08/how-to-get-visitors-data-museum/"><h4>How to get visitor data
-                                for your museum</h4></a>
-                            <ul>
-                                <li><i class="fab fa-calendar"></i> <span>Dec 13, 2017</span></li>
-
-                            </ul>
-
-
-                            <p> Before doing research about the audience of your museum, you need to collect data first.
-                                This
-                                may not be as easy as it sounds.</p>
-                            <a href="/blog-en/2017/12/08/how-to-get-visitors-data-museum/"
-                               target="_blank" class="link">Read more...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="blog-box3">
-                    <figure>
-                        <img src="img/woman-typing-writing-windows.jpg" alt="image" class="img-responsive">
-                    </figure>
-                    <div class="content">
-                        <a href="/blog-en/2017/08/03/how-to-write-script-audio guide-museum/"><h4>How to write the
-                            script of an audio guide</h4></a>
-                        <ul>
-                            <li><i class="fab fa-calendar"></i> <span>Aug 3, 2017</span></li>
-
-                        </ul>
-
-
-                        <p> The script of an audio guide for a museum tour is a very special kind of text and has
-                            its
-                            own
-                            rules. Here we provide some helpful tricks.</p>
-                        <a href="/blog-en/2017/08/03/how-to-write-script-audio guide-museum/"
-                           target="_blank" class="link">Read more...</a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- ./blog-carousel2 -->
 
         </div>
     </div>
 </section>
-<!-- ./news -->
+<!-- ./landing-banner -->
+<section id="landing-banner2" class="section">
+    <div class="banner-content">
+
+        <div class="container">
+            <div class="row"><br>
+
+                <div class="col-md-8 col-md-offset-2">
+
+
+                    <!-- 16:9 aspect ratio -->
+                    <img src="img/how-nubart-works-trans.png"
+                         alt="How does Nubart work"
+                         class="img-responsive">
+
+
+                </div>
+            </div>
+            <div class="row"><br>
+
+                <div class="panel-body col-md-4 col-md-offset-1">
+
+
+                    <!-- 16:9 aspect ratio -->
+                    <a href="https://www.digitaltangible.com/nubart/guide/13c8dd650e/main"
+                       target="_blank" rel="nofollow"> <img src="img/demo-nubart-llum-negra.png"
+                                                            alt="Demo of a Nubart audio guide"
+                                                            class="img-responsive"></a>
+
+
+                </div>
+                <div class="col-md-2">
+                    <img src="img/arrow.png" alt="Click here for a demo of a Nubart city audio guide"
+                         class="img-responsive hidden-xs hidden-sm" style="margin-top:220px"></div>
+
+                <div class="col-md-5">
+                    <div class="headline">
+                        <h2>Experiment with our audio guide</h2>
+                    </div>
+                    <p class="lead"><b>CLICK ON THE PHONE IMAGE</b> to see how our audioguides work <b>once the unique
+                        code on the
+                        card has been scanned or entered.</b></p>
+                    <p class="lead">At Nubart we try to <b>improve usability and navigation</b> as much as possible.
+                        Visitors
+                        to a museum belong to all kinds of audiences and generations. At Nubart we want everyone to be
+                        able to intuitively use our audio guides without having to receive instructions from your side.
+                        <br><br>That's why all the content appears on the same page, without external links, without the
+                        need to
+                        type and without having to open new windows.<br>
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <!-- ./row -->
+
+    </div>
+</section>
+
+<!-- ./services -->
+
+
+<!-- ./section -->
+
+
+<!-- contact -->
+<section id="contact" class="section wow fadeInUp">
+    <!-- team -->
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2  text-center">
+
+                <div class="section-heading">
+                    <h2>Get in touch!</h2>
+
+                </div>
+
+                <p class="lead">
+                    We have product experts in many countries! <br>Please write to us and we will refer your request to
+                    the
+                    right team-member. </p>
+
+
+                <div class="col-md-6 text-center">
+
+
+                    <p class="lead">
+                        <b>General enquiries:</b></p>
+
+                    <a class="btn btn-xl btn-dark btn-block"
+                       role="button"
+                       href="mailto:info@nubart.eu"
+                       target="_blank">Contact us</a>
+
+
+                </div>
+                <div class="col-md-6 text-center">
+
+
+                    <p class="lead">
+                        <b>To request samples or a quote:</b></p>
+
+                    <a class="btn btn-xl btn-dark btn-block"
+                       role="button"
+                       href="/pricing-samples.html"
+                       target="_blank">Fill our form</a>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- contact-info -->
+
+
+    <!-- contact-info -->
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <br><br>
+            <div class="col-md-4 col-sm-4">
+
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i><br>Nubart<sup>®</sup> belongs to Digital Tangible SL
+                    <br>(Barcelona
+                    - Berlin - New York)
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <br>
+                    <b>EU, UK and Asia:</b><a href="mailto:info@nubart.eu"> info@nubart.eu</a><br>
+                    <b>US:</b><a
+                        href="mailto:info@nubart.eu"> info@nubart.us<br/></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i><br>
+
+                    <b>EU, UK and Asia:</b> +49 (0)30 216 02 001<br>
+                    <b>US:</b> +1 305-4542085 / +1 516-459-0790
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- ./contact-info -->
+
+    <!-- seals -->
+
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="i-am-centered"><br><br><br>
+                <div class="thumbnail">
+                    <a href="https://ec.europa.eu/info/research-and-innovation/funding/funding-opportunities/seal-excellence_en"
+                       target="_blank">
+                        <img src="img/eu-funding-en.jpg"
+                             alt="EU Seal of Excellence for Nubart - 2017"
+                             style="width:75%">
+
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
+<!-- ./contact -->
+
 
 <!-- footer -->
 <footer id="footer">
@@ -468,6 +647,56 @@
 <!-- Le javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<!-- cookie consent -->
+<link rel="stylesheet" type="text/css"
+      href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+    window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+            layout: 'custom-small-layout',
+            layouts: {
+                'custom-small-layout': '<div style="margin: -2em -1.5em -1.5em;">{{message}}</div><div>{{compliance}}</div>',
+            },
+            "palette": {
+                "popup": {
+                    "background": "#efefef",
+                    "text": "#404040"
+                },
+                "button": {
+                    "background": "#8ec760",
+                    "text": "#ffffff"
+                }
+            },
+            "theme": "edgeless",
+            "position": "bottom-left"
+        })
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<!-- End cookie consent -->
 <!-- Global site tag (gtag.js) - Google AdWords: 962068933 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-962068933"></script>
 <script>
@@ -480,6 +709,27 @@
     gtag('js', new Date());
 
     gtag('config', 'AW-962068933');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
