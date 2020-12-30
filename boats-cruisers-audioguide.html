@@ -28,17 +28,32 @@
     <!-- Structured data -->
 
     <script type="application/ld+json">
+
         {
             "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "Nubart",
-            "url": "https://www.nubart.eu/",
-            "image": "https://www.nubart.eu/img/scan-audioguide-nubart.png",
-            "logo": "https://www.nubart.eu/img/logo-nubart.png",
-            "description": "It's difficult to implement conventional audio guide devices on river cruises or a boat trips. Nubart offers them an innovative audio guide that the passenger keeps, so there is nothing to collect after the tour. Geolocation."
+            "@type": "BreadcrumbList",
+            "itemListElement":
+            [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@id": "https://nubart.eu/",
+                        "name": "Nubart"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@id": "https://nubart.eu/boats-cruisers-audioguide",
+                        "name": "Audio guide for boats and busses"
+                    }
+                }
+            ]
         }
-    </script>
 
+    </script>
 
     <!-- End Structured data -->
 

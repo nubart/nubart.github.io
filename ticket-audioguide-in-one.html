@@ -9,20 +9,33 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Structured data -->
-
     <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "Nubart",
-            "url": "https://www.nubart.eu/ticket-audioguide-in-one.html",
-            "image": "https://www.nubart.eu/img/scan-audioguide-nubart.png",
-            "logo": "https://www.nubart.eu/img/logo-nubart.png",
-            "description": "Museums force visitors to stand in two queues: one for the ticket and one for the audio guide. Why not offer a ticket and an audio guide all at once? Nubart can do that"
-        }
-    </script>
 
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@id": "https://nubart.eu/",
+                    "name": "Nubart"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@id": "https://nubart.eu/ticket-audioguide-in-one",
+                    "name": "Ticket and audio guide in one"
+                }
+            }
+        ]
+    }
 
+</script>
     <!-- End Structured data -->
 
 

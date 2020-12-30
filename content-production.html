@@ -2,6 +2,7 @@
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
+    <meta name="robots" content="noindex">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,14 +12,29 @@
     <!-- Structured data -->
 
     <script type="application/ld+json">
+
         {
             "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "Nubart",
-            "url": "https://www.nubart.eu/about-nubart.html",
-            "image": "https://www.nubart.eu/img/scan-audioguide-nubart.png",
-            "logo": "https://www.nubart.eu/img/logo-nubart.png",
-            "description": "Find out how the most innovative audio guide was born. How do we produce our audio guides. Who belongs to Nubart's team."
+            "@type": "BreadcrumbList",
+            "itemListElement":
+            [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@id": "https://nubart.eu/",
+                        "name": "Nubart"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@id": "https://nubart.eu/content-production",
+                        "name": "Content production"
+                    }
+                }
+            ]
         }
 
     </script>
