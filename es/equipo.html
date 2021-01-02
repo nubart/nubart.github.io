@@ -11,13 +11,36 @@
     <!-- Structured data -->
 
     <script type="application/ld+json">
+
         {
             "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "Nubart",
-            "url": "https://www.nubart.eu/es/sobre-nubart.html",
-            "logo": "https://www.nubart.eu/../img/logo-nubart.png",
-            "description": "Descubre cómo nacieron las audioguías más innovadoras. Averigua quiénes somos y cómo trabajamos."
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@id": "https://nubart.eu/",
+                        "name": "Nubart"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@id": "https://nubart.eu/es/",
+                        "name": "Nubart"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@id": "https://nubart.eu/es/equipo/",
+                        "name": "El equipo de Nubart"
+                    }
+                }
+            ]
         }
 
     </script>
@@ -97,6 +120,7 @@
 
         ga('create', 'UA-88444319-1', 'auto');
         ga('send', 'pageview');
+
 
 
 
@@ -686,6 +710,7 @@
     gtag('js', new Date());
 
     gtag('config', 'AW-962068933');
+
 
 
 
