@@ -13,64 +13,105 @@
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
-            "@type": "Corporation",
-            "additionalType": "http://www.productontology.org/doc/Audio_tour",
-            "@id": "https://www.nubart.eu/#site",
-            "legalName": "Digital Tangible SL",
-            "name": "Nubart",
-            "url": "https://www.nubart.eu/",
-            "image": "https://www.nubart.eu/img/scan-audioguide-nubart.png",
-            "logo": "https://www.nubart.eu/img/logo-nubart.png",
-            "award": "Seal of Excellence - SME Instrument by the EU's research and innovation funding programme Horizon 2020",
-            "description": "Innovative and profitable BYOD audio guiding solution without dedicated devices nor native apps for museums and atractions.",
-            "brand": "Nubart",
-            "email": "info@nubart.eu",
-            "founder": [
+            "@graph": [
                 {
-                    "@type": "Person",
-                    "givenName": "Rosa",
-                    "familyName": "Sala",
-                    "jobTitle": {
-                        "@type": "DefinedTerm",
-                        "name": "Chief Executives",
-                        "termCode": "11-1011.00",
-                        "inDefinedTermSet": "https://onetonline.org"
+                    "@type": "Organization",
+                    "additionalType": "http://www.productontology.org/doc/Audio_tour",
+                    "@id": "https://www.nubart.eu/#site",
+                    "legalName": "Digital Tangible SL",
+                    "name": "Nubart",
+                    "url": "https://www.nubart.eu/",
+                    "image": "https://www.nubart.eu/img/scan-audioguide-nubart.png",
+                    "award": "Seal of Excellence - SME Instrument by the EU's research and innovation funding programme Horizon 2020",
+                    "description": "Innovative and profitable BYOD audio guiding solution without dedicated devices nor native apps for museums and atractions.",
+                    "brand": "Nubart",
+                    "email": "info@nubart.eu",
+                    "foundingDate": "2013-07-17",
+                    "foundingLocation": "Barcelona",
+                    "vatID": "ESB66088592",
+                    "sameAs": [
+                        "https://twitter.com/nubarten?lang=en",
+                        "https://www.linkedin.com/company/digital-tangible-s-l-/",
+                        "https://www.facebook.com/Nubart/",
+                        "https://www.crunchbase.com/organization/nubart",
+                        "https://vimeo.com/user24745621"
+                    ],
+                    "logo": {
+                        "@type": "ImageObject",
+                        "@id": "https://www.nubart.eu/#logo",
+                        "url": "https://www.nubart.eu/img/logo-nubart.png",
+                        "contentUrl": "https://www.nubart.eu/img/logo-nubart.png",
+                        "width": 600,
+                        "height": 393,
+                        "caption": "Nubart"
                     }
                 },
                 {
-                    "@type": "Person",
-                    "givenName": "Simon",
-                    "familyName": "Effing",
-                    "jobTitle": {
-                        "@type": "DefinedTerm",
-                        "name": "Chief Executives",
-                        "termCode": "11-1011.00",
-                        "inDefinedTermSet": "https://onetonline.org"
+                    "@type": "WebSite",
+                    "@id": "https://www.nubart.eu/#website",
+                    "url": "https://www.nubart.eu/",
+                    "name": "Nubart",
+                    "description": "Innovative audio guide solution for museums and attractions",
+                    "publisher": {
+                        "@id": "https://www.nubert.eu/#organization"
                     }
                 },
                 {
-                    "@type": "Person",
-                    "givenName": "Jordi",
-                    "familyName": "Pérez",
-                    "jobTitle": {
-                        "@type": "DefinedTerm",
-                        "name": "Chief Executives",
-                        "termCode": "11-1011.00",
-                        "inDefinedTermSet": "https://onetonline.org"
-                    }
+                    "founder": [
+                        {
+                            "@type": "Person",
+                            "givenName": "Rosa",
+                            "familyName": "Sala",
+                            "jobTitle": {
+                                "@type": "DefinedTerm",
+                                "name": "Chief Executives",
+                                "termCode": "11-1011.00",
+                                "inDefinedTermSet": "https://onetonline.org"
+                            }
+                        },
+                        {
+                            "@type": "Person",
+                            "givenName": "Simon",
+                            "familyName": "Effing",
+                            "jobTitle": {
+                                "@type": "DefinedTerm",
+                                "name": "Chief Executives",
+                                "termCode": "11-1011.00",
+                                "inDefinedTermSet": "https://onetonline.org"
+                            }
+                        },
+                        {
+                            "@type": "Person",
+                            "givenName": "Jordi",
+                            "familyName": "Pérez",
+                            "jobTitle": {
+                                "@type": "DefinedTerm",
+                                "name": "Chief Executives",
+                                "termCode": "11-1011.00",
+                                "inDefinedTermSet": "https://onetonline.org"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "@id": "https://www.nubart.eu/#breadcrumb",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "item": {
+                                "@type": "WebPage",
+                                "@id": "https://www.nubart.eu/",
+                                "url": "https://www.nubart.eu/",
+                                "name": "Home"
+                            }
+                        }
+                    ]
                 }
-            ],
-            "foundingDate": "2013-07-17",
-            "foundingLocation": "Barcelona",
-            "vatID": "ESB66088592",
-            "sameAs": [
-                "https://twitter.com/nubarten?lang=en",
-                "https://www.linkedin.com/company/digital-tangible-s-l-/",
-                "https://www.facebook.com/Nubart/",
-                "https://www.crunchbase.com/organization/nubart",
-                "https://vimeo.com/user24745621"
             ]
         }
+
     </script>
 
     <!-- End Structured data -->
@@ -84,6 +125,19 @@
 
   gtag('config', 'UA-88444319-1');
   gtag('config', 'AW-962068933');
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </script>
@@ -115,6 +169,19 @@
                 window.location.href = '/he';
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -284,7 +351,6 @@
                             <li><a href="/audioguide-heritage.html">Heritage museums</a></li>
                             <li><a href="/on-site-campus-tours-guide.html">On-site Campus tours</a></li>
                             <li><a href="/boats-cruisers-audioguide.html">Boat cruises & bus tours</a></li>
-
 
                         </ul>
                     </li>
@@ -587,6 +653,19 @@
 <!-- Leadfeeder to track website visits  -->
 <script>
      (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; setTimeout(function(){fs.parentNode.insertBefore(cs,fs)},1); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('Xbp1oaEBQQn8EdVj');
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
