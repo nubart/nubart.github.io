@@ -61,6 +61,11 @@
 
 
 
+
+
+
+
+
     </script>
     <!-- End Global site tag (gtag.js) - Google Analytics -->
     <!-- End Structured data -->
@@ -518,9 +523,11 @@
                         </div>
                         <div id="collapse10" class="panel-collapse collapse">
                             <div class="panel-body">
-                                Derzeit unterstützt unser System mehr als 25 Sprachen, darunter auch synostroverse Sprachen (RTL) wie Arabisch und Hebräisch.
+                                Derzeit unterstützt unser System mehr als 25 Sprachen, darunter auch synostroverse Sprachen (RTL) wie Arabisch und
+                                Hebräisch.
 
-                                Wenn Sie jedoch daran interessiert sind, eine Sprache zu integrieren, die noch nicht von uns unerstützt wird, würden wir unser System anpassen.
+                                Wenn Sie jedoch daran interessiert sind, eine Sprache zu integrieren, die noch nicht von uns unerstützt wird, würden
+                                wir unser System anpassen.
                             </div>
 
                         </div>
@@ -529,7 +536,7 @@
                 </div>
                 <br>
                 <div class="panel-group">
-                    <h3 id="groupguiding" class="fixed-sidebar-target">Gruppenführungssystem - Nubart Live</h3>
+                    <h3 id="groupguiding" class="fixed-sidebar-target">Gruppenführungssystem (Nubart Live)</h3>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -712,13 +719,62 @@
                         <div id="collapse27" class="panel-collapse collapse">
                             <div class="panel-body">
 
-
                                 Nein. <br/>Sie müssen nur zu Beginn Ihrer Reise alle Karten Ihrer Gruppe scannen, um die Sitzung zu eröffnen. Die
                                 Sitzung, die Sie eröffnen, wird in Ihrem Nubart-Konto gespeichert, auch wenn Sie oder die Reisenden den Browser
                                 schließen. Wenn es Nachzügler gibt, brauchen Sie nur deren Karte zu scannen, um sie der bereits geöffneten Gruppe
-                                hinzuzufügen. So einfach ist das! <br/>Nur die Gruppenmitglieder werden ihre eigene Karte erneut scannen, um der Gruppe
-                                wieder beizutreten, aber nicht der Guide. Vergessen Sie nicht, Ihre Gruppe darum zu bitten, die Karte aufzubewahren und sie immer griffbereit zu haben! <br/>
+                                hinzuzufügen. So einfach ist das! <br/>Nur die Gruppenmitglieder werden ihre eigene Karte erneut scannen, um der
+                                Gruppe
+                                wieder beizutreten, aber nicht der Guide. Vergessen Sie nicht, Ihre Gruppe darum zu bitten, die Karte aufzubewahren
+                                und sie immer griffbereit zu haben! <br/>
                                 <br/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse28"
+                               class="collapsed">
+                                <h4>Wenn Nubart Live nur mit WIFI verwendet werden soll, welche WIFI-Anforderungen gibt es dann?
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapse28" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <b>1) Internet-Verbindung</b><br/><br/>
+
+                                Kurze, nicht-technische Antwort: <br/>
+                                Nicht hoch, wenn Ihr Netz richtig eingerichtet ist!<br/><br/>
+                                Lange, technische Antwort:<br/>
+
+                                Wenn Ihre Netzwerkkonfiguration (NAT, Firewalls, Topologie) Peer-to-Peer-Verbindungen für Web-RTC zulässt und sich
+                                alle Teilnehmer im selben WLAN befinden, nutzt das eigentliche Sprachsignal NICHT die Internetverbindung. Das
+                                liegt
+                                daran, dass, sobald die Verbindung hergestellt ist, jeder Zuhörer eine Peer-to-Peer-Verbindung zum Sprecher hat.
+                                Die
+                                Internetverbindung wird nur für die Verwaltung der einzelnen Verbindungen benötigt, was nicht viel Bandbreite
+                                erfordert.<br/><br/>
+
+                                <b>2) WIFI/WLAN</b><br/><br/>
+
+                                Das LAN muss in der Lage sein, die Anzahl der gleichzeitigen Benutzer zu bewältigen (Subnetzmaske). Die
+                                WIFI-Hotspots wiederum müssen in der Lage sein, die Bandbreite und die Anzahl der Benutzer zu bewältigen. Bitte
+                                sprechen Sie
+                                mit Ihrem Techniker, um dies sicherzustellen!<br/>
+
+                                Wenn die Netzwerkkonfiguration keine Peer-to-Peer-Verbindungen für Web-RTC zulässt, gibt es ein Fallback-System,
+                                um
+                                ein solches Szenario zu erfassen. Dieses Fallback-System verwendet jedoch einen Relay-Server (Turn-Server) im
+                                Internet
+                                und würde voraussetzen, dass das Sprachsignal durch das Internet geht (siehe 1.), daher empfehlen wir,
+                                Peer-to-Peer in
+                                Ihrem Netzwerk zuzulassen.<br/>
+
+                                Alternativ können Sie auch einen <a href="http://manpages.ubuntu.com/manpages/trusty/man1/turnserver.1.html" target="_blank">lokalen
+                                Turn-Server</a> einrichten.<br/>
+                                Wenn Sie diese Alternative wünschen, setzen Sie sich mit uns in Verbindung, da dies etwas zusätzliche Arbeit von
+                                unserer Seite erfordert. <br/>
                             </div>
 
                         </div>
@@ -726,7 +782,7 @@
                 </div>
                 <br/>
                 <div class="panel-group">
-                    <h3 id="audiovideo" class="fixed-sidebar-target">Browser-basierte Audio-Video-Synchronisation</h3>
+                    <h3 id="audiovideo" class="fixed-sidebar-target">Browser-basierte Audio-Video-Synchronisation (Nubart Sync)</h3>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -743,9 +799,11 @@
                                 hochladen!<br><br>
 
                                 Um das Video vor Ort wiederzugeben, können Sie das Originalvideo von der lokalen Festplatte abspielen und es wird
-                                Ihren lokalen Rechner nie verlassen. Dies ermöglicht auch das Abspielen mit geringer Internet-Bandbreite. Die einzige
+                                Ihren lokalen Rechner nie verlassen. Dies ermöglicht auch das Abspielen mit geringer Internet-Bandbreite. Die
+                                einzige
                                 Anforderung an das Video, das Sie auf unsere Plattform hochladen, ist, dass es genau die gleiche Länge wie das
-                                Original haben muss, aber es kann (und sollte) eine Version mit niedriger Auflösung sein, auch mit Wasserzeichen oder
+                                Original haben muss, aber es kann (und sollte) eine Version mit niedriger Auflösung sein, auch mit Wasserzeichen
+                                oder
                                 anderen Modifikationen. Das hochgeladene Video dient lediglich zur Vergewisserung, dass das Video und die
                                 dazugehörigen
                                 mp3-Audiodateien synchron sind.

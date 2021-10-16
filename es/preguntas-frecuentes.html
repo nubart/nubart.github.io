@@ -56,6 +56,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     </script>
     <!-- End Global site tag (gtag.js) - Google Analytics -->
 
@@ -262,10 +273,10 @@
                     <p><a class="index-item" href="#groupguiding">Sistema de guiado de grupos</a></p>
                     <p><a class="index-item" href="#audiovideo">Sincronización audio-video</a></p>
                     <!--   <p><a class="index-item" href="#networking">Herramienta de networking</a></p> -->
-                 </div>
-             </div>
+                </div>
+            </div>
 
-             <!-- Accordion -->
+            <!-- Accordion -->
             <div class="col-md-8">
                 <div class="panel-group">
                     <h3 id="general" class="fixed-sidebar-target">General</h3>
@@ -547,7 +558,8 @@
                         </div>
                         <div id="collapse10" class="panel-collapse collapse">
                             <div class="panel-body">
-                                Actualmente nuestro sistema soporta más de 25 idiomas, incluidas lenguas sinostroversas (RTL) como el árabe o el hebreo.<br>
+                                Actualmente nuestro sistema soporta más de 25 idiomas, incluidas lenguas sinostroversas (RTL) como el árabe o el
+                                hebreo.<br>
                                 Si desea incorporar un idioma que aún no está soportado, estaremos encantados de hacerlo sin coste adicional.
                             </div>
 
@@ -729,16 +741,70 @@
                             <div class="panel-body">
 
                                 No. <br/>
-                                Tan solo tendrás que escanear todas las tarjetas de tu grupo una única vez, al comienzo de tu viaje. El grupo que hayas abierto
-                                quedará guardado en tu cuenta de Nubart aunque tú o los viajeros cierren el navegador. Si un viajero rezagado se uniera al grupo unos días más tarde,
-                                simplemente tendrás que escanear también su tarjeta para que se una automáticamente al grupo que ya tengas abierto. ¡Es así de práctico!<br/>
-                                En cuanto a los miembros del grupo, si han cerrado el navegador sí que tendrán que escanear el QR de su propia tarjeta a fin de entrar de nuevo en el grupo.
+                                Tan solo tendrás que escanear todas las tarjetas de tu grupo una única vez, al comienzo de tu viaje. El grupo que
+                                hayas abierto
+                                quedará guardado en tu cuenta de Nubart aunque tú o los viajeros cierren el navegador. Si un viajero rezagado se
+                                uniera al grupo unos días más tarde,
+                                simplemente tendrás que escanear también su tarjeta para que se una automáticamente al grupo que ya tengas abierto.
+                                ¡Es así de práctico!<br/>
+                                En cuanto a los miembros del grupo, si han cerrado el navegador sí que tendrán que escanear el QR de su propia tarjeta
+                                a fin de entrar de nuevo en el grupo.
                                 ¡No olvides recordarles que guarden su tarjeta durante el viaje y la tengan siempre a mano! <br/>
                             </div>
 
                         </div>
                     </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse28"
+                               class="collapsed">
+                                <h4>Si Nubart Live se va a utilizar sólo con WIFI, ¿cuáles son los requisitos técnicos que el WIFI ha de cumplir?
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapse28" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <b>1) Conexión a Internet</b><br/><br/>
+
+                                Respuesta corta y no técnica: <br/>
+                                Los requisitos no son grandes si su red está configurada correctamente.<br/><br/>
+                                Respuesta larga y técnica:<br/>
+
+                                Si la configuración de su red (NAT, cortafuegos, topología) permite conexiones peer-to-peer para Web-RTC y si todos
+                                los
+                                participantes se encuentran en la misma WLAN, la señal de voz propiamente dicha NO utiliza ninguna conexión a
+                                Internet. Esto se debe a que, una
+                                vez establecida la conexión, cada participante en el grupo mantiene una conexión "peer to peer" con el guía. Solamente
+                                se necesita la conexión a Internet
+                                para gestionar las conexiones individuales, y eso no requiere mucho ancho de banda.<br/><br/>
+
+                                <b>2) WIFI/WLAN</b><br/><br/>
+
+                                La LAN debe tener capacidad para manejar el número de usuarios simultáneos que vayan a participar en el grupo (máscara
+                                de
+                                subred). A su vez, los puntos de acceso
+                                WIFI deben ser capaces de gestionar el ancho de banda y el número de usuarios. Por favor, hable con su técnico para
+                                asegurarse de que se dan estas condiciones.<br/>
+
+                                Si la configuración de la red no permitiera las conexiones peer-to-peer para Web-RTC, disponemos de un sistema de
+                                reserva
+                                que permite solventar también este escenario. Sin embargo, dicho sistema de reserva emplea un servidor de
+                                retransmisión (turn-server) en
+                                Internet y requeriría que la señal de voz también se transmitiera por Internet (ver punto 1), por lo que recomendamos
+                                autorizar el
+                                peer-to-peer en su red.<br/>
+
+                                Como alternativa, también puede configurar un <a
+                                    href="http://manpages.ubuntu.com/manpages/trusty/man1/turnserver.1.html" target="_blank">turn-server local</a>.<br/> Si deseara implementar esta
+                                alternativa, póngase en contacto con nosotros, ya que esto requerirá un
+                                trabajo adicional por nuestra parte. <br/>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
+
                 <br/> <br/>
                 <div class="panel-group">
                     <h3 id="audiovideo" class="fixed-sidebar-target">Sincronización audio-vídeo</h3>
@@ -747,7 +813,7 @@
                         <div class="panel-heading">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse50"
                                class="collapsed">
-                                <h4>¿Están mis vídeos a salvo de piratas?</h4>
+                                <h4>¿Están mis vídeos a salvo de piratería?</h4>
                             </a>
                         </div>
                         <div id="collapse50" class="panel-collapse collapse">
@@ -764,109 +830,108 @@
                                 sincronizados.
 
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <br/> <br/>
+            <div class="panel-group">
+                <h3 id="networking" class="fixed-sidebar-target">Herramienta de networking para eventos</h3>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse15"
+                           class="collapsed">
+                            <h4>¿Qué clase de eventos son adecuados?</h4>
+                        </a>
+                    </div>
+                    <div id="collapse15" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Nuestra herramienta es adecuada para cualquier situación que cumpla estas condiciones:
+                            <ul>
+                                <li>
+                                    Hay un límite espacial y temporal.
+                                </li>
+                                <li>Hay al menos 200 asistentes.</li>
+                                <li>Los asistentes no se conocen.</li>
+                                <li>A los asistentes les gustaría conocer a otros durante el evento partiendo de los
+                                    intereses que tengan en común.
+                                </li>
+                            </ul>
+                            La herramienta de networking de Nubart es ideal para festivales de música, cruceros,
+                            viajes organizados, bodas, grandes fiestas, eventos deportivos, conferencias,
+                            congresos....
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse16"
+                           class="collapsed">
+                            <h4>¿Qué necesitáis para producir una tarjeta de networking? </h4>
+                        </a>
+                    </div>
+                    <div id="collapse16" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            En general, sólo necesitamos tu logotipo y una foto para preparar el diseño. También
+                            tenemos que concertar los temas que deberían aparecer en la lista de intereses.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse17" class="collapsed">
+                            <h4>¿Cómo puedo distribuir/vender las tarjetas a los asistentes? </h4>
+                        </a>
+                    </div>
+                    <div id="collapse17" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Tienes flexibilidad para elegir cualquier modelo de distribución de tarjetas Nubart a
+                            tus asistentes.<br/>
+                            Por ejemplo:
+                            <ul>
+                                <li>Entrégala gratis como parte de la entrada o de la cuota de admisión
+                                    (recomendado).
+                                </li>
+                                <li>Incluir la herramienta de networking como un módulo más de las tarjetas para
+                                    ferias y congresos de Nubart.
+                                </li>
+                                <li>Vende la tarjeta a un precio que te permita cubrir el coste.
+                                </li>
+                                <li>Vende las tarjetas con beneficio.</li>
+                            </ul>
+
+                            Recuerda, cuanto más se usen las tarjetas, más asistentes habrá para conectar y más
+                            satisfecho quedará su propietario.<br/>
 
                         </div>
                     </div>
                 </div>
-                <!--
-                <br/> <br/>
-                <div class="panel-group">
-                    <h3 id="networking" class="fixed-sidebar-target">Herramienta de networking para eventos</h3>
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse15"
-                               class="collapsed">
-                                <h4>¿Qué clase de eventos son adecuados?</h4>
-                            </a>
-                        </div>
-                        <div id="collapse15" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                Nuestra herramienta es adecuada para cualquier situación que cumpla estas condiciones:
-                                <ul>
-                                    <li>
-                                        Hay un límite espacial y temporal.
-                                    </li>
-                                    <li>Hay al menos 200 asistentes.</li>
-                                    <li>Los asistentes no se conocen.</li>
-                                    <li>A los asistentes les gustaría conocer a otros durante el evento partiendo de los
-                                        intereses que tengan en común.
-                                    </li>
-                                </ul>
-                                La herramienta de networking de Nubart es ideal para festivales de música, cruceros,
-                                viajes organizados, bodas, grandes fiestas, eventos deportivos, conferencias,
-                                congresos....
-                            </div>
-
-                        </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse18"
+                           class="collapsed">
+                            <h4>¿Están seguros los datos personales de nuestros asistentes? </h4>
+                        </a>
                     </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse16"
-                               class="collapsed">
-                                <h4>¿Qué necesitáis para producir una tarjeta de networking? </h4>
-                            </a>
+                    <div id="collapse18" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            En Nubart nos tomamos muy en serio los datos personales. Nunca compartiremos con
+                            terceros -ni siquiera con nuestro cliente, el organizador del evento- los datos
+                            personales recogidos en nuestra plataforma, a menos que estemos legalmente obligados a
+                            hacerlo. Nunca utilizaremos la dirección de correo electrónico de un asistente para
+                            enviarle comunicaciones comerciales de nuestra parte o de terceros.
                         </div>
-                        <div id="collapse16" class="panel-collapse collapse">
-                            <div class="panel-body">
 
-                                En general, sólo necesitamos tu logotipo y una foto para preparar el diseño. También
-                                tenemos que concertar los temas que deberían aparecer en la lista de intereses.
-                            </div>
-                        </div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse17" class="collapsed">
-                                <h4>¿Cómo puedo distribuir/vender las tarjetas a los asistentes? </h4>
-                            </a>
-                        </div>
-                        <div id="collapse17" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                Tienes flexibilidad para elegir cualquier modelo de distribución de tarjetas Nubart a
-                                tus asistentes.<br/>
-                                Por ejemplo:
-                                <ul>
-                                    <li>Entrégala gratis como parte de la entrada o de la cuota de admisión
-                                        (recomendado).
-                                    </li>
-                                    <li>Incluir la herramienta de networking como un módulo más de las tarjetas para
-                                        ferias y congresos de Nubart.
-                                    </li>
-                                    <li>Vende la tarjeta a un precio que te permita cubrir el coste.
-                                    </li>
-                                    <li>Vende las tarjetas con beneficio.</li>
-                                </ul>
-
-                                Recuerda, cuanto más se usen las tarjetas, más asistentes habrá para conectar y más
-                                satisfecho quedará su propietario.<br/>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse18"
-                               class="collapsed">
-                                <h4>¿Están seguros los datos personales de nuestros asistentes? </h4>
-                            </a>
-                        </div>
-                        <div id="collapse18" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                En Nubart nos tomamos muy en serio los datos personales. Nunca compartiremos con
-                                terceros -ni siquiera con nuestro cliente, el organizador del evento- los datos
-                                personales recogidos en nuestra plataforma, a menos que estemos legalmente obligados a
-                                hacerlo. Nunca utilizaremos la dirección de correo electrónico de un asistente para
-                                enviarle comunicaciones comerciales de nuestra parte o de terceros.
-                            </div>
-
-                        </div>
-                    </div>
-                </div> -->
-                <!-- end ./Accordion -->
-            </div>
+                </div>
+            </div> -->
+            <!-- end ./Accordion -->
         </div>
     </div>
 
@@ -903,8 +968,6 @@
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 
-
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="../js/jquery-1.11.3.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -929,7 +992,6 @@
 <!-- carousel - dependency on Simon's slidersetup - don't delete -->
 <script src="../js/carousel.min.js"></script>
 
-
 <!-- magnific-popup -->
 <script src="../plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
 
@@ -950,6 +1012,17 @@
     // Insert Twitter Pixel ID and Standard Event data below
     twq('init', 'o139k');
     twq('track', 'PageView');
+
+
+
+
+
+
+
+
+
+
+
 
 
 

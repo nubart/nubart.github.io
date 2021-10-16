@@ -51,6 +51,8 @@
 
 
 
+
+
     </script>
     <!-- End Global site tag (gtag.js) - Google Analytics -->
 
@@ -69,7 +71,6 @@
     <link rel="alternate" href="https://www.nubart.eu/de/faq.html" hreflang="de"/>
     <link rel="alternate" href="https://www.nubart.eu/es/preguntas-frecuentes.html" hreflang="es"/>
     <link rel="alternate" href="https://www.nubart.eu/it/domande-frequenti.html" hreflang="it"/>
-
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -191,7 +192,7 @@
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Use cases <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/audio-guides.html">Museums (general)</a></li>
-<li><a href="/audioguide-heritage.html">Heritage museums</a></li>
+                            <li><a href="/audioguide-heritage.html">Heritage museums</a></li>
                             <li><a href="/on-site-campus-tours-guide.html">On-site Campus tours</a></li>
                             <li><a href="/boats-cruisers-audioguide.html">Boat cruises & bus tours</a></li>
 
@@ -240,7 +241,7 @@
                     <h3>Index</h3>
                     <p><a class="index-item" href="#general">General</a></p>
                     <p><a class="index-item" href="#audioguides">Audio Guides</a></p>
-                    <p><a class="index-item" href="#groupguiding">Group guiding system</a></p>
+                    <p><a class="index-item" href="#groupguiding">Tour guide system</a></p>
                     <p><a class="index-item" href="#audiovideo">Browser-based audio-video synchronisation</a></p>
                     <p><a class="index-item" href="#networking">Networking tool</a></p>
                 </div>
@@ -280,7 +281,8 @@
                                 This way we ensure that the audio cards have commercial viability and we
                                 guarantee the
                                 high quality of the anonymous data we collect from your visitors.<br/>
-                                In addition, these unique codes allow us to add a whole range of services that would not be possible with a conventional PWA: group guidance system, Catch & Answer game, special discounts for the card owner...
+                                In addition, these unique codes allow us to add a whole range of services that would not be possible with a
+                                conventional PWA: group guidance system, Catch & Answer game, special discounts for the card owner...
 
                             </div>
                             <div class="wrapper">
@@ -357,8 +359,11 @@
                                     </li>
 
                                 </ul>
-                                No matter what kind of material you choose: at Nubart we fully compensate the CO2 emitted during the production of your order, including the shipping of raw materials, the entire printing process, packaging and shipping to destination.
-                                <a href="https://fpm.climatepartner.com/tracking/15485-2107-1002/en">Click here to see the CO2 that we have offset to date..</a>
+                                No matter what kind of material you choose: at Nubart we fully compensate the CO2 emitted during the production of
+                                your order, including the shipping of raw materials, the entire printing process, packaging and shipping to
+                                destination.
+                                <a href="https://fpm.climatepartner.com/tracking/15485-2107-1002/en">Click here to see the CO2 that we have offset to
+                                    date..</a>
                             </div>
                         </div>
                     </div>
@@ -520,7 +525,7 @@
                 </div>
                 <br><br>
                 <div class="panel-group">
-                    <h3 id="groupguiding" class="fixed-sidebar-target">Group Guiding System</h3>
+                    <h3 id="groupguiding" class="fixed-sidebar-target">Tour Guide System (Nubart Live)</h3>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -691,14 +696,50 @@
                         <div id="collapse27" class="panel-collapse collapse">
                             <div class="panel-body">
 
-                                Nein. <br/>
-                                Sie müssen nur zu Beginn Ihrer Reise alle Karten Ihrer Gruppe einscannen, um die Sitzung zu öffnen. Die von Ihnen
-                                geöffete Sitzung wird in Ihrem Nubart-Konto gespeichert, auch wenn Sie oder die Reisenden den Browser schließen. Wenn
-                                es Nachzügler
-                                gibt, brauchen Sie nur ihre Karte ebenfalls einzuscannen, um sie der bereits geöffneten Gruppe hinzuzufügen. So praktisch ist das! <br/>
-                                Gelegentlich die Gruppenteilnehmer werden die eigene Karte wieder einscannen müssen, um
-                                zur Gruppe erneut beizutreten. Vergessen Sie nicht, sie aufzufordern, die Karte aufzubewahren
-                                und immer griffbereit zu haben! <br/>
+                                No. <br/>You just need to scan all the cards in your group at the beginning of your trip to open the session. The
+                                session you open will be saved in your Nubart account, even if you or the travelers close the browser. If there are
+                                stragglers, all you need to do is scan their card as well to add them to the already open group. It's that easy!
+                                <br/>
+                                Occasionally the group members will need to scan their own card again to rejoin the session. Don't forget to ask them
+                                to
+                                keep the card and always have it handy! <br/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse28"
+                               class="collapsed">
+                                <h4>If Nubart Live is going to be used only with WIFI, what are the WIFI-requirements?
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapse28" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <b>1) Internet-connection</b><br/><br/>
+
+                                Short, non-techie answer: <br/>
+                                Not high if you network is properly set up!<br/><br/>
+                                Long, tecchie answer:<br/>
+
+                                If you network configuration (NAT, firewalls, topology) allows peer-to-peer connections for Web-RTC and all
+                                participants are in the same WLAN, the actual voice signal doesn’t use the internet connection.
+                                That’s because every listener has a peer-to-peer connection to the speaker once the connection has been established.
+                                The internet connection is only necessary for managing each connection, which doesn’t require much bandwidth.<br/><br/>
+
+                                <b>2) WIFI/WLAN</b><br/><br/>
+
+                                The LAN has to be able to handle the amount of concurrent users (subnet mask) and the WIFI-hotspots need to be able to
+                                handle the bandwidth and number of users. Please ask your technician to ensure this!<br/>
+
+                                If the network configuration does not allow peer-to-peer connections for Web-RTC, there is a fallback system in place
+                                to capture such a scenario. But this fallback uses a relay server (Turn server) on the internet and would require that
+                                the voice signal goes through the internet (see 1.), so we recommend to allow peer-to-peer on your network.<br/>
+
+                                Alternatively you can set up <a href="http://manpages.ubuntu.com/manpages/trusty/man1/turnserver.1.html" target="_blank">a local Turn-server.</a>
+                                If you want this alternative get in touch with us because this requires some extra work on our side. <br/>
                             </div>
 
                         </div>
@@ -706,7 +747,7 @@
                 </div>
                 <br><br>
                 <div class="panel-group">
-                    <h3 id="audiovideo" class="fixed-sidebar-target">Browser-based audio-video synchronisation</h3>
+                    <h3 id="audiovideo" class="fixed-sidebar-target">Browser-based audio-video synchronisation (Nubart Sync)</h3>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -896,7 +937,6 @@
 
 <!-- carousel - dependency on Simon's slidersetup - don't delete -->
 <script src="../js/carousel.min.js"></script>
-
 
 <!-- magnific-popup -->
 <script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>

@@ -67,6 +67,12 @@
 
 
 
+
+
+
+
+
+
     </script>
     <title>Domande frequenti sui sistemi di audioguide multimediali Nubart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -199,11 +205,8 @@
                             <li><a href="../it/sistema-guida-gruppo.html">Tour guide system</a></li>
                             <li><a href="../it/sincronizzazione-audio-video.html">Sincronizzazione audio-video</a></li>
 
-
                         </ul>
                     </li>
-
-
 
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Come lavoriamo<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -671,6 +674,67 @@
 
                         </div>
                     </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse27"
+                               class="collapsed">
+                                <h4>Devo riavviare la sessione ogni volta? (Per esempio, se guido lo stesso gruppo per diversi giorni).</h4>
+                            </a>
+                        </div>
+                        <div id="collapse27" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                No. <br/>Devi scansionare tutte le carte del tuo gruppo solo una volta, all'inizio del tuo viaggio. Il gruppo che hai
+                                aperto sarà salvato nel tuo account Nubart anche se tu o i viaggiatori chiudete il browser. Se un viaggiatore
+                                ritardatario si unisce al gruppo qualche giorno dopo, sarà sufficiente scansionare anche la sua carta e si unirà
+                                automaticamente al gruppo che hai già aperto. È così comodo! <br/>Per quanto riguarda i membri del gruppo, se hanno
+                                chiuso il browser, dovranno scansionare il QR della loro carta per unirsi nuovamente al gruppo. Non dimenticare di
+                                ricordare loro di conservare la loro carta durante il viaggio e di averla sempre a portata di mano! <br/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse28"
+                               class="collapsed">
+                                <h4>Se Nubart Live deve essere usato solo con il WIFI, quali sono i requisiti tecnici che il WIFI deve soddisfare?
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapse28" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <b>1) Connessione Internet</b><br/><br/>
+
+                                Risposta breve e non tecnica: <br/>
+                                I requisiti non sono grandi se la vostra rete è configurata correttamente.<br/><br/>
+                                Risposta lunga e tecnica:<br/>
+
+                                Se la vostra configurazione di rete (NAT, firewall, topologia) permette connessioni peer-to-peer per Web-RTC e se
+                                tutti i partecipanti sono sulla stessa WLAN, il segnale vocale stesso NON utilizza alcuna connessione Internet. Questo
+                                perché, una volta stabilita la connessione, ogni partecipante al gruppo mantiene una connessione peer-to-peer con la
+                                guida. Solo la connessione a Internet è necessaria per gestire le singole connessioni, e questo non richiede molta
+                                larghezza di banda.<br/><br/>
+
+                                <b>2) WIFI/WLAN</b><br/><br/>
+
+                                La LAN deve essere in grado di gestire il numero di utenti simultanei che partecipano al gruppo (subnet mask). A loro
+                                volta, i punti di accesso WIFI devono essere in grado di gestire la larghezza di banda e il numero di utenti. Parlate
+                                con il vostro tecnico per assicurarvi che queste condizioni siano soddisfatte.<br/>
+
+                                Se la configurazione della rete non permette connessioni peer-to-peer per Web-RTC, è disponibile un sistema di back-up
+                                che permette di risolvere anche questo scenario. Tuttavia, un tale sistema di backup utilizza un turn-server su
+                                Internet e richiederebbe che anche il segnale vocale sia trasmesso su Internet (vedi punto 1), quindi ti consigliamo
+                                di abilitare il peer-to-peer nella tua rete.<br/>
+
+                                In alternativa, puoi anche impostare un <a href="http://manpages.ubuntu.com/manpages/trusty/man1/turnserver.1.html"
+                                                                           target="_blank">server di turno locale</a>.<br/> Se vuoi implementare
+                                questa alternativa, contattaci, perché questo richiederà un lavoro aggiuntivo da parte nostra. <br/>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
                 <br/> <br/>
                 <div class="panel-group">
@@ -757,7 +821,6 @@
 <!-- carousel - dependency on Simon's slidersetup - don't delete -->
 <script src="../js/carousel.min.js"></script>
 
-
 <!-- magnific-popup -->
 <script src="../plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
 
@@ -781,6 +844,12 @@
     // Insert Twitter Pixel ID and Standard Event data below
     twq('init', 'o1382');
     twq('track', 'PageView');
+
+
+
+
+
+
 
 
 
