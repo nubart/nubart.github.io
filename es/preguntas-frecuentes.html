@@ -232,21 +232,7 @@
                                     <br> De este modo aseguramos que la audioguía tenga una viabilidad comercial y garantizamos la gran calidad de los datos que proporcionamos.<br> Además, estos códigos únicos nos permiten agregar toda una serie de servicios que no serían posibles con una PWA o web-app convencional: sistema de guiado de grupos, juego Catch & Answer, descuentos especiales al portador de la tarjeta...
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
 
-                                        ¿Es necesario que mi establecimiento disponga de Wifi gratuito para poder ofrecer las tarjetas Nubart?
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    Generalmente las pistas de audio de nuestras audioguías se escuchan en streaming, así que solo consumen datos las pistas realmente clicadas (a diferencia de las apps, que obligan a descargar el contenido completo de una vez). Los datos consumidos por las pistas elegidas son de 0,46 MB por minuto, un consumo cinco veces menor que los servicios de música tipo Spotify.
-                                    <br> Dado este bajo consumo de datos, y siempre y cuando la cobertura móvil sea buena, no creemos esencial que el museo disponga de Wifi gratuito para poder ofrecer nuestras audioguías. (Desde junio del 2017 los ciudadanos de la EU ya no están sometidos a tarifas de roaming).<br> No obstante, hemos desarrollado un modo offline para los casos de conectividad complicada. En nuestro modo offline, todas las pistas de sonido se descargan temporalmente en la RAM del teléfono móvil, sin necesidad de instalar ninguna app. Así, una vez descargadas, las pistas de sonido pueden seguir escuchándose en zonas sin cobertura.
-
-                                </div>
-                            </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
@@ -314,6 +300,37 @@
                         <h3 id="audioguides" class="fixed-sidebar-target">Audioguías</h3>
 
                         <div class="accordion accordion-flush">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+
+                                        ¿Es necesario que mi establecimiento disponga de Wifi gratuito para poder ofrecer las tarjetas Nubart?
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    Generalmente las pistas de audio de nuestras audioguías se escuchan en streaming, así que solo consumen datos las pistas realmente clicadas (a diferencia de las apps, que obligan a descargar el contenido completo de una vez). Los datos consumidos por las pistas elegidas son de 0,46 MB por minuto, un consumo cinco veces menor que los servicios de música tipo Spotify.
+                                    <br> Dado este bajo consumo de datos, y siempre y cuando la cobertura móvil sea buena, no creemos esencial que el museo disponga de Wifi gratuito para poder ofrecer nuestras audioguías. (Desde junio del 2017 los ciudadanos de la EU ya no están sometidos a tarifas de roaming).<br> No obstante, hemos desarrollado un modo offline para los casos de conectividad complicada. En nuestro modo offline, todas las pistas de sonido se descargan temporalmente en la RAM del teléfono móvil, sin necesidad de instalar ninguna app. Así, una vez descargadas, las pistas de sonido pueden seguir escuchándose en zonas sin cobertura.
+
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwoThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwoThree">
+
+                                        ¿Qué ocurre si la cobertura de internet o datos móviles es muy deficiente?
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="flush-collapseTwoThree" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    Hemos desarrollado un modo offline para los entornos con poca cobertura de red. En nuestro modo offline, todas las pistas de audio (u opcionalmente sólo algunas) se descargan previamente en el teléfono móvil y se almacenan allí sin necesidad de instalar una aplicación. De este modo, una vez descargadas, las pistas de audio pueden escucharse sin conexión.<br>
+                                    En algunos casos, nuestro modo estándar sin conexión no es suficiente: En las rutas muy extensas o en los museos muy grandes, los visitantes suelen salir del navegador, por ejemplo, para hacer fotografías. Si al volver al navegador lo hacen en un lugar sin ninguna cobertura, la recarga de la webapp en el navegador fallará y no se podrá acceder a las pistas de audio, aunque sigan estando precargadas. En Nubart proporcionamos para estos casos un <b>modo offline reforzado</b>: Para garantizar que la webapp o PWA también pueda iniciarse y utilizarse completamente sin cobertura, además de guardar el contenido en el dispositivo, se instalará la webapp (previa confirmación del usuario) en el smartphone, lo cual generará un icono en la pantalla de inicio como si se tratara de cualquier otra app. (Técnicamente, esto es posible gracias al llamado "service worker"). A continuación, el visitante podrá reiniciar la webapp en cualquier momento con solo clicar en el icono, incluso en lugares sin cobertura, ¡y sin tener que descargar una app!<br>
+
+
+                                </div>
+                            </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingTen">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">

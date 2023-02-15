@@ -233,32 +233,7 @@
                                     Inoltre, questi codici unici ci permettono di aggiungere tutta una serie di servizi che non sarebbero possibili con una PWA o una web-app convenzionale: <a href="../it/sistema-guida-gruppo.html">Tour guide system</a>, gioco Catch & Answer, sconti speciali per il proprietario della card...
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
 
-                                        E' necessario che il museo abbia la connessione Wi-Fi gratuita per poter offrire le audioguide Nubart?
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    Generalmente, le tracce audio delle nostre audioguide vengono ascoltate in streaming,
-                                    quindi solo le tracce effettivamente cliccate consumano dati (generalmente nessun
-                                    visitatore ascolta un'audioguida completa). I dati consumati dai brani scelti sono di
-                                    0,46 MB al minuto, cinque volte meno dei servizi musicali , come ad esempio di Spotify.
-                                    <br>
-                                    Dato il basso consumo di dati e fintanto che la copertura mobile è buona, non riteniamo
-                                    indispensabile che il museo disponga della connessione Wi-Fi gratuita per poter offrire
-                                    le nostre audioguide (dal giugno 2017 i cittadini dell'UE non sono più soggetti alle
-                                    tariffe di roaming).<br>
-                                    Tuttavia, per i casi di connettività complicata (musei che hanno solo Wifi nella zona di
-                                    ricezione della hall, o tour in luoghi con poca o nessuna copertura dati) abbiamo
-                                    sviluppato una modalità di utilizzo offline che permette di scaricare nella memoria
-                                    temporanea del cellulare tutte le tracce audio e senza installare alcuna applicazione.
-                                    Così, una volta scaricati, possono ancora essere ascoltati in zone senza copertura.
-                                </div>
-                            </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
@@ -331,6 +306,49 @@
                         <h3 id="audioguides" class="fixed-sidebar-target">Audioguide</h3>
 
                         <div class="accordion accordion-flush">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+
+                                        E' necessario che il museo abbia la connessione Wi-Fi gratuita per poter offrire le audioguide Nubart?
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    Generalmente, le tracce audio delle nostre audioguide vengono ascoltate in streaming,
+                                    quindi solo le tracce effettivamente cliccate consumano dati (generalmente nessun
+                                    visitatore ascolta un'audioguida completa). I dati consumati dai brani scelti sono di
+                                    0,46 MB al minuto, cinque volte meno dei servizi musicali , come ad esempio di Spotify.
+                                    <br>
+                                    Dato il basso consumo di dati e fintanto che la copertura mobile è buona, non riteniamo
+                                    indispensabile che il museo disponga della connessione Wi-Fi gratuita per poter offrire
+                                    le nostre audioguide (dal giugno 2017 i cittadini dell'UE non sono più soggetti alle
+                                    tariffe di roaming).<br>
+                                    Tuttavia, per i casi di connettività complicata (musei che hanno solo Wifi nella zona di
+                                    ricezione della hall, o tour in luoghi con poca o nessuna copertura dati) abbiamo
+                                    sviluppato una modalità di utilizzo offline che permette di scaricare nella memoria
+                                    temporanea del cellulare tutte le tracce audio e senza installare alcuna applicazione.
+                                    Così, una volta scaricati, possono ancora essere ascoltati in zone senza copertura.
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwoThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwoThree">
+
+                                        Cosa succede se la copertura di Internet o dei dati mobili è molto scarsa?
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="flush-collapseTwoThree" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    Abbiamo sviluppato una modalità offline per gli ambienti con scarsa copertura di rete. Nella nostra modalità offline, tutte le tracce audio (o opzionalmente solo alcune di esse) vengono pre-scaricate sul cellulare e memorizzate senza dover installare un'applicazione. In questo modo, una volta scaricate, le tracce audio possono essere ascoltate offline.
+                                    In alcuni casi, la nostra modalità offline standard non è sufficiente: Su percorsi molto lunghi o in musei molto grandi, i visitatori spesso escono dal browser, ad esempio per scattare fotografie. Se tornano al navigatore in un luogo senza copertura, il ricaricamento della webapp nel navigatore fallirà e le tracce audio non saranno accessibili, anche se sono ancora precaricate. In Nubart offriamo una <b>modalità offline potenziata</b> per questi casi: per garantire che la webapp o PWA possa essere avviata e utilizzata anche senza copertura, oltre a salvare il contenuto sul dispositivo, la webapp verrà installata (previa conferma da parte dell'utente) sullo smartphone, che genererà un'icona sulla schermata iniziale come qualsiasi altra app (tecnicamente, questo è possibile grazie al cosiddetto "service worker"). Il visitatore può quindi riavviare la webapp in qualsiasi momento, semplicemente cliccando sull'icona, anche in luoghi senza copertura - e senza dover scaricare un'app!
+
+
+                                </div>
+                            </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingTen">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
