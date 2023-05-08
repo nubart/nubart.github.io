@@ -56,6 +56,7 @@
 
 
 
+
     </script>
     <!-- End Global site tag (gtag.js) - Google Analytics -->
 
@@ -115,7 +116,7 @@
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style-min.css" rel="stylesheet">
-
+    <link href="../assets/css/custom.css" rel="stylesheet">
     <!-- =======================================================
     * Template Name: Dewi - v4.6.0
     * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
@@ -127,7 +128,7 @@
 <body>
 
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top header-inner-pages">
+<header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
         <p class="logo"><a href="index.html"><img src="../assets/img/logo.svg" width="200" height="33" alt="Nubart's logo" class="img-fluid lazyload"></a>
@@ -194,19 +195,7 @@
 
     </div>
 </header><!-- End Header -->
-<!-- ======= About Section ======= -->
-<!-- Request a sample-button only visible in smartphones -->
-<section class="d-lg-none">
-    <br> <br>
-    <div class="col-md-12 text-center d-lg-none" style="padding-right: 10px; padding-left: 10px" data-aos="zoom-in">
-        <a href="../fr/prix-echantillons.html">
 
-            <button type="button" class="btn-lg btn-danger">Demander devis / tester l'audioguide</button>
-        </a>
-
-    </div>
-</section>
-<!-- End Request a sample-button only visible in smartphones  -->
 <!-- ======= Hero Section ======= -->
 <section id="hero">
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
@@ -216,12 +205,12 @@
 
         <div class="d-flex">
 
-            <a href="https://vimeo.com/681880599" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Voir la vidéo</span></a>
-            <a href="../fr/prix-echantillons.html" class="btn-get-started scrollto">Demander devis ou tester l'audioguide</a>
+            <a href="https://vimeo.com/681880599" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span style="font-size: 25px;">Voir la vidéo</span></a>
+
         </div>
         <br><br><br>
         <div class="align-center d-none d-lg-block">
-            <img src="../assets/img/audioguide-to-go-2.webp" width="386" height="212" class="d-none d-lg-block lazyload" alt="A Nubart audioguide card to go">
+            <img src="../assets/img/audioguide-to-go.webp" width="386" height="212" class="d-none d-lg-block lazyload" alt="A Nubart audioguide card to go">
         </div>
     </div>
 </section><!-- End Hero -->
@@ -238,17 +227,15 @@
 
             <div class="col-lg-6 pt-3 pt-lg-0 content">
                 <br>
-                <h2>Un audioguide vraiment innovant</h2>
+                <h3 class="fs-1">Un audioguide vraiment innovant</h3><br/>
                 <p class="lead">
                     Nubart<sup>®</sup> fournit des solutions de visite dans les domaines de la culture, du patrimoine et du tourisme. Nos audioguides se présentent sous la forme d'une carte à code unique, qui remplace terminaux classiques et applications mobiles.
-                    <br/><br/> Chaque carte est le point d'entrée d'une application web enrichie en contenu, facilement accessible depuis un smartphone.
+                    <br/><br/> Chaque carte est le point d'entrée d'une application web (PWA) enrichie en contenu, facilement accessible depuis un smartphone.
 
                     <br/><br/> Innovant, abordable et rentable pour les musées, les institutions culturelles et les sites touristiques, tant pour les installations permanentes que temporaires.
 
                     <br/>
-                    <br/> Notre solution fournit également des informations précieuses à partir des données d'utilisation et des commentaires des publics.
 
-                    <br/><br/>
                 </p>
 
             </div>
@@ -258,14 +245,32 @@
 
 <main id="main">
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
-        <div class="container" data-aos="zoom-in">
+    <section id="why-nubart" style='background-image: url("/assets/img/hero-bg-cards.webp");' class="testimonials">
+        <div class="container" style="padding-top: 150px; padding-bottom: 150px" data-aos="zoom-in">
 
             <div data-aos="fade-up" data-aos-delay="100">
+                <div class="row">
+                    <div class="col text-center">
+                        <p class="fs-1" style="color: white">Pourquoi Nubart ?</p><br><br>
 
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-md-1 text-center">
+
+                        <H5 style="color: white">Parce que les
+                            <i>appareils</i> d'audioguidage nécessitent une logistique très complexe et génèrent des déchets électroniques.</H5><br>
+                        <H5 style="color: white">Et parce que les
+                            <i>applications</i> de guides audio sont difficiles à monétiser.<br>En outre, seuls 2 % des visiteurs les téléchargent. </H5>
+                        <br><br>
+                    </div>
+
+                </div>
+                <br>
                 <div class="d-none d-lg-block  text-center">
-                    <a class="btn btn-danger" role="button" href="../fr/pourquoi-nubart.html">
-                        <h3>Avantages de Nubart par rapport aux audioguides traditionnels, applications mobiles ou PWAs</h3></a>
+                    <a class="btn btn-primary" target="_blank" role="button" href="../fr/pourquoi-nubart.html">
+                        <h3>Avantages des cartes par rapport aux autres systèmes d'audioguidage</h3></a>
                 </div>
 
             </div>
@@ -273,422 +278,801 @@
         </div>
 
     </section><!-- End Testimonials Section -->
+    <!-- ======= About Boxes Section ======= -->
+    <section id="features" class="services section-bg">
+        <div class="container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="row">
+                <div class="col text-center">
+                    <p class="fs-1">Rien de plus simple</p>
+
+                    <p class="fs-3">Pourquoi un appareil d'audioguidage alors que tout le monde a un smartphone ?</p><br>
+
+                </div>
+                <br>
+            </div>
+            <div class="row" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                    <div class="icon-box">
+                        <i class="bi bi-qr-code-scan"></i>
+                        <h4 style="font-size: 25px;">Facile à utiliser</h4>
+                        <p class="card-text">Il suffit de scanner le QR pour accéder au contenu. Grâce à notre interface de défilement innovante, la recherche des points d'intérêt est facile et intuitive, même pour un public non numérisé. </p>
+                    </div>
+
+                    <div class="icon-box">
+                        <i class="bi bi-cash-coin"></i>
+                        <h4 style="font-size: 25px;">Monétisable</h4>
+                        <p class="card-text">Contrairement aux applications, nos applications ne sont pas transférables et ont donc une valeur commerciale. Vous pouvez les vendre et en tirer un revenu. </p>
+                    </div>
+
+                    <div class="icon-box">
+                        <i class="bi bi-gift"></i>
+                        <h4 style="font-size: 25px;">Convient au parrainage</h4>
+                        <p class="card-text">Contrairement aux dispositifs ou aux applications, il permet d'imprimer le logo d'un ou de plusieurs sponsors sur la carte. </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="../assets/img/audioguide-w-cards.webp" class="w-100 shadow-1-strong rounded mb-4 hover" alt="L'audioguide Nubart"/>
+                    <div class="icon-box">
+                        <i class="bi bi-megaphone"></i>
+                        <h4 style="font-size: 25px;">Module de visite guidée</h4>
+                        <p class="card-text">En option, vous pouvez incorporer un module avec un
+                            <a href="../fr/systeme-visite-guidee.html" target="_blank"><strong>système numérique de guidage de groupe</strong></a>. De cette manière, vous n'avez pas besoin d'acheter des radioguides coûteux.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="icon-box">
+                        <i class="bi bi-people"></i>
+                        <h4 style="font-size: 25px;">Taux d'utilisation élevé</h4>
+                        <p class="card-text">Nos cartes atteignent un taux d'utilisation de 10 à 20 % lorsqu'elles sont vendues séparément et de 45 à 85 % lorsqu'elles sont incluses dans le billet. </p>
+                    </div>
+
+                    <div class="icon-box">
+                        <i class="bi bi-wifi-off"></i>
+                        <h4 style="font-size: 25px;">Mode hors ligne</h4>
+                        <p class="card-text">Mauvaise connectivité ? Les bandes sonores, les images et les cartes de Nubart peuvent être préchargées dans la mémoire du smartphone pour un
+                            <a href="../fr/multimedia-audioguide.html#offline" target="_blank"><strong>accès hors ligne</strong></a>. </p>
+                    </div>
+
+                    <div class="icon-box">
+                        <i class="bi bi-tree"></i>
+                        <h4 style="font-size: 25px;">Écologique</h4>
+                        <p class="card-text">Les appareils génèrent des déchets électroniques nocifs. Les audioguides Nubart sont imprimés sur du carton FSC compensé en CO2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End About Boxes Section -->
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" style='background-image: url("/assets/img/hero-bg-multimedia.webp");' class="testimonials">
+        <div class="container" style="padding-top: 150px; padding-bottom: 150px" data-aos="zoom-in">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div class="row">
+                    <div class="col text-center">
+                        <p class="fs-1" style="color: white">Audio uniquement ? Ou guide multimédia complet ?</p><br><br>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-md-1 text-center">
+
+                        <H5 style="color: white">Vidéos, curseurs, structure modulaire, mode hors ligne, fichiers téléchargeables, contrôle à distance de l'audioguide, possibilité de télécharger des fichiers ou de laisser des messages vocaux...<br><br>Tout cela et bien plus encore peut être intégré dans un audioguide Nubart.
+                        </H5><br><br>
+                    </div>
+                    <br>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-primary" target="_blank" role="button" href="../fr/multimedia-audioguide.html">
+                        <h3 style="font-size: 25px;">Voir tous les éléments multimédias de Nubart</h3></a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- End Testimonials Section -->
+
     <!-- ======= Features Section ======= -->
     <section id="features2" class="features">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
-                <h2>Caractéristiques</h2>
-                <p>Caractéristiques de l’audioguide</p>
+                <h2>Cartes interactives et parcours géolocalisés. </h2>
+                <p>Vous avez besoin de montrer le chemin à vos visiteurs ?</p>
             </div>
-            <ul class="nav nav-tabs row d-flex">
-                <li class="nav-item col-4">
-                    <a class="nav-link active show" data-bs-toggle="tab" href="#no-devices"> <i class="bi bi-battery-charging"></i>
-                        <h4 class="d-none d-lg-block">Aucune maintenance</h4>
-                    </a>
-                </li>
-                <li class="nav-item col-4">
-                    <a class="nav-link" data-bs-toggle="tab" href="#no-apps"> <i class="bi bi-app-indicator"></i>
-                        <h4 class="d-none d-lg-block">Aucune application à télécharger</h4>
-                    </a>
-                </li>
-                <li class="nav-item col-4">
-                    <a class="nav-link" data-bs-toggle="tab" href="#data"> <i class="bi bi-bar-chart-line-fill"></i>
-                        <h4 class="d-none d-lg-block">Données de visite </h4>
-                    </a>
-                </li>
 
-            </ul>
+            <div class="tab-pane active show" id="geolocation">
+                <div class="row">
+                    <div class="col-lg-8 order-2 order-lg-1 mt-3 mt-lg-0">
+                        <h3>Géo-scrolling, cartes interactives avec l'emplacement du visiteur, carte superposée pour les intérieurs...</h3><br>
+                        <p class="lead">Notre offre de géolocalisation couvre tous les besoins de navigation de vos visiteurs. </p>
+                        <p class="lead"> Vos publics ont accès à une carte interactive indiquant leur localisation et les points d'intérêt se trouvant à proximité.
 
-            <div class="tab-content">
-                <div class="tab-pane active show" id="no-devices">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>
-                                Libérez-vous de la maintenance et de la logistique liées à l'équipement d'audioguide. </h3><br>
-                            <p>
-                                Stockage, mise en charge des batteries, désinfection, distribution, réparation… L’entretien d’un parc d’audioguides mobilise de nombreuses ressources humaines et techniques.
+                        </p>
+                        <p class="lead">Chaque point d'intérêt géolocalisé dispose d'un bouton "afficher ma position sur la carte". </p>
+                        <p>
+                            En extérieur, les pistes audio peuvent être automatiquement affichées en haut de l'écran lorsque le visiteur s'approche d’un point d'intérêt. Sur Android, cette action est accompagnée d'une légère vibration du téléphone.
 
-                            </p>
-
-                            <p>
-                                Pour y remédier, l'audioguide de Nubart prend la forme d'une
-                                <b>carte à clé unique</b> (brevet international en cours d'homologation) donnant accès à une application web au contenu multilingue depuis n'importe quel smartphone.
-
-                            </p>
-                            <p>
-                                <b>Sans entretien ni intervention du personnel...</b> L'audioguide permet une visite adaptée à tous les publics (jeunes et moins jeunes).
-                            </p>
-
-                            <p>
-                                Enfin,
-                                <b>les cartes sont réutilisables</b> : chaque personne en possession de la carte la conserve après sa visite et peut la réutiliser à tout moment.
-
-                            </p>
-
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img data-src="../assets/img/features/features-no-devices.webp" alt="" class="img-fluid d-none d-lg-block lazyload">
-                        </div>
+                        </p>
+                        <p class="lead">Nous pouvons superposer le plan de vos locaux sur la carte pour faciliter la navigation dans les espaces intérieurs. </p>
+                        <br> <a role="button" href="https://vimeo.com/507214519" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                        <i class="bi bi-play-circle-fill"></i>&nbsp; Voir le parcours géolocalisé en action</a>
+                    </div>
+                    <div class="col-lg-4 order-1 order-lg-2 text-center">
+                        <img data-src="../assets/img/features/features-geolocation.webp" alt="Cartes interactives de Nubart" class="img-fluid d-none d-lg-block lazyload">
                     </div>
                 </div>
-                <div class="tab-pane" id="no-apps">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Les publics préfèrent les applications web aux applications natives.</h3><br>
-                            <p>
-                                De nombreux musées et sites culturels délaissent les audioguides traditionnels au profit d'applications mobiles de visite. Pourtant, cette alternative n'est pas forcément la plus adaptée…
+            </div>
+        </div>
+    </section>
 
-                            </p>
+    <section id="data" class="features">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">h2>Les cartes Nubart sont un outil d'étude d'audience.</h2><p>Vous souhaitez mieux connaître votre public ?</p>
+            </div>
+            <div class="tab-pane">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img data-src="../assets/img/features/features-data.webp" alt="" class="img-fluid d-none d-lg-block lazyload"><br><br>
 
-                            <p>
-                                Pourquoi ? D’abord, développer et maintenir à jour une application native est un processus coûteux. Après avoir développé deux versions (iOS et Android), il faut encore assurer la maintenance et effectuer des mises à jour coûteuses..
+                    </div>
+                    <div class="col-lg-8 mt-3 mt-lg-0">
+                        <h3>Recueillir des données fiables dans le respect de la vie privée</h3><br>
+                        <p class="lead">
+                            Les données fiables sur l’expérience de visite, pourtant essentielles, sont souvent difficiles à obtenir. À cette fin, les cartes Nubart constituent un excellent outil de collecte de données.
 
-                            </p>
+                        </p>
 
-                            <p>
-                                Ensuite, les statistiques indiquent que les utilisateurs sont réticents à installer une application à usage unique. Résultat : un taux de téléchargement très faible (environ 1 % seulement) et un retour sur investissement quasi nul pour le musée. Enfin, une application native est particulièrement lourde en raison du contenu qu'elle stocke.
+                        <p>
+                            Notre solution recueille des données relatives à l'utilisation et au comportement des publics de manière anonyme et dans le respect des données personnelles (voir notre
+                            <a href="../fr/politique-donees-audioguides.html" target="_blank" rel="nofollow">politique de confidentialité pour les audioguides de Nubart</a>).
+                        </p>
 
-                            </p>
+                        <p>
+                            Chaque client dispose d'un accès sécurisé aux rapports d'utilisation de ses publics. </p>
+                        <ul>
+                            <li><i class="bi bi-check-all"></i>Pays d'origine du public</li>
+                            <li><i class="bi bi-check-all"></i>Langue maternelle du public</li>
+                            <li><i class="bi bi-check-all"></i>Nombre de public par jour</li>
+                            <li><i class="bi bi-check-all"></i>Publics par heure de la journée</li>
+                            <li><i class="bi bi-check-all"></i>Durée de la visite</li>
+                            <li><i class="bi bi-check-all"></i>Classement des titres les plus écoutés</li>
 
-                            <p>
-                                Nubart, c’est une application web progressive (PWA) accessible depuis une simple carte, à un coût adapté aux sites culturels. À partir d’une connexion Internet, le visiteur accède aux contenus depuis le navigateur de son smartphone, quelle qu'en soit la marque ou le système d'exploitation.
+                        </ul>
 
-                            </p>
-                            <p>
-                                Du point de vue statistique, les taux d'utilisation sont élevés, allant de 10 à 15% si la carte est vendue au guichet et de 45 à 85% si la carte est comprise dans le prix d'entrée.
+                        <a role="button" href="https://vimeo.com/569304489" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                            <i class="bi bi-play-circle-fill"></i>&nbsp; Voir les statistiques Nubart en action </a>
 
-                            </p>
-                            <p>
-                                Pour finir, la PWA de Nubart ne demande aucun téléchargement et ne consomme pas d’espace de stockage (son contenu numérique est diffusé en continu). Des solutions hors ligne sont également disponibles.
+                    </div>
 
-                            </p>
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img data-src="../assets/img/features/features-no-apps.webp" alt="" class="img-fluid d-none d-lg-block lazyload">
-                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback" class="features">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Nubart intègre un formulaire de retour d'information pour l'analyse statistique</h2>
+                <p>Laissez la parole à vos publics</p>
+            </div>
+            <div class="tab-pane">
+                <div class="row">
+
+                    <div class="col-lg-8">
+                        <h3>Sondage d'opinion directement dans l'audioguide</h3><br>
+                        <p class="lead">
+                            Nous récoltons de nombreuses données anonymes sur l’expérience de visite des publics. Toutefois, les données qualitatives (telles que l’avis ou l’appréciation) ne peuvent être automatiquement collectées. </p>
+
+                        <p class="lead"> Voilà pourquoi, chaque audioguide est équipé d’un formulaire de rétroaction permettant au public d’interagir avec le musée à travers une courte enquête de cinq questions. </p>
+
+                        <p class="lead">Deux questions standards sont proposées aux publics :
+
+                        </p>
+
+                        <ul>
+                            <li><i class="bi bi-check-all"></i> Évaluation globale de l'exposition sur une échelle de 1 à 5.
+
+                            </li>
+                            <li>
+                                <i class="bi bi-check-all"></i> Champ de texte libre pour laisser des commentaires sur l'exposition ou l'audioguide.
+                            </li>
+                        </ul>
+                        <p class="lead">En option, nous pouvons inviter les visiteurs qui ont bien évalué la visite à évaluer votre établissement sur Google.</p>
+                        <p class="lead">
+                            Trois questions supplémentaires peuvent être choisies par le musée parmi une liste d'options.
+
+                        </p>
+
+                        <ul>
+                            <li>
+                                <i class="bi bi-check-all"></i>Le visiteur ne peut répondre qu'une seule fois au questionnaire, ce qui garantit la qualité des données.
+                            </li>
+                            <li><i class="bi bi-check-all"></i>Les réponses incomplètes sont conservées.</li>
+                            <li><i class="bi bi-check-all"></i>Les formulaires sont envoyés aux équipes du musée en temps réel par e-mail.</li>
+
+                        </ul>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <img data-src="../assets/img/features/features-feedback.webp" alt="" class="img-fluid d-none d-lg-block lazyload">
+
                     </div>
                 </div>
-                <div class="tab-pane" id="data">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Recueillir des données fiables dans le respect de la vie privée</h3><br>
-                            <p>
-                                Les données fiables sur l’expérience de visite, pourtant essentielles, sont souvent difficiles à obtenir. À cette fin, les cartes Nubart constituent un excellent outil de collecte de données.
+            </div>
 
-                            </p>
+        </div>
 
-                            <p>
-                                Notre solution recueille des données relatives à l'utilisation et au comportement des publics de manière anonyme et dans le respect des données personnelles (voir notre
-                                <a href="../data-policy-audioguides.html" target="_blank" rel="nofollow">politique de confidentialité pour les audioguides de Nubart</a>).
-                            </p>
+    </section><!-- End Features Section -->
+    <!-- ======= Testimonials Section ======= -->
+    <section id="content" style='background-image: url("../assets/img/hero-bg-content.webp");' class="testimonials">
+        <div class="container" style="padding-top: 150px; padding-bottom: 150px" data-aos="zoom-in">
 
-                            <p>
-                                Chaque client dispose d'un accès sécurisé aux rapports d'utilisation de ses publics. </p>
-                            <ul>
-                                <li><i class="bi bi-check-all"></i>Pays d'origine du public</li>
-                                <li><i class="bi bi-check-all"></i>Langue maternelle du public</li>
-                                <li><i class="bi bi-check-all"></i>Nombre de public par jour</li>
-                                <li><i class="bi bi-check-all"></i>Publics par heure de la journée</li>
-                                <li><i class="bi bi-check-all"></i>Durée de la visite</li>
-                                <li><i class="bi bi-check-all"></i>Classement des titres les plus écoutés</li>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div class="row">
+                    <div class="col text-center">
+                        <p class="fs-1" style="color: white">Vous avez besoin d'une production de contenu pour votre audioguide ?</p><br><br>
 
-                            </ul>
-
-                        </div>
-
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img data-src="../assets/img/features/features-data.webp" alt="" class="img-fluid d-none d-lg-block lazyload">
-                        </div>
                     </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-md-1 text-center">
+
+                        <H5 style="color: white">Ce n'est pas un problème. Un directeur de production vous sera attribué et organisera tout pour vous. Nous disposons d'un large choix de scénaristes, de traducteurs et de doubleurs.
+                            <br><br>Budget serré ? Nous disposons également de voix d'intelligence artificielle qui sonnent incroyablement naturelles.
+                        </H5><br><br>
+                    </div>
+                    <br>
+                </div>
+                <div class="d-none d-lg-block  text-center">
+                    <a class="btn btn-primary" target="_blank" role="button" href="../fr/production-contenus.html">
+                        <h3 style="font-size: 25px;">En savoir plus sur le processus de production de Nubart</h3></a>
                 </div>
 
             </div>
 
         </div>
     </section>
-    <section id="features" class="features">
-        <div class="container" data-aos="fade-up">
-
-            <ul class="nav nav-tabs row d-flex">
-
-                <li class="nav-item col-4">
-                    <a class="nav-link active show" data-bs-toggle="tab" href="#geolocation"> <i class="bi bi-geo-alt-fill"></i>
-                        <h4 class="d-none d-lg-block">
-                            Fonctions de géolocalisation </h4>
-                    </a>
-                </li>
-                <li class="nav-item col-4">
-                    <a class="nav-link" data-bs-toggle="tab" href="#offline"> <i class="bi bi-wifi-off"></i>
-                        <h4 class="d-none d-lg-block">Mode hors ligne</h4>
-                    </a>
-                </li>
-                <li class="nav-item col-4">
-                    <a class="nav-link" data-bs-toggle="tab" href="#feedback"> <i class="bi bi-question-diamond-fill"></i>
-                        <h4 class="d-none d-lg-block">Feedback des visiteurs</h4>
-                    </a>
-                </li>
-
-            </ul>
-            <div class="tab-content">
-
-                <div class="tab-pane active show" id="geolocation">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Cartes interactives et parcours géolocalisés. </h3><br>
-
-                            <p>
-                                Vos publics ont accès à une carte interactive indiquant leur localisation et les points d'intérêt se trouvant à proximité.
-
-                            </p>
-
-                            <p>
-                                En extérieur, les pistes audio peuvent être automatiquement affichées en haut de l'écran lorsque le visiteur s'approche d’un point d'intérêt. Sur Android, cette action est accompagnée d'une légère vibration du téléphone.
-
-                            </p>
-
-                            <p>
-                                Notre système de géolocalisation fonctionne en mode hors ligne comme en intérieur. Pour plus d’informations, n’hésitez pas à
-                                <a href="mailto:info@nubart.eu" target="_blank">nous contacter</a>.
-
-                            <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                                <br>
-
-                                <a role="button" href="https://vimeo.com/507214519" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Voir le parcours géolocalisé en action</a>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img data-src="../assets/img/tivfl/tivfl-geo.gif" alt="cartes interactives de Nubart" class="img-fluid d-none d-lg-block lazyload">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tab-pane" id="feedback">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Laissez la parole à vos publics</h3><br>
-                            <p>
-                                Nous récoltons de nombreuses données anonymes sur l’expérience de visite des publics. Toutefois, les données qualitatives (telles que l’avis ou l’appréciation) ne peuvent être automatiquement collectées. </p>
-
-                            <p> Voilà pourquoi, chaque audioguide est équipé d’un formulaire de rétroaction permettant au public d’interagir avec le musée à travers une courte enquête de cinq questions. </p>
-
-                            <p>Deux questions standards sont proposées aux publics :
-
-                            </p>
-
-                            <ul>
-                                <li><i class="bi bi-check-all"></i> Évaluation globale de l'exposition sur une échelle de 1 à 5.
-
-                                </li>
-                                <li>
-                                    <i class="bi bi-check-all"></i> Champ de texte libre pour laisser des commentaires sur l'exposition ou l'audioguide.
-                                </li>
-                            </ul>
-
-                            <p>
-                                Trois questions supplémentaires peuvent être choisies par le musée parmi une liste d'options telles que l'âge et le sexe (à condition que les publics choisissent de partager ces informations.)
-
-                            </p>
-
-                            <ul>
-                                <li>
-                                    <i class="bi bi-check-all"></i>Le visiteur ne peut répondre qu'une seule fois au questionnaire, ce qui garantit la qualité des données.
-                                </li>
-                                <li><i class="bi bi-check-all"></i>Les réponses incomplètes sont conservées.</li>
-                                <li><i class="bi bi-check-all"></i>Les formulaires sont envoyés aux équipes du musée en temps réel par e-mail.</li>
-
-                            </ul>
-
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img data-src="../assets/img/features/features-feedback.webp" alt="" class="img-fluid d-none d-lg-block lazyload">
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="offline">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>
-                                Pour les sites rencontrant des problèmes de connexions réseau. </h3><br>
-                            <p>
-                                Notre fonctionnalité “hors-ligne” est adaptée : </p>
-
-                            <ul>
-                                <li>
-                                    <i class="bi bi-check-all"></i> aux sites qui disposent d’un Wi-Fi gratuit dans une zone limitée (hall d’accueil, billetterie…)
-
-                                </li>
-                                <li><i class="bi bi-check-all"></i> aux zones à faible couverture réseau ou à couverture inexistante.
-
-                                </li>
-                            </ul>
-
-                            <p>
-                                Fonctionnement étape par étape : </p>
-                            <ol type="1">
-                                <li>Le code unique figurant sur la carte est scanné dans la zone disposant d'une connectivité.</li>
-                                <li>Le contenu numérique de l'audioguide est téléchargé temporairement sur le smartphone du visiteur, sans qu'il soit nécessaire d'installer une application ou de consommer de la mémoire.</li>
-                                <li>Le contenu est alors accessible en mode hors ligne durant toute la durée de la visite.</li>
-                                <li>La fermeture du navigateur entraîne la disparition du contenu sur le smartphone, mais il est accessible à tout moment en scannant à nouveau la carte.</li>
-
-                            </ol>
-
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img data-src="../assets/img/features/features-offline.webp" alt="" class="img-fluid d-none d-lg-block lazyload">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section><!-- End Features Section -->
-
-    <section id="services" class="services section-bg">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Services</h2>
-                <p>Services de Nubart</p>
-            </div>
-
-            <div class="row" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-md-6">
-                    <div class="icon-box">
-                        <i class="bi bi-mic"></i>
-                        <h4>Production de contenus</h4>
-                        <p>
-                            Script, traduction, enregistrement… Nubart veille à adapter au mieux les contenus aux publics qui le reçoivent et garantit un service professionnel d'enregistrement et de post-production pour tous vos contenus audios.</p>
-                        <div class="text-center">
-                            <a class="btn btn-danger" role="button" href="../fr/production-contenus.html#work">Consulter nos trois niveaux de service </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mt-4 mt-md-0">
-                    <div class="icon-box">
-                        <i class="bi bi-collection-play-fill"></i>
-                        <h4>Éléments multimédia</h4>
-                        <p>
-                            Intégrez une multitude de contenus multimédias à votre système de visite : système modulaire, PDFs, panoramas à 360°, e-transcription pour personnes sourdes et malentendantes... </p>
-                        <div class="text-center">
-                            <a class="btn btn-danger" role="button" href="../fr/multimedia-audioguide.html">Voir la liste complète </a></div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- End services Section -->
     <!-- ======= business models Section ======= -->
     <section id="business" class="services section-bg">
         <div class="container" data-aos="fade-up">
+            <p style="font-size: 2.5rem;">Vous êtes préoccupé par les coûts ? Ne le soyez pas.</p>
 
             <div class="section-title">
-                <h2>Modèles commerciaux</h2>
-                <p>Modèles commerciaux</p>
-            </div>
 
+                <p>Nous disposons de modèles d'entreprise extrêmement pratiques</p>
+            </div>
             <div class="row" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="icon-box">
-                        <i class="bi bi-cash-coin"></i>
-                        <h4>
-                            Paiement à l'utilisation</h4>
+                        <i class="bi bi-check2-circle"></i>
+                        <h4 style="font-size: 25px;">Paiement à l'utilisation</h4>
                         <p>
-                            Nubart en tant que produit : le musée acquiert une quantité donnée de cartes (et, le cas échéant, charge Nubart de produire le contenu audio). Les cartes sont valables pour une durée illimitée et le musée est libre d'en faire usage jusqu'à épuisement des stocks, sans frais récurrents.<br><br><br><br>
-                        </br>
+                            Nubart en tant que produit : le musée acquiert une quantité donnée de cartes (et, le cas échéant, charge Nubart de produire le contenu audio).</p><p>Les cartes sont valables pour une durée illimitée et le musée est libre d'en faire usage jusqu'à épuisement des stocks, sans frais récurrents.<br><br><b>Audioguide sans frais récurrents !</b>
+                        </p>
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 mt-md-0">
+                <div class="col-md-4 mt-4 mt-md-0">
                     <div class="icon-box">
-                        <i class="bi bi-pen"></i>
-                        <h4>Partage des revenus</h4>
+                        <i class="bi bi-check2-circle"></i>
+                        <h4 style="font-size: 25px;">Partage des revenus</h4>
                         <p>
-                            Nubart en tant que service : la clé unique figurant sur nos cartes nous permet de suivre leur fréquence d'utilisation et de facturer les cartes utilisées à intervalles de deux mois. Ce modèle permet un approvisionnement régulier en cartes et peut intégrer la production de contenu au contrat. Les cartes peuvent être comprises dans le prix d'entrée ou vendues en supplément.<br><br>Cette offre est réservée aux lieux qui présentent des caractéristiques particulières, n’hésitez pas à <a href="mailto:info@nubart.eu" target="_blank">nous contacterpour en savoir plus.</a></p>
+                            La clé unique figurant sur nos cartes nous permet de suivre leur fréquence d'utilisation et de facturer les cartes utilisées à intervalles de deux mois.</p><p>Ce modèle permet un approvisionnement régulier en cartes et peut intégrer la production de contenu au contrat.<br>
+                        <br><b>Gagnez des revenus sans avances des coûts !</b>   </p>
                     </div>
                 </div>
-
+                <div class="col-md-4 mt-4 mt-md-0">
+                    <div class="icon-box">
+                        <i class="bi bi-check2-circle"></i>
+                        <h4 style="font-size: 25px;">Abonnement</h4>
+                        <p>Préférez-vous inclure la carte dans le prix du billet ?</p><p>Recevez les cartes à l'avance et une facture mensuelle uniquement pour les cartes que vous avez distribuées.</p><p>Nous pouvons amortir la production de contenu. Taux d'utilisation élevé (45-85%).<br>
+                            <br><b>Bénéficiez d'un service sans frais initiaux !</b>
+                        </p>
+                    </div>
+                </div>
             </div>
+            <div class="row" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-12 d-flex justify-content-center">
+                    <style>
 
+.zf_lB_Dimmer_596608{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgb(0, 0, 0);
+    opacity: 0.8;
+    z-index: 10000000;
+}
+
+.zf_lB_Container_596608{
+	position: fixed;
+	background-color: white;
+	margin: 0;
+	margin-right: 0px;
+	padding: 0;
+	height: 750px;
+	width:  850px;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	border: 7px solid none;
+	max-height: calc(100% - 60px);
+	z-index: 999999;
+}
+
+p{
+margin-bottom: 10px;
+}
+
+.zf_lB_Wrapper_596608{
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: 0;
+    margin-top: -180px;
+    z-index: 10000001;
+}
+
+.zf_main_id_596608{
+	height: calc(100% - 0px);
+	display: flex;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.zf_lb_closeform_596608 {
+    position: absolute;
+    right: -20px;
+    background: #2f2e2e;
+    padding: 0;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    top: -15px;
+    cursor: pointer;
+    border: 2px solid #d9d9d9;
+}
+.zf_lb_closeform_596608:before, .zf_lb_closeform_596608:after {
+    position: absolute;
+    left: 16px;
+    content: ' ';
+    height: 19px;
+    width: 2px;
+    top: 7px;
+    background-color: #f7f7f7;
+}
+
+.zf_lb_closeform_596608:before {
+  transform: rotate(45deg);
+}
+.zf_lb_closeform_596608:after {
+  transform: rotate(-45deg);
+}
+
+
+
+@media screen and (min-device-width: 10px) and (max-device-width: 380px) {
+   .zf_lB_Container_596608 {
+  width: 270px !important;
+}
+}
+
+@media screen and (min-device-width: 360px) and (max-device-width: 480px) {
+   .zf_lB_Container_596608 {
+  width: 300px !important;
+}
+}
+
+@media screen and (min-device-width: 440px) and (max-device-width: 500px) {
+   .zf_lB_Container_596608 {
+  width: 380px !important;
+}
+}
+
+@media only screen  and (min-width:500px) and (max-width:600px)  {
+ 	.zf_lB_Container_596608 {
+	width: 450px;
+ }
+}
+
+@media only screen  and (min-width:601px) and (max-width:700px)  {
+ 	.zf_lB_Container_596608 {
+	width: 540px;
+ }
+}
+
+@media only screen  and (min-width:700px) and (max-width:800px)  {
+.zf_lB_Container_596608 {
+	width: 650px;
+ }
+}
+
+@media screen and (min-device-width: 801px) and (max-device-width: 1268px) {
+   .zf_lB_Container_596608 {
+  width: 750px !important;
+}
+}
+
+
+                    </style>
+
+                    <button id="zf_button_596608" style="font-size: 25px;" class="btn-lg btn-danger">Demandez un devis</button>
+                    <script type="text/javascript">(function() {
+	try{
+
+			if( document.readyState == "complete" ){
+				onloadActions_596608();
+			}  else {
+			  	window.addEventListener('load', function (){
+			  		onloadActions_596608();
+			  	}, false);
+			}
+
+			function onloadActions_596608(){
+				constructDiv_596608();
+
+			}
+
+			function constructDiv_596608(){
+				var iframeDiv = document.createElement("div");
+				iframeDiv.setAttribute('id','5sNo8E7lE5KXjTPdE4CXTwFxbt_TZEUNR1QeHRmvew4_596608');
+				iframeDiv.setAttribute('class','zf_main_id_596608');
+
+				var closeFormDiv = document.createElement("div");
+				closeFormDiv.setAttribute('id','deleteform_596608');
+				closeFormDiv.setAttribute('class','zf_lb_closeform_596608');
+
+
+				var containerDiv = document.createElement("div");
+				containerDiv.setAttribute('id','containerDiv_596608');
+				containerDiv.setAttribute('class','zf_lB_Container_596608 ');
+				containerDiv.appendChild(iframeDiv);
+				containerDiv.appendChild(closeFormDiv);
+
+				var wrapperDiv = document.createElement("div");
+				wrapperDiv.setAttribute('class','zf_lB_Wrapper_596608');
+				wrapperDiv.appendChild(containerDiv);
+
+
+				var dimmerDiv = document.createElement("div");
+				dimmerDiv.setAttribute('class','zf_lB_Dimmer_596608');
+				dimmerDiv.setAttribute('elname','popup_box');
+
+				var mainDiv = document.createElement("div");
+				mainDiv.setAttribute('id','formsLightBox_596608');
+				mainDiv.style.display = "none";
+				mainDiv.appendChild(wrapperDiv);
+				mainDiv.appendChild(dimmerDiv);
+
+				document.body.appendChild(mainDiv);
+
+			}
+
+			function showZForm_596608(){
+				var iframe = document.getElementById("5sNo8E7lE5KXjTPdE4CXTwFxbt_TZEUNR1QeHRmvew4_596608").getElementsByTagName("iframe")[0];
+				if(iframe == undefined ||iframe.length == 0){
+					loadZForm_596608();
+
+				}
+				document.getElementById("formsLightBox_596608").style.display = "block";
+				document.body.style.overflow = "hidden";
+			}
+
+			function loadZForm_596608() {
+				var iframe = document.getElementById("5sNo8E7lE5KXjTPdE4CXTwFxbt_TZEUNR1QeHRmvew4_596608").getElementsByTagName("iframe")[0];
+				if(iframe == undefined ||iframe.length == 0){
+					var f = document.createElement("iframe");
+					f.src = getsrcurlZForm_596608('https://forms.zohopublic.eu/rosasala/form/Demanderundevisouunchantillon/formperma/5sNo8E7lE5KXjTPdE4CXTwFxbt_TZEUNR1QeHRmvew4');
+					f.style.border="none";
+					f.style.minWidth="100%";
+					f.style.overflow="hidden";
+					var d = document.getElementById("5sNo8E7lE5KXjTPdE4CXTwFxbt_TZEUNR1QeHRmvew4_596608");
+					d.appendChild(f);
+
+					var deleteForm = document.getElementById("deleteform_596608");
+					deleteForm.onclick = function deleteZForm_596608() {
+						var divCont = document.getElementById("formsLightBox_596608");
+						divCont.style.display="none";
+						document.body.style.overflow = "";
+
+						var iframe = document.getElementById("5sNo8E7lE5KXjTPdE4CXTwFxbt_TZEUNR1QeHRmvew4_596608").getElementsByTagName("iframe")[0];
+						iframe.remove();
+					}
+
+
+
+					window.addEventListener('message', function (){
+						var evntData = event.data;
+						if( evntData && evntData.constructor == String ){
+							var zf_ifrm_data = evntData.split("|");
+							if ( zf_ifrm_data.length == 2 ) {
+								var zf_perma = zf_ifrm_data[0];
+								var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
+								var iframe = document.getElementById("5sNo8E7lE5KXjTPdE4CXTwFxbt_TZEUNR1QeHRmvew4_596608").getElementsByTagName("iframe")[0];
+								if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
+									var prevIframeHeight = iframe.style.height;
+									if ( prevIframeHeight != zf_ifrm_ht_nw ) {
+									iframe.style.minHeight = zf_ifrm_ht_nw;
+										var containerDiv = document.getElementById("containerDiv_596608");
+										containerDiv.style.height=zf_ifrm_ht_nw;
+									}
+								}
+							}
+						}
+
+					}, false);
+				}
+			}
+
+
+
+			function getsrcurlZForm_596608(zf_src) {
+				try {
+					if ( typeof ZFAdvLead !== "undefined" && typeof zfutm_zfAdvLead !== "undefined" ) {
+						for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
+				        	var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
+				        	var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
+					        if ( typeof utmVal !== "undefined" ) {
+					          if ( utmVal != "" ){
+					            if(zf_src.indexOf('?') > 0){
+					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
+					            }else{
+					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
+					            }
+					          }
+					        }
+				      	}
+					}
+
+					if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
+						for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
+				        	var utmPm = ZFLead.utmPNameArr[ prmIdx ];
+				        	var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
+					        if ( typeof utmVal !== "undefined" ) {
+					          if ( utmVal != "" ){
+					            if(zf_src.indexOf('?') > 0){
+					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
+					            }else{
+					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
+					            }
+					          }
+					        }
+				      	}
+					}
+				}catch(e){}
+				return zf_src;
+			}
+			var buttonElem = document.getElementById("zf_button_596608");
+			buttonElem.style.display = "block";
+			buttonElem.addEventListener("click", showZForm_596608);
+
+
+	}catch(e){}
+})();
+
+                    </script>
+                </div>
+            </div>
         </div>
     </section><!-- End business models Section -->
-</main><!-- End #main -->
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
 
-<<!-- ======= Footer ======= -->
-<footer id="footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
+            <div class="section-title">
+                <h2>Clients utilisant les audioguides Nubart</h2>
+                <p>Sélection de clients de Nubart</p>
+            </div>
 
-                <div class="col-lg-6 col-md-12">
-                    <div class="footer-info">
-                        <p class="fs-3">Nubart</p>
-                        <p>
-                            Barcelona - Berlin<br>
+            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-3 col-md-6 portfolio-item filter-germany filter-museum filter-guide">
+                    <a href="../fr/portfolio/dornier-audioguide.html"><img src="../assets/img/audioguides/audioguide-museum-dornier.webp" class="img-fluid lazyload" alt="Audioguide de Nubart pour le Musée Dornier"></a>
+                    <div class="portfolio-info">
+                        <h4>Musée Dornier - Friedrichshafen</h4>
+                        <p>Exposition permanente</p>
 
-                            <strong>Email:</strong> info@nubart.eu<br>
-                        </p>
-                        <div class="social-links mt-3">
-                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
-                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
-
-                        </div>
+                        <a href="../fr/portfolio/dornier-audioguide.html" class="details-link" title="Détails de l'audioguide Nubart pour le Musée Dornier"><i class="bi bi-link-45deg"></i></a>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Liens utiles</h4>
-                    <ul>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-denmark filter-sync filter-museum filter-guide">
+                    <a href="../fr/portfolio/koge-museum-audioguide.html">
+                        <img src="../assets/img/audioguides/audioguide-koge.webp" class="img-fluid lazyload" alt="L'audioguide de Nubart pour le musée de Køge"></a>
+                    <div class="portfolio-info">
+                        <h4>Museo Køge</h4>
+                        <p>Exposition permanente</p>
 
-                        <li><i class="bi bi-chevron-right"></i> <a href="../fr/contact.html">Contacts</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../fr/mentions-legales.html" rel="nofollow">Mentions légales</a></li>
-                        <!-- <li><i class="bi bi-chevron-right"></i> <a href="terms-conditions.html" rel="nofollow">Nubart's terms and conditions</a></li> -->
-                        <li><i class="bi bi-chevron-right"></i> <a href="../fr/privacy-policy.html" rel="nofollow">Protection des données</a>
-                        <li><i class="bi bi-chevron-right"></i>
-                            <a href="https://share.hsforms.com/12gx6CSXPQzWecc32RwyQww1g33q" rel="nofollow">Abonnez-vous à notre newsletter</a>
-                        </li>
-                    </ul>
+                        <a href="../fr/portfolio/koge-museum-audioguide.html" class="details-link" title="Details sur l'audioguide de Nubart pour le musée de Køge"><i class="bi bi-link-45deg"></i></a>
+                    </div>
                 </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-slovenia filter-museum filter-guide">
+                    <a href="../fr/portfolio/musee-national-slovenie-audioguide.html">
+                        <img src="../assets/img/audioguides/audioguide-nat-museum-slovenia.webp" class="img-fluid lazyload" alt="audioguide de nubart pour le Musée national en Slovénie"></a>
+                    <div class="portfolio-info">
+                        <h4>Musée national de Slovénie - Ljubljana</h4>
+                        <p>Exposition permanente</p>
 
+                        <a href="../fr/portfolio/musee-national-slovenie-audioguide.html" class="details-link" title="Détails sur l'audioguide de nubart pour le Musée national en Slovénie"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-usa filter-aquarium filter-guide">
+                    <a href="../fr/portfolio/sea-life-arizona-audioguide.html">
+                        <img src="../assets/img/audioguides/audioguide-sea-life-arizona.webp" class="img-fluid lazyload" alt="audioguide de Nubart pour l'aquarium Sea Life Arizona"></a>
+                    <div class="portfolio-info">
+                        <h4>SEA LIFE Aquarium - Tempe, AZ</h4>
+                        <p>Exposition permanente</p>
+
+                        <a href="../fr/portfolio/sea-life-arizona-audioguide.html" class="details-link" title="Plus d'informations sur l'audioguide de Nubart pour l'aquarium Sea Life Arizona"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-austria filter-museum filter-guide">
+                    <a href="../fr/portfolio/prunksaal-audioguide.html">
+                        <img src="../assets/img/audioguides/audioguide-prunksaal-nationalbibliothek.webp" class="img-fluid lazyload" alt="l'audioguide de Nubart pour la salle d’apparat de la Bibliothèque Nationale Autrichienne à Vienne"></a>
+                    <div class="portfolio-info">
+                        <h4>Salle d'apparat - Bibliothèque nationale d'Autriche, Vienne</h4>
+                        <p>Exposition permanente</p>
+
+                        <a href="../fr/portfolio/prunksaal-audioguide.html" class="details-link" title="Plus information sur l'audioguide de Nubart pour la salle d’apparat de la Bibliothèque Nationale Autrichienne"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-germany filter-live">
+                    <a href="../fr/portfolio/systeme-visite-guidee-tesla.html"><img src="../assets/img/audioguides/tour-guide-system-tesla-gigafactory.webp" class="img-fluid lazyload" alt="Système de visite guidée pour la Gigafactory de Tesla à Berlin"></a>
+                    <div class="portfolio-info">
+                        <h4>Gigafactory de Tesla - Berlin-Brandebourg</h4>
+                        <p>Système de visite guidée</p>
+
+                        <a href="../fr/portfolio/systeme-visite-guidee-tesla.html" class="details-link" title="Plus de détails sur le système de guide touristique de Nubart pour la Gigafactoy de Tesla"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 portfolio-item filter-luxembourg filter-castle filter-guide">
+                    <a href="../fr/portfolio/audioguide-chateau-bourscheid.html"><img src="../assets/img/audioguides/audioguide-bourscheid.webp" class="img-fluid lazyload" alt="l'audioguide Nubart pour le château de Bourscheid"></a>
+                    <div class="portfolio-info">
+                        <h4>Château de Bourscheid</h4>
+                        <p>Exposition permanente</p>
+                        <a href="../fr/portfolio/audioguide-chateau-bourscheid.html" class="details-link" title="Plus d'informations sur l'audioguide Nubart pour le château de Bourscheid"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-israel filter-museum filter-guide">
+                    <a href="../fr/portfolio/audioguide-maison-weizmann.html"><img src="../assets/img/audioguides/audioguide-yad-chaim-weizmann.webp" class="img-fluid lazyload" alt="l'audioguide de Nubart pour la Maison Weizmann à Rehovot"></a>
+                    <div class="portfolio-info">
+                        <h4>Maison Weizmann - Rehovot</h4>
+                        <p>Exposition permanente</p>
+
+                        <a href="../fr/portfolio/audioguide-maison-weizmann.html" class="details-link" title="plus d'information sur l'audioguide de Nubart pour la Maison Weizmann à Rehovot"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-switzerland filter-museum filter-guide">
+                    <a href="../fr/portfolio/antikenmuseum-bale-audioguide.html" class="details-link">
+                        <img src="../assets/img/audioguides/audioguide-antikenmuseum-basel.webp" class="img-fluid lazyload" alt="l'audioguide de Nubart pour l'Antikenmuseum (Musée des antiquités) de Bâle"></a>
+                    <div class="portfolio-info">
+                        <h4>Musée des antiquités - Bâle</h4>
+                        <p>Exposition permanente</p>
+
+                        <a href="../fr/portfolio/antikenmuseum-bale-audioguide.html" class="details-link" title="Plus d'informations sur l'audioguide de Nubart pour l'Antikenmuseum de Bâle"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-austria filter-museum filter-guide">
+                    <a href="../fr/portfolio/albertina-audioguide.html" class="details-link">
+                        <img src="../assets/img/audioguides/audioguide-albertina.webp" class="img-fluid lazyload" alt="L'audioguide Nubart pour le Musée Dornier"></a>
+                    <div class="portfolio-info">
+                        <h4>Albertina - Vienna</h4>
+                        <p>Expositions permanentes et spéciales</p>
+                        <a href="../fr/portfolio/albertina-audioguide.html" class="details-link" title="Détails de l'audioguide Nubart pour le Musée Albertina - Vienne"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-spain filter-cemetery filter-guide">
+                    <a href="../fr/portfolio/cimetiere-britannique-madrid-audioguide.html">
+                        <img src="../assets/img/audioguides/audioguide-british-cemetery-madrid.webp" class="img-fluid lazyload" alt="Audioguide du Cimetière britannique - Madrid"></a>
+                    <div class="portfolio-info">
+                        <h4>Cimetière britannique - Madrid</h4>
+                        <p>Exposition permanente</p>
+
+                        <a href="../fr/portfolio/cimetiere-britannique-madrid-audioguide.html" class="details-link" title="Plus de détails sur l'audioguide Nubart pour le cimetière britannique de Madrid"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-austria filter-museum filter-guide">
+                    <a href="../fr/portfolio/ktm-motohall-audioguide.html">
+                        <img src="../assets/img/audioguides/audioguide-ktm-motohall.webp" class="img-fluid lazyload" alt="audioguide de Nubart pour le KTM Motohall à Mattighofen, en Autriche"></a>
+                    <div class="portfolio-info">
+                        <h4>KTM Motohall - Mattighofen</h4>
+                        <p>Exposition permanente</p>
+
+                        <a href="../fr/portfolio/ktm-motohall-audioguide.html" class="details-link" title="Informations sur le projet d'audioguide de Nubart pour le KTM Motohall à Mattighofen, en Autriche."><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button text-center">
+
+                <a style="margin:45px; font-size: 25px;" class="btn-lg btn-primary" type="button" href="../fr/nubart-clients-projets.html"
+
+                   target="_blank">Voir tous les clients de Nubart</a><br>
             </div>
         </div>
-    </div>
+    </section><!-- End Portfolio Section -->
 
-    <div class="container">
-        <div class="copyright">
-            &copy; Copyright <strong><span>Nubart 2013-2023</span></strong>. Tous droits réservés
-        </div>
+</main><!-- End #main -->
+                <<!-- ======= Footer ======= -->
+                <footer id="footer">
+                    <div class="footer-top">
+                        <div class="container">
+                            <div class="row">
 
-    </div>
-</footer><!-- End Footer -->
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="footer-info">
+                                        <p class="fs-3">Nubart</p>
+                                        <p>
+                                            Barcelona - Berlin<br>
 
-<div id="preloader"></div>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+                                            <strong>Email:</strong> info@nubart.eu<br>
+                                        </p>
+                                        <div class="social-links mt-3">
+                                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+                                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
 
-<!-- Vendor JS Files -->
-<script src="../assets/vendor/aos/aos.js"></script>
-<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+                                        </div>
+                                    </div>
+                                </div>
 
-<script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+                                <div class="col-lg-3 col-md-6 footer-links">
+                                    <h4>Liens utiles</h4>
+                                    <ul>
 
-<!-- Template Main JS File -->
-<script src="../assets/js/main-min.js"></script>
+                                        <li><i class="bi bi-chevron-right"></i> <a href="../fr/contact.html">Contacts</a></li>
+                                        <li><i class="bi bi-chevron-right"></i>
+                                            <a href="../fr/mentions-legales.html" rel="nofollow">Mentions légales</a></li>
+                                        <!-- <li><i class="bi bi-chevron-right"></i> <a href="terms-conditions.html" rel="nofollow">Nubart's terms and conditions</a></li> -->
+                                        <li><i class="bi bi-chevron-right"></i>
+                                            <a href="../fr/privacy-policy.html" rel="nofollow">Protection des données</a>
+                                        <li><i class="bi bi-chevron-right"></i>
+                                            <a href="https://share.hsforms.com/12gx6CSXPQzWecc32RwyQww1g33q" rel="nofollow">Abonnez-vous à notre newsletter</a>
+                                        </li>
+                                    </ul>
+                                </div>
 
-<!-- Leadfeeder  -->
-<script>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="copyright">
+                            &copy; Copyright <strong><span>Nubart 2013-2023</span></strong>. Tous droits réservés
+                        </div>
+
+                    </div>
+                </footer><!-- End Footer -->
+
+                <div id="preloader"></div>
+                <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+                <!-- Vendor JS Files -->
+                <script src="../assets/vendor/aos/aos.js"></script>
+                <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+                <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+                <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+                <!-- Template Main JS File -->
+                <script src="../assets/js/main-min.js"></script>
+
+                <!-- Leadfeeder  -->
+                <script>
      (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; setTimeout(function(){fs.parentNode.insertBefore(cs,fs)},1); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('Xbp1oaEBQQn8EdVj');
 
 
-</script>
 
-<!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2430134.js"></script>
-<!-- End of HubSpot Embed Code -->
+                </script>
+
+                <!-- Start of HubSpot Embed Code -->
+                <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2430134.js"></script>
+                <!-- End of HubSpot Embed Code -->
 
 </body>
 
