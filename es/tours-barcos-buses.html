@@ -183,7 +183,7 @@
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="https://www.nubart.eu/blog/">Blog</a></li>
-                <li><a class="getstarted scrollto" href="../es/precio-muestras.html">Solicita muestras / presupuesto</a></li>
+                <li><a class="getstarted scrollto" href="#quote">Pide una oferta</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -191,19 +191,8 @@
     </div>
 </header><!-- End Header -->
 
-<!-- ======= About Section ======= -->
-<!-- Request a sample-button only visible in smartphones -->
-<section class="d-lg-none">
-    <br> <br>
-    <div class="col-md-12 text-center d-lg-none" style="padding-right: 10px; padding-left: 10px" data-aos="zoom-in">
-        <a href="../es/precio-muestras.html">
 
-            <button type="button" class="btn-lg btn-danger">Solicita muestras o presupuesto</button>
-        </a>
 
-    </div>
-</section>
-<!-- End Request a sample-button only visible in smartphones  -->
 <!-- ======= Hero Section ======= -->
 <section id="hero" style='background-image: url("../assets/img/hero12-bg.webp");'>
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
@@ -945,16 +934,36 @@ margin-bottom: 10px;
 <script>
      (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; setTimeout(function(){fs.parentNode.insertBefore(cs,fs)},1); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('Xbp1oaEBQQn8EdVj');
 
-
-
-
-
-
 </script>
 
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2430134.js"></script>
 <!-- End of HubSpot Embed Code -->
+
+<!-- scroll to hash -->
+<script>
+    function getElementTopOffset(element) {
+        if (!element.getClientRects().length){
+            return 0;
+        }
+
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.scrollY;
+    }
+
+    window.addEventListener('load', event => {
+        if (window.location.hash.length > 0) {
+            window.setTimeout(() => {
+                const target = document.getElementById(window.location.hash.substring(1));
+                if(target) {
+                    window.scrollTo(0, getElementTopOffset(target));
+                }
+            }, 1000);
+        }
+    });
+</script>
+
 
 </body>
 
