@@ -56,6 +56,7 @@
 
 
 
+
     </script>
     <!-- End Global site tag (gtag.js) - Google Analytics -->
 
@@ -140,7 +141,8 @@
 
                 <li class="dropdown"><a href="#"><span>Produkte</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="../de/audioguides.html">Nubart Guide - Der Audioguide zum Mitnehmen</a></li><li><a href="../de/gamification-audioguide.html">Nubart Game - Der Audioguide zum Spielen</a></li>
+                        <li><a href="../de/audioguides.html">Nubart Guide - Der Audioguide zum Mitnehmen</a></li>
+                        <li><a href="../de/gamification-audioguide.html">Nubart Game - Der Audioguide zum Spielen</a></li>
 
                         <li><a href="../de/gruppenfuehrungssystem.html">Nubart Live - Gruppenführungssystem</a></li>
                         <li><a href="../de/audio-video-synchronisierung.html">Nubart Sync - Audio-Video Synchronisierung</a></li>
@@ -158,7 +160,8 @@
                 </li>
                 <li class="dropdown"><a href="#"><span>Märkte</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="../de/audioguides.html">Museen</a></li><li><a href="../de/zoo-app-nubart.html">Zoos, Tiergärten und Aquarien</a></li>
+                        <li><a href="../de/audioguides.html">Museen</a></li>
+                        <li><a href="../de/zoo-app-nubart.html">Zoos, Tiergärten und Aquarien</a></li>
 
                         <li><a href="../de/audioguide-bootstour-hafenrundfahrt.html">Bootsfahrten & Bustouren</a></li>
                         <li><a href="../de/personen-fuehrungsanlagen-werksbesichtigung.html">Werksbesichtigungen</a></li>
@@ -183,14 +186,26 @@
 </header><!-- End Header -->
 
 <main id="main">
-
-    <section class="inner-page">
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
         <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>Multimedia-Elemente für den Nubart Guide</h1>
+                <ol>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li>Multimedia-Elemente</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <section class="inner-page">
+        <div class="container-fluid">
             <div class="row">
 
-                <div class="col-md-2">
-                    <div class="fixed-sidebar d-none d-lg-block" style="width: 230px">
-                        <h3>Index</h3>
+                <div class="col-md-2 offset-md-2">
+                    <div class="fixed-sidebar d-none d-lg-block" style="width: 230px; margin-top: 150px;">
 
                         <p><a class="index-item2" href="#modules">Modulares System</a></p>
                         <p><a class="index-item2" href="#offline">Offline-Modus</a></p>
@@ -213,491 +228,517 @@
                         <p><a class="index-item2" href="#voice-messages">Rekorder für Sprachnachrichten</a></p>
                         <p><a class="index-item2" href="#donation">Spenden-Button</a></p>
                         <p><a class="index-item2" href="#embeddings">Newsletter-Anmeldung</a></p>
-
+                        <br> <br> <br>
                     </div>
                 </div>
-                <div class="col-md-9 offset-md-1">
-                    <div class="section-heading">
-                        <br><br>
-                        <h1>Welche Multimedia-Elemente lassen sich in einen Nubart-Audioguide integrieren?</h1>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-7">
+                            <br>
+                            <h2 id="modules" class="fixed-sidebar-target">Modulares System</h2>
+
+                            <p>Ihr Museum hat vielleicht mehrere Ausstellungen gleichzeitig und braucht daher mehr als einen Audioguide.</p>
+                            <p>Um dies zu ermöglichen, bieten wir ein modulares System an, das eine beliebige Verzweigung ermöglicht: Ein Audioguide kann beliebig andere enthalten. Sie können sogar unterschiedliche Arten von Modulen integrieren, wie z.B.
+                                <a href="../de/gruppenfuehrungssystem.html"> unser Gruppenführungssystem.</a></p>
+
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-modules.webp" class="img-fluid d-none d-lg-block lazyload" alt="Nubarts modulares System">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+                            <br><br>
+                            <h2 id="offline" class="fixed-sidebar-target">Offline-Modus</h2>
+
+                            <p>Optional bieten wir einen Offline-Modus an, damit der Audioguide auch in Gebieten ohne oder mit schlechter Internetverbindung genutzt werden kann. Unser Offline-Modus benötigt nur zu Beginn der Tour eine Internetverbindung, wenn der QR-Code auf der Karte zum ersten Mal gescannt wird. Die Tonspuren, Bilder und Karten werden dann auf dem Smartphone gespeichert, so dass der Audioguide auch in Funklöchern benutzt werden kann. </p>
+                            <p>Unser Offline-Modus arbeitet nicht nur mit Caching! Das wäre zu unzuverlässig. Und dank unseres Service Workers können unsere Nutzer den QR-Code auch in einem Gebiet ohne Internetverbindung erneut scannen und auf den kompletten Audioguide zugreifen, als würden sie eine native App verwenden.</p>
+
+                            <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/815325930" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie unseren Offline-Modus in Aktion </a>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-offline.gif" class="img-fluid d-none d-lg-block lazyload" alt="Nubarts Audioguides können auch ohne internet funktionieren (offline-Modus)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="more-info" class="fixed-sidebar-target">Aufklappbare Schaltfläche</h2>
+
+                            <br>
+
+                            <p>Der Besitzer einer Nubart-Karte kann den Medienguide jederzeit zu Hause nochmal verwenden. Es lohnt sich, diesen Vorteil zu nutzen und eine zweite Vertiefungsebene zu den Exponate zu bieten, ohne von der eigentlichen Tour abzulenken. Unsere aufklappbare "Mehr Informationen"-Schaltfläche macht dies möglich.</p>
+                            <p>Hinter dieser Schaltfläche können Sie jede Art von Multimedia-Informationen platzieren: weitere Audios, Videos, Bilder, PDFs... </p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/526540926" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie hier die aufklappbare Schaltfläche in Aktion </a>
+                            </div>
+
+                        </div>
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-more-info.gif" class="img-fluid d-none d-lg-block lazyload" alt="Nubart's Collapsible more-information-button">
+                        </div>
 
                     </div>
-                    <p class="lead">Zusätzlich zu den Audiospuren ermöglicht die Flexibilität der Nubart Multimedia-Audioguides die Integration von Textelementen, Bildern, Videos, herunterladbaren Dateien, Links und vielem mehr. Alle diese Elemente können in beliebiger Reihenfolge integriert werden. </p>
+                    <div class="row">
+                        <div class="col-7">
 
+                            <h2 id="tags" class="fixed-sidebar-target">Audioführung mit Interessenliste</h2>
 
+                            <br>
 
+                            <p>
+                            <p>Lassen Sie Ihre Benutzer wählen, was sie wirklich hören möchten!</p>
+                            <p>Unser Tagging-System ermöglicht es Ihnen, den angezeigten Inhalt auf die Interessen des Benutzers zu beschränken. </p>
+                            <p>Dies ist besonders nützlich auf Messen, aber auch für sehr komplette Audioguides mit vielen Inhalten.</p>
+                            <p>Wenn die Besucher ihre Meinung ändern, können sie jederzeit eine neue Interessenliste auswählen. Die Anzahl der Tags ist unbegrenzt. </p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
 
-                    <br>
-                </div>
-                <div class="col-md-6 offset-md-3">
-                    <br><br>
-                    <h2 id="modules" class="fixed-sidebar-target">Modulares System</h2>
+                        </div>
 
-                    <p>Ihr Museum hat vielleicht mehrere Ausstellungen gleichzeitig und braucht daher mehr als einen Audioguide.</p>
-                    <p>Um dies zu ermöglichen, bieten wir ein modulares System an, das eine beliebige Verzweigung ermöglicht: Ein Audioguide kann beliebig andere enthalten. Sie können sogar unterschiedliche Arten von Modulen integrieren, wie z.B.
-                        <a href="../de/gruppenfuehrungssystem.html"> unser Gruppenführungssystem.</a></p>
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-tags.gif" class="img-fluid d-none d-lg-block lazyload"
 
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-modules.webp" class="img-fluid d-none d-lg-block lazyload" alt="Nubarts modulares System">
-                </div>
-                <div class="col-md-6 offset-md-3">
-                    <br><br>
-                    <h2 id="offline" class="fixed-sidebar-target">Offline-Modus</h2>
-
-                    <p>Optional bieten wir einen Offline-Modus an, damit der Audioguide auch in Gebieten ohne oder mit schlechter Internetverbindung genutzt werden kann. Unser Offline-Modus benötigt nur zu Beginn der Tour eine Internetverbindung, wenn der QR-Code auf der Karte zum ersten Mal gescannt wird. Die Tonspuren, Bilder und Karten werden dann auf dem Smartphone gespeichert, so dass der  Audioguide auch in Funklöchern benutzt werden kann. </p>
-                    <p>Unser Offline-Modus arbeitet nicht nur mit Caching! Das wäre zu unzuverlässig. Und dank unseres Service Workers können unsere Nutzer den QR-Code auch in einem Gebiet ohne Internetverbindung erneut scannen und auf den kompletten Audioguide zugreifen, als würden sie eine native App verwenden.</p>
-
-                    <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/815325930" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie unseren Offline-Modus in Aktion </a>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-offline.gif" class="img-fluid d-none d-lg-block lazyload" alt="Nubarts Audioguides können auch ohne internet funktionieren (offline-Modus)">
-                </div>
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="more-info" class="fixed-sidebar-target">Aufklappbare Schaltfläche</h2>
-
-                    <br>
-
-                    <p>Der Besitzer einer Nubart-Karte kann den Medienguide jederzeit zu Hause nochmal verwenden. Es lohnt sich, diesen Vorteil zu nutzen und eine zweite Vertiefungsebene zu den Exponate zu bieten, ohne von der eigentlichen Tour abzulenken. Unsere aufklappbare "Mehr Informationen"-Schaltfläche macht dies möglich.</p>
-                    <p>Hinter dieser Schaltfläche können Sie jede Art von Multimedia-Informationen platzieren: weitere Audios, Videos, Bilder, PDFs... </p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/526540926" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie hier die aufklappbare Schaltfläche in Aktion </a>
-                    </div>
-
-                </div>
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-more-info.gif" class="img-fluid d-none d-lg-block lazyload" alt="Nubart's Collapsible more-information-button">
-                </div>
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="tags" class="fixed-sidebar-target">Audioführung mit Interessenliste</h2>
-
-                    <br>
-
-                    <p>
-                    <p>Lassen Sie Ihre Benutzer wählen, was sie wirklich hören möchten!</p>
-                    <p>Unser Tagging-System ermöglicht es Ihnen, den angezeigten Inhalt auf die Interessen des Benutzers zu beschränken. </p>
-                    <p>Dies ist besonders nützlich auf Messen, aber auch für sehr komplette Audioguides mit vielen Inhalten.</p>
-                    <p>Wenn die Besucher ihre Meinung ändern, können sie jederzeit eine neue Interessenliste auswählen. Die Anzahl der Tags ist unbegrenzt. </p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-tags.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Das Nubart-Tagging-System">
-                </div>
-
-
-
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="images" class="fixed-sidebar-target">Bilder</h2>
-
-                    <br>
-
-                    <p>
-                        Sie können zwischen kleinen Miniaturansichten oder großen Bildern wählen, die mit den Stationen verbunden sind.</p>
-                    <p> Schicken Sie uns Ihre Bilder in der Größe, Auflösung und Format, die Sie gerade zur Verfügung haben: Unser CMS wird sie automatisch anpassen.
-
-                    </p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-images.webp" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Die Bilder eines Nubart Audioguides">
-                </div>
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="image-slider" class="fixed-sidebar-target">Bilderkarussell</h2>
-
-                    <br>
-
-                    <p>
-                        Sie können bis zu 15 Bilder in diesem Karussell unterbringen! Der Schieberegler wird durch den Benutzer gesteuert.</p>
-                    <p>Durch die Verwendung von Bilduntertitel können Sie z. B. eine chronologische Entwicklung darstellen.
-
-                    </p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/557482941" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie das Bildkarussel von Nubart in Aktion</a>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-slider.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Bildkarussell in einem Audioguide Nubart">
-                </div>
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="audio-slider" class="fixed-sidebar-target">Audioslider</h2>
-
-                    <br>
-
-                    <p>
-                        Unsere zeitgesteuerte Bilderserie ermöglicht das automatische Erscheinen von Bildern genau in dem Moment, in dem die Tonspur darauf verweist. </p>
-                    <p>
-                        Ideal zur Veranschaulichung historischer Zusammenhänge oder zur Hervorhebung von Details eines Exponates. </p>
-                    <p>
-                        Im Gegensatz zu Videos ist der Audioslider kompatibel mit <a href="#offline">unserem Offline-Modus</a>.
-
-                    </p>
-                    <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
-
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/654894932" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie den Audioslider in Aktion</a>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-audio-slider.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Nubart's image slider feature">
-                </div>
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="ba-images" class="fixed-sidebar-target">
-                        Überlagerte Bilder (vorher und nacher) </h2>
-
-                    <br>
-
-                    <p>
-                        Möchten Sie ein Gemälde vor und nach der Restaurierung zeigen? Oder den Fortschritt einer archäologischen Ausgrabung oder die historische Entwicklung eines Denkmals erklären?</p>
-                    <p>Unsere überlagerte Bildfunktion (vorher und nachher) ist dazu ideal. Der Besucher muss nur den mittleren Balken mit dem Finger bewegen, um die Transformation zu sehen. </p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/709119538" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts überlagerte Bilder in Aktion </a>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-before-after.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Funktion von überlagerten Bildern (vorher und nachher) in einem Audioguide von Nubart">
-                </div>
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="360-images" class="fixed-sidebar-target">
-                        360 Grad-Ansichten </h2>
-
-                    <br>
-
-                    <p>
-                        Diese Bilder sind immersiv und ermöglichen es dem Besucher, sich innerhalb einer 360 Grad-Rundumsicht eines Raumes zu "bewegen". </p>
-                    <p>Bei vielen Smartphones bewegt sich das Bild gelichzeitig mit dem Benutzer und ist sehr wirkungsvoll. In anderen kann der Benutzer das Bild mit dem Finger bewegen.</p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-panoramic.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Panoramabilder in einem Nubart Audioguide">
-                </div>
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="videos" class="fixed-sidebar-target">
-                        Videos </h2>
-
-                    <br>
-
-                    <p>
-                        Sie können uns Videodateien schicken, die wir auf unseren privaten Server hochladen. Diese Videos werden dann nur über den Audioguide zugänglich sein: Sie lassen sich weder in Suchmaschinen finden noch können sie geteilt werden.</p>
-                    <p>Unsere Videos können im Quer-, Hoch- oder quadratischen Format angezeigt werden.</p>
-
-                    <p>(Bitte bedenken Sie, dass das Streaming von Videos nicht mit unserem totalen Offline-Modus kompatibel ist).
-
-                    </p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-videos.webp" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Videos in einem Audioguide von Nubart">
-                </div>
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="info" class="fixed-sidebar-target">Info button</h2>
-
-                    <br>
-
-                    <p>Manchmal kann eine kurze schriftliche Extra-Information sehr hilfreich sein. Dazu dient unser Info-Button. Dort können Sie zum Beispiel Öffnungszeiten oder Kontaktdaten unterbringen. Telefonnummern oder Email-Adressen sind anklickbar.</p>
-                    <p>Das Popup-Fenster verschwindet automatisch beim erneuten berühren des Bildschirms.</p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-info-button.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Info-Button auf einem Nubart Audioguide">
-                </div>
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="deaf" class="fixed-sidebar-target">Transkription für Gehörlose</h2>
-
-                    <br>
-
-                    <p>
-                        Ein Icon ermöglicht Ihnen den Zugriff auf die vollständige Abschrift der Tonspur in der entsprechenden Sprache.</p>
-                    <p>Es öffnet sich ein scrollbares Fenster. Beim Schließen des Fensters kehren Sie zum Audioguide zurück. </p>
-                    <p>Das Symbol kann durch ein "i" ersetzt werden: damit lässt sich diese Funktion ebenfalls zur Vermittlung von längeren Textinformationen verwenden, als Alternative zu <a href="#info">unserem Info-Button</a>.</p>
-
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/559591694" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts Barrierefreiheitsfunktionen in Aktion </a>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-deaf.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Nubarts Transkriptionstaste für Hörgeschädigte">
-                </div>
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="maps" class="fixed-sidebar-target">Karten</h2>
-
-                    <br>
-
-                    <p>
-                        Karten sind für Audioführungen durch Städte oder Naturgebiete unerlässlich. Sie sind auch nützlich, um Besucher zu Außenplätzen oder Gebäuden zu führen, die mit ihrem Museum zusammenhängen. </p>
-                    <p>Unsere Karten sind interaktiv und geben den Standort des Besuchers an. Unsere Tonspuren bieten wiederum eine Schaltfläche, um die Position der dazugehörigen Sehenswürdigkeit auf der Karte zu finden.</p>
-
-                    <p>Lagepläne des Museums mit auswählbaren Stationen können in den Karten ebenfalls integriert werden.</p>
-                    <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
-
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/507214519" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie die Interaktive Karten von Nubart in Aktion </a>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-maps.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Interaktive Karten in den Audioguides von Nubart">
-                </div>
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="geolocation" class="fixed-sidebar-target">Geo-scrolling</h2>
-
-                    <br>
-
-                    <p>
-                        Unsere geolokalisierten Spuren leuchten rot auf und gleiten automatisch an den oberen Rand des mobilen Bildschirms, wenn Sie sich dem entsprechenden Standort oder Exponat nähern. In Android wird dieser Prozess durch eine leichte Vibration hervorgehoben. </p>
-                    <p>So wird Ihr Besucher immer wissen, welche Spur er als nächstes hören soll. Die Spuren können proaktiv angeklickt werden oder sie können im Autoplay aktiviert werden.
-
-                    </p>
-                    <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
-
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/290133250" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts Geo-Scrolling in Aktion </a>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-geo.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Geo-scrolling in Nubart Audioguides">
-                </div>
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="geotracking" class="fixed-sidebar-target">Geo-tracking</h2>
-
-                    <br>
-
-                    <p>Auf Wunsch können wir die Positionen und Bewegungen Ihrer Audioguide-Nutzer in Ihrer Einrichtung erfassen. Diese Informationen können von großem strategischen Wert sein, insbesondere für Routen, große Anlagen und Stadtmarketing. Die Daten sind anonymisiert und DSGVO-konform.</p>
-                    <p>Sie können die resultierenden Daten und Heatmaps jederzeit in Ihrem passwortgeschützten Kundenbereich einsehen.</p>
-                    <span class="badge rounded-pill bg-warning text-dark">monatliche Gebühr erforderlich</span>
-
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/735507843" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts Geotracking in Aktion</a>
-                    </div>
-
-                </div>
-                <div class="col-md-3">
-                    <br> <img data-src="../assets/img/tivfl/tivfl-geotracking.webp" class="img-fluid lazyload"
-
-                              alt="Nubart's geotracking feature"> <br><br><br>
-                </div>
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="remote-control" class="fixed-sidebar-target">Audioguides mit Fernbedienung</h2>
-
-                    <br>
-
-                    <p>Nubarts Kunden können ihre Audioguides per Fernbedienung über das eigene Smartphone steuern. </p>
-                    <p>Wenn ein Guide auf eine Tonspur klickt, sendet er diese in Echtzeit an die Teilnehmer einer Führung in der von ihnen gewählten Sprache. Die Tonspuren können automatisch im Autoplay-Modus abgespielt werden. </p>
-                    <p>Diese Lösung ist ideal für Boots- oder Bustouren. Auch für Orte, die man nur mit Führung besuchen kann, aber nicht jeder in der Gruppe die gleiche Sprache wie der Guide spricht. </p>
-
-                    <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
-
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/669104131" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts ferngesteuerte Audioguides in Aktion</a>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-remote-control.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Nubart's audiguides per remote control">
-                </div>
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="file-upload" class="fixed-sidebar-target">Schaltfläche zum Hochladen von Dateien</h2>
-
-                    <br>
-
-                    <p>
-                        Ihre Besucher können Dateien mit Ihrem Museum austauschen. Sie können zum Beispiel historische Dokumente oder Familienfotos hochladen, um Ihr Archiv zu erweitern. Oder Fotos hochladen, um an einem Wettbewerb teilzunehmen.</p>
-
-                    <p>Sie erhalten jedes Mal eine Benachrichtigung, wenn jemand eine Datei hochlädt. Die Dateien werden virengecheckt in Ihrem Kundenbereich zu Ihrer Überprüfung abgelegt.
-
-                    </p>
-                    <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
-
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/607523139" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie den Upload-Button von Nubart in Aktion</a>
+                                 alt="Das Nubart-Tagging-System">
+                        </div>
 
                     </div>
+                    <div class="row">
+                        <div class="col-7">
 
-                </div>
+                            <h2 id="images" class="fixed-sidebar-target">Bilder</h2>
 
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-upload-button.gif" class="img-fluid d-none d-lg-block lazyload"
+                            <br>
 
-                         alt="Schaltfläche zum Hochladen von Dateien in Nubart-Audioguides">
-                </div>
-                <div class="col-md-6 offset-md-3">
+                            <p>
+                                Sie können zwischen kleinen Miniaturansichten oder großen Bildern wählen, die mit den Stationen verbunden sind.</p>
+                            <p> Schicken Sie uns Ihre Bilder in der Größe, Auflösung und Format, die Sie gerade zur Verfügung haben: Unser CMS wird sie automatisch anpassen.
 
-                    <h2 id="voice-messages" class="fixed-sidebar-target">Rekorder für Sprachnachrichten</h2>
+                            </p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
 
-                    <br>
+                        </div>
 
-                    <p>
-                        Ihre Besucher können spontan eine Sprachnachricht für Ihr Museum aufnehmen. Sie können zum Beispiel über ein historisches Ereignis Zeugnis ablegen.</p>
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-images.webp" class="img-fluid d-none d-lg-block lazyload"
 
-                    <p>Sie erhalten jedes Mal eine Benachrichtigung, wenn jemand eine Stimmnachricht hinterlassen hat. Die Dateien werden virengecheckt in Ihrem Kundenbereich zu Ihrer Verfügung abgelegt. </p>
-                    <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
+                                 alt="Die Bilder eines Nubart Audioguides">
+                        </div>
 
-                    <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
-                        <br>
-
-                        <a role="button" href="https://vimeo.com/607523139" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts Sprachnachrichten-Button in Aktion </a>
                     </div>
+                    <div class="row">
+                        <div class="col-7">
 
+                            <h2 id="image-slider" class="fixed-sidebar-target">Bilderkarussell</h2>
+
+                            <br>
+
+                            <p>
+                                Sie können bis zu 15 Bilder in diesem Karussell unterbringen! Der Schieberegler wird durch den Benutzer gesteuert.</p>
+                            <p>Durch die Verwendung von Bilduntertitel können Sie z. B. eine chronologische Entwicklung darstellen.
+
+                            </p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/557482941" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie das Bildkarussel von Nubart in Aktion</a>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-slider.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Bildkarussell in einem Audioguide Nubart">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="audio-slider" class="fixed-sidebar-target">Audioslider</h2>
+
+                            <br>
+
+                            <p>
+                                Unsere zeitgesteuerte Bilderserie ermöglicht das automatische Erscheinen von Bildern genau in dem Moment, in dem die Tonspur darauf verweist. </p>
+                            <p>
+                                Ideal zur Veranschaulichung historischer Zusammenhänge oder zur Hervorhebung von Details eines Exponates. </p>
+                            <p>
+                                Im Gegensatz zu Videos ist der Audioslider kompatibel mit <a href="#offline">unserem Offline-Modus</a>.
+
+                            </p>
+                            <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/654894932" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie den Audioslider in Aktion</a>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-audio-slider.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Nubart's image slider feature">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="ba-images" class="fixed-sidebar-target">
+                                Überlagerte Bilder (vorher und nacher) </h2>
+
+                            <br>
+
+                            <p>
+                                Möchten Sie ein Gemälde vor und nach der Restaurierung zeigen? Oder den Fortschritt einer archäologischen Ausgrabung oder die historische Entwicklung eines Denkmals erklären?</p>
+                            <p>Unsere überlagerte Bildfunktion (vorher und nachher) ist dazu ideal. Der Besucher muss nur den mittleren Balken mit dem Finger bewegen, um die Transformation zu sehen. </p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/709119538" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts überlagerte Bilder in Aktion </a>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-before-after.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Funktion von überlagerten Bildern (vorher und nachher) in einem Audioguide von Nubart">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="360-images" class="fixed-sidebar-target">
+                                360 Grad-Ansichten </h2>
+
+                            <br>
+
+                            <p>
+                                Diese Bilder sind immersiv und ermöglichen es dem Besucher, sich innerhalb einer 360 Grad-Rundumsicht eines Raumes zu "bewegen". </p>
+                            <p>Bei vielen Smartphones bewegt sich das Bild gelichzeitig mit dem Benutzer und ist sehr wirkungsvoll. In anderen kann der Benutzer das Bild mit dem Finger bewegen.</p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-panoramic.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Panoramabilder in einem Nubart Audioguide">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="videos" class="fixed-sidebar-target">
+                                Videos </h2>
+
+                            <br>
+
+                            <p>
+                                Sie können uns Videodateien schicken, die wir auf unseren privaten Server hochladen. Diese Videos werden dann nur über den Audioguide zugänglich sein: Sie lassen sich weder in Suchmaschinen finden noch können sie geteilt werden.</p>
+                            <p>Unsere Videos können im Quer-, Hoch- oder quadratischen Format angezeigt werden.</p>
+
+                            <p>(Bitte bedenken Sie, dass das Streaming von Videos nicht mit unserem totalen Offline-Modus kompatibel ist).
+
+                            </p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-videos.webp" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Videos in einem Audioguide von Nubart">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="info" class="fixed-sidebar-target">Info button</h2>
+
+                            <br>
+
+                            <p>Manchmal kann eine kurze schriftliche Extra-Information sehr hilfreich sein. Dazu dient unser Info-Button. Dort können Sie zum Beispiel Öffnungszeiten oder Kontaktdaten unterbringen. Telefonnummern oder Email-Adressen sind anklickbar.</p>
+                            <p>Das Popup-Fenster verschwindet automatisch beim erneuten berühren des Bildschirms.</p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-info-button.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Info-Button auf einem Nubart Audioguide">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="deaf" class="fixed-sidebar-target">Transkription für Gehörlose</h2>
+
+                            <br>
+
+                            <p>
+                                Ein Icon ermöglicht Ihnen den Zugriff auf die vollständige Abschrift der Tonspur in der entsprechenden Sprache.</p>
+                            <p>Es öffnet sich ein scrollbares Fenster. Beim Schließen des Fensters kehren Sie zum Audioguide zurück. </p>
+                            <p>Das Symbol kann durch ein "i" ersetzt werden: damit lässt sich diese Funktion ebenfalls zur Vermittlung von längeren Textinformationen verwenden, als Alternative zu
+                                <a href="#info">unserem Info-Button</a>.</p>
+
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/559591694" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts Barrierefreiheitsfunktionen in Aktion </a>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-deaf.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Nubarts Transkriptionstaste für Hörgeschädigte">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="maps" class="fixed-sidebar-target">Karten</h2>
+
+                            <br>
+
+                            <p>
+                                Karten sind für Audioführungen durch Städte oder Naturgebiete unerlässlich. Sie sind auch nützlich, um Besucher zu Außenplätzen oder Gebäuden zu führen, die mit ihrem Museum zusammenhängen. </p>
+                            <p>Unsere Karten sind interaktiv und geben den Standort des Besuchers an. Unsere Tonspuren bieten wiederum eine Schaltfläche, um die Position der dazugehörigen Sehenswürdigkeit auf der Karte zu finden.</p>
+
+                            <p>Lagepläne des Museums mit auswählbaren Stationen können in den Karten ebenfalls integriert werden.</p>
+                            <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/507214519" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie die Interaktive Karten von Nubart in Aktion </a>
+                            </div>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-maps.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Interaktive Karten in den Audioguides von Nubart">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="geolocation" class="fixed-sidebar-target">Geo-scrolling</h2>
+
+                            <br>
+
+                            <p>
+                                Unsere geolokalisierten Spuren leuchten rot auf und gleiten automatisch an den oberen Rand des mobilen Bildschirms, wenn Sie sich dem entsprechenden Standort oder Exponat nähern. In Android wird dieser Prozess durch eine leichte Vibration hervorgehoben. </p>
+                            <p>So wird Ihr Besucher immer wissen, welche Spur er als nächstes hören soll. Die Spuren können proaktiv angeklickt werden oder sie können im Autoplay aktiviert werden.
+
+                            </p>
+                            <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/290133250" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts Geo-Scrolling in Aktion </a>
+                            </div>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-geo.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Geo-scrolling in Nubart Audioguides">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="geotracking" class="fixed-sidebar-target">Geo-tracking</h2>
+
+                            <br>
+
+                            <p>Auf Wunsch können wir die Positionen und Bewegungen Ihrer Audioguide-Nutzer in Ihrer Einrichtung erfassen. Diese Informationen können von großem strategischen Wert sein, insbesondere für Routen, große Anlagen und Stadtmarketing. Die Daten sind anonymisiert und DSGVO-konform.</p>
+                            <p>Sie können die resultierenden Daten und Heatmaps jederzeit in Ihrem passwortgeschützten Kundenbereich einsehen.</p>
+                            <span class="badge rounded-pill bg-warning text-dark">monatliche Gebühr erforderlich</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/735507843" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts Geotracking in Aktion</a>
+                            </div>
+
+                        </div>
+                        <div class="col-3">
+                            <br> <img data-src="../assets/img/tivfl/tivfl-geotracking.webp" class="img-fluid lazyload"
+
+                                      alt="Nubart's geotracking feature"> <br><br><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="remote-control" class="fixed-sidebar-target">Audioguides mit Fernbedienung</h2>
+
+                            <br>
+
+                            <p>Nubarts Kunden können ihre Audioguides per Fernbedienung über das eigene Smartphone steuern. </p>
+                            <p>Wenn ein Guide auf eine Tonspur klickt, sendet er diese in Echtzeit an die Teilnehmer einer Führung in der von ihnen gewählten Sprache. Die Tonspuren können automatisch im Autoplay-Modus abgespielt werden. </p>
+                            <p>Diese Lösung ist ideal für Boots- oder Bustouren. Auch für Orte, die man nur mit Führung besuchen kann, aber nicht jeder in der Gruppe die gleiche Sprache wie der Guide spricht. </p>
+
+                            <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/669104131" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts ferngesteuerte Audioguides in Aktion</a>
+                            </div>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-remote-control.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Nubart's audiguides per remote control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="file-upload" class="fixed-sidebar-target">Schaltfläche zum Hochladen von Dateien</h2>
+
+                            <br>
+
+                            <p>
+                                Ihre Besucher können Dateien mit Ihrem Museum austauschen. Sie können zum Beispiel historische Dokumente oder Familienfotos hochladen, um Ihr Archiv zu erweitern. Oder Fotos hochladen, um an einem Wettbewerb teilzunehmen.</p>
+
+                            <p>Sie erhalten jedes Mal eine Benachrichtigung, wenn jemand eine Datei hochlädt. Die Dateien werden virengecheckt in Ihrem Kundenbereich zu Ihrer Überprüfung abgelegt.
+
+                            </p>
+                            <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/607523139" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie den Upload-Button von Nubart in Aktion</a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-upload-button.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Schaltfläche zum Hochladen von Dateien in Nubart-Audioguides">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="voice-messages" class="fixed-sidebar-target">Rekorder für Sprachnachrichten</h2>
+
+                            <br>
+
+                            <p>
+                                Ihre Besucher können spontan eine Sprachnachricht für Ihr Museum aufnehmen. Sie können zum Beispiel über ein historisches Ereignis Zeugnis ablegen.</p>
+
+                            <p>Sie erhalten jedes Mal eine Benachrichtigung, wenn jemand eine Stimmnachricht hinterlassen hat. Die Dateien werden virengecheckt in Ihrem Kundenbereich zu Ihrer Verfügung abgelegt. </p>
+                            <span class="badge rounded-pill bg-warning text-dark">einmalige Zahlung erforderlich</span>
+
+                            <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
+                                <br>
+
+                                <a role="button" href="https://vimeo.com/607523139" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                    <i class="bi bi-play-circle-fill"></i>&nbsp; Sehen Sie Nubarts Sprachnachrichten-Button in Aktion </a>
+                            </div>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-record-button.gif" class="img-fluid d-none d-lg-block lazyload"
+
+                                 alt="Schaltfläche zum Hochladen von Sprachnachrichten auf Nubart-Audioguides">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="donation" class="fixed-sidebar-target">Spenden-Button</h2>
+
+                            <br>
+
+                            <p>
+                                Unsere Audioguides können verschiedentlich zum Ertrag des Museums beitragen: etwa durch den Verkauf der Kärtchen, aber auch durch einen integrierten Spendenbutton. </p>
+                            <p>Sie müssen nur einen Spendenbutton in Ihrem Paypal-Konto oder in einem anderen ähnlichen Dienst erstellen und uns den generierten Code zum einbetten schicken.
+
+                            </p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-donation-button.webp" class="img-fluid d-none d-lg-block lazyload" alt="Spenden-Button im Nubart Audioguide">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+
+                            <h2 id="embeddings" class="fixed-sidebar-target">Newsletter-Anmeldung </h2>
+
+                            <br>
+
+                            <p>
+                                Möchten Sie Ihre Besucher bitten, Ihren Newsletter zu abonnieren oder ein Formular zur Anforderung persönlicher Daten in den Audioguide aufnehmen?
+
+                            </p>
+                            <p>Bei Nubart befolgen wir sehr strenge Richtlinien in Bezug auf personenbezogene Daten, aber wir können Ihr Abonnementformular einbetten, solange es DSGVO-konform ist. Die personenbezogenen Daten Ihrer Besucher werden auf diese Weise nicht über Nubart weitergeleitet!
+
+                            </p>
+                            <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
+
+                        </div>
+
+                        <div class="col-3">
+                            <img data-src="../assets/img/tivfl/tivfl-embeddings.webp" class="img-fluid d-none d-lg-block lazyload" alt="Newsletter-Anmeldung in Nubart">
+                        </div>
+                    </div>
                 </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-record-button.gif" class="img-fluid d-none d-lg-block lazyload"
-
-                         alt="Schaltfläche zum Hochladen von Sprachnachrichten auf Nubart-Audioguides">
-                </div>
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="donation" class="fixed-sidebar-target">Spenden-Button</h2>
-
-                    <br>
-
-                    <p>
-                        Unsere Audioguides können verschiedentlich zum Ertrag des Museums beitragen: etwa durch den Verkauf der Kärtchen, aber auch durch einen integrierten Spendenbutton. </p>
-                    <p>Sie müssen nur einen Spendenbutton in Ihrem Paypal-Konto oder in einem anderen ähnlichen Dienst erstellen und uns den generierten Code zum einbetten schicken.
-
-                    </p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-donation-button.webp" class="img-fluid d-none d-lg-block lazyload" alt="Spenden-Button im Nubart Audioguide">
-                </div>
-
-                <div class="col-md-6 offset-md-3">
-
-                    <h2 id="embeddings" class="fixed-sidebar-target">Newsletter-Anmeldung </h2>
-
-                    <br>
-
-                    <p>
-                        Möchten Sie Ihre Besucher bitten, Ihren Newsletter zu abonnieren oder ein Formular zur Anforderung persönlicher Daten in den Audioguide aufnehmen?
-
-                    </p>
-                    <p>Bei Nubart befolgen wir sehr strenge Richtlinien in Bezug auf personenbezogene Daten, aber wir können Ihr Abonnementformular einbetten, solange es DSGVO-konform ist. Die personenbezogenen Daten Ihrer Besucher werden auf diese Weise nicht über Nubart weitergeleitet!
-
-                    </p>
-                    <span class="badge rounded-pill bg-success">Ohne Zusatzkosten</span>
-
-                </div>
-
-                <div class="col-md-3">
-                    <img data-src="../assets/img/tivfl/tivfl-embeddings.webp" class="img-fluid d-none d-lg-block lazyload" alt="Newsletter-Anmeldung in Nubart">
-                </div>
-            </div>
-        </div>
+            </div></div>
     </section>
 
 </main><!-- End #main -->
@@ -757,6 +798,7 @@
 
 
 
+
 </script>
 
 <!-- Start of HubSpot Embed Code -->
@@ -785,6 +827,7 @@
             }, 1000);
         }
     });
+
 </script>
 </body>
 
