@@ -5,35 +5,83 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Structured data -->
+    <!-- structured data -->
 
     <script type="application/ld+json">
-
         {
             "@context": "http://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
+            "@graph": [
                 {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "item": {
-                        "@id": "https://www.nubart.eu/",
-                        "name": "Nubart"
-                    }
+                    "@type": "Organization",
+                    "additionalType": "http://www.productontology.org/doc/Audio_tour",
+                    "@id": "https://www.nubart.eu/#site",
+                    "legalName": "Nubart GmbH",
+                    "name": "Nubart",
+                    "location": [
+                        {
+                            "@type": "Organization",
+                            "name": "Nubart GmbH",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressCountry": "Германия"
+                            }
+                        },
+                        {
+                            "@type": "Organization",
+                            "name": "Digital Tangible SL",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressCountry": "Испания"
+                            }
+                        }
+                    ],
+                    "url": "https://www.nubart.eu/bg/",
+                    "image": "https://www.nubart.eu/img/features-no-apps.webp",
+                    "description": "Nubart е регистрирана търговска марка с офиси в Берлин и Барселона, представлявана в България от компанията Наше наследство. От 2016 г. Nubart се специализира в производството на цифрови аудиогидове (уеб приложения, уеб приложения или PWA) с уникална система, базирана на индивидуални карти с QR код. Продуктите на компанията включват Nubart Guide, Nubart Live, Nubart Sync и Nubart Game, а услугите ѝ включват създаване на съдържание за аудиогидове. Nubart има клиенти в повече от 27 държави и притежава множество патенти.",
+                    "brand": "Nubart",
+                    "email": "info@nubart.eu",
+                    "foundingDate": "2013-07-17",
+                    "foundingLocation": "Барселона",
+                    "vatID": "ESB66088592",
+                    "sameAs": [
+                        "https://twitter.com/nubarten?lang=en",
+                        "https://www.linkedin.com/company/nubart-eu/",
+                        "https://www.facebook.com/Nubart/",
+                        "https://www.crunchbase.com/organization/nubart",
+                        "https://vimeo.com/nubart",
+                        "https://www.youtube.com/channel/UCN8lCMkLud1_118AQFq6Uug"
+                    ]
                 },
                 {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "item": {
-                        "@id": "https://www.nubart.eu/bg/",
-                        "name": "Nubart - НАШЕ НАСЛЕДСТВО - аудиогидове"
-                    }
+                    "@type": "ImageObject",
+                    "@id": "https://www.nubart.eu/#logo",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                    "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                    "width": 600,
+                    "height": 393,
+                    "caption": "Nubart"
+                },
+                {
+                    "sameAs": [
+                        "https://www.nubart.eu/bg/"
+                    ],
+                    "inLanguage": [
+                        "en",
+                        "de",
+                        "fr",
+                        "es",
+                        "it",
+                        "ja",
+                        "nl",
+                        "pl"
+                    ]
                 }
             ]
         }
-
     </script>
+
     <!-- End Structured data -->
+
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

@@ -5,33 +5,80 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Structured data - Schema.org -->
+    <!-- structured data -->
 
     <script type="application/ld+json">
-
         {
             "@context": "http://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
+            "@graph": [
                 {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "item": {
-                        "@id": "https://www.nubart.eu/",
-                        "name": "Nubart"
-                    }
+                    "@type": "Organization",
+                    "additionalType": "http://www.productontology.org/doc/Audio_tour",
+                    "@id": "https://www.nubart.eu/#site",
+                    "legalName": "Nubart GmbH",
+                    "name": "Nubart",
+                    "location": [
+                        {
+                            "@type": "Organization",
+                            "name": "Nubart GmbH",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressCountry": "Deutschland"
+                            }
+                        },
+                        {
+                            "@type": "Organization",
+                            "name": "Digital Tangible SL",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressCountry": "Spanien"
+                            }
+                        }
+                    ],
+                    "url": "https://www.nubart.eu/de/",
+                    "image": "https://www.nubart.eu/img/features-no-apps.webp",
+                    "award": "Exzellenzsiegel / Seal of Excellence - KMU-Instrument des EU-Forschungs- und Innovationsförderprogramms Horizont 2020",
+                    "description": "Nubart ist eine eingetragene Marke mit Büros in Berlin und Barcelona. Seit 2016 hat sich Nubart auf die Produktion von digitalen Audioguides (Webapplikationen oder PWAs) mit einem einzigartigen kartenbasierten System mit eindeutigen QR-Codes spezialisiert. Zu den Produkten des Unternehmens gehören Nubart Guide, Nubart Live, Nubart Sync und Nubart Game, zu den Dienstleistungen gehört die Erstellung von Inhalten für Audioführungen. Nubart hat Kunden in mehr als 27 Ländern und hält zahlreiche Patente.",
+                    "brand": "Nubart",
+                    "email": "info@nubart.eu",
+                    "foundingDate": "2013-07-17",
+                    "foundingLocation": "Barcelona",
+                    "vatID": "ESB66088592",
+                    "sameAs": [
+                        "https://twitter.com/nubarten?lang=en",
+                        "https://www.linkedin.com/company/nubart-eu/",
+                        "https://www.facebook.com/Nubart/",
+                        "https://www.crunchbase.com/organization/nubart",
+                        "https://vimeo.com/nubart",
+                        "https://www.youtube.com/channel/UCN8lCMkLud1_118AQFq6Uug"
+                    ]
                 },
                 {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "item": {
-                        "@id": "https://www.nubart.eu/de/",
-                        "name": "Nubart"
-                    }
+                    "@type": "ImageObject",
+                    "@id": "https://www.nubart.eu/#logo",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                    "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                    "width": 600,
+                    "height": 393,
+                    "caption": "Nubart"
+                },
+                {
+                    "sameAs": [
+                        "https://www.nubart.eu/de/"
+                    ],
+                    "inLanguage": [
+                        "en",
+                        "de",
+                        "fr",
+                        "es",
+                        "it",
+                        "ja",
+                        "nl",
+                        "pl"
+                    ]
                 }
             ]
         }
-
     </script>
 
     <!-- End Structured data -->
