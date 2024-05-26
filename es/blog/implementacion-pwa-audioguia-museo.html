@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Structured data -->
+    <!-- Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "mainEntity": {
+                "@type": "Article",
+                "headline": "¿Qué debe tener en cuenta un museo para implementar una PWA como audioguía?",
+                "description": "Este es el primero de una serie de artículos en el que vamos a ayudarte a tomar tu decisión si te estás planteando implementar una audioguía como aplicación web interactiva o como PWA en tu museo. Primero vamos a darte algunas explicaciones de contexto: qué es una PWA, cómo se diferencia de una web estática. Después te daremos algunos consejos sobre el tipo de empresa a la que contratar tu audioguía, lo que necesitas saber sobre el CMS de tus audioguías,  sobre la aplicación de cookies de terceros, sobre los modelos de negocio existentes y sobre las posibilidades de obtener ingresos con tu PWA. ",
+                "image": "https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp",
+                "author": {
+                    "@type": "Organization",
+                    "name": "El equipo de Nubart"
+                },
+                "datePublished": "2024-05-23",
+                "dateModified": "2024-05-23",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Nubart",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- End Structured data -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>Guía para implementar una audioguía PWA en un museo</title>
+    <meta name="description" content="¿Consideras introducir una aplicación web como audioguía en tu museo? Aquí tienes una guía completa de todo lo que necesitas saber: CMS, modelos de negocio...">
+    <meta name="author" content="Nubart">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="¿Consideras introducir una aplicación web como audioguía en tu museo? Aquí tienes una guía completa de todo lo que necesitas saber: CMS, modelos de negocio...">
+    <meta name="twitter:site" content="@nub_art">
+    <meta name="twitter:creator" content="@nub_art">
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp">
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/es/blog/implementacion-pwa-audioguia-museo.html"/>
+
+    <link rel="alternate" href="https://www.nubart.eu/es/blog/implementacion-pwa-audioguia-museo.html" hreflang="es"/>
+
+    <!-- OpenGraph for Linkedin -->
+
+    <meta property="og:title" content="Guía para implementar una PWA como Audioguía en un museo"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp"/>
+    <meta property="og:author" content="Nubart International"/>
+    <meta property="og:description" content="¿Consideras introducir una aplicación web como audioguía en tu museo? Aquí tienes una guía completa de todo lo que necesitas saber: CMS, modelos de negocio...">
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.nubart.eu/es/blog/implementacion-pwa-audioguia-museo.html">
+
+    <!-- Icons 	-->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicon-16x16.png">
+
+    <link rel="mask-icon" href="../../assets/img/safari-pinned-tab.svg">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ./Icons 	-->
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons-min.css" rel="stylesheet">
+
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style-min.css" rel="stylesheet">
+    <link href="../../assets/css/custom.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRW7KZS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <p class="logo"><a href="../"><img src="../../assets/img/logo.svg" width="200" height="33" alt="Nubart's logo" class="img-fluid lazyload"></a>
+        </p>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../../">English</a></li>
+                        <li><a href="../../de">Deutsch</a></li>
+                        <li><a href="../../fr">Français</a></li>
+                        <li><a href="../../nl">Nederlands</a></li>
+                        <li><a href="../../it">Italiano</a></li>
+                        <li><a href="../../pl">Polski</a></li>
+                        <li><a href="../../bg">български</a></li>
+                        <li><a href="../../he">עִברִית</a></li>
+                        <li><a href="../../ja">日本語</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li class="dropdown"><a href="../audioguias.html"><span>NUBART GUIDE - La audioguía que te puedes llevar</span>
+                            <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="../produccion-contenido.html">Producción de contenido</a></li>
+                                <li><a href="../audioguia-multimedia.html">Elementos multimedia</a></li>
+                                <li><a href="../materiales.html">Qué informaciones necesitamos</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../gamificacion-juego-audioguia.html">NUBART GAME - Gamificación RA en tu audioguía</a></li>
+                        <li><a href="../sistema-guiado-de-grupos.html">NUBART LIVE - Sistema de guiado de grupos</a>
+                        </li>
+                        <li><a href="https://nubart-sync.com/es/">NUBART SYNC - Sincronización audio-vídeo</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>Aplicaciones</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../audioguias.html">Museos</a></li>
+
+                        <li><a href="../audioguia-zoos.html">Zoos y acuarios</a></li>
+                        <li><a href="../tours-barcos-buses.html">Rutas en barco o en autobús</a></li>
+                        <li><a href="../sistema-visita-guiada-fabricas.html">Visitas guiadas a fábricas</a></li>
+                    </ul>
+                </li>
+
+                <li><a class="nav-link scrollto" href="../clientes-proyectos.html">Clientes</a></li>
+                <li><a class="nav-link scrollto" href="../preguntas-frecuentes.html">FAQ</a>
+                <li class="dropdown"><a href="#"><span>Contacto</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a class="d-none d-sm-block" href="../equipo.html">Equipo</a></li>
+                        <li><a href="../contacto.html">Contacto</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                <li>
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login"><i class="bi bi-person-circle"></i>&nbsp; Login</a>
+                </li>
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+
+<main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div style="align-items:top;">
+
+                        <img src="../../assets/img/team/nubart-profile.webp" class="img-thumbnail rounded-circle" style="margin-right:30px;" width="45%" alt="Nubart">
+
+                    </div>
+                    <div>
+                        <h4 class="fs-5">Equipo de Nubart</h4>
+                        <p class="nubart-blog-author">Desarrollo IT</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-7 nubart-blog">
+                    <span class="badge rounded-pill bg-light text-dark">23 de mayo de 2024</span> <br> <br>
+                    <h1>Audioguías PWAs para museos: guía completa para implementarlas con éxito</h1>
+
+                    <p class="lead">Las audioguías como aplicaciones web o PWAs, a las que generalmente se accede por medio de un código QR,  se están popularizando mucho en los últimos años y están desbancando a las apps nativas tradicionales. Sin embargo, hay muchos aspectos a tener en cuenta si se está planteando implementar esta modalidad de audioguía en su museo por primera vez. Este es el primero de una serie de artículos en el que vamos a ayudarle a tomar la mejor decisión.</p>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="QR para acceder a una audioguía PWA en un museo - Nubart">
+                        <figcaption class="figure-caption text-center">Normalmente se accede a las audioguías PWA a través de un código QR visiblemente expuesto en el museo
+                        </figcaption>
+                    </figure>
+                    <h2>Motivos de la creciente popularidad de las audioguías como PWA en los museos.</h2>
+
+                    <p>Los códigos QR son la principal vía de acceso a las aplicaciones web interactivas o PWAs empleadas como audioguía en los museos. <b>Hasta la pandemia de Covid solo el 31.45 % de los visitantes de un museo sabía cómo escanear un código QR.</b> Pero su prolífico uso en bares y restaurantes durante la pandemia ha incrementado la familiaridad con los códigos QR al 98 % de la población. (En Nubart empleamos QRs para nuestras audioguías desde el 2016, así que conocemos este curioso dato estadístico de primera mano). Obviamente, esta evolución ha acelerado la implantación de las PWAs.</p>
+
+                    <p>Por otro lado, las apps de audioguía convencionales (técnicamente denominadas "aplicaciones nativas"), es decir, las que el visitante descarga en Google Play o en el App Store, han perdido popularidad. Básicamente por dos motivos: por su elevado coste de mantenimiento debido a las continuas actualizaciones impuestas por Android y iOS; y por su bajísima tasa de descarga (un promedio del 3,4 % del total de visitantes según datos internos de Nubart).</p>
+
+                    <p>A esto se añade que en los últimos años las capacidades de los navegadores han mejorado muchísimo. Ahora pueden hacerse cosas en cualquier navegador que eran impensables hace 10 años, durante la época dorada de las apps.</p>
+
+                    <p>Así que cada vez más museos se están planteando sustituir sus aparatos de audioguía tradicionales o sus apps nativas de audioguía por PWAs o aplicaciones web interactivas que se abren directamente en el navegador. En consecuencia, cada vez más agencias de software o proveedores de audioguías tradicionales están ofreciendo PWAs a los museos.</p>
+
+                    <p>Si usted trabaja para un museo que se está planteando pasarse a las audioguías PWA, en este artículo encontrará todo lo que necesita saber. Vamos a intentar explicarlo de un modo fácil para lectores sin grandes conocimientos tecnológicos.</p>
+
+                    <p>Empezaremos proporcionando un poco de contexto. Tenga en cuenta que, técnicamente hablando, las fronteras entre una página web “normal”, una aplicación web interactiva y una aplicación web progresiva o PWA son hasta cierto punto difusas.</p>
+
+                    <h2>¿Qué es una audioguía PWA o aplicación web progresiva?</h2>
+
+                    <p>Aunque la definición tecnológica es más complicada, la definición sencilla sería:</p>
+
+                    <p>Una PWA o aplicación web es una app interactiva a la que se accede simplemente escaneando un código QR en lugar de descargar una app en Google Play o en el App Store. La PWA o aplicación web se abre directamente en el navegador por defecto del smartphone y no requiere de ninguna instalación.</p>
+
+                    <p>Para escanear el código QR puede emplearse una app externa o la propia cámara del teléfono móvil. Actualmente prácticamente todos los smartphones permiten emplear la cámara preinstalada para escanear un QR, lo cual también ha contribuido a favorecer su uso.</p>
+
+                    <h2>¿En qué se diferencia una PWA o aplicación web progresiva de una simple página web?</h2>
+
+                    <p>Mucha gente piensa que cualquier cosa que se abra en un navegador es una “página web” y no es consciente de que muchos de los servicios que emplea habitualmente son en realidad una <i>aplicación web</i>. Por ejemplo, la plataforma de diseño Canva, o un programa cualquiera de contabilidad, no son páginas web, sino complejas aplicaciones web interactivas que permiten “hacer cosas”.</p>
+
+                    <p>Para explicarlo de un modo fácil:</p>
+                    <ul>
+                        <li>Una página web es estática y sirve para la publicación de contenidos multimedia. No necesita comunicarse con ningún servidor y su funcionalidad es muy limitada.</li>
+
+                        <li>Una aplicación web es un software que permite ejecutar diversas tareas y que se comunica con un servidor en el llamado “backend”.</li>
+                    </ul>
+                    <br>
+                    <h2>¿Podría crearse una audioguía en una simple página web estática?</h2>
+
+                    <p>Teóricamente sí. Algunos museos ofrecen las pistas de sonido de la audioguía directamente en su página web corporativa.</p>
+
+                    <p>Sin embargo, este modelo no ofrece resultados satisfactorios:</p>
+                    <ul>
+                        <li>Tiene una interactividad muy limitada.</li>
+
+                        <li>La presentación de los contenidos en varios idiomas, con su correspondiente menú, resulta complicada de implementar.</li>
+
+                        <li>No es posible precargar contenidos en modo offline para escucharlos en zonas del museo con mala conectividad, ya que una web estática solo funciona con conexión.</li>
+
+                        <li>Es difícil obtener datos de uso fiables y significativos.</li>
+                    </ul>
+                    <br>
+                    <h2>¿Cuáles son los beneficios de utilizar una PWA o una aplicación web como audioguía?</h2>
+
+                    <p>
+                        <b>En realidad, una audioguía PWA tiene prácticamente todos los beneficios tanto de las webs estáticas como de las apps, sin ninguno de sus inconvenientes.</b>
+                    </p>
+
+                    <p>Las PWA, si se implementan como Single Page App (SPA), están diseñadas para ser rápidas y eficientes, con una interfaz de usuario más ágil e interacciones más fluidas, incluso con contenidos multimedia como archivos de audio o vídeos.</p>
+
+                    <p>Las PWAs permiten implementar funciones adicionales de interactividad que tienen mucho sentido en una audioguía, como:</p>
+                    <ul>
+                        <li>Juegos</li>
+
+                        <li>Control remoto</li>
+
+                        <li>Mostrar una imagen en un momento específico de la reproducción del audio</li>
+
+                        <li>Formulario de feedback</li>
+
+                        <li>Control de acceso</li>
+
+                        <li>Geolocalización</li>
+
+                        <li>Etiquetas con listas de intereses</li>
+
+                        <li>Mapas interactivos</li>
+
+                        <li>Galerías de imágenes</li>
+
+                        <li>Funciones complejas de búsqueda</li>
+                    </ul>
+
+                    <p>Además, permiten actualizar el contenido de la audioguía con rapidez sin tener que cambiar el código de la aplicación y sin tener que enviar nada a los app stores de Google y de Apple para su aprobación.</p>
+
+                    <p>Encontrará
+                        <a href="https://developer.mozilla.org/es/docs/Web/Progressive_web_apps" target="_blank">aquí una descripción técnica detallada de las características de una PWA</a>.
+                    </p>
+                    <br>
+                    <h2>Aspectos a tener en cuenta para implementar una audioguía como aplicación web (PWA) en un museo. </h2>
+
+                    <p> La calidad de la audioguía contribuye a la imagen y la reputación de su museo. Además, aunque externalice tanto el desarrollo tecnológico de la PWA como la producción del contenido, va a enfrentarse a un proceso laborioso de revisión y de iteración que no querrá que sea en vano. Así que antes de lanzarse tenga en cuenta todos estos aspectos:</p>
+                    <br>
+                    <h3><i class="bi bi-1-circle-fill"></i> ¿Qué tipo de empresa va a desarrollar la audioguía PWA?</h3>
+
+                    <ul>
+                        <li>
+                            <b>Agencias de desarrollo de software.</b> En teoría, cualquier agencia de software generalista puede desarrollar su aplicación web o PWA. Sin embargo, no es fácil que una agencia de software entienda las necesidades específicas de una audioguía o de un museo. Pero, sobre todo, una agencia de software no dispondrá de un CMS específico para audioguías. Se arriesga a obtener una audioguía digital muy costosa y poco flexible para futuros cambios.
+                        </li>
+
+                        <li>
+                            <b> Empresas de audioguías tradicionales. </b>Estas empresas se dedican exclusivamente a las audioguías y a los servicios relacionados con ellas. Entenderán su lenguaje y sus necesidades. No obstante, estas empresas se han concentrado durante décadas en los aparatos de audioguías tradicionales y es posible que el desarrollo de software no sea uno de sus puntos fuertes. Asegúrese de que no van a externalizar la creación de su audioguía a desarrolladores externos, y de que disponen de un CMS específico para audioguías. Pídales que le envíen algún enlace de muestra de las PWAs que ya hayan realizado y explórelas a fondo.
+                        </li>
+
+                        <li>
+                            <b>Empresas tecnológicas especializadas en audioguías.</b> Seguramente ésta va a ser su mejor opción. Entenderán su lenguaje y también dispondrán de la expertise y del equipo necesarios para llevar a cabo su proyecto. No obstante, muchas de estas empresas son startups que llevan poco tiempo en el mercado, o que han crecido a base de inversión exterior y todavía no son sostenibles. No se deje deslumbrar solamente por su cartera de clientes, que pueden ser proyectos piloto gratuitos, y asegúrese de consultar sus datos financieros. De lo contrario, se arriesga a quedarse sin proveedor y sin audioguía en un par de años.
+                        </li>
+                    </ul>
+                    <br>
+                    <h3><i class="bi bi-2-circle-fill"></i> ¿La audioguía se va a desarrollar mediante un CMS?</h3>
+
+                    <p> Un CMS (del inglés
+                        <i>Content Management System</i>) es un software de gestión de contenidos o que permite crear, gestionar y modificar los contenidos de un sitio web o de una aplicación web sin necesidad de saber programar. Antes de contratar a su proveedor, pregúntele qué CMS tiene pensado emplear y, aunque usted no tenga un perfil tecnológico, trate de averiguar cuáles son sus limitaciones.
+                    </p>
+
+                    <p> Aquí existen las siguientes opciones:</p>
+
+                    <ul>
+                        <li>
+                            <b> Audioguía programada desde cero (sin CMS).</b> <br>Ofrece la ventaja de que podrá configurarla totalmente según sus deseos, hospedarla donde usted quiera y posiblemente pagarla una sola vez, sin cuotas recurrentes. Pero es un procedimiento muy costoso y requerirá de una considerable implicación por su parte durante el desarrollo.<br>Los verdaderos problemas surgirán cuando necesite hacer cambios en el futuro, sobre todo si la agencia de software que había elegido inicialmente ya no está disponible. La nueva agencia que contrate prácticamente tendrá que empezar de cero otra vez.
+                        </li>
+                        <br>
+                        <li>
+                            <b>Audioguía programada con un CMS no especializado en audioguías.</b><br>Teóricamente es posible construir una audioguía con un CMS diseñado inicialmente para páginas web, como Wordpress.<br>Otras agencias de software utilizan CMS más complejos diseñados para PWAs, como Craft o Glue. Este procedimiento permite hacer cambios más rápidamente, aunque seguirá teniendo que recurrir a una agencia de software para implementarlos, ya que son CMS pensados para desarrolladores.<br>Los problemas surgirán cuando desee implementar características propias de una audioguía y que estos CMS no soportan, como mapas interactivos, o asignar una fecha de validez a una exposición o pista de sonido, o incorporar elementos de realidad aumentada: aquí habrá llegado al límite de lo que puede ofrecer un CMS generalista que no haya sido concebido desde el principio para cubrir todos los problemas específicos de las audioguías-PWA.
+                        </li>
+                        <br>
+                        <li>
+                            <b>Audioguías programadas con un CMS específico para audioguías.</b> <br>Esta clase de CMS ha sido concebida por desarrolladores familiarizados con la casuística específica de las audioguías: las pistas de sonido se reproducen en un reproductor de audio optimizado, la navegación será la que corresponde, etc. <br>Tanto si la empresa le da acceso para que pueda hacer los cambios usted mismo, como si la empresa utiliza el CMS internamente, contará con una implementación rápida y efectiva de las actualizaciones de su audioguía y a un coste muy bajo o incluso gratuito, ya que serán cambios fáciles de realizar y no requerirán de personal técnico altamente cualificado.<br> Idealmente, el CMS habrá sido desarrollado internamente por el equipo IT de su proveedor, lo cual facilitará la implementación de nuevas funcionalidades en el futuro que enriquecerán y mejorarán su audioguía.
+                        </li>
+                    </ul>
+                    <br>
+                    <h3><i class="bi bi-3-circle-fill"></i> Acceso al CMS de la audioguía PWA</h3>
+
+                    <ul>
+                        <li>
+                            <b>El CMS es utilizado internamente por el personal de la empresa de audioguías.</b> <br>En este caso, el museo paga por el servicio especializado ofrecido durante el proceso y por el resultado final. Usted se ahorra la curva de aprendizaje y todo el tiempo que le llevará montar la audioguía. Algunas empresas cobran un pago único al implementar este modelo, lo cual puede encajar mejor con las posibilidades presupuestarias de un museo.<br>
+
+                            No olvide preguntar si el pago único que va a realizar incluirá la implementación de las futuras actualizaciones de la audioguía y bajo qué condiciones.
+                        </li>
+                        <br>
+                        <li>
+                            <b> El museo accede al CMS y construye la audioguía completa por su cuenta.</b><br> La ventaja de este sistema es que usted, como cliente, tiene todo el control y puede hacer cambios en la audioguía rápidamente y por sus propios medios.<br>El inconveniente es que estas plataformas requieren de una curva de aprendizaje considerable, especialmente si el CMS permite la integración de elementos complejos (mapas, realidad aumentada, juegos, fechas de validez…).<br>Si no tiene la necesidad de realizar cambios en su audioguía de forma regular, lo más probable es que todo este aprendizaje se olvide.<br>Cuando se producen cambios de personal en el museo, el nuevo encargado tendrá que aprenderlo todo de nuevo. Y aunque domine el manejo del CMS, montar una audioguía digital exige fácilmente una o dos semanas de trabajo.<br>
+
+                            Asegúrese de contratar un CMS manejable. Solicite al menos una semana de prueba gratuita a varios proveedores antes de decidirse por ninguno, e invierta suficiente tiempo en probarlos a fondo.<br>
+
+                            Pregunte si hay cláusula de permanencia y pida una copia del contrato antes de decidirse.
+                        </li>
+                        <br>
+                        <li>
+                            <b> Modelo híbrido.</b><br>Algunas empresas ofrecen ambas opciones: le dan el acceso al CMS, pero también le ofrecen como un servicio opcional el montaje digital de la audioguía.
+                        </li>
+                    </ul>
+                    <br>
+                    <h3><i class="bi bi-4-circle-fill"></i> ¿La audioguía PWA empleará cookies de terceros?</h3>
+
+                    <p>La protección de la privacidad del visitante es un asunto de extrema importancia, sobre todo para los museos de titularidad pública. Las cookies de terceros pueden rastrear a los usuarios en diferentes sitios web, recopilando datos sobre sus hábitos de navegación, preferencias e información personal. Los museos deben respetar la privacidad de sus visitantes evitando las tecnologías que puedan dar lugar a un rastreo y una recopilación de datos intrusivos.</p>
+
+                    <p> Asegúrese de que la audioguía PWA que le ofrece su proveedor no emplea cookies de terceros. Algunas de las cookies de terceros más comunes son Google Analytics (para obtener datos de uso), Google Maps (para geolocalizar elementos en una ruta) o Hotjar (para controlar los movimientos del cursor en la audioguía), pero hay muchísimas más.</p>
+
+                    <p>Para comprobarlo fácilmente, pída a su proveedor que le proporcione el enlace a alguna de las PWAs que haya realizado, y sométala a una auditoría de cookies. Hay diversos modos de hacerlo: desde el mismo navegador Chrome, clicando en “inspeccionar elemento” en el botón derecho del ratón y revisando la pestaña “network” tras volver a cargar la página. Si lo prefiere, también encontrará en el mercado plataformas especializadas en esta función.</p>
+
+                    <p>Si su potencial proveedor emplea cookies de terceros, asegúrese de que por lo menos implemente en la audioguía un aviso de cookies para que su museo cumpla con la Ley Europea de Protección de Datos.</p>
+                    <br>
+                    <h3><i class="bi bi-5-circle-fill"></i> ¿La audioguía PWA le ofrece buenos datos estadísticos?</h3>
+
+                    <p>Una audioguía PWA proporciona una oportunidad única para conocer mejor a sus visitantes. Al abrirse en el navegador del visitante, permite rastrear de forma anónima, legítima y no invasiva diversos datos estadísticos de gran interés para un museo, como el país de origen del visitante o su lengua principal. También es posible averiguar qué pistas de sonido se han escuchado y cuáles no, o incluso por qué zonas del museo se han movido los visitantes. Dada la dificultad de los museos para obtener este tipo de datos para la evaluación de públicos, sería una lástima desperdiciar la oportunidad que las aplicaciones web de audioguía le ofrecen.</p>
+
+                    <p>El rastreo y el análisis de datos es un proceso complejo que requiere de considerables conocimientos y recursos tecnológicos, así que no todas audioguías PWA que encontrará en el mercado los proporcionan. Si lo hacen, estos son los métodos más habituales:</p>
+
+                    <ul>
+                        <li>
+                            <b>Mediante servicios de terceros.</b><br>La opción más habitual, por ser gratuita, es emplear Google Analytics, presentando los datos generalmente a través de un sistema gratuito de visualización de datos como Looker Studio (también de Google). Este método no permite averiguar algunos de los datos más relevantes, como el país de origen del visitante. Y, sobre todo, plantean la problemática de emplear cookies de terceros.
+                        </li>
+
+                        <li>
+                            <b>Mediante una plataforma desarrollada internamente.</b><br>El cliente recibe un acceso protegido por contraseña a un tablero de datos concebido específicamente para audioguías. Esto es claramente la mejor opción. También en este caso es importante averiguar si se están empleando cookies de terceros.
+                        </li>
+                    </ul>
+                    <br>
+                    <h3><i class="bi bi-6-circle-fill"></i> ¿Cómo se puede monetizar una audioguía PWA?</h3>
+
+                    <p> La mayoría de museos que opta por una audioguía como aplicación web tiene la intención de ofrecer su acceso gratuito.<br>No obstante, el desarrollo de los contenidos de una audioguía en varios idiomas es muy costoso. Teniendo en cuenta que apenas un 10-20 % de los visitantes hace uso de los servicios gratuitos de audioguía ofrecidos en un museo, solicitar un pequeño pago por la utilización de la PWA de audioguía permite una distribución más justa de ese gasto y, si el museo es público, evita que vaya enteramente a cargo del contribuyente.
+                    </p>
+
+                    <p> Estos son los métodos que conocemos para monetizar la PWA de audioguía:</p>
+
+                    <ul>
+                        <li><b>Desbloquear la audioguía mediante un código numérico.</b><br>El visitante tiene que:
+                        <ul>
+                            <li>Acceder primero a la audioguía, ya sea mediante un enlace o un código QR.</li>
+
+                            <li>Obtener el código numérico de desbloqueo. Generalmente lo habrá recibido al comprar su ticket online, o bien en la mesa de recepción del museo. Este código tiene que introducirse en la audioguía digital previamente cargada.</li>
+                        </ul>
+
+                        Este proceso es relativamente complejo, ya que se compone de dos pasos independientes. Los usuarios no muy afines al mundo digital tendrán problemas, y aclararlos puede saturar al personal del museo y generar colas y usuarios insatisfechos.<br>
+
+                            A fin de evitar la piratería, estos códigos suelen estar limitados temporalmente.
+                        </li>
+                        <br>
+                        <li><b>Acceder directamente a un código QR único.</b><br>Ya sea de forma online o impreso en una tarjeta, el visitante recibe un código QR intransferible que, al escanearlo, le permite acceder directamente a la audioguía, sin pasos intermedios.<br>Éste es <a href="../audioguias.html" target="_blank">el método empleado en sus audioguías por Nubart</a>, quien ha patentado un método para hacer ese código intransferible y mantener así su valor comercial. Aunque el código es intransferible, el propietario podrá seguir accediendo a la audioguía mucho tiempo después de su visita.
+                        </li>
+
+                    </ul>
+                    <br>
+                    <h3><i class="bi bi-7-circle-fill"></i> ¿Cuáles son los modelos de negocio que las audioguías PWA ofrecen a los museos?</h3>
+
+                    <ul>
+                        <li>
+                            <b><a href="https://es.wikipedia.org/wiki/Software_como_servicio" target="_blank">Software como Servicio (SaaS)</a>:</b> El museo paga una cuota mensual de entre 50 € y 500 €. Generalmente esa cuota recurrente se justifica por uno o varios de estos motivos:
+                            <ul>
+                                <li>El tráfico generado</li>
+                                <li>El hosting de la audioguía</li>
+                                <li>El servicio de soporte técnico</li>
+                                <li>El acceso al CMS.</li>
+                            </ul>
+                            Aconsejamos calcular a largo plazo. Si va a emplear la audioguía en una exposición permanente y paga 200 € al mes, al cabo de 5 años la audioguía le habrá costado 12.000 €. Si su museo no tiene muchos visitantes, es posible que le convenga más un modelo de pago único o un pago por tokens. Infórmese también sobre posibles cláusulas de permanencia.
+                        </li>
+                    </ul>
+                    <ul>
+                        <li><b>Pago único:</b> El museo paga una única cuota al recibir la audioguía, que puede oscilar entre 3.000 y 15.000 €.<br>
+
+                            La cuota suele ser más elevada si la audioguía se ha diseñado desde cero y sin un CMS.<br>
+                            Tenga en cuenta que una audioguía digital nunca está 100% terminada. Tarde o temprano habrá que actualizar alguna función, añadir o quitar contenidos, resolver alguna incompatibilidad con navegadores, etc. Pregúntele a su proveedor si estará disponible para dichas actualizaciones y cuál es su tarifa.
+                        </li>
+                        <br>
+                        <li>
+                            <b>Pago por tokens:</b> Éste es el método seguido por Nubart. El museo paga una tasa única para el montaje de la audioguía y adquiere un número determinado de códigos únicos intransferibles, generalmente impresos sobre una tarjeta que el visitante se puede llevar. Las tarjetas no caducan, de modo que el museo puede distribuirlas hasta que se acaben.<br>
+
+                            Este modelo se adapta a los ingresos reales del museo, evitando las cuotas regulares fijas, ya que el consumo de tarjetas aumenta o disminuye en función de la afluencia de público y de los ingresos obtenidos por la entrada. Si el museo dispone de remanentes presupuestarios a final de año que necesite gastar, puede comprar una nueva remesa de tarjetas-audioguía y almacenarla para cuando las necesite.
+                        </li>
+                        <br>
+                        <li>
+                            <b>Reparto de beneficios:</b> Este modelo de negocio es muy habitual para los aparatos físicos de audioguías, pero es prácticamente inexistente para las audioguías digitales, tanto si son apps nativas o web-apps.<br>No obstante, el modelo de tokens permite la implementación de un reparto de beneficios o de una suscripción, al tratarse de códigos distintivos cuyo uso se puede trazar de forma inequívoca. En un reparto de beneficios de este tipo, el museo negocia un contrato con el proveedor y recibe los tokens e incluso la producción de contenidos sin coste alguno. El proveedor le facturará mensualmente únicamente los tokens o tarjetas que haya distribuido y amortizará con ello los servicios de producción de contenidos previamente prestados. Nubart ofrece este modelo cuando se dan determinadas condiciones.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlín<br>
+
+                            <strong>E-mail:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <p class="fs-4">Enlaces útiles</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contacto.html">Contacto</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../aviso-legal.html" rel="nofollow">Aviso legal</a></li>
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="../condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de servicio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../politica-privacidad.html" rel="nofollow">Política de privacidad</a>
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a nuestro boletín de noticias</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2013-2023</span></strong>. Todos los derechos reservados
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="../../assets/vendor/aos/aos.js"></script>
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../../assets/js/main.js"></script>
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2430134.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+</body>
+
+</html>
