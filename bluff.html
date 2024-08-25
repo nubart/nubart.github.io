@@ -1,0 +1,42 @@
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+        <p class="logo">
+            <a href="index.html"><img src="assets/img/logo.svg" alt="Nubart's logo" class="img-fluid lazyload"></a>
+        </p>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                    </ul>
+                </li>
+
+                <li><a class="nav-link scrollto" href="x-blog/">Blog</a></li>
+                <li><a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login"><i class="bi bi-person-circle"></i>&nbsp; Login</a></li>
+                <li><a class="getstarted scrollto" href="contact.html">Request a quote</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav></div>
+</header>```
+
+## Changes Made:
+
+1. **Logo Image Width:** Removed the fixed width of 200px from the logo image to allow it to scale responsively.
+2. **Media Queries:** You'll need to add media queries to adjust the header height, logo size, and menu structure for different screen sizes. Here's an example:
+
+```css
+@media (max-width: 768px) {
+.logo img {
+max-width: 150px; /* Adjust the maximum width as needed */
+}
+.header {
+height: 60px; /* Adjust the header height as needed */
+}
+.navbar ul {
+display: none; /* Hide the main menu on small screens */
+}
+.mobile-nav-toggle {
+display: block; /* Show the hamburger menu toggle */
+}
+/* ... other mobile-specific styles ... */
+}
