@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Structured data -->
+    <!-- Structured data -->
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "mainEntity": {
+                "@type": "Article",
+                "headline": "美術館のための音声PWA：実装に成功するための完全ガイド",
+                "description": "一般的にQRコードからアクセスするウェブアプリケーション（プログレッシブ・ウェブ・アプリケーション、PWA）としての音声ガイドは、近年非常に人気があり、従来のアプリを追い越しつつあります。しかし、このような形態の音声ガイドを初めて美術館に導入することを検討している場合、留意すべきことがたくさんあります。本記事は、皆様が最善の決断を下せるようお手伝いする連載記事の第一回目です。",
+                "image": "https://www.nubart.eu/assets/assets/img/blog/cover-pwa-museum.webp",
+                "author": "廣田 奈美",
+                "datePublished": "2024-10-12",
+                "dateModified": "2024-10-12",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Nubart",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- End Structured data -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Clearbit -->
+    <script src="https://tag.clearbitscripts.com/v1/pk_de925e18912c21d759ab2e1d4449f0a2/tags.js" referrerpolicy="strict-origin-when-cross-origin"></script>
+    <!-- End Clearbit -->
+
+    <title>美術館のための音声PWA：実装に成功するための完全ガイド</title>
+    <meta name="description" content="美術館で音声ガイドとしてウェブアプリケーションの導入をお考えですか？ここでは、必要な情報をすべて網羅した完全ガイドをご紹介します： CMS、ビジネスモデル...">
+    <meta name="author" content="Nubart">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="美術館で音声ガイドとしてウェブアプリケーションの導入をお考えですか？ここでは、必要な情報をすべて網羅した完全ガイドをご紹介します： CMS、ビジネスモデル...">
+    <meta name="twitter:site" content="@NubartEN">
+    <meta name="twitter:creator" content="@NubartEN">
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp">
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/ja/audio-guides/via-qr-code-pwa-webapp.html"/>
+    <link rel="alternate" href="https://www.nubart.eu/x-blog/how-to-implement-pwa-audioguide-in-museum.html" hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/x-blog/how-to-implement-pwa-audioguide-in-museum.html" hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/blog/implementacion-pwa-audioguia-museo.html" hreflang="es" />
+    <link rel="alternate" href="https://www.nubart.eu/fr/blog/installation-pwa-audioguide-musee.html" hreflang="fr" />
+    <link rel="alternate" href="https://www.nubart.eu/it/blog/implementazione-pwa-web-app-audioguida-museo.html" hreflang="it" />
+    <link rel="alternate" href="https://www.nubart.eu/de/blog/wie-pwa-audioguide-im-museum-umsetzen.html" hreflang="de" />
+    <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/via-qr-code-pwa-webapp.html" hreflang="ja" />
+
+
+    <!-- OpenGraph for Linkedin -->
+
+    <meta property="og:title" content="美術館のための音声PWA：実装に成功するための完全ガイド"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp"/>
+    <meta property="og:author" content="Nubart International"/>
+    <meta property="og:description" content="美術館のための音声PWA：実装に成功するための完全ガイド">
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://www.nubart.eu/ja/audio-guides/via-qr-code-pwa-webapp.html">
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png">
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- ./Icons -->
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons-min.css" rel="stylesheet">
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style-min.css" rel="stylesheet">
+    <link href="../../assets/css/custom.css" rel="stylesheet">
+    <link href="../../assets/css/custom-index.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Dewi - v4.6.0
+    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRW7KZS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <a href="../../ja/" class="logo"><img src="../../assets/img/logo.png" alt="Nubart's logo" class="img-fluid"></a>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../../">English</a></li>
+                        <li><a href="../../es/">Español</a></li>
+                        <li><a href="../../de/">Deutsch</a></li>
+                        <li><a href="../../fr/">Français</a></li>
+                        <li><a href="../../nl/">Nederlands</a></li>
+                        <li><a href="../../it/">Italiano</a></li>
+                        <li><a href="../../pl/">Polski</a></li>
+                        <li><a href="../../bg/">български</a></li>
+                        <li><a href="../../he/">עִברִית</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>製品</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../audio-guides/">音声ガイド</a></li>
+                        <li><a href="../digital-tour-guide-app/">ツアーガイドシステム</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class="nav-link scrollto" href="../audio-guides/customers/">お客様</a></li>
+                <li class="dropdown"><a href="#"><span>よくある質問</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../audio-guides/faq.html"> よくある質問 - NUBART GUIDE - オーディオガイド</a></li>
+                        <li><a href="../digital-tour-guide-app/faq.html">よくある質問 - NUBART LIVE - ツアーガイドシステム</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#"><span>連絡先</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../team.html">チーム紹介</a></li>
+                        <li><a href="../contact.html">連絡先</a></li>
+                        <li><a href="../quote-samples.html">見積もりやサンプルの依頼</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login"><i class="bi bi-person-circle"></i>&nbsp; ログイン</a>
+                </li>
+                <li><a class="getstarted scrollto" href="../quote-samples.html">見積もりやサンプルの依頼</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>QR音声ガイド実施ガイド</h2>
+                <ol>
+                    <li><a href="../">ホームページ</a></li>
+                    <li><a href="../audio-guides/">オーディオガイド</a></li>
+                    <li>QR音声ガイド実施ガイド</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div style="align-items:top;">
+
+                        <img src="../../assets/img/team/nami.jpg" class="img-thumbnail rounded-circle" style="margin-right:30px;" width="45%" alt="Theres">
+
+                    </div>
+                    <div>
+                        <h4 class="fs-5">廣田 奈美</h4>
+                        <p class="nubart-blog-author">日本事業展開担当</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-7 nubart-blog">
+                    <span class="badge rounded-pill bg-light text-dark">2024年6月6日  </span> <br> <br>
+                    <h1>美術館のための音声PWA：実装に成功するための完全ガイド</h1>
+
+                    <p class="lead">一般的にQRコードからアクセスするウェブアプリケーション（プログレッシブ・ウェブ・アプリケーション、PWA）としての音声ガイドは、近年非常に人気があり、従来のアプリを追い越しつつあります。しかし、このような形態の音声ガイドを初めて美術館に導入することを検討している場合、留意すべきことがたくさんあります。本記事は、皆様が最善の決断を下せるようお手伝いする連載記事の第一回目です。 </p>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
+
+
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="美術館でPWA音声ガイドにアクセスするためのQR - Nubart" />
+                        <figcaption class="figure-caption text-center">PWA音声ガイドは通常、館内に表示されているQRコードからアクセスします      </figcaption>
+                    </figure>
+                    <p>この記事の内容：</p>
+                    <h3 class="fs-5"><i class="bi bi-1-circle"></i>  <a href="#reasons">博物館におけるPWAとしての音声ガイドの人気が高まっている理由</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-2-circle"></i>  <a href="#definition-pwa">PWA（プログレッシブ・ウェブ・アプリケーション）とは何か？</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-3-circle"></i>  <a href="#pwa-vs-website">PWAは単純なウェブページとどう違うのか？</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-4-circle"></i>  <a href="#audioguide-as-website">シンプルな静的ウェブページで音声ガイドを作成することは可能だろうか？</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-5-circle"></i>  <a href="#advantages-pwa">音声ガイドとしてPWAを使うメリットは何ですか？</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-6-circle"></i>  <a href="#caveat-pwa-audioguide">美術館にPWAとして音声ガイドを導入する際に考慮すべき点。</a></h3>
+                    <ul>
+                    <li class="fs-5"><a href="#kind-of-company"> PWA音声ガイドはどのような会社が開発するのですか？</a></li>
+                    <li class="fs-5"><a href="#cms"> 音声ガイドはCMSを使って開発されるのですか？</a></li>
+                    <li class="fs-5"><a href="#access-cms"> オーディオガイドCMSへのアクセス</a></li>
+                    <li class="fs-5"><a href="#third-party-cookies"> PWA音声ガイドは第三者のクッキーを使用しますか？</a></li>
+                    <li class="fs-5"><a href="#stats"> PWAのオーディオガイドは統計データを提供してくれますか？</a></li>
+                    <li class="fs-5"><a href="#monetize"> PWAの音声ガイドを収益化するには？</a></li>
+                    <li class="fs-5"><a href="#business-model"> PWA音声ガイドが美術館に提供するビジネスモデルとは？</a></li>
+                    </ul>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+                    <h2 id="reasons">博物館におけるPWAとしての音声ガイドの人気が高まっている理由
+                    </h2>
+                    <p>QRコードは、博物館で音声ガイドとして使用されるインタラクティブなウェブアプリケーションやPWAにアクセスする主な方法です。<b>新型コロナ大流行が起こるまでは、博物館を訪れる人の31.45％しかQRコードの読み込み方法を知りませんでした。</b> しかし、新型コロナ大流行の間、お店やレストランでQRコードが多用されたことで、QRコードへの親しみは人口の98%にまで高まりました。 <a href="../../ja/" target="_blank">Nubart</a> では2016年から音声ガイドにQRを採用しているので、この流れを直に感じています）。明らかに、これはPWAの実装を加速させています。
+                    </p>
+
+                    <p>一方、従来の音声ガイドアプリ（専門的には「ネイティブアプリ」と呼ばれる）、つまり来館者がGoogle PlayやApp Storeからダウンロードするものは人気を失っています。その理由は、アンドロイドやiOSの継続的なアップデートに伴うメンテナンスコストの高さと、ダウンロード率の低さ（Nubartの社内データによると、美術館の総入館者の平均3.4％）です。
+                    </p>
+
+                    <p>それに加えて、近年ブラウザの機能が飛躍的に向上したこともあります。アプリの黄金時代だった10年前には考えられなかったことが、今ではどのブラウザでもできます。
+                    </p>
+
+                    <p>そのため、従来の音声ガイド機器やネイティブ音声ガイドアプリを、PWAやブラウザで直接開くインタラクティブなウェブアプリケーションに置き換えることを検討する美術館が増えています。そして、PWAを美術館に提供するソフトウェア会社や従来の音声ガイドプロバイダが急増しています。
+                    </p>
+
+                    <p>もしあなたがPWA音声ガイドへの切り替えを検討している美術館にお勤めなら、この記事を読めば、知っておくべきことをすべてお分かりいただけます。今から技術的な専門知識のない読者の方にもわかりやすく説明します。
+                    </p>
+
+                    <p>まず、背景を少し説明しましょう。技術的に言えば、「通常の」ウェブページ、インタラクティブなウェブアプリ、プログレッシブ・ウェブ・アプリ（PWA）の境界は、ある程度曖昧であることにご注意ください。
+                    </p>
+
+                    <p>（これらの違いについてすでにご存知の方は、<a href="#caveat-pwa-audioguide">PWA音声ガイド導入のヒント</a>からお読みください）</p>
+                    <br />
+                    <h2 id="definition-pwa">PWA（プログレッシブ・ウェブ・アプリケーション）とは何か？</h2>
+
+                    <p>技術的な定義はもっと複雑ですが、単純な定義は次のようになります。
+                    </p>
+
+                    <p>PWAあるいはウェブアプリケーションとは、Google PlayやApp Storeからアプリをダウンロードする代わりに、QRコードをスキャンするだけでアクセスできるインタラクティブなアプリです。PWAまたはウェブアプリは、スマートフォンのデフォルト設定のブラウザで直接開き、インストールは不要です。
+                    </p>
+
+                    <p>QRコードはスマートフォンのアプリや本体のカメラを使って読み取ることができます。最近では、ほとんどのスマートフォンカメラでQRコードを読み取ることができるようにプリインストールされており、これもQRコードの普及に貢献しています。
+                    </p> <br>
+
+                    <h2 id="pwa-vs-website">PWA（プログレッシブ・ウェブ・アプリケーション）は単純なウェブページとどう違うのか？
+                    </h2>
+
+                    <p>多くの人は、ブラウザで開くものは何でも「ウェブページ」だと思っており、普段使っているサービスの多くが実はウェブアプリケーションであることに気づいていません。例えば、Canvaのデザインプラットフォームやクラウド会計ソフトはウェブページではなく、「何かをする」ことを可能にする、複雑でインタラクティブなウェブアプリケーションなのです。
+                    </p>
+
+                    <p>簡単に説明すると：</p>
+                    <ul>
+                        <li>ウェブページ：静的で、マルチメディアコンテンツを公開するために使われる。サーバーと通信する必要はなく、その機能は非常に限られている
+                        </li>
+
+                        <li>ウェブアプリケーション：さまざまなタスクを実行するためのソフトウェアで、いわゆる「バックエンド」のサーバーと通信する
+                        </li>
+                    </ul>
+                    <br />
+                    <h2 id="audioguide-as-website">シンプルな静的ウェブページで音声ガイドを作成することは可能だろうか？
+                    </h2>
+
+                    <p>理論的には可能です。音声ガイドのサウンドトラックをウェブサイトで直接提供している美術館もあります。
+                    </p>
+
+                    <p>しかし、このモデルでは満足のいく結果は得られません、なぜなら：
+                    </p>
+                    <ul>
+                        <li>双方向性は非常に限られている</li>
+
+                        <li>複数の言語でコンテンツを表示し、それに対応するメニューを実装するのは複雑</li>
+
+                        <li>静的なウェブサイトはオンラインでしか機能しないため、館内の接続が悪い地域で視聴するために、オフラインモードでコンテンツをプリロードすることはできない
+                        </li>
+
+                        <li>信頼できる有意義な利用データを得るのは難しい
+                        </li>
+                    </ul>
+                    <br />
+                    <h2 id="advantages-pwa">PWAやウェブアプリケーションを音声ガイドとして使用するメリットは何ですか？
+                    </h2>
+
+                    <p>
+                        <b>実際のところ、PWA音声ガイドは、静的ウェブサイトとアプリの両方の利点を事実上すべて備えており、欠点はまったくありません。
+                        </b>.          </p>
+
+                    <p>PWAは、シングルページアプリ（SPA）として実装された場合、高速で効率的で、ユーザーインターフェイスが合理化され、音声ファイルや動画ファイルなどのマルチメディアコンテンツでもスムーズに使えるように設計されています。
+                    </p>
+
+                    <p>PWAは、音声ガイドで多くの意味を持つ、次のようなインタラクティブ機能を追加実装することが可能です。
+                    </p>
+                    <ul>
+                        <li>ゲーム</li>
+
+                        <li>遠隔操作</li>
+
+                        <li>オーディオ再生中に特定のタイミングで画像を表示する</li>
+
+                        <li>フィードバック・フォーム</li>
+
+                        <li>アクセス制御</li>
+
+                        <li>ジオロケーション</li>
+
+                        <li>パーソナライゼーション・オプション</li>
+
+                        <li>インタラクティブ・マップ</li>
+
+                        <li>複雑な検索機能</li>
+                    </ul>
+
+                    <p>また、アプリケーションのコードを変更したり、グーグルやアップルのアプリストアの承認を得たりすることなく、音声ガイドのコンテンツを迅速に更新することができます。
+                    </p>
+
+                    <p>ここでは、<a href="https://developer.mozilla.org/ja/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app" target="_blank">PWAの特徴に関する詳細な技術的説明</a>をご覧いただけます。 </p>
+                    <br />
+                    <h2 id="caveat-pwa-audioguide">美術館でウェブアプリケーション（PWA）として音声ガイドを実装する際に考慮すべき側面
+                    </h2>
+
+                    <p>高品質な音声ガイドは美術館のイメージと評判をあげてくれます。PWAの技術開発とコンテンツ制作の両方をアウトソーシングしたとしても、手間のかかる指示や見直しを無駄にしないため、PWAを採用する前に、以下の点についてご検討ください。
+                    </p>
+                    <br />
+                    <h3 id="kind-of-company"><i class="bi bi-1-circle-fill"></i> PWA音声ガイドはどのような会社が開発するのですか？
+                    </h3>
+
+                    <ul>
+                        <li>
+                            <b>ソフトウェア開発会社：</b> 理論的には、一般的なソフトウェア会社であれば、ウェブアプリケーションやPWAを開発することができます。しかし、ソフトウェア会社が音声ガイドや博物館の特定のニーズを理解するのは容易ではありません。欠点として、ソフトウェア会社は音声ガイド用に特別に設計されたコンテンツ管理システム（CMS）を持っていないということです。非常に高価で、将来の変更に柔軟に対応できないデジタル音声ガイドを手に入れる危険性があります。 </li>
+
+                        <li>
+                            <b> 伝統的なオーディオガイド会社： </b>これらの会社はオーディオガイドと関連サービスに特化しています。お客様の業界とニーズを理解してくれるでしょう。しかし、何十年もの間、伝統的な音声ガイド機器に注力してきたため、ソフトウェア開発は得意分野ではないかもしれません。音声ガイドの作成を外部の開発者に委託しないとは限りません、そして、音声ガイド専用のCMSを持っていることを確認してください。すでに作成したPWAのサンプルリンクをいくつか送ってもらい、注意深く調べてみましょう。
+                        </li>
+
+                        <li>
+                            <b>音声ガイドに特化した会社：</b> これが最善の選択肢であることは間違いありません。美術館の要望を理解し、そのプロジェクトを遂行するために必要な専門知識と設備も持っています。しかし、こうした企業の多くは、市場に参入して間もない新興企業であったり、外部からの投資に基づいて成長した企業であり、まだ持続可能とは言えません。無料で行ったパイロット・プロジェクトかもしれない顧客ポートフォリオに騙されることなく、必ず企業の財務状況をチェックしましょう。そうしないと、数年後に音声ガイドを制作した会社も、そのオーディオガイドも失う危険性があります。 </li>
+                    </ul>
+                    <br />
+                    <h3 id="cms"><i class="bi bi-2-circle-fill"></i> 音声ガイドはCMSを使って開発されるのですか？
+                    </h3>
+
+                    <p> CMS（コンテンツ管理システム）とは、プログラミングの知識がなくてもウェブサイトやウェブアプリケーションのコンテンツを作成、管理、修正できるソフトウェアのことです。制作会社に依頼する前に、どのようなCMSを使用する予定かを尋ね、あなた自身に専門知識がない場合でも、技術的な制限を調べるようにしましょう。
+                    </p>
+
+                    <p> CMSと関連して、以下の選択肢が考えられます。</p>
+
+                    <ul>
+                        <li>
+                            <b>ゼロからプログラムされた音声ガイド（CMSなし）</b> <br>この方法には、あなたの希望に沿った構成が可能で、好きな場所でホスティングでき、定期的な費用がかからず、一度だけの支払いで済むという利点があります。しかし、非常に高価な手段であり、開発にはかなりの関与を必要とします。<br>重大な問題が生じるのは、変更が必要になったとき、最初に制作したソフトウェア開発会社が存続しなくなった場合です。新しく雇ったソフトウェア会社は実質的にまたゼロから始めなければならないかもしれません。
+                        </li>
+                        <br />
+                        <li>
+                            <b>音声ガイドに特化していないCMSでプログラムされた音声ガイド</b><br>理論的には、Wordpressのようなウェブページ用に設計されたCMSで音声ガイドを構築することは可能です。<br>しかし、CraftやGlueなど、PWA用に設計されたより複雑なCMSがあります。より迅速に変更を加えることができますが、開発者向けに設計されたCMSであるため、実装はソフトウェア開発会社に依頼する必要があります。<br>これらのCMSがサポートしていないオーディオツアー機能、例えばインタラクティブ・マップの導入、展示物やオーディオトラックに有効期限を割り当てる場合、拡張現実の要素を組み込む場合などに問題が生じます。オーディオツアーPWAに特有の問題をすべてカバーするために設計されていないので、汎用CMSが提供できることには限界があります。      </li>
+                        <br />
+                        <li>
+                            <b>音声ガイド専用のCMSでプログラムされた音声ガイド</b>. <br>音声ガイドに特化したCMSは、音声ガイドに精通した開発者によって考案されているため、最適なオーディオプレイヤーでサウンドトラックが再生され、メニューのナビゲーションも適切でストレスなく音声ガイドを構築できます。
+                            <br>変更は簡単で、高度な資格を持つ技術スタッフを必要としません。開発会社からアクセス権を与えられ、自分で変更を加えることができる場合でも、その会社が社内でCMSを使用する場合でも、非常に低コストまたは無料で、オーディオガイドの更新を迅速かつ効果的に実施することができます。<br>理想的には、CMSは制作会社のITチームによって社内で開発されたものであることが望ましく、そうであれば、将来的に音声ガイドをより充実させ、向上させる新機能の実装が容易になります。 </li>
+                    </ul>
+                    <br />
+                    <h3 id="access-cms"><i class="bi bi-3-circle-fill"></i> PWA音声ガイドCMSへのアクセス</h3>
+
+                    <ul>
+                        <li>
+                            <b>CMSはオーディオガイド制作会社のスタッフが社内で使用する</b> <br>この場合、美術館は制作のための専門的なサービスと、その最終的な結果に対して料金を支払います。音声ガイドのセットアップにかかる労力と時間を節約することができます。会社によっては、このモデルを導入する際に1回限りの料金を請求するところもあり、その方が博物館の予算に見合うかもしれません。<br>
+
+                            1回限りの料金に、将来的なオーディオツアーの更新が含まれるかどうか、どのような条件で更新が実施されるかを必ず確認してください。</li>
+                        <br />
+                        <li>
+                            <b> 美術館はCMSにアクセスし、オーディオガイドを独自に構築する</b>
+                            <br> この方法の利点は、クライアントである美術館が完全にコントロールでき、オーディオガイドの変更を素早く自分で行えることです。<br>デメリットは、特にCMSで複雑な要素（地図、拡張現実、ゲーム、有効期限...）の統合が可能な場合、修得にかなりの労力を必要とすることです。<br>音声ガイドを定期的に変更する機会がなければ、修得した知識を忘れてしまう可能性が高いでしょう。館内で担当者が異動してしまうと、新しいスタッフは修得しなければなりません。さらに、たとえCMSをマスターしたとしても、デジタル音声ガイドの設定には1週間から2週間の作業が必要です。<br>
+                            扱いやすいCMSを採用するようにしましょう。選ぶ前に、複数のプロバイダに少なくとも1週間の無料トライアルを依頼し、十分な時間を投資して徹底的にテストしましょう。<br>
+                            決定する前に、永続条項があるかどうか確認し、契約書を交わしましょう。 </li>
+                        <br />
+                        <li>
+                            <b>ハイブリッドモデル</b><br>会社によっては、上の二つの選択肢を提供しております。CMSへのアクセスを得られるだけでなく、音声ガイドの設定をオプションサービスとして提供しています。 </li>
+                    </ul>
+                    <br />
+                    <h3 id="third-party-cookies"><i class="bi bi-4-circle-fill"></i>PWA音声ガイドはサードパーティのクッキーを使用しますか？
+                    </h3>
+
+                    <p>来館者のプライバシー保護は、特に公営の博物館にとって極めて重要な問題です。サードパーティのクッキーは、さまざまなウェブサイト上で利用者を追跡し、閲覧の習慣、嗜好、個人情報に関するデータを収集することができます。美術館は追跡やデータ収集につながる可能性のある技術を避けることで、来館者のプライバシーを尊重するべきです。</p>
+
+                    <p>プロバイダが提供するPWA音声ガイドがサードパーティクッキーを使用していないことを確認してください。最も一般的なサードパーティクッキーにはGoogleアナリティクス（利用データを取得するため）、Googleマップ（ルート内の要素を地理的に特定するため）、Hotjar（音声ガイド内のカーソルの動きを制御するため）などがありますが、他にもたくさんあります。</p>
+
+                    <p>これをチェックする最も簡単な方法は、プロバイダに彼らが作成した PWA の一つへのリンクを要求し、クッキーの使用を調べてみることです。これにはいくつかの方法があります：ご使用のブラウザ自体からチェックできますし、この機能に特化したプラットフォームも市販されています。</p>
+
+                    <p>候補のプロバイダがサードパーティのCookieを採用している場合、少なくとも音声ガイドにCookieに関する告知を実装していることを確認してください！
+                    </p>
+                    <br />
+                    <h3 id="stats"><i class="bi bi-5-circle-fill"></i> PWAのオーディオガイドは統計データを提供してくれますか？</h3>
+
+                    <p><a href="/ja/audio-guides/how-to-collect-visitors-data.html" target="_blank">PWA音声ガイドは来館者をよりよく知るための貴重な機会になります。</a>. 音声ガイドが来館者のブラウザで開かれると、来館者の出身国や主な使用言語など、博物館にとって関心の高いさまざまな統計データが匿名で、合法的に、かつ非侵襲的に追跡することができます。また、どのサウンドトラックが聴かれ、どのサウンドトラックが聴かれなかったか、さらには来館者が館内のどのエリアを移動したかを知ることも可能です。通常、美術館がこのような観客分析のためのデータを得るのが難しいことを考えると、音声ガイドのウェブアプリが提供するこの機会を無駄にするのはもったいないことです。
+                    </p>
+
+                    <p>データの追跡と分析は、かなりの技術的知識とリソースを必要とする複雑なプロセスであるため、市販されているすべてのPWAオーディオガイドがそれらを提供しているわけではありません。提供されている場合、以下が最も一般的な方法です。
+                    </p>
+
+                    <ul>
+                        <li>
+                            <b>サードパーティのサービスを利用する</b><br>最も一般的なオプションは、無料であるため、Google Analyticsを使用することです。一般的に、Looker Studio（同じくGoogleのもの）などの無料のデータ可視化システムを通じてデータを表示します。この方法では、訪問者の出身国など、美術館にとって興味が高いデータを知ることはできません。そして何よりも、サードパーティのクッキーを使用するという問題があります。 </li>
+
+                        <li>
+                            <b>音声ガイドのために開発されたプラットフォームを通じて</b><br>顧客はオーディオガイドのために設計され、パスワード保護されているデータダッシュボードへアクセスします。これは明らかに最良の選択肢です。この場合も、サードパーティのクッキーが使用されているかどうかを確認することが重要です。 </li>
+                    </ul>
+                    <br />
+                    <h3 id="monetize"><i class="bi bi-6-circle-fill"></i>PWAの音声ガイドを収益化するには？</h3>
+
+                    <p>ウェブアプリケーションとして音声ガイドを選択する博物館のほとんどは、来館者に無料アクセスを提供します。<br>しかし、音声ガイドのコンテンツを多言語で開発するのは非常にコストがかかります。美術館で提供される無料の音声ガイドサービスを利用する来館者は全体の10〜20％に過ぎないことを考えると、PWA音声ガイドの利用に少額の料金を徴収することで、この費用をより公平に分配することができ、公立の美術館であれば、その費用を納税者がすべて負担することを避けられます。 </p>
+
+                    <p>以下が音声ガイドPWAで収益を上げるためのいくつかの方法です。</p>
+
+                    <ul>
+                        <li><b>数字コードを使ってオーディオガイドのロックを解除
+                            </b><br>訪問者は：<ul>
+                            <li>リンクまたはQRコードから、まず音声ガイドのウェブアプリにアクセスする。</li>
+
+                            <li>数字のロック解除コードを入手する。通常、オンラインでチケットを購入した際、あるいはミュージアムの受付で受け取ります。あらかじめロードされているデジタル音声ガイドにこのコードを入力する。</li>
+                        </ul>
+                            このプロセスは、2つの別々のステップから構成されているため、比較的複雑です。デジタルにあまり詳しくない利用者には使いづらく、それを解決するために美術館のスタッフの時間を使い、混雑や利用者の不満につながる可能性があります。<br>
+
+                            著作権侵害を防ぐため、これらのコードには通常期限が設けられています。しかし、これでは、同じコードを複数の来館者が同時に使用することを防ぐことはできません。 </li>
+                        <br />
+                        <li><b>ユニークなQRコードを通して直接アクセス</b><br>オンラインであれ、カードに印刷されたものであれ、利用者は譲渡不可能なQRコードを受け取り、それをスキャンすると、中間ステップなしにオーディオガイドに直接アクセスできます。<br>この方法は<a href="../audio-guides/" target="_blank">Nubart社がオーディオガイドで使用しているもので</a>、コードを譲渡不可能にする技術の特許を取得し、これにより商業的価値を維持できます。コードは譲渡できませんが、所有者は訪問後、何度でもオーディオガイドにアクセスできます。 </li>
+
+                    </ul>
+                    <br />
+                    <h3 id="business-model"><i class="bi bi-7-circle-fill"></i>PWA音声ガイドの導入が可能にするビジネスモデルとは？</h3>
+
+                    <ul>
+                        <li>
+                            <b><a href="https://ja.wikipedia.org/wiki/Software_as_a_Service" target="_blank">サービスとしてのソフトウェア（SaaS）</a>:</b> 美術館は月額料金（5000円から5万円程度）を支払います。月額料金体制は一般的に以下の1つ以上の理由で正当化されます。  <ul>
+                            <li>発生したトラフィックの監視</li>
+                            <li>オーディオガイドのホスト・サーバー管理</li>
+                            <li>テクニカル・サポート・サービス</li>
+                            <li>CMSへのアクセス
+                            </li>
+                        </ul>一度、長期的な観点から見たときの計算をしてみてください。常設展示で音声ガイドを使用する場合、例えば毎月20,000円を支払うとすると、5年後には120万円かかることになります。来館者が多くない美術館であれば、  </li>
+                    </ul>
+                    <ul>
+                        <li><b>一括払い:</b> ミュージアムは、オーディオガイドを受領した時点で、30万円から150万円の1回限りの料金を支払います。<br>
+                            オーディオガイドがCMSなしでゼロからデザインされた場合、料金は通常より高くなります。<br>
+                            デジタルオーディオガイドは100％完成するものではありません。遅かれ早かれ、機能の更新、コンテンツの追加や削除、ブラウザとの非互換性の解消などが必要になります。そのようなアップデートが可能かどうか、またその料金はいくらか、あらかじめ開発会社に尋ねてみてください。 </li>
+                        <br />
+                        <li>
+                            <b>都度購入:</b> これはヌバルトが採用している方法の一つです。美術館は、オーディオガイドのセットアップのための1回限りの料金を支払い、購入者が持ち帰られる譲渡不可能なコードを印刷した厚紙のカードを制作会社から手に入れます。カードには有効期限がないため、美術館はカードがなくなるまで配布することができます。<br>
+
+                            この方式は、入場者数や入場料収入に応じてカードの使用量が増減するため、固定された定額料金を避けることができ、美術館の予算に合わせやすいです。年末に予算が余った場合は追加でオーディオガイドカードを購入し、必要な時に備えて保管しておくことができます。 </li>
+                        <br />
+                        <li>
+                            <b>レベニューシェア:</b> このビジネスモデルは、物理的なオーディオガイド機器では非常に一般的ですが、ネイティブアプリであれウェブアプリであれ、デジタル音声ガイドではほとんど見られません。<br>しかし、デジタル音声ガイドには、明確に追跡できるコードが実装されているため、使用された枚数が分かり、レベニューシェア（収益シェア）やサブスクリプションが可能です。レベニューシェアでは、美術館は制作会社と契約交渉を行い、初期費用なしでコンテンツの制作を行い、トークン（カード）を受け取ります。制作会は配布されたトークンやカードに対してのみ、月単位でミュージアムに請求し、すでに提供したコンテンツ制作サービスを償却します。Nubartは一定の条件のもと、このモデルを提供しています。  </li>
+                    </ul>
+                    <p>この記事がお役に立てば幸いです。美術館のPWA音声ガイドが備えるべきユーザビリティ（UX）とアクセシビリティの要素、およびそれらの識別方法に関する記事は、近日中に掲載予定です。 <a href="https://share.hsforms.com/1rnttDBERSv-v83VE2HJOcA1g33q" rel="nofollow">ニュースレターを購読して、Nubartの役に立つ記事を見逃さないようにしましょう。
+                    </a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <h3>Nubart - ヌバルト</h3>
+                        <p>
+                            バルセロナ、ベルリン、ニューヨーク<br>
+
+                            <i class="bi bi-envelope"></i>&nbsp info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>お役立ちリンク</h4>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contact.html">連絡先</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../legal-notice.html" rel="nofollow">法的通知</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../terms-conditions.html" rel="nofollow">Nubart利用規約</a></li>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../privacy-policy.html" rel="nofollow">データ保護</a>
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="https://share.hsforms.com/1rnttDBERSv-v83VE2HJOcA1g33q" rel="nofollow">ニュースレターを購読する</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="著作権について">
+            &copy; 著作権について <strong><span>Nubart - ヌバルト</span></strong>. 無断転載を禁じます。
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="../../assets/vendor/aos/aos.js"></script>
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../../assets/js/main-min.js" defer></script>
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2430134.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+</body>
+
+</html>
