@@ -40,8 +40,10 @@ a.index-item:hover {
   margin-bottom: 50px;
   font-size: 22px;
 }
-
+--------------------------------------------------------------*/
 /* button in dark turquoise for video */
+--------------------------------------------------------------*/
+
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #028A8C !important;
     border-color: #53D3C5 !important;
@@ -70,7 +72,9 @@ a.index-item2:hover {
     font-weight: bolder;
 }
 
+--------------------------------------------------------------*/
  /* sidebar for FAQ and multimedia elements*/
+ --------------------------------------------------------------*/
     .fixed-sidebar {
         position: fixed;
         top: 90px;
@@ -86,9 +90,9 @@ a.index-item2:hover {
         margin-top: -286px;
     }
 }
-
+--------------------------------------------------------------*/
 /* timeline for about us page*/
-
+--------------------------------------------------------------*/
 .timeline {
     list-style: none;
     position: relative;
@@ -205,13 +209,17 @@ a.index-item2:hover {
     margin-bottom: 0 !important
 }
 
+--------------------------------------------------------------*/
 /* center responsive images */
+--------------------------------------------------------------*/
 .img-responsive {
     margin-left: auto !important;
     margin-right: auto !important;
 }
 
+--------------------------------------------------------------*/
 /* to change link-colour on the tabbed table */
+--------------------------------------------------------------*/
 .nav-link {
     display: block;
     padding: 0.5
@@ -232,7 +240,9 @@ rem
   bottom: -58px;
 }
 
+--------------------------------------------------------------*/
 /* Use Nubart colors for the collpased items (FAQ) */
+--------------------------------------------------------------*/
 
 .accordion-button:not(.collapsed) {
     color: #ffffff;
@@ -247,14 +257,46 @@ rem
     box-shadow: 0 0 0 0.25rem rgb(132 240 216 / 25%);
 }
 
-/* Use Nubart's dark turquoise for links */
+--------------------------------------------------------------*/
+/* Use Nubart's dark turquoise as primary */
+--------------------------------------------------------------*/
 
 a {
     color: #028A8C;
     text-decoration: none;
 }
 
+:root {
+  --bs-primary: #028a8c;
+}
+
+/* Optional: Adjust hover and active colors for buttons and links */
+.btn-primary {
+  background-color: #028a8c;
+  border-color: #028a8c;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #026e6d;
+  border-color: #026e6d;
+}
+
+a {
+  color: #028a8c;
+}
+
+a:hover,
+a:focus {
+  color: #026e6d;
+}
+
+
+--------------------------------------------------------------*/
 /* Adapts former "testimonial images" for a customer-slider */
+--------------------------------------------------------------*/
+
 .testimonials .testimonial-item .testimonial-img {
   width: 50px;
   border-radius: 50%;
@@ -285,7 +327,6 @@ a {
 /*--------------------------------------------------------------
 # Timeliner - In demo audio-video
 --------------------------------------------------------------*/
-
 /* The actual timeline (the vertical ruler) */
 .main-timeline-4 {
   position: relative;
@@ -521,8 +562,9 @@ section {
     text-align: center;
 }
 
+--------------------------------------------------------------*/
 /* change color header */
-
+--------------------------------------------------------------*/
 
 #header.header-scrolled, #header.header-inner-pages {
     background: #028A8C;
@@ -530,7 +572,9 @@ section {
 
 }
 
+--------------------------------------------------------------*/
 /* special font size and line for BLOG*/
+--------------------------------------------------------------*/
 
 .nubart-blog {
     line-height: 1.6em;
@@ -543,122 +587,45 @@ section {
     color: #028a8c;
 }
 
-/* Change in the menu bar proposed by Claude */
-.utility-nav {
-    margin-left: auto;
+--------------------------------------------------------------*/
+/* MAke secondary navigation bar in the upper menu sticky with primary navigation bar */
+--------------------------------------------------------------*/
+/* Main header and its dropdowns */
+
+
+/* Main header */
+#header {
+    transition: all 0.5s ease-in-out;
+    background: transparent;
+    z-index: 1030; /* Keep header z-index high */
 }
 
-@media (min-width: 992px) {
-    .utility-nav {
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
-        padding-left: 1rem;
-        margin-left: 1rem;
-    }
+#header.scrolled {
+    background: rgba(0, 0, 0, 0.9);
 }
 
-.product-nav-wrapper {
-    background: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
-    margin-top: 80px; /* Adjust based on your main header height */
-    position: sticky;
-    top: 80px; /* Should match margin-top */
-    z-index: 100;
+/* Dropdown menus in primary navigation */
+#header .navbar .dropdown-menu {
+    position: absolute; /* Ensure positioning relative to dropdown */
+    z-index: 1050;      /* Set this above secondary navigation */
 }
 
-.product-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
+/* Secondary navigation bar */
+#secondary-nav {
+    transition: all 0.3s ease-in-out;
+    z-index: 1010; /* Base z-index when not sticky */
 }
 
-.product-nav-title {
-    flex-shrink: 0;
-}
-
-.product-nav-title h1 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #333;
-}
-
-.product-nav-title p {
-    margin: 0;
-    font-size: 0.875rem;
-    color: #666;
-}
-
-.product-nav-items {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 1.5rem;
-}
-
-.product-nav-items a {
-    color: #555;
-    text-decoration: none;
-    font-size: 0.9375rem;
-    padding: 0.5rem 0;
-    position: relative;
-}
-
-.product-nav-items a.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
+#secondary-nav.sticky {
+    position: fixed;
+    top: 80px;
     left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #007bff; /* Your primary color */
+    right: 0;
+    z-index: 1025; /* Set slightly below the primary dropdown menu */
 }
 
-.product-nav-items a:hover {
-    color: #007bff; /* Your primary color */
+/* Prevent content jump when nav becomes fixed */
+#secondary-nav.sticky + * {
+    margin-top: 56px;
 }
 
-.product-nav-items .cta-button {
-    background: #007bff; /* Your primary color */
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-}
-
-.product-nav-items .cta-button:hover {
-    background: #0056b3; /* Darker shade */
-    color: white;
-}
-
-/* Mobile responsive styles */
-@media (max-width: 991px) {
-    .product-nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-    }
-
-    .product-nav-title {
-        margin-bottom: 1rem;
-    }
-
-    .product-nav-items {
-        flex-wrap: wrap;
-        gap: 1rem;
-        width: 100%;
-    }
-
-    .product-nav-items li {
-        flex: 1 1 auto;
-    }
-
-    .product-nav-items .cta-button {
-        width: 100%;
-        text-align: center;
-        order: -1;
-        margin-bottom: 0.5rem;
-    }
-}
-</style>
