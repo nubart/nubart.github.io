@@ -1,6 +1,6 @@
-import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js';
+import { run } from 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.esm.js';
 
-CookieConsent.run({
+run({
     categories: {
         analytics: {
             enabled: false
