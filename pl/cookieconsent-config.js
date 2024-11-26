@@ -15,7 +15,6 @@ CookieConsent.run({
                     description: 'Cookie modal description',
                     acceptAllBtn: 'Accept all',
                     acceptNecessaryBtn: 'Reject all',
-                    showPreferencesBtn: 'Manage Individual preferences'
                 },
             }
         }
