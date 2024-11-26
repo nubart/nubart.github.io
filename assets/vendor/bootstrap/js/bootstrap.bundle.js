@@ -2644,10 +2644,7 @@
 
   // of the `<html>` and `<body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRW7KZS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->` rect bounds if horizontally scrollable
+<script type="module" src="/js/cookieconsent-config.js"></script>` rect bounds if horizontally scrollable
 
   function getDocumentRect(element) {
     var _element$ownerDocumen;
