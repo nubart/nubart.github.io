@@ -1,4 +1,4 @@
-import {run, acceptedCategory} from 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.esm.js';
+import {acceptedCategory, run} from 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.esm.js';
 
 run({
     categories: {
@@ -6,9 +6,8 @@ run({
             enabled: false
         }
     },
-    onChange: (cookie) => {
-        if(!acceptedCategory('analytics')){
-            deleteCookies();
+    onChange: () => {
+        if (!acceptedCategory('analytics')) {
             window.location.reload();
         }
     },
@@ -116,15 +115,3 @@ run({
         }
     }
 });
-
-function deleteCookies() {
-    const cookies = document.cookie.split(";");
-    const domain = window.location.hostname;
-
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i];
-        const eqPos = cookie.indexOf("=");
-        const name = eqPos > -1 ? cookie.slice(0, eqPos).trim() : cookie.trim();
-        document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${domain}`;
-    }
-}
