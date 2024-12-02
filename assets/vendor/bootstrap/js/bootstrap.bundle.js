@@ -2642,9 +2642,7 @@
     };
   }
 
-  // of the `<html>` and `<body>
-
-<script type="module" src="/js/cookieconsent-config.js"></script>` rect bounds if horizontally scrollable
+  // of the `<html>` and `<body>` rect bounds if horizontally scrollable
 
   function getDocumentRect(element) {
     var _element$ownerDocumen;
