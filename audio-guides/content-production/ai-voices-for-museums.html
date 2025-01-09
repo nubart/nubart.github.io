@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+
+            "mainEntity": {
+                "@type": "Article",
+                "headline": "The truth about AI voices for museum audio guides - how good are they really?",
+                "description": "Artificial intelligence-generated voices offer new opportunities for audio tour production for museums. The quick and easy creation of artificial voices that voice the script in different languages can save a lot of money and - sometimes - time as well. However, as amazingly perfect as they sound, these voices still have quite a few limitations, as the machines are not yet as adaptable as humans. This article points out some of the problems you will have to face when implementing AI voices in an audio guide.",
+                "image": "https://www.nubart.eu/assets/img/blog/cover-ai-voices.webp",
+                "author": "Theres Preißler",
+                "datePublished": "2024-03-24",
+                "dateModified": "2024-05-12",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Nubart",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+    <title>The truth about AI voices - how good are they really? </title>
+    <meta name="description"
+          content="AI voices offer new possibilities for audio guide production and can save a lot of money... but also time? Let's look at the good, the bad and the ugly.">
+    <meta name="author" content="Nubart">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="AI voices offer new possibilities for audio guide production and can save a lot of money... but also time? Let's look at the good, the bad and the ugly.">
+    <meta name="twitter:site" content="@NubartEN">
+    <meta name="twitter:creator" content="@NubartEN">
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-ai-voices.webp">
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/audio-guides/content-production/ai-voices-for-museums.html"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-production/ai-voices-for-museums.html" hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-production/ai-voices-for-museums.html" hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/produktion/pros-und-contras-ki-stimmen.html" hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/blog/voces-artificiales-ia-para-audioguias-pros-y-contras.html" hreflang="es"/>
+    <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/ai-voices-pros-and-cons.html" hreflang="ja"/>
+
+    <!-- OpenGraph for Linkedin -->
+
+    <meta property="og:title" content="The truth about AI voices for audio guides - how good are they really? "/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-ai-voices.webp"/>
+    <meta property="og:author" content="Nubart International"/>
+    <meta property="og:description" content="AI voices offer new possibilities for audio guide production and can save a lot of money... but also time? Let's look at the good, the bad and the ugly.">
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://www.nubart.eu/audio-guides/content-production/ai-voices-for-museums.html">
+
+   <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png">
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- ./Icons -->
+
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons-min.css" rel="stylesheet">
+
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style-min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+
+    <link href="../../assets/css/custom.css" rel="stylesheet">
+
+
+    <!-- =======================================================
+    * Template Name: Dewi - v4.6.0
+    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="../" class="logo">
+            <img src="../../assets/img/logo.png" alt="Nubart's logo" class="img-fluid">
+        </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown primary-menu">
+                    <a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul style="text-align: left;">
+                        <li>
+                            <a href="../../audio-guides/">
+                                NUBART GUIDE <i class="bi bi-headphones" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../digital-tour-guide-app/">
+                                NUBART LIVE <i class="bi bi-headset" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../audio-guides/ar-game-quiz.html">
+                                NUBART GAME <i class="bi bi-controller" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://nubart-sync.com/">
+                                NUBART SYNC <i class="bi bi-person-video3" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="../../portfolio/">Customers</a></li>
+                <li><a class="nav-link scrollto" href="../../x-blog/">Blog</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../../about.html">About us</a></li>
+                        <li><a href="../../contact.html">Contact Nubart</a></li>
+                    </ul>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
+                <li><a class="getstarted scrollto" href="../../contact.html">Quote</a></li>
+                <li class="dropdown">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../../es/">Español</a></li>
+                        <li><a href="../../de/">Deutsch</a></li>
+                        <li><a href="../../fr/">Français</a></li>
+                        <li><a href="../../nl/">Nederlands</a></li>
+                        <li><a href="../../it/">Italiano</a></li>
+                        <li><a href="../../pl/">Polski</a></li>
+                        <li><a href="../../bg/">български</a></li>
+                        <li><a href="../../he/">עִברִית</a></li>
+                        <li><a href="../../ja/">日本語</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header><!-- End Header -->
+
+<header class="sticky-top" style="top: 77px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between">
+        <nav class="navbar">
+            <ul>
+                <li style="color: white;"><b>NUBART GUIDE:</b></li>
+                <li class="dropdown secondary-menu">
+                    <a href="#"><span>Use Cases</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../../audio-guides/">Museums</a></li>
+                        <li><a href="../../audio-guides/zoo-guide.html">Zoos</a></li>
+                        <li><a href="../../audio-commentary-system/boats.html">Boats</a></li>
+                        <li><a href="../../audio-guides/digital-campus-tour.html">Campus Tours</a></li>
+                        <li><a href="../../panoramic-guide/">Viewing Platforms and Roofs</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../audio-guides/multimedia-features.html">Multimedia Features</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Content Production</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../../audio-guides/">Our production process</a></li>
+                        <li><a href="../../audio-guides/content-production/customer-requirements.html">What we need from you</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../audio-guides/inclusive-museum-qr-codes.html">Accessibility</a></li>
+                <li><a href="../../audio-guides/faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+            
+
+    
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>AI voices for museum audio guides</h2>
+                <ol>
+                    <li><a href="../../">Home</a></li>
+                    
+                    <li><a href="../">Nubart GUIDE</a></li>
+                    <li><a href=".">Content Production</a></li>
+                    <li>AI voices for museum audio guides</li>
+                </ol>
+            
+            </div>
+        
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+<main id="main">
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div style="align-items:top;">
+
+
+                        <img src="../../assets/img/team/theres.jpg" class="img-thumbnail rounded-circle"
+                             style="margin-right:30px;" width="45%" alt="Theres">
+                        <div>
+                            <h4 class="fs-5">Theres Preißler</h4>
+                            <p class="nubart-blog-author">Marketing</p>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-8 nubart-blog">
+                    <h1>The truth about AI voices for audio guides - how good are they really?
+                    </h1>
+                    <img src="../../assets/img/blog/cover-ai-voices.webp" class="img-fluid" alt="Nubart's blog - the truch about AI voices in audio guides"><br><br>
+                    <p class="lead">AI voices replacing human voices offer new opportunities for the production of audio guides. Easy and fast creation of voices narrating the script in different languages with the help of AI can save a lot of money and time. However, there are some limitations to these voices as machines are not as easily adaptable as humans (yet). This article points out a few of the issues you may face when implementing them in an audio guide "for real".
+
+
+                    </p>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
+                    <h2>How does it work?</h2>
+
+
+                    <p>
+                        AI has made many aspects of our lives easier and more enjoyable. With the advent of AI-generated voices, the audio guide industry has also been affected. Using technologies such as text-to-speech (TTS) and natural language processing (NLP), any text can be converted into an artificial voice that can guide your visitors. Looking at the benefits, choosing AI voices for your audio guide has the following advantages:
+                    </p>
+                    <h2>Main advantages of AI-voices for an audio guide</h2>    <br>
+                    <h3>1 - Affordable</h3>
+                    <p>If you are on a tight budget but still want to produce an audio guide for your museum, AI voices might be a good solution for you. Compared to human voices production, <strong>AI voices are a lot cheaper</strong> as it’s mainly a machine doing the work.
+                    </p> <br>
+
+
+                    <h3>2 - Quick production... up to a point</h3>
+
+
+                    <p>Using AI voices for your audio guide guarantees fast production, as different languages and accents can be produced quickly. However, it's not as simple as pressing a button and having a magical human voice.
+
+
+                    </p>
+
+
+                    <p>If you are serious about the quality of your audio guide, you will need to listen carefully to each track and, in most cases, <strong>edit them manually</strong>. This editing process can take a long time as AI is not perfect yet and adjustments need to be made by humans.
+                    </p>
+                    <p>First you have to allow time for the rendering. Once you have uploaded your script and chosen the voice you like best, you have to wait for your chosen platform to work its magic and produce the track. A short text of 65 words (= four lines) will take about 7 seconds to render. 7 seconds may not seem too bad... but it becomes very annoying as soon as you realize that you have to wait 7 seconds again and again for every edit you make.</p>
+                    <p>Only if you have a large amount of text to convert to voice, and don't care much about the quality of the result, <strong>will AI voices be not only affordable, but also fast</strong>.</p> <br>
+                    <h3>3 - Faithful recording of the script</h3>
+
+
+                    <p>Anyone who has worked with human narrators will know that misspelled or transposed words and omissions are almost inevitable. Hence, a tedious but unavoidable part of an audio guide production is listening to all the audio tracks while reading the script for comparison to find those mistakes.</p>
+
+
+                    <p>At least in this sense, AI voices are perfect: <strong>what you have in the script is what you get</strong>. But don't rejoice too soon: you're going to have to listen to them all anyway, albeit for other reasons (see below).</p>
+
+
+                    <p>Those were the advantages. Now let's look at the cons:
+                    </p><br>
+                    <h2>Main disadvantages of AI-voices for audio guides</h2><br>
+                    <h3>1 - Lack of emotion </h3>
+                    <p>AI voices are getting better at sounding human. But no matter how, machines are still machines and, at least in the near future, will not have the full human ability to express emotion. Voice actors are trained to play roles in a way that feels very real to the listener. If it's important to you that your voices are full of character, captivating, emotive and leave a lasting impression, human voices may be a better choice. Especially if you have a very specific idea of what you want your voices to sound like, an AI voice may not live up to your expectations.</p>
+                    <p><strong>Most current AI voice platforms allow you to set a tone for your voice</strong>, such as 'inspirational', 'promotional', 'sad', 'calm' or 'conversational'. It's a nice approach, but it takes a while to experiment with the different options and see how each of these tones sounds for each of the suggested AI voices, especially as you have to wait for the rendering to happen each time.</p>
+                    <p>For example if you are looking for an AI voice that expresses the very subtle sadness that the sentence: <i>"Unfortunately, the rest of the building was completely destroyed during the war”</i> would require, you are likely to have difficulties, as the sad tone from AI voice generators would express drama.</p>
+                    <p><strong>Subtlety is not (yet?) a skill that AI voices have mastered!</strong></p> <br>
+
+
+                    <h3>2 - Negative subconscious perception </h3>
+                    <p>A <a href="https://cloud.army/resources/blog/perception-of-ai-voices" target="_blank">study conducted by CloudArmy</a> which tested the implicit responses of participants to ads voiced by AI found out that while humans are usually not able to consciously tell the difference between human and AI voices, <strong>their implicit responses to artificial voices were less positive and trusting</strong> than their responses to ads voiced by humans.
+                    </p>
+
+                    <p>Even if the audio guide provides a different context than an ad does, these insights should be taken into consideration. In order to successfully integrate AI voices it’s important to understand how visitors will perceive them.
+                    </p>
+                    <p>AI voices are like a piano sonata created by a synthesiser, sounding more perfect than a human could ever play, but unable to subconsciously resonate with us. They may lack the beauty of human imperfection.</p>
+                    <br>
+                    <h3>3 - Mistakes difficult to correct  </h3>
+                    <p>AI technology is still developing. Mistakes are not uncommon. For example the machine <strong>might not recognize the way punctuation is done in a certain language</strong> and therefore has problems creating the right intonation. Or numbers are not pronounced correctly. These errors have to be fixed by humans which can be very time consuming and is not always possible.
+                    </p>
+                    <p>Moreover, this leads to the fact that <strong>the language used must be spoken by a team member</strong> in order to be able to correct mistakes.
+                        Otherwise you will easily get a soundtrack that <i>sounds French</i>... to you but not to a French native speaker!</p>
+
+
+                    <p><strong>Moreover, communicating instructions to an AI voice generator is difficult</strong>. To a human speaker you can say "please pause after every sentence" and they will understand immediately. But with an artificial voice, you have to manually point out all those pauses throughout the script and decide for each how long it should be.
+                    </p>
+                    <p><strong>Abbreviations are a major challenge</strong>. Most AI voices will probably pronounce the most well-known abbreviations, such as "NATO" or "NASA" correctly, because they have been instructed by the programmers to do so. But for example if you have "RIP" in your script, the artificial voice will probably say "ripe", as if it were a fruit. You'll have to search for all the abbreviations in your script and replace them one by one with what you want to hear: 'Rest in peace' or, weirdly enough, 'are eye pee'.</p> <br>
+                    <h3>4 - The nightmare of foreign words  </h3>
+                    <p>Another major challenge of AI voices is<strong> the pronunciation of foreign words</strong>, especially in the museum world, a sector that is particularly sensitive to cross-cultural communication.</p>
+                    <p>For example, imagine having a fashion museum as a client with Ermenegildo Zegna dresses on display. Despite several attempts, we have not been able to get any of the AI voices to pronounce the name of this brand correctly, in one breath and with an accent on the syllable "gil". The English or French AI voices we have tried make pauses between each syllable, which is unbearable to an Italian ear. Especially if your client is based in Italy, you have a problem!</p>
+                    <p>Most <strong>AI voice generators allow you to apply the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a></strong> for certain words. However, so far we have not seen very satisfactory results. Moreover, this approach requires a lot of patience and highly specialized knowledge, especially because it is not always possible to find the IPA transcription online. </p>    <br>
+                    <h2>How AI voices are applied in an audio guide</h2>
+                    <p>If you decide to use AI voices, you will need to <strong>register with an AI voice generator</strong>, such as Murf AI, ElevenLabs, PlayHT, LOVO AI, Narakeet, Resemble AI or Typecast, among many others. You can choose from a variety of voices representing different ages, genders, languages and moods. Once you have chosen a voice and uploaded your script, you can render your audio guide. From this point on there are two possible ways to proceed with the production of your AI audio guide:  </p>
+                    <ol>
+                        <li><strong>The voices are created by the AI voice generator without any further editing</strong>. You accept that there will be many errors, such as missing pauses and mispronunciations, which won't be removed and which visitors are likely to notice. </li>
+                        <li>The second option is for <strong>a member of the team to manually edit the AI audio tracks</strong> by adding or removing pauses, adjusting pitch, speed and tone, and correcting mispronunciations where possible. This is how Nubart works with AI voices in <a href="." target="_blank">our lowest service level, called Copper</a>. It's much more time-consuming than the first option, but we take all the time we need to meet our high standards and achieve a final result that satisfies our customers, within the IA constraints described here.</li>
+
+
+                    </ol>
+                    <br>
+                    <h2>What voice do you want?</h2>
+                    <p>If you take a closer look at AI voices compared to human voices, you will quickly see that AI voices are not perfect (yet). Human voices are still winning the "battle". Also in terms of the time and effort invested by the production and sound editing team. Human voices are able to convey real emotion, leave a lasting impression and tell the story you really want to tell. However, <strong>if your budget doesn't currently allow for human voices, AI voices can be a good alternative if expectations are kept realistic</strong>. These voices may not be able to live up to high standards, but they can still get the job done and provide valuable information to your visitors.
+                    </p>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlin
+
+                            <strong>Email:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3"><a href="https://www.linkedin.com/company/nubart-eu/"
+                                                          class="linkedin" target="_blank"><i
+                                class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Useful Links</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../../contact.html">Contact</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../../legal-notice.html" rel="nofollow">Legal
+                            notice</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../terms-conditions.html" rel="nofollow">Nubart's terms and conditions for audio guides</a>
+                        </li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../../privacy-policy.html" rel="nofollow">Privacy
+                            policy website</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Cookie Preferences</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-6 col-md-6 footer-newsletter">
+                    <h4>Our Newsletter</h4>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2024</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="../../assets/vendor/aos/aos.js"></script>
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+
+
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../../assets/js/main-min.js" defer></script>
+
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async defer src="//js.hs-scripts.com/2430134.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<script type="module" src="/js/cookieconsent-config.js"></script>
+</body>
+
+</html>

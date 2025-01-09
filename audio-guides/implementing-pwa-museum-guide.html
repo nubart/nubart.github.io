@@ -1,0 +1,564 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Structured data -->
+    <!-- Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "mainEntity": {
+                "@type": "Article",
+                "headline": "What should a museum consider when implementing a PWA as an audio guide?",
+                "description": "This is the first in a series of articles designed to help museum professionals understand what they need to consider when implementing an audio guide as an interactive web application, or PWA. We begin with some background on what a PWA is and how it differs from a static website. This is followed by advice on the type of organization that might lease an audio guide as a PWA, what you need to know about an audio guide CMS, the use of third-party cookies, existing business models, and the different ways to generate revenue from an audio guide PWA.",
+                "image": "https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Nubart's Team"
+                },
+                "datePublished": "2024-06-04",
+                "dateModified": "2024-06-04",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Nubart",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- End Structured data -->
+
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+    <title>Guide to implement a PWA audio guide in a museum</title>
+    <meta name="description" content="Considering introducing a web application as an audio guide in your museum? Here is a complete guide to everything you need to know: CMS, business models..." />
+    <meta name="author" content="Nubart" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Considering introducing a web application as an audio guide in your museum? Here is a complete guide to everything you need to know: CMS, business models..." />
+    <meta name="twitter:site" content="@nub_art" />
+    <meta name="twitter:creator" content="@nub_art" />
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp" />
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html" />
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html" hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html" hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/blog/implementacion-pwa-audioguia-museo.html" hreflang="es" />
+    <link rel="alternate" href="https://www.nubart.eu/fr/blog/installation-pwa-audioguide-musee.html" hreflang="fr" />
+    <link rel="alternate" href="https://www.nubart.eu/it/blog/implementazione-pwa-web-app-audioguida-museo.html" hreflang="it" />
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/als-pwa-oder-web-app-leitfaden.html" hreflang="de" />
+    <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/via-qr-code-pwa-webapp.html" hreflang="ja" />
+
+    <!-- OpenGraph for Linkedin -->
+
+    <meta property="og:title" content="Guide to implement a PWA as an audio guide in a museum" />
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp" />
+    <meta property="og:author" content="Nubart International" />
+    <meta property="og:description" content="Considering introducing a web application as an audio guide in your museum? Here is a complete guide to everything you need to know: CMS, business models..." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png">
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- ./Icons -->
+
+    <!-- supplier CSS Files -->
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons-min.css" rel="stylesheet" />
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Lazy-load JS -->
+    <script src="../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style-min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="../" class="logo">
+            <img src="../assets/img/logo.png" alt="Nubart's logo" class="img-fluid">
+        </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown primary-menu">
+                    <a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul style="text-align: left;">
+                        <li>
+                            <a href="../audio-guides/">
+                                NUBART GUIDE <i class="bi bi-headphones" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../digital-tour-guide-app/">
+                                NUBART LIVE <i class="bi bi-headset" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../audio-guides/ar-game-quiz.html">
+                                NUBART GAME <i class="bi bi-controller" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://nubart-sync.com/">
+                                NUBART SYNC <i class="bi bi-person-video3" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="../portfolio/">Customers</a></li>
+                <li><a class="nav-link scrollto" href="../x-blog/">Blog</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../about.html">About us</a></li>
+                        <li><a href="../contact.html">Contact Nubart</a></li>
+                    </ul>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
+                <li><a class="getstarted scrollto" href="../contact.html">Quote</a></li>
+                <li class="dropdown">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../es/">Español</a></li>
+                        <li><a href="../de/">Deutsch</a></li>
+                        <li><a href="../fr/">Français</a></li>
+                        <li><a href="../nl/">Nederlands</a></li>
+                        <li><a href="../it/">Italiano</a></li>
+                        <li><a href="../pl/">Polski</a></li>
+                        <li><a href="../bg/">български</a></li>
+                        <li><a href="../he/">עִברִית</a></li>
+                        <li><a href="../ja/">日本語</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header><!-- End Header -->
+
+<header class="sticky-top" style="top: 77px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between">
+        <nav class="navbar">
+            <ul>
+                <li style="color: white;"><b>NUBART GUIDE:</b></li>
+                <li class="dropdown secondary-menu">
+                    <a href="#"><span>Use Cases</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../audio-guides/">Museums</a></li>
+                        <li><a href="../audio-guides/zoo-guide.html">Zoos</a></li>
+                        <li><a href="../audio-commentary-system/boats.html">Boats</a></li>
+                        <li><a href="../audio-guides/digital-campus-tour.html">Campus Tours</a></li>
+                        <li><a href="../panoramic-guide/">Viewing Platforms and Roofs</a></li>
+                    </ul>
+                </li>
+                <li><a href="../audio-guides/multimedia-features.html">Multimedia Features</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Content Production</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../audio-guides/">Our production process</a></li>
+                        <li><a href="../audio-guides/content-production/customer-requirements.html">What we need from you</a></li>
+                    </ul>
+                </li>
+                <li><a href="../audio-guides/inclusive-museum-qr-codes.html">Accessibility</a></li>
+                <li><a href="../audio-guides/faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Guide to implement PWA audio guides</h2>
+            <ol>
+                <li><a href="../">Home</a></li>
+                <li><a href=".">Nubart GUIDE</a></li>
+                <li>Guide to implement PWA audio guides</li>
+            </ol>
+        </div>
+    
+    </div>
+</section><!-- End Breadcrumbs -->
+<main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div style="align-items:top;">
+
+                        <img src="../assets/img/team/nubart-profile.webp" class="img-thumbnail rounded-circle d-none d-lg-block" style="margin-right:30px;" width="45%" alt="Nubart" />
+
+                    </div>
+                    <div>
+                        <h4 class="fs-5">Nubart Team</h4>
+                        <p class="nubart-blog-author">Business Development</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-8 nubart-blog">
+
+
+                    <h1>Audio PWAs for museums: a complete guide to their successful implementation</h1>
+
+                    <p class="lead">Audio guides as web applications or PWAs, which are generally accessed via a QR code, have become very popular in recent years and are overtaking traditional apps. However, there are many things to keep in mind if you are considering implementing this form of audio guide in your museum for the first time. This is the first of a series of articles in which we will help you make the best decision.</p>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+                    <figure class="figure">
+                        <img src="../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="QR to access a PWA audio guide in a museum - Nubart" />
+                        <figcaption class="figure-caption text-center">PWA audio guides are normally accessed through a QR code visibly displayed in the museum.       </figcaption>
+                    </figure>
+                    <p class="fs-3">Contents of this article</p>
+                    <h3 class="fs-5"><i class="bi bi-1-circle"></i>  <a href="#reasons">Reasons for the growing popularity of audio guides as PWAs in museums.</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-2-circle"></i>  <a href="#definition-pwa">What is a PWA or progressive web application?</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-3-circle"></i>  <a href="#pwa-vs-website">How is a PWA different from a simple web page?</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-4-circle"></i>  <a href="#audioguide-as-website">Could an audio guide be created on a simple static web page?</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-5-circle"></i>  <a href="#advantages-pwa">What are the benefits of using a PWA as an audio guide?</a></h3>
+                    <h3 class="fs-5"><i class="bi bi-6-circle"></i>  <a href="#caveat-pwa-audioguide">Aspects to take into account when implementing an audio guide as a PWA in a museum.</a></h3>
+                    <ul>
+                    <li class="fs-5"><a href="#kind-of-company"> What type of company will develop the PWA audio guide?</a></li>
+                    <li class="fs-5"><a href="#cms"> Will the audio guide be developed using a CMS?</a></li>
+                    <li class="fs-5"><a href="#access-cms"> Access to the audio guide CMS</a></li>
+                    <li class="fs-5"><a href="#third-party-cookies"> Will the PWA audio guide use third-party cookies?</a></li>
+                    <li class="fs-5"><a href="#stats"> Does the PWA audio guide provide you with good statistical data?</a></li>
+                    <li class="fs-5"><a href="#monetize"> How to monetize a PWA audio guide?</a></li>
+                    <li class="fs-5"><a href="#business-model"> What are the business models that PWA audio guides offer to museums?</a></li>
+
+                    </ul>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+                    <h2 id="reasons">Reasons for the growing popularity of audio guides as PWAs in museums.</h2>
+
+                    <p>QR codes are the main way to access interactive web applications or PWAs used as audio guides in museums. <b>Until the Covid pandemic only 31.45% of museum visitors knew how to scan a QR code.</b> But their prolific use in bars and restaurants during the pandemic has increased familiarity with QR codes to 98 % of the population. (At <a href="../" target="_blank">Nubart</a> we have been employing QRs for our audio guides since 2016, so we know this curious statistic first hand). Obviously, this evolution has accelerated the implementation of PWAs.</p>
+
+                    <p>On the other hand, conventional audio guide apps (technically called "native apps"), i.e. those that visitors download from Google Play or the App Store, have lost popularity. Basically for two reasons: because of their high maintenance cost due to the continuous updates imposed by Android and iOS; and because of their very low download rate (an average of 3.4 % of total museum visitors according to Nubart's internal data).</p>
+
+                    <p>Added to this is the fact that in recent years the capabilities of browsers have improved tremendously. Now you can do things in any browser that were unthinkable 10 years ago, during the golden age of apps.</p>
+
+                    <p>So more and more museums are considering replacing their traditional audio guide devices or native audio guide apps with PWAs or interactive web applications that open directly in the browser. As a result, more and more software agencies or traditional audio guide providers are offering PWAs to museums.</p>
+
+                    <p>If you work for a museum that is considering switching to PWA audio guides, this article will tell you everything you need to know. We will try to explain it in an easy way for readers without great technological knowledge.</p>
+
+                    <p>Let's start by providing a bit of context. Note that, technically speaking, the boundaries between a "normal" web page, an interactive web app and a progressive web app or PWA are to some extent blurred.</p>
+
+                    <p>(If you are already familiar with these differences, jump straight to <a href="#caveat-pwa-audioguide">our tips for implementing a PWA audio guide</a>.)</p>
+                    <br />
+                    <h2 id="definition-pwa">What is a PWA or progressive web application?</h2>
+
+                    <p>Although the technological definition is more complicated, the simple definition would be:</p>
+
+                    <p>A PWA or web application is an interactive app that is accessed by simply scanning a QR code instead of downloading an app from Google Play or the App Store. The PWA or web app opens directly in the smartphone's default browser and requires no installation.</p>
+
+                    <p>The QR code can be scanned using an external app or the smartphone's own camera. Nowadays, almost all smartphones allow the use of the pre-installed camera to scan a QR code, which has also contributed to its use.</p> <br>
+
+                    <h2 id="pwa-vs-website">How does a PWA or progressive web application differ from a simple web page?</h2>
+
+                    <p>Many people think that anything that opens in a browser is a "web page" and they are unaware that many of the services they use on a regular basis are actually a <i>web application</i>. For example, the Canva design platform, or any accounting software, are not web pages, but complex interactive web applications that allow you to "do things".</p>
+
+                    <p>To explain it in an easy way:</p>
+                    <ul>
+                        <li>A web page is static and is used to publish multimedia content. It does not need to communicate with any server and its functionality is very limited.</li>
+
+                        <li>A web application is software that allows you to perform various tasks and communicates with a server in the so-called "backend".</li>
+                    </ul>
+                    <br />
+                    <h2 id="audioguide-as-website">Could an audio guide be created on a simple static web page?</h2>
+
+                    <p>Theoretically yes. Some museums offer the audio guide soundtracks directly on their corporate website.</p>
+
+                    <p>However, this model does not provide satisfactory results:</p>
+                    <ul>
+                        <li>It has very limited interactivity.</li>
+
+                        <li>The presentation of content in several languages, with its corresponding menu, is complicated to implement.</li>
+
+                        <li>It is not possible to preload content in offline mode for listening in areas of the museum with poor connectivity, as a static website only works online.</li>
+
+                        <li>Reliable and meaningful usage data is difficult to obtain.</li>
+                    </ul>
+                    <br />
+                    <h2 id="advantages-pwa">What are the benefits of using a PWA or web application as an audio guide?</h2>
+
+                    <p>
+                       <b>In reality, a PWA audio guide has virtually all the benefits of both static websites and apps, with none of the drawbacks</b>.          </p>
+
+                    <p>PWAs, if implemented as a Single Page App (SPA), are designed to be fast and efficient, with a streamlined user interface and smoother interactions, even with multimedia content such as audio or video files.</p>
+
+                    <p>PWAs allow the implementation of additional interactivity features that make a lot of sense in an audio guide, such as:</p>
+                    <ul>
+                        <li>Games</li>
+
+                        <li>Remote control</li>
+
+                        <li>Display an image at a specific time during audio playback</li>
+
+                        <li>Feedback form</li>
+
+                        <li>Access control</li>
+
+                        <li>Geolocation</li>
+
+                        <li>Personalization options</li>
+
+                        <li>Interactive maps</li>
+
+                        <li>Complex search functions</li>
+                    </ul>
+
+                    <p>They also allow the audio guide content to be updated quickly without having to change the code of the application and without having to submit anything to the Google and Apple app stores for approval.</p>
+
+                    <p>You will find <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank">here a detailed technical description of the features of a PWA</a>.    </p>
+                    <br />
+                    <h2 id="caveat-pwa-audioguide">Aspects to take into account when implementing an audio guide as a web application (PWA) in a museum. </h2>
+
+                    <p> The quality of the audio guide contributes to the image and reputation of your museum. What's more, even if you outsource both the technological development of the PWA and the production of the content, you'll be faced with a laborious process of review and iteration that you don't want to go through in vain. So before you dive in, consider all of these issues:</p>
+                    <br />
+                    <h3 id="kind-of-company"><i class="bi bi-1-circle-fill"></i> What type of company will develop the PWA audio guide?</h3>
+
+                    <ul>
+                        <li>
+                           <b>Software development agencies.</b> In theory, any generalist software agency can develop your web application or PWA. However, it is not easy for a software agency to understand the specific needs of an audio guide or a museum. Most importantly, a software agency will not have a content management system (CMS) specifically designed for audio guides. You risk getting a digital audio guide that is very expensive and inflexible for future changes.      </li>
+
+                        <li>
+                            <b> Traditional audio guide companies. </b>These companies are dedicated exclusively to audio guides and related services. They will understand your language and your needs. However, these companies have focused for decades on traditional audio guide devices and software development may not be one of their strengths. Make sure they will not outsource the creation of your audio guide to external developers, and that they have a CMS specifically for audio guides. Ask them to send you some sample links of PWAs they have already made and explore them in depth.      </li>
+
+                        <li>
+                           <b>Technological companies specialized in audio guides.</b> This is certainly your best option. They will understand your language and will also have the necessary expertise and equipment to carry out your project. However, many of these companies are startups that have been in the market for a short time, or that have grown based on outside investment and are not yet sustainable. Don't be dazzled by their client portfolio alone, which may be free pilot projects, and be sure to check their financials. (If your provider is based in the UK, you can <a href="https://find-and-update.company-information.service.gov.uk/" target="_blank">perform this check easily and for free at the Companies House</a>). Otherwise, you risk losing both your provider and your audio tour in a few years. </li>
+                    </ul>
+                    <br />
+                    <h3 id="cms"><i class="bi bi-2-circle-fill"></i> Will the audio guide be developed using a CMS?</h3>
+
+                    <p> A CMS (<i>Content Management System</i>) is a content management software that allows you to create, manage and modify the contents of a website or web application without having to know how to program. Before hiring your provider, ask them what CMS they plan to use and, even if you do not have a technical background, try to find out what their limitations are. </p>
+
+                    <p> The following options are available here:</p>
+
+                    <ul>
+                        <li>
+                            <b> Audio guide programmed from scratch (no CMS).</b> <br>It offers the advantage that you will be able to configure it entirely according to your wishes, host it wherever you want and possibly pay for it only once, without recurring fees. But it is a very expensive procedure and will require considerable involvement on your part during development.<br>The real problems will arise when you need to make changes in the future, especially if the software agency you had initially chosen is no longer available. The new agency you hire will practically have to start from scratch again.      </li>
+                        <br />
+                        <li>
+                           <b>Audio guide programmed with a CMS not specialized in audio guides.</b><br>Theoretically it is possible to build an audio guide with a CMS initially designed for web pages, such as Wordpress.<br>Other software agencies use more complex CMS designed for PWAs, such as Craft or Glue. This procedure allows you to make changes more quickly, although you will still need to use a software agency to implement them, as they are CMSs designed for developers.<br>Problems will arise when you want to implement audio tour features that these CMSs do not support, such as interactive maps, or when assigning a validity date to an exhibit or audio track, or when incorporating augmented reality elements: here you will have reached the limit of what a generalist CMS can offer that has not been designed from the ground up to cover all the issues specific to audio tour PWAs.      </li>
+                        <br />
+                        <li>
+                           <b>Audio guides programmed with a specific CMS for audio guides</b>. <br>This kind of CMS has been conceived by developers who are familiar with the specific case of audio guides: the sound tracks are played in an optimized audio player, the navigation will be appropriate, etc. <br>Whether the company gives you access so that you can make the changes yourself, or the company uses the CMS internally, you will have fast and effective implementation of your audio guide updates and at a very low cost or for free, as the changes will be easy to make and will not require highly qualified technical staff.<br> Ideally, the CMS will have been developed in-house by your provider's IT team, which will facilitate the implementation of new functionalities in the future that will enrich and improve your audio guide.      </li>
+                    </ul>
+                    <br />
+                    <h3 id="access-cms"><i class="bi bi-3-circle-fill"></i> Access to the PWA audio guide CMS</h3>
+
+                    <ul>
+                        <li>
+                           <b>The CMS is used internally by the staff of the audio guide company</b>. <br>In this case, the museum pays for the specialized service provided during the process and for the final result. You save the learning curve and all the time it takes to set up the audio tour. Some companies charge a one-time fee for implementing this model, which may be more in line with a museum's budget.<br>
+
+                            Be sure to ask if the one-time payment includes the implementation of future audio tour upgrades and under what conditions. </li>
+                        <br />
+                        <li>
+                            <b> The museum accesses the CMS and builds the complete audio guide on its own.</b><br> The advantage of this system is that you, as the client, have full control and can make changes to the audio guide quickly and on your own.<br>The disadvantage is that these platforms require a considerable learning curve, especially if the CMS allows the integration of complex elements (maps, augmented reality, games, validity dates...).<br>If you do not have the need to make changes to your audio guide on a regular basis, all this learning will most likely be forgotten.<br>When staff changes occur in the museum, the new manager will have to learn it all over again. And even if he or she masters the CMS, setting up a digital audio guide easily requires a week or two of work.<br>
+                            Make sure you hire a manageable CMS. Ask for at least a one-week free trial from several providers before choosing one, and invest enough time to test them thoroughly.<br>
+
+                            Ask if there is a permanence clause and request a copy of the contract before deciding.         </li>
+                        <br />
+                        <li>
+                            <b> Hybrid model.</b><br>Some companies offer both options: they give you access to the CMS, but also offer as an optional service the digital setup of the audio guide.      </li>
+                    </ul>
+                    <br />
+                    <h3 id="third-party-cookies"><i class="bi bi-4-circle-fill"></i> Will the PWA audio guide use third-party cookies?</h3>
+
+                    <p>Protecting visitor privacy is an extremely important issue, especially for publicly owned museums. Third-party cookies can track users on different websites, collecting data about their browsing habits, preferences and personal information. Museums should respect the privacy of their visitors by avoiding technologies that may result in intrusive tracking and data collection.</p>
+
+                    <p> Make sure that the PWA audio guide offered by your provider does not use third-party cookies. Some of the most common third-party cookies are Google Analytics (to obtain usage data), Google Maps (to geolocate elements in a route) or Hotjar (to control cursor movements in the audio guide), but there are many, many more.</p>
+
+                    <p>The easiest way to check this is to ask your provider for a link to one of the PWAs they have created and submit it to a cookie audit. There are several ways to do this: from the Chrome browser itself, by clicking on "inspect element" on the right mouse button and checking the "network" tab after reloading the page. If you prefer, you will also find on the market platforms specialized in this function.</p>
+
+                    <p>If your potential provider employs third-party cookies, make sure that they at least implement a cookie notice in the audio guide!</p>
+                    <br />
+                    <h3 id="stats"><i class="bi bi-5-circle-fill"></i> Does the PWA audio guide provide you with good statistical data?</h3>
+
+                    <p><a href="pwa-for-visitor-insights.html" target="_blank">A PWA audio guide provides a unique opportunity to get to know your visitors better</a>. When opened in the visitor's browser, it allows you to anonymously, legitimately, and non-invasively track various statistical data of great interest to a museum, such as the visitor's country of origin or primary language. It is also possible to find out which soundtracks were listened to and which were not, or even which areas of the museum visitors moved through. Given the difficulty museums have in obtaining this kind of data for audience analysis, it would be a shame to waste the opportunity offered by audio tour web applications.</p>
+
+                    <p>Tracking and analysing data is a complex process that requires considerable technological knowledge and resources, so not all PWA audio guides you will find on the market provide them. If they do, these are the most common methods:</p>
+
+                    <ul>
+                        <li>
+                           <b>Through third-party services.</b><br>The most common option, because it is free, is to use Google Analytics, generally presenting the data through a free data visualization system such as Looker Studio (also from Google). This method does not allow you to find out some of the most relevant data, such as the visitor's country of origin. And, above all, they raise the problem of using third-party cookies.        </li>
+
+                        <li>
+                           <b>Through an internally developed platform.</b><br>The customer receives password-protected access to a data dashboard specifically designed for audio guides. This is clearly the best option. Again, it is important to find out whether third-party cookies are being used.     </li>
+                    </ul>
+                    <br />
+                    <h3 id="monetize"><i class="bi bi-6-circle-fill"></i> How to monetize a PWA audio guide?</h3>
+
+                    <p>Most museums that opt for an audio guide as a web application intend to offer free access to their visitors.<br>However, developing the content of an audio guide in multiple languages is very costly. Considering that only 10-20% of visitors take advantage of the free audio guide services offered in a museum, charging a small fee for the use of the PWA audio guide allows for a more equitable distribution of this cost and, if the museum is public, avoids having it entirely borne by the taxpayer.      </p>
+
+                    <p> These are the methods we know of to monetize the audio guide PWA:</p>
+
+                    <ul>
+                        <li><b>Unlock the audio guide using a numerical code.</b><br>The visitor has to:   <ul>
+                            <li>Access the audio guide web app first, either via a link or a QR code.</li>
+
+                            <li>Obtain the numeric unlock code. They will usually have received it when purchasing their ticket online, or at the museum reception desk. This code has to be entered into the pre-loaded digital audio guide.</li>
+                        </ul>
+
+                        This process is relatively complex, as it consists of two separate steps. Users who are not very digitally savvy will have problems, and clearing them can overwhelm museum staff and lead to queues and dissatisfied users.<br>
+
+                            To prevent piracy, these codes are usually time-limited. However, this does not prevent the same code from being used by several visitors at the same time.    </li>
+                        <br />
+                        <li><b>Direct access to a unique QR code.</b><br>Whether online or printed on a card, the visitor receives a non-transferable QR code that, when scanned, allows direct access to the audio guide without any intermediate steps.<br>This is <a href="/audio-guides.html" target="_blank">the method used by Nubart in its audio guides</a>, which has patented a method to make the code non-transferable, thus preserving its commercial value. Although the code is not transferable, the owner can still access the audio guide long after the visit.    </li>
+
+                    </ul>
+                    <br />
+                    <h3 id="business-model"><i class="bi bi-7-circle-fill"></i> What are the business models that PWA audio guides offer to museums?</h3>
+
+                    <ul>
+                        <li>
+                           <b><a href="https://en.wikipedia.org/wiki/Software_as_a_service" target="_blank">Software as a Service (SaaS)</a>:</b> The museum pays a monthly fee of between 50 €/$ and 500 €/$. Generally, this recurring fee is justified for one or more of these reasons:        <ul>
+                                <li>The traffic generated</li>
+                                <li>The hosting of the audio guide</li>
+                                <li>The technical support service</li>
+                                <li>Access to the CMS.</li>
+                            </ul>
+                            We advise you to calculate in the long term. If you are going to use the audio guide in a permanent exhibition and you pay 200 €/$ per month, after 5 years the audio guide will have cost you 12,000 €/$. If your museum does not have many visitors, you may be better off with a one-time payment model or a token payment. Also inquire about possible permanence clauses.        </li>
+                    </ul>
+                    <ul>
+                        <li><b>One-time payment:</b> The museum pays a one-time fee upon receipt of the audio guide, which can range from 3,000 €/$ to 15,000 €/$.<br>
+
+                            The fee is usually higher if the audio guide has been designed from scratch and without a CMS.<br>
+                            Keep in mind that a digital audio guide is never 100% finished. Sooner or later it will be necessary to update some function, add or remove content, resolve some incompatibility with browsers, etc. Ask your provider if they will be available for such updates and what their fee is.   </li>
+                        <br />
+                        <li>
+                           <b>Payment by tokens:</b> This is the method followed by Nubart. The museum pays a one-time fee for the audio guide setup and acquires a certain number of unique non-transferable codes, usually printed on a cardboard card that the visitor can keep. The cards do not expire, so the museum can distribute them until they run out.<br>
+
+                            This method is well suited to the museum's current budget, avoiding fixed regular fees, since card consumption increases or decreases according to the number of visitors and the income obtained from admission. If the museum has budget remainders at the end of the year that it needs to spend, it can buy a new batch of new audio-guide cards and store them for when it needs them.     </li>
+                        <br />
+                        <li>
+                           <b>Revenue share:</b> This business model is very common for physical audio guide devices, but it is rarely found for digital audio guides, whether they are native apps or web-apps.<br>However, revenue sharing or subscription is enabled by the token model used for digital audio guides, since that implements distinctive codes that can be unambiguously traced. In such a revenue sharing, the museum negotiates a contract with the provider and receives the tokens and even the production of content at no upfront cost. The provider invoices the museum on a monthly basis only for the tokens or cards it has distributed and thus amortizes the content production services previously provided. Nubart offers this model under certain conditions.           </li>
+                    </ul>
+                    <p> We hope you found this article useful. A second article on the usability (UX) and accessibility elements that a PWA audio guide for a museum should have, and how to identify them, will follow soon. <a href="https://share.hsforms.com/1wMbMX3CMSdCDzitqTHmXiA1g33q" rel="nofollow">Subscribe to our</a> newsletter so you don't miss any of our posts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlin<br>
+
+                            <strong>Email:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3"><a href="https://www.linkedin.com/company/nubart-eu/"
+                                                          class="linkedin" target="_blank"><i
+                                class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Useful Links</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contact.html">Contact</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../legal-notice.html" rel="nofollow">Legal
+                            notice</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../terms-conditions.html" rel="nofollow">Nubart's
+                            terms and conditions</a>
+                        </li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../privacy-policy.html" rel="nofollow">Privacy
+                            policy website</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Cookie Preferences</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-6 col-md-6 footer-newsletter">
+                    <h4>Our Newsletter</h4>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2024</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- supplier JS Files -->
+<script src="../assets/vendor/aos/aos.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+
+
+<script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main-min.js" defer></script>
+
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async defer src="//js.hs-scripts.com/2430134.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<script type="module" src="/js/cookieconsent-config.js"></script>
+</body>
+
+</html>
