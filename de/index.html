@@ -113,12 +113,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Vendor CSS Files -->
     <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons-min.css" rel="stylesheet">
-
-    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+   
+ 
     <!-- Lazy-load JS -->
     <script src="../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
 
@@ -210,9 +206,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ======= Hero Section ======= -->
 <section id="hero" style='background-image: url("../assets/img/hero16-bg.webp");'>
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
-        <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; height: 100%; margin-top: 200px">
+        <div style="height: 100%; margin-top: 200px;">
             <!--Insert code (for old cards) -->
-            <div class="well d-lg-none" style="color:#ffffff; background: transparent;">
+            <div class="well d-lg-none" style="color:#ffffff; background: transparent; margin-bottom:40px;">
                 <form action="https://www.nub.art/external" method="GET" target="_blank" rel="noindex,nofollow">
                     <p>Hier können Sie den Code Ihrer Karte eingeben:</p>
                     <input type="text" name="token" autocomplete="off" autocapitalize="off" placeholder=" Code" maxlength="100" style="background: transparent; color: white;" autofocus="autofocus">
@@ -225,7 +221,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <h1 class="text-wrap">Innovative Lösungen für die Audioführung</h1>
                 <h2>Marktführer in Browser-basierten Besuchererlebnissen. Ohne Geräte oder Apps</h2>
                 <div class="row">
-                    <div class="col-lg-6 mx-auto d-none d-lg-block"> <!-- Adjust column width as needed -->
+                    <div class="col-12 col-lg-6 mx-auto"> <!-- Changed from col-lg-6 to col-12 col-lg-6 -->
                         <img src="../assets/img/hero-image-guide.webp" class="img-fluid lazyload" alt="Nubart - Monetarisierbare und innovative Web-Apps und PWAs für Audioführung vom Marktführer">
                     </div>
                 </div>
@@ -238,10 +234,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- ======= About Boxes Section ======= -->
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about  d-none d-lg-block">
         <div class="container" data-aos="fade-up">
             <div class="row justify-content-end">
-                <div class="col-lg-11 d-none d-lg-block">
+                <div class="col-lg-11">
                     <div class="row justify-content-end">
 
                         <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
@@ -548,6 +544,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End of HubSpot Embed Code -->
 
 <script type="module" src="/js/cookieconsent-config.js"></script>
+<!-- Load CSS files dynamically in the footer -->
+<script>
+    function loadCSS(url) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = url;
+        document.head.appendChild(link);
+    }
+
+    // Load non-critical CSS files asynchronously
+
+    loadCSS('../assets/vendor/bootstrap-icons/bootstrap-icons-min.css');
+    loadCSS('../assets/vendor/glightbox/css/glightbox.min.css');
+    loadCSS('../assets/vendor/swiper/swiper-bundle.min.css');
+</script>
 </body>
 
 </html>
