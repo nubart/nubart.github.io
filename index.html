@@ -166,7 +166,16 @@
 
 <body>
 
-
+<!-- ======= ITB Announcement Banner ======= -->
+<div id="announcement-banner" style="background-color: #c9301e; padding: 10px 0; text-align: center; width: 100%; position: fixed; top: 0; left: 0; z-index: 1031;">
+    <div class="container">
+        <p style="color: white; margin: 0; font-weight: 500;">
+            <i class="bi bi-megaphone-fill" style="margin-right: 8px;"></i>
+            Visit us at the ITB Berlin!  <i class="bi bi-pin-map-fill"  style="margin-right: 8px; margin-left: 8px;"></i>Hall 6.1, Stand 210
+        </p>
+    </div>
+</div>
+<!-- End ITB Announcement Banner -->
 
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top header">
@@ -240,10 +249,10 @@
 <!-- ======= About Boxes Section ======= -->
 <section id="hero" style='background-image: url("assets/img/hero16-bg.webp");'>
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
-        <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; height: 100%; margin-top: 200px">
+        <div style="height: 100%; margin-top: 200px;">
 
             <!--Insert code (for old cards) -->
-            <div class="well d-lg-none" style="color:#ffffff; background: transparent;">
+            <div class="well d-lg-none" style="color:#ffffff; background: transparent; margin-bottom:40px;">
                 <form action="https://www.nub.art/external" method="GET" target="_blank" rel="noindex,nofollow">
                     <p>If you have a card with a code, enter it here:</p>
                     <input type="text" name="token" autocomplete="off" autocapitalize="off" placeholder=" Code" maxlength="100" style="background: transparent; color: white;" autofocus="autofocus">
@@ -258,7 +267,7 @@
                 <h2 style="color: white">Market leader in Browser-Based Visitor Experiences.<br>No Devices or Apps Required<br></h2>
 
                 <div class="row">
-                    <div class="col-lg-6 mx-auto d-none d-lg-block"> <!-- Adjust column width as needed -->
+                    <div class="col-12 col-lg-6 mx-auto"> <!-- Adjust column width as needed -->
                         <img src="assets/img/hero-image-guide.webp" class="img-fluid lazyload" alt="Nubart - Monetizable and Innovative Web-Apps and PWAs for Audio Guiding from the Market Leader">
                     </div>
                 </div>
@@ -269,10 +278,10 @@
 </section>
 <main id="main">
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about  d-none d-lg-block">
         <div class="container" data-aos="fade-up">
             <div class="row justify-content-end">
-                <div class="col-lg-11 d-none d-lg-block">
+                <div class="col-lg-11">
                     <div class="row justify-content-end">
                         <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                             <div class="count-box">
@@ -621,6 +630,28 @@
 </script>
 
 <script type="module" src="/js/cookieconsent-config.js"></script>
+
+<!-- Script to adjust header position ITB Announcement Banner  -->
+<script>
+    // Run after document is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get banner height
+        var bannerHeight = document.getElementById('announcement-banner').offsetHeight;
+        
+        // Adjust the header position
+        var header = document.getElementById('header');
+        header.style.top = bannerHeight + 'px';
+        
+        // Adjust the hero section to prevent overlap
+        var heroSection = document.getElementById('hero');
+        if (heroSection) {
+            var currentPaddingTop = window.getComputedStyle(heroSection).paddingTop;
+            var additionalPadding = parseInt(currentPaddingTop) + bannerHeight;
+            heroSection.style.paddingTop = additionalPadding + 'px';
+        }
+    });
+</script>
+<!-- End ITB Announcement Banner -->
 </body>
 
 </html>
