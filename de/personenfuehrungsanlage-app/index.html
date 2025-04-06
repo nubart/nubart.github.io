@@ -103,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="alternate" href="https://www.nubart.eu/it/tour-guide-app/" hreflang="it"/>
     <link rel="alternate" href="https://www.nubart.eu/ja/digital-tour-guide-app/" hreflang="ja"/>
     <link rel="alternate" href="https://www.nubart.eu/fr/systeme-audio-visite-guidee/" hreflang="fr"/>
-    <link rel="alternate" href="https://www.nubart.eu/nl/rondleidingsysteem.html" hreflang="nl"/>
+    <link rel="alternate" href="https://www.nubart.eu/digital-rondleidingsysteem/" hreflang="nl"/>
     <link rel="alternate" href="https://www.nubart.eu/pl/tour-guide-system/" hreflang="pl"/>
 
     <!-- OpenGraph for Linkedin -->
@@ -157,7 +157,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
+<!-- First Navbar -->
+<header id="header" class="fixed-top header">
     <div class="container d-flex align-items-center justify-content-between">
         <a href="../" class="logo">
             <img src="../../assets/img/logo.png" alt="Nubart's logo" class="img-fluid">
@@ -195,15 +196,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a href="#"><span>Kontakt</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="../ueber-uns.html">Über uns</a></li>
-                        <li><a href="../kontakt.html">Kontakt zu Nubart</a></li>
+                        <li><a href="../kontakt.html">Kontakt Nubart</a></li>
                     </ul>
                 </li>
-                <li class="d-flex">
+                <li class="d-flex d-none d-md-block">
                     <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
                         <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
-
-                <li class="dropdown">
+                
+                <li class="dropdown d-none d-md-block">
                     <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="../../">English</a></li>
@@ -216,6 +217,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><a href="../../he/">עִברִית</a></li>
                         <li><a href="../../ja/">日本語</a></li>
                     </ul>
+                </li>
+                
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none"><hr></li>
+                <li class="mobile-secondary-header d-md-none"><span>NUBART LIVE</span></li>
+                <li class="d-md-none"><a href="faq.html">FAQ</a></li>
+                <li class="d-md-none"><a href="../../assets/pdf/de-instructions-nubart-live.pdf" target="_blank">
+                    Anleitung</a>
+                </li>
+                <li class="d-md-none"><a href="preis.html">Preise</a></li>
+                <li class="d-md-none">
+                    <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=de" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Test-Kit anfordern</a>
+                </li>
+                <li class="d-flex d-md-none">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -243,36 +260,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </div>
 </section><!-- End Hero -->
-<header class="sticky-top" style="top: 60px; background: #783119">
-    <div class="container d-flex align-items-center justify-content-between">
-        <nav class="navbar">
-            <div class="navbar-logo">
-                <a href="../personenfuehrungsanlage-app/">
-                    <img src="../../assets/img/logos/logo-nubart-live-white.png" alt="NUBART LIVE Logo" width="175" height="25">
-                </a>
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #783119">
+    <div class="container d-flex align-items-center justify-content-between" style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div class="navbar-logo">
+                    <a href=".">
+                        <img src="../../assets/img/logos/logo-nubart-live-white.png" alt="NUBART LIVE Logo" width="175" height="25">
+                    </a>
+                </div>
+                
+                <ul id="secondary-menu-items" class="secondary-menu-list" style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Anwendungsfälle</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="werksbesichtigung.html">Werksbesichtigungen</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 30px;"><a href="faq.html">FAQ</a></li>
+                    <li style="margin-right: 30px;"><a target="_blank" href="../../assets/pdf/de-instructions-nubart-live.pdf">
+                        <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Anleitung</a>
+                    </li>
+                    <li style="margin-right: 30px;"><a href="preis.html">Preise</a></li>
+                    <li>
+                        <a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=de" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Testkit anfordern</a>
+                    </li>
+                </ul>
             </div>
-            <ul>
-
-                <li class="dropdown secondary-menu">
-                    <a href="#"><span>Anwendungsfälle</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../personenfuehrungsanlage-app/werksbesichtigung.html">Werksbesichtigungen</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="../personenfuehrungsanlage-app/faq.html">FAQ</a></li>
-                <li><a target="_blank" href="../../assets/pdf/de-instructions-nubart-live.pdf">
-                    <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Anleitung</a>
-                <li><a href="../personenfuehrungsanlage-app/preis.html">Preise</a></li>
-                <li>
-                    <a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=de" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Testkit anfordern</a>
-                </li>
-
-
-            </ul>
         </nav>
     </div>
 </header>
+
 <main id="main">
     <!-- ======= About Section ======= -->
     <section id="about" class="about">

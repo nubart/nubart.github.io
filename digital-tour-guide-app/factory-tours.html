@@ -38,7 +38,7 @@
                 "description": "An innovative digital tour guide system",
                 "offers": {
                     "@type": "Offer",
-                    "availability": "InStock",
+                    "availability": "https://schema.org/InStock",
                     "url": "https://www.nubart.eu/digital-tour-guide-app/pricing.html",
                     "priceCurrency": [
                         "EUR",
@@ -131,6 +131,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body>
 <!-- ======= Header ======= -->
+<!-- First Navbar -->
 <header id="header" class="fixed-top header">
     <div class="container d-flex align-items-center justify-content-between">
         <a href="../" class="logo">
@@ -172,12 +173,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><a href="../contact.html">Contact Nubart</a></li>
                     </ul>
                 </li>
-                <li class="d-flex">
+                <li class="d-flex  d-none d-md-block">
                     <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
                         <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
-              
-                <li class="dropdown">
+                
+                <li class="dropdown d-none d-md-block">
                     <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="../es/">Español</a></li>
@@ -191,27 +192,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><a href="../ja/">日本語</a></li>
                     </ul>
                 </li>
+                
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none"><hr></li>
+                <li class="mobile-secondary-header d-md-none"><span>NUBART LIVE</span></li>
+                <li class="d-md-none"><a href="faq.html">FAQ</a></li>
+                <li class="d-md-none"><a href="../assets/pdf/en-instructions-nubart-live.pdf" target="_blank">
+                    Instructions</a>
+                </li>
+                <li class="d-md-none"><a href="pricing.html">Pricing</a></li>
+                <li class="d-md-none">
+                    <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Request a Trial Kit</a>
+                </li>
+                <li class="d-flex d-md-none">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
     </div>
 </header><!-- End Header -->
 
-
-<!-- ======= About Section ======= -->
-
 <!-- ======= Hero Section ======= -->
 <section id="hero" style='background-image: url("../assets/img/factory/hero-factory.webp");' >
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
-
-        <h1>Tour guide system for factory tours
-        </h1>
+        <h1>Tour guide system for factory tours</h1>
         <h2>Internet-based audio solution for plant visits</h2>
-
         <div class="d-flex">
-
             <a href="https://vimeo.com/708278106" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch the video</span></a>
-
         </div>
         <br><br>
         <div class="img-fluid align-center d-none d-lg-block">
@@ -220,35 +229,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 </section><!-- End Hero -->
 
-<header class="sticky-top" style="top: 60px; background: #783119">
-    <div class="container d-flex align-items-center justify-content-between">
-        <nav class="navbar">
-            <div class="navbar-logo">
-                <a href=".">
-                    <img src="../assets/img/logos/logo-nubart-live-white.png" alt="NUBART LIVE Logo" width="175" height="25">
-                </a>
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #783119">
+    <div class="container d-flex align-items-center justify-content-between" style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div class="navbar-logo">
+                    <a href=".">
+                        <img src="../assets/img/logos/logo-nubart-live-white.png" alt="NUBART LIVE Logo" width="175" height="25">
+                    </a>
+                </div>
+                
+                <ul id="secondary-menu-items" class="secondary-menu-list" style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Use Cases</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="factory-tours.html">Factory Tours</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 30px;"><a href="faq.html">FAQ</a></li>
+                    <li style="margin-right: 30px;"><a target="_blank" href="../assets/pdf/en-instructions-nubart-live.pdf">
+                        <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Instructions</a>
+                    </li>
+                    <li style="margin-right: 30px;"><a href="pricing.html">Pricing</a></li>
+                    <li>
+                        <a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Request a Trial Kit</a>
+                    </li>
+                </ul>
             </div>
-            <ul>
-                
-                <li class="dropdown secondary-menu">
-                    <a href="#"><span>Use Cases</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="factory-tours.html">Factory Tours</a></li>
-                    </ul>
-                </li>
-                
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a target="_blank" href="../assets/pdf/en-instructions-nubart-live.pdf">
-                    <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Instructions</a>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li>
-                    <a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Request a Trial Kit</a>
-                </li>
-            
-            </ul>
         </nav>
     </div>
 </header>
+
+
+
+
 <!-- ======= About Section ======= -->
 <!-- ======= Breadcrumbs ======= -->
 <section class="breadcrumbs">
@@ -1125,6 +1140,23 @@ filter-live filter-germany">
 <script type="text/plain" data-category="analytics" id="hs-script-loader" async defer src="//js.hs-scripts.com/2430134.js"></script>
 <!-- End of HubSpot Embed Code -->
 
+<!-- JavaScript to handle dropdown toggles on mobile -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle dropdown toggles for all mobile dropdown menus
+        const dropdowns = document.querySelectorAll('.navbar .dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth < 992) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+    });
+
+</script>
 
 <script type="module" src="/js/cookieconsent-config.js"></script>
 </body>

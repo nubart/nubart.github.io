@@ -36,7 +36,7 @@
                 "description": "Un système innovant de guide touristique numérique",
                 "offers": {
                     "@type": "Offer",
-                    "availability": "InStock",
+                    "availability": "https://schema.org/InStock",
                     "url": "https://www.nubart.eu/fr/systeme-audio-visite-guidee/prix.html",
                     "priceCurrency": [
                         "EUR",
@@ -110,7 +110,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- Template Main CSS File -->
     <link href="../../assets/css/style-min.css" rel="stylesheet">
-
+    <link href="../../assets/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
 
 
@@ -129,15 +129,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
-
+<!-- First Navbar -->
+<header id="header" class="fixed-top header">
     <div class="container d-flex align-items-center justify-content-between">
-
-        <a href="../" class="logo"><img src="../../assets/img/logo.png" alt="Nubart's logo" class="img-fluid"></a>
-
+        <a href="../" class="logo">
+            <img src="../../assets/img/logo.png" alt="Logo de Nubart" class="img-fluid">
+        </a>
         <nav id="navbar" class="navbar">
             <ul>
-                <li class="dropdown"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown primary-menu">
+                    <a href="#"><span>Produits</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul style="text-align: left;">
+                        <li>
+                            <a href="../audioguides.html">
+                                NUBART GUIDE <i class="bi bi-headphones" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../systeme-audio-visite-guidee/">
+                                NUBART LIVE <i class="bi bi-headset" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../gamification-jeu-audioguide.html">
+                                NUBART GAME <i class="bi bi-controller" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://nubart-sync.com/fr/">
+                                NUBART SYNC <i class="bi bi-person-video3" style="font-size: 1.2em; color: #028a8c;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li><a class="nav-link scrollto" href="../nubart-clients-projets.html">Clients</a></li>
+                <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../a-propos.html">À propos de Nubart</a></li>
+                        <li><a href="../contact.html">Contactez-nous</a></li>
+                    </ul>
+                </li>
+                <li class="d-flex d-none d-md-block">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
+                <li class="dropdown d-none d-md-block">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="../../">English</a></li>
                         <li><a href="../../de/">Deutsch</a></li>
@@ -150,66 +190,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><a href="../../ja/">日本語</a></li>
                     </ul>
                 </li>
-
-                <li class="dropdown"><a href="#"><span>Solutions</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../audioguides.html">NUBART GUIDE - L'audioguide à emporter</a></li>
-                        <li><a href="../gamification-jeu-audioguide.html">NUBART GAME - Gamification AR et quiz dans votre audioguide</a></li>
-
-                        <li><a href="../systeme-audio-visite-guidee/">NUBART LIVE - Système de visite guidée</a></li>
-                        <li><a href="https://nubart-sync.com/fr/">NUBART SYNC - Synchronisation de l'audio avec les vidéos sur site</a></li>
-
-                    </ul>
+                
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none"><hr></li>
+                <li class="mobile-secondary-header d-md-none"><span>NUBART LIVE</span></li>
+                <li class="d-md-none"><a href="faq.html">Questions fréquentes (FAQ)</a></li>
+                <li class="d-md-none"><a href="../../assets/pdf/fr-instructions-nubart-live.pdf" target="_blank">
+                    Instructions</a>
                 </li>
-
-                <li class="dropdown"><a href="#"><span>Contextes</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../audioguides.html">Musées</a></li>
-                        <li><a href="../campus-visite-guidee-numerique.html">Campus universitaires</a></li>
-                        <li><a href="../application-zoo.html">Zoos et aquariums</a></li>
-                        <li><a href="../audioguide-bateaux-bus.html">Croisières en bateau et excursions en bus</a></li>
-                        <li><a href="../systeme-audio-visite-guidee/visite-usine.html">Systèmes audio pour visites d'usine</a></li>
-                    </ul>
+                <li class="d-md-none"><a href="prix.html">Prix</a></li>
+                <li class="d-md-none">
+                    <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=fr" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Demander kit d'essai</a>
                 </li>
-
-
-                <li class="dropdown"><a href="#"><span>Foire aux questions</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../systeme-audio-visite-guidee/faq.html">FAQ - NUBART LIVE - Système de visite guidée</a></li>
-                        <li><a href="../faq.html">FAQ - NUBART GUIDE - Audioguides</a></li>
-                    </ul>
+                <li class="d-flex d-md-none">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
-                <li class="dropdown"><a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../a-propos.html">À propos de Nubart</a></li>
-                        <li><a href="../contact.html">Contactez-nous</a></li>
-
-                    </ul>
-                </li>
-                <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
-                <li><a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login"><i class="bi bi-person-circle"></i>&nbsp; Login</a></li>
-
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-
+        </nav>
     </div>
 </header><!-- End Header -->
 
-<!-- ======= About Section ======= -->
-<!-- Request a sample-button only visible in smartphones -->
-<section class="d-lg-none">
-    <br> <br>
-    <div class="col-md-12 text-center d-lg-none" style="padding-right: 10px; padding-left: 10px" data-aos="zoom-in">
-        <a
-                href="prix.html">
 
 
-            <button type="button" class="btn-lg btn-danger">Prix - Kit d'essai</button></a>
-
-    </div>
-</section>
-<!-- End Request a sample-button only visible in smartphones  -->
 <!-- ======= Hero Section ======= -->
 <section id="hero" style='background-image: url("../../assets/img/factory/hero-factory.webp");' >
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
@@ -229,6 +233,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </div>
 </section><!-- End Hero -->
+
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #783119">
+    <div class="container d-flex align-items-center justify-content-between" style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div class="navbar-logo">
+                    <a href=".">
+                        <img src="../../assets/img/logos/logo-nubart-live-white.png" alt="NUBART LIVE Logo" width="175" height="25">
+                    </a>
+                </div>
+                
+                <ul id="secondary-menu-items" class="secondary-menu-list" style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Applications</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="visite-usine.html">Visite guidée d'usines</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 30px;"><a href="faq.html">Questions fréquentes</a></li>
+                    <li style="margin-right: 30px;"><a target="_blank" href="../../assets/pdf/fr-instructions-nubart-live.pdf">
+                        <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Instructions</a>
+                    </li>
+                    <li style="margin-right: 30px;"><a href="prix.html">Prix</a></li>
+                    <li>
+                        <a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=fr" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Demander kit d'essai</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
 <!-- ======= Breadcrumbs ======= -->
 <section class="breadcrumbs">
     <div class="container">
@@ -292,45 +328,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <h5>Pourquoi utiliser des systèmes de guidage audio sans fil alors que tout le monde possède un smartphone ?</h5><br>
                 </div>
             </div>
-
-            <div class="row align-items-start">
-
-
+            
+            <div class="row">
                 <!-- First Column -->
-                <div class="col text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-12 col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
                     <p class="fs-1"><i class="bi bi-piggy-bank" style="color:#028A8C;"></i></p>
                     <h3 class="card-title">Abordable</h3>
                     <p class="card-text">Investir dans un équipement de radioguidage coûteux n'est pas rentable si votre entreprise ne reçoit pas souvent des visiteurs. Avec Nubart Live, vous disposez d'un système radio complet à un prix très bas. <a href="prix.html" target="_blank">Consultez nos prix.</a></p>
-
+                    
                     <p class="fs-1"><i class="bi bi-qr-code-scan" style="color:#028A8C;"></i></p>
                     <h3 class="card-title">Facile à utiliser</h3>
                     <p class="card-text">L'utilisation est simple et intuitive. Ouvrez-le dans votre navigateur mobile en scannant le code QR, aucune application à télécharger. Seul le guide doit se connecter à notre système, les visiteurs n'ont pas besoin de le faire.</p>
                 </div>
-
-                <!-- Second Column (visible on large screens) -->
-                <div class="col text-center d-none d-lg-block" data-aos="fade-up" data-aos-delay="100">
+                
+                <!-- Second Column (now visible on all screens) -->
+                <div class="col-12 col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
                     <p class="fs-1"><i class="bi bi-question-circle" style="color:#028A8C;"></i></p>
                     <h3 class="card-title">Possibilité de poser des questions</h3>
                     <p class="card-text">Malgré le bruit ambiant, vos visiteurs pourront poser des questions au guide sans crier et sans l'interrompre.</p>
-                    <a href="#questions" class="btn btn-primary btn-sm" role="button">Voyez comment ça marche</a>
-                    <img data-src="../../assets/img/factory/tour-guide-system-factories.webp" class="lazyload img-fluid align-bottom" alt="Nubart Live : système de guidage de groupe pour les visites guidées.">
+                    <a href="#questions" class="btn btn-primary btn-sm mb-3" role="button">Voyez comment ça marche</a>
+                    <div class="text-center">
+                        <img data-src="../../assets/img/factory/tour-guide-system-factories.webp" class="lazyload img-fluid" alt="Nubart Live : système de guidage de groupe pour les visites guidées.">
+                    </div>
                 </div>
-
+                
                 <!-- Third Column -->
-                <div class="col text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-12 col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
                     <p class="fs-1"><i class="bi bi-collection-play" style="color:#028A8C;"></i></p>
                     <h3 class="card-title">Marketing</h3>
                     <p class="card-text">Avec nos formules Medium et Professional, personnalisez votre design d'entreprise et ajoutez <a href="../audioguides.html" target="_blank">une présentation multimédia</a>. Les visiteurs peuvent accéder aux informations de votre entreprise en retirant la carte, tandis que notre tableau de bord statistique vous permet de suivre leur utilisation.</p>
-
+                    
                     <p class="fs-1"><i class="bi bi-tree" style="color:#028A8C;"></i></p>
                     <h3 class="card-title">Écologique</h3>
                     <p class="card-text">Contribuez à réduire votre impact sur l'environnement en utilisant nos cartes imprimées sur du carton FSC, évitant ainsi les déchets électroniques d'équipements dédiés.</p>
                 </div>
-
-
             </div>
         </div>
-        <br><br>
+
+    
+    <br><br>
         <div class="container" style="margin-top: -45px;" data-aos="fade-up">
             <div class="row justify-content-center">
 

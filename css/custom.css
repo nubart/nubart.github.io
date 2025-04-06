@@ -797,3 +797,40 @@ a.index-item2:hover {
     background-color: #53D3C5;
 }
 
+
+    /* Ensure dropdown menus with secondary navbar work on mobile */
+ /* Mobile menu styling */
+ @media (max-width: 991px) {
+     /* Hide the secondary navbar on mobile */
+     .secondary-navbar-mobile {
+         display: none !important;
+     }
+
+     /* Style for secondary menu divider */
+     .mobile-secondary-menu-divider {
+         width: 100%;
+         margin: 15px 0;
+     }
+
+     .mobile-secondary-menu-divider hr {
+         border-top: 1px solid rgba(255, 255, 255, 0.2);
+         margin: 0;
+     }
+
+     /* Style for secondary menu header */
+     .mobile-secondary-header {
+         margin: 10px 0;
+     }
+
+     .mobile-secondary-header span {
+         font-weight: bold;
+         font-size: 1.1em;
+         color: #028a8c;
+     }
+
+     /* Ensure proper styling for the getstarted button in mobile menu */
+     .navbar .getstarted {
+         display: inline-block !important;
+         margin-top: 10px;
+     }
+ }

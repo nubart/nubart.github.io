@@ -22,7 +22,7 @@
             },
             "offers": {
                 "@type": "Offer",
-                "url": "https://www.nubart.eu/nl/prijzen-testkit-nubart-live.html",
+                "url": "https://www.nubart.eu/nl/digital-rondleidingsysteem/prijzen.html",
                 "priceCurrency": "EUR",
                 "price": "599",
                 "priceValidUntil": "2024-12-31",
@@ -157,8 +157,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-
 <!-- ======= Header ======= -->
+
+<!-- First Navbar -->
 <header id="header" class="fixed-top header">
     <div class="container d-flex align-items-center justify-content-between">
         <a href="../" class="logo">
@@ -175,15 +176,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </a>
                         </li>
                         <li>
-                            <a href=".">
+                            <a href="../digital-rondleidingsysteem/">
                                 NUBART LIVE <i class="bi bi-headset" style="font-size: 1.2em; color: #028a8c;"></i>
                             </a>
                         </li>
-                        <li>
-                            <a href="../audiogidsen/ar-game-quiz.html">
-                                NUBART GAME <i class="bi bi-controller" style="font-size: 1.2em; color: #028a8c;"></i>
-                            </a>
-                        </li>
+                        
                         <li>
                             <a href="https://nubart-sync.com/">
                                 NUBART SYNC <i class="bi bi-person-video3" style="font-size: 1.2em; color: #028a8c;"></i>
@@ -191,21 +188,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="../portfolio/">Klanten</a></li>
-                <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                <li><a class="nav-link scrollto" href="../klanten-projecten.html">Klanten</a></li>
+                
                 <li class="dropdown">
                     <a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="../about.html">Over ons</a></li>
-                        <li><a href="../contact.html">Contact Nubart</a></li>
+                        <li><a href="../over-ons.html">Over ons</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
                     </ul>
                 </li>
-                <li class="d-flex">
+                <li class="d-flex d-none d-md-block">
                     <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
                         <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
                 
-                <li class="dropdown">
+                <li class="dropdown d-none d-md-block">
                     <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="../../">English</a></li>
@@ -218,6 +215,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><a href="../../he/">עִברִית</a></li>
                         <li><a href="../../ja/">日本語</a></li>
                     </ul>
+                </li>
+                
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none"><hr></li>
+                <li class="mobile-secondary-header d-md-none"><span>NUBART LIVE</span></li>
+                <li class="d-md-none"><a href="faq.html">FAQ</a></li>
+                <li class="d-md-none"><a href="../../assets/pdf/de-instructions-nubart-live.pdf" target="_blank">
+                    Gebruiksaanwijzing</a>
+                </li>
+                <li class="d-md-none"><a href="prijzen.html">Prijzen</a></li>
+                <li class="d-md-none">
+                    <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Testkit aanvragen</a>
+                </li>
+                <li class="d-flex d-md-none">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -239,33 +252,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     </div>
 </section><!-- End Hero -->
-
-<header class="sticky-top" style="top: 60px; background: #783119">
-    <div class="container d-flex align-items-center justify-content-between">
-        <nav class="navbar">
-            <div class="navbar-logo">
-                <a href=".">
-                    <img src="../../assets/img/logos/logo-nubart-live-white.png" alt="NUBART LIVE Logo" width="175" height="25">
-                </a>
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #783119">
+    <div class="container d-flex align-items-center justify-content-between" style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div class="navbar-logo">
+                    <a href=".">
+                        <img src="../../assets/img/logos/logo-nubart-live-white.png" alt="NUBART LIVE Logo" width="175" height="25">
+                    </a>
+                </div>
+                
+                <ul id="secondary-menu-items" class="secondary-menu-list" style="margin-left: 10px; display: flex; align-items: center;">
+                    
+                    <li style="margin-right: 30px;"><a href="faq.html">FAQ</a></li>
+                    <li style="margin-right: 30px;"><a target="_blank" href="../../assets/pdf/nl-instructions-nubart-live.pdf">
+                        <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Gebruiksaanwijzing</a>
+                    </li>
+                    <li style="margin-right: 30px;"><a href="prijzen.html">Prijzen</a></li>
+                    <li>
+                        <a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Testkit aanvragen</a>
+                    </li>
+                </ul>
             </div>
-            <ul>
-                
-                <li class="dropdown secondary-menu">
-                    <a href="#"><span>Toepassingen</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="factory-tours.html">Fabrieksrondleiding</a></li>
-                    </ul>
-                </li>
-                
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a target="_blank" href="../../assets/pdf/en-instructions-nubart-live.pdf">
-                    <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Instructies</a>
-                <li><a href="pricing.html">Prijsstelling</a></li>
-                <li>
-                    <a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Testkit aanvragen</a>
-                </li>
-            
-            </ul>
         </nav>
     </div>
 </header>
@@ -344,7 +353,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p class="fs-1"><i class="bi bi-collection-play" style="color:#028A8C;"></i></p>
                     <h3 class="card-title">Multimedia gids</h3>
-                    <p class="card-text">In onze Medium en Professional pakketten kun je een extra module integreren met een <a href="audiogidsen/" target="_blank">multimedia audiogids</a>.</p>
+                    <p class="card-text">In onze Medium en Professional pakketten kun je een extra module integreren met een <a href="../audiogidsen/" target="_blank">multimedia audiogids</a>.</p>
                 </div>
 
                 <!-- Third Column -->
@@ -708,7 +717,7 @@ margin-bottom: 10px;
 
                         <div class="mr-auto ml-auto
                             text-center">
-                            <br> <a class="btn btn-primary" target="_blank" role="button" href="../nl/faq.html#groupguiding">
+                            <br> <a class="btn btn-primary" target="_blank" role="button" href="../faq.html">
                             <h5>Bezoek onze FAQ</h5></a>
 
                         </div>
@@ -717,7 +726,7 @@ margin-bottom: 10px;
 
                         <div class="mr-auto ml-auto
                             text-center">
-                            <br> <a class="btn btn-primary" target="_blank" role="button" href="../../assets/pdf/en-instructions-nubart-live.pdf">
+                            <br> <a class="btn btn-primary" target="_blank" role="button" href="../../assets/pdf/nl-instructions-nubart-live.pdf">
                             <h5>Download onze instructies</h5></a>
 
                         </div>
@@ -839,7 +848,7 @@ margin-bottom: 10px;
             <div class="row">
                 <div class="d-grid gap-4 text-center">
 
-                   <a style="margin:45px; font-size: 35px;" class="btn-lg btn-primary" type="button" href="../nl/prijzen-testkit-nubart-live.html" target="_blank">Bekijk onze prijsaanbieding</a><br>
+                   <a style="margin:45px; font-size: 35px;" class="btn-lg btn-primary" type="button" href="prijzen.html" target="_blank">Bekijk onze prijsaanbieding</a><br>
                 </div>
 
             </div>
@@ -1124,10 +1133,10 @@ filter-live filter-germany">
                     <h4>Nuttige links</h4>
                     <ul>
 
-                        <li><i class="bi bi-chevron-right"></i> <a href="../nl/contact.html">Contact</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../nl/impressum.html" rel="nofollow">Impressum</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../nl/algemene-voorwaarden.html" rel="nofollow">Algemene voorwaarden van Nubart</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../nl/gegevensbescherming-web.html" rel="nofollow">Gegevensbescherming</a>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contact.html">Contact</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../impressum.html" rel="nofollow">Impressum</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../algemene-voorwaarden.html" rel="nofollow">Algemene voorwaarden van Nubart</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../gegevensbescherming-web.html" rel="nofollow">Gegevensbescherming</a>
                         <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Cookievoorkeuren</a></li>
 
                         <li><i class="bi bi-chevron-right"></i>

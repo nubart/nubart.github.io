@@ -119,7 +119,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
 
 
+
 <!-- ======= Header ======= -->
+
+<!-- First Navbar -->
 <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
         <a href="../" class="logo">
@@ -131,7 +134,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a href="#"><span>Producten</span> <i class="bi bi-chevron-down"></i></a>
                     <ul style="text-align: left;">
                         <li>
-                            <a href=".">
+                            <a href="../audiogidsen/">
                                 NUBART GUIDE <i class="bi bi-headphones" style="font-size: 1.2em; color: #028a8c;"></i>
                             </a>
                         </li>
@@ -140,7 +143,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 NUBART LIVE <i class="bi bi-headset" style="font-size: 1.2em; color: #028a8c;"></i>
                             </a>
                         </li>
-                        
+                      
                         <li>
                             <a href="https://nubart-sync.com/">
                                 NUBART SYNC <i class="bi bi-person-video3" style="font-size: 1.2em; color: #028a8c;"></i>
@@ -148,21 +151,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="../../portfolio/">Klanten</a></li>
-                
+                <li><a class="nav-link scrollto" href="../klanten-projecten.html">Klanten</a></li>
+       
                 <li class="dropdown">
                     <a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="../about.html">Over ons</a></li>
-                        <li><a href="../contact.html">Contact Nubart</a></li>
+                        <li><a href="../over-ons.html">Over ons</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
                     </ul>
                 </li>
-                <li class="d-flex">
+                <li class="d-flex d-none d-md-block">
                     <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
                         <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
-                <li><a class="getstarted scrollto" href="../contact.html">Offerte</a></li>
-                <li class="dropdown">
+                
+                <li class="dropdown d-none d-md-block">
                     <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="../../">English</a></li>
@@ -176,45 +179,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><a href="../../ja/">日本語</a></li>
                     </ul>
                 </li>
+                
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none"><hr></li>
+                <li class="mobile-secondary-header d-md-none"><span>NUBART LIVE</span></li>
+                <li class="d-md-none"><a href="faq.html">FAQ</a></li>
+                <li class="d-md-none"><a href="../../assets/pdf/de-instructions-nubart-live.pdf" target="_blank">
+                    Gebruiksaanwijzing</a>
+                </li>
+                <li class="d-md-none"><a href="prijzen.html">Prijzen</a></li>
+                <li class="d-md-none">
+                    <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Testkit aanvragen</a>
+                </li>
+                <li class="d-flex d-md-none">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
     </div>
 </header><!-- End Header -->
-<!-- ======= Second nav bar ======= -->
-
-
-<header class="sticky-top" style="top: 77px; background: #6ec7ba">
-    <div class="container d-flex align-items-center justify-content-between">
-        <nav class="navbar">
-            <ul>
-                <li style="color: white;"><b>NUBART GUIDE:</b></li>
-                <li class="dropdown secondary-menu">
-                    <a href="#"><span>Toepassingen</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href=".">Musea</a></li>
-                        
-                        <li><a href="../audiogids-rondvaarten-boot.html">Boats</a></li>
-                    
-                    
-                    </ul>
-                </li>
-                <li><a href="multimedia.html">Multimedia Features</a></li>
-                <li class="dropdown">
-                    <a href="#"><span>Content Production</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="content-production/">Our production process</a></li>
-                        <li><a href="content-production/customer-requirements.html">What we need from
-                                                                                    you</a></li>
-                    </ul>
-                </li>
-                <li><a href="inclusief.html">Accessibility</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #783119">
+    <div class="container d-flex align-items-center justify-content-between" style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div class="navbar-logo">
+                    <a href=".">
+                        <img src="../../assets/img/logos/logo-nubart-live-white.png" alt="NUBART LIVE Logo" width="175" height="25">
+                    </a>
+                </div>
+                
+                <ul id="secondary-menu-items" class="secondary-menu-list" style="margin-left: 10px; display: flex; align-items: center;">
+                   
+                    <li style="margin-right: 30px;"><a href="faq.html">FAQ</a></li>
+                    <li style="margin-right: 30px;"><a target="_blank" href="../../assets/pdf/nl-instructions-nubart-live.pdf">
+                        <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Gebruiksaanwijzing</a>
+                    </li>
+                    <li style="margin-right: 30px;"><a href="prijzen.html">Prijzen</a></li>
+                    <li>
+                        <a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl" target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Testkit aanvragen</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </div>
 </header>
-<!-- End Header -->
 
 
     
@@ -225,7 +236,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="d-flex justify-content-between align-items-center">
                 <h2>FAQ</h2>
                 <ol>
-                    <li><a href="../">Startpagina</a></li>
+                    <li><a href="../">Homepagina</a></li>
                     <li><a href=".">Nubart LIVE</a></li>
                     <li>Veelgestelde vragen over Nubart LIVE</li>
                 </ol>
@@ -236,17 +247,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <main id="main">
 
-    <br /> <br />
+    <br />
 
     <section class="inner-page">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-8 offset-md-2">
-                    <br />
-
+                   
                     <div class="section-heading">
-                        <h1>Veelgestelde vragen over het Nubart Live personenbegeleidingssysteem</h1>
+                        <h1>Vragen over het <a href="../digital-rondleidingsysteem/">Nubart LIVE</a> rondleidingssysteem</h1>
                     </div>
 
                     <br />
@@ -264,7 +274,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                             <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                    Bij Nubart vinden we het milieu belangrijk!           <br> De kaarten in het Basic-pakket worden gedrukt op speciaal stevig karton. Maar bij de Medium en Professional pakketten kunt u kiezen op welk milieuvriendelijk materiaal u uw kaarten wilt laten drukken:        <ul>
+                                    Bij Nubart vinden we het milieu belangrijk!           <br> De kaarten in het Basic-pakket worden gedrukt op speciaal stevig karton. Bij de Medium en Professional pakketten kunt u kiezen op welk milieuvriendelijk materiaal u uw kaarten wilt laten drukken:        <ul>
                                         <li>Speciaal karton met hoge sterkte, FSC-gecertificeerd.                   </li>
                                         <li>Gerecycled PVC.    </li>
                                         <li>Biologisch afbreekbaar bio-PVC.        </li>
@@ -280,7 +290,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div id="flush-collapse20" class="accordion-collapse collapse" aria-labelledby="flush-heading20" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
 
-                                    Al het "achtergrondwerk" van onze technologie draait op de smartphone van de gids. Het is daarom wenselijk dat de gidsen een moderne smartphone hebben met een goede processor en een redelijk nieuwe batterij.<br><br>Dit geldt echter niet voor bezoekers: de batterijbelasting voor bezoekers is niet veel hoger dan bij het luisteren naar een podcast of audioboek. Bijvoorbeeld: één uur continu gebruik verbruikt 8% van de batterij van een 4 jaar oude Android mobiele telefoon.         </div>
+                                    Al het 'achtergrondwerk' van onze technologie draait op de smartphone van de gids. Het is daarom wenselijk dat de gidsen een moderne smartphone hebben met een goede processor en een redelijk nieuwe batterij.<br><br>Dit geldt echter niet voor bezoekers: de batterijbelasting voor bezoekers is niet veel hoger dan bij het luisteren naar een podcast of audioboek. Bijvoorbeeld: één uur continu gebruik verbruikt 8% van de batterij van een 4 jaar oude Android mobiele telefoon.         </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-heading20b">
@@ -300,7 +310,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div id="flush-collapse21" class="accordion-collapse collapse" aria-labelledby="flush-heading21" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     Een ontwerp op maat is alleen mogelijk in de Medium en Professional pakketten.          <br> U stuurt ons afbeeldingen, logo's en andere elementen die u op uw kaart wilt hebben en onze ontwerper maakt verschillende ontwerpvoorstellen waaruit u kunt kiezen.<br><br>
-                                   <a class="btn btn-sm btn-outline-dark" role="button" href="preis.html">Meer informatie over onze pakketten </a><br>
+                                   <a class="btn btn-sm btn-outline-dark" role="button" href="prijzen.html">Meer informatie over onze pakketten </a><br>
                                 </div>
 
                             </div>
@@ -316,7 +326,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     </div>
 
                                     <br> Als u gepersonaliseerde kaarten wilt, is de minimale bestelhoeveelheid 3.000 stuks.<br><br>
-                                   <a class="btn btn-sm btn-outline-dark" role="button" href="preis.html">Meer informatie over onze pakketten </a><br>
+                                   <a class="btn btn-sm btn-outline-dark" role="button" href="prijzen.html">Meer informatie over onze pakketten </a><br>
                                 </div>
 
                             </div>
@@ -327,9 +337,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                             <div id="flush-collapse23" class="accordion-collapse collapse" aria-labelledby="flush-heading23" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-
-                                    Wanneer u onze Nubart gedrukte kaarten koopt (Basispakket), krijgt u toegang tot twee vaste gidsen per bestelling van 500 kaarten. Deze gidsen kunnen niet meer gewijzigd worden. Om uw gidsen zelf te kunnen beheren, moet u het Medium of Pro pakket bestellen. Als u ons Professional-pakket met 5.000 kaarten koopt, is het aantal gidsen onbeperkt.<br><br>
-                                   <a class="btn btn-sm btn-outline-dark" role="button" href="preis.html">Meer informatie over onze pakketten </a><br>
+                                    
+                                    Wanneer u onze Nubart gedrukte kaarten koopt (Basispakket), kunnen twee vaste gidsen Nubart Live gebruiken per bestelling van 500 kaarten. Deze gidsen kunnen niet meer gewijzigd worden. Om uw gidsen zelf te kunnen beheren, moet u het Medium of Pro pakket bestellen. Als u ons Professional-pakket met 5.000 kaarten koopt, is het aantal gidsen onbeperkt.<br><br>
+                                   <a class="btn btn-sm btn-outline-dark" role="button" href="prijzen.html">Meer informatie over onze pakketten </a><br>
                                 </div>
                             </div>
                             <div class="accordion-item">
@@ -339,8 +349,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                             <div id="flush-collapse23b" class="accordion-collapse collapse" aria-labelledby="flush-heading23b" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-
-                                    Nee, u hebt maar één kaart per groepslid nodig, want onze Nubart Live kaarten zijn niet overdraagbaar maar wel herbruikbaar. Vraag gewoon aan elk groepslid om zijn eigen kaart te bewaren voor hergebruik tijdens de reis.     <br>Om verwarring tijdens de reis te voorkomen, raden wij aan dat elk groepslid zijn eigen naam op de kaart schrijft.         <br>
+                                    
+                                    Nee, u hebt maar één kaart per groepslid nodig, want onze Nubart Live kaarten zijn niet overdraagbaar maar wel herbruikbaar. Vraag gewoon aan elk groepslid om zijn eigen kaart te bewaren voor hergebruik op een later moment. <br> Om verwarring te voorkomen, raden wij aan dat elk groepslid zijn eigen naam op de kaart schrijft.         <br>
                                 </div>
                             </div>
                             <div class="accordion-item">
@@ -351,7 +361,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div id="flush-collapse24" class="accordion-collapse collapse" aria-labelledby="flush-heading24" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
 
-                                    Een kleine vertraging van minder dan een seconde tussen zender en ontvanger (latentie) is onvermijdelijk bij communicatie via het internet, ongeacht of er een applicatie of een browsergebaseerd systeem zoals het onze wordt gebruikt. U kent dit waarschijnlijk wel van Skype, Zoom of soortgelijke systemen.         <br> Latency wordt beïnvloed door verschillende factoren, bijv. de prestaties van de smartphone en de kwaliteit van de internetverbinding.<br> Wij raden gidsen aan om zo stil mogelijk te spreken om een vervelend echo-effect te voorkomen: De stem die via de smartphone ontvangen wordt, moet overheersen voor de deelnemers.           </div>
+                                    Een kleine vertraging van minder dan een seconde tussen zender en ontvanger (latentie) is onvermijdelijk bij communicatie via het internet, ongeacht of er een applicatie of een browsergebaseerd systeem zoals het onze wordt gebruikt. U kent dit waarschijnlijk wel van Skype, Zoom of soortgelijke systemen.         <br> Dit hangt af van verschillende factoren, bijv. de prestaties van de smartphone en de kwaliteit van de internetverbinding.<br>Wij raden gidsen aan om zo stil mogelijk te spreken om een vervelend echo-effect te voorkomen: De stem die via de smartphone ontvangen wordt, moet overheersen voor de deelnemers.            </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-heading25">
@@ -373,7 +383,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         <li>
                                             Deelnemers kunnen de code op elk moment opnieuw invoeren of scannen als er problemen zijn met hun mobiele telefoon (bijv. per ongeluk de browser afsluiten).           </li>
                                         <li>
-                                            De kaarten zijn niet overdraagbaar, maar een deelnemer kan zijn eigen kaart voor meerdere tochten hergebruiken.             </li>
+                                            De kaarten zijn niet overdraagbaar, maar een deelnemer kan zijn eigen kaart voor meerdere bezoeken hergebruiken.  </li>
                                     </ul>
                                 </div>
                             </div>
@@ -414,12 +424,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     Als uw netwerkconfiguratie (NAT, firewalls, topologie) peer-to-peer verbindingen voor web RTC toestaat en alle deelnemers zich op hetzelfde WLAN bevinden, zal het eigenlijke spraaksignaal GEEN gebruik maken van de internetverbinding. Zodra de verbinding tot stand is gebracht, heeft elke luisteraar namelijk een peer-to-peer verbinding met de spreker. De internetverbinding is alleen nodig om de individuele verbindingen te beheren, wat niet veel bandbreedte vereist.<br><br>
 
                                    <b>2) WIFI/WLAN</b><br><br>
+                                                                       
+                                                                       Het LAN moet het aantal gelijktijdige gebruikers aankunnen (subnetmasker). De WIFI-hotspots moeten op hun beurt de bandbreedte en het aantal gebruikers aankunnen. Neem contact op met uw IT-afdeling om dit te controleren!<br>
 
-                                    Het LAN moet het aantal gelijktijdige gebruikers aankunnen (subnetmasker). De WIFI-hotspots moeten op hun beurt de bandbreedte en het aantal gebruikers aankunnen. Neem contact op met uw technicus om dit te controleren!<br>
+                                    Als de netwerkconfiguratie geen peer-to-peer verbindingen voor Web-RTC toestaat, is er een terugvalsysteem voor een dergelijk scenario. Dit terugvalsysteem maakt echter gebruik van een relay server op het internet en vereist dat het spraaksignaal via het internet gaat (zie 1.), dus we raden aan om peer-to-peer op uw netwerk toe te staan.<br>
 
-                                    Als de netwerkconfiguratie geen peer-to-peer verbindingen voor Web-RTC toestaat, is er een terugvalsysteem voor een dergelijk scenario. Dit terugvalsysteem maakt echter gebruik van een relay server (draaiserver) op het internet en vereist dat het spraaksignaal via het internet gaat (zie 1.), dus we raden aan om peer-to-peer op uw netwerk toe te staan.<br>
-
-                                    U kunt ook een <a href="http://manpages.ubuntu.com/manpages/trusty/man1/turnserver.1.html" rel="nofollow" target="_blank">lokale draaiserver</a> instellen.<br> Als u dit laatste wilt doen, neem dan contact met ons op, want dit vereist wat extra werk van onze kant.     <br>
+                                    U kunt ook een <a href="http://manpages.ubuntu.com/manpages/trusty/man1/turnserver.1.html" rel="nofollow" target="_blank">lokale relay server</a> instellen.<br> Als u dit laatste wilt doen, neem dan contact met ons op, want dit vereist wat extra werk van onze kant.     <br>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-heading29">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse29" aria-expanded="false" aria-controls="flush-collapse29">
+                                        Kan een deelnemer in een andere stad zijn dan die van de gids?
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="flush-collapse29" class="accordion-collapse collapse" aria-labelledby="flush-heading29" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    
+                                    
+                                    <br/>Ja, hoewel ons systeem ontworpen is voor gebruik op locatie, is het dankzij het internet mogelijk voor andere mensen om de tour op afstand bij te wonen vanaf een andere locatie dan die van de gids. Hiervoor moet je van tevoren de alfanumerieke code op de achterkant van de kaart (of een foto van de achterkant van de kaart) naar elk van de deelnemers op afstand sturen. Houd er rekening mee dat dit unieke codes zijn en dat elke deelnemer zijn of haar eigen code nodig heeft.
+                                    
+                                    <br/>
+                                    <hr class="bg-danger border-2 border-top border-danger"/>
                                 </div>
                             </div>
                         </div>
