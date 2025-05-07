@@ -138,13 +138,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top header">
     <div class="container d-flex align-items-center justify-content-between">
         <a href="../" class="logo">
             <img src="../assets/img/logo.png" alt="Nubart's logo" class="img-fluid">
         </a>
         <nav id="navbar" class="navbar">
             <ul>
+      
                 <li class="dropdown primary-menu">
                     <a href="#"><span>Produkte</span> <i class="bi bi-chevron-down"></i></a>
                     <ul style="text-align: left;">
@@ -183,7 +184,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
                         <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
-                <li class="d-none d-lg-block"><a class="getstarted scrollto" href="kontakt.html">Angebot</a></li>
+                <li><a class="getstarted scrollto" href="kontakt.html">Quote</a></li>
                 <li class="dropdown  d-none d-md-block">
                     <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -529,19 +530,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
-<!-- Critical JS Files -->
-<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-<script src="../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
-<script src="../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
-
-<!-- Non-Critical JS Files - Still deferred but loaded directly -->
+<!-- Vendor JS Files -->
 <script src="../assets/vendor/aos/aos.js" defer></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
 <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+
+<script src="../assets/vendor/purecounter/purecounter.js"></script>
+<script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- MDB (hover image over image overlay)-->
+<script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+
+<!-- Template Main JS File -->
 <script src="../assets/js/main-min.js" defer></script>
 
 <!-- Hubspot Analytics scripts with proper async loading -->
 <script type="text/plain" data-category="analytics" id="hs-script-loader" async
         src="//js.hs-scripts.com/2430134.js"></script>
+
+<!-- Load CSS files dynamically in the footer -->
+<script>
+    function loadCSS(url) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = url;
+        document.head.appendChild(link);
+    }
+
+    // Load non-critical CSS files asynchronously
+
+    loadCSS('../assets/vendor/bootstrap-icons/bootstrap-icons-min.css');
+    loadCSS('../assets/vendor/glightbox/css/glightbox.min.css');
+    loadCSS('../assets/vendor/swiper/swiper-bundle.min.css');
+</script>
 
 
 <script type="module" src="/js/cookieconsent-config.js"></script>
