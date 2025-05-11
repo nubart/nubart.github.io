@@ -34,22 +34,37 @@
     </script>
 
     <!-- End Structured data -->
-
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start':
-                new Date().getTime(), event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-TRW7KZS');
+    
+    <!-- Structured data -->
+    <script type="application/ld+json">
+        
+        {
+            "@context": "http://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": "https://www.nubart.eu/de/",
+                    "name": "Nubart"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": "https://www.nubart.eu/de/audioguides/",
+                    "name": "Nubart GUIDE - PWA Audioguides via QR"
+                }
+            ]
+        }
     </script>
+    <!-- End Structured data -->
+    
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');</script>
     <!-- End Google Tag Manager -->
 
 
