@@ -14,6 +14,14 @@ run({
         }
     },
     onChange: () => {
+        // Update Google Consent Mode based on user choices
+        gtag('consent', 'update', {
+            'analytics_storage': acceptedCategory('analytics') ? 'granted' : 'denied',
+            'ad_storage': acceptedCategory('advertising') ? 'granted' : 'denied',
+            'ad_user_data': acceptedCategory('advertising') ? 'granted' : 'denied',
+            'ad_personalization': acceptedCategory('advertising') ? 'granted' : 'denied'
+        });
+
         // Push consent updates to GTM dataLayer for Google Consent Mode V2
         if (acceptedCategory('analytics')) {
             dataLayer.push({'event': 'cc_analytics_accepted'});
@@ -28,6 +36,14 @@ run({
         // }
     },
     onAccept: () => {
+        // Update Google Consent Mode on initial acceptance
+        gtag('consent', 'update', {
+            'analytics_storage': acceptedCategory('analytics') ? 'granted' : 'denied',
+            'ad_storage': acceptedCategory('advertising') ? 'granted' : 'denied',
+            'ad_user_data': acceptedCategory('advertising') ? 'granted' : 'denied',
+            'ad_personalization': acceptedCategory('advertising') ? 'granted' : 'denied'
+        });
+
         // Handle initial acceptance
         if (acceptedCategory('analytics')) {
             dataLayer.push({'event': 'cc_analytics_accepted'});
