@@ -646,3 +646,136 @@ section {
  .table > :not(:first-child) {
    border-top: 0 !important;
  }
+
+/*--------------------------------------------------------------
+# Products Mega Menu - Custom Additions
+--------------------------------------------------------------*/
+
+/* Desktop Mega Menu Styles */
+.navbar .dropdown ul {
+    min-width: 320px;
+    max-width: 400px;
+}
+
+/* Desktop product item layout */
+.navbar .dropdown ul li a {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    white-space: normal;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.navbar .dropdown ul li a:hover,
+.navbar .dropdown ul li a:focus {
+    background-color: #f8f9fa;
+    color: #15222b;
+}
+
+/* Desktop icon styling */
+.navbar .dropdown ul li a i.product-icon {
+    font-size: 1.3em;
+    color: #028a8c;
+    flex-shrink: 0;
+    margin-top: 2px;
+    margin-right: 0;
+}
+
+/* Desktop product text layout */
+.navbar .dropdown ul li a .product-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: left;
+}
+
+.navbar .dropdown ul li a .product-name {
+    font-weight: 600;
+    color: #15222b;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    display: block;
+}
+
+.navbar .dropdown ul li a .product-description {
+    color: #6c757d;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
+    display: block;
+}
+
+/* Mobile-specific: Simplified structure that works with your existing mobile nav */
+@media (max-width: 991px) {
+    /* Override your mobile nav styles for the products dropdown */
+    .navbar-mobile .dropdown ul li a {
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        white-space: normal;
+        min-height: 60px;
+    }
+
+    /* Icon styling for mobile */
+    .navbar-mobile .dropdown ul li a i.product-icon {
+        font-size: 1.4em;
+        color: #53D3C5;
+        margin-right: 12px;
+        margin-left: 0;
+        flex-shrink: 0;
+    }
+
+    /* Product name and description layout for mobile */
+    .navbar-mobile .dropdown ul li a .product-text {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .navbar-mobile .dropdown ul li a .product-name {
+        font-weight: 600;
+        color: #15222b;
+        font-size: 0.9rem;
+        line-height: 1.2;
+        margin-bottom: 2px;
+    }
+
+    .navbar-mobile .dropdown ul li a .product-description {
+        color: #6c757d;
+        font-size: 0.8rem;
+        line-height: 1.3;
+        margin: 0;
+    }
+
+    /* Enhanced hover effect for mobile */
+    .navbar-mobile .dropdown ul li a:hover,
+    .navbar-mobile .dropdown ul li a:focus {
+        background-color: #f8f9fa;
+        border-left: 3px solid #53D3C5;
+        padding-left: 17px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .navbar-mobile .dropdown ul li a {
+        padding: 12px 18px;
+        min-height: 56px;
+    }
+
+    .navbar-mobile .dropdown ul li a i.product-icon {
+        font-size: 1.2em;
+        margin-right: 10px;
+    }
+
+    .navbar-mobile .dropdown ul li a .product-name {
+        font-size: 0.85rem;
+    }
+
+    .navbar-mobile .dropdown ul li a .product-description {
+        font-size: 0.75rem;
+    }
+}
