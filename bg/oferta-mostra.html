@@ -105,7 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li class="dropdown  d-none d-md-block"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown d-none d-md-block"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="../">English</a></li>
                         <li><a href="../de/">Deutsch</a></li>
@@ -161,22 +161,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p class="lead">Попълнете този кратък формуляр, за да получите допълнителна информация и/или оферта:</p>
                 <div class="info-box">
 
-
                     <form class="align-self-center" action="https://formspree.io/rosa.sala@nubart.eu" method="POST">
-                        <input type="hidden" name="_next" value="https://www.nubart.eu/bg/blagodarya"/>
-                        <input type="hidden" name="_language" value="bg"/> <input type="hidden" name="_cc" value="boris.k.marinov@gmail.com">
-                        <input type="text" class="form-control" name="first-name" placeholder="малко име *"><br>
-                        <input type="text" class="form-control" name="family-name" placeholder="фамилно име *"><br>
-                        <input type="text" class="form-control" name="museum" placeholder="Име на музея или фирма *"><br>
-                        <input type="text" class="form-control" name="address-1" placeholder="адрес"><br>
+                        <input type="hidden" name="_next" value="https://www.nubart.eu/bg/blagodarya">
+                        <input type="hidden" name="_language" value="bg">
+                        <input type="hidden" name="_cc" value="boris.k.marinov@gmail.com">
 
-                        <input type="text" class="form-control" name="cp" placeholder="пощенски код"><br>
-                        <input type="text" class="form-control" name="city" placeholder="Телефон"><br>
+                        <label for="first-name">малко име *</label>
+                        <input type="text" class="form-control" id="first-name" name="first-name" placeholder="малко име *"><br>
 
-                        <input type="text" class="form-control" name="mail" placeholder="Имейл адрес *"><br>
+                        <label for="family-name">фамилно име *</label>
+                        <input type="text" class="form-control" id="family-name" name="family-name" placeholder="фамилно име *"><br>
+
+                        <label for="museum">Име на музея или фирма *</label>
+                        <input type="text" class="form-control" id="museum" name="museum" placeholder="Име на музея или фирма *"><br>
+
+                        <label for="address-1">адрес</label>
+                        <input type="text" class="form-control" id="address-1" name="address-1" placeholder="адрес"><br>
+
+                        <label for="cp">пощенски код</label>
+                        <input type="text" class="form-control" id="cp" name="cp" placeholder="пощенски код"><br>
+
+                        <label for="city">Телефон</label>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="Телефон"><br>
+
+                        <label for="mail">Имейл адрес *</label>
+                        <input type="text" class="form-control" id="mail" name="mail" placeholder="Имейл адрес *"><br>
 
                         <input type="submit" class="btn btn-lg btn-primary" value="ИЗПРАТИ">
                     </form>
+
 
                     </div>
 
