@@ -122,30 +122,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body>
 
-
-
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top header">
     <div class="container d-flex align-items-center justify-content-between">
-
-        <a href="index.html" class="logo"><img src="../assets/img/logo.png" alt="Nubart's logo" class="img-fluid"></a>
-
+        <a href="../" class="logo">
+            <img src="../assets/img/logo.png" alt="Nubart's logo" class="img-fluid">
+        </a>
         <nav id="navbar" class="navbar">
             <ul>
-                <li class="dropdown"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../">English</a></li>
-                        <li><a href="../de/">Deutsch</a></li>
-                        <li><a href="../fr/">Français</a></li>
-                        <li><a href="../nl/">Nederlands</a></li>
-                        <li><a href="../it/">Italiano</a></li>
-                        <li><a href="../pl/">Polski</a></li>
-                        <li><a href="../bg/">български</a></li>
-                        <li><a href="../he/">עִברִית</a></li>
-                        <li><a href="../ja/">日本語</a></li>
-                    </ul>
-                </li>
-
                 <li class="dropdown">
                     <a href="#"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -202,39 +186,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </li>
                     </ul>
                 </li>
-
-                <li class="dropdown"><a href="#"><span>Aplicaciones</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../es/audioguias.html">Museos</a></li>
-
-                        <li><a href="../es/audioguia-zoos.html">Zoos y acuarios</a></li>
-                        <li><a href="../es/tours-barcos-buses.html">Rutas en barco o en autobús</a></li>
-                        <li><a href="../es/sistema-guiado-grupos/visita-guiada-fabricas.html">Visitas guiadas a fábricas</a></li>
-                    </ul>
-                </li>
-
                 <li><a class="nav-link scrollto" href="../es/clientes-proyectos.html">Clientes</a></li>
-                <li class="dropdown"><a href="#"><span>Preguntas frecuentes</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../es/preguntas-frecuentes.html">FAQ - Audioguías NUBART GUIDE</a></li>
-                        <li><a href="../es/sistema-guiado-grupos/preguntas-frecuentes.html">FAQ - Sistema guiado de grupos NUBART LIVE</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown"><a href="#"><span>Contacto</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../es/quienes-somos.html">Quiénes somos</a></li>
-                        <li><a href="../es/contacto.html">Contacto</a></li>
-
-                    </ul>
-                </li>
                 <li><a class="nav-link scrollto" href="../es/blog/">Blog</a></li>
-                <li><a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login"><i class="bi bi-person-circle"></i>&nbsp; Login</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Contacto</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+
+                    </ul>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
+
+                <li class="dropdown  d-none d-md-block">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../">English</a></li>
+                        <li><a href="../de/">Deutsch</a></li>
+                        <li><a href="../fr/">Français</a></li>
+                        <li><a href="../nl/">Nederlands</a></li>
+                        <li><a href="../it/">Italiano</a></li>
+                        <li><a href="../pl/">Polski</a></li>
+                        <li><a href="../bg/">български</a></li>
+                        <li><a href="../he/">עִברִית</a></li>
+                        <li><a href="../ja/">日本語</a></li>
+                    </ul>
+                </li>
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none"><hr></li>
+                <li class="mobile-secondary-header d-md-none"><span>NUBART GAME</span></li>
+                <li class="dropdown d-md-none">
+                    <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="produccion-contenido.html">Nuestro proceso de producción</a></li>
+                        <li><a href="materiales.html">Qué necesitamos para producir tu audioguía</a></li>
+                    </ul>
+                </li>
+
+                <li class="d-md-none"><a href="preguntas-frecuentes.html">FAQ</a></li>
+
+                <li class="d-md-none">
+                    <a href="#trial" class="scrollto">Solicita una muestra</a>
+                </li>
+
 
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-
+        </nav>
     </div>
 </header><!-- End Header -->
 <!-- ======= Hero Section ======= -->
@@ -253,6 +254,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </div>
 </section><!-- End Hero -->
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between" style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;"><b>NUBART GAME:</b></div>
+                <ul id="secondary-menu-items" class="secondary-menu-list" style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Casos de uso</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="audioguias.html">Museos</a></li>
+                            <li><a href="audioguia-zoos.html">Zoos</a></li>
+
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;"><a href="audioguia-multimedia.html">Elementos multimedia</a></li>
+                    <li style="margin-right: 22px;" class="dropdown">
+                        <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="produccion-contenido.html">Nuestro proceso de producción</a></li>
+                            <li><a href="materiales.html">Qué necesitamos para producir tu audioguía</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;"><a href="../audio-guides/faq.html">FAQ</a></li>
+                    <li  style="margin-right: 30px;"><a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/Solicitudpresupuestoespaol/formperma/hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8">Solicita un presupuesto</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
 <!-- ======= About Section ======= -->
 
 <section id="about" class="about">
