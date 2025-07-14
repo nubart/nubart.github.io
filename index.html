@@ -11,41 +11,64 @@
         {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "additionalType": "http://www.productontology.org/doc/Audio_tour",
             "@id": "https://www.nubart.eu/#organization",
             "legalName": "Nubart GmbH",
             "name": "Nubart",
-            "areaServed": [
-                "US", "GB", "NZ", "AU", "CA", "EU"
-            ],
             "url": "https://www.nubart.eu/",
+            "logo": {
+                "@type": "ImageObject",
+                "@id": "https://www.nubart.eu/#logo",
+                "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "caption": "Nubart"
+            },
             "image": "https://www.nubart.eu/img/features-no-apps.webp",
-            "award": "Seal of Excellence - SME Instrument by the EU's research and innovation funding programme Horizon 2020",
-            "description": "Nubart provides comprehensive QR-based audio solutions for museums, monuments, tourist sites, factories, and event organizers. Specializing in Progressive Web Apps (PWAs), GPS-triggered commentary systems, and AI-powered live translation, Nubart serves customers in over 27 countries with innovative hardware-free solutions that require no native app downloads.",
+            "description": "Nubart provides comprehensive QR-based and accessible audio solutions for museums, tourist attractions, factories, and events. Specializing in Progressive Web Apps (PWAs), GPS-triggered commentary systems, and AI-powered live translation, Nubart serves customers in over 27 countries with innovative hardware-free solutions that require no app downloads.",
             "brand": "Nubart",
             "email": "info@nubart.eu",
             "foundingDate": "2013-07-17",
-            "foundingLocation": "Berlin",
-            "vatID": "DE351577751",
+            "location": [
+                {
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Berlin",
+                        "addressCountry": "DE"
+                    }
+                },
+                {
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Barcelona",
+                        "addressCountry": "ES"
+                    }
+                }
+            ],
             "industry": "Tourism Technology",
             "numberOfEmployees": "10-50",
-            "knowsAbout": [
-                "Audio Commentary Systems",
-                "Progressive Web Apps (PWAs)",
-                "GPS-Triggered Tours",
-                "AI Translation Technology",
-                "QR-Based Audio Guides",
-                "Browser-Based Audio Solutions",
-                "No-Download Audio Systems",
-                "Museum Audio Systems",
-                "Factory Tour Solutions",
-                "Event Translation Services",
-                "Multilingual Audio Content",
-                "Tour Guide Systems",
-                "Simultaneous Interpretation"
+            "sameAs": [
+                "https://twitter.com/nubarten?lang=en",
+                "https://www.linkedin.com/company/nubart-eu/",
+                "https://www.facebook.com/Nubart/",
+                "https://www.crunchbase.com/organization/nubart",
+                "https://vimeo.com/nubart",
+                "https://www.youtube.com/@nubartinternational909"
+            ],
+            "keywords": "audio guides, accessible audio guides, multilingual tours, QR code tours, museum technology, digital tour guide, AI live translation, PWA audio systems, WCAG audio guides",
+            "additionalType": "http://www.productontology.org/doc/Audio_tour",
+            "areaServed": ["US", "GB", "NZ", "AU", "CA", "EU"],
+            "hasPart": [
+                { "@id": "https://www.nubart.eu/audio-guides/#service" },
+                { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
+                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+                { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" },
+                { "@id": "https://nubart-sync.com/#service" }
             ],
             "hasOfferCatalog": {
                 "@type": "OfferCatalog",
+                "@id": "https://www.nubart.eu/#productcatalog",
                 "name": "Nubart Product Suite",
                 "itemListElement": [
                     {
@@ -54,7 +77,7 @@
                             "@type": "Service",
                             "@id": "https://www.nubart.eu/audio-guides/#service",
                             "name": "Nubart GUIDE",
-                            "description": "QR-code based audio guides for museums, monuments, churches, castles, and tourist sites with optional monetization and professional content production services",
+                            "description": "QR-code based and WCAG-accessible audio guides for museums, monuments, churches, and tourist sites with optional monetization and professional content production.",
                             "url": "https://www.nubart.eu/audio-guides/",
                             "category": "Audio Guide System",
                             "serviceType": "Museum Audio Guide",
@@ -70,7 +93,7 @@
                             "@type": "Service",
                             "@id": "https://www.nubart.eu/digital-tour-guide-app/#service",
                             "name": "Nubart LIVE",
-                            "description": "QR-code based tour guide system with optional AI-live translation for factories, guided tours, and group experiences",
+                            "description": "QR-code based live tour guide system with optional AI live translation, ideal for factories, guided walking tours, and group experiences.",
                             "url": "https://www.nubart.eu/digital-tour-guide-app/",
                             "category": "Tour Guide System",
                             "serviceType": "Live Tour Guide System",
@@ -84,9 +107,9 @@
                         "@type": "Offer",
                         "itemOffered": {
                             "@type": "Service",
-                            "@id": "https://www.nubart.eu/audio-commentary-system/#service",
+                            "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice",
                             "name": "Nubart MOTION",
-                            "description": "GPS-triggered multilingual commentary system for sightseeing vehicles, boats, buses, and automated tour experiences. Also with AI-powered live translation",
+                            "description": "GPS-triggered multilingual and accessible commentary system for sightseeing vehicles, boats, and buses. Also supports AI-powered live translation.",
                             "url": "https://www.nubart.eu/audio-commentary-system/",
                             "category": "Passenger Commentary System",
                             "serviceType": "Vehicle Audio Commentary",
@@ -102,7 +125,7 @@
                             "@type": "Service",
                             "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service",
                             "name": "Nubart TRANSLATE",
-                            "description": "QR-code based simultaneous live translation for events, conferences, and multilingual gatherings",
+                            "description": "QR-code based simultaneous live AI translation system for events, conferences, and multilingual gatherings.",
                             "url": "https://www.nubart.eu/ai-simultaneous-interpretation/",
                             "category": "Live Translation System",
                             "serviceType": "Simultaneous Interpretation",
@@ -118,7 +141,7 @@
                             "@type": "Service",
                             "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service",
                             "name": "Nubart GAME",
-                            "description": "Interactive AR games and quizzes for museums and attractions to enhance visitor engagement",
+                            "description": "Interactive AR games and quizzes to engage visitors at museums and attractions.",
                             "url": "https://www.nubart.eu/audio-guides/ar-game-quiz.html",
                             "category": "Interactive Museum Experience",
                             "serviceType": "AR Gaming System",
@@ -134,88 +157,17 @@
                             "@type": "Service",
                             "@id": "https://nubart-sync.com/#service",
                             "name": "Nubart SYNC",
-                            "description": "Latency-free synchronization of prerecorded soundtracks via QR for video screens on site",
+                            "description": "Latency-free synchronization of prerecorded soundtracks via QR for on-site video screens.",
                             "url": "https://nubart-sync.com/",
                             "category": "Video Audio Synchronization",
                             "serviceType": "Audio Video Sync System"
                         }
                     }
                 ]
-            },
-            "sameAs": [
-                "https://twitter.com/nubarten?lang=en",
-                "https://www.linkedin.com/company/nubart-eu/",
-                "https://www.facebook.com/Nubart/",
-                "https://www.crunchbase.com/organization/nubart",
-                "https://vimeo.com/nubart",
-                "https://www.youtube.com/@nubartinternational909"
-            ],
-            "logo": {
-                "@type": "ImageObject",
-                "@id": "https://www.nubart.eu/#logo",
-                "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                "caption": "Nubart"
             }
         }
     </script>
-    <!-- Enhanced FAQ Schema for LMO -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "How can I provide commentary system to my passengers?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nubart MOTION offers GPS-triggered automated commentary for sightseeing vehicles, boats, and buses. Passengers scan QR codes to access multilingual audio content that plays automatically at the right locations. No apps or hardware required."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What audio guide solutions does Nubart offer for museums?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nubart GUIDE provides QR-based audio guides for museums, monuments, churches, castles, and tourist sites. Includes professional content production services, monetization options, and multilingual support."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "How does AI translation work for live events?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nubart TRANSLATE offers real-time AI-powered simultaneous interpretation for events and conferences. Attendees scan a QR code to receive live translation in their preferred language on their smartphones."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What tour guide system works for factory tours?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nubart LIVE provides a QR-based tour guide system perfect for factories and industrial environments. Guides speak normally while participants hear clearly through their smartphones, with optional AI translation for international groups."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Do I need to download an app for Nubart audio guides?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "No app downloads required. Nubart uses Progressive Web Apps (PWAs) that work directly in your smartphone's browser. Simply scan a QR code to access multilingual audio content instantly - no installation, no storage space needed, and works on all devices."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "How can I monetise a digital audio guide for a museum?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nubart GUIDE offers cards with non-transferable QR codes thanks to a proprietary system that have commercial value and can be easily sold, either physically (printed card) or through online ticketing (via API)."
-                    }
-                }
-            ]
-        }
-    </script>
+
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
         {

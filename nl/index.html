@@ -6,60 +6,153 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 
-    <!-- structured data -->
 
+    <!-- Enhanced Organization Schema - Dutch Version -->
     <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
-            "@graph": [
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://www.nubart.eu/nl/#organization",
+            "legalName": "Nubart GmbH",
+            "name": "Nubart",
+            "url": "https://www.nubart.eu/nl/",
+            "logo": {
+                "@type": "ImageObject",
+                "@id": "https://www.nubart.eu/#logo",
+                "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "caption": "Nubart"
+            },
+            "image": "https://www.nubart.eu/img/features-no-apps.webp",
+            "description": "Nubart biedt uitgebreide QR-gebaseerde en toegankelijke audio-oplossingen voor musea, toeristische attracties, fabrieken en evenementen. Gespecialiseerd in Progressive Web Apps (PWA's), GPS-getriggerde commentaarsystemen en AI-gestuurde livevertaling, bedient Nubart klanten in meer dan 27 landen met innovatieve hardwarevrije oplossingen die geen app-downloads vereisen.",
+            "brand": "Nubart",
+            "email": "info@nubart.eu",
+            "foundingDate": "2013-07-17",
+            "location": [
                 {
-                    "@type": "Organization",
-                    "additionalType": "http://www.productontology.org/doc/Audio_tour",
-                    "@id": "https://www.nubart.eu/#site",
-                    "legalName": "Nubart GmbH",
-                    "name": "Nubart",
-                    "areaServed": [
-                        "NL",
-                        "BE"
-                    ],
-                    "url": "https://www.nubart.eu/nl/",
-                    "image": "https://www.nubart.eu/img/features-no-apps.webp",
-                    "award": "Seal of Excellence - KMO-instrument van het EU-financieringsprogramma voor onderzoek en innovatie Horizon 2020",
-                    "description": "Nubart is een geregistreerd handelsmerk met kantoren in Berlijn en Barcelona. Sinds 2016 is Nubart gespecialiseerd in de productie van digitale audiogidsen (webapplicaties, webapps of PWA) met een uniek systeem op basis van individuele QR-codekaarten. De producten van het bedrijf omvatten Nubart Guide, Nubart Live, Nubart Sync en Nubart Game, en de diensten omvatten het creëren van content voor audiogidsen. Nubart heeft klanten in meer dan 27 landen en bezit talrijke patenten.",
-                    "brand": "Nubart",
-                    "email": "info@nubart.eu",
-                    "foundingDate": "2013-07-17",
-                    "foundingLocation": "Berlin",
-                    "vatID": "DE351577751",
-                    "sameAs": [
-                        "https://twitter.com/nubarten?lang=en",
-                        "https://www.linkedin.com/company/nubart-eu/",
-                        "https://www.facebook.com/Nubart/",
-                        "https://www.crunchbase.com/organization/nubart",
-                        "https://vimeo.com/nubart",
-                        "https://www.youtube.com/@nubartinternational909"
-                    ]
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Berlin",
+                        "addressCountry": "DE"
+                    }
                 },
                 {
-                    "@type": "ImageObject",
-                    "@id": "https://www.nubart.eu/#logo",
-                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                    "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                    "width": 600,
-                    "height": 393,
-                    "caption": "Nubart"
-                },
-                {
-                    "sameAs": [
-                        "https://www.nubart.eu/"
-                    ],
-                    "inLanguage": [
-                        "nl"
-                    ]
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Barcelona",
+                        "addressCountry": "ES"
+                    }
                 }
-            ]
+            ],
+            "industry": "Toerisme Technologie",
+            "numberOfEmployees": "10-50",
+            "sameAs": [
+                "https://twitter.com/nubarten?lang=en",
+                "https://www.linkedin.com/company/nubart-eu/",
+                "https://www.facebook.com/Nubart/",
+                "https://www.crunchbase.com/organization/nubart",
+                "https://vimeo.com/nubart",
+                "https://www.youtube.com/@nubartinternational909"
+            ],
+            "keywords": "audiogidsen, toegankelijke audiogidsen, meertalige rondleidingen, QR-code rondleidingen, museumtechnologie, digitale rondleidingsgids, AI live vertaling, PWA audiosystemen, WCAG audiogidsen",
+            "additionalType": "http://www.productontology.org/doc/Audio_tour",
+            "areaServed": ["NL", "BE", "SR", "AW", "CW", "SX"],
+            "hasPart": [
+                { "@id": "https://www.nubart.eu/nl/audiogidsen/#service" },
+                { "@id": "https://www.nubart.eu/nl/digital-rondleidingsysteem/#service" },
+                { "@id": "https://www.nubart.eu/nl/audiosysteem/boottochten-rondvaartbooten.html/#motionservice" },
+                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+                { "@id": "https://nubart-sync.com/#service" }
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "@id": "https://www.nubart.eu/nl/#productcatalog",
+                "name": "Nubart Productpakket",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/nl/audiogidsen/#service",
+                            "name": "Nubart GUIDE",
+                            "description": "QR-code gebaseerde en WCAG-toegankelijke audiogidsen voor musea, monumenten, kerken en toeristische locaties met optionele monetisatie en professionele contentproductie.",
+                            "url": "https://www.nubart.eu/nl/audiogidsen/",
+                            "category": "Audiogids Systeem",
+                            "serviceType": "Museum Audiogids",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Musea", "Monumenten", "Kerken", "Kastelen", "Toeristische Locaties"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/nl/digital-rondleidingsysteem/#service",
+                            "name": "Nubart LIVE",
+                            "description": "QR-code gebaseerd live rondleidingssysteem met optionele AI live vertaling, ideaal voor fabrieken, begeleide wandeltochten en groepservaringen.",
+                            "url": "https://www.nubart.eu/nl/digital-rondleidingsysteem/",
+                            "category": "Rondleidingssysteem",
+                            "serviceType": "Live Rondleidingssysteem",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Fabrieken", "Touroperators", "Stadsgidsen", "Groepsrondleidingsleiders"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/nl/audiosysteem/boottochten-rondvaartbooten.html/#motionservice",
+                            "name": "Nubart MOTION",
+                            "description": "GPS-getriggerd meertalig en toegankelijk commentaarsysteem voor sightseeing voertuigen, boten en bussen. Ondersteunt ook AI-gestuurde live vertaling.",
+                            "url": "https://www.nubart.eu/nl/audiosysteem/boottochten-rondvaartbooten.html",
+                            "category": "Passagiers Commentaarsysteem",
+                            "serviceType": "Voertuig Audio Commentaar",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Touroperators", "Boottocht Bedrijven", "Bus Tour Operators", "Sightseeing Voertuig Operators"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service",
+                            "name": "Nubart TRANSLATE",
+                            "description": "QR-code gebaseerd simultaan live AI vertaalsysteem voor evenementen, conferenties en meertalige bijeenkomsten.",
+                            "url": "https://www.nubart.eu/ai-simultaneous-interpretation/",
+                            "category": "Live Vertaalsysteem",
+                            "serviceType": "Simultane Vertolking",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Evenementorganisatoren", "Conferentieplanners", "Vergaderorganisatoren", "Meertalige Evenement Hosts"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://nubart-sync.com/#service",
+                            "name": "Nubart SYNC",
+                            "description": "Latentievrije synchronisatie van vooraf opgenomen soundtracks via QR voor ter plaatse videoschermen.",
+                            "url": "https://nubart-sync.com/",
+                            "category": "Video Audio Synchronisatie",
+                            "serviceType": "Audio Video Sync Systeem"
+                        }
+                    }
+                ]
+            }
         }
     </script>
+
+
 
     <!-- End Structured data -->
     <!-- Structured Data: Breadcrumbs -->

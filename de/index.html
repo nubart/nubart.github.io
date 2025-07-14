@@ -9,56 +9,149 @@
 
     <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
-            "@graph": [
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://www.nubart.eu/de/#organisation",
+            "legalName": "Nubart GmbH",
+            "name": "Nubart",
+            "url": "https://www.nubart.eu/de/",
+            "logo": {
+                "@type": "ImageObject",
+                "@id": "https://www.nubart.eu/de/#logo",
+                "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "caption": "Nubart"
+            },
+            "image": "https://www.nubart.eu/img/features-no-apps.webp",
+            "description": "Nubart bietet umfassende, barrierefreie Audiolösungen per QR-Code für Museen, Touristenattraktionen, Fabriken und Events. Spezialisiert auf Progressive Web Apps (PWA), GPS-gesteuerte Kommentar-Systeme und KI-basierte Live-Übersetzung, liefert Nubart innovative, hardwarefreie Lösungen in über 27 Ländern.",
+            "brand": "Nubart",
+            "email": "info@nubart.eu",
+            "foundingDate": "2013-07-17",
+            "location": [
                 {
-                    "@type": "Organization",
-                    "additionalType": "http://www.productontology.org/doc/Audio_tour",
-                    "@id": "https://www.nubart.eu/#site",
-                    "legalName": "Nubart GmbH",
-                    "name": "Nubart",
-                    "areaServed": [
-                        "DE",
-                        "AT",
-                        "LI",
-                        "CH"
-                    ],
-                    "url": "https://www.nubart.eu/de/",
-                    "image": "https://www.nubart.eu/img/features-no-apps.webp",
-                    "award": "Exzellenzsiegel / Seal of Excellence - KMU-Instrument des EU-Forschungs- und Innovationsförderprogramms Horizont 2020",
-                    "description": "Nubart ist eine eingetragene Marke mit Büros in Berlin und Barcelona. Seit 2016 hat sich Nubart auf die Produktion von digitalen Audioguides (Web-apps oder PWAs) mit einem einzigartigen kartenbasierten System mit eindeutigen QR-Codes spezialisiert. Zu den Produkten des Unternehmens gehören Nubart Guide, Nubart Live, Nubart Sync und Nubart Game, zu den Dienstleistungen gehört die Erstellung von Inhalten für Audioführungen. Nubart hat Kunden in mehr als 27 Ländern und hält zahlreiche Patente.",
-                    "brand": "Nubart",
-                    "email": "info@nubart.eu",
-                    "foundingDate": "2013-07-17",
-                    "foundingLocation": "Berlin",
-                    "vatID": "DE351577751",
-                    "sameAs": [
-                        "https://twitter.com/nubarten?lang=en",
-                        "https://www.linkedin.com/company/nubart-eu/",
-                        "https://www.facebook.com/Nubart/",
-                        "https://www.crunchbase.com/organization/nubart",
-                        "https://vimeo.com/nubart",
-                        "https://www.youtube.com/@nubartinternational909"
-                    ]
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Berlin",
+                        "addressCountry": "DE"
+                    }
                 },
                 {
-                    "@type": "ImageObject",
-                    "@id": "https://www.nubart.eu/#logo",
-                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                    "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                    "caption": "Nubart"
-                },
-                {
-                    "sameAs": [
-                        "https://www.nubart.eu/"
-                    ],
-                    "inLanguage": [
-                        "de"
-                    ]
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Barcelona",
+                        "addressCountry": "ES"
+                    }
                 }
-            ]
+            ],
+            "industry": "Tourismustechnologie",
+            "numberOfEmployees": "10-50",
+            "sameAs": [
+                "https://twitter.com/nubarten?lang=de",
+                "https://www.linkedin.com/company/nubart-eu/",
+                "https://www.facebook.com/Nubart/",
+                "https://www.crunchbase.com/organization/nubart",
+                "https://vimeo.com/nubart",
+                "https://www.youtube.com/@nubartinternational909"
+            ],
+            "keywords": "Audioguides, barrierefreie Audioguides, digitale Museumsführung, browserbasierte Audiolösungen, QR-Audioguide, Touristenführung, KI-Übersetzung, Progressive Web App, WCAG-konform",
+            "additionalType": "http://www.productontology.org/doc/Audio_tour",
+            "areaServed": ["DE", "AT", "CH"],
+            "inLanguage": "de",
+            "hasPart": [
+                { "@id": "https://www.nubart.eu/de/audioguides/#service" },
+                { "@id": "https://www.nubart.eu/de/personenfuehrungsanlage-app/#service" },
+                { "@id": "https://www.nubart.eu/de/audioguides/fuer-bootsfahrten-und-schiffstouren.html#service" },
+                { "@id": "https://www.nubart.eu/de/audioguides/ar-quiz-spiel.html#service" },
+                { "@id": "https://nubart-sync.com/de/#service" }
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "@id": "https://www.nubart.eu/de/#produktkatalog",
+                "name": "Nubart Produktportfolio",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/de/audioguides/#service",
+                            "name": "Nubart GUIDE",
+                            "description": "Barrierefreie Audioguides mit QR-Codes für Museen, Kirchen, Schlösser und Sehenswürdigkeiten. Optional mit Monetarisierung und professioneller Inhaltsproduktion.",
+                            "url": "https://www.nubart.eu/de/audioguides/",
+                            "category": "Audioguide-System",
+                            "serviceType": "Audioguide für Museen",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Museen", "Denkmäler", "Kirchen", "Schlösser", "Touristische Sehenswürdigkeiten"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/de/personenfuehrungsanlage-app/#service",
+                            "name": "Nubart LIVE",
+                            "description": "QR-basiertes Tour-Guide-System mit optionaler KI-Live-Übersetzung. Ideal für Fabriken, Stadtführungen und Gruppenbesichtigungen.",
+                            "url": "https://www.nubart.eu/de/personenfuehrungsanlage-app/",
+                            "category": "Führungssystem",
+                            "serviceType": "Live-Führungsanlage",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Fabriken", "Stadtführer:innen", "Reiseveranstalter", "Gruppenführer:innen"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/de/audioguides/fuer-bootsfahrten-und-schiffstouren.html#service",
+                            "name": "Nubart MOTION",
+                            "description": "GPS-gesteuertes barrierefreies Audiosystem für Fahrzeuge, Boote und Busse mit automatischer, manueller oder zeitbasierter Auslösung. Unterstützt KI-basierte Live-Übersetzung.",
+                            "url": "https://www.nubart.eu/de/audioguides/fuer-bootsfahrten-und-schiffstouren.html",
+                            "category": "Passagier-Kommentarsystem",
+                            "serviceType": "Audioguide für Fahrzeuge",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Schifffahrtsunternehmen", "Busreiseveranstalter", "Sightseeing-Fahrzeuganbieter"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/de/audioguides/ar-quiz-spiel.html#service",
+                            "name": "Nubart GAME",
+                            "description": "Interaktive Spiele und Quizze mit Augmented Reality für Museen und Bildungsstätten zur Erhöhung der Besucherbindung.",
+                            "url": "https://www.nubart.eu/de/audioguides/ar-quiz-spiel.html",
+                            "category": "Interaktives Museumserlebnis",
+                            "serviceType": "AR-Lernspielsystem",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Museen", "Touristische Attraktionen", "Bildungseinrichtungen"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://nubart-sync.com/de/#service",
+                            "name": "Nubart SYNC",
+                            "description": "Latenzfreie Synchronisierung vorab aufgenommener Audiotracks über QR-Code für Video-Monitore vor Ort.",
+                            "url": "https://nubart-sync.com/de/",
+                            "category": "Audio-Video-Synchronisierung",
+                            "serviceType": "AV-Synchronisationssystem"
+                        }
+                    }
+                ]
+            }
         }
     </script>
+
 
     <!-- End Structured data -->
     <!-- Structured data -->
