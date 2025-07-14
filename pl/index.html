@@ -6,27 +6,47 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <!-- structured data -->
 
-    <!-- structured data -->
+    <!-- Enhanced Organization Schema - Polish Version -->
     <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "Organization",
-            "additionalType": "http://www.productontology.org/doc/Audio_tour",
-            "@id": "https://www.nubart.eu/#site",
+            "@id": "https://www.nubart.eu/pl/#organization",
             "legalName": "Nubart GmbH",
             "name": "Nubart",
-            "areaServed": [
-                "PL"
-            ],
             "url": "https://www.nubart.eu/pl/",
+            "logo": {
+                "@type": "ImageObject",
+                "@id": "https://www.nubart.eu/#logo",
+                "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "caption": "Nubart"
+            },
             "image": "https://www.nubart.eu/img/features-no-apps.webp",
-            "award": "Pieczęć doskonałości - Instrument MŚP w ramach unijnego programu finansowania badań naukowych i innowacji Horyzont 2020",
-            "description": "Nubart, marka z biurami w Berlinie i Barcelonie, produkuje cyfrowe audioprzewodniki i systemy tour guide od 2016 roku. Firma oferuje produkty takie jak Nubart Guide, Nubart Live, Nubart Sync i Nubart Game, a także usługi takie jak tworzenie treści audioprzewodników. Z klientami w ponad 27 krajach i licznymi patentami, Nubart ma silną pozycję w branży.",
+            "description": "Nubart zapewnia kompleksowe rozwiązania audio oparte na kodach QR i dostępne dla muzeów, atrakcji turystycznych, fabryk i wydarzeń. Specjalizując się w Progressive Web Apps (PWA), systemach komentarzy wyzwalanych przez GPS i tłumaczeniu na żywo opartym na sztucznej inteligencji, Nubart obsługuje klientów w ponad 27 krajach dzięki innowacyjnym rozwiązaniom bez sprzętu, które nie wymagają pobierania aplikacji.",
             "brand": "Nubart",
             "email": "info@nubart.eu",
             "foundingDate": "2013-07-17",
-            "foundingLocation": "Berlin",
-            "vatID": "DE351577751",
+            "location": [
+                {
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Berlin",
+                        "addressCountry": "DE"
+                    }
+                },
+                {
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Barcelona",
+                        "addressCountry": "ES"
+                    }
+                }
+            ],
+            "industry": "Technologia Turystyczna",
+            "numberOfEmployees": "10-50",
             "sameAs": [
                 "https://twitter.com/nubarten?lang=en",
                 "https://www.linkedin.com/company/nubart-eu/",
@@ -35,14 +55,55 @@
                 "https://vimeo.com/nubart",
                 "https://www.youtube.com/@nubartinternational909"
             ],
-            "logo": {  "@type": "ImageObject",
-                "@id": "https://www.nubart.eu/#logo",
-                "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                "caption": "Nubart"
+            "keywords": "audioprzewodniki, dostępne audioprzewodniki, wielojęzyczne wycieczki, wycieczki z kodami QR, technologia muzealna, cyfrowy przewodnik turystyczny, tłumaczenie AI na żywo, systemy audio PWA, audioprzewodniki WCAG",
+            "additionalType": "http://www.productontology.org/doc/Audio_tour",
+            "areaServed": ["PL"],
+            "hasPart": [
+                { "@id": "https://www.nubart.eu/pl/audioprzewodnik/#service" },
+                { "@id": "https://www.nubart.eu/pl/tour-guide-system/#service" }
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "@id": "https://www.nubart.eu/pl/#productcatalog",
+                "name": "Pakiet Produktów Nubart",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/pl/audioprzewodnik/#service",
+                            "name": "Nubart GUIDE",
+                            "description": "Audioprzewodniki oparte na kodach QR i zgodne z WCAG dla muzeów, zabytków, kościołów i miejsc turystycznych z opcjonalną monetyzacją i profesjonalną produkcją treści.",
+                            "url": "https://www.nubart.eu/pl/audioprzewodnik/",
+                            "category": "System Audioprzewodnika",
+                            "serviceType": "Audioprzewodnik Muzealny",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Muzea", "Zabytki", "Kościoły", "Zamki", "Miejsca Turystyczne"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/pl/tour-guide-system/#service",
+                            "name": "Nubart LIVE",
+                            "description": "System przewodnika na żywo oparty na kodach QR z opcjonalnym tłumaczeniem AI na żywo, idealny dla fabryk, wycieczek z przewodnikiem i doświadczeń grupowych.",
+                            "url": "https://www.nubart.eu/pl/tour-guide-system/",
+                            "category": "System Przewodnika Turystycznego",
+                            "serviceType": "System Przewodnika na Żywo",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Fabryki", "Operatorzy Turystyczni", "Przewodnicy Miejscy", "Liderzy Wycieczek Grupowych"]
+                            }
+                        }
+                    }
+                ]
             }
         }
     </script>
+
     
     <!-- Structured data - Schema.org -->
     
