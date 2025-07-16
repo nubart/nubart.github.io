@@ -5,7 +5,258 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Structured data -->
+    <!-- Organización -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://www.nubart.eu/es/#organization",
+            "name": "Nubart",
+            "url": "https://www.nubart.eu/es/",
+            "inLanguage": "es"
+        }
+    </script>
+
+    <!-- Servicio Nubart MOTION -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/es/tours-barcos-buses.html#motionservice",
+            "name": "Nubart MOTION – Sistemas de comentarios para pasajeros",
+            "description": "Solución integral de audiocomentarios multilingües para operadores turísticos: activación automática por GPS, control manual o automático a distancia, activación secuencial por tiempo y traducción en vivo con IA para guías humanos. Todo mediante QR, sin apps ni hardware especial.",
+            "image": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "provider": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/es/#organization",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu/es/"
+            },
+            "serviceType": "Sistema de audiocomentarios",
+            "areaServed": [
+                {
+                    "@type": "Place",
+                    "name": "Europa"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Norteamérica"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Australia"
+                }
+            ],
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "Operadores turísticos",
+                    "Empresas de cruceros fluviales",
+                    "Operadores de autobuses turísticos",
+                    "Operadores de barcos turísticos",
+                    "Trenes turísticos urbanos"
+                ]
+            },
+            "hasPart": [
+                {
+                    "@type": "Service",
+                    "name": "Nubart TRANSLATE",
+                    "description": "Traducción simultánea con IA para guías, comunicación fluida en varios idiomas"
+                },
+                {
+                    "@type": "Service",
+                    "name": "Nubart MOTION",
+                    "description": "Audioguías automáticas multilingües con activación flexible: GPS, control remoto manual, control automático y activación por tiempo"
+                }
+            ],
+            "isRelatedTo": {
+                "@type": "SoftwareApplication",
+                "@id": "https://www.nubart.eu/es/tours-barcos-buses.html#motionapp"
+            },
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Activación por GPS",
+                    "value": "Reproducción automática según ubicación del usuario"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Control remoto manual",
+                    "value": "Guía activa audios manualmente desde la plataforma"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Control remoto automático",
+                    "value": "Dispositivo maestro activa los puntos mediante GPS"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Activación secuencial",
+                    "value": "Avance de pistas según intervalos de tiempo"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Activación híbrida",
+                    "value": "Métodos combinables para máxima flexibilidad"
+                }
+            ],
+            "inLanguage": "es"
+        }
+    </script>
+
+    <!-- FAQPage -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://www.nubart.eu/es/tours-barcos-buses.html#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Cómo puedo ofrecer un sistema de comentarios a mis pasajeros?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart MOTION ofrece audiocomentarios automáticos con varios modos de activación (GPS, control remoto manual o automático, secuencial por tiempo) y traducción en vivo con IA para guías. Todo mediante QR, sin app ni hardware adicional."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Qué equipo se necesita para el audiocomentario?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No hace falta ningún equipo especial. Los pasajeros solo escanean un código QR con su móvil y acceden al comentario en varios idiomas. No se requieren apps ni dispositivos extra."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Qué conexión a internet se necesita para Nubart MOTION?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart TRANSLATE requiere conexión estable para la traducción IA. Nubart MOTION necesita conexión básica para GPS y activación remoto; el modo secuencial funciona completamente offline tras la precarga inicial."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Qué métodos de activación existen para los tours automáticos?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Se ofrecen cuatro métodos: GPS (requiere permiso del usuario), control remoto manual (por guía), control remoto automático (por dispositivo maestro), y secuencial (progresión en intervalos de tiempo)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Funciona Nubart en zonas sin cobertura?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sí. El modo offline precarga los audios y el contenido. El activación secuencial funciona sin conexión; GPS y control remoto precisan conexión mínima. El contenido permanece aunque se pierda internet."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Se pueden combinar diferentes métodos de activación?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Por supuesto. Nubart MOTION permite combinar GPS, control remoto y activacións secuenciales según demanda; garantizando una experiencia continuada en cualquier circunstancia."
+                    }
+                }
+            ],
+            "inLanguage": "es"
+        }
+    </script>
+
+    <!-- Aplicación de software -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "@id": "https://www.nubart.eu/es/tours-barcos-buses.html#motionapp",
+            "name": "Sistema de comentarios Nubart MOTION",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Navegador web",
+            "description": "App web progresiva (PWA) para comentarios de pasajeros: activación por GPS, control remoto manual y automático, secuencial, traducción IA y modo offline.",
+            "url": "https://www.nubart.eu/es/tours-barcos-buses.html",
+            "provider": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/es/#organization",
+                "name": "Nubart"
+            },
+            "isPartOf": {
+                "@type": "Service",
+                "@id": "https://www.nubart.eu/es/tours-barcos-buses.html#motionservice"
+            },
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "Operadores turísticos",
+                    "Empresas de cruceros",
+                    "Operadores de autobuses y barcos turísticos",
+                    "Trenes turísticos"
+                ]
+            },
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "price": "Precio a consultar",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/InStock"
+                },
+                {
+                    "@type": "Offer",
+                    "price": "Precio a consultar",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                }
+            ],
+            "featureList": [
+                "Activación por GPS",
+                "Control remoto manual y automático",
+                "Secuencial por tiempo",
+                "Traducción IA en tiempo real",
+                "Código QR",
+                "Tecnología PWA",
+                "Sin necesidad de app",
+                "Soporte multilingüe",
+                "Modo offline",
+                "Métodos combinables",
+                "Audio en navegador"
+            ],
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Métodos de activación",
+                    "value": "GPS, control remoto, secuencial"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Requisitos de internet",
+                    "value": "IA necesita buena conexión, lo demás funciona incluso offline"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Tipo de tecnología",
+                    "value": "App web progresiva (PWA)"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Audiencia",
+                    "value": "Operadores turísticos, empresas de autobuses, barcos y trenes turísticos"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Monedas aceptadas",
+                    "value": "EUR, USD"
+                }
+            ],
+            "softwareRequirements": "Navegador moderno con JavaScript",
+            "memoryRequirements": "Mínimo – contenido se precarga",
+            "storageRequirements": "No requiere almacenamiento permanente",
+            "installUrl": "No aplica – acceso vía QR",
+            "downloadUrl": "No aplica",
+            "screenshot": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "inLanguage": "es"
+        }
+    </script>
+
 
     <script type="application/ld+json">
 
@@ -13,7 +264,6 @@
             "@context": "http://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-               
                 {
                     "@type": "ListItem",
                     "position": 1,
@@ -38,45 +288,48 @@
     <!-- End Structured data -->
 
     <!-- Google Tag Manager -->
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TRW7KZS');</script>
-<!-- End Google Tag Manager -->
-<!-- End Google Tag Manager -->
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- End Google Tag Manager -->
 
-<!-- 2. Cookie consent CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+    <!-- 2. Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
 
-<!-- 3. Cookie consent config (MOVED HERE) -->
-<script type="module" src="/js/cookieconsent-config.js"></script>
-
-
+    <!-- 3. Cookie consent config (MOVED HERE) -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
 
 
-    <title>Audioguías a bordo para buses, cruceros, rías o puertos</title>
-    <meta name="description" content="Audioguía con GPS y geolocalización o activadas por control remoto para excursiones o rutas en autobús, barco o crucero. Tarjetas intransferibles con valor comercial y de marketing que el pasajero se puede llevar. Sin aparatos ni apps.">
+    <title>Audioguías automatizadas y traducción IA para vehículos turísticos | Nubart MOTION</title>
+    <meta name="description"
+          content="Solución completa de comentarios para pasajeros: audioguías multilingües activadas por GPS y traducción simultánea con IA para guías. Acceso por QR, sin app. Múltiples modos de activación para barcos, autobuses y vehículos turísticos. Solicite su demo personalizada.">
+
     <meta name="author" content="Nubart">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Audioguía con GPS y geolocalización o activadas por control remoto para excursiones o rutas en autobús, barco o crucero. Tarjetas intransferibles con valor comercial y de marketing que el pasajero se puede llevar. Sin aparatos ni apps.">
-    <meta name="twitter:site" content="@nub_art">
-    <meta name="twitter:site" content="@nub_art">
-    <meta name="twitter:creator" content="@nub_art">
-    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/tw-card/nubart-cover-tw-es.webp">
+    <meta name="twitter:description"
+          content="Solución integral de comentarios para pasajeros: audioguía multilingüe con GPS y traducción en vivo por IA. Sin apps, solo QR. Activación flexible para barcos, autobuses y tours. Pida una demo personalizada.">
+    <meta name="twitter:site" content="@NubartEN">
+    <meta name="twitter:creator" content="@NubartEN">
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/nubart-guide.webp">
+
 
     <!-- hreflang -->
     <link rel="canonical" href="https://www.nubart.eu/es/tours-barcos-buses.html"/>
     <link rel="alternate" href="https://www.nubart.eu/audio-commentary-system/" hreflang="x-default"/>
     <link rel="alternate" href="https://www.nubart.eu/audio-commentary-system/" hreflang="en"/>
-    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/fuer-bootsfahrten-und-schiffstouren.html" hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/fuer-bootsfahrten-und-schiffstouren.html"
+          hreflang="de"/>
     <link rel="alternate" href="https://www.nubart.eu/es/tours-barcos-buses.html" hreflang="es"/>
     <link rel="alternate" href="https://www.nubart.eu/fr/audioguide-bateaux-bus.html" hreflang="fr"/>
     <link rel="alternate" href="https://www.nubart.eu/it/percorsi-navi-autobus.html" hreflang="it"/>
     <link rel="alternate" href="https://www.nubart.eu/nl/audiosysteem/boottochten-rondvaartbooten.html" hreflang="nl"/>
 
-   <!-- Icons -->
+    <!-- Icons -->
     <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
@@ -101,8 +354,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link href="../assets/css/style-min.css" rel="stylesheet">
 
 
-
-     <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
 
 
     <!-- =======================================================
@@ -136,7 +388,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
 
                         <li>
                             <a href="../es/sistema-guiado-grupos/">
@@ -147,7 +401,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li>
                             <a href="../es/tours-barcos-buses.html">
                                 <i class="bi bi-bus-front-fill product-icon"></i>
@@ -157,7 +413,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li>
                             <a href="../es/gamificacion-juego-audioguia.html">
                                 <i class="bi bi-controller product-icon"></i>
@@ -167,7 +425,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
 
                         <li>
                             <a href="https://nubart-sync.com/es/">
@@ -191,7 +451,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </ul>
                 </li>
                 <li class="d-flex">
-                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                       href="https://www.nub.art/customer/login">
                         <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
 
@@ -209,14 +470,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><a href="../ja/">日本語</a></li>
                     </ul>
                 </li>
-            <!-- Mobile-only secondary menu items -->
-                <li class="mobile-secondary-menu-divider d-md-none"><hr></li>
-                <li class="mobile-secondary-header d-md-none"  style="color: #028a8c;"><i class="bi bi-bus-front-fill product-icon"></i>&nbsp;<span>Nubart MOTION</span></li>
-
-
-                <li class="d-md-none">
-                    <a href="https://forms.zohopublic.eu/rosasala/form/Solicitudpresupuestoespaol/formperma/hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8" class="scrollto">Solicita una muestra</a>
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none">
+                    <hr>
                 </li>
+                <li class="mobile-secondary-header d-md-none" style="color: #028a8c;"><i
+                        class="bi bi-bus-front-fill product-icon"></i>&nbsp;<span>Nubart MOTION</span></li>
+
+
 
 
             </ul>
@@ -226,25 +487,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </header><!-- End Header -->
 
 
-
 <!-- ======= Hero Section ======= -->
-<section id="hero" style='background-image: url("../assets/img/hero1-bg.webp");'>
+
+<section id="hero" style='background-image: url("../assets/img/bg/bg-boats-2.webp");'>
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
-
-        <h1>La audioguía que tu pasajero se puede llevar</h1>
-        <h2>Solución digital de audioguiado para rutas y excursiones en barco</h2>
-
+        <h1>Audioguía multilingüe y traducción por IA<br>para vehículos turísticos</h1>
+        <h2>Activación por GPS, manual o temporizador - Traducción en tiempo real del comentario del guía<br>
+            Vía QR, sin apps ni dispositivos.</h2>
         <div class="d-flex">
-
-            <a href="https://vimeo.com/687432657" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Ver el vídeo</span></a>
-
-        </div>
-
-        <div class="img-fluid align-center d-none d-lg-block">
-            <img src="../assets/img/audioguide-boats.webp" width="250" class="img-fluid lazyload" alt="Solución turística de audioguía y comentario  para visitas en barco y autobús y cruceros">
+            <a href="https://vimeo.com/687432657" class="glightbox btn-watch-video">
+                <i class="bi bi-play-circle"></i>
+                <span style="font-size: 25px;"><b>Ver cómo funciona</b> (2 min)</span>
+            </a>
         </div>
     </div>
-</section><!-- End Hero -->
+</section>
+
+
 <!-- Second Navbar - Desktop Only -->
 <header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
     <div class="container d-flex align-items-center justify-content-between"
@@ -255,683 +514,567 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <i class="bi bi-bus-front-fill"></i>&nbsp;&nbsp;
                     <b>Nubart MOTION:</b>
                 </div>
-                <ul id="secondary-menu-items" class="secondary-menu-list" style="margin-left: 10px; display: flex; align-items: center;">
-                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
-                        <a href="#"><span>Casos de uso</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="audioguias.html">Museos</a></li>
-                            <li><a href="audioguia-zoos.html">Zoos</a></li>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
 
-                        </ul>
+
+                    <li style="margin-right: 22px;">
+                        <a class="getstarted scrollto" href="#samples">Solicita una demo</a>
                     </li>
-                    <li style="margin-right: 22px;"><a href="audioguia-multimedia.html">Elementos multimedia</a></li>
-                    <li style="margin-right: 22px;" class="dropdown">
-                        <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="produccion-contenido.html">Nuestro proceso de producción</a></li>
-                            <li><a href="materiales.html">Qué necesitamos para producir tu audioguía</a></li>
-                        </ul>
-                    </li>
-                    <li style="margin-right: 22px;"><a href="preguntas-frecuentes.html">FAQ</a></li>
-                    <li  style="margin-right: 30px;"><a class="getstarted scrollto" href="https://forms.zohopublic.eu/rosasala/form/Solicitudpresupuestoespaol/formperma/hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8">Solicita un presupuesto</a></li>
 
                 </ul>
             </div>
         </nav>
     </div>
 </header>
-
-<section id="about" class="about">
-    <div class="container" data-aos="fade-up">
-
-        <div class="row">
-
-            <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                <br> <img data-src="../assets/img/web-boats-12.webp" width="600" height="410" class="img-fluid lazyload" alt="">
-                <a href="https://vimeo.com/687432657" class="glightbox play-btn mb-4"></a>
-            </div>
-
-            <div class="col-lg-6 pt-3 pt-lg-0 content">
-                <br>
-                <h2>Comentarios en audio para excursiones marítimas o fluviales</h2><br>
-                <p class="lead">
-                    Ofrecemos a los autobuses "hop-on-hop-off" y a los cruceros fluviales y portuarios sistemas multilingües de audioguía sin aparatos y sin apps. </p>
-                <p class="lead">
-                    Una bonita tarjeta con un código individual ofrece al pasajero un acceso controlado a los contenidos. Las pistas de audio se transmiten directamente al smartphone. nuestros diversos mecanismos de activación, como la geolocalización o el control remoto, mostrarán a tus pasajeros la explicación que corresponde escuchar en cada punto de la ruta. </p>
-                <p class="lead">
-                    Nuestras audioguías son económicas y te diferenciarán de tus competidores. ¡Véndelas como un servicio extra o inclúyelas en el precio del ticket! También recibirás datos de uso y feedback de los pasajeros.
-
-                </p>
-
-            </div>
-        </div>
-    </div>
-</section>
-
 <main id="main">
-    <!-- ======= Testimonials Section ======= -->
-    <section id="why-nubart" style='background-image: url("/assets/img/bg/bg-boat-inside.webp");' class="testimonials">
-        <div class="container" style="padding-top: 150px; padding-bottom: 150px" data-aos="zoom-in">
-
-            <div data-aos="fade-up" data-aos-delay="100">
-                <div class="row">
-                    <div class="col text-center">
-                        <p class="fs-1" style="color: white">¿Por qué Nubart?</p><br>
-
-                    </div>
-
-                </div>
-                <div class="row">
-                    
-                    <div class="col-10 offset-md-1 text-center">
-                        <br><br>
-                        <h3 style="color: white"><b>Agiliza tus operaciones turísticas:</b></h3>
-                        <p class="fs-4" style="color: white">Los dispositivos de audioguía tradicionales suponen un reto logístico para barcos y autobuses.<br>Nuestra solución elimina estas complejidades.</p>
-                        <br>
-                        <h3 style="color: white"><b>Mejora la experiencia de los pasajeros:</b></h3>
-                        <p  class="fs-4" style="color: white">Despídete de los molestos altavoces.<br>Envía sonido personalizado y multilingüe directamente a los smartphones de tus pasajeros.</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section><!-- End Testimonials Section -->
-    <!-- ======= About Boxes Section ======= -->
-    <section id="features" class="services section-bg">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
 
             <div class="row">
+
+                <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                    <br> <img data-src="../assets/img/web-boats-12.webp" width="600" height="410"
+                              class="img-fluid lazyload"
+                              alt=""> <a href="https://vimeo.com/687432657" class="glightbox play-btn mb-4"></a>
+                </div>
+
+                <div class="col-lg-6 pt-3 pt-lg-0 content">
+                    <br>
+                    <h3>Audiocomentario multilingüe y traducción IA para vehículos turísticos</h3>
+
+                    <p class="lead">Con Nubart MOTION, los operadores de excursiones costeras, autobuses y trenes turísticos
+                        pueden ofrecer comentarios en varios idiomas, activados por distintos métodos inteligentes y
+                        traducción automática a través de IA. Sin sistemas a bordo ni descargas de apps.</p>
+
+                    <p class="lead">Un simple código QR actúa como exclusiva puerta de acceso al contenido digital.</p>
+
+                    <p class="lead"><b>Para recorridos automatizados:</b> Disponemos de activación por GPS, control remoto
+                        manual, control remoto automático o modo secuencial. Los contenidos se precargan en offline para
+                        garantizar el funcionamiento incluso sin cobertura.</p>
+
+                    <p class="lead"><b>Para viajes guiados en directo:</b> Nuestra traducción simultánea por IA permite
+                        a los pasajeros escuchar al guía en su idioma, sin necesidad de que el guía haga pausas para dar tiempo a la traducción.</p>
+
+                    <p class="lead">Modelos flexibles de negocio: puedes ofrecer el sistema a tus pasajeros como un extra de pago o como servicio
+                        gratuito.</p>
+            </div>  </div>
+        </div>
+    </section>
+
+    <section id="overview" class="services">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row">
                 <div class="col text-center">
-                    <p class="fs-1">Diferénciate de la competencia</p>
-
-                    <p class="fs-3">¿Por qué un altavoz a bordo cuando todo el mundo tiene un smartphone?</p><br>
-
-                </div>
-                <br>
-            </div>
-            <div class="row" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-
-                    <div class="icon-box">
-                        <i class="bi bi-cash-coin"></i>
-                        <h4 style="font-size: 25px;">Monetizable</h4>
-                        <p class="card-text">Las tarjetas Nubart no son transferibles y, por tanto, tienen un valor comercial. Puedes venderlas y obtener ingresos con ellas. </p>
-                    </div>
-                    <div class="icon-box">
-                        <i class="bi bi-gift"></i>
-                        <h4 style="font-size: 25px;">Marketing</h4>
-                        <p class="card-text">Los pasajeros pueden llevarse las tarjetas a casa y volver a escuchar el contenido. Se convierten en un bonito recuerdo para guardar, que les ayudará a recordar tu marca y a recomendar tus excursiones en el futuro. </p>
-                    </div>
-                    <div class="icon-box">
-                        <i class="bi bi-translate"></i>
-                        <h4 style="font-size: 25px;">Multilingüe</h4>
-                        <p class="card-text">
-                            Las tarjetas Nubart pueden ofrecer contenidos en cientos de idiomas. Así que ningún pasajero quedará excluido de tus viajes. </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <img src="../assets/img/motion/audioguide-w-boat.webp" class="w-100 shadow-1-strong rounded mb-4 hover" alt="La audioguía Nubart para excursiones en barco y en autobús"/>
-                    <div class="icon-box">
-                        <i class="bi bi-tree"></i>
-                        <h4 style="font-size: 25px;">Ecológico</h4>
-                        <p class="card-text">Las audioguías Nubart se imprimen en cartón con certificado FSC y compensación de CO2.</p>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <div class="icon-box">
-                        <i class="bi bi-brightness-high"></i>
-                        <h4 style="font-size: 25px;">Sin mantenimiento </h4>
-                        <p class="card-text">Simplemente entregas las tarjetas a los pasajeros junto con el billete, o las repartes a la entrada del vehículo. No necesitas recoger nada al regreso ni mantener ningún equipo. </p>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="bi bi-chat-heart"></i>
-                        <h4 style="font-size: 25px;">Formulario de feedback</h4>
-                        <p class="card-text">Cada audioguía dispone de un formulario de evaluación. A los pasajeros que valoren la excursión con cinco estrellas se les invita automáticamente a hacer una reseña de tu negocio en Google. </p>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="bi bi-megaphone"></i>
-                        <h4 style="font-size: 25px;">Sin molestias</h4>
-                        <p class="card-text">Los altavoces pueden ser una molestia. Con Nubart, tus pasajeros serán libres de elegir si quieren escuchar las explicaciones o prefieren un viaje romántico y en silencio.
-
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- End About Boxes Section -->
-    <!-- ======= About Section ======= -->
-    <section id="about2" class="about d-none d-lg-block">
-        <div class="container" data-aos="fade-up">
-            <div class="row justify-content-center">
-                <div class="col-lg-11">
-                    <div class="row justify-center">
-
-                        <div class="col-4  center-block">
-                            <div class="count-box">
-                                <i class="bi bi-bank"></i>
-                                <span style="font-size: 60px; " data-purecounter-start="0" data-purecounter-end="177" data-purecounter-duration="1" class="purecounter"></span>
-                                <p style="font-size: 20px; margin-top: 10px;">Clientes satisfechos</p>
-                            </div>
-                        </div>
-
-                        <div class="col-4  center-block">
-                            <div class="count-box">
-                                <i class="bi bi-globe-americas"></i>
-                                <span style="font-size: 60px; " data-purecounter-start="0" data-purecounter-end="29" data-purecounter-duration="1" class="purecounter"> </span>
-                                <p style="font-size: 20px; margin-top: 10px;">Países</p>
-                            </div>
-                        </div>
-                        <div class="col-4  center-block">
-                            <div class="count-box">
-                                <i class="bi bi-credit-card-2-front"></i>
-                                <span style="font-size: 60px;" data-purecounter-start="0" data-purecounter-end="2902361" data-purecounter-duration="1" class="purecounter"></span>
-                                <p style="font-size: 20px;  margin-top: 10px;">Tarjetas impresas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End About Section -->
-    <!-- ======= Features Section ======= -->
-    <section id="activation" class="services section-bg">
-        <div class="container" data-aos="fade-up">
-
-            <div class="row" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="section-title">
-
-                    <p>Tres métodos combinables para activar pistas de sonido</p>
-                </div>
-                <p class="lead">En las excursiones en barco o autobús es especialmente importante que los pasajeros puedan oír la oír la explicación en el momento en el que el punto de interés está a la vista. En Nubart, podemos combinar tres métodos diferentes para activar las pistas de sonido. Éstas pueden reproducirse automáticamente (autoplay).</p>
-                <br> <br>
-
-                <div class="col-md-4">
-                    <div class="icon-box">
-                        <i class="bi bi-check2-circle"></i>
-                        <h4 style="font-size: 25px;">Geolocalización (geo-scrolling)</h4>
-
-                        <p>Nuestras pistas de audio activadas por GPS se iluminan en rojo y se desplazan automáticamente hasta la parte superior de la pantalla del teléfono móvil cada vez que el vehículo se acerca al punto de interés.
-                            <br>En Android, este proceso se refuerza con una ligera vibración del teléfono. Éste es nuestro método más habitual y eficaz.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="icon-box">
-                        <i class="bi bi-check2-circle"></i>
-                        <h4 style="font-size: 25px;">Control remoto (activación manual)</h4>
-                        <p>En algunas regiones, la geolocalización del smartphone no es lo suficientemente precisa y puede producir resultados erróneos. En estas situaciones, <a href="/es/blog/audioguia-web-app-por-control-remoto.html" target="_blank">el conductor o el guía puede activar manualmente cada pista con un solo clic y enviarla así a los móviles de todos los pasajeros</a>. Cada pasajero la escuchará en su propio idioma. </p>
-
-                        <div class="video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                            <a role="button" href="https://vimeo.com/669095438" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
-                                <i class="bi bi-play-circle-fill"></i>&nbsp;Ver el control remoto de Nubart en acción</a>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-4 mt-4 mt-md-0">
-                    <div class="icon-box">
-                        <i class="bi bi-check2-circle"></i>
-                        <h4 style="font-size: 25px;">Secuencia programada</h4>
-                        <p>Cuando parte de la ruta transcurre en una zona sin conectividad, la geolocalización no es lo suficientemente eficaz y la activación manual no es posible. En estas situaciones, precargamos la audioguía en la memoria temporal del smartphone (nuestro modo offline). La última pista de la zona de cobertura es la que activa todas las demás, según una secuencia temporal que personalizaremos según tu caso. </p>
-                    </div>
-
-                </div> </div> </div>
-    </section>
-    <section id="samples" class="samples">
-        <div class="container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Solicita una carpeta con muestras de las tarjetas-audioguía de Nubart</h2>
-                <p>¿Te gustaría probar gratis nuestras tarjetas?</p>
-            </div>
-
-            <div class="tab-pane">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <img data-src="../assets/img/about-samples-1.webp" alt="" class="img-fluid d-none d-lg-block lazyload"><br><br>
-
-                    </div>
-                    <div class="col-lg-7">
-                        <p class="lead">Rellena este formulario y te las enviaremos por correo:</p>
-                        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-                        <script>
-  hbspt.forms.create({
-    region: "na1",
-    portalId: "2430134",
-    formId: "2d486739-f7b2-4dfb-92c8-d393bdec89db"
-  });
-
-                        </script>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ======= Testimonials Section ======= -->
-    <section id="content" style='background-image: url("../assets/img/hero-bg-content.webp");' class="testimonials">
-        <div class="container" style="padding-top: 150px; padding-bottom: 150px" data-aos="zoom-in">
-
-            <div data-aos="fade-up" data-aos-delay="100">
-                <div class="row">
-                    <div class="col text-center">
-                        <p class="fs-1" style="color: white">¿Necesitas producción de contenidos para tu ruta?</p><br><br>
-
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-10 offset-md-1 text-center">
-
-                        <H5 style="color: white">Esto no es un problema. Podemos crear contenido para ti gracias a nuestra amplia selección de guionistas, traductores y locutores.
-                            <br><br>¿Tu presupuesto es muy ajustado? También tenemos voces de inteligencia artificial que suenan suenan increíblemente naturales.
-                        </H5><br><br>
-                    </div>
+                    <h1 class="display-5 fw-bold mb-3">Elige la solución perfecta para tu vehículo</h1>
+                    <p class="fs-3">Tanto si cuentas con guías humanos como si prefieres rutas automatizadas, tenemos la
+                        mejor opción multilingüe para tus recorridos turísticos.</p>
                     <br>
                 </div>
-
             </div>
 
+            <div class="row g-4" data-aos="fade-up" data-aos-delay="200">
+                <!-- Live Guide Translation Card -->
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-lg border-0">
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-4">
+                                <img src="../assets/img/motion/motion-translate.webp"
+                                     alt="Nubart TRANSLATE traducción IA"
+                                     class="img-fluid" style="width: 140px; height: 140px;">
+                            </div>
+
+                            <h3 class="card-title fw-bold mb-2">Nubart TRANSLATE</h3>
+                            <p class="text-muted mb-3">Traducción simultánea para guías</p>
+                            <p class="card-text mb-4">Traducción automática en tiempo real de lo que dice el guía: los
+                                pasajeros escuchan todo en su idioma directamente en su smartphone.</p>
+
+                            <div class="bg-light rounded p-3">
+                                <h6 class="fw-bold mb-3">
+                                    <i class="bi bi-bullseye text-danger me-2 h5"></i>Ideal si dispones de:
+                                </h6>
+                                <ul class="list-unstyled text-start mb-0">
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2 h5"></i>Guías humanos para comentar la
+                                        ruta
+                                    </li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2 h5"></i>Interactividad y
+                                        preguntas del público
+                                    </li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2 h5"></i>Buena conexión a
+                                        Internet
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auto-Triggered Tours Card -->
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-lg border-0">
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-4">
+                                <img src="../assets/img/motion/motion-triggered.webp" alt="Nubart MOTION activado"
+                                     class="img-fluid" style="width: 140px; height: 140px;">
+                            </div>
+
+                            <h3 class="card-title fw-bold mb-2">Nubart MOTION</h3>
+                            <p class="text-muted mb-3">Audioguía automática por activación múltiple</p>
+                            <p class="card-text mb-4">Comentario multilingüe pregrabado que se activa automáticamente en el momento adecuado.</p>
+
+                            <div class="bg-light rounded p-3">
+                                <h6 class="fw-bold mb-3">
+                                    <i class="bi bi-bullseye text-danger me-2 h5"></i>Ideal si tienes:
+                                </h6>
+                                <ul class="list-unstyled text-start mb-0">
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2 h5"></i>Operativas sin guía
+                                        acompañante
+                                    </li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2 h5"></i>Vehículos de gran
+                                        capacidad
+                                    </li>
+                                    <li class="mb-2"><i class="bi bi-check text-success me-2 h5"></i>Cobertura de
+                                        Internet variable
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- ======= business models Section ======= -->
-    <section  class="services section-bg">
-        <div id="business" class="container" data-aos="fade-up">
-            <p style="font-size: 2.5rem;">¿Preocupado por los costes? No lo estés.</p>
-
-            <div class="section-title">
-
-                <p>Tenemos Modelos de Negocio extremadamente convenientes</p>
-            </div>
-            <div class="row" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-md-4">
-                    <div class="icon-box">
-                        <i class="bi bi-check2-circle"></i>
-                        <h4 style="font-size: 25px;">Nubart como producto</h4>
-                        <p>Simplemente adquieres una cantidad de tarjetas personalizadas. También puedes encargar a Nubart la producción de contenidos. Nuestras tarjetas son válidas indefinidamente y puedes distribuirlas hasta que se agoten.<br><br><b>¡Audioguía sin cuotas periódicas!</b>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-4 mt-md-0">
-                    <div class="icon-box">
-                        <i class="bi bi-check2-circle"></i>
-                        <h4 style="font-size: 25px;">Reparto de beneficios</h4>
-                        <p>Como podemos trazar el código único de las tarjetas, los dos sabemos exactamente cuántas se han utilizado y podemos facturarlas mensualmente. Ofrecemos un suministro continuo de tarjetas y podemos amortizar la producción de contenidos.
-                            <br><br><b>¡Obtén ingresos sin adelantar costes!</b>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-4 mt-md-0">
-                    <div class="icon-box">
-                        <i class="bi bi-check2-circle"></i>
-                        <h4 style="font-size: 25px;">Suscripción</h4>
-                        <p>¿Prefieres incluir la tarjeta en el precio de la entrada? Recibe las tarjetas por adelantado y una factura mensual sólo por las tarjetas que hayas distribuido. Podemos amortizar la producción de contenidos. Nuestra tasa de uso es enorme (45-85%).
-                            <br><br><b>¡Ofrece servicio sin adelantar costes!</b>
-                        </p>
-                    </div>
+    <!-- Nubart TRANSLATE - long explanation -->
+    <section id="nubart-translate" class="services section-bg">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="fs-1">Nubart TRANSLATE: Traducción multilingüe en tiempo real para guías en directo</h2>
+                    <p class="fs-3">Haz que tus visitas guiadas sean accesibles para todos, sin importar el idioma.</p>
+                    <br>
                 </div>
             </div>
-            <div class="row" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-12 d-flex justify-content-center">
-                    <style>
-
-.zf_lB_Dimmer_9588{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    background: rgb(0, 0, 0);
-    opacity: 0.8;
-    z-index: 10000000;
-}
-
-.zf_lB_Container_9588{
-	position: fixed;
-	background-color: white;
-	margin: 0;
-	margin-right: 0px;
-	padding: 0;
-	height: 750px;
-	width:  850px;
-	top: 50%;
-	left: 50%;
-	margin-right: -50%;
-	transform: translate(-50%, -50%);
-	border: 7px solid none;
-	max-height: calc(100% - 60px);
-	z-index: 999999;
-}
-
-p{
-margin-bottom: 10px;
-}
-
-.zf_lB_Wrapper_9588{
-	position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: 0;
-    margin-top: -180px;
-    z-index: 10000001;
-}
-
-.zf_main_id_9588{
-	height: calc(100% - 0px);
-	display: flex;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
-
-.zf_lb_closeform_9588 {
-    position: absolute;
-    right: -20px;
-    background: #2f2e2e;
-    padding: 0;
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    top: -15px;
-    cursor: pointer;
-    border: 2px solid #d9d9d9;
-}
-.zf_lb_closeform_9588:before, .zf_lb_closeform_9588:after {
-    position: absolute;
-    left: 16px;
-    content: ' ';
-    height: 19px;
-    width: 2px;
-    top: 7px;
-    background-color: #f7f7f7;
-}
-
-.zf_lb_closeform_9588:before {
-  transform: rotate(45deg);
-}
-.zf_lb_closeform_9588:after {
-  transform: rotate(-45deg);
-}
-
-
-
-@media screen and (min-device-width: 10px) and (max-device-width: 380px) {
-   .zf_lB_Container_9588 {
-  width: 270px !important;
-}
-}
-
-@media screen and (min-device-width: 360px) and (max-device-width: 480px) {
-   .zf_lB_Container_9588 {
-  width: 300px !important;
-}
-}
-
-@media screen and (min-device-width: 440px) and (max-device-width: 500px) {
-   .zf_lB_Container_9588 {
-  width: 380px !important;
-}
-}
-
-@media only screen  and (min-width:500px) and (max-width:600px)  {
- 	.zf_lB_Container_9588 {
-	width: 450px;
- }
-}
-
-@media only screen  and (min-width:601px) and (max-width:700px)  {
- 	.zf_lB_Container_9588 {
-	width: 540px;
- }
-}
-
-@media only screen  and (min-width:700px) and (max-width:800px)  {
-.zf_lB_Container_9588 {
-	width: 650px;
- }
-}
-
-@media screen and (min-device-width: 801px) and (max-device-width: 1268px) {
-   .zf_lB_Container_9588 {
-  width: 750px !important;
-}
-}
-
-
-
-
-
-                    </style>
-                    <button id="zf_button_9588" style="margin:45px; font-size: 30px;" class="btn-lg btn-danger text-center">Pide una oferta
-                        <i class="bi bi-arrow-right-short"></i></button>
-                    <script type="text/javascript">(function() {
-	try{
-
-			if( document.readyState == "complete" ){
-				onloadActions_9588();
-			}  else {
-			  	window.addEventListener('load', function (){
-			  		onloadActions_9588();
-			  	}, false);
-			}
-
-			function onloadActions_9588(){
-				constructDiv_9588();
-
-			}
-
-			function constructDiv_9588(){
-				var iframeDiv = document.createElement("div");
-				iframeDiv.setAttribute('id','hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8_9588');
-				iframeDiv.setAttribute('class','zf_main_id_9588');
-
-				var closeFormDiv = document.createElement("div");
-				closeFormDiv.setAttribute('id','deleteform_9588');
-				closeFormDiv.setAttribute('class','zf_lb_closeform_9588');
-
-
-				var containerDiv = document.createElement("div");
-				containerDiv.setAttribute('id','containerDiv_9588');
-				containerDiv.setAttribute('class','zf_lB_Container_9588 ');
-				containerDiv.appendChild(iframeDiv);
-				containerDiv.appendChild(closeFormDiv);
-
-				var wrapperDiv = document.createElement("div");
-				wrapperDiv.setAttribute('class','zf_lB_Wrapper_9588');
-				wrapperDiv.appendChild(containerDiv);
-
-
-				var dimmerDiv = document.createElement("div");
-				dimmerDiv.setAttribute('class','zf_lB_Dimmer_9588');
-				dimmerDiv.setAttribute('elname','popup_box');
-
-				var mainDiv = document.createElement("div");
-				mainDiv.setAttribute('id','formsLightBox_9588');
-				mainDiv.style.display = "none";
-				mainDiv.appendChild(wrapperDiv);
-				mainDiv.appendChild(dimmerDiv);
-
-				document.body.appendChild(mainDiv);
-
-			}
-
-			function showZForm_9588(){
-				var iframe = document.getElementById("hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8_9588").getElementsByTagName("iframe")[0];
-				if(iframe == undefined ||iframe.length == 0){
-					loadZForm_9588();
-
-				}
-				document.getElementById("formsLightBox_9588").style.display = "block";
-				document.body.style.overflow = "hidden";
-			}
-
-			function loadZForm_9588() {
-				var iframe = document.getElementById("hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8_9588").getElementsByTagName("iframe")[0];
-				if(iframe == undefined ||iframe.length == 0){
-					var f = document.createElement("iframe");
-					f.src = getsrcurlZForm_9588('https://forms.zohopublic.eu/rosasala/form/Solicitudpresupuestoespaol/formperma/hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8');
-					f.style.border="none";
-					f.style.minWidth="100%";
-					f.style.overflow="hidden";
-					var d = document.getElementById("hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8_9588");
-					d.appendChild(f);
-
-					var deleteForm = document.getElementById("deleteform_9588");
-					deleteForm.onclick = function deleteZForm_9588() {
-						var divCont = document.getElementById("formsLightBox_9588");
-						divCont.style.display="none";
-						document.body.style.overflow = "";
-
-						var iframe = document.getElementById("hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8_9588").getElementsByTagName("iframe")[0];
-						iframe.remove();
-					}
-
-
-
-					window.addEventListener('message', function (){
-						var evntData = event.data;
-						if( evntData && evntData.constructor == String ){
-							var zf_ifrm_data = evntData.split("|");
-							if ( zf_ifrm_data.length == 2 ) {
-								var zf_perma = zf_ifrm_data[0];
-								var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
-								var iframe = document.getElementById("hcYCqlN32s47xv0lrpcL5GLKE8Gstp2rABsZpt7OnF8_9588").getElementsByTagName("iframe")[0];
-								if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
-									var prevIframeHeight = iframe.style.height;
-									if ( prevIframeHeight != zf_ifrm_ht_nw ) {
-									iframe.style.minHeight = zf_ifrm_ht_nw;
-										var containerDiv = document.getElementById("containerDiv_9588");
-										containerDiv.style.height=zf_ifrm_ht_nw;
-									}
-								}
-							}
-						}
-
-					}, false);
-				}
-			}
-
-
-
-			function getsrcurlZForm_9588(zf_src) {
-				try {
-					if ( typeof ZFAdvLead !== "undefined" && typeof zfutm_zfAdvLead !== "undefined" ) {
-						for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
-				        	var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
-				        	var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
-					        if ( typeof utmVal !== "undefined" ) {
-					          if ( utmVal != "" ){
-					            if(zf_src.indexOf('?') > 0){
-					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
-					            }else{
-					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
-					            }
-					          }
-					        }
-				      	}
-					}
-
-					if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
-						for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
-				        	var utmPm = ZFLead.utmPNameArr[ prmIdx ];
-				        	var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
-					        if ( typeof utmVal !== "undefined" ) {
-					          if ( utmVal != "" ){
-					            if(zf_src.indexOf('?') > 0){
-					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
-					            }else{
-					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
-					            }
-					          }
-					        }
-				      	}
-					}
-				}catch(e){}
-				return zf_src;
-			}
-			var buttonElem = document.getElementById("zf_button_9588");
-			buttonElem.style.display = "block";
-			buttonElem.addEventListener("click", showZForm_9588);
-
-
-	}catch(e){}
-})();
-
-
-
-
-                    </script>
+            <div class="row align-items-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="../assets/img/translate/nubart-translate.webp" class="w-75 shadow-1-strong mb-4"
+                         alt="Nubart TRANSLATE traducción en vivo para visitas guiadas"/>
+                </div>
+                <div class="col-lg-6">
+                    <div class="icon-box">
+                        <i class="bi bi-translate"></i>
+                        <h4 style="font-size: 25px;">Traducción simultánea y sin pausas de los comentarios del guía</h4>
+                        <p class="card-text">
+                            Con <b>Nubart TRANSLATE</b>, lo que dice tu guía se traduce <b>al instante</b> usando IA
+                            avanzada a múltiples idiomas. Los pasajeros solo tienen que escanear un QR genérico y reciben
+                            la traducción como audio y/o texto en su propio móvil.
+                        </p>
+                    </div>
+                    <ul class="list-unstyled fs-5">
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> Sin descargar apps ni usar
+                            dispositivos especiales
+                        </li>
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> Amplia cobertura de idiomas para
+                            visitantes internacionales
+                        </li>
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> Acceso inmediato con solo
+                            escanear un QR
+                        </li>
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> Traducción en audio y/o texto
+                            para hacer tu ruta accesible
+                        </li>
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> Integración fluida con el guía –
+                            sin pausas ni esperas
+                        </li>
+                        <li><i class="bi bi-wifi text-black me-2 h5"></i> Requiere buena conexión a Internet</li>
+                    </ul>
+                    <p class="mt-4">
+                        <b>Asegúrate de que todos puedan disfrutar de tu excursión guiada, sin barreras de idioma.</b>
+                    </p>
                 </div>
             </div>
         </div>
-    </section><!-- End business models Section -->
+    </section>
+    <!-- ======= Nubart MOTION Section ======= -->
+    <section id="nubart-motion" class="services">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="fs-1">Nubart MOTION: Audioguía multilingüe con activación múltiple</h2>
+                    <p class="fs-3">Ofrece recorridos totalmente automáticos y multilingües, con activación flexible:
+                        GPS, control remoto manual, control remoto automático y/o secuencial por tiempo.</p>
+                    <br>
+                </div>
+            </div>
+            <div class="row align-items-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="../assets/img/motion/audioguide-w-boat.webp" class="w-75 shadow-1-strong mb-4"
+                         alt="Audioguía Nubart para barcos y buses turísticos"/>
+                </div>
+                <div class="col-lg-6">
+                    <div class="icon-box">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4 style="font-size: 25px;">Recorridos automáticos y multilingües</h4>
+                        <p class="card-text">
+                            Con <b>Nubart MOTION</b>, tus pasajeros disfrutan comentarios profesionales en su idioma,
+                            activados vía GPS, control remoto manual, automático o por intervalos de tiempo. Los
+                            contenidos se precargan cuando hay internet, para que todo funcione perfectamente incluso
+                            sin cobertura.
+                        </p>
+                    </div>
+                    <ul class="list-unstyled fs-5">
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> Cuatro modos de activación: GPS,
+                            remoto manual, remoto automático, o secuencial
+                        </li>
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> Métodos combinables para máxima
+                            fiabilidad
+                        </li>
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> Modo offline con precarga: sin
+                            interrupciones
+                        </li>
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> No necesitas altavoces ni apps
+                        </li>
+                        <li><i class="bi bi-check-circle-fill text-black me-2 h5"></i> Cada pasajero elige el idioma que prefiera
+                        </li>
+                    </ul>
+                    <p class="mt-4">
+                        <b>Perfecto para rutas autoguiadas, hop-on/hop-off y para quienes buscan soluciones fiables y
+                            escalables en cualquier entorno.</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
+    <!-- ======= Why Nubart - short Section ======= -->
+    <section id="why-nubart-short" style='background-image: url("../assets/img/bg/bg-boat-inside.webp");'
+             class="testimonials">
+        <div class="container" style="padding-top: 150px; padding-bottom: 150px" data-aos="zoom-in">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <h2 class="fs-1 text-white">¿Por qué elegir Nubart?</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-10 text-center">
+                        <br><br>
+                        <h3 class="text-white"><b>Olvídate de la complejidad técnica:</b></h3>
+                        <p class="fs-4 text-white">Los sistemas tradicionales requieren hardware costoso, instalaciones
+                            complicadas y mantenimiento constante.<br>Nuestra solución con QR elimina todos esos
+                            problemas de raíz.</p>
+                        <br>
+                        <h3 class="text-white"><b>Máxima satisfacción para tus pasajeros:</b></h3>
+                        <p class="fs-4 text-white">Ofrece comentarios personalizados y multilingües directamente en los
+                            móviles de los pasajeros. Sin apps, sin equipos, sin barreras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Why Choose Nubart? ======= -->
+    <section id="comparison" class="about d-none d-lg-block">
+        <div class="row mb-5">
+            <div class="col-md-10 offset-md-1 text-center">
+                <h2 class="display-5 fw-bold mb-3">¿En qué supera Nubart a los sistemas tradicionales?</h2>
+                <p class="lead text-muted">Compara nuestra solución basada en QR con los sistemas clásicos de audioguía
+                    para vehículos turísticos.</p>
+            </div>
+        </div>
+
         <div class="container" data-aos="fade-up">
 
+            <!-- Comparison Table -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+
+                        <table class="table table-hover align-middle">
+                            <thead style="background-color: #028a8c; color: #fff;">
+                            <tr>
+                                <th scope="col" class="py-3 fs-5">Característica</th>
+                                <th scope="col" class="py-3 text-center">
+                                    <div class="d-flex flex-column align-items-center">
+                                        <i class="bi bi-translate mb-1 h3" style="color: #84efd8;"></i>
+                                        <span class="fw-bold fs-5">Nubart TRANSLATE</span>
+                                        <small style="color: #84efd8;">Guía humano en directo</small>
+                                    </div>
+                                </th>
+                                <th scope="col" class="py-3 text-center">
+                                    <div class="d-flex flex-column align-items-center">
+                                        <i class="bi bi-geo-alt mb-1 h3" style="color: #84efd8;"></i>
+                                        <span class="fw-bold fs-5">Nubart MOTION</span>
+                                        <small style="color: #84efd8;">Activación automática</small>
+                                    </div>
+                                </th>
+                                <th scope="col" class="py-3 text-center">
+                                    <div class="d-flex flex-column align-items-center">
+                                        <i class="bi bi-headphones mb-1 h3" style="color: #84efd8;"></i>
+                                        <span class="fw-bold fs-5">Sistemas tradicionales</span>
+                                        <small style="color: #84efd8;">Basados en hardware</small>
+                                    </div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="fw-semibold">Instalación & Equipamiento</td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-check me-2 h5"></i>No necesitas hardware
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-check me-2 h5"></i>No necesitas hardware
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-danger-subtle text-danger px-3 py-2 fs-6">
+                    <i class="bi bi-x me-2 h5"></i>Equipos caros requeridos
+                </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Requisitos de Internet</td>
+                                <td class="text-center">
+                <span class="badge bg-warning-subtle text-warning px-3 py-2 fs-6">
+                    <i class="bi bi-wifi me-2 h5"></i>Requiere buena conexión
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-cloud-download me-2 h5"></i>Modo offline disponible
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-danger-subtle text-danger px-3 py-2 fs-6">
+                    <i class="bi bi-x me-2 h5"></i>Variable según sistema
+                </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Métodos de activación</td>
+                                <td class="text-center">
+                <span class="badge bg-warning-subtle text-warning px-3 py-2 fs-6">
+                    <i class="bi bi-dash me-2 h5"></i>No aplica
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-gear me-2 h5"></i>4 opciones: GPS, manual, automático, temporizador
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-danger-subtle text-danger px-3 py-2 fs-6">
+                    <i class="bi bi-x me-2 h5"></i>Pocas opciones de activación
+                </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Gestión de idiomas</td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-translate me-2 h5"></i>Traducción en directo con IA
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-pencil me-2 h5"></i>Actualización de idiomas sencilla
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-danger-subtle text-danger px-3 py-2 fs-6">
+                    <i class="bi bi-wrench me-2 h5"></i>Actualizaciones complejas
+                </span>
+                                </td>
+                            </tr>
+                            <tr class="table-light">
+                                <td class="fw-semibold">Experiencia del pasajero</td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-qr-code me-2 h5"></i>Escanea el QR y escucha
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-qr-code me-2 h5"></i>Escanea el QR y escucha
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-danger-subtle text-danger px-3 py-2 fs-6">
+                    <i class="bi bi-download me-2 h5"></i>Requiere app o dispositivo
+                </span>
+                                </td>
+                            </tr>
+                            <tr class="table-light">
+                                <td class="fw-semibold">Monetización</td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-currency-euro me-2 h5"></i>Monetiza fácilmente
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-success-subtle text-success px-3 py-2 fs-6">
+                    <i class="bi bi-currency-euro me-2 h5"></i>Monetiza fácilmente
+                </span>
+                                </td>
+                                <td class="text-center">
+                <span class="badge bg-danger-subtle text-danger px-3 py-2 fs-6">
+                    <i class="bi bi-x me-2 h5"></i>Difícil de monetizar
+                </span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ======= Customer portfolio ======= -->
+
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
             <div class="section-title">
-                <h2>Empresas de rutas en barco con audioguía de Nubart</h2>
-                <p>Selección de clientes</p>
+                <h2>Soluciones probadas de comentarios para vehículos en toda Europa</h2>
+                <p>Selección de operadores turísticos que confían en Nubart</p>
+            </div>
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <p>Puertos, trenes históricos, estuarios o ríos: la variedad de nuestros clientes es garantía de
+                        fiabilidad del sistema Nubart MOTION y sus múltiples formas de activación. Hemos adaptado nuestra solución automatizada a las necesidades de cada operador. <strong>Nuestro nuevo Nubart TRANSLATE lleva esa misma excelencia técnica a la traducción en vivo del guía.</strong></p>
+                </div>
             </div>
 
+
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-spain filter-boat">
-                    <img src="../assets/img/audioguides/audioguia-brai-txilibikoi.webp" class="img-fluid lazyload" alt="">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-germany filter-gps">
+                    <img src="../assets/img/audioguides/audioguide-barkassen-meyer.webp" class="img-fluid lazyload"
+                         alt="Audioguía Barkassen Meyer, paseo en barco por el puerto de Hamburgo, Alemania">
                     <div class="portfolio-info">
-                        <h4>Txibilikoi - Brai, San Sebastián</h4>
-                        <p>Ruta en barco</p>
-
-                        <!-- <a href="../es/portfolio/audioguia-XXXXX.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                        <h4>Barkassen Meyer, Hamburgo, Alemania</h4>
+                        <p>Activación por localización GPS, tarjetas QR</p>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-spain filter-boat">
-                    <img src="../assets/img/audioguides/audioguia-holiday-lines-menorca.webp" class="img-fluid lazyload" alt="Audio Tour Holiday Lines Menorca, Islas Baleares">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-guide filter-live filter-boats filter-france">
+                    <a href="portfolio/tren-larrun-audioguia.html">
+                        <img src="../assets/img/audioguides/audioguide-train-de-la-rhune.webp"
+                             class="img-fluid lazyload" alt="Audioguía Le Train de la Rhune, Sare, Francia"></a>
                     <div class="portfolio-info">
-                        <h4>Holiday Lines - Menorca, Baleares</h4>
-                        <p>Ruta en barco</p>
-
-                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                        <h4>Le Train de la Rhune, Sare, Francia</h4>
+                        <p>Tren turístico, activación por temporizador</p>
+                        <a href="portfolio/tren-larrun-audioguia.html" class="details-link"
+                           title="Más detalles"><i class="bi bi-link-45deg"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-guide filter-spain filter-boat">
-                    <img src="../assets/img/audioguides/audioguia-las-golondrinas-barcelona.webp" class="img-fluid" alt="Audioguía Las Golondrinas, Barcelona">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-spain filter-gps">
+                    <img src="../assets/img/audioguides/bilboats-audioguia.webp" class="img-fluid lazyload"
+                         alt="Bilboats, Bilbao, España">
                     <div class="portfolio-info">
-                        <h4>Las Golondrinas, Barcelona</h4>
-                        <p>Excursión en barco</p>
-
-                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                        <h4>Bilboats, Bilbao, España</h4>
+                        <p>Control remoto automático (activación GPS), QR genérico</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-spain filter-boat">
-                    <img src="../assets/img/audioguides/audioguia-catamaranes-cadiz.webp" class="img-fluid lazyload" alt="Audioguía Catamaranes Bahía de Cádiz, Puerto de Santa Maria, Cádiz">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-spain filter-manual">
+                    <img src="../assets/img/audioguides/audioguia-brai-txilibikoi.webp" class="img-fluid lazyload"
+                         alt="Audioguía Txibilikoi - Brai, San Sebastián, España">
                     <div class="portfolio-info">
-                        <h4>Catamaranes Bahía de Cádiz, Puerto de Santa Maria</h4>
-                        <p>Ruta en barco</p>
-
-                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                        <h4>Txibilikoi - Brai, San Sebastián, España</h4>
+                        <p>Control remoto manual, tarjetas QR</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-guide filter-boat filter-germany">
-                    <img src="../assets/img/audioguides/audioguide-barkassen-meyer.webp" class="img-fluid lazyload" alt="Audioguía Barkassen Meyer Paseo en barco por el puerto de Hamburgo, Alemania">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-guide filter-boats filter-spain">
+                    <img src="../assets/img/audioguides/excursiones-menorca-audioguia.webp" class="img-fluid lazyload"
+                         alt="Audioguía para Excursiones Menorca, Mahón, España">
                     <div class="portfolio-info">
-                        <h4>Barkassen Meyer Hamburg, Hamburgo</h4>
-                        <p>Ruta portuaria</p>
-
-                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                        <h4>Excursiones Menorca, Mahón, España</h4>
+                        <p>Control remoto manual, tarjetas QR</p>
                     </div>
-                </div>Harbour tour
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-spain filter-manual">
+                    <img src="../assets/img/audioguides/audioguia-holiday-lines-menorca.webp"
+                         class="img-fluid lazyload" alt="Audioguía Holiday Lines Menorca, Islas Baleares, España">
+                    <div class="portfolio-info">
+                        <h4>Holiday Lines Menorca, España</h4>
+                        <p>Control remoto manual, tarjetas QR</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-spain filter-manual">
+                    <img src="../assets/img/audioguides/audioguia-las-golondrinas-barcelona.webp" class="img-fluid"
+                         alt="Audioguía Las Golondrinas, Barcelona, España">
+                    <div class="portfolio-info">
+                        <h4>Las Golondrinas, Barcelona, España</h4>
+                        <p>Control remoto manual, tarjetas QR</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-spain filter-manual">
+                    <img src="../assets/img/audioguides/audioguia-catamaranes-cadiz.webp" class="img-fluid lazyload"
+                         alt="Audioguía Catamaranes Bahía de Cádiz, Puerto de Santa María, España">
+                    <div class="portfolio-info">
+                        <h4>Catamaranes Bahía de Cádiz, Puerto de Santa María, España</h4>
+                        <p>Control remoto manual, tarjetas QR</p>
+                    </div>
+                </div>
 
             </div>
         </div>
     </section><!-- End Portfolio Section -->
 
+    <section id="samples" class="samples">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Prueba una audioguía personalizada</h2>
+                <p>Pide una demo personalizada y convéncete</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 order-lg-1 order-2">
+                    <br><br><br>
+                    <img data-src="../../assets/img/boats/woman-boat-headphones.webp" alt="Muestra de audioguía Nubart"
+                         class="img-fluid lazyload mb-4">
+                </div>
+                <div class="col-lg-7 order-lg-2 order-1">
+                    <h3 class="mb-4">Elige tu demo a medida:</h3>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="bg-light rounded p-4 mb-4">
+                                <h5 class="fw-bold mb-3">
+                                    <i class="bi bi-geo-alt text-danger me-2"></i>Demo Nubart MOTION
+                                </h5>
+                                <p class="mb-3">Ideal para quienes buscan sistemas de audio automáticos:</p>
+                                <ul class="list-unstyled mb-0">
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>App web personalizada con tus puntos de interés reales</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>5-6 puntos geolocalizados en tu propio recorrido</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Varios modos de activación (GPS, manual, automático, temporizador)</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Test práctico en tu entorno real</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="bg-light rounded p-4 mb-4">
+                                <h5 class="fw-bold mb-3">
+                                    <i class="bi bi-translate text-danger me-2"></i>Demo Nubart TRANSLATE
+                                </h5>
+                                <p class="mb-3">Para operadores con guías presenciales que necesitan traducción en vivo:</p>
+                                <ul class="list-unstyled mb-0">
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Código QR genérico para prueba inmediata</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Enlace para pruebas de traducción en tiempo real</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Multiples idiomas para probar con tu equipo</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Demostración en vivo de la calidad IA</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    <p class="mb-4">Rellena este formulario y te enviaremos una demo adaptada a tus necesidades:</p>
+                    <script src="https://js.hsforms.net/forms/embed/2430134.js" defer></script>
+                    <div class="hs-form-frame" data-region="na1" data-form-id="80b6d49e-2724-4f82-9f19-c361062f1516" data-portal-id="2430134"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Customer portfolio ======= -->
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
@@ -948,10 +1091,15 @@ margin-bottom: 10px;
 
                             <strong>E-mail:</strong> info@nubart.eu<br>
                         </p>
-                        <div class="social-links mt-3"><a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
-                            <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
-                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <div class="social-links mt-3"><a href="https://www.linkedin.com/company/nubart-eu/"
+                                                          class="linkedin" target="_blank"><i
+                                class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
 
                         </div>
                     </div>
@@ -962,14 +1110,19 @@ margin-bottom: 10px;
                     <ul>
 
                         <li><i class="bi bi-chevron-right"></i> <a href="../es/contacto.html">Contacto</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../es/aviso-legal.html" rel="nofollow">Aviso legal</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../es/aviso-legal.html" rel="nofollow">Aviso
+                            legal</a></li>
                         <li><i class="bi bi-chevron-right"></i>
-                            <a href="../es/condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de servicio</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../es/politica-privacidad.html" rel="nofollow">Política de privacidad</a>
-                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de cookies</a></li>
+                            <a href="../es/condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de
+                                servicio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../es/politica-privacidad.html" rel="nofollow">Política
+                            de privacidad</a>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de
+                            cookies</a></li>
 
                         <li><i class="bi bi-chevron-right"></i>
-                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a nuestro boletín de noticias</a>
+                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a
+                                nuestro boletín de noticias</a>
                         </li>
 
                     </ul>

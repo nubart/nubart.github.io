@@ -7,7 +7,8 @@
     <!-- structured data -->
 
     <!-- Enhanced Organization Schema -->
-    <script type="application/ld+json">
+
+        <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Organization",
@@ -24,9 +25,20 @@
             },
             "image": "https://www.nubart.eu/img/features-no-apps.webp",
             "description": "Nubart provides comprehensive QR-based and accessible audio solutions for museums, tourist attractions, factories, and events. Specializing in Progressive Web Apps (PWAs), GPS-triggered commentary systems, and AI-powered live translation, Nubart serves customers in over 27 countries with innovative hardware-free solutions that require no app downloads.",
-            "brand": "Nubart",
+            "brand": {
+                "@type": "Brand",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu/"
+            },
             "email": "info@nubart.eu",
-            "foundingDate": "2013-07-17",
+             "foundingDate": "2013-07-17",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "info@nubart.eu",
+                "contactType": "Customer Support",
+                "areaServed": "Worldwide",
+                "availableLanguage": ["en", "de", "es", "fr", "it"]
+            },
             "location": [
                 {
                     "@type": "Place",
@@ -57,15 +69,7 @@
             ],
             "keywords": "audio guides, accessible audio guides, multilingual tours, QR code tours, museum technology, digital tour guide, AI live translation, PWA audio systems, WCAG audio guides",
             "additionalType": "http://www.productontology.org/doc/Audio_tour",
-            "areaServed": ["US", "GB", "NZ", "AU", "CA", "EU"],
-            "hasPart": [
-                { "@id": "https://www.nubart.eu/audio-guides/#service" },
-                { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
-                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
-                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
-                { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" },
-                { "@id": "https://nubart-sync.com/#service" }
-            ],
+            "areaServed": "Worldwide",
             "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "@id": "https://www.nubart.eu/#productcatalog",
@@ -166,6 +170,8 @@
                 ]
             }
         }
+
+
     </script>
 
     <!-- Breadcrumb Schema -->
