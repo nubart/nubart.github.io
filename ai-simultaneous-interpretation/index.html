@@ -6,13 +6,18 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="robots" content="noindex,nofollow">
 
-    <!-- Structured data -->
+    <!-- Structured Data: Product + Service -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Nubart TRANSLATE",
+            "inLanguage": "en",
             "description": "Nubart TRANSLATE delivers real-time AI voice interpretation for inclusive events. Attendees scan a QR code to listen to seamless live translations on their smartphones. Text transcripts also available for accessibility.",
+            "image": [
+                "https://www.nubart.eu/assets/img/nubart-translate.webp",
+                "https://www.nubart.eu/assets/img/nubart-translate.png"
+            ],
             "brand": {
                 "@type": "Organization",
                 "name": "Nubart",
@@ -24,29 +29,179 @@
                     "https://www.instagram.com/nubart.eu/"
                 ]
             },
-            "image": [
-                "https://www.nubart.eu/assets/img/nubart-translate.webp",
-                "https://www.nubart.eu/assets/img/nubart-translate.png"
-            ],
             "category": "AI Simultaneous Interpretation Service",
             "applicationCategory": "BusinessApplication",
             "audience": {
-                "@type": "Audience",
+                "@type": "BusinessAudience",
                 "audienceType": "Event Organizers, Conference Planners, Educational Institutions"
             },
             "offers": {
                 "@type": "Offer",
+                "url": "https://www.nubart.eu/ai-simultaneous-interpretation/",
                 "availability": "https://schema.org/InStock",
-                "url": "https://www.nubart.eu/ai-simultaneous-interpretation/pricing.html",
-                "priceCurrency": "EUR"
+                "priceCurrency": "EUR",
+                "description": "Custom pricing based on event requirements. Free 30-minute trial available."
             },
-            "availableLanguage": {
-                "@type": "Language",
-                "name": "Multiple languages available"
-            },
-            "keywords": "AI interpretation, simultaneous translation, live translation, conference interpretation, event interpretation, voice translation, audio translation, QR code translation, no app translation, multilingual events, accessibility"
+            "availableLanguage": [
+                "ar", "bg", "ca", "zh", "cs", "da", "nl", "en", "et", "fi",
+                "fr", "de", "el", "he", "hu", "id", "it", "ja", "ko", "lv",
+                "lt", "no", "pl", "pt", "ro", "ru", "sk", "sl", "es", "sv",
+                "th", "tr", "uk", "vi"
+            ],
+            "keywords": "AI interpretation, simultaneous translation, live translation, conference interpretation, event interpretation, voice translation, audio translation, QR code translation, no app translation, multilingual events, accessibility",
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "GDPR Compliance",
+                    "value": "Yes, no audio or translation data is stored. All processing is real-time and GDPR-compliant."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "App Requirement",
+                    "value": "No app installation needed. Access via browser with QR code."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Real-time Processing",
+                    "value": "All audio and translations are processed instantly with 1-2 second delay."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Selectable Languages",
+                    "value": "Listeners choose from 33 languages. The first users determine the final list for the event."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Unlimited Users",
+                    "value": "No limit on simultaneous listeners. Same QR code for entire audience."
+                }
+            ]
         }
+    </script>
 
+    <!-- Structured Data: Service -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Nubart TRANSLATE",
+            "serviceType": "AI Simultaneous Interpretation for Events",
+            "description": "Real-time AI-powered live translation service for multilingual events and conferences.",
+            "provider": {
+                "@type": "Organization",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu/"
+            },
+            "areaServed": "Worldwide",
+            "audience": {
+                "@type": "BusinessAudience",
+                "audienceType": "Event Organizers, Conference Planners, Educational Institutions"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Nubart TRANSLATE Plans",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Pay-as-you-go Plan"
+                        },
+                        "description": "Best for single events. Up to 2 hours included."
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Monthly Subscription"
+                        },
+                        "description": "Best for recurring events. Up to 150 hours per month."
+                    }
+                ]
+            }
+        }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Do I need to download an app for live event translation?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Nubart TRANSLATE works entirely in web browsers. Attendees scan a QR code to access real-time translation. No downloads or installations required."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How many people can use live translation simultaneously?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Unlimited. Hundreds or thousands of attendees can access translation simultaneously using the same QR code, with no additional per-user charges."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How many languages does Nubart TRANSLATE support?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart TRANSLATE supports 33+ languages including English, Spanish, French, German, Chinese, Japanese, Arabic, and many more. Your audience selects their preferred language when joining."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How fast is the real-time translation?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Translation appears within 1-2 seconds of speech. Our AI processes and translates in real-time with minimal delay, ensuring natural conversation flow."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How accurate is the AI translation?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The translation is carried out using advanced AI technology and is highly accurate. We can provide the AI with specific glossaries of specialised vocabulary relating to your event to make the translation even more precise."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is it GDPR compliant?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. We do not record or store audio or translations, nor do we use them to train AI. All data is processed in real time and handled in accordance with GDPR regulations."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What do you mean by 'Selectable languages'?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Depending on your chosen plan, you'll have a maximum number of 'selectable languages.' When the first users scan the QR code, they can freely choose from the 33 languages we currently support. Once the number of selected languages reaches your plan's limit, those same languages will remain available for all subsequent users — but no additional languages can be added. This method keeps our system flexible: you don't need to decide in advance which languages to make available — your audience will decide!"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does it work without an internet connection?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. A stable internet connection is required for both the speaker and participants, since the system operates in real time and is cloud-based."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What exactly do I get with the free trial?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "You get 30 minutes of real-time AI-based translation, accessible via your browser. You can test how it works during a live event or in a simulated environment. No credit card required."
+                    }
+                }
+            ]
+        }
     </script>
 
     <!-- Structured Data: Breadcrumbs -->
@@ -64,7 +219,7 @@
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Nubart TRANSLATE - Simultaneaous interpretation via AI for events and tours",
+                    "name": "Nubart TRANSLATE - Simultaneous interpretation via AI for events and tours",
                     "item": "https://www.nubart.eu/ai-simultaneous-interpretation/"
                 }
             ]
@@ -87,11 +242,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- 3. Cookie consent config (MOVED HERE) -->
     <script type="module" src="/js/cookieconsent-config.js"></script>
+    <!-- Suggested meta tags -->
 
 
-    <title>AI Simultaneous Interpretation for Events | Nubart TRANSLATE</title>
-    <meta name="description"
-          content="AI-powered voice interpretation for multilingual and accessible events and conferences. Attendees connect via QR code using their smartphones - no app download required.">
+
+    <title>Live Translation Software for Events | Real-Time AI Translation | Nubart TRANSLATE</title>
+    <meta name="description" content="Instant live AI translation for multilingual events. No interpreters needed. 33+ languages, unlimited listeners, real-time AI translation via QR code. Free trial available.">
+
     <meta name="author" content="Nubart">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="twitter:card" content="summary_large_image">
@@ -276,21 +433,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </nav>
     </div>
 </header><!-- End Header -->
+
+
 <!-- ======= Hero Section ======= -->
 <section id="hero" style='background-image: url("../assets/img/bg/bg-translate-1.png");'>
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
-        <h1>Instant Live Translation for Your Audience</h1>
-        <h3 style="color: white;">Without Interpreters. Without Apps. Without Cutoffs.</h3><br>
+        <h1>Instant Live Translation for Your Events</h1>
+        <h3 style="color: white;">No Apps. No Interpreters. No Cutoffs.</h3><br>
 
         <div class="w-75 mx-auto">
             <h2 style="color: white;">
-                Nubart TRANSLATE instantly turns your speech into translated text or audio on your audience's phones.
+                Your audience scans a QR code.<br>
+                Your speaker talks. Your audience understands instantly.
             </h2>
         </div>
 
         <div class="d-flex flex-wrap gap-4">
             <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4"
-               class="btn btn-primary btn-lg">Get started today</a>
+               class="btn btn-primary btn-lg">Try Risk-Free for 30 Minutes</a>
             <a href="https://vimeo.com/339578238" class="btn btn-outline-white btn-lg glightbox"
                style="color: white;">
                 <i class="bi bi-play-circle me-2" style="color: white;"></i>
@@ -316,7 +476,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <ul id="secondary-menu-items" class="secondary-menu-list"
                     style="margin-left: 10px; display: flex; align-items: center;">
-                    <li style="margin-right: 22px;"><a href="faq.html">FAQ</a></li>
+                    <li style="margin-right: 22px;"><a href="#faq">FAQ</a></li>
                     <li style="margin-right: 22px;"><a target="_blank"
                                                        href="../assets/pdf/en-instructions-nubart-live.pdf">
                         <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Instructions</a>
@@ -325,8 +485,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <li>
                         <a class="getstarted scrollto"
                            href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4"
-                           target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Request a
-                            FREE trial kit</a>
+                           target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Try Risk-Free for 30 Minutes</a>
                     </li>
                 </ul>
             </div>
@@ -338,12 +497,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Nubart Guide - digital audio guides</h2>
+            <h2>Nubart TRANSLATE - Live Translation for events</h2>
             <ol>
                 <li><a href="../">Home</a></li>
 
 
-                <li>Nubart GUIDE</li>
+                <li>Nubart TRANSLATE</li>
             </ol>
 
         </div>
@@ -358,7 +517,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="row">
 
                 <div class="col-lg-5 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                    <br> <img data-src="../assets/img/about-3.webp" width="637" height="498" class="img-fluid lazyload"
+                    <br> <img data-src="../assets/img/translate/about-translate.jpg" width="637" height="498" class="img-fluid lazyload"
                               alt=""> <a href="https://vimeo.com/339578238" class="glightbox play-btn mb-4"></a>
                 </div>
 
@@ -529,11 +688,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> No</td>
                     </tr>
                     <tr>
-                        <td class="text-start">App or code required</td>
+                        <td class="text-start">App or numeric code required</td>
                         <td><i class="bi bi-x-circle-fill text-danger"></i> No</td>
                         <td><i class="bi bi-check-circle-fill text-success"></i> Yes</td>
                         <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> No app,
-                            just QR code
+                            just a QR code
                         </td>
                     </tr>
                     <tr>
@@ -606,13 +765,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i>
                                     5 selectable languages from 33
                                 </li>
-                                <li class="d-flex align-items-center mb-3">
 
-                                </li>
+
+                                </br>
                             </ul>
 
                             <div class="mt-auto">
-                                <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4" class="btn btn-lg btn-dark text-white w-100 fw-bold" style="background-color: #000000; border: none;">Get Started</a>
+                                <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4" class="btn btn-lg btn-dark text-white w-100 fw-bold" style="background-color: #000000; border: none;">Try Risk-Free for 30 Minutes</a>
                             </div>
                         </div>
                     </div>
@@ -658,7 +817,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                             <div class="mt-auto">
                                 <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4" class="btn btn-lg w-100 text-white fw-bold"
-                                   style="background-color: #059669; border: none;">Start Free Trial</a>
+                                   style="background-color: #059669; border: none;">Try Risk-Free for 30 Minutes</a>
                             </div>
                         </div>
                     </div>
@@ -724,7 +883,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </li>
                             <li class="d-flex align-items-center">
                                 <i class="bi bi-check2 text-success me-2" style="font-size: 1.3rem;"></i>
-                                Want an app that doesn’t penalize you for having lots of listeners :)
+                                Want an app that doesn’t penalize you for having large audiences
 
                             </li>
 
@@ -749,8 +908,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <p class="mb-0" style="font-size: 1.3rem;">
                                     Check out <a href="../digital-tour-guide-app/" target="_blank"
                                                  class="text-decoration-none">
-                                    <i class="bi bi-arrow-right"></i> Nubart LIVE, our tour guide system for
-                                    groups with real-time translation.
+                                    <i class="bi bi-arrow-right"></i> Nubart LIVE, our Tour Guide System for
+                                    Groups with real-time translation.
                                 </a>
                                 </p>
                             </div>
@@ -794,12 +953,154 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </section>
 
+    <!-- FAQ section -->
+    <section class="py-5" style="background: #121d24;" id="faq">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="fw-bold mb-4 fs-3" style="color: #fff;">FAQ</p>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                                    <b>What exactly do I get with the free trial?</b>
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    You get 30 minutes of real-time AI-based translation, accessible via your browser. You can test how it works during a live tour or in a simulated environment. No credit card required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    <b>Do I need to download or install anything?</b>
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    No. Nubart TRANSLATE runs entirely in the browser. Only the speaker has to log in. Participants simply open a link via a generic QR-code (the same QR-code for everyone in the room). No app, no hardware, no installations.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    <b>Does it work without an internet connection? </b>
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    No. A stable internet connection is required for both the guide (speaker) and participants (listeners), since the system operates in real time and is cloud-based.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                                    <b>How many participants can listen at once?</b>
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    There is no technical limit. Hundreds, or even thousands, of listeners can join a session simultaneously using the same access QR-code.<br><br>
+                                    What's best: Nubart TRANSLATE will not charge you based on the number of users!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                                    <b>What languages are supported?</b>
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Nubart TRANSLATE currently supports Arabic, Bulgarian, Catalan, Chinese, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Hebrew, Hungarian, Indonesian, Italian, Japanese, Korean, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Russian, Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian, and Vietnamese.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-selectable">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-selectable" aria-expanded="false" aria-controls="collapse-selectable">
+                                    <b>What do you mean by "Selectable languages"?</b>
+                                </button>
+                            </h2>
+                            <div id="collapse-selectable" class="accordion-collapse collapse" aria-labelledby="heading-selectable" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Depending on your chosen plan, you’ll have a maximum number of “selectable languages.” When the first users scan the QR code, they can freely choose from the 33 languages we currently support. Once the number of selected languages reaches your plan’s limit, those same languages will remain available for all subsequent users — but no additional languages can be added.<br><br>
+                                    This method keeps our system flexible: you don’t need to decide in advance which languages to make available — your audience will decide!
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingNine">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9" aria-expanded="false" aria-controls="faq9">
+                                    <b>Can the audience choose their preferred language?</b>
+                                </button>
+                            </h2>
+                            <div id="faq9" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes. Each participant selects their preferred language at the beginning of the session and can change it at any time.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-accuracy">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-accuracy" aria-expanded="false" aria-controls="collapse-accuracy">
+                                    <b>How accurate is the AI translation?</b>
+                                </button>
+                            </h2>
+                            <div id="collapse-accuracy" class="accordion-collapse collapse" aria-labelledby="heading-accuracy" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The translation is carried out using advanced AI technology and is highly accurate. We can even provide the AI with specific glossaries of specialised vocabulary related to your event or topic to make the translation even more precise.
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTen">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10" aria-expanded="false" aria-controls="faq10">
+                                    <b>Is it secure and GDPR-compliant?</b>
+                                </button>
+                            </h2>
+                            <div id="faq10" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes. We do not record or store audio or translations, nor do we use them to train AI. All data is processed in real time and handled in accordance with GDPR regulations.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingEleven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11" aria-expanded="false" aria-controls="faq11">
+                                    <b>What happens when my 30 free minutes are used up?</b>
+                                </button>
+                            </h2>
+                            <div id="faq11" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The system stops working, but nothing is charged. You can contact us to upgrade and continue using the tool under one of our paid plans.
+                                </div>
+                            </div>
+                        </div>
+                    </div> </div> </div> </div> </section>
+
     <!-- Early Access Pricing Section -->
     <section class="py-5" style="background: #121d24;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h1 class="fw-bold mb-4" style="color: #fff;">Early Access Pricing Available Now</h1>
+                    <p class="fw-bold mb-4 fs-3" style="color: #fff;">Early Access Pricing Available Now</p>
                     <p class="mb-4" style="color: #ededed; font-size: 1.15rem;">
                         We're rolling out Nubart TRANSLATE to a select number of early partners. Get priority access and
                         flat pricing before public release.
@@ -808,8 +1109,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                        class="btn btn-lg px-4 py-2 mb-5"
                        style="background: #2ec4b6; color: #fff; font-weight: 600; font-size: 1.2rem;">
                         <i class="bi bi-bullseye me-2" style="font-size: 1.3rem; vertical-align: -3px;"></i>
-                        Get Started Today
+                        Try Risk-Free for 30 Minutes
                     </a>
+                    <p class="mb-4" style="color: #ededed; font-size: 1.15rem;">🎧 Free trial: includes 30 minutes of real-time translation. No credit card required. </p>
                     <hr class="my-5" style="border-top: 1px solid #222; opacity: 0.6;">
                     <h3 class="fw-bold mb-3" style="color: #fff;">P.S.</h3>
                     <p class="mb-2" style="color: #ededed; font-size: 1.08rem;">
@@ -868,7 +1170,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><i class="bi bi-chevron-right"></i> <a href="../legal-notice.html" rel="nofollow">Legal
                             notice</a>
                         </li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="terms-conditions.html" rel="nofollow">Nubart's
+                        <li><i class="bi bi-chevron-right"></i> <a href="../terms-conditions.html" rel="nofollow">Nubart's
                             terms and
                             conditions
                             for audio
