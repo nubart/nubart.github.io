@@ -178,6 +178,15 @@
                 },
                 {
                     "@type": "Question",
+                    "name": "Can the audience ask questions?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Attendees can submit written questions at any time. Questions are instantly sent to the speaker’s smartphone or laptop—translated into their language—together with a visual notification. All questions remain stored until the speaker chooses to answer them."
+                    }
+                },
+
+                {
+                    "@type": "Question",
                     "name": "What do you mean by 'Selectable languages'?",
                     "acceptedAnswer": {
                         "@type": "Answer",
@@ -509,7 +518,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
        <div class="container">
 
            <div class="d-flex justify-content-between align-items-center">
-               <h2>Nubart TRANSLATE - Live Translation for events</h2>
+               <h2>Nubart TRANSLATE - AI-Live Translation for events</h2>
                <ol>
                    <li><a href="../">Home</a></li>
 
@@ -671,8 +680,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <thead>
                     <tr>
                         <th class="text-start" style="width: 28%;">Feature</th>
-                        <th style="width: 24%;">Traditional<br>Interpreters</th>
-                        <th style="width: 24%;">Other AI Translation<br>Apps</th>
+                        <th style="width: 24%;">Traditional Interpreters</th>
+                        <th style="width: 24%;">Other AI Translation Apps</th>
                         <th style="width: 24%; background: #d1f5f5; color: #1c3a3a;">Nubart TRANSLATE</th>
                     </tr>
                     </thead>
@@ -684,7 +693,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> No</td>
                     </tr>
                     <tr>
-                        <td class="text-start">Interpreter fatigue or delay</td>
+                        <td class="text-start">Interpreter fatigue</td>
                         <td><i class="bi bi-exclamation-triangle-fill text-warning"></i> Yes</td>
                         <td><i class="bi bi-check-circle-fill text-success"></i> No <span class="text-muted"
                                                                                           style="font-size:0.9em;">(but tech issues possible)</span>
@@ -708,7 +717,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> No</td>
                     </tr>
                     <tr>
-                        <td class="text-start">App or numeric code required</td>
+                        <td class="text-start">App or code required</td>
                         <td><i class="bi bi-x-circle-fill text-danger"></i> No</td>
                         <td><i class="bi bi-check-circle-fill text-success"></i> Yes</td>
                         <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> No app,
@@ -723,14 +732,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             off mid-event
                         </td>
                     </tr>
-                    <tr>
-                        <td class="text-start">Real-time without delay</td>
-                        <td><i class="bi bi-exclamation-triangle-fill text-warning"></i> Can lag</td>
-                        <td><i class="bi bi-exclamation-triangle-fill text-warning"></i> Often lags or buffers</td>
-                        <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> Instant
-                            delivery
-                        </td>
-                    </tr>
+
                     <tr>
                         <td class="text-start">Available in multiple languages</td>
                         <td><i class="bi bi-x-circle-fill text-danger"></i> Often limited</td>
@@ -995,7 +997,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="faq1" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     You receive a total of 30 minutes of real-time AI-powered translation to use in your browser—no credit card required. These minutes are cumulative, so you can test the system over several days: for example, try it a week before your event with colleagues, another day with your supervisors, and again on the event day for a final technical check. This way, you have the flexibility to evaluate our solution thoroughly in various real-world scenarios.
                                 </div>
                             </div>
@@ -1008,7 +1010,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     No. Nubart TRANSLATE runs entirely in the browser. Only the speaker has to log in. Participants simply open a link via a generic QR-code (the same QR-code for everyone in the room). No app, no hardware, no installations.
                                 </div>
                             </div>
@@ -1021,7 +1023,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="faq4" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     No. A stable internet connection is required for both the guide (speaker) and participants (listeners), since the system operates in real time and is cloud-based.
                                 </div>
                             </div>
@@ -1034,13 +1036,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="faq5" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     There is no technical limit. Hundreds, or even thousands, of listeners can join a session simultaneously using the same access QR-code.<br><br>
                                     What's best: Nubart TRANSLATE will not charge you based on the number of users!
                                 </div>
                             </div>
                         </div>
-
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    <b>Can the audience ask questions? </b>
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="text-align: justify;">
+                                    Yes, they can submit questions in writing. These are immediately sent to the speaker's smartphone or laptop and translated into their language. The speaker receives a visual notification each time a question arrives. Questions are stored until the speaker decides to answer them.
+                                </div>
+                            </div>
+                        </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingSix">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
@@ -1048,7 +1061,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="faq6" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     Nubart TRANSLATE currently supports Arabic, Bulgarian, Catalan, Chinese, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Hebrew, Hungarian, Indonesian, Italian, Japanese, Korean, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Russian, Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian, and Vietnamese.
                                 </div>
                             </div>
@@ -1060,7 +1073,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="collapse-selectable" class="accordion-collapse collapse" aria-labelledby="heading-selectable" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     Depending on your chosen plan, you’ll have a maximum number of “selectable languages.” When the first users scan the QR code, they can freely choose from the 33 languages we currently support. Once the number of selected languages reaches your plan’s limit, those same languages will remain available for all subsequent users — but no additional languages can be added.<br><br>
                                     This method keeps our system flexible: you don’t need to decide in advance which languages to make available — your audience will decide!
                                 </div>
@@ -1077,7 +1090,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="faq9" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     Yes. Each participant selects their preferred language at the beginning of the session and can change it at any time.
                                 </div>
                             </div>
@@ -1089,7 +1102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="collapse-accuracy" class="accordion-collapse collapse" aria-labelledby="heading-accuracy" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     The translation is carried out using advanced AI technology and is highly accurate. We can even provide the AI with specific glossaries of specialised vocabulary related to your event or topic to make the translation even more precise.
                                 </div>
                             </div>
@@ -1103,7 +1116,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="faq10" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     By default, we store transcriptions and translations to improve future translations for each particular customer. However, we do not authorise their use for training external AIs, nor do we share this information with third parties. If a client requests it, we can delete these records permanently as soon as the event is over. All data is processed in real time and handled in accordance with GDPR regulations.
                                 </div>
                             </div>
@@ -1116,7 +1129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </button>
                             </h2>
                             <div id="faq11" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
+                                <div class="accordion-body" style="text-align: justify;">
                                     The system stops working, but nothing is charged. You can contact us to upgrade and continue using the tool under one of our paid plans.
                                 </div>
                             </div>
