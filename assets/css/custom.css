@@ -24,15 +24,14 @@ a.index-item:hover {
 }
 
 /*--------------------------------------------------------------
-# Smaller font in hero section
+# Responsive font in hero section
 --------------------------------------------------------------*/
-
 
 #hero h1 {
     margin: 0 0 10px 0;
-    font-size: 43px;
+    font-size: 24px; /* Mobile first - smaller size */
     font-weight: 700;
-    line-height: 53px;
+    line-height: 1.2;
     text-transform: uppercase;
     color: #fff;
 }
@@ -40,9 +39,32 @@ a.index-item:hover {
 #hero h2 {
     color: #eee;
     margin-bottom: 50px;
-    font-size: 22px;
+    font-size: 18px; /* Smaller on mobile */
 }
 
+/* Tablet and up */
+@media (min-width: 768px) {
+    #hero h1 {
+        font-size: 35px;
+        line-height: 1.3;
+    }
+
+    #hero h2 {
+        font-size: 20px;
+    }
+}
+
+/* Desktop and up */
+@media (min-width: 992px) {
+    #hero h1 {
+        font-size: 43px;
+        line-height: 53px;
+    }
+
+    #hero h2 {
+        font-size: 22px;
+    }
+}
 
 /*--------------------------------------------------------------
 # Change buttons hero
