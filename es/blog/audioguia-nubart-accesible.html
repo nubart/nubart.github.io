@@ -64,8 +64,8 @@
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Nubart GUIDE - Audioguías QR PWA",
-                    "item": "https://www.nubart.eu/es/audioguia-multimedia.html"
+                    "name": "Blog de Nubart",
+                    "item": "https://www.nubart.eu/es/blog/"
                 },
                 {
                     "@type": "ListItem",
@@ -407,7 +407,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     </figure>
                     <!--more-->
-                    <h2>Accesibilidad de las audioguías para personas invidentes o con problemas de visión</h2>
+                    <!-- Table of Contents -->
+                    <nav aria-label="Table of contents" style="margin-bottom:2em;">
+                        <h2 style="font-size:1.3em; margin-top:1.5em;">Contenidos de este artículo</h2>
+                        <ol style="padding-left:1.2em; font-size:1.07em;">
+                            <li>
+                                <a href="#accessibility-of-digital-audio-tours-for-the-visually-impaired">Accesibilidad de las audioguías para personas invidentes o con problemas de visión</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>1.1 <a href="#finger-detectable-qr-code">Código QR detectable con los dedos</a></li>
+                                    <li>1.2 <a href="#audio-descriptions-of-the-exhibits">Audiodescripciones de los objetos expuestos</a></li>
+                                    <li>1.3 <a href="#accessibility-of-videos-shown-on-museum-screens">Accesibilidad de los vídeos reproducidos en las pantallas del museo</a></li>
+                                    <li>1.4 <a href="#accessibility-of-maps-and-geolocation">Geolocalización y accesibilidad de los mapas</a></li>
+                                    <li>1.5 <a href="#programming-an-accessible-cms-what-accessibility-really-means">Qué significa «accesibilidad» en la programación de una audioguía digital</a></li>
+                                </ol>
+                            </li>
+                            <li>
+                                <a href="#accessibility-for-deaf-and-hard-of-hearing-people">Accesibilidad para personas sordas o con problemas de audición</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>2.1 <a href="#signoguides">Signoguías</a>
+                                        <ol style="list-style-type: none; padding-left:1.6em;">
+                                            <li>2.1.1 <a href="#problem-of-signoguides">Problemática de las signoguías:</a></li>
+                                        </ol>
+                                    </li>
+                                    <li>2.2 <a href="#transcriptions-a-simple-complement-or-alternative">Las transcripciones como complemento o alternativa</a>
+                                        <ol style="list-style-type: none; padding-left:1.6em;">
+                                            <li>2.2.1 <a href="#problems-with-text-for-the-deaf">Problemática de los textos para personas sordas</a></li>
+                                        </ol>
+                                    </li>
+                                    <li>2.3 <a href="#captioning-the-videos">Subtitulado de los vídeos</a></li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </nav>
+                    <!--more-->
+                    <h2 id="accessibility-of-digital-audio-tours-for-the-visually-impaired">Accesibilidad de las audioguías para personas invidentes o con problemas de visión</h2>
                     <p>La preocupación por facilitar la visita a los museos a las personas ciegas viene de lejos: ya en 1913 John Alfred Charlton Deas, antiguo conservador del Sunderland Museum, invitó a los niños de la Sunderland Council Blind School para que <em>vieran</em> algunas de las colecciones del Sunderland Museum a través de las manos. El éxito de la iniciativa lo animó a extender este tipo de visitas también a los invidentes adultos.</p>
                     <figure class="figure">
                         <img src="../../assets/img/blog/accessibility-sunderland-museum.webp" class="figure-img img-fluid float-end" alt="Niños invidentes del Sunderland Council Blind School palpando una morsa en el Sunderland Museum">
@@ -425,21 +458,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-                    <h3>Código QR detectable con los dedos</h3>
+                    <h3 id="finger-detectable-qr-code">Código QR detectable con los dedos</h3>
                     <p><a href="implementacion-pwa-audioguia-museo.html" target="_blank">A las audioguías PWA se accede generalmente a través de un código QR</a>, así que era importante resolver la accesibilidad de estos códigos. Una persona invidente puede escanear perfectamente un código QR con la cámara de su móvil siempre y cuando sepa dónde se encuentra y pueda apuntar al lugar indicado.</p>
                     <p>Por ejemplo, <a href="https://www.parlament.gv.at/services/barrierefreiheit/barrierefreier-besuch/ausstattung/index.html" target="_blank">el Parlamento Austriaco ha resuelto este problema emplazando diversos códigos QR en relieve en las paredes</a> junto a cada punto de interés, a fin de permitir su localización táctil.</p>
                     <p>Siguiendo el mismo principio, también <a href="../audioguias.html" target="_blank">los códigos QR de las tarjetas-audioguía de Nubart</a> están impresos con un ligero relieve para que los visitantes con discapacidad visual puedan identificarlo con la yema de los dedos. Al ser tarjetas que el visitante lleva en la mano y al tratarse de un único QR que conduce a la totalidad de los contenidos, el acceso a la audioguía resulta especialmente fácil y discreto.</p>
 
                     <img src="../../assets/img/blog/accessible-qr-code.webp" class="img-fluid" alt="Código QR impreso en relieve para facilitar la accesibilidad de las personas ciegas en audioguías Nubart">
 
-                    <h3>Audiodescripciones de los objetos expuestos</h3>
+                    <h3  id="audio-descriptions-of-the-exhibits">Audiodescripciones de los objetos expuestos</h3>
                     <p>En una audioguía realmente accesible es preciso incorporar una pista con la audiodescripción del objeto de exposición que permita a los ciegos a imaginar y reconstruir mentalmente el objeto antes de escuchar la explicación convencional que proporciona la audioguía.</p>
                     <p>En Nubart se accede fácilmente a la "audiodescripción" desde el mismo menú de idiomas.</p>
                     <figure class="figure">
                         <img src="../../assets/img/blog/accessibility-nubart-language-menu.webp" class="figure-img img-fluid float-end" alt="Menú de idiomas con opciones de accesibilidad en una audioguía Nubart" />
                         <figcaption class="figure-caption text-center"><em>Menú de idiomas con opciones de accesibilidad en una audioguía Nubart - ©Nubart</em>     </figcaption>
                     </figure>
-                    <h3>Accesibilidad de los vídeos reproducidos en las pantallas del museo</h3>
+                    <h3  id="accessibility-of-videos-shown-on-museum-screens">Accesibilidad de los vídeos reproducidos en las pantallas del museo</h3>
 
                     <p>El principio de la audiodescripción para personas invidentes también se aplica a los vídeos: un museo verdaderamente accesible proporcionará una pista de sonido que describa la acción que se muestra en sus pantallas. </p>
                     <p>Esto puede suponer un problema, ya que normalmente los vídeos disponen de una única salida de sonido. Si un museo desea ofrecer un vídeo en varias lenguas, incluida la audiodescripción, generalmente tiene que poner a disposición un juego de auriculares por cada idioma. Los auriculares de uso público no solo crean un problema de higiene, sino que puede resultar difícil para una persona invidente identificar qué auricular contiene la audiodescripción. </p>
@@ -452,11 +485,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p> <a href="https://nubart-sync.com/es/" target="_blank">Nubart SYNC permite emparejar un vídeo con una banda sonora perfectamente sincronizada en cualquier idioma, incluidas las audiodescripciones para invidentes o las pistas en lengua fácil para las personas con dificultades cognitivas</a>. Nubart SYNC se distingue de otras tecnologías más complejas y costosas en que la pista de sonido se sincroniza con el vídeo únicamente a través de internet.</p>
                     <p><a href="../portfolio/audioguia-centro-visitantes-puerto-caesarea-israel.html" target="_blank">Nubart ha empleado Nubart SYNC para implementar una audioguía accesible en el Centro de Visitantes del Puerto de Caesarea</a>, en Israel</p>
                     
-                    <h3>Geolocalización y accesibilidad de los mapas  </h3>
+                    <h3 id="accessibility-of-maps-and-geolocation">Geolocalización y accesibilidad de los mapas  </h3>
                     <p>Navegar por un mapa para invidentes es un reto de considerable complejidad. Actualmente, <a href="../audioguia-multimedia.html#maps" target="_blank">nuestros mapas interactivos</a> están equipados con etiquetas ARIA que permiten a los visitantes con deficiencias visuales localizar puntos de interés en nuestros mapas. Nuestra función de <a href="../audioguia-multimedia.html#geolocation" target="_blank">geo-scrolling</a> también permite la activación automática de pistas de audio a medida que el usuario se acerca a un punto de interés concreto. </p>
                     <p>Si lo desea, podemos integrar transcripciones de mapas que se transmiten al lector de pantalla del teléfono. Estas transcripciones ofrecen un resumen textual de lo que se muestra en ese momento y pueden actualizarse mediante el zoom.</p> <br />
 
-                    <h3>Qué significa «accesibilidad» en la programación de una audioguía digital</h3>
+                    <h3 id="programming-an-accessible-cms-what-accessibility-really-means">Qué significa «accesibilidad» en la programación de una audioguía digital</h3>
                     <p>
                         Los teléfonos inteligentes modernos incluyen una serie de aplicaciones diseñadas para ayudar a las personas con discapacidad visual: <strong>TalkBack</strong> para Android y <strong>VoiceOver</strong> para iPhone. Estos lectores de pantalla basados en gestos permiten a las personas con discapacidad visual escuchar una descripción de todo lo que hay en su teléfono, desde el nivel de la batería hasta el nombre de la persona que llama. Se considera que VoiceOver es superior a TalkBack, por lo que las personas ciegas utilizan más los iPhones que los teléfonos Android.
                     </p>
@@ -478,12 +511,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>
                         Estas prácticas no solo facilitan el uso de las guías de Nubart a las personas con discapacidad, sino que también ayudan a los museos y lugares culturales a cumplir los requisitos legales vigentes y a ofrecer una experiencia verdaderamente inclusiva a todos los visitantes.
                     </p><br />
-                    <h2>Accesibilidad para personas sordas o con problemas de audición</h2>
+                    <h2 id="accessibility-for-deaf-and-hard-of-hearing-people">Accesibilidad para personas sordas o con problemas de audición</h2>
                     <p>Como normal general, proporcionar sonido en un museo a través de un teléfono inteligente es una opción mucho mejor para las personas sordas que, por ejemplo, proyectar sonido con un altavoz en la sala o ofrecer aparatos de audioguía que no estén habilitados. Eso es porque actualmente casi cualquier visitante con discapacidad auditiva ya dispone de un smartphone compatible con audífonos (calificación M3 o M4) o con un <a href="https://es.wikipedia.org/wiki/Aud%C3%ADfono#Telecoil" target="_blank">T-Coil o telecoil</a> (calificación T3 o T4). </p>
                     <p>Hay dos modos de proporcionar el acceso al contenido para los discapacitados auditivos: las signoguías (pistas en vídeo en lenguaje de signos) o la transcripción textual. Ambas opciones tiene sus pros y sus contras. Para procurar la máxima accesibilidad para el colectivo de personas sordas, lo ideal sería aplicar las dos, incorporando tanto la signoguía como la transcripción.</p>
-                    <h3>Signoguías</h3>
+                    <h3 id="signoguides">Signoguías</h3>
                     <p>En el caso de optar por una signoguía, Nubart añade esta opción en el menú de idiomas: Los vídeos realizados por un intérprete de signos profesional reemplazan a las pistas de sonido.</p>
-                    <h4>Problemática de las signoguías:</h4>
+                    <h4 id="problem-of-signoguides">Problemática de las signoguías:</h4>
                     <ul>
                         <li><p><strong>Las lenguas de señas difieren entre sí</strong>, tanto en el léxico (conjunto de señas o signos gestuales) como en la gramática: el lenguaje de signos en español no es el mismo que en inglés, por ejemplo. Incluso existen diferencias entre el inglés británico y el americano. Los británicos utilizan el alfabeto bimanual, comunicándose con las dos manos, mientras que los estadounidenses utilizan una sola mano. Aunque existe un <a href="https://es.wikipedia.org/wiki/Sistema_de_Signos_Internacional" target="_blank">Sistema de Signos Internacional (SSI)</a>, no es lo bastante preciso para permitir una traducción fidedigna del texto. Por eso se recomienda incorporar dos signoguías: una en el idioma principal de la audioguía y otra en lengua de signos internacional.</p>
 
@@ -495,14 +528,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><p>Las signoguías se muestran en formato vídeo. Al ser archivos muy grandes, a menudo <strong>no resulta viable precargarlas en modo offline</strong> en lugares con mala cobertura. Pero si el museo dispone de Wifi en todas sus instalaciones o de una buena cobertura de datos móviles, pueden funcionar perfectamente en <em>streaming</em>.</p>
                         </li>
                     </ul>
-                    <h3>Las transcripciones como complemento o alternativa</h3>
+                    <h3 id="transcriptions-a-simple-complement-or-alternative">Las transcripciones como complemento o alternativa</h3>
                     <p>Nubart permite acceder a la transcripción del texto de la audioguía mediante un botón situado cerca de cada pista y que abre una ventana superpuesta con el texto. Esta opción es perfectamente compatible con una precarga en offline si el museo tuviera problemas de cobertura. </p>
                     <p>Las transcripciones son posiblemente la opción de accesibilidad más barata de implementar. No obstante, están lejos de resolver todos los problemas de accesibilidad para las personas con problemas de audición.</p>
-                    <h4>Problemática de los textos para personas sordas:</h4>
+                    <h4 id="problems-with-text-for-the-deaf">Problemática de los textos para personas sordas:</h4>
                     <ul>
                         <li>A los sordos prelinguales (aquellos que pierden el oído antes de la adquisición del lenguaje) el aprendizaje de la lectura y de la escritura les supone un gran desafío. Aunque pueden aprender a copiar las letras y a identificarlas con imágenes, no pueden relacionar las grafías de la escritura con los elementos sonoros del habla. Por tanto, <strong>no todas las personas sordas pueden leer con fluidez</strong> y la incorporación de la transcripción no cubrirá las necesidades de <em>todo</em> el colectivo.</li>
                     </ul>
-                    <h3>Subtitulado de los vídeos</h3>
+                    <h3 id="captioning-the-videos">Subtitulado de los vídeos</h3>
                     <p>De un modo similar a la transcripción de las pistas de sonido, el subtitulado también contribuye a que los visitantes con problemas de audición comprendan la información sonora de un vídeo.</p>
                     <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
                     <p>Aquí tienes un vídeo que resume las aplicaciones de Nubart para la accesibilidad:</p>
