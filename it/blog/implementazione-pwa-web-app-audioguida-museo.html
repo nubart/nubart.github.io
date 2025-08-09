@@ -6,22 +6,36 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
     <!-- Structured data -->
-    <!-- Structured data -->
+    <!-- Structured data - general -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
+            "name": "Audio-PWA per musei: Guida completa all'implementazione",
+            "url": "https://www.nubart.eu/it/blog/implementazione-pwa-web-app-audioguida-museo.html",
+            "inLanguage": "it",
             "mainEntity": {
                 "@type": "Article",
                 "headline": "Di cosa deve tenere conto un museo quando implementa una PWA o una web app come audioguida?",
-                "description": "Questo è il primo di una serie di articoli in cui vogliamo comunicare ai professionisti dei musei tutto ciò che devono considerare se vogliono implementare un'audioguida come applicazione web interattiva o PWA. Iniziamo con alcune spiegazioni di base: cos'è una PWA e come si differenzia da un sito web statico. Seguono consigli sul tipo di azienda a cui commissionare un'audioguida PWA, su ciò che occorre sapere sul CMS di un'audioguida, sull'uso di cookie di terze parti, sui modelli di business esistenti e sulle varie possibilità di guadagno attraverso l'audioguida PWA. ",
-                "image": "https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp",
+                "alternativeHeadline": "Fattori importanti per i musei nell'implementazione di audioguide come Progressive Web Apps",
+                "description": "Guida completa per i musei sull'implementazione di audioguide PWA: opzioni CMS, modelli di business, monetizzazione e considerazioni importanti.",
+                "inLanguage": "it",
+                "image": [
+                    "https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp"
+                ],
                 "author": {
                     "@type": "Organization",
-                    "name": "Il team Nubart"
+                    "name": "Nubart",
+                    "url": "https://www.nubart.eu",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                    },
+                    "sameAs": [
+                        "https://www.linkedin.com/company/nubart",
+                        "https://twitter.com/nubart_en"
+                    ]
                 },
-                "datePublished": "2024-05-23",
-                "dateModified": "2024-05-23",
                 "publisher": {
                     "@type": "Organization",
                     "name": "Nubart",
@@ -29,25 +43,126 @@
                         "@type": "ImageObject",
                         "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
                     }
-                }
+                },
+                "datePublished": "2024-05-23T00:00:00+00:00",
+                "dateModified": "2024-05-23T00:00:00+00:00",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.nubart.eu/it/blog/implementazione-pwa-web-app-audioguida-museo.html"
+                },
+                "keywords": [
+                    "Audioguide museo",
+                    "Audioguide basate su codice QR",
+                    "Progressive Web App",
+                    "PWA per musei",
+                    "soluzioni di guida digitale",
+                    "audioguide basate sul web",
+                    "guide mobili per musei",
+                    "PWA vs sito web",
+                    "CMS audioguida",
+                    "monetizzazione museo",
+                    "cookie di terze parti"
+                ],
+                "about": [
+                    {
+                        "@type": "Thing",
+                        "name": "Progressive Web Application",
+                        "sameAs": "https://it.wikipedia.org/wiki/Progressive_web_app"
+                    },
+                    {
+                        "@type": "Thing",
+                        "name": "Audioguida",
+                        "sameAs": "https://it.wikipedia.org/wiki/Audioguida"
+                    },
+                    {
+                        "@type": "Thing",
+                        "name": "Museo",
+                        "sameAs": "https://it.wikipedia.org/wiki/Museo"
+                    }
+                ],
+                "articleSection": [
+                    "Definizione di PWA",
+                    "PWA vs sito web",
+                    "Audioguide per siti web statici",
+                    "Vantaggi delle audioguide PWA",
+                    "Aspetti implementativi",
+                    "Considerazioni CMS",
+                    "Monetizzazione",
+                    "Modelli di business"
+                ]
             }
         }
     </script>
-    <!-- End Structured data -->
-    
-    <!-- Structured data -->
-    
+
+    <!-- Structured data - FAQ -->
     <script type="application/ld+json">
-        
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Cos'è una PWA o applicazione web progressiva?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Una PWA o web app è un'applicazione interattiva a cui si accede semplicemente scansionando un codice QR, invece di scaricare un'app da Google Play o dall'App Store. La PWA o web app si apre direttamente nel browser standard dello smartphone e non richiede installazione."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Come si differenzia una PWA da un semplice sito web?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Un sito web è statico e viene utilizzato per pubblicare contenuti multimediali con funzionalità limitate. Una web app è un software che consente di eseguire diverse attività e comunicare con un server backend."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Si può creare un'audioguida con un semplice sito web statico?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Teoricamente sì, ma ha un'interattività molto limitata, complicazioni con contenuti multilingue, non può precaricare contenuti per la modalità offline e offre dati di utilizzo limitati. Una PWA è molto più adatta per le audioguide."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quali sono i vantaggi di una PWA come audioguida?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le PWA hanno praticamente tutti i vantaggi sia dei siti web statici che delle app, senza i loro svantaggi. Permettono funzionalità come giochi, telecomando, immagini sincronizzate, moduli di feedback, controllo degli accessi, geolocalizzazione e mappe interattive."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Come possono i musei monetizzare un'audioguida PWA?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "I musei possono monetizzare le audioguide PWA attraverso codici di sblocco numerici (acquistati con il biglietto) o accesso diretto tramite codici QR unici. Il metodo QR è più semplice per gli utenti e può utilizzare codici non trasferibili."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quali modelli di business offrono le audioguide PWA per i musei?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "I modelli comuni sono Software as a Service (SaaS) con tariffe mensili di 50-500€, pagamenti una tantum di 3.000-15.000€, pagamento per token dove i musei acquistano carte secondo necessità, e accordi di revenue sharing."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Breadcrumb Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-                
                 {
                     "@type": "ListItem",
                     "position": 1,
                     "item": {
+                        "@type": "WebPage",
                         "@id": "https://www.nubart.eu/it/",
                         "name": "Nubart"
                     }
@@ -56,6 +171,7 @@
                     "@type": "ListItem",
                     "position": 2,
                     "item": {
+                        "@type": "WebPage",
                         "@id": "https://www.nubart.eu/it/blog/",
                         "name": "Il Blog di Nubart"
                     }
@@ -64,13 +180,13 @@
                     "@type": "ListItem",
                     "position": 3,
                     "item": {
+                        "@type": "WebPage",
                         "@id": "https://www.nubart.eu/it/blog/implementazione-pwa-web-app-audioguida-museo.html",
-                        "name": "Guida all'installazione di un'audioguida PWA in un museo"
+                        "name": "Guida all'implementazione audioguida PWA"
                     }
                 }
             ]
         }
-    
     </script>
     
     <!-- End Structured data -->
