@@ -207,12 +207,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="module" src="/js/cookieconsent-config.js"></script>
 
 
-    <title>Guida all'installazione di un'audioguida PWA in un museo</title>
-    <meta name="description" content="State pensando di introdurre un'applicazione web come audioguida nel vostro museo? Ecco una guida completa su tutto ciò che dovete sapere: CMS, modelli di business..."/>
+    <title>Audioguide per musei: PWA e QR code, l’alternativa senza app</title>
+    <meta name="description" content="Scopri come creare un’audioguida per il tuo museo accessibile da QR code o come PWA, senza costi da app store e con dati statistici utili. Veloce, moderna e semplice da gestire."/>
     <meta name="author" content="Nubart"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:description" content="State pensando di introdurre un'applicazione web come audioguida nel vostro museo? Ecco una guida completa su tutto ciò che dovete sapere: CMS, modelli di business..."/>
+    <meta name="twitter:description" content="Scopri come creare un’audioguida per il tuo museo accessibile da QR code o come PWA, senza costi da app store e con dati statistici utili. Veloce, moderna e semplice da gestire."/>
     <meta name="twitter:site" content="@nubartEN"/>
     <meta name="twitter:creator" content="@nubartEN"/>
     <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp"/>
@@ -230,10 +230,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- OpenGraph for LinkedIn -->
 
-    <meta property="og:title" content="Guida all'installazione di un'audioguida PWA in un museo"/>
+    <meta property="og:title" content="Audioguide per musei: PWA e QR code, l’alternativa senza app"/>
     <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp"/>
     <meta property="og:author" content="Nubart International"/>
-    <meta property="og:description" content="State pensando di introdurre un'applicazione web come audioguida nel vostro museo? Ecco una guida completa su tutto ciò che dovete sapere: CMS, modelli di business..."/>
+    <meta property="og:description" content="Scopri come creare un’audioguida per il tuo museo accessibile da QR code o come PWA, senza costi da app store e con dati statistici utili. Veloce, moderna e semplice da gestire."/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="https://www.nubart.eu/es/blog/implementacion-pwa-audioguia-museo.html"/>
 
@@ -370,7 +370,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </nav>
     </div>
 </header><!-- End Header -->
+<!-- ======= Breadcrumbs ======= -->
+<div class="d-md-none" style="height: 60px;"></div>
+<section class="breadcrumbs d-none d-md-block">
+    <div class="container">
 
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Guida all'implementazione delle audioguide PWA</h2>
+            <ol>
+                <li><a href="../">Home</a></li>
+                <li><a href="../blog">Il blog di Nubart</a></li>
+                <li>Guida all'implementazione delle audioguide PWA</li>
+            </ol>
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
 <main id="main">
 
     <!-- ======= Portfolio Details Section ======= -->
@@ -394,15 +409,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="col-md-7 nubart-blog">
 
 
-                    <h1>Audio PWA per i musei: una guida completa per un'implementazione PWA di successo</h1>
+                    <h1>Come creare un’audioguida per musei: guida completa a PWA e QR code</h1>
 
-                    <p class="lead">Le audioguide come applicazioni web o PWA, a cui si accede solitamente tramite un codice QR, sono diventate molto popolari negli ultimi anni e stanno superando le app tradizionali. Tuttavia, ci sono molti aspetti da considerare se state pensando di implementare questo tipo di audioguida nel vostro museo per la prima volta. Questo è il primo di una serie di articoli in cui ti aiuteremo a prendere la decisione migliore.</p>
+                    <p class="lead">Molti musei cercano oggi audioguide accessibili da QR code o tramite applicazioni web progressive (PWA) per evitare i limiti delle app tradizionali. Tuttavia, ci sono molti aspetti da considerare se state pensando di implementare questo tipo di audioguida nel vostro museo per la prima volta. Questo è il primo di una serie di articoli in cui ti aiuteremo a prendere la decisione migliore.</p>
                     <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
                     <figure class="figure">
                         <img src="../../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="QR per accedere a un'audioguida PWA in un museo - Nubart"/>
                         <figcaption class="figure-caption text-center">Le audioguide PWA sono normalmente accessibili tramite un codice QR esposto in modo visibile nel museo.</figcaption>
                     </figure>
-                    <h2>I motivi della crescente popolarità delle audioguide come PWA nei musei.</h2>
+                    <!-- INIZIO TOC -->
+                    <nav class="toc" style="margin-bottom:2rem;">
+                        <h2>Indice dei contenuti</h2>
+                        <ul>
+                            <li><a href="#popolarita-pwa">I motivi della crescente popolarità delle audioguide come PWA nei musei</a></li>
+                            <li><a href="#cos-e-pwa">Che cos'è una PWA o applicazione web progressiva?</a></li>
+                            <li><a href="#differenze-pwa-web">In cosa si differenzia una PWA da una semplice pagina web?</a></li>
+                            <li><a href="#audioguida-pagina-web">È possibile creare un'audioguida su una semplice pagina web statica?</a></li>
+                            <li><a href="#vantaggi-pwa">Quali sono i vantaggi di utilizzare una PWA o un'applicazione web come audioguida?</a></li>
+                            <li><a href="#aspetti-implementazione">Aspetti da tenere in considerazione quando si implementa un'audioguida PWA in un museo</a>
+                                <ul>
+                                    <li><a href="#advice">Che tipo di azienda svilupperà l'audioguida PWA?</a></li>
+                                    <li><a href="#cms">L'audioguida sarà sviluppata utilizzando un CMS?</a></li>
+                                    <li><a href="#accesso-cms">Accesso all'audioguida PWA CMS</a></li>
+                                    <li><a href="#cookie">L'audioguida PWA utilizzerà cookie di terze parti?</a></li>
+                                    <li><a href="#statistiche">L'audioguida PWA fornisce dati statistici validi?</a></li>
+                                    <li><a href="#monetizzazione">Come si può monetizzare un'audioguida PWA?</a></li>
+                                    <li><a href="#modelli-business">Quali sono i modelli di business che le audioguide PWA offrono ai musei?</a></li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- FINE TOC -->
+                    <h2 id="popolarita-pwa">I motivi della crescente popolarità delle audioguide come PWA nei musei.</h2>
 
                     <p>I codici QR sono il metodo d'accesso principale alle applicazioni web interattive o alle PWA utilizzate come audioguide nei musei.
                         <b>Prima del Covid, solo il 31,45% dei visitatori dei musei sapeva come scansionare un codice QR.</b> Ma il loro uso prolifico nei bar e nei ristoranti durante la pandemia ha portato la familiarità con i codici QR al 98% della popolazione (noi di
@@ -421,7 +460,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p>(Se conosci già bene queste differenze, passa subito alla
                         <a href="#advice">nostra guida sui consigli per implementare una PWA</a>).</p><br/>
-                    <h2>Che cos'è una PWA o applicazione web progressiva?</h2>
+                    <h2 id="cos-e-pwa">Che cos'è una PWA o applicazione web progressiva?</h2>
 
                     <p>Sebbene la definizione tecnologica sia più complicata, la definizione semplice è la seguente:</p>
 
@@ -429,7 +468,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p>Il codice QR può essere scansionato utilizzando un'applicazione esterna o la fotocamera del cellulare. Al giorno d'oggi, quasi tutti gli smartphone consentono di utilizzare la fotocamera preinstallata per scansionare un codice QR, il che ha contribuito al suo utilizzo.</p>
 
-                    <h2>In cosa si differenzia una PWA o applicazione web progressiva da una semplice pagina web?</h2>
+                    <h2 id="differenze-pwa-web">In cosa si differenzia una PWA o applicazione web progressiva da una semplice pagina web?</h2>
 
                     <p>Molte persone pensano che tutto ciò che si apre in un browser sia una "pagina web" e non sanno che molti dei servizi che utilizzano regolarmente sono in realtà
                         <i>applicazioni web</i>. Ad esempio, la piattaforma di design Canva o qualsiasi software di contabilità non sono pagine web, ma complesse applicazioni web interattive che ti permettono di "fare cose".
@@ -442,7 +481,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li>Un'applicazione web è un software che permette di eseguire varie attività e comunica con un server nel cosiddetto "backend".</li>
                     </ul>
                     <br/>
-                    <h2>È possibile creare un'audioguida su una semplice pagina web statica?</h2>
+                    <h2 id="audioguida-pagina-web">È possibile creare un'audioguida su una semplice pagina web statica?</h2>
 
                     <p>Teoricamente sì. Alcuni musei offrono le colonne sonore delle audioguide direttamente sul loro sito web.</p>
 
@@ -457,7 +496,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li>È difficile ottenere dati di utilizzo affidabili e significativi.</li>
                     </ul>
                     <br/>
-                    <h2>Quali sono i vantaggi di utilizzare una PWA o un'applicazione web come audioguida?</h2>
+                    <h2 id="vantaggi-pwa">Quali sono i vantaggi di utilizzare una PWA o un'applicazione web come audioguida?</h2>
 
                     <p>
                         <b>In realtà, un'audioguida PWA ha praticamente tutti i vantaggi dei siti web statici e delle app, senza alcuno svantaggio</b>.
@@ -491,7 +530,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>
                         <a href="https://developer.mozilla.org/es/docs/Web/Progressive_web_apps" target="_blank">Una descrizione tecnica dettagliata delle caratteristiche di una PWA è disponibile qui</a>.
                     </p><br/>
-                    <h2>Aspetti da tenere in considerazione quando si implementa un'audioguida come applicazione web (PWA) in un museo. </h2>
+                    <h2 id="aspetti-implementazione">Aspetti da tenere in considerazione quando si implementa un'audioguida come applicazione web (PWA) in un museo.</h2>
 
                     <p> La qualità dell'audioguida contribuisce all'immagine e alla reputazione del vostro museo. Inoltre, anche se optate per esternalizzate sia lo sviluppo tecnologico della PWA che la produzione dei contenuti, dovrete affrontare un laborioso processo di revisione e iterazione che non vorreste sia vano. Quindi considera tutti questi aspetti prima di buttarti:</p>
                     <br/>
@@ -511,7 +550,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </li>
                     </ul>
                     <br/>
-                    <h3><i class="bi bi-2-circle-fill"></i> L'audioguida sarà sviluppata utilizzando un CMS?</h3>
+                    <h3 id="cms"><i class="bi bi-2-circle-fill"></i> L'audioguida sarà sviluppata utilizzando un CMS?</h3>
 
                     <p> Un CMS (<i>Content Management System</i>) è un software di gestione dei contenuti che consente di creare, gestire e modificare i contenuti di un sito web o di un'applicazione web senza la necessità di avere competenze di programmazione. Prima di contrattare un fornitore, chiedigli quale CMS intende utilizzare e, anche se non hai un background tecnologico, cerca di scoprire quali sono i suoi limiti.
                     </p>
@@ -535,7 +574,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </li>
                     </ul>
                     <br/>
-                    <h3><i class="bi bi-3-circle-fill"></i> Accesso all'audioguida PWA CMS</h3>
+                    <h3 id="accesso-cms"><i class="bi bi-3-circle-fill"></i> Accesso all'audioguida PWA CMS</h3>
 
                     <ul>
                         <li>
@@ -558,7 +597,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </li>
                     </ul>
                     <br/>
-                    <h3><i class="bi bi-4-circle-fill"></i> L'audioguida PWA utilizzerà cookie di terze parti?</h3>
+                    <h3 id="cookie"><i class="bi bi-4-circle-fill"></i> L'audioguida PWA utilizzerà cookie di terze parti?</h3>
 
                     <p>La protezione della privacy dei visitatori è una questione estremamente importante, soprattutto per i musei di proprietà pubblica. I cookie di terze parti possono tracciare gli utenti su diversi siti web, raccogliendo dati sulle loro abitudini di navigazione, preferenze e informazioni personali. I musei dovrebbero rispettare la privacy dei loro visitatori evitando le tecnologie che possono portare a un tracciamento invasivo e alla raccolta di dati.</p>
 
@@ -568,7 +607,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p>Se il tuo potenziale fornitore utilizza cookie di terze parti, assicurati che almeno implementino un avviso sui cookie nell'audioguida in modo che il tuo museo sia conforme alla legge europea sulla protezione dei dati.</p>
                     <br/>
-                    <h3><i class="bi bi-5-circle-fill"></i> L'audioguida PWA fornisce dati statistici validi?</h3>
+                    <h3 id="statistiche"><i class="bi bi-5-circle-fill"></i> L'audioguida PWA fornisce dati statistici validi?</h3>
 
                     <p><a href="../blog/come-ottenere-dati-statistici-visitatori-museo.html" target="_blank">Un'audioguida PWA offre un'opportunità unica per conoscere meglio i visitatori</a>. Quando viene aperta nel browser del visitatore, può tracciare in modo anonimo, legittimo e non invasivo diversi dati statistici di grande interesse per un museo, come ad esempio il paese di origine o la lingua principale del visitatore. È anche possibile scoprire quali punti d'interesse sono stati ascoltati e quali no, o addirittura quali aree del museo sono state attraversate dai visitatori. Data la difficoltà dei musei di ottenere questo tipo di dati per la valutazione del pubblico, sarebbe un peccato sprecare l'opportunità offerta dalle audioguide PWA.</p>
 
@@ -584,7 +623,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </li>
                     </ul>
                     <br/>
-                    <h3><i class="bi bi-6-circle-fill"></i> Come si può monetizzare un'audioguida PWA?</h3>
+                    <h3 id="monetizzazione"><i class="bi bi-6-circle-fill"></i> Come si può monetizzare un'audioguida PWA?</h3>
 
                     <p> La maggior parte dei musei che scelgono un'audioguida come applicazione web intende offrire un accesso gratuito.<br>Tuttavia, lo sviluppo di contenuti multilingue per le audioguide è molto costoso. Considerando che solo il 10-20% dei visitatori usufruisce dei servizi di audioguida gratuiti offerti da un museo, richiedere un piccolo contributo per l'utilizzo dell'audioguida PWA permette di distribuire in modo più equo questo costo e, se il museo è pubblico, evita che sia interamente a carico dei contribuenti.
                     </p>
@@ -611,7 +650,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     </ul>
                     <br/>
-                    <h3><i class="bi bi-7-circle-fill"></i> Quali sono i modelli di business che le audioguide PWA offrono ai musei?</h3>
+                    <h3 id="modelli-business"><i class="bi bi-7-circle-fill"></i> Quali sono i modelli di business che le audioguide PWA offrono ai musei?</h3>
 
                     <ul>
                         <li>
