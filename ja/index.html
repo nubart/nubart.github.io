@@ -6,58 +6,157 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- structured data -->
-
     <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
-            "@graph": [
-                {
-                    "@type": "Organization",
-                    "additionalType": "http://www.productontology.org/doc/Audio_tour",
-                    "@id": "https://www.nubart.eu/#site",
-                    "legalName": "Nubart GmbH",
-                    "name": "Nubart - ヌバルト",
-                    "areaServed": [
-                        "JA"
-                    ],
-                    "url": "https://www.nubart.eu/ja/",
-                    "image": "https://www.nubart.eu/img/features-no-apps.webp",
-                    "description": "ヌバルト - Nubartは、ベルリンとバルセロナにオフィスを構える登録商標です。2016年以来、Nubart社は、個々のQRコードカードに基づく独自のシステムによるデジタル音声ガイド（ウェブアプリケーション、ウェブアプリまたはPWA）の制作に特化しています。同社の製品にはNubart Guide、Nubart Live、Nubart Sync、Nubart Gameがあり、サービスには音声ガイドのコンテンツ制作が含まれます。Nubart社は27カ国以上に顧客を持ち、数多くの特許を取得しています。",
-                    "brand": "Nubart",
-                    "email": "info@nubart.eu",
-                     "foundingDate": "2013-07-17",
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://www.nubart.eu/ja/#organization",
+            "legalName": "Nubart GmbH",
+            "name": "Nubart（ヌバート）",
+            "url": "https://www.nubart.eu/ja/",
+            "logo": {
+                "@type": "ImageObject",
+                "@id": "https://www.nubart.eu/ja/#logo",
+                "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "caption": "Nubart"
+            },
+            "image": "https://www.nubart.eu/assets/img/features-no-apps.webp",
+            "description": "Nubartは、美術館や観光地向けにQRコードを活用したアクセスしやすい音声ガイドやライブガイドシステムを提供します。アプリのダウンロード不要で、マルチリンガル対応の革新的なソリューションを世界27か国以上で導入しています。",
+            "brand": {
+                "@type": "Brand",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu/ja/"
+            },
+            "email": "info@nubart.eu",
+            "foundingDate": "2013-07-17",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "email": "info@nubart.eu",
-                "contactType": "Customer Support",
+                "contactType": "カスタマーサポート",
                 "areaServed": "Worldwide",
-                "availableLanguage": ["en", "de", "es", "fr", "it"]
+                "availableLanguage": [
+                    "ja",
+                    "en",
+                    "de",
+                    "es",
+                    "fr",
+                    "it"
+                ]
             },
-                    "foundingLocation": "Berlin",
-                    "vatID": "DE351577751",
-                    "sameAs": [
-                        "https://twitter.com/nubarten?lang=en",
-                        "https://www.linkedin.com/company/nubart-eu/",
-                        "https://www.facebook.com/Nubart/",
-                        "https://www.crunchbase.com/organization/nubart",
-                        "https://vimeo.com/nubart",
-                        "https://www.youtube.com/@nubartinternational909"
-                    ]
+            "location": [
+                {
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "ベルリン",
+                        "addressCountry": "DE"
+                    }
                 },
                 {
-                    "@type": "ImageObject",
-                    "@id": "https://www.nubart.eu/#logo",
-                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                    "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                    "caption": "ヌバルト - Nubart"
-                },
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "バルセロナ",
+                        "addressCountry": "ES"
+                    }
+                }
+            ],
+            "industry": "Tourism",
+            "numberOfEmployees": {
+                "@type": "QuantitativeValue",
+                "minValue": 10,
+                "maxValue": 30
+            },
+            "sameAs": [
+                "https://twitter.com/nubarten?lang=ja",
+                "https://www.linkedin.com/company/nubart-eu/",
+                "https://www.facebook.com/Nubart/",
+                "https://www.crunchbase.com/organization/nubart",
+                "https://vimeo.com/nubart",
+                "https://www.youtube.com/@nubartinternational909"
+            ],
+            "hasPart": [
+                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/" },
+                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/" },
+                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/" },
+                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/" },
+                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/" },
+                { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/" },
+                { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/" },
+                { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/" },
+                { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
+                { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
+            ],
+            "keywords": "音声ガイド, QRコード音声ガイド, アクセシブル音声ガイド, マルチリンガルツアー, 美術館テクノロジー, デジタルガイド, PWA音声システム",
+            "additionalType": "http://www.productontology.org/doc/Audio_tour",
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "@id": "https://www.nubart.eu/ja/#productcatalog",
+                "name": "Nubart 製品一覧",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/ja/audio-guides/#service",
+                            "name": "Nubart GUIDE",
+                            "description": "QRコードを利用したWCAG準拠の音声ガイド。美術館、史跡、教会、観光地向けに、収益化オプションやプロフェッショナルなコンテンツ制作にも対応。",
+                            "url": "https://www.nubart.eu/ja/audio-guides/",
+                            "category": "音声ガイドシステム",
+                            "serviceType": "美術館・観光地向け音声ガイド",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": [
+                                    "美術館",
+                                    "史跡",
+                                    "教会",
+                                    "城",
+                                    "観光地"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/ja/digital-tour-guide-app/#service",
+                            "name": "Nubart LIVE",
+                            "description": "QRコードを使ったライブガイドシステム。工場見学、ガイド付きウォーキングツアー、団体観光に最適。AIによるライブ翻訳も可能。",
+                            "url": "https://www.nubart.eu/ja/digital-tour-guide-app/",
+                            "category": "ツアーガイドシステム",
+                            "serviceType": "ライブツアーガイド",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": [
+                                    "工場",
+                                    "ツアーオペレーター",
+                                    "市内ガイド",
+                                    "団体旅行リーダー"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    </script>
+
+    <!-- パンくずリスト Schema -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
                 {
-                    "sameAs": [
-                        "https://www.nubart.eu/"
-                    ],
-                    "inLanguage": [
-                        "ja"
-                    ]
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@id": "https://www.nubart.eu/ja/",
+                        "name": "Nubart（ヌバート）"
+                    }
                 }
             ]
         }

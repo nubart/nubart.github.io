@@ -9,26 +9,178 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Structured data -->
-
     <script type="application/ld+json">
-
         {
-            "@context": "http://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                
+            "@context": "https://schema.org",
+            "@graph": [
                 {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "item": {
-                        "@id": "https://www.nubart.eu/he/",
-                        "name": "נובארט, מדריך האודיו שתוכלו לקחת"
-                    }
+                    "@type": "Organization",
+                    "@id": "https://www.nubart.eu/#organization",
+                    "legalName": "Nubart GmbH",
+                    "name": "Nubart",
+                    "url": "https://www.nubart.eu/he/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                        "caption": "Nubart"
+                    },
+                    "image": "https://www.nubart.eu/assets/img/features-no-apps.webp",
+                    "description": "חברת נובארט מתמחה במערכות אודיו-גייד דיגיטליות (PWA) עם טכנולוגיה ייחודית. החברה פועלת ב-27 מדינות ויש לה משרדים בברלין ובברצלונה.",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "Nubart",
+                        "url": "https://www.nubart.eu/he/"
+                    },
+                    "email": "info@nubart.eu",
+                    "foundingDate": "2013-07-17",
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "contactType": "Customer Support",
+                        "email": "info@nubart.eu",
+                        "areaServed": "Worldwide",
+                        "availableLanguage": ["en", "de", "es", "fr", "it", "he"]
+                    },
+                    "location": [
+                        {
+                            "@type": "Place",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "ברלין",
+                                "addressCountry": "DE"
+                            }
+                        },
+                        {
+                            "@type": "Place",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "ברצלונה",
+                                "addressCountry": "ES"
+                            }
+                        }
+                    ],
+                    "industry": "תיירות, טכנולוגיה למוזיאונים, מערכות שמע",
+                    "numberOfEmployees": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 10,
+                        "maxValue": 30
+                    },
+                    "sameAs": [
+                        "https://twitter.com/nubarten?lang=en",
+                        "https://www.linkedin.com/company/nubart-eu/",
+                        "https://www.facebook.com/Nubart/",
+                        "https://www.crunchbase.com/organization/nubart",
+                        "https://vimeo.com/nubart",
+                        "https://www.youtube.com/@nubartinternational909"
+                    ],
+                    "hasOfferCatalog": {
+                        "@type": "OfferCatalog",
+                        "name": "מוצרים",
+                        "itemListElement": [
+                            { "@type": "Offer", "itemOffered": { "@id": "https://www.nubart.eu/audio-guides/#service" } }
+                        ]
+                    },
+                    "hasPart": [
+                        {
+                            "@type": "WebPage",
+                            "inLanguage": "he",
+                            "url": "https://www.nubart.eu/he/"
+                        }
+                    ]
+                },
+                {
+                    "@type": "Service",
+                    "@id": "https://www.nubart.eu/audio-guides/#service",
+                    "name": "Nubart GUIDE – מדריך אודיו דיגיטלי (PWA) באמצעות QR",
+                    "provider": { "@id": "https://www.nubart.eu/#organization" },
+                    "inLanguage": "he",
+                    "description": "Nubart GUIDE הוא מדריך אודיו דיגיטלי בפורמט Progressive Web App (PWA) המיועד למוזיאונים, אתרים היסטוריים, מסלולי תיירות ואתרי חוץ. המערכת עושה שימוש במערכת ייחודית ומוגנת בפטנט של קודי QR ייחודיים ולא ניתנים להעברה, לרוב מודפסים על כרטיס, המאפשרת מונטיזציה ומכירה חוזרת. המוצר תומך בתוכן מולטימדיה מתקדם, כולל אובייקטים בתלת-ממד, תמונות בשכבות, מפות אינטראקטיביות עם מיקום גיאוגרפי וטפסי משוב. מספק נתונים סטטיסטיים אנונימיים ומצטברים על שימוש ומקור מבקרים. אין צורך בהתקנת אפליקציה או חומרה ייעודית.",
+                    "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+                    "serviceType": "מערכת מדריך אודיו דיגיטלית",
+                    "audience": {
+                        "@type": "Audience",
+                        "audienceType": [
+                            "מוזיאונים",
+                            "אתרים היסטוריים",
+                            "ארגוני שיווק עירוני",
+                            "אטרקציות תיירותיות",
+                            "אתרי מורשת פתוחים"
+                        ]
+                    },
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://www.nubart.eu/he/"
+                    },
+                    "hasLanguage": [
+                        { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/" },
+                        { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/" },
+                        { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguides.html" },
+                        { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/audioguida.html" },
+                        { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/audioguias.html" },
+                        { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/" },
+                        { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiogidsen/" },
+                        { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/" },
+                        { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
+                        { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
+                    ],
+                    "isRelatedTo": [
+                        { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
+                        { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                        { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+                        { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" }
+                    ],
+                    "additionalProperty": [
+                        {
+                            "@type": "PropertyValue",
+                            "name": "סוג טכנולוגיה",
+                            "value": "Progressive Web App (PWA)"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "שיטת הפעלה",
+                            "value": "קודי QR ייחודיים מוגני פטנט על גבי כרטיס פיזי"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "מונטיזציה",
+                            "value": "מאפשר מכירה חוזרת והכנסות נוספות לאתר"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "אנליטיקה",
+                            "value": "סטטיסטיקות אנונימיות ומצטברות על שימוש ומקור מבקרים"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "תמיכה במצב לא מקוון",
+                            "value": "תוכן זמין ללא חיבור לאינטרנט לאחר טעינה ראשונית"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "ללא אפליקציה",
+                            "value": "גישה ישירה דרך דפדפן אינטרנט"
+                        }
+                    ]
                 }
             ]
         }
-
     </script>
+
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "נובארט, מדריך האודיו שתוכלו לקחת",
+                    "item": "https://www.nubart.eu/he/"
+                }
+            ]
+        }
+    </script>
+
 
     <!-- End Structured data -->
 

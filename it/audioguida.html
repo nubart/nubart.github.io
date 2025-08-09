@@ -11,54 +11,107 @@
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Nubart Guide",
-            "description": "Audioguida digitale presentata come applicazione web o Progressive Web Application (PWA). Nubart Guide si distingue da altre audioguide digitali simili presenti sul mercato per la sua straordinaria tecnologia e perché funziona con un sistema brevettato di codici unici e non trasferibili, solitamente stampati su una scheda, che conferisce alle nostre audioguide un valore commerciale e ne consente la rivendita e la monetizzazione. Nubart Guide consente l'integrazione di elementi multimediali multipli e complessi, come oggetti 3D, immagini sovrapposte, mappe interattive con geolocalizzazione, e molti altri. Inoltre, Nubart Guide è uno strumento eccellente per l'analisi del pubblico, grazie ai ricchi dati statistici anonimi e aggregati che forniamo sull'uso dei codici e sulle caratteristiche dei visitatori, come il loro Paese di origine. Nubart Guide include anche un modulo di feedback che consente ai visitatori di esprimere le loro opinioni sulla mostra e di rispondere a domande specifiche. Il tasso di utilizzo di Nubart Guide è ben superiore a quello di altri servizi di audioguida. Nubart Guide è ideale per musei, marketing cittadino, percorsi turistici, monumenti e siti all'aperto.",
-            "brand": {
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/audio-guides/#service",
+            "name": "Nubart GUIDE – audioguida digitale tramite codice QR (PWA)",
+            "provider": {
                 "@id": "https://www.nubart.eu/#organization"
             },
-            "offers": {
-                "@type": "Offer",
-                "price": "5850.00",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock",
-                "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "price": "5850.00",
-                    "valueAddedTaxIncluded": "false",
-                    "minPrice": "5850.00"
-                }
+            "inLanguage": "it",
+            "description": "Nubart GUIDE è un sistema di audioguida digitale in formato Progressive Web App (PWA) per musei, monumenti, percorsi turistici e attrazioni all’aperto. Utilizza un sistema brevettato di codici QR unici e non trasferibili, solitamente stampati su scheda, che permette la monetizzazione e la rivendita. Supporta contenuti multimediali avanzati come oggetti 3D, immagini sovrapposte, mappe interattive con geolocalizzazione e moduli di feedback. Offre inoltre statistiche aggregate e anonime sull’utilizzo e la provenienza dei visitatori. Nessuna app o hardware richiesto.",
+            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+            "serviceType": "Sistema di audioguida digitale",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "Musei",
+                    "Monumenti",
+                    "Enti di marketing cittadino",
+                    "Attrazioni turistiche",
+                    "Siti all’aperto"
+                ]
             },
-            "image": [
-                "https://www.nubart.eu/assets/img/nubart-guide.webp"
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/it/audioguida.html"
+            },
+            "hasLanguage": [
+                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/" },
+                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/" },
+                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguides.html" },
+                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/audioguida.html" },
+                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/audioguias.html" },
+                { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/" },
+                { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiogidsen/" },
+                { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/" },
+                { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
+                { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
+            ],
+            "isRelatedTo": [
+                { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
+                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+                { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" }
+            ],
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Tipo di tecnologia",
+                    "value": "Progressive Web App (PWA)"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Modalità di attivazione",
+                    "value": "Codici QR unici brevettati su supporto fisico"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Monetizzazione",
+                    "value": "Permette rivendita e generazione di ricavi per la sede"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Analitica",
+                    "value": "Dati aggregati e anonimi su provenienza e utilizzo dei visitatori"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Funzionalità offline",
+                    "value": "Contenuti accessibili offline dopo la prima connessione"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Senza app",
+                    "value": "Accessibile tramite browser web"
+                }
             ]
         }
     </script>
-    
+
+
     <!-- Structured data -->
-    
+
     <script type="application/ld+json">
-        
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
                 {
                     "@type": "ListItem",
                     "position": 1,
-                    "item": "https://www.nubart.eu/it/",
-                    "name": "Nubart"
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/it/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "item": "https://www.nubart.eu/it/audioguida.html",
-                    "name": "Nubart GUIDE - audioguida digitale tramite codice QR (PWA)"
+                    "name": "Nubart GUIDE – audioguida digitale tramite codice QR (PWA)",
+                    "item": "https://www.nubart.eu/it/audioguida.html"
                 }
             ]
         }
-    
     </script>
+
     <!-- End Structured data -->
     
     <!-- Google Tag Manager -->

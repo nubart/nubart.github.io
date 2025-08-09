@@ -6,72 +6,99 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
 
-    <!-- structured data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Nubart Live",
-            "description": "Nubart LIVEは、QRコードベースのデジタル音声ガイドシステムで、AIによるリアルタイム翻訳を33言語以上対応し、博物館、展示会、工場見学、トレーニングに最適です。",
-            "url": "https://www.nubart.eu/ja/digital-tour-guide-app/",
-            "brand": {
-                "@type": "Brand",
-                "name": "Nubart"
-            },
-            "offers": {
-                "@type": "Offer",
-                "url": "https://www.nubart.eu/ja/digital-tour-guide-app/pricing.html",
-                "priceCurrency": "JPY",
-                "price": "98500",
-
-                "availability": "https://schema.org/InStock",
-                "itemCondition": "https://schema.org/NewCondition"
-            },
-            "features": [
-                {
-                    "@type": "ProductFeature",
-                    "name": "ノイズキャンセリング",
-                    "description": "Nubart Liveは、非常に騒がしい環境でもクリアな通信を保証し、工場見学に理想的である。"
-                },
-                {
-                    "@type": "ProductFeature",
-                    "name": "ハードウェアはない",
-                    "description": "Nubart Liveはスマートフォン上で動作するため、従来のデバイスのような高額なコストやメンテナンスを省くことができる。"
-                },
-                {
-                    "@type": "ProductFeature",
-                    "name": "ブラウザベース",
-                    "description": "Nubart Liveはブラウザ上で動作し、アプリのダウンロードを必要としないため、簡単かつ迅速に使用できる。"
-                },
-                {
-                    "@type": "ProductFeature",
-                    "name": "リアルタイムQ&A",
-                    "description": "来場者はスマートフォンから直接ガイドに質問をすることができ、ツアー中のエンゲージメントを高めることができる。"
-                }
-            ],
-            "video": {
-                    "@type": "VideoObject",
-                    "name": "Nubart Live - デジタル・ツアーガイド・システム（ビデオ）",
-                    "description": "Nubart Liveの紹介ビデオ：アプリもデバイスも不要なデジタル・ツアーガイド・システム",
-                    "url": "https://vimeo.com/619990121",
-                    "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/nubart-live-en.png",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Nubart"
-                },
-                    "uploadDate": "2021-10-01Z",
-                    "embedUrl": "https://player.vimeo.com/video/619990121",
-                "inLanguage": "ja"
-            },
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/digital-tour-guide-app/#service",
+            "name": "Nubart LIVE – QRコード対応デジタル・ツアーガイド・システム",
+            "provider": { "@id": "https://www.nubart.eu/#organization" },
+            "inLanguage": "ja",
+            "description": "Nubart LIVEはQRコードを利用してガイドの声を参加者のスマートフォンへ直接配信する、アプリ不要・ハードウェア不要のデジタル団体ガイドシステムです。34以上の言語でAIによるリアルタイム翻訳が可能で、ノイズキャンセリングやブラウザベース操作、質問応答機能を備えています。博物館、展示会、工場見学、研修などに最適です。",
             "image": [
                 "https://www.nubart.eu/assets/img/live/nubart-live.webp",
                 "https://www.nubart.eu/assets/img/live/nubart-live.png",
                 "https://www.nubart.eu/assets/img/live/nubart-live-logo.webp",
                 "https://www.nubart.eu/assets/img/live/nubart-live-logo.png"
-            ]
+            ],
+            "serviceType": "デジタル団体ガイドシステム",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "美術館",
+                    "展示会",
+                    "工場見学",
+                    "教育・研修機関"
+                ]
+            },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/ja/digital-tour-guide-app/" },
+
+            "hasLanguage": [
+                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/digital-tour-guide-app/" },
+                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/sistema-guiado-grupos/" },
+                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/personenfuehrungsanlage-app/" },
+                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/tour-guide-app/" },
+                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/systeme-audio-visite-guidee/" },
+                { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/digital-tour-guide-app/" },
+                { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/digital-rondleidingsysteem/" },
+                { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/tour-guide-system/" }
+            ],
+
+            "isRelatedTo": [
+                { "@id": "https://www.nubart.eu/audio-guides/#service" },
+                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+                { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" },
+                { "@id": "https://nubart-sync.com/#service" }
+            ],
+
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "ノイズキャンセリング",
+                    "value": "非常に騒がしい環境でもクリアな音声を提供。工場見学に最適。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "ハードウェア不要",
+                    "value": "スマートフォンで動作し、専用機材のコストやメンテナンスは不要。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "ブラウザベース",
+                    "value": "アプリのインストール不要、ブラウザからQRコードで即利用可能。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "リアルタイムAI翻訳",
+                    "value": "音声およびテキストのリアルタイム翻訳、34以上の言語に対応。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "リアルタイムQ&A",
+                    "value": "参加者はスマートフォンから直接ガイドに質問可。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "技術タイプ",
+                    "value": "Progressive Web App（PWA）"
+                }
+            ],
+
+            "video": {
+                "@type": "VideoObject",
+                "name": "Nubart LIVE – デジタル・ツアーガイド・システム",
+                "description": "Nubart LIVEの紹介ビデオ: アプリや専用機材が不要なデジタルツアーガイドシステム。",
+                "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/nubart-live-en.png",
+                "contentUrl": "https://vimeo.com/619990121",
+                "embedUrl": "https://player.vimeo.com/video/619990121",
+                "uploadDate": "2021-10-01",
+                "inLanguage": "ja",
+                "publisher": { "@id": "https://www.nubart.eu/#organization" }
+            }
         }
     </script>
-    <!-- End Structured data -->
+
     <!-- Structured data -->
     
     

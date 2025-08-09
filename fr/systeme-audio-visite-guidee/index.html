@@ -10,75 +10,117 @@
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Nubart Live",
-            "description": "Nubart LIVE est un système numérique de visite guidée pour les groupes, basé sur des QR codes, proposant une traduction en direct alimentée par l’IA dans plus de 34 langues pour les musées, expositions, visites d’usines et formations.",
-            "url": "https://www.nubart.eu/fr/systeme-audio-visite-guidee/",
-
-            "brand": {
-                "@type": "Brand",
-                "name": "Nubart"
-            },
-            "offers": {
-                "@type": "Offer",
-                "url": "https://www.nubart.eu/fr/systeme-audio-visite-guidee/prix.html",
-                "priceCurrency": "EUR",
-                "price": "599",
-
-                "availability": "https://schema.org/InStock",
-                "itemCondition": "https://schema.org/NewCondition"
-            },
-            "features": [
-                {
-                    "@type": "ProductFeature",
-                    "name": "Annulation du bruit",
-                    "description": "Nubart Live permet une communication claire même dans des environnements très bruyants, ce qui est idéal pour les visites d'usine."
-                },
-                {
-                    "@type": "ProductFeature",
-                    "name": "Sans matériel",
-                    "description": "Nubart Live fonctionne sur le smartphone, ce qui permet d'éviter le coût élevé et la maintenance des appareils traditionnels."
-                },
-                {
-                    "@type": "ProductFeature",
-                    "name": "Dans le navigateur",
-                    "description": "Nubart Live fonctionne dans le navigateur et ne nécessite pas le téléchargement d'une application, ce qui le rend rapide et facile à utiliser."
-                },
-                {
-                    "@type": "ProductFeature",
-                    "name": "Traduction IA en temps réel",
-                    "description": "Option de traduction IA (audio et/ou texte) en temps réel, dans plus de 34 langues."
-                },
-                {
-                    "@type": "ProductFeature",
-                    "name": "Questions en temps réel",
-                    "description": "Les visiteurs peuvent poser des questions au guide directement via leur téléphone portable."
-                }
-            ],
-            "video": {
-                "@type": "VideoObject",
-                "name": "Nubart Live - Système numérique de guidage de groupe (vidéo)",
-                "description": "Présentation vidéo de Nubart Live : un système numérique de visite guidée qui ne nécessite ni gadgets ni applications.",
-                "url": "https://vimeo.com/759430104",
-                "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/nubart-live-fr.png",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Nubart"
-                },
-                "uploadDate": "2022-10-12Z",
-                "embedUrl": "https://player.vimeo.com/video/759430104",
-                "inLanguage": "fr"
-            },
-
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/digital-tour-guide-app/#service",
+            "name": "Nubart LIVE – Système numérique de guidage de groupe",
+            "provider": { "@id": "https://www.nubart.eu/#organization" },
+            "inLanguage": "fr",
+            "description": "Nubart LIVE est un système de guidage de groupe basé sur QR code qui transmet la voix du guide directement sur les smartphones des participants, sans matériel ni application à installer. Il propose en option une traduction simultanée par IA en plus de 34 langues, l'annulation du bruit, un fonctionnement 100 % navigateur et des fonctionnalités de questions/réponses en direct.",
             "image": [
                 "https://www.nubart.eu/assets/img/live/nubart-live.webp",
                 "https://www.nubart.eu/assets/img/live/nubart-live.png",
                 "https://www.nubart.eu/assets/img/live/nubart-live-logo.webp",
                 "https://www.nubart.eu/assets/img/live/nubart-live-logo.png"
+            ],
+            "serviceType": "Système audio de visite guidée numérique",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "Musées",
+                    "Expositions",
+                    "Usines",
+                    "Organismes de formation"
+                ]
+            },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/fr/systeme-audio-visite-guidee/" },
+
+            "hasLanguage": [
+                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/digital-tour-guide-app/" },
+                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/sistema-guiado-grupos/" },
+                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/personenfuehrungsanlage-app/" },
+                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/tour-guide-app/" },
+                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/systeme-audio-visite-guidee/" },
+                { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/digital-tour-guide-app/" },
+                { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/digital-rondleidingsysteem/" },
+                { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/tour-guide-system/" }
+            ],
+
+            "isRelatedTo": [
+                { "@id": "https://www.nubart.eu/audio-guides/#service" },
+                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+                { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" },
+                { "@id": "https://nubart-sync.com/#service" }
+            ],
+
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Annulation du bruit",
+                    "value": "Communication claire même dans les environnements bruyants, idéale pour les visites d'usines."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Sans matériel",
+                    "value": "Fonctionne sur smartphone, sans coût ni maintenance d’équipements spécifiques."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Dans le navigateur",
+                    "value": "S’exécute directement dans le navigateur, sans installation d’application."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Traduction IA en temps réel",
+                    "value": "Audio et/ou texte dans plus de 34 langues via IA."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Questions en temps réel",
+                    "value": "Les participants peuvent envoyer directement leurs questions au guide."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Type de technologie",
+                    "value": "Progressive Web App (PWA)"
+                }
+            ],
+
+            "video": {
+                "@type": "VideoObject",
+                "name": "Nubart LIVE – Système numérique de guidage de groupe",
+                "description": "Présentation de Nubart LIVE : système de guidage numérique sans matériel ni application à installer.",
+                "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/nubart-live-fr.png",
+                "contentUrl": "https://vimeo.com/759430104",
+                "embedUrl": "https://player.vimeo.com/video/759430104",
+                "uploadDate": "2022-10-12",
+                "inLanguage": "fr",
+                "publisher": { "@id": "https://www.nubart.eu/#organization" }
+            }
+        }
+    </script>
+
+    <!-- End Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Nubart LIVE - Système de Visite Guidée",
+                    "item": "https://www.nubart.eu/fr/systeme-audio-visite-guidee/"
+                }
             ]
         }
     </script>
-    <!-- End Structured data -->
 
     <!-- Google Tag Manager -->
     <!-- Google Tag Manager -->

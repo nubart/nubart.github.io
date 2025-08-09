@@ -7,58 +7,111 @@
 
     <!-- Structured data -->
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Nubart Guide",
-            "description": "ウェブアプリケーションまたはプログレッシブウェブアプリケーション（PWA）として提供されるデジタルオーディオガイド。Nubart Guideは、その卓越したテクノロジーと、通常カードに印刷されたユニークで譲渡不可能なQRコードの特許システムにより、オーディオガイドに商業的価値を与え、再販や収益化を可能にするため、市場に出回っている他の同様のデジタルオーディオガイドとは一線を画している。Nubart Guideは、3Dオブジェクト、重ね合わせた画像、位置情報を含むインタラクティブな地図など、複数の複雑なマルチメディア要素を統合することができる。さらに、Nubart Guideは使用や訪問者の特徴（出身国など）に関する豊富な匿名・集計統計データを提供するため、利用者分析のための優れたツールとなっている。また、Nubart Guideには、来場者が展覧会について意見を述べたり、特定の質問に答えたりできるフィードバック・フォームも含まれている。Nubart Guideの利用率は、他の音声ガイドサービスを大きく上回っている。Nubart Guideは、博物館、都市マーケティング、観光ルート、モニュメント、野外施設に最適である。",
-            "brand": {
-                "@id": "https://www.nubart.eu/#organization"
-            },
-            "offers": {
-                "@type": "Offer",
-                "price": "5850.00",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock",
-                "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "price": "5850.00",
-                    "valueAddedTaxIncluded": "false",
-                    "minPrice": "5850.00"
-                }
-            },
-            "image": [
-                "https://www.nubart.eu/assets/img/nubart-guide.webp"
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.nubart.eu/audio-guides/#service",
+        "name": "Nubart GUIDE – QRコード対応PWAオーディオガイド",
+        "provider": {
+            "@id": "https://www.nubart.eu/#organization"
+        },
+        "inLanguage": "ja",
+        "description": "Nubart GUIDEは、美術館、モニュメント、観光ルート、屋外遺跡向けのProgressive Web App（PWA）型デジタルオーディオガイドシステムです。特許取得済みの一意かつ譲渡不可能なQRコード（通常カードに印刷）により、収益化と再販が可能です。3Dオブジェクト、重ね合わせ画像、位置情報付きインタラクティブマップ、フィードバックフォーム等の高度なマルチメディアコンテンツに対応し、利用状況や訪問者の出身地など匿名かつ集約された統計も取得できます。アプリのインストールや専用機器は不要です。",
+        "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+        "serviceType": "デジタルオーディオガイドシステム",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": [
+                "美術館",
+                "モニュメント",
+                "都市マーケティング団体",
+                "観光名所",
+                "屋外文化遺産"
             ]
-        }
-    </script>
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.nubart.eu/ja/audio-guides/"
+        },
+        "hasLanguage": [
+            { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/" },
+            { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/" },
+            { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguides.html" },
+            { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/audioguida.html" },
+            { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/audioguias.html" },
+            { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/" },
+            { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiogidsen/" },
+            { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/" },
+            { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
+            { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
+        ],
+        "isRelatedTo": [
+            { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
+            { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+            { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+            { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" }
+        ],
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "技術タイプ",
+                "value": "Progressive Web App（PWA）"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "起動方法",
+                "value": "カードに印刷された特許取得済み一意QRコード"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "収益化",
+                "value": "現地での再販と収益化が可能"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "分析機能",
+                "value": "匿名かつ集約された利用統計および訪問者情報"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "オフライン対応",
+                "value": "初回読み込み後はオフラインでも利用可能"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "アプリ不要",
+                "value": "ウェブブラウザでアクセス"
+            }
+        ]
+    }
+</script>
+
 
     <!-- End Structured data -->
     
     <!-- Structured data -->
-    
+
     <script type="application/ld+json">
-        
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
                 {
                     "@type": "ListItem",
                     "position": 1,
-                    "item": "https://www.nubart.eu/ja/",
-                    "name": "Nubart - ヌバルト"
+                    "name": "Nubart - ヌバルト",
+                    "item": "https://www.nubart.eu/ja/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "item": "https://www.nubart.eu/ja/audio-guides/",
-                    "name": "ヌバートオーディオガイド"
+                    "name": "ヌバートオーディオガイド",
+                    "item": "https://www.nubart.eu/ja/audio-guides/"
                 }
             ]
         }
-    
     </script>
+
     
     <!-- End Structured data -->
 

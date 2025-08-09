@@ -15,7 +15,8 @@
             "@type": "Organization",
             "@id": "https://www.nubart.eu/#organization",
             "name": "Nubart",
-            "url": "https://www.nubart.eu"
+            "url": "https://www.nubart.eu",
+            "inLanguage": "en"
         }
     </script>
     <!-- Service Block: Nubart MOTION -->
@@ -71,10 +72,21 @@
                     "description": "Advanced automated multilingual audio tours with flexible triggering: GPS location-based, manual remote control, automatic remote control, and timed sequential activation for optimal coverage in any environment"
                 }
             ],
-            "isRelatedTo": {
-                "@type": "SoftwareApplication",
-                "@id": "https://www.nubart.eu/audio-commentary-system/#motionapp"
-            },
+            "hasLanguage": [
+                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-commentary-system/" },
+                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/tours-barcos-buses.html" },
+                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/fuer-bootsfahrten-und-schiffstouren.html" },
+                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/percorsi-navi-autobus.html" },
+                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguide-bateaux-bus.html" },
+                { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiosysteem/boottochten-rondvaartbooten.html" }
+            ],
+
+            "isRelatedTo": [
+                { "@id": "https://www.nubart.eu/audio-guides/#service" },
+                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
+                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" }
+            ],
             "additionalProperty": [
                 {
                     "@type": "PropertyValue",
@@ -165,101 +177,6 @@
         }
     </script>
 
-
-    <!-- Enhanced Structured data Software application -->
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "@id": "https://www.nubart.eu/audio-commentary-system/#motionapp",
-            "name": "Nubart MOTION Commentary System",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web Browser",
-            "description": "Progressive Web App (PWA) passenger commentary system for tour operators featuring multiple triggering methods (GPS, manual remote control, automatic remote control, timed sequential), AI-powered live translation, and offline mode capabilities.",
-            "url": "https://www.nubart.eu/audio-commentary-system/",
-            "provider": {
-                "@type": "Organization",
-                "@id": "https://www.nubart.eu/#organization",
-                "name": "Nubart"
-            },
-            "isPartOf": {
-                "@type": "Service",
-                "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice"
-            },
-            "audience": {
-                "@type": "Audience",
-                "audienceType": [
-                    "Tour Operators",
-                    "River Cruise Companies",
-                    "Sightseeing Bus Operators",
-                    "Boat Tour Providers",
-                    "City Tour Train Operators"
-                ]
-            },
-            "offers": [
-                {
-                    "@type": "Offer",
-                    "price": "Custom pricing available",
-                    "priceCurrency": "EUR",
-                    "availability": "https://schema.org/InStock"
-                },
-                {
-                    "@type": "Offer",
-                    "price": "Custom pricing available",
-                    "priceCurrency": "USD",
-                    "availability": "https://schema.org/InStock"
-                }
-            ],
-            "featureList": [
-                "GPS location-based triggering",
-                "Manual remote control activation",
-                "Automatic remote control via master device",
-                "Timed sequential triggers",
-                "AI-powered live translation",
-                "QR code activation",
-                "Progressive Web App (PWA) technology",
-                "No app downloads required",
-                "Multilingual support",
-                "Offline mode with content preloading",
-                "Hybrid triggering combinations",
-                "Browser-based audio delivery"
-            ],
-            "additionalProperty": [
-                {
-                    "@type": "PropertyValue",
-                    "name": "Triggering Methods",
-                    "value": "GPS, Manual Remote Control, Automatic Remote Control, Timed Sequential"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Internet Requirements",
-                    "value": "Solid internet for AI translation, basic connectivity for triggering, offline mode available"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Technology Type",
-                    "value": "Progressive Web App (PWA)"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Target Audience",
-                    "value": "Tour Operators, Boat Companies, Bus Tour Operators, Sightseeing Vehicle Operators"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Accepted Currencies",
-                    "value": "EUR, USD"
-                }
-            ],
-            "softwareRequirements": "Modern web browser with JavaScript enabled",
-            "memoryRequirements": "Minimal - content preloaded for offline use",
-            "storageRequirements": "No permanent storage required",
-            "installUrl": "Not applicable - PWA accessed via QR code",
-            "downloadUrl": "Not applicable - no download required",
-            "screenshot": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp"
-        }
-    </script>
 
 
     <!-- Structured Data: Breadcrumbs -->

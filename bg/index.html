@@ -6,54 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- structured data -->
-
     <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@graph": [
                 {
                     "@type": "Organization",
-                    "additionalType": "http://www.productontology.org/doc/Audio_tour",
-                    "@id": "https://www.nubart.eu/#site",
+                    "@id": "https://www.nubart.eu/#organization",
                     "legalName": "Nubart GmbH",
                     "name": "Nubart",
-                    "location": [
-                        {
-                            "@type": "Organization",
-                            "name": "Nubart GmbH",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressCountry": "Германия"
-                            }
-                        },
-                        {
-                            "@type": "Organization",
-                            "name": "Digital Tangible SL",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressCountry": "Испания"
-                            }
-                        }
-                    ],
                     "url": "https://www.nubart.eu/bg/",
-                    "image": "https://www.nubart.eu/img/features-no-apps.webp",
-                    "description": "Nubart е регистрирана търговска марка с офиси в Берлин и Барселона, представлявана в България от компанията Наше наследство. От 2016 г. Nubart се специализира в производството на цифрови аудиогидове (уеб приложения, уеб приложения или PWA) с уникална система, базирана на индивидуални карти с QR код. Продуктите на компанията включват Nubart Guide, Nubart Live, Nubart SYNC и Nubart Game, а услугите ѝ включват създаване на съдържание за аудиогидове. Nubart има клиенти в повече от 27 държави и притежава множество патенти.",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                        "caption": "Nubart"
+                    },
+                    "image": "https://www.nubart.eu/assets/img/features-no-apps.webp",
+                    "description": "Nubart е водещ доставчик на цифрови аудиогидове (PWA) с уникална технология, представен в България от „Наше наследство“. Фирмата има офиси в Берлин и Барселона и клиенти в над 27 държави.",
                     "brand": {
                         "@type": "Brand",
                         "name": "Nubart",
                         "url": "https://www.nubart.eu/bg/"
                     },
                     "email": "info@nubart.eu",
-                     "foundingDate": "2013-07-17",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "email": "info@nubart.eu",
-                "contactType": "Customer Support",
-                "areaServed": "Worldwide",
-                "availableLanguage": ["en", "de", "es", "fr", "it"]
-            },
-                    "foundingLocation": "Барселона",
-                    "vatID": "ESB66088592",
+                    "foundingDate": "2013-07-17",
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "contactType": "Customer Support",
+                        "email": "info@nubart.eu",
+                        "areaServed": "Worldwide",
+                        "availableLanguage": [
+                            "en", "de", "es", "fr", "it", "bg"
+                        ]
+                    },
+                    "location": [
+                        {
+                            "@type": "Place",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Берлин",
+                                "addressCountry": "DE"
+                            }
+                        },
+                        {
+                            "@type": "Place",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Барселона",
+                                "addressCountry": "ES"
+                            }
+                        }
+                    ],
+                    "industry": "Туризъм, музейна технология, аудиосистеми",
+                    "numberOfEmployees": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 10,
+                        "maxValue": 30
+                    },
                     "sameAs": [
                         "https://twitter.com/nubarten?lang=en",
                         "https://www.linkedin.com/company/nubart-eu/",
@@ -61,55 +70,119 @@
                         "https://www.crunchbase.com/organization/nubart",
                         "https://vimeo.com/nubart",
                         "https://www.youtube.com/@nubartinternational909"
+                    ],
+                    "hasOfferCatalog": {
+                        "@type": "OfferCatalog",
+                        "name": "Nubart Продукти",
+                        "itemListElement": [
+                            { "@type": "Offer", "itemOffered": { "@id": "https://www.nubart.eu/audio-guides/#service" } }
+                        ]
+                    },
+                    "hasPart": [
+                        {
+                            "@type": "WebPage",
+                            "inLanguage": "bg",
+                            "url": "https://www.nubart.eu/bg/"
+                        }
                     ]
                 },
                 {
-                    "@type": "ImageObject",
-                    "@id": "https://www.nubart.eu/#logo",
-                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                    "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                    "width": 600,
-                    "height": 393,
-                    "caption": "Nubart"
-                },
-                {
-                    "sameAs": [
-                        "https://www.nubart.eu/bg/"
+                    "@type": "Service",
+                    "@id": "https://www.nubart.eu/audio-guides/#service",
+                    "name": "Nubart GUIDE – дигитален аудиогид (PWA) чрез QR",
+                    "provider": { "@id": "https://www.nubart.eu/#organization" },
+                    "inLanguage": "bg",
+                    "description": "Nubart GUIDE е прогресивна уеб апликация (PWA) за музеи, туристически маршрути и исторически обекти. Използва патентована система от уникални, неоторизуеми QR кодове (обикновено върху карти), което позволява монетизация и препродажба. Поддържа мултимедийно съдържание като 3D обекти, изображения, карти с геолокация и формуляри за обратна връзка. Предлага анонимна, обобщена статистика за ползване и произход на посетителите. Не е необходима апликация или хардуер.",
+                    "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+                    "serviceType": "Дигитален аудиогид",
+                    "audience": {
+                        "@type": "Audience",
+                        "audienceType": [
+                            "Музеи",
+                            "Исторически обекти",
+                            "Организации за градски маркетинг",
+                            "Туристически атракции",
+                            "Открити културни обекти"
+                        ]
+                    },
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://www.nubart.eu/bg/"
+                    },
+                    "hasLanguage": [
+                        { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/" },
+                        { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/" },
+                        { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguides.html" },
+                        { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/audioguida.html" },
+                        { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/audioguias.html" },
+                        { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/" },
+                        { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiogidsen/" },
+                        { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/" },
+                        { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
+                        { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
                     ],
-                    "inLanguage": [
-                        "en",
-                        "de",
-                        "fr",
-                        "es",
-                        "it",
-                        "ja",
-                        "nl",
-                        "pl"
+                    "isRelatedTo": [
+                        { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
+                        { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                        { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+                        { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" }
+                    ],
+                    "additionalProperty": [
+                        {
+                            "@type": "PropertyValue",
+                            "name": "Технология",
+                            "value": "Progressive Web App (PWA)"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "Метод на активиране",
+                            "value": "Патентовани уникални QR кодове върху физически карти"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "Монетизация",
+                            "value": "Позволява препродажба и генериране на приходи за обекта"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "Аналитика",
+                            "value": "Анонимна, обобщена статистика за използване и произход"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "Офлайн достъп",
+                            "value": "Съдържанието е достъпно офлайн след началното зареждане"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "Без инсталация",
+                            "value": "Достъп през уеб браузър"
+                        }
                     ]
                 }
             ]
         }
     </script>
 
+
+
     <!-- End Structured data -->
     <!-- Structured Data: Breadcrumbs -->
     <script type="application/ld+json">
-        
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-                
                 {
                     "@type": "ListItem",
                     "position": 1,
-                    "item": "https://www.nubart.eu/bg/",
-                    "name": "Nubart - НАШЕ НАСЛЕДСТВО"
+                    "name": "Nubart - НАШЕ НАСЛЕДСТВО",
+                    "item": "https://www.nubart.eu/bg/"
                 }
             ]
         }
-    
     </script>
+
 
     <!-- Google Tag Manager -->
     <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

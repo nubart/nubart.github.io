@@ -4,76 +4,102 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    
-    
-    
-    <!-- structured data -->
+
+
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Nubart Live",
-            "description": "Nubart LIVE is een digitaal rondleidingssysteem op basis van QR-codes dat AI-gestuurde live vertaling biedt in meer dan 34 talen voor musea, tentoonstellingen, fabrieksrondleidingen en trainingen.",
-            "url": "https://www.nubart.eu/rondleidingsysteem.html",
-
-            "brand": {
-                "@type": "Brand",
-                "name": "Nubart"
-            },
-            "offers": {
-                "@type": "Offer",
-                "url": "https://www.nubart.eu/nl/digital-rondleidingsysteem/prijzen.html",
-                "priceCurrency": "EUR",
-                "price": "599",
-
-                "availability": "https://schema.org/InStock",
-                "itemCondition": "https://schema.org/NewCondition"
-            },
-            "features": [
-                {
-                    "@type": "ProductFeature",
-                    "name": "Ruisonderdrukking",
-                    "description": "Nubart Live zorgt voor duidelijke communicatie, zelfs in zeer lawaaierige omgevingen, ideaal voor fabrieksrondleidingen."
-                },
-                {
-                    "@type": "ProductFeature",
-                    "name": "Zonder hardware",
-                    "description": "Nubart Live draait op de smartphone en bespaart zo de hoge kosten en het onderhoud van conventionele apparaten."
-                },
-                {
-                    "@type": "ProductFeature",
-                    "naam":"Webgebaseerd",
-                    "description":"Nubart Live werkt in de browser en vereist geen app-download, waardoor het snel en gemakkelijk te gebruiken is."
-                },
-                {
-                    "@type": "ProductFeature",
-                    "naam":"Vragen en antwoorden in realtime",
-                    "description":"Deelnemers kunnen de gids direct vragen stellen via hun smartphone, wat de betrokkenheid tijdens de rondleiding bevordert."
-                }
-            ],
-            "video": {
-                    "@type": "VideoObject",
-                    "name":"Nubart Live - Digitaal rondleidingssysteem (video)",
-                    "description":"Video waarin Nubart Live wordt geïntroduceerd: een digitaal rondleidingssysteem waarvoor geen apps of apparaten nodig zijn.",
-                    "url": "https://vimeo.com/435834609",
-                    "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/nubart-live-en.png",
-                    "publisher": {
-                        "@type": "Organization",
-                        "name": "Nubart"
-                    },
-                    "uploadDate": "2020-07-06T00:00:00Z",
-                    "embedUrl": "https://player.vimeo.com/video/435834609",
-                    "inLanguage": "en"
-            },
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/digital-tour-guide-app/#service",
+            "name": "Nubart LIVE – Digitaal rondleidingssysteem",
+            "provider": { "@id": "https://www.nubart.eu/#organization" },
+            "inLanguage": "nl",
+            "description": "Nubart LIVE is een digitaal rondleidingssysteem op basis van QR-codes dat de stem van de gids rechtstreeks naar de smartphones van deelnemers stuurt, zonder extra hardware of apps. Optioneel met AI-gestuurde live vertaling in meer dan 34 talen, ruisonderdrukking, browsergebaseerde werking en interactieve vraag-en-antwoordfuncties.",
             "image": [
                 "https://www.nubart.eu/assets/img/live/nubart-live.webp",
                 "https://www.nubart.eu/assets/img/live/nubart-live.png",
                 "https://www.nubart.eu/assets/img/live/nubart-live-logo.webp",
                 "https://www.nubart.eu/assets/img/live/nubart-live-logo.png"
-            ]
+            ],
+            "serviceType": "Digitaal rondleidingssysteem",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "Musea",
+                    "Tentoonstellingen",
+                    "Fabrieksrondleidingen",
+                    "Opleidingsorganisaties"
+                ]
+            },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/nl/digital-rondleidingsysteem/" },
+
+            "hasLanguage": [
+                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/digital-tour-guide-app/" },
+                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/sistema-guiado-grupos/" },
+                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/personenfuehrungsanlage-app/" },
+                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/tour-guide-app/" },
+                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/systeme-audio-visite-guidee/" },
+                { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/digital-tour-guide-app/" },
+                { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/digital-rondleidingsysteem/" },
+                { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/tour-guide-system/" }
+            ],
+
+            "isRelatedTo": [
+                { "@id": "https://www.nubart.eu/audio-guides/#service" },
+                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+                { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" },
+                { "@id": "https://nubart-sync.com/#service" }
+            ],
+
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Ruisonderdrukking",
+                    "value": "Zorgt voor duidelijke communicatie, zelfs in zeer lawaaierige omgevingen."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Zonder hardware",
+                    "value": "Werkt op smartphones, bespaart kosten en onderhoud van conventionele apparaten."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Webgebaseerd",
+                    "value": "Werkt direct in de browser zonder app-download."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "AI-vertaling in realtime",
+                    "value": "Audio en/of tekst in meer dan 34 talen via kunstmatige intelligentie."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Vragen en antwoorden in realtime",
+                    "value": "Deelnemers kunnen rechtstreeks vragen stellen via hun smartphone."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Technologietype",
+                    "value": "Progressive Web App (PWA)"
+                }
+            ],
+
+            "video": {
+                "@type": "VideoObject",
+                "name": "Nubart LIVE – Digitaal rondleidingssysteem",
+                "description": "Introductievideo van Nubart LIVE: digitaal rondleidingssysteem zonder apps of hardware.",
+                "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/nubart-live-en.png",
+                "contentUrl": "https://vimeo.com/435834609",
+                "embedUrl": "https://player.vimeo.com/video/435834609",
+                "uploadDate": "2020-07-06",
+                "inLanguage": "nl",
+                "publisher": { "@id": "https://www.nubart.eu/#organization" }
+            }
         }
     </script>
-    <!-- End Structured data -->
+
     <!-- Structured Data: Breadcrumbs -->
     <script type="application/ld+json">
         {
