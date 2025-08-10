@@ -5,94 +5,92 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-    <!-- Structured data -->
+
     <!-- Structured data - general -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Audio-PWA per musei: Guida completa all'implementazione",
-            "url": "https://www.nubart.eu/it/blog/implementazione-pwa-web-app-audioguida-museo.html",
+            "@type": "Article",
+            "@id": "https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html#article",
+            "headline": "Audio-PWA per musei: Guida completa all'implementazione",
+            "alternativeHeadline": "Fattori importanti per i musei nell'implementazione di audioguide come Progressive Web Apps",
+            "description": "Guida completa per i musei sull'implementazione di audioguide PWA: opzioni CMS, modelli di business, monetizzazione e considerazioni importanti.",
             "inLanguage": "it",
-            "mainEntity": {
-                "@type": "Article",
-                "headline": "Di cosa deve tenere conto un museo quando implementa una PWA o una web app come audioguida?",
-                "alternativeHeadline": "Fattori importanti per i musei nell'implementazione di audioguide come Progressive Web Apps",
-                "description": "Guida completa per i musei sull'implementazione di audioguide PWA: opzioni CMS, modelli di business, monetizzazione e considerazioni importanti.",
-                "inLanguage": "it",
-                "image": [
-                    "https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp"
-                ],
-                "author": {
-                    "@type": "Organization",
-                    "name": "Nubart",
-                    "url": "https://www.nubart.eu",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
-                    },
-                    "sameAs": [
-                        "https://www.linkedin.com/company/nubart",
-                        "https://twitter.com/nubart_en"
-                    ]
+            "image": [
+                "https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp"
+            ],
+            "author": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
+            },
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "datePublished": "2024-05-23",
+            "dateModified": "2024-05-23",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/it/blog/implementazione-pwa-web-app-audioguida-museo.html"
+            },
+            "hasLanguage": [
+                { "@type": "Article", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html" },
+                { "@type": "Article", "inLanguage": "es", "url": "https://www.nubart.eu/es/blog/implementacion-pwa-audioguia-museo.html" },
+                { "@type": "Article", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/blog/installation-pwa-audioguide-musee.html" },
+                { "@type": "Article", "inLanguage": "it", "url": "https://www.nubart.eu/it/blog/implementazione-pwa-web-app-audioguida-museo.html" },
+                { "@type": "Article", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/als-pwa-oder-web-app-leitfaden.html" },
+                { "@type": "Article", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/via-qr-code-pwa-webapp.html" },
+                { "@type": "Article", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html" }
+            ],
+            "keywords": [
+                "Audioguide museo",
+                "Audioguide basate su codice QR",
+                "Progressive Web App",
+                "PWA per musei",
+                "soluzioni di guida digitale",
+                "audioguide basate sul web",
+                "guide mobili per musei",
+                "PWA vs sito web",
+                "CMS audioguida",
+                "monetizzazione museo",
+                "cookie di terze parti"
+            ],
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Progressive Web Application",
+                    "sameAs": "https://it.wikipedia.org/wiki/Progressive_web_app"
                 },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Nubart",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
-                    }
+                {
+                    "@type": "Thing",
+                    "name": "Audioguida",
+                    "sameAs": "https://it.wikipedia.org/wiki/Audioguida"
                 },
-                "datePublished": "2024-05-23T00:00:00+00:00",
-                "dateModified": "2024-05-23T00:00:00+00:00",
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://www.nubart.eu/it/blog/implementazione-pwa-web-app-audioguida-museo.html"
-                },
-                "keywords": [
-                    "Audioguide museo",
-                    "Audioguide basate su codice QR",
-                    "Progressive Web App",
-                    "PWA per musei",
-                    "soluzioni di guida digitale",
-                    "audioguide basate sul web",
-                    "guide mobili per musei",
-                    "PWA vs sito web",
-                    "CMS audioguida",
-                    "monetizzazione museo",
-                    "cookie di terze parti"
-                ],
-                "about": [
-                    {
-                        "@type": "Thing",
-                        "name": "Progressive Web Application",
-                        "sameAs": "https://it.wikipedia.org/wiki/Progressive_web_app"
-                    },
-                    {
-                        "@type": "Thing",
-                        "name": "Audioguida",
-                        "sameAs": "https://it.wikipedia.org/wiki/Audioguida"
-                    },
-                    {
-                        "@type": "Thing",
-                        "name": "Museo",
-                        "sameAs": "https://it.wikipedia.org/wiki/Museo"
-                    }
-                ],
-                "articleSection": [
-                    "Definizione di PWA",
-                    "PWA vs sito web",
-                    "Audioguide per siti web statici",
-                    "Vantaggi delle audioguide PWA",
-                    "Aspetti implementativi",
-                    "Considerazioni CMS",
-                    "Monetizzazione",
-                    "Modelli di business"
-                ]
-            }
+                {
+                    "@type": "Thing",
+                    "name": "Museo",
+                    "sameAs": "https://it.wikipedia.org/wiki/Museo"
+                }
+            ],
+            "articleSection": [
+                "Definizione di PWA",
+                "PWA vs sito web",
+                "Audioguide per siti web statici",
+                "Vantaggi delle audioguide PWA",
+                "Aspetti implementativi",
+                "Considerazioni CMS",
+                "Monetizzazione",
+                "Modelli di business"
+            ]
         }
     </script>
+
 
     <!-- Structured data - FAQ -->
     <script type="application/ld+json">
