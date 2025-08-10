@@ -9,102 +9,87 @@
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Nubart TRANSLATE",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service",
+            "name": "Nubart TRANSLATE – Interpretación simultánea con IA en tiempo real para eventos",
+            "provider": { "@id": "https://www.nubart.eu/#organization" },
             "inLanguage": "es",
-            "description": "Nubart TRANSLATE ofrece traducción simultánea por voz con IA en tiempo real para eventos. Los asistentes escanean un código QR para escuchar la interpretación en sus smartphones. La traducción se recibe en audio o en transcripción textual para accesibilidad.",
+            "description": "Nubart TRANSLATE ofrece interpretación simultánea por voz con inteligencia artificial para eventos multilingües. Los asistentes escanean un código QR para escuchar en su smartphone la traducción en tiempo real y consultar transcripciones de texto para accesibilidad. No requiere apps ni hardware, es compatible con más de 33 idiomas y es conforme al RGPD.",
             "image": [
                 "https://www.nubart.eu/assets/img/nubart-translate.webp",
                 "https://www.nubart.eu/assets/img/nubart-translate.png"
             ],
-            "brand": {
-                "@type": "Organization",
-                "name": "Nubart",
-                "url": "https://www.nubart.eu/",
-                "sameAs": [
-                    "https://www.linkedin.com/company/nubart-eu/",
-                    "https://twitter.com/nubartEN",
-                    "https://www.facebook.com/Nubart/",
-                    "https://www.instagram.com/nubart.eu/"
+            "serviceType": "Servicio de interpretación simultánea con IA para eventos",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "Organizadores de eventos",
+                    "Planificadores de conferencias",
+                    "Instituciones educativas",
+                    "Ferias y congresos",
+                    "Eventos corporativos"
                 ]
             },
-            "category": "Servicio de traducción simultánea por IA",
-            "applicationCategory": "Aplicación para empresas",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": "Organizadores de eventos, planificadores de conferencias, instituciones educativas"
-            },
-            "offers": {
-                "@type": "Offer",
-                "url": "https://www.nubart.eu/es/traduccion-simultanea-ia/",
-                "availability": "https://schema.org/InStock",
-                "priceCurrency": "EUR",
-                "description": "Precios personalizados según las necesidades del evento. Prueba gratuita de 30 minutos disponible."
-            },
-            "availableLanguage": [
-                "ar", "bg", "ca", "zh", "cs", "da", "nl", "en", "et", "fi", "fr", "de", "el", "he", "hu", "id", "it", "ja", "ko", "lv", "lt", "no", "pl", "pt", "ro", "ru", "sk", "sl", "es", "sv", "th", "tr", "uk", "vi"
+            "areaServed": "Worldwide",
+            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/es/traduccion-simultanea-ia/" },
+
+            "hasLanguage": [
+                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/ai-simultaneous-interpretation/" },
+                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/simultan-uebersetzung-ki/" },
+                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/traduction-simultanee-ia/" },
+                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/traduzione-simultanea-ia/" },
+                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/traduccion-simultanea-ia/" }
             ],
-            "keywords": "inteligencia artificial, traducción simultánea, interpretación en vivo, traducción en eventos, interpretación de conferencias, traducción por voz, accesibilidad en eventos, traducción con QR, evento multilingüe",
+
+            "isRelatedTo": [
+                { "@id": "https://www.nubart.eu/audio-guides/#service" },
+                { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
+                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" },
+                { "@id": "https://nubart-sync.com/#service" }
+            ],
+
+            "availableLanguage": [
+                "ar","bg","ca","zh","cs","da","nl","en","et","fi","fr","de","el","he",
+                "hu","id","it","ja","ko","lv","lt","no","pl","pt","ro","ru","sk","sl","es","sv","th","tr","uk","vi"
+            ],
+
             "additionalProperty": [
                 {
                     "@type": "PropertyValue",
                     "name": "Cumplimiento RGPD",
-                    "value": "Los datos se procesan en tiempo real y según RGPD. No se comparten ni se usan para IA externas. Puedes solicitar su eliminación."
+                    "value": "Procesamiento en tiempo real conforme al RGPD. Sin compartir con terceros ni usar para IA externas. Eliminación bajo solicitud."
                 },
                 {
                     "@type": "PropertyValue",
-                    "name": "Requiere aplicación",
-                    "value": "No necesita instalar ninguna app. Acceso vía navegador con código QR."
+                    "name": "Sin aplicación necesaria",
+                    "value": "Acceso mediante navegador y código QR, sin instalación."
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Procesamiento en tiempo real",
-                    "value": "Audios y traducciones procesados en tiempo real con pocos segundos de latencia."
+                    "value": "Audio y traducciones con apenas 1-2 segundos de retraso."
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Idiomas seleccionables",
-                    "value": "Los oyentes eligen entre 33 idiomas. Los primeros usuarios determinan los idiomas finales para el evento."
+                    "value": "Hasta 33 idiomas, definidos por los primeros usuarios al entrar al sistema."
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Usuarios ilimitados",
-                    "value": "Sin límite de oyentes simultáneos. Todo el público usa el mismo QR."
+                    "value": "Sin límite técnico en el número de oyentes; un mismo QR para todo el público."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Accesibilidad textual",
+                    "value": "Transcripción en directo para accesibilidad y escucha en silencio."
                 }
             ]
         }
     </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Nubart TRANSLATE",
-            "serviceType": "Traducción simultánea por IA para eventos",
-            "description": "Servicio de traducción en tiempo real impulsado por IA para eventos y conferencias multilingües.",
-            "provider": {"@type": "Organization","name": "Nubart","url": "https://www.nubart.eu/es/"},
-            "areaServed": "Mundial",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": "Organizadores de eventos, congresos, conferencias, instituciones educativas"
-            },
-            "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Planes Nubart TRANSLATE",
-                "itemListElement": [
-                    {
-                        "@type": "Offer",
-                        "itemOffered": {"@type": "Service","name": "Plan de pago por uso"},
-                        "description": "Ideal para eventos puntuales. Las primeras 2 horas tienen un precio más elevado; las horas adicionales son más baratas"
-                    },
-                    {
-                        "@type": "Offer",
-                        "itemOffered": {"@type": "Service","name": "Suscripción mensual"},
-                        "description": "Ideal para eventos recurrentes. Incluye hasta 150 horas por mes."
-                    }
-                ]
-            }
-        }
-    </script>
+
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
