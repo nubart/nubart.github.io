@@ -205,7 +205,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a class="nav-link scrollto" rel="nofollow" target="_blank"
                        href="https://www.nub.art/customer/login"> <i class="bi bi-person-circle"></i>&nbsp; Login </a>
                 </li>
-                <li><a class="getstarted scrollto" href="../contact.html">Offerte</a></li>
+
                 <li class="dropdown">
                     <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -227,13 +227,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </header><!-- End Header -->
 
 
-<header class="sticky-top" style="top: 77px; background: #6ec7ba">
-    <div class="container d-flex align-items-center justify-content-between">
-        <nav class="navbar">
-            <ul>
-                <li style="color: white;"><b>NUBART GUIDE:</b></li>
-                <li class="dropdown secondary-menu">
-                    <a href="#"><span>Toepassingen</span> <i class="bi bi-chevron-down"></i></a>
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba; z-index: 1020;">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <i class="bi bi-headphones"></i>&nbsp;&nbsp;
+                    <b>NUBART GUIDE:</b>
+                </div>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Toepassingen</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href=".">Musea</a></li>
                         
@@ -242,22 +248,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     
                     </ul>
                 </li>
-                <li><a href="multimedia.html">Multimedia Features</a></li>
-                <li><a href="inclusief.html">Toegankelijkheid</a></li>
-                <li><a href="benodigdheden.html">Wat we van u vragen</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
+                    <li style="margin-right: 22px;"><a href="multimedia.html">Multimedia</a></li>
+                    <li style="margin-right: 22px;"><a href="inclusief.html">Toegankelijkheid</a></li>
+
+                    <li style="margin-right: 22px;"><a href="faq.html">FAQ</a></li>
+                    <li style="margin-right: 22px;"><a class="getstarted scrollto" href="../contact.html">Offerte</a></li>
+                </ul>
+            </div>
         </nav>
     </div>
 </header>
 <!-- End Header -->
 <!-- ======= Breadcrumbs ======= -->
-<div class="d-md-none" style="height: 60px;"></div>
-<section class="breadcrumbs d-none d-md-block">
+<section class="sticky-top breadcrumbs d-none d-md-block" style="top: 110px; height: 60px; z-index: 1010; background: white; border-bottom: 1px solid #eee;">
     <div class="container">
-        
         <div class="d-flex justify-content-between align-items-center">
-            <h1>Multimedia-elementen voor Nubart Guide</h1>
+            <h2>Multimedia-elementen voor Nubart Guide</h2>
             <ol>
                 <li><a href="index.html">Home</a></li>
                 <li>Multimedia-elementen</li>
@@ -266,18 +272,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     </div>
 </section><!-- End Breadcrumbs -->
-<main><!-- End #main -->
+<main id="main">
     <section class="inner-page">
-        
-        
+
         <div class="container">
             <div class="row">
-                
-                <div class="col-md-2">
-                    
-                    <div class="fixed-sidebar d-none d-lg-block" style="width: 230px; margin-top: 150px;">
-                        
-                        
+
+                <div class="col-md-3">
+
+                    <div class="fixed-sidebar d-none d-lg-block" style="width: 250px; margin-top: 120px;">
+
+                        <nav class="d-none d-md-block">
+                            <div class="list-group list-group-flush">
+                                <h3>Inhoudsopgave</h3>
                         <p><a class="index-item2" href="#modules">Modulair systeem</a></p>
                         <p><a class="index-item2" href="#offline">Offline modus</a></p>
                         <p><a class="index-item2" href="#more-info">Inklapbare knop</a></p>
@@ -302,13 +309,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <p><a class="index-item2" href="#donation">Doneer knop</a></p>
                         <p><a class="index-item2" href="#embeddings">Abonnement op de nieuwsbrief</a></p>
                         
-                        <br> <br> <br>
+                        <br>
+                            </div>
+                        </nav>
                     </div>
                 </div>
-                <div class="col-md-9  offset-md-1">
-                    <div class="row">
+                <div class="col-md-8  offset-md-1">
+                    <div class="row align-items-center">
                         <div class="col-7">
-                            <br>
+
                             <h2 id="modules" class="fixed-sidebar-target">Modulair systeem</h2>
                             <p>In uw museum kunnen er meerdere tentoonstellingen tegelijk zijn, waardoor u meer dan één
                                audiogids nodig heeft.</p>
@@ -329,7 +338,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Nubart's modulair systeem">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             <br><br>
                             <h2 id="offline" class="fixed-sidebar-target">Offline modus</h2>
@@ -363,7 +372,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="De audiogidsen van Nubart kunnen ook werken zonder internet (offline modus).">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             <br><br>
                             <h2 id="more-info" class="fixed-sidebar-target">Inklapbare knop</h2>
@@ -393,7 +402,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="tags" class="fixed-sidebar-target">Audio tour met interesselijst</h2>
@@ -422,7 +431,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     
                     
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="images" class="fixed-sidebar-target">Afbeeldingen</h2>
@@ -447,7 +456,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="image-slider" class="fixed-sidebar-target">Beeldcarrousel</h2>
@@ -480,7 +489,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Fotocarrousel in een audiogids Nubart">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             
@@ -522,7 +531,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Nubart's image slider feature">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="ba-images" class="fixed-sidebar-target">
@@ -554,7 +563,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Functie van gesuperponeerde beelden (voor en na) in een audiogids van Nubart">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="interactive-panorama" class="fixed-sidebar-target">Interactieve 360° panoramische
@@ -588,7 +597,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Nubart's interactive panorama">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="3D" class="fixed-sidebar-target">Dynamische 3D-objecten</h2>
@@ -609,7 +618,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Nubart's 3D objects feature">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="360-images" class="fixed-sidebar-target">
@@ -635,7 +644,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="videos" class="fixed-sidebar-target">
@@ -664,7 +673,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="info" class="fixed-sidebar-target">Info knop</h2>
@@ -686,7 +695,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="deaf" class="fixed-sidebar-target">Transcriptie voor doven</h2>
@@ -722,7 +731,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="maps" class="fixed-sidebar-target">Kaarten</h2>
@@ -755,7 +764,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="geolocation" class="fixed-sidebar-target">Geo-scrolling</h2>
@@ -789,7 +798,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Geoscrolling in Nubart Audiogidsen">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="geotracking" class="fixed-sidebar-target">Geo-tracking</h2>
@@ -821,7 +830,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                       alt="Nubart's geotracking feature"> <br><br><br>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             
@@ -860,7 +869,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Nubart's audigidsen per afstandsbediening">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="file-upload" class="fixed-sidebar-target">Knop voor uploaden van bestanden</h2>
@@ -898,7 +907,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Knop voor uploaden van bestanden in Nubart-audiogidsen">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="voice-messages" class="fixed-sidebar-target">Recorder voor spraakberichten</h2>
@@ -931,7 +940,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Knop voor het uploaden van gesproken berichten naar Nubart-audiogidsen">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="donation" class="fixed-sidebar-target">Doneer knop</h2>
@@ -957,7 +966,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             
                             <h2 id="embeddings" class="fixed-sidebar-target">Abonnement op de nieuwsbrief </h2>

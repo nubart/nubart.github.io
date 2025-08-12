@@ -290,7 +290,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 </header><!-- End Header -->
 <!-- Second Navbar - Desktop Only -->
-<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba; z-index: 1020;">
     <div class="container d-flex align-items-center justify-content-between"
          style="padding-top: 5px; padding-bottom: 5px;">
         <nav id="secondary-navbar" class="navbar" style="width: 100%;">
@@ -325,32 +325,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 </header>
 
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="d-md-none" style="height: 60px;"></div>
-    <section class="breadcrumbs d-none d-md-block">
-        <div class="container">
 
-            <div class="d-flex justify-content-between align-items-center">
-                <h1>Elementos multimedia para la audioguía Nubart Guide</h1>
+<!-- ======= Breadcrumbs ======= -->
+<section class="sticky-top breadcrumbs d-none d-md-block" style="top: 110px; height: 60px; z-index: 1010; background: white; border-bottom: 1px solid #eee;">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center" style="height: 100%;">
+            <h2>Elementos multimedia para la audioguía Nubart Guide</h2>
                 <ol>
                     <li><a href="../es/">Inicio</a></li>
                     <li>Elementos multimedia</li>
                 </ol>
-            </div>
-
         </div>
-    </section><!-- End Breadcrumbs -->
+    </div>
+</section><!-- End Breadcrumbs -->
 <main id="main">
     <section class="inner-page">
 
         <div class="container">
             <div class="row">
 
-                <div class="col-md-2">
+                <div class="col-md-3">
 
-                    <div class="fixed-sidebar d-none d-lg-block" style="width: 230px; margin-top: 150px;">
+                    <div class="fixed-sidebar d-none d-lg-block" style="width: 250px; margin-top: 120px;">
 
-                        <p><a class="index-item2" href="#modules">Sistema modular</a></p>
+                        <nav class="d-none d-md-block">
+                            <div class="list-group list-group-flush">
+                                <h3>Índice</h3>
+                                <p><a class="index-item2" href="#modules">Sistema modular</a></p>
                         <p><a class="index-item2" href="#audio-player">Reproductor de sonido</a></p>
 
                         <p><a class="index-item2" href="#offline">Modo offline</a></p>
@@ -375,12 +376,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <p><a class="index-item2" href="#voice-messages">Grabadora para mensajes de voz</a></p>
                         <p><a class="index-item2" href="#donation">Botón de donaciones</a></p>
                         <p><a class="index-item2" href="#embeddings">Formularios de suscripción</a></p><br> <br> <br>
+                            </div>
+                        </nav>
                     </div>
                 </div>
-                <div class="col-md-9  offset-md-1">
-                    <div class="row">
+                <div class="col-md-8  offset-md-1">
+                    <div class="row align-items-center">
                         <div class="col-7">
-                            <br>
 
                             <h2 id="modules" class="fixed-sidebar-target">Sistema modular</h2>
 
@@ -399,7 +401,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../assets/img/tivfl/tivfl-modules.webp" class="img-fluid  lazyload" alt="El sistema modular de Nubart">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             <br>
                             <h2 id="audio-player" class="fixed-sidebar-target">Reproductor de audio con control de velocidad</h2>
@@ -414,7 +416,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../assets/img/tivfl/tivfl-audio-tracks.gif" class="img-fluid lazyload" alt="Nubart's special audio player with speed control">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             <br><br>
                             <h2 id="offline" class="fixed-sidebar-target">Modo offline</h2>
@@ -427,7 +429,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/815325930" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/815325930" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Vea el modo offline de Nubart en acción </a>
                             </div>
                         </div>
@@ -436,7 +438,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../assets/img/tivfl/tivfl-offline.gif" class="img-fluid  lazyload" alt="Las audioguías de Nubart también pueden funcionar sin Internet (modo sin conexión o modo offline).">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="more-info" class="fixed-sidebar-target">Botón desplegable "más información"</h2>
@@ -452,7 +454,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/526540926" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/526540926" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver botón "Más información" de Nubart en acción </a>
                             </div>
 
@@ -462,7 +464,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="tags" class="fixed-sidebar-target">Audioguías con lista de intereses</h2>
@@ -491,7 +493,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="images" class="fixed-sidebar-target">Imágenes</h2>
@@ -511,7 +513,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="image-slider" class="fixed-sidebar-target">Carrusel de imágenes</h2>
@@ -531,7 +533,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/557482941" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/557482941" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver el carrusel de imágenes de Nubart en acción</a>
                             </div>
                         </div>
@@ -541,7 +543,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="el carrusel de imágenes de Nubart ">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="audio-slider" class="fixed-sidebar-target">Audio-slider</h2>
@@ -561,7 +563,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/654894932" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/654894932" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver el audio-slider en acción</a>
                             </div>
                         </div>
@@ -572,7 +574,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="ba-images" class="fixed-sidebar-target">
@@ -587,7 +589,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="70">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/709119538" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/709119538" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver las imágenes superpuestas de Nubart en acción </a>
                             </div>
 
@@ -599,7 +601,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Función de imágenes superpuestas (antes y después) en una audioguía Nubart">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="interactive-panorama" class="fixed-sidebar-target">
@@ -615,7 +617,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/913051741" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/913051741" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver la visión panorámica interactiva en acción</a>
                             </div>
                         </div>
@@ -627,7 +629,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="360-images" class="fixed-sidebar-target">
@@ -648,7 +650,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="3D" class="fixed-sidebar-target">Objetos dinámicos en 3D</h2>
@@ -668,7 +670,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Objetos tridimensionales 3D en movimiento de Nubarts">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="videos" class="fixed-sidebar-target">
@@ -691,7 +693,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="info" class="fixed-sidebar-target">Botón de información</h2>
@@ -712,7 +714,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="deaf" class="fixed-sidebar-target">Transcripción para sordos</h2>
@@ -728,7 +730,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/559591694" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/559591694" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver las funciones de accesibilidad de Nubart en acción </a>
                             </div>
                         </div>
@@ -740,7 +742,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="maps" class="fixed-sidebar-target">Mapas</h2>
@@ -755,7 +757,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/1005537071" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/1005537071" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver los mapas interactivos de Nubart en acción </a>
                             </div>
 
@@ -768,7 +770,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="geolocation" class="fixed-sidebar-target">Geo-scrolling</h2>
@@ -781,7 +783,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/290233827" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/290233827" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver el geo-scrolling de Nubart en acción </a>
                             </div>
 
@@ -793,7 +795,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="el geo-scrolling de Nubart">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="geotracking" class="fixed-sidebar-target">Geo-tracking</h2>
@@ -807,7 +809,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/735519758" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/735519758" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver el geotracking de Nubart en acción</a>
                             </div>
 
@@ -818,7 +820,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                       alt="Nubart's geotracking feature"> <br><br><br>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="remote-control" class="fixed-sidebar-target">Audioguías por control remoto</h2>
@@ -834,7 +836,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/669106876" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/669106876" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver la audioguía por control remoto en acción</a>
                             </div>
 
@@ -847,7 +849,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="file-upload" class="fixed-sidebar-target">Botón para la subida de archivos</h2>
@@ -861,7 +863,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/607593476" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/607593476" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver el botón de subida de archivos de Nubart en acción</a>
                             </div>
 
@@ -874,7 +876,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="voice-messages" class="fixed-sidebar-target">Botón para dejar mensajes de voz</h2>
@@ -889,7 +891,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="d-grid gap-2 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                                 <br>
 
-                                <a role="button" href="https://vimeo.com/607593476" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                                <a role="button" href="https://vimeo.com/607593476" class="btn btn-md btn-outline-dark glightbox play-btn mb-4">
                                     <i class="bi bi-play-circle-fill"></i>&nbsp; Ver el botón de registro de Nubart en acción </a>
                             </div>
 
@@ -901,7 +903,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                  alt="Botón para subir mensajes de voz en las audioguías de Nubart">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="donation" class="fixed-sidebar-target">Botón de donaciones</h2>
@@ -919,7 +921,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="embeddings" class="fixed-sidebar-target">Formularios de suscripción </h2>

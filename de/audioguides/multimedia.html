@@ -294,16 +294,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 </header><!-- End Header -->
 <!-- Second Navbar - Desktop Only -->
-<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba; z-index: 1020;">
     <div class="container d-flex align-items-center justify-content-between"
          style="padding-top: 5px; padding-bottom: 5px;">
         <nav id="secondary-navbar" class="navbar" style="width: 100%;">
             <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
                 <div style="color: white;">
-                    <a href="../audioguides/" style="font-size: 20px;">
-                        <i class="bi bi-headphones" style="font-size: inherit;"></i>&nbsp;&nbsp;
-                        <b>NUBART GUIDE:</b>
-                    </a>
+                    <i class="bi bi-headphones"></i>&nbsp;&nbsp;
+                    <b>NUBART GUIDE:</b>
                 </div>
 
                 <ul id="secondary-menu-items" class="secondary-menu-list"
@@ -342,34 +340,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </nav>
     </div>
 </header>
-<main id="main">
+
     <!-- ======= Breadcrumbs ======= -->
 
-    <div class="d-md-none" style="height: 60px;"></div>
-    <section class="breadcrumbs d-none d-md-block">
+    <section class="sticky-top breadcrumbs d-none d-md-block" style="top: 110px; height: 60px; z-index: 1010;">
         <div class="container">
-
             <div class="d-flex justify-content-between align-items-center">
-                <h1>Multimedia-Elemente für den Nubart Guide</h1>
+                <h2>Multimedia-Elemente für den Nubart Guide</h2>
                 <ol>
                     <li><a href="../">Startseite</a></li>
 
                     <li><a href=".">Nubart GUIDE</a></li>
                     <li>Multimedia Elemente</li>
                 </ol>
-
             </div>
-
         </div>
-    </section>
+    </section><!-- End Breadcrumbs -->
 
     <!-- End Breadcrumbs -->
-    <section class="inner-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="fixed-sidebar d-none d-lg-block" style="width: 230px; margin-top: 150px;">
-                        <p><a class="index-item2" href="#modules">Modulares System</a></p>
+    <main id="main">
+        <section class="inner-page">
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <div class="fixed-sidebar d-none d-lg-block" style="width: 250px; margin-top: 120px;">
+
+                            <nav class="d-none d-md-block">
+                                <div class="list-group list-group-flush">
+                                    <h3>Inhalt</h3>
+                                    <p><a class="index-item2" href="#modules">Modulares System</a></p>
                         <p><a class="index-item2" href="#audio-player">Player mit Geschwindigkeitsregelung</a></p>
                         <p><a class="index-item2" href="#offline">Offline-Modus</a></p>
                         <p><a class="index-item2" href="#more-info">Aufklappbare Schaltfläche</a></p>
@@ -392,13 +394,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <p><a class="index-item2" href="#voice-messages">Rekorder für Sprachnachrichten</a></p>
                         <p><a class="index-item2" href="#donation">Spenden-Button</a></p>
                         <p><a class="index-item2" href="#embeddings">Newsletter-Anmeldung</a></p><br> <br> <br>
+                                </div>
+                            </nav>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-9 offset-md-1">
-                    <div class="row">
-                        <div class="col-7">
-                            <br>
-                            <h2 id="modules" class="fixed-sidebar-target">Modulares System</h2>
+                    <div class="col-md-8  offset-md-1">
+                        <div class="row align-items-center">
+                            <div class="col-7">
+
+                                <h2 id="modules" class="fixed-sidebar-target">Modulares System</h2>
                             <p>Ihr Museum hat vielleicht mehrere Ausstellungen gleichzeitig und braucht daher mehr als einen Audioguide.</p>
                             <p>Um dies zu ermöglichen, bieten wir ein modulares System an, das eine beliebige Verzweigung ermöglicht: Ein Audioguide kann beliebig andere enthalten. Sie können sogar unterschiedliche Arten von Modulen integrieren, wie z.B.
                                 <a href="../personenfuehrungsanlage-app/">unser Besucherführungssystem Nubart Live.</a></p>
@@ -409,7 +413,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-modules.webp" alt="Nubarts modulares System" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             <br>
                             <h2 id="audio-player" class="fixed-sidebar-target">Audioplayer mit Geschwindigkeitskontrolle</h2>
@@ -421,7 +425,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-audio-tracks.gif" alt="Nubarts modulares System" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
                             <br><br>
                             <h2 id="offline" class="fixed-sidebar-target">Offline-Modus</h2>
@@ -441,7 +445,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-offline.gif" alt="Nubarts Audioguides können auch ohne internet funktionieren (offline-Modus)" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="more-info" class="fixed-sidebar-target">Aufklappbare Schaltfläche</h2><br>
@@ -459,7 +463,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-more-info.gif" alt="Nubart's Collapsible more-information-button" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="tags" class="fixed-sidebar-target">Audioführung mit Interessenliste</h2> <br>
@@ -473,7 +477,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-tags.gif" alt="Das Nubart-Tagging-System" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="images" class="fixed-sidebar-target">Bilder</h2>  <br>
@@ -485,7 +489,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-images.webp" alt="Die Bilder eines Nubart Audioguides" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="image-slider" class="fixed-sidebar-target">Bilderkarussell</h2>  <br>
@@ -503,7 +507,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-slider.gif" alt="Bildkarussell in einem Audioguide Nubart" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="audio-slider" class="fixed-sidebar-target">Audioslider</h2> <br>
@@ -522,7 +526,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-audio-slider.gif" alt="Nubart's image slider feature" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="ba-images" class="fixed-sidebar-target">Überlagerte Bilder (vorher und nacher)</h2><br>
@@ -540,7 +544,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-before-after.gif" alt="Funktion von überlagerten Bildern (vorher und nachher) in einem Audioguide von Nubart" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="interactive-panorama" class="fixed-sidebar-target">Interaktive 360°-Panorama-Ansicht</h2> <br>
@@ -559,7 +563,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-panoramic-interactive.gif" alt="Nubart's interactive panorama" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="360-images" class="fixed-sidebar-target">360 Grad-Ansichten</h2> <br>
@@ -571,7 +575,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-panoramic.gif" alt="Panoramabilder in einem Nubart Audioguide" class="img-fluid d-none d-lg-block lazyload">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="3D" class="fixed-sidebar-target">Dynamische 3D-Objekte</h2><br>
@@ -583,7 +587,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-3d.gif" class="img-fluid d-none d-lg-block lazyload" alt="Nubart's 3D objects feature">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="videos" class="fixed-sidebar-target">Videos</h2><br>
@@ -596,7 +600,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-videos.webp" class="img-fluid d-none d-lg-block lazyload" alt="Videos in einem Audioguide von Nubart">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="info" class="fixed-sidebar-target">Info-Button</h2><br>
@@ -608,7 +612,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-info-button.gif" class="img-fluid d-none d-lg-block lazyload" alt="Info-Button auf einem Nubart Audioguide">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="deaf" class="fixed-sidebar-target">Transkription für Gehörlose</h2><br>
@@ -627,7 +631,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-deaf.gif" class="img-fluid d-none d-lg-block lazyload" alt="Nubarts Transkriptionstaste für Hörgeschädigte">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="maps" class="fixed-sidebar-target">Karten</h2><br>
@@ -646,7 +650,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-maps.gif" class="img-fluid d-none d-lg-block lazyload" alt="Interaktive Karten in den Audioguides von Nubart">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="geolocation" class="fixed-sidebar-target">Geo-scrolling</h2><br>
@@ -664,7 +668,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-geo.gif" class="img-fluid d-none d-lg-block lazyload" alt="Geo-scrolling in Nubart Audioguides">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="geotracking" class="fixed-sidebar-target">Geo-tracking</h2><br>
@@ -684,7 +688,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <br><br><br>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="remote-control" class="fixed-sidebar-target">Audioguides mit Fernbedienung</h2><br>
@@ -703,7 +707,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-remote-control.gif" class="img-fluid d-none d-lg-block lazyload" alt="Nubart's audiguides per remote control">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="file-upload" class="fixed-sidebar-target">Button zum Hochladen von Dateien</h2><br>
@@ -723,7 +727,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-upload-button.gif" class="img-fluid d-none d-lg-block lazyload" alt="Nubart's file upload feature">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="voice-messages" class="fixed-sidebar-target">Rekorder für Sprachnachrichten</h2><br>
@@ -743,7 +747,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-record-button.gif" class="img-fluid d-none d-lg-block lazyload" alt="Nubart's voice message recorder">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="donation" class="fixed-sidebar-target">Spenden-Button</h2><br>
@@ -755,7 +759,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <img data-src="../../assets/img/tivfl/tivfl-donation-button.webp" class="img-fluid d-none d-lg-block lazyload" alt="Nubart's donation button">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-7">
 
                             <h2 id="embeddings" class="fixed-sidebar-target">Newsletter-Anmeldung</h2><br>
