@@ -5,18 +5,17 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Structured data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Service",
             "@id": "https://www.nubart.eu/audio-guides/#service",
-            "name": "Nubart GUIDE - QR-based PWA Audio Guides",
+            "name": "Nubart GUIDE – QR Audio Guides (Card, Digital, Generic)",
             "provider": {
                 "@id": "https://www.nubart.eu/#organization"
             },
             "inLanguage": "en",
-            "description": "Nubart GUIDE is a Progressive Web App (PWA) audioguide system for museums, tourist sites, city tours, monuments, and outdoor attractions. It works with a patented system of unique, non-transferable codes, usually printed on cards, enabling monetization and resale. Supports multimedia content such as 3D objects, image overlays, geolocated interactive maps, and feedback forms. Includes visitor analytics with aggregated and anonymous usage data. No app downloads or hardware required.",
+            "description": "Nubart GUIDE is a multilingual digital audioguide and multimedia tour system for museums, heritage sites, and attractions. Delivered via patented non-transferable QR codes (printed cards or digital unique codes via API) or generic open QR codes, Nubart enables flexible, monetizable, self-guided tours—no app or hardware required. Features include interactive maps, geolocation, integrated visitor feedback, sustainability (no e-waste), usage analytics, and offline access.",
             "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
             "serviceType": "Digital Audio Guide System",
             "audience": {
@@ -26,7 +25,9 @@
                     "Monuments",
                     "City Marketing Organizations",
                     "Tourist Attractions",
-                    "Open Air Heritage Sites"
+                    "Open Air Heritage Sites",
+                    "Aquariums",
+                    "Castles"
                 ]
             },
             "mainEntityOfPage": {
@@ -34,105 +35,37 @@
                 "@id": "https://www.nubart.eu/audio-guides/"
             },
             "hasLanguage": [
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "en",
-                    "url": "https://www.nubart.eu/audio-guides/"
-                },
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "de",
-                    "url": "https://www.nubart.eu/de/audioguides/"
-                },
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "fr",
-                    "url": "https://www.nubart.eu/fr/audioguides.html"
-                },
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "it",
-                    "url": "https://www.nubart.eu/it/audioguida.html"
-                },
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "es",
-                    "url": "https://www.nubart.eu/es/audioguias.html"
-                },
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "pl",
-                    "url": "https://www.nubart.eu/pl/audioprzewodnik/"
-                },
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "nl",
-                    "url": "https://www.nubart.eu/nl/audiogidsen/"
-                },
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "ja",
-                    "url": "https://www.nubart.eu/ja/audio-guides/"
-                },
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "bg",
-                    "url": "https://www.nubart.eu/bg/"
-                },
-                {
-                    "@type": "WebPage",
-                    "inLanguage": "he",
-                    "url": "https://www.nubart.eu/he/"
-                }
+                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/" },
+                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/" },
+                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguides.html" },
+                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/audioguida.html" },
+                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/audioguias.html" },
+                { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/" },
+                { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiogidsen/" },
+                { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/" },
+                { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
+                { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
             ],
             "isRelatedTo": [
-                {
-                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#service"
-                },
-                {
-                    "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice"
-                },
-                {
-                    "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service"
-                },
-                {
-                    "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service"
-                }
+                { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
+                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
+                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
+                { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" }
             ],
             "additionalProperty": [
-                {
-                    "@type": "PropertyValue",
-                    "name": "Technology Type",
-                    "value": "Progressive Web App (PWA)"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Activation Method",
-                    "value": "Patented unique QR codes on physical cards"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Monetization",
-                    "value": "Allows resale and revenue generation for venues"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Analytics",
-                    "value": "Aggregated visitor origin, usage statistics, and engagement feedback"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Offline Capability",
-                    "value": "Content caching for offline use after initial load"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "No App Required",
-                    "value": "Accessed via web browser"
-                }
+                { "@type": "PropertyValue", "name": "Delivery Methods", "value": "Physical cards with non-transferable codes, unique digital QR codes via API, generic QR codes." },
+                { "@type": "PropertyValue", "name": "Access Method", "value": "No app or hardware required, instant browser access." },
+                { "@type": "PropertyValue", "name": "Monetization", "value": "Supports resale or revenue share for venues." },
+                { "@type": "PropertyValue", "name": "Integration", "value": "API for ticketing and web shop integration." },
+                { "@type": "PropertyValue", "name": "Analytics", "value": "Visitor origin, language, engagement, usage statistics, and real-time reporting (anonymized, GDPR compliant)." },
+                { "@type": "PropertyValue", "name": "Geolocation", "value": "Interactive maps, visitor location, geo-triggered content indoors/outdoors." },
+                { "@type": "PropertyValue", "name": "Visitor Feedback", "value": "Integrated feedback forms and custom surveys, email notifications." },
+                { "@type": "PropertyValue", "name": "Offline capability", "value": "Full offline mode after initial load." },
+                { "@type": "PropertyValue", "name": "Sustainability", "value": "No devices or e-waste; printed components are FSC certified, digital mode available." }
             ]
         }
     </script>
+
 
 
     <!-- End Structured data -->
@@ -238,7 +171,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Template Main CSS File -->
     <link href="../assets/css/style-min.css" rel="stylesheet">
     <link href="../assets/css/custom.css" rel="stylesheet">
-
+    <link rel="preload" href="../assets/img/bg/bg-guide.webp" as="image">
+    <link rel="preconnect" href="https://vimeo.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
 </head>
 
@@ -380,16 +315,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </header><!-- End Header -->
 <!-- ======= Hero Section ======= -->
 <section id="hero" style='background-image: url("../assets/img/bg/bg-guide.webp");'>
-    <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+    <div class="hero-container" role="banner" aria-label="Main hero section" data-aos="fade-up" data-aos-delay="150">
         <!-- Responsive logo: shown on all breakpoints, max width 320px on mobile -->
         <img
-                data-src="../assets/img/logos/logo-nubart-guide.svg"
+                data-src="../assets/img/logos/logo-nubart-guide-white.svg"
                 class="img-fluid mx-auto d-block lazyload mb-4"
                 style="max-width: 320px; width: 70vw; height: auto;"
                 alt="logo Nubart guide">
 
         <h1>Monetizable QR Audio Guides</h1>
-        <h2>Offer self-guided, multilingual museum tours. No app, no device, just a web-app with a QR code.</h2>
+        <h2>Offer self-guided, multilingual museum tours. No app, no devices: higher adoption, lower costs.</h2>
+
+
         <div class="d-flex">
             <a href="https://vimeo.com/339578238" class="glightbox btn-watch-video">
                 <i class="bi bi-play-circle"></i>
@@ -473,7 +410,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ======= About Section ======= -->
 <main id="main">
 
-    <section id="about" class="about">
+    <section id="about">
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-5 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
@@ -484,7 +421,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <div class="col-lg-7 pt-3 pt-lg-0 content">
                     <br>
-                    <h3 class="fs-2 text-uppercase">A flexible and innovative audio guide system</h3><br>
+                    <h3 class="fs-2 text-uppercase">A flexible digital audio guide system</h3><br>
 
                     <p class="lead">
                         Nubart GUIDE delivers engaging, self-guided museum tours—multilingual, multimedia, and
@@ -813,7 +750,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="icon-box mb-4">
                         <i class="bi bi-tree"></i>
                         <h4>Eco-friendly</h4>
-                        <p>Zero electronic waste, paper-based options are fully sustainable. Or go entirely digital for
+                        <p>Zero electronic waste, our high quality cardboard-based options are fully sustainable. Or go entirely digital for
                             a paperless experience.</p>
                     </div>
                 </div>
