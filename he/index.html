@@ -8,163 +8,207 @@
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Structured data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@graph": [
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/he/#service",
+            "name": "Nubart GUIDE – מדריכי אודיו דיגיטליים ב-QR (כרטיס, דיגיטלי, כללי)",
+            "provider": {
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "inLanguage": "he",
+            "description": "Nubart GUIDE הוא מערכת מולטילינגואלית להדרכות שמע דיגיטליות ולסיורים מולטימדיה עבור מוזיאונים, אתרים היסטוריים ואטרקציות תיירותיות. השירות מסופק באמצעות קודי QR ייחודיים בלתי-ניתנים להעברה (כרטיסים מודפסים או קודים דיגיטליים מותאמים דרך API) או קודי QR כלליים. מאפשר סיורים גמישים, ניתנים למוניטיזציה ולשימוש עצמי, ללא צורך באפליקציה או חומרה ייעודית. הודות לתמיכת PWA (אפליקציית ווב מתקדמת), ניתן להשתמש בשירות כמו אפליקציה גם במצב לא מקוון. הפונקציות כוללות: מפות אינטראקטיביות, מיקום מבקרים, משוב מובנה, קיימות (ללא פסולת אלקטרונית), ניתוחי שימוש וגישה מלאה לא מקוונת.",
+            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+            "serviceType": "מערכת מדריכי שמע דיגיטלית",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "מוזיאונים",
+                    "אתרים היסטוריים",
+                    "גופים לשיווק עירוני",
+                    "אטרקציות תיירותיות",
+                    "אתרי מורשת באוויר הפתוח",
+                    "אקווריומים",
+                    "טירות"
+                ]
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/he/"
+            },
+            "hasLanguage": [
                 {
-                    "@type": "Organization",
-                    "@id": "https://www.nubart.eu/#organization",
-                    "legalName": "Nubart GmbH",
-                    "name": "Nubart",
-                    "url": "https://www.nubart.eu/he/",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                        "caption": "Nubart"
-                    },
-                    "image": "https://www.nubart.eu/assets/img/features-no-apps.webp",
-                    "description": "חברת נובארט מתמחה במערכות אודיו-גייד דיגיטליות (PWA) עם טכנולוגיה ייחודית. החברה פועלת ב-27 מדינות ויש לה משרדים בברלין ובברצלונה.",
-                    "brand": {
-                        "@type": "Brand",
-                        "name": "Nubart",
-                        "url": "https://www.nubart.eu/he/"
-                    },
-                    "email": "info@nubart.eu",
-                    "foundingDate": "2013-07-17",
-                    "contactPoint": {
-                        "@type": "ContactPoint",
-                        "contactType": "Customer Support",
-                        "email": "info@nubart.eu",
-                        "areaServed": "Worldwide",
-                        "availableLanguage": ["en", "de", "es", "fr", "it", "he"]
-                    },
-                    "location": [
-                        {
-                            "@type": "Place",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressLocality": "ברלין",
-                                "addressCountry": "DE"
-                            }
-                        },
-                        {
-                            "@type": "Place",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressLocality": "ברצלונה",
-                                "addressCountry": "ES"
-                            }
-                        }
-                    ],
-                    "industry": "תיירות, טכנולוגיה למוזיאונים, מערכות שמע",
-                    "numberOfEmployees": {
-                        "@type": "QuantitativeValue",
-                        "minValue": 10,
-                        "maxValue": 30
-                    },
-                    "sameAs": [
-                        "https://twitter.com/nubarten?lang=en",
-                        "https://www.linkedin.com/company/nubart-eu/",
-                        "https://www.facebook.com/Nubart/",
-                        "https://www.crunchbase.com/organization/nubart",
-                        "https://vimeo.com/nubart",
-                        "https://www.youtube.com/@nubartinternational909"
-                    ],
-                    "hasOfferCatalog": {
-                        "@type": "OfferCatalog",
-                        "name": "מוצרים",
-                        "itemListElement": [
-                            { "@type": "Offer", "itemOffered": { "@id": "https://www.nubart.eu/audio-guides/#service" } }
-                        ]
-                    },
-                    "hasPart": [
-                        {
-                            "@type": "WebPage",
-                            "inLanguage": "he",
-                            "url": "https://www.nubart.eu/he/"
-                        }
-                    ]
+                    "@type": "WebPage",
+                    "inLanguage": "en",
+                    "url": "https://www.nubart.eu/audio-guides/"
                 },
                 {
-                    "@type": "Service",
-                    "@id": "https://www.nubart.eu/audio-guides/#service",
-                    "name": "Nubart GUIDE – מדריך אודיו דיגיטלי (PWA) באמצעות QR",
-                    "provider": { "@id": "https://www.nubart.eu/#organization" },
+                    "@type": "WebPage",
+                    "inLanguage": "de",
+                    "url": "https://www.nubart.eu/de/audioguides/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "fr",
+                    "url": "https://www.nubart.eu/fr/audioguides.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "it",
+                    "url": "https://www.nubart.eu/it/audioguida.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "es",
+                    "url": "https://www.nubart.eu/es/audioguias.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "pl",
+                    "url": "https://www.nubart.eu/pl/audioprzewodnik/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "nl",
+                    "url": "https://www.nubart.eu/nl/audiogidsen/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "ja",
+                    "url": "https://www.nubart.eu/ja/audio-guides/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "bg",
+                    "url": "https://www.nubart.eu/bg/"
+                },
+                {
+                    "@type": "WebPage",
                     "inLanguage": "he",
-                    "description": "Nubart GUIDE הוא מדריך אודיו דיגיטלי בפורמט Progressive Web App (PWA) המיועד למוזיאונים, אתרים היסטוריים, מסלולי תיירות ואתרי חוץ. המערכת עושה שימוש במערכת ייחודית ומוגנת בפטנט של קודי QR ייחודיים ולא ניתנים להעברה, לרוב מודפסים על כרטיס, המאפשרת מונטיזציה ומכירה חוזרת. המוצר תומך בתוכן מולטימדיה מתקדם, כולל אובייקטים בתלת-ממד, תמונות בשכבות, מפות אינטראקטיביות עם מיקום גיאוגרפי וטפסי משוב. מספק נתונים סטטיסטיים אנונימיים ומצטברים על שימוש ומקור מבקרים. אין צורך בהתקנת אפליקציה או חומרה ייעודית.",
-                    "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
-                    "serviceType": "מערכת מדריך אודיו דיגיטלית",
-                    "audience": {
-                        "@type": "Audience",
-                        "audienceType": [
-                            "מוזיאונים",
-                            "אתרים היסטוריים",
-                            "ארגוני שיווק עירוני",
-                            "אטרקציות תיירותיות",
-                            "אתרי מורשת פתוחים"
-                        ]
-                    },
-                    "mainEntityOfPage": {
-                        "@type": "WebPage",
-                        "@id": "https://www.nubart.eu/he/"
-                    },
-                    "hasLanguage": [
-                        { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/" },
-                        { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/" },
-                        { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguides.html" },
-                        { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/audioguida.html" },
-                        { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/audioguias.html" },
-                        { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/" },
-                        { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiogidsen/" },
-                        { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/" },
-                        { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
-                        { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
-                    ],
-                    "isRelatedTo": [
-                        { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
-                        { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
-                        { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
-                        { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" }
-                    ],
-                    "additionalProperty": [
-                        {
-                            "@type": "PropertyValue",
-                            "name": "סוג טכנולוגיה",
-                            "value": "Progressive Web App (PWA)"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "שיטת הפעלה",
-                            "value": "קודי QR ייחודיים מוגני פטנט על גבי כרטיס פיזי"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "מונטיזציה",
-                            "value": "מאפשר מכירה חוזרת והכנסות נוספות לאתר"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "אנליטיקה",
-                            "value": "סטטיסטיקות אנונימיות ומצטברות על שימוש ומקור מבקרים"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "תמיכה במצב לא מקוון",
-                            "value": "תוכן זמין ללא חיבור לאינטרנט לאחר טעינה ראשונית"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "ללא אפליקציה",
-                            "value": "גישה ישירה דרך דפדפן אינטרנט"
-                        }
-                    ]
+                    "url": "https://www.nubart.eu/he/"
+                }
+            ],
+            "isRelatedTo": [
+                {
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#service"
+                },
+                {
+                    "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice"
+                },
+                {
+                    "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service"
+                },
+                {
+                    "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service"
+                }
+            ],
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "שיטות אספקה",
+                    "value": "כרטיסים פיזיים עם קודי QR ייחודיים, קודי QR דיגיטליים בלתי-ניתנים להעברה דרך API, קודים כלליים."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "גישה",
+                    "value": "אין צורך באפליקציה או חומרה; גישה מיידית דרך דפדפן, עם חווית PWA (כמו אפליקציה)."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "מוניטיזציה",
+                    "value": "תומך במכירה חוזרת או מודלים של חלוקת רווחים למוסדות."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "אינטגרציה",
+                    "value": "API לאינטגרציה עם מערכת כרטוס ומכירות אונליין."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "אנליטיקה",
+                    "value": "מקור, שפה ומעורבות מבקרים, נתוני שימוש ודוחות בזמן אמת (אנונימיים, תואמי תקנות GDPR)."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "גיאולוקציה",
+                    "value": "מפות אינטראקטיביות, איתור מבקרים, תכנים תלויי מיקום (פנים/חוץ)."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "משוב מבקרים",
+                    "value": "טפסי פידבק וסקרים משולבים, התראות במייל."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "מצב לא מקוון",
+                    "value": "שימוש מלא גם ללא חיבור לאינטרנט – באמצעות PWA."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "קיימות",
+                    "value": "ללא צורך במכשירים או פסולת אלקטרונית; כרטיסים בהדפסת FSC, אפשרות למצב דיגיטלי מלא."
                 }
             ]
         }
     </script>
 
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "האם מבקרים צריכים להוריד אפליקציה כדי להשתמש במדריך האודיו של Nubart?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "לא. Nubart GUIDE פועל עם קוד QR ודפדפן הסמארטפון של המבקר בלבד. בזכות טכנולוגיית PWA אין צורך בהתקנה – השימוש מידי ופשוט."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "האם מדריכי האודיו של Nubart עובדים גם ללא חיבור לאינטרנט?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "כן. Nubart GUIDE ניתן להטעין מראש כ-PWA, כדי להבטיח עבודה חלקה גם במוזיאונים או אתרים עם קליטה ירודה."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "האם Nubart GUIDE עומד בדרישות ה-GDPR והגנת הפרטיות?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "כן. Nubart GUIDE תואם באופן מלא לתקנות GDPR. אינו אוסף נתונים אישיים וכל הדוחות אנונימיים – מתאים הן למוסדות והן למבקרים."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "איך מוזיאונים יכולים להפיק הכנסה בעזרת Nubart?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "מוסדות יכולים למכור כרטיסי QR של Nubart בנפרד או לכלול אותם בכרטיסי הכניסה. הטכנולוגיה הבלעדית מבטיחה קודים בלתי-ניתנים להעברה שניתנים לשימוש מחדש על ידי הרוכש החוקי, כך שהמוניטיזציה בטוחה ובת-קיימא."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "האם ניתן לשלב את Nubart עם מערכת הכרטוס של המוסד?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "כן. ניתן לחלק כרטיסי Nubart בכניסה או לשלבם באופן מלא בדיגיטל דרך API."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "אילו מודלים עסקיים קיימים לשירות Nubart GUIDE?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart GUIDE מציע מודלים גמישים: ניתן לאפשר גישה חינמית, בתשלום סמלי או במימון נותני חסות – הכל בהתאם לצורכי המוסד וליעדים שלו."
+                    }
+                }
+            ]
+        }
+    </script>
 
     <script type="application/ld+json">
         {

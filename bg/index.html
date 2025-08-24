@@ -5,165 +5,208 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- structured data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@graph": [
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/bg/#service",
+            "name": "Nubart GUIDE – QR аудиогидове (карта, дигитален, универсален)",
+            "provider": {
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "inLanguage": "bg",
+            "description": "Nubart GUIDE е многоезична цифрова система за аудиогид и мултимедийни обиколки, създадена за музеи, културни обекти и туристически атракции. Предлага се чрез патентовани, непрехвърляеми QR кодове (печатни карти или уникални дигитални кодове чрез API), както и с отворени универсални QR кодове. Позволява гъвкави, самообслужващи и монетизируеми обиколки – без нужда от приложение или хардуер. Благодарение на PWA (прогресивно уеб приложение), гидът работи офлайн като истинско приложение. Основните функции включват: интерактивни карти, геолокация, обратна връзка от посетители, устойчивост (без електронни отпадъци), статистика на използване и офлайн достъп.",
+            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+            "serviceType": "Цифрова система за аудиогидове",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "Музеи",
+                    "Паметници",
+                    "Организации за градски маркетинг",
+                    "Туристически атракции",
+                    "Открити културни обекти",
+                    "Аквариуми",
+                    "Замъци"
+                ]
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/bg/"
+            },
+            "hasLanguage": [
                 {
-                    "@type": "Organization",
-                    "@id": "https://www.nubart.eu/#organization",
-                    "legalName": "Nubart GmbH",
-                    "name": "Nubart",
-                    "url": "https://www.nubart.eu/bg/",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
-                        "caption": "Nubart"
-                    },
-                    "image": "https://www.nubart.eu/assets/img/features-no-apps.webp",
-                    "description": "Nubart е водещ доставчик на цифрови аудиогидове (PWA) с уникална технология, представен в България от „Наше наследство“. Фирмата има офиси в Берлин и Барселона и клиенти в над 27 държави.",
-                    "brand": {
-                        "@type": "Brand",
-                        "name": "Nubart",
-                        "url": "https://www.nubart.eu/bg/"
-                    },
-                    "email": "info@nubart.eu",
-                    "foundingDate": "2013-07-17",
-                    "contactPoint": {
-                        "@type": "ContactPoint",
-                        "contactType": "Customer Support",
-                        "email": "info@nubart.eu",
-                        "areaServed": "Worldwide",
-                        "availableLanguage": [
-                            "en", "de", "es", "fr", "it", "bg"
-                        ]
-                    },
-                    "location": [
-                        {
-                            "@type": "Place",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressLocality": "Берлин",
-                                "addressCountry": "DE"
-                            }
-                        },
-                        {
-                            "@type": "Place",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressLocality": "Барселона",
-                                "addressCountry": "ES"
-                            }
-                        }
-                    ],
-                    "industry": "Туризъм, музейна технология, аудиосистеми",
-                    "numberOfEmployees": {
-                        "@type": "QuantitativeValue",
-                        "minValue": 10,
-                        "maxValue": 30
-                    },
-                    "sameAs": [
-                        "https://twitter.com/nubarten?lang=en",
-                        "https://www.linkedin.com/company/nubart-eu/",
-                        "https://www.facebook.com/Nubart/",
-                        "https://www.crunchbase.com/organization/nubart",
-                        "https://vimeo.com/nubart",
-                        "https://www.youtube.com/@nubartinternational909"
-                    ],
-                    "hasOfferCatalog": {
-                        "@type": "OfferCatalog",
-                        "name": "Nubart Продукти",
-                        "itemListElement": [
-                            { "@type": "Offer", "itemOffered": { "@id": "https://www.nubart.eu/audio-guides/#service" } }
-                        ]
-                    },
-                    "hasPart": [
-                        {
-                            "@type": "WebPage",
-                            "inLanguage": "bg",
-                            "url": "https://www.nubart.eu/bg/"
-                        }
-                    ]
+                    "@type": "WebPage",
+                    "inLanguage": "en",
+                    "url": "https://www.nubart.eu/audio-guides/"
                 },
                 {
-                    "@type": "Service",
-                    "@id": "https://www.nubart.eu/audio-guides/#service",
-                    "name": "Nubart GUIDE – дигитален аудиогид (PWA) чрез QR",
-                    "provider": { "@id": "https://www.nubart.eu/#organization" },
+                    "@type": "WebPage",
+                    "inLanguage": "de",
+                    "url": "https://www.nubart.eu/de/audioguides/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "fr",
+                    "url": "https://www.nubart.eu/fr/audioguides.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "it",
+                    "url": "https://www.nubart.eu/it/audioguida.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "es",
+                    "url": "https://www.nubart.eu/es/audioguias.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "pl",
+                    "url": "https://www.nubart.eu/pl/audioprzewodnik/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "nl",
+                    "url": "https://www.nubart.eu/nl/audiogidsen/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "ja",
+                    "url": "https://www.nubart.eu/ja/audio-guides/"
+                },
+                {
+                    "@type": "WebPage",
                     "inLanguage": "bg",
-                    "description": "Nubart GUIDE е прогресивна уеб апликация (PWA) за музеи, туристически маршрути и исторически обекти. Използва патентована система от уникални, неоторизуеми QR кодове (обикновено върху карти), което позволява монетизация и препродажба. Поддържа мултимедийно съдържание като 3D обекти, изображения, карти с геолокация и формуляри за обратна връзка. Предлага анонимна, обобщена статистика за ползване и произход на посетителите. Не е необходима апликация или хардуер.",
-                    "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
-                    "serviceType": "Дигитален аудиогид",
-                    "audience": {
-                        "@type": "Audience",
-                        "audienceType": [
-                            "Музеи",
-                            "Исторически обекти",
-                            "Организации за градски маркетинг",
-                            "Туристически атракции",
-                            "Открити културни обекти"
-                        ]
-                    },
-                    "mainEntityOfPage": {
-                        "@type": "WebPage",
-                        "@id": "https://www.nubart.eu/bg/"
-                    },
-                    "hasLanguage": [
-                        { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/" },
-                        { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/" },
-                        { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguides.html" },
-                        { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/audioguida.html" },
-                        { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/audioguias.html" },
-                        { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/" },
-                        { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiogidsen/" },
-                        { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/" },
-                        { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
-                        { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
-                    ],
-                    "isRelatedTo": [
-                        { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
-                        { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
-                        { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
-                        { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" }
-                    ],
-                    "additionalProperty": [
-                        {
-                            "@type": "PropertyValue",
-                            "name": "Технология",
-                            "value": "Progressive Web App (PWA)"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "Метод на активиране",
-                            "value": "Патентовани уникални QR кодове върху физически карти"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "Монетизация",
-                            "value": "Позволява препродажба и генериране на приходи за обекта"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "Аналитика",
-                            "value": "Анонимна, обобщена статистика за използване и произход"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "Офлайн достъп",
-                            "value": "Съдържанието е достъпно офлайн след началното зареждане"
-                        },
-                        {
-                            "@type": "PropertyValue",
-                            "name": "Без инсталация",
-                            "value": "Достъп през уеб браузър"
-                        }
-                    ]
+                    "url": "https://www.nubart.eu/bg/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "he",
+                    "url": "https://www.nubart.eu/he/"
+                }
+            ],
+            "isRelatedTo": [
+                {
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#service"
+                },
+                {
+                    "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice"
+                },
+                {
+                    "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service"
+                },
+                {
+                    "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service"
+                }
+            ],
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Методи на доставка",
+                    "value": "Физически карти с непрехвърляеми кодове, уникални дигитални QR кодове чрез API, универсални QR кодове."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Метод на достъп",
+                    "value": "Без приложение или хардуер; директен браузър достъп, PWA технология за работа като приложение."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Монетизация",
+                    "value": "Поддръжка на препродажба или разпределение на приходи за институции."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Интеграция",
+                    "value": "API за интеграция с билетни и онлайн магазини."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Анализ",
+                    "value": "Произход, език, ангажираност и статистика на посетителите, реални отчети (анонимизирани, съответствие с GDPR)."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Геолокация",
+                    "value": "Интерактивни карти, местоположение на посетителя, съдържание според локация (вътре/вън)."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Обратна връзка от посетители",
+                    "value": "Интегрирани формуляри и анкети, имейл известия."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Офлайн функционалност",
+                    "value": "Пълен офлайн режим след първоначално зареждане – благодарение на PWA."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Устойчивост",
+                    "value": "Без устройства или електронни отпадъци; печатани материали с FSC сертификат, възможен и изцяло дигитален режим."
                 }
             ]
         }
     </script>
 
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Необходимо ли е посетителите да изтеглят приложение, за да използват Nubart?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Не. Nubart GUIDE работи чрез QR код и браузъра на смарт-устройството на посетителя. Благодарение на PWA не е нужно да се инсталира приложение – използването е мигновено и удобно."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Работят ли аудиогидовете на Nubart офлайн без интернет?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Да. Nubart GUIDE може да се зареди предварително като PWA и да се използва офлайн, дори в музеи или извън места с лош обхват."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Съвместим ли е Nubart GUIDE с GDPR и изискванията за лични данни?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Да. Nubart GUIDE е напълно съвместим с GDPR. Не събира лични данни, а всички отчети са анонимизирани – сигурно за институции и посетители."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Как музеите могат да печелят приходи от Nubart?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Музеите могат да продават QR карти отделно или да ги включват в билета. Благодарение на патентованата система, QR кодовете са непрехвърляеми, но достъпни за собственика – гарантирана устойчива монетизация."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Възможна ли е интеграция на Nubart със системата за билети на институцията?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Да. Nubart GUIDE може да се разпространява чрез физически карти или да се интегрира напълно дигитално чрез API в билетната система."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Какви бизнес модели предлага Nubart GUIDE?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart GUIDE предлага гъвкави модели – може да се предоставя безплатно, срещу малка такса или със спонсорство, според целите на институцията."
+                    }
+                }
+            ]
+        }
+    </script>
 
 
     <!-- End Structured data -->

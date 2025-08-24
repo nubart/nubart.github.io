@@ -4,20 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    
 
-    <!-- Structured data -->
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://www.nubart.eu/audio-guides/#service",
-            "name": "Nubart GUIDE – digitale PWA-audiogids via QR-code",
+            "@id": "https://www.nubart.eu/nl/audiogidsen/#service",
+            "name": "Nubart GUIDE – QR-audiogidsen (kaart, digitaal, generiek)",
             "provider": {
                 "@id": "https://www.nubart.eu/#organization"
             },
             "inLanguage": "nl",
-            "description": "Nubart GUIDE is een digitaal audiogidssysteem in Progressive Web App-formaat (PWA) voor musea, monumenten, toeristische routes en buitenlocaties. Het werkt met een gepatenteerd systeem van unieke, niet-overdraagbare QR-codes, meestal gedrukt op een kaart, waardoor herverkoop en inkomsten voor de locatie mogelijk zijn. Ondersteunt geavanceerde multimedia zoals 3D-objecten, overlay-afbeeldingen, interactieve kaarten met geolocatie en feedbackformulieren. Biedt geanonimiseerde, samengevoegde statistieken over gebruik en bezoekersherkomst. Geen app-installatie of speciale apparatuur nodig.",
+            "description": "Nubart GUIDE is een meertalige digitale audiogids- en multimediatour-oplossing voor musea, erfgoedlocaties en toeristische attracties. Levering vindt plaats via gepatenteerde, niet-overdraagbare QR-codes (geprinte kaarten of unieke digitale codes via API) of via generieke QR-codes voor open toegang. Nubart maakt flexibele, zelfgeleide en te monetariseren tours mogelijk, zonder app of hardware. Dankzij PWA-technologie (Progressive Web App) kan de gids volledig offline en als app-ervaring gebruikt worden. Functies zijn onder meer interactieve kaarten, geolocatie, geïntegreerde bezoekersfeedback, duurzaamheid (geen e-waste), gebruiksstatistieken en offline toegang.",
             "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
             "serviceType": "Digitaal audiogidssysteem",
             "audience": {
@@ -27,7 +26,9 @@
                     "Monumenten",
                     "Citymarketingorganisaties",
                     "Toeristische attracties",
-                    "Buitenlocaties met cultureel erfgoed"
+                    "Openlucht erfgoedlocaties",
+                    "Aquaria",
+                    "Kastelen"
                 ]
             },
             "mainEntityOfPage": {
@@ -35,58 +36,177 @@
                 "@id": "https://www.nubart.eu/nl/audiogidsen/"
             },
             "hasLanguage": [
-                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/" },
-                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/" },
-                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguides.html" },
-                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/audioguida.html" },
-                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/audioguias.html" },
-                { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/" },
-                { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiogidsen/" },
-                { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/" },
-                { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
-                { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "en",
+                    "url": "https://www.nubart.eu/audio-guides/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "de",
+                    "url": "https://www.nubart.eu/de/audioguides/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "fr",
+                    "url": "https://www.nubart.eu/fr/audioguides.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "it",
+                    "url": "https://www.nubart.eu/it/audioguida.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "es",
+                    "url": "https://www.nubart.eu/es/audioguias.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "pl",
+                    "url": "https://www.nubart.eu/pl/audioprzewodnik/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "nl",
+                    "url": "https://www.nubart.eu/nl/audiogidsen/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "ja",
+                    "url": "https://www.nubart.eu/ja/audio-guides/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "bg",
+                    "url": "https://www.nubart.eu/bg/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "he",
+                    "url": "https://www.nubart.eu/he/"
+                }
             ],
             "isRelatedTo": [
-                { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
-                { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
-                { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
-                { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" }
+                {
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#service"
+                },
+                {
+                    "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice"
+                },
+                {
+                    "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service"
+                },
+                {
+                    "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service"
+                }
             ],
             "additionalProperty": [
                 {
                     "@type": "PropertyValue",
-                    "name": "Technologietype",
-                    "value": "Progressive Web App (PWA)"
+                    "name": "Leveringsmethode",
+                    "value": "Fysieke kaarten met niet-overdraagbare codes, unieke digitale QR-codes via API, generieke QR-codes."
                 },
                 {
                     "@type": "PropertyValue",
-                    "name": "Activatiemethode",
-                    "value": "Gepatenteerde unieke QR-codes op fysieke kaart"
+                    "name": "Toegangsmodaliteit",
+                    "value": "Geen app of hardware nodig; directe toegang via browser, PWA-technologie voor app-ervaring."
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Monetisatie",
-                    "value": "Maakt herverkoop en extra inkomsten voor locatie mogelijk"
+                    "value": "Ondersteunt wederverkoop of revenue share voor locaties."
                 },
                 {
                     "@type": "PropertyValue",
-                    "name": "Analytics",
-                    "value": "Geaggregeerde en anonieme statistieken over gebruik en bezoekersherkomst"
+                    "name": "Integratie",
+                    "value": "API voor integratie met ticket- en webshopoplossingen."
                 },
                 {
                     "@type": "PropertyValue",
-                    "name": "Offline-functionaliteit",
-                    "value": "Toegang zonder internet na vooraf laden"
+                    "name": "Analyse",
+                    "value": "Herkomst, taal, betrokkenheid van bezoekers, gebruiksstatistieken en realtime rapportage (geanonimiseerd, AVG-conform)."
                 },
                 {
                     "@type": "PropertyValue",
-                    "name": "Geen app vereist",
-                    "value": "Toegang via webbrowser"
+                    "name": "Geolocatie",
+                    "value": "Interactieve kaarten, bezoekerslocatie, locatiegestuurde content (binnen/buiten)."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Bezoekersfeedback",
+                    "value": "Ingebouwde feedbackformulieren en enquêtes, meldingen per e-mail."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Offline-functie",
+                    "value": "Volledige offline-ervaring na eerste toegang, mede dankzij PWA."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Duurzaamheid",
+                    "value": "Geen apparatuur of e-waste; FSC-gecertificeerd drukwerk, ook volledig digitaal beschikbaar."
                 }
             ]
         }
     </script>
 
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Moeten bezoekers een app downloaden om Nubart-audiogidsen te gebruiken?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nee. Nubart GUIDE werkt via QR-code en de browser van de eigen smartphone. Dankzij PWA-technologie is downloaden van een app niet nodig en is de drempel uiterst laag."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Werken Nubart-audiogidsen ook offline, zonder internetverbinding?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja. Nubart GUIDE kan vooraf worden geladen als PWA, zodat de gids ook offline beschikbaar is, zelfs in musea of buitenlocaties met slechte dekking."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Voldoet Nubart GUIDE aan de AVG en privacywetgeving?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja. Nubart GUIDE is volledig AVG-conform. Er worden geen persoonsgegevens verzameld en alle rapportages zijn geanonimiseerd, veilig voor bezoekers en instellingen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Hoe kunnen musea inkomsten genereren met Nubart-audiogidsen?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Musea kunnen Nubart QR-audiogidskaarten los verkopen of combineren met entreebewijzen. Dankzij het gepatenteerde systeem zijn QR-codes niet overdraagbaar maar wel herbruikbaar voor de rechtmatige eigenaar, waardoor veilig en duurzaam te monetariseren."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Kan Nubart worden geïntegreerd in het ticketsysteem van het museum?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja. Nubart GUIDE kan via fysieke kaarten worden uitgedeeld of volledig via de eigen API in het digitale ticketsysteem geïntegreerd worden."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Welke businessmodellen zijn er voor Nubart GUIDE?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart GUIDE biedt flexibele modellen: musea kunnen het gratis aanbieden, tegen een kleine vergoeding verkopen of via sponsoring financieren – geheel naar eigen (financiële) doelstellingen."
+                    }
+                }
+            ]
+        }
+    </script>
 
     <!-- End Structured data -->
     <!-- Structured Data: Breadcrumbs -->

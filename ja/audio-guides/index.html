@@ -5,87 +5,207 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-    <!-- Structured data -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "@id": "https://www.nubart.eu/audio-guides/#service",
-        "name": "Nubart GUIDE – QRコード対応PWAオーディオガイド",
-        "provider": {
-            "@id": "https://www.nubart.eu/#organization"
-        },
-        "inLanguage": "ja",
-        "description": "Nubart GUIDEは、美術館、モニュメント、観光ルート、屋外遺跡向けのProgressive Web App（PWA）型デジタルオーディオガイドシステムです。特許取得済みの一意かつ譲渡不可能なQRコード（通常カードに印刷）により、収益化と再販が可能です。3Dオブジェクト、重ね合わせ画像、位置情報付きインタラクティブマップ、フィードバックフォーム等の高度なマルチメディアコンテンツに対応し、利用状況や訪問者の出身地など匿名かつ集約された統計も取得できます。アプリのインストールや専用機器は不要です。",
-        "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
-        "serviceType": "デジタルオーディオガイドシステム",
-        "audience": {
-            "@type": "Audience",
-            "audienceType": [
-                "美術館",
-                "モニュメント",
-                "都市マーケティング団体",
-                "観光名所",
-                "屋外文化遺産"
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/ja/audio-guides/#service",
+            "name": "Nubart GUIDE – QRオーディオガイド（カード、デジタル、一般用）",
+            "provider": {
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "inLanguage": "ja",
+            "description": "Nubart GUIDEは、博物館、文化遺産施設、観光名所向けの多言語対応デジタルオーディオガイド・マルチメディアツアーシステムです。特許取得済みの譲渡不可QRコード（印刷カードまたはAPI連携のユニークデジタルコード）、または汎用QRコードで提供可能。柔軟かつ収益化可能なセルフガイド方式で、アプリや専用端末は不要です。PWA（プログレッシブWebアプリ）対応によりオフライン利用もスムーズ。主な機能：インタラクティブマップ、位置情報、来館者フィードバック、サステナビリティ（端末廃棄ゼロ）、利用分析、オフラインアクセスなど。",
+            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+            "serviceType": "デジタルオーディオガイドシステム",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": [
+                    "博物館",
+                    "史跡・文化遺産",
+                    "シティマーケティング組織",
+                    "観光名所",
+                    "屋外遺産施設",
+                    "水族館",
+                    "城・お城"
+                ]
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/ja/audio-guides/"
+            },
+            "hasLanguage": [
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "en",
+                    "url": "https://www.nubart.eu/audio-guides/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "de",
+                    "url": "https://www.nubart.eu/de/audioguides/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "fr",
+                    "url": "https://www.nubart.eu/fr/audioguides.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "it",
+                    "url": "https://www.nubart.eu/it/audioguida.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "es",
+                    "url": "https://www.nubart.eu/es/audioguias.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "pl",
+                    "url": "https://www.nubart.eu/pl/audioprzewodnik/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "nl",
+                    "url": "https://www.nubart.eu/nl/audiogidsen/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "ja",
+                    "url": "https://www.nubart.eu/ja/audio-guides/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "bg",
+                    "url": "https://www.nubart.eu/bg/"
+                },
+                {
+                    "@type": "WebPage",
+                    "inLanguage": "he",
+                    "url": "https://www.nubart.eu/he/"
+                }
+            ],
+            "isRelatedTo": [
+                {
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#service"
+                },
+                {
+                    "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice"
+                },
+                {
+                    "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service"
+                },
+                {
+                    "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service"
+                }
+            ],
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "提供方法",
+                    "value": "譲渡不可の物理カード、API経由のユニークデジタルQRコード、一般用QRコード。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "アクセス方法",
+                    "value": "アプリや専用端末は不要、即時ブラウザアクセス。PWA技術でアプリ的な操作性と利便性も確保。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "収益化",
+                    "value": "施設による再販売やレベニューシェアに対応。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "システム連携",
+                    "value": "チケッティングやEC連携のためのAPIあり。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "分析",
+                    "value": "来館者の出身地・言語・利用状況、利用統計、リアルタイムレポート（匿名化、GDPR準拠）。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "位置情報",
+                    "value": "インタラクティブマップ、訪問者の位置情報、屋内外の位置連動コンテンツ。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "来館者フィードバック",
+                    "value": "組み込み型アンケート・フィードバックフォーム、メール通知も可能。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "オフライン機能",
+                    "value": "初回アクセス後は完全オフラインで利用可能（PWA対応）。"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "サステナビリティ",
+                    "value": "端末不要・電子廃棄ゼロ。FSC認証カード、純デジタルモードも可。"
+                }
             ]
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://www.nubart.eu/ja/audio-guides/"
-        },
-        "hasLanguage": [
-            { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/audio-guides/" },
-            { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/audioguides/" },
-            { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/audioguides.html" },
-            { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/audioguida.html" },
-            { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/audioguias.html" },
-            { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/audioprzewodnik/" },
-            { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/audiogidsen/" },
-            { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/audio-guides/" },
-            { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
-            { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
-        ],
-        "isRelatedTo": [
-            { "@id": "https://www.nubart.eu/digital-tour-guide-app/#service" },
-            { "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice" },
-            { "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service" },
-            { "@id": "https://www.nubart.eu/audio-guides/ar-game-quiz.html/#service" }
-        ],
-        "additionalProperty": [
-            {
-                "@type": "PropertyValue",
-                "name": "技術タイプ",
-                "value": "Progressive Web App（PWA）"
-            },
-            {
-                "@type": "PropertyValue",
-                "name": "起動方法",
-                "value": "カードに印刷された特許取得済み一意QRコード"
-            },
-            {
-                "@type": "PropertyValue",
-                "name": "収益化",
-                "value": "現地での再販と収益化が可能"
-            },
-            {
-                "@type": "PropertyValue",
-                "name": "分析機能",
-                "value": "匿名かつ集約された利用統計および訪問者情報"
-            },
-            {
-                "@type": "PropertyValue",
-                "name": "オフライン対応",
-                "value": "初回読み込み後はオフラインでも利用可能"
-            },
-            {
-                "@type": "PropertyValue",
-                "name": "アプリ不要",
-                "value": "ウェブブラウザでアクセス"
-            }
-        ]
-    }
-</script>
+        }
+    </script>
 
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Nubartオーディオガイドを使うためにアプリをダウンロードする必要がありますか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "いいえ。Nubart GUIDEはQRコードおよび来館者自身のスマートフォン・ブラウザで動作します。PWA技術によりアプリ不要で、障壁なく利用できます。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Nubartオーディオガイドはインターネットがなくても使えますか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "はい。Nubart GUIDEはPWAとしてオフライン用に事前読み込みが可能で、電波の届かない美術館などでもガイド利用ができます。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Nubart GUIDEはGDPRやデータ保護規則に準拠していますか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "はい。Nubart GUIDEは完全にGDPR準拠。個人情報は収集せず、すべてのレポートは匿名化されているため、施設も来館者も安心です。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "文化施設はNubartオーディオガイドで収益を生み出せますか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "はい。QRカードを単独で販売したり、入場券と組み込むことが可能です。Nubartの特許技術によりプロパティごとに譲渡不可ですが、正規の所持者による再利用が可能で、収益性も維持できます。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Nubartオーディオガイドは施設のチケットシステムと統合できますか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "はい。物理カード配布はもちろん、API連携によりフルデジタル統合も可能です。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Nubart GUIDEにはどんなビジネスモデルがありますか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart GUIDEは柔軟な提供モデルに対応—無料提供、少額有料、スポンサー導入も可能。施設の目的に合わせて最適化できます。"
+                    }
+                }
+            ]
+        }
+    </script>
 
     <!-- End Structured data -->
     
