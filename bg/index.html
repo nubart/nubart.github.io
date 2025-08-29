@@ -1,152 +1,158 @@
 <!DOCTYPE html>
 <html lang="bg">
+
+
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- structured data -->
+
+
+    <!-- Enhanced Organization Schema -->
+
 
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://www.nubart.eu/bg/#service",
-            "name": "Nubart GUIDE – QR аудиогидове (карта, дигитален, универсален)",
-            "provider": {
-                "@id": "https://www.nubart.eu/#organization"
+            "@type": "Organization",
+            "@id": "https://www.nubart.eu/#organization",
+            "legalName": "Nubart GmbH",
+            "name": "Nubart",
+            "url": "https://www.nubart.eu/",
+            "logo": {
+                "@type": "ImageObject",
+                "@id": "https://www.nubart.eu/#logo",
+                "url": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "contentUrl": "https://www.nubart.eu/assets/img/logo-nubart.png",
+                "caption": "Nubart"
             },
-            "inLanguage": "bg",
-            "description": "Nubart GUIDE е многоезична цифрова система за аудиогид и мултимедийни обиколки, създадена за музеи, културни обекти и туристически атракции. Предлага се чрез патентовани, непрехвърляеми QR кодове (печатни карти или уникални дигитални кодове чрез API), както и с отворени универсални QR кодове. Позволява гъвкави, самообслужващи и монетизируеми обиколки – без нужда от приложение или хардуер. Благодарение на PWA (прогресивно уеб приложение), гидът работи офлайн като истинско приложение. Основните функции включват: интерактивни карти, геолокация, обратна връзка от посетители, устойчивост (без електронни отпадъци), статистика на използване и офлайн достъп.",
-            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
-            "serviceType": "Цифрова система за аудиогидове",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": [
-                    "Музеи",
-                    "Паметници",
-                    "Организации за градски маркетинг",
-                    "Туристически атракции",
-                    "Открити културни обекти",
-                    "Аквариуми",
-                    "Замъци"
+            "image": "https://www.nubart.eu/assets/img/features-no-apps.webp",
+            "description": "Nubart предлага цялостни и достъпни аудио решения, базирани на QR кодове, за музеи, туристически атракции и събития. Специализирани сме в Progressive Web Apps (PWA), GPS-задействани коментари и AI-базиран симултанен устен превод. Със своите иновативни решения, които не изискват хардуер и изтегляне на приложения, Nubart обслужва клиенти в над 27 държави. В България Nubart е представена от Наше наследство (Our Heritage).",
+            "brand": {
+                "@type": "Brand",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu/"
+            },
+            "email": "info@nubart.eu",
+            "foundingDate": "2013-07-17",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "info@nubart.eu",
+                "contactType": "Customer Support",
+                "areaServed": "Worldwide",
+                "availableLanguage": ["en","de","es","fr","it"]
+            },
+            "location": [
+                {
+                    "@type": "Place",
+                    "address": { "@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE" }
+                },
+                {
+                    "@type": "Place",
+                    "address": { "@type": "PostalAddress", "addressLocality": "Barcelona", "addressCountry": "ES" }
+                }
+            ],
+            "agent": {
+                "@type": "Organization",
+                "name": "Наше наследство ООД",
+                "description": "Официален дистрибутор и партньор на Nubart за България",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "BG"
+                }
+            },
+
+
+            "industry": "Tourism",
+            "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 30 },
+            "sameAs": [
+                "https://twitter.com/nubarten?lang=en",
+                "https://www.linkedin.com/company/nubart-eu/",
+                "https://www.facebook.com/Nubart/",
+                "https://www.crunchbase.com/organization/nubart",
+                "https://vimeo.com/nubart",
+                "https://www.youtube.com/@nubartinternational909"
+            ],
+            "hasPart": [
+                { "@type": "WebPage", "inLanguage": "en", "url": "https://www.nubart.eu/" },
+                { "@type": "WebPage", "inLanguage": "de", "url": "https://www.nubart.eu/de/" },
+                { "@type": "WebPage", "inLanguage": "fr", "url": "https://www.nubart.eu/fr/" },
+                { "@type": "WebPage", "inLanguage": "it", "url": "https://www.nubart.eu/it/" },
+                { "@type": "WebPage", "inLanguage": "es", "url": "https://www.nubart.eu/es/" },
+                { "@type": "WebPage", "inLanguage": "pl", "url": "https://www.nubart.eu/pl/" },
+                { "@type": "WebPage", "inLanguage": "nl", "url": "https://www.nubart.eu/nl/" },
+                { "@type": "WebPage", "inLanguage": "ja", "url": "https://www.nubart.eu/ja/" },
+                { "@type": "WebPage", "inLanguage": "bg", "url": "https://www.nubart.eu/bg/" },
+                { "@type": "WebPage", "inLanguage": "he", "url": "https://www.nubart.eu/he/" }
+            ],
+            "keywords": [
+                "аудиогидове",
+                "достъпни аудиогидове",
+                "многоезични туристически обиколки",
+                "туристически обиколки с QR код",
+                "музейна технология",
+                "AI симултанен превод",
+                "PWA аудио системи",
+                "WCAG аудиогидове"
+            ],
+            "additionalType": "http://www.productontology.org/doc/Audio_tour",
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "@id": "https://www.nubart.eu/#productcatalog",
+                "name": "Nubart Продуктов пакет",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/audio-guides/#service",
+                            "name": "Nubart GUIDE",
+                            "description": "Аудиогидове базирани на QR-кодове и достъпни съгласно WCAG за музеи, паметници на културата, природни забележителности, църкви и туристически обекти, с възможност за монетизация и професионално производство на съдържание.",
+                            "url": "https://www.nubart.eu/audio-guides/",
+                            "category": "Audio Guide System",
+                            "serviceType": "Museum Audio Guide",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": ["Музеи", "Паметници на културата", "Църкви", "Природни забележителности", "Крепости", "Туристически обекти"]
+                            }
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/#service",
+                            "name": "Nubart TRANSLATE",
+                            "description": "Симултанен устен превод чрез AI (изкуствен интелект) за многоезични събития и конференции. Участниците получават достъп до превода на живо, чрез QR код, на своите смартфони. Не са необходими приложения или преводачи.",
+                            "url": "https://www.nubart.eu/ai-simultaneous-interpretation/",
+                            "category": "Live Translation System",
+                            "serviceType": "Simultaneous Interpretation",
+                            "audience": {
+                                "@type": "Audience",
+                                "audienceType": [
+                                    "Организатори на събития",
+                                    "Организатори на конференции",
+                                    "Организатори на срещи",
+                                    "Многоезични събития",
+                                    "Образователни институции",
+                                    "Корпоративни събития",
+                                    "Международни конференции"
+                                ]
+                            }
+                        }
+                    }
                 ]
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.nubart.eu/bg/"
-            },
-
-
-            "additionalProperty": [
-                {
-                    "@type": "PropertyValue",
-                    "name": "Методи на доставка",
-                    "value": "Физически карти с непрехвърляеми кодове, уникални дигитални QR кодове чрез API, универсални QR кодове."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Метод на достъп",
-                    "value": "Без приложение или хардуер; директен браузър достъп, PWA технология за работа като приложение."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Монетизация",
-                    "value": "Поддръжка на препродажба или разпределение на приходи за институции."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Интеграция",
-                    "value": "API за интеграция с билетни и онлайн магазини."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Анализ",
-                    "value": "Произход, език, ангажираност и статистика на посетителите, реални отчети (анонимизирани, съответствие с GDPR)."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Геолокация",
-                    "value": "Интерактивни карти, местоположение на посетителя, съдържание според локация (вътре/вън)."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Обратна връзка от посетители",
-                    "value": "Интегрирани формуляри и анкети, имейл известия."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Офлайн функционалност",
-                    "value": "Пълен офлайн режим след първоначално зареждане – благодарение на PWA."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Устойчивост",
-                    "value": "Без устройства или електронни отпадъци; печатани материали с FSC сертификат, възможен и изцяло дигитален режим."
-                }
-            ]
+            }
         }
     </script>
 
 
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "Необходимо ли е посетителите да изтеглят приложение, за да използват Nubart?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Не. Nubart GUIDE работи чрез QR код и браузъра на смарт-устройството на посетителя. Благодарение на PWA не е нужно да се инсталира приложение – използването е мигновено и удобно."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Работят ли аудиогидовете на Nubart офлайн без интернет?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Да. Nubart GUIDE може да се зареди предварително като PWA и да се използва офлайн, дори в музеи или извън места с лош обхват."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Съвместим ли е Nubart GUIDE с GDPR и изискванията за лични данни?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Да. Nubart GUIDE е напълно съвместим с GDPR. Не събира лични данни, а всички отчети са анонимизирани – сигурно за институции и посетители."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Как музеите могат да печелят приходи от Nubart?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Музеите могат да продават QR карти отделно или да ги включват в билета. Благодарение на патентованата система, QR кодовете са непрехвърляеми, но достъпни за собственика – гарантирана устойчива монетизация."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Възможна ли е интеграция на Nubart със системата за билети на институцията?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Да. Nubart GUIDE може да се разпространява чрез физически карти или да се интегрира напълно дигитално чрез API в билетната система."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Какви бизнес модели предлага Nubart GUIDE?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nubart GUIDE предлага гъвкави модели – може да се предоставя безплатно, срещу малка такса или със спонсорство, според целите на институцията."
-                    }
-                }
-            ]
-        }
-    </script>
 
 
-    <!-- End Structured data -->
-    <!-- Structured Data: Breadcrumbs -->
+    <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -155,51 +161,76 @@
                 {
                     "@type": "ListItem",
                     "position": 1,
-                    "name": "Nubart - НАШЕ НАСЛЕДСТВО",
-                    "item": "https://www.nubart.eu/bg/"
+                    "item": {
+                        "@id": "https://www.nubart.eu/bg/",
+                        "name": "Nubart"
+                    }
                 }
             ]
         }
     </script>
 
 
+
+
     <!-- Google Tag Manager -->
-    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TRW7KZS');
     </script>
     <!-- End Google Tag Manager -->
-
-<!-- 2. Cookie consent CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
-
-<!-- 3. Cookie consent config (MOVED HERE) -->
-<script type="module" src="/js/cookieconsent-config.js"></script>
+    <!-- End Google Tag Manager -->
 
 
-    <title>Nubart - аудиогида, който можеш да запазиш!</title>
+    <!-- 2. Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Nubart/ НАШЕ НАСЛЕДСТВО: иновативните аудио ръководства за вашия музей. Хубави картички за посетителите да вземат вкъщи. Без устройства и без приложения.">
+
+    <!-- 3. Cookie consent config (MOVED HERE) -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+
+    <title>Nubart - Иновативни аудио решения | Разгледайте нашите продукти</title>
+    <meta name="description"
+          content="Открийте най-модерните аудио решения на Nubart. Обогатете преживяването на посетителите във вашите обекти и участниците във вашите събития с нашите усъвършенствани технологии.">
     <meta name="author" content="Nubart">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description"
+          content="Открийте най-модерните аудио решения на Nubart. Обогатете преживяването на посетителите във вашите обекти и участниците във вашите събития с нашите усъвършенствани технологии.">
+    <meta name="twitter:site" content="@NubartEN">
+    <meta name="twitter:creator" content="@NubartEN">
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/tw-card/tw-card-main-page-en.webp">
+
 
     <!-- hreflang -->
-    <link rel="canonical" href="https://www.nubart.eu/bg/"/>
-    <link rel="alternate" href="https://www.nubart.eu/bg/" hreflang="bg"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/" hreflang="x-default"/>
-    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/" hreflang="de"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/" hreflang="en"/>
-    <link rel="alternate" href="https://www.nubart.eu/es/audioguias.html" hreflang="es"/>
-    <link rel="alternate" href="https://www.nubart.eu/it/audioguida.html" hreflang="it"/>
-    <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/" hreflang="ja"/>
-    <link rel="alternate" href="https://www.nubart.eu/fr/audioguides.html" hreflang="fr"/>
-    <link rel="alternate" href="https://www.nubart.eu/nl/audiogidsen/" hreflang="nl"/>
-    <link rel="alternate" href="https://www.nubart.eu/pl/audioprzewodnik/" hreflang="pl"/>
+    <link rel="canonical" href="https://www.nubart.eu/"/>
+    <link rel="alternate" href="https://www.nubart.eu/" hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/" hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/" hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/" hreflang="es"/>
+    <link rel="alternate" href="https://www.nubart.eu/it/" hreflang="it"/>
+    <link rel="alternate" href="https://www.nubart.eu/ja/" hreflang="ja"/>
+    <link rel="alternate" href="https://www.nubart.eu/fr/" hreflang="fr"/>
+    <link rel="alternate" href="https://www.nubart.eu/nl/" hreflang="nl"/>
+    <link rel="alternate" href="https://www.nubart.eu/pl/" hreflang="pl"/>
+    <link rel="alternate" href="https://www.nubart.eu/he/" hreflang="he"/>
 
 
-   <!-- Icons -->
+    <!-- OpenGraph for LinkedIn -->
+
+
+    <meta property="og:title" content="Nubart - Иновативни аудио решения | Разгледайте нашите продукти"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/tw-card/tw-card-main-page-en.webp"/>
+    <meta property="og:author" content="Nubart International"/>
+    <meta property="og:description"/>
+    <meta content="Discover Nubart's cutting-edge audio guide solutions. Enrich the visitor experience with our advanced technology.">
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.nubart.eu/">
+
+
+    <!-- Icons -->
     <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
@@ -207,40 +238,104 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
     <!-- ./Icons -->
+
+
     <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet"/>
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet"/>
 
-    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
 
     <!-- Lazy-load JS -->
     <script src="../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
 
+
     <!-- Template Main CSS File -->
     <link href="../assets/css/style-min.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet"/>
 
 
 
-    <link href="../assets/css/custom.css" rel="stylesheet">
 
-
+    <!-- =======================================================
+    * Template Name: Dewi - v4.6.0
+    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
 </head>
+
+
 <body>
 
 
 
+
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top header">
     <div class="container d-flex align-items-center justify-content-between">
-
-        <a href="index.html" class="logo"><img src="../assets/img/logo.png" alt="Nubart's logo" class="img-fluid"></a>
-
+        <a href="." class="logo">
+            <img src="../assets/img/logo.png" alt="Nubart's logo" class="img-fluid">
+        </a>
         <nav id="navbar" class="navbar">
             <ul>
-                <li class="dropdown d-none d-md-block"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown">
+                    <a href="#"><span>Продукти</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a href="audiogidove.html">
+                                <i class="bi bi-headphones product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GUIDE</span>
+                                    <span class="product-description">Самостоятелни туристически аудиогид обиколки на базата на QR кодове (PWA)</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+
+
+
+
+
+                        <li>
+                            <a href="ai-simultanen-usten-prevod.html">
+                                <i class="bi bi-translate product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART TRANSLATE</span>
+                                    <span class="product-description">AI симултанен устен превод в реално време за вашите събития</span>
+                                </div>
+                            </a>
+                        </li>
+
+
+
+
+                    </ul>
+                </li>
+
+
+                <li><a class="nav-link scrollto" href="../bg/faq.html">ЧЗВ</a></li>
+
+
+
+
+                <li><a class="nav-link scrollto" href="../bg/klienti.html">Клиенти</a></li>
+
+
+                <li><a class="nav-link scrollto" href="../bg/kontakt.html">Контакти</a></li>
+                <li class="d-flex">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                       href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
+                <li><a class="getstarted scrollto" href="../bg/oferta-mostra.html">ЗАЯВКА ЗА ПОВЕЧЕ ИНФОРМАЦИЯ ИЛИ ОФЕРТА</a></li>
+                <li class="dropdown d-none d-md-block">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="/">English</a></li>
                         <li><a href="../de/">Deutsch</a></li>
@@ -253,492 +348,155 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><a href="../ja/">日本語</a></li>
                     </ul>
                 </li>
-
-                <li><a class="nav-link scrollto" href="../bg/klienti.html">Клиенти</a></li>
-                <li><a class="nav-link scrollto" href="../bg/faq.html">ЧЗВ</a></li>
-                <li><a class="nav-link scrollto" href="../bg/kontakt.html">Контакти</a></li>
-
-                <li><a class="getstarted scrollto" href="../bg/oferta-mostra.html">ЗАЯВКА ЗА ПОВЕЧЕ ИНФОРМАЦИЯ ИЛИ ОФЕРТА</a></li>
-
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-
+        </nav>
     </div>
 </header><!-- End Header -->
-<!-- ======= Hero Section ======= -->
-<section id="hero" style='background-image: url("../assets/img/tsari-mali-grad-kasnoantichna-krepost.webp");'>
+
+
+
+
+<!-- ======= About Boxes Section ======= -->
+<section id="hero" style='background-image: url("../assets/img/hero16-bg.webp");'>
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+        <div style="height: 100%; margin-top: 200px;">
 
-        <h1>СИЛАТА НА КОЛЕКЦИОНЕРСКИТЕ АУДИОГИД КАРТИ</h1>
-        <h2>Дигиталното решение, с което музеите и туристическите обекти повишават приходите си!</h2>
 
-        <div class="d-flex">
 
-            <a href="https://vimeo.com/339578238" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Разбери повече тук</span></a>
 
-        </div>
-        <br><br><br>
-        <div class="img-fluid align-center d-none d-lg-block">
-            <img src="../assets/img/audioguide-to-go-bg.webp" width="250" class="img-fluid lazyload" alt="Карта с аудиогид на Nubart, която да вземете със себе си">
-        </div>
 
-    </div>
-</section><!-- End Hero -->
-<!-- landing-banner -->
-<section id="about" class="about">
-    <div class="container" data-aos="fade-up">
 
-        <div class="row">
+            <div>
+                <h1 style="color: white">Аудио решения за посетителите на вашите обекти и събития</h1>
 
-            <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                <br> <img data-src="../assets/img/about-4.webp" width="637" height="498" class="img-fluid lazyload" alt="">
-                <a href="https://vimeo.com/339578238" class="glightbox play-btn mb-4"></a>
+
+                <h2 style="color: white">Многоезично аудио с QR код за нуждите ви – без приложение, без усложнения</h2>
+
+
+                <div class="row">
+                    <div class="col-12 col-lg-6 mx-auto">
+                        <img src="../assets/img/hero-image-guide-bg.webp" class="img-fluid lazyload"
+                             alt="Nubart – монетизируеми и иновативни уеб приложения и PWA за аудиогидове от лидера на пазара">
+                    </div>
+                </div>
             </div>
 
-            <div class="col-lg-6 pt-3 pt-lg-0 content">
-                <br>
-                <h3>Аудиогида, който можеш да запазиш! </h3><br/>
 
-                <p class="lead">Ние даваме възможност на музеите, забележителностите, паметниците на културата, природните паркове и всяка туристическа дестинация да предоставя аудиогид, без да са необходими устройства или скъпи мобилни приложения.
-                    <br>
-                    <br>Първата колекционерска аудиогид карта в света е „вратата“ за всеки посетител към множеството разкази за вашия обект. След като сканират уникалния код на всяка от тях, те слушат аудиозаписите директно на своя смартфон.
-                    <br> <br>Нашите иновативни аудиогид карти са евтини и доходоносни за всеки обект. <br>
-                </p>
-
-            </div>
         </div>
     </div>
+
+
 </section>
-
 <main id="main">
-    <!-- ======= Testimonials Section ======= -->
-    <section id="why-nubart" style='background-image: url("/assets/img/hero-bg-cards.webp");' class="testimonials">
-        <div class="container" style="padding-top: 150px; padding-bottom: 150px" data-aos="zoom-in">
 
-            <div data-aos="fade-up" data-aos-delay="100">
-                <div class="row">
-                    <div class="col text-center">
-                        <h4 class="fs-1" style="color: white">Защо Nubart?</h4><br><br>
 
-                    </div>
+    <!-- ======= About Boxes Section ======= -->
+    <section id="Продукти" class="about-boxes">
+        <div class="container" data-aos="fade-up">
 
-                </div>
-                <div class="row">
-                    <div class="col-10 offset-md-1 text-center">
 
-                        <p class="fs-3" style="color: white">Тъй като
-                            <i>устройствата</i> за аудио гидове изискват сложна логистика и генерират електронни отпадъци.</p><br>
-                        <p class="fs-3" style="color: white">И тъй като
-                            <i>приложенията</i> за аудио обиколка са трудни за осигуряване на приходи и само около 2% от посетителите ги изтеглят.
-                        </p><br><br>
-                    </div>
-
-                </div>
-                <br>
-                <div class="d-none d-lg-block  text-center">
-                    <a class="btn btn-primary" target="_blank" role="button" href="../bg/zashto-nubart.html">
-                        <h3 style="font-size: 25px;">Предимства на картите на Nubart пред конвенционалните решения за аудио гидове</h3></a>
-                </div>
-
+            <div class="section-title">
+                <h2>Разгледайте продуктите и услугите на Nubart</h2>
+                <p>Продукти и услуги</p>
             </div>
 
-        </div>
-
-    </section><!-- End Testimonials Section -->
-    <!-- ======= About Boxes Section ======= -->
-    <section id="features" class="services section-bg">
-        <div class="container" data-aos="fade-up">
 
             <div class="row">
-                <div class="col text-center">
-                    <p class="fs-1">Колкото и просто да стане</p>
-
-                    <p class="fs-3">Защо устройство за аудио гид, ако всеки има смартфон?</p><br>
-
-                </div>
-                <br>
-            </div>
-            <div class="row align-items-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                    <div class="icon-box">
-                        <i class="bi bi-qr-code-scan"></i>
-                        <h4 style="font-size: 25px;">Лесен за използване</h4>
-                        <p class="card-text">Посетителят трябва само да сканира QR, за да получи достъп до съдържанието. Благодарение на нашия иновативен интерфейс за превъртане, намирането на POI е лесно и интуитивно дори за тези, които не разбират цифрово. </p>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="bi bi-cash-coin"></i>
-                        <h4 style="font-size: 25px;">Осигуряващ приходи</h4>
-                        <p class="card-text">За разлика от приложенията, нашата карта може да бъде монетизирана, тъй като не може да се прехвърля. Nubart може да бъде източник на доходи за вашия музей!</p>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="bi bi-gift"></i>
-                        <h4 style="font-size: 25px;">Подходящ за спонсорство</h4>
-                        <p class="card-text">За разлика от устройствата или приложенията, той позволява вграждането на логото на един или повече спонсори върху отпечатаната карта. </p>
+                <!-- Card 1 -->
+                <div class="col-lg-6 align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card mb-3">
+                        <img data-src="../assets/img/index/about-nubart-guide.webp" class="card-img-top img-fluid lazyload"
+                             alt="Интерфейс на QR-базиран аудиогид Nubart на смартфон">
+                        <div class="card-icon">
+                            <a href="audiogidove.html"> <i class="bi bi-headphones"></i></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="audiogidove.html">Nubart GUIDE</a></h5>
+                            <p class="card-text text-center fs-5"><a href="audiogidove.html">PWA аудиогид с QR код</a></p>
+                            <p class="card-text text-center">Търговска стойност. Висок процент на използване. Интуитивна навигация и анкета за обратна връзка от посетителите.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <img src="../assets/img/audioguide-w-cards.webp" class="w-100 shadow-1-strong rounded mb-4" alt="La audioguía de Nubart"/>
-
-                </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-
-                    <div class="icon-box">
-                        <i class="bi bi-people"></i>
-                        <h4 style="font-size: 25px;">Много висока степен на поемане (TUR)</h4>
-                        <p class="card-text">Нашите карти постигат TUR от 10-20%, когато се продават отделно и 45-85%, когато са включени в цената. </p>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="bi bi-wifi-off"></i>
-                        <h4 style="font-size: 25px;">Извън линия</h4>
-                        <p class="card-text">Лоша свързаност във вашето място? Аудио ръководствата на Nubart предлагат иновативен офлайн режим. След като сканира QR кода за първи път на място с интернет, посетителят има достъп до пълния аудио гид по всяко време, сякаш използва приложение. QR-кодът може дори да бъде сканиран отново в зони без никаква връзка.</p>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="bi bi-tree"></i>
-                        <h4 style="font-size: 25px;">Екологичен</h4>
-                        <p class="card-text">Устройствата генерират вредни електронни отпадъци. Аудио картите на Nubart са отпечатани върху FSC картон с CO2 компенсация.</p>
-                    </div>
-                    <div class="col d-none d-sm-block"></div>
-                </div>
-            </div>
-        </div>
-    </section><!-- End About Boxes Section -->
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" style='background-image: url("/assets/img/hero-bg-multimedia.webp");' class="testimonials">
-        <div class="container" style="padding-top: 150px; padding-bottom: 150px" data-aos="zoom-in">
-
-            <div data-aos="fade-up" data-aos-delay="100">
-                <div class="row">
-                    <div class="col text-center">
-                        <h4 class="fs-1" style="color: white">Само аудио или пълно мултимедийно ръководство?</h4><br><br>
-
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-10 offset-md-1 text-center">
-
-                        <p class="fs-3" style="color: white">Видеоклипове, плъзгачи, модулна структура, офлайн режим, файлове за изтегляне, дистанционно управление на аудио ръководството, опция за качване на файлове или оставяне на гласови съобщения...<br><br>Всичко това и повече може да бъде интегрирано в аудио ръководство Nubart
-                        </p><br><br>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section><!-- End Testimonials Section -->
-    <section id="samples" class="samples">
-        <div class="container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Поискайте проби от карти за аудио-гидове Nubart</h2>
-                <p>Искате ли да изпробвате нашите карти безплатно?</p>
-            </div>
-            <div class="tab-pane">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <img data-src="../assets/img/about-samples-1.webp" alt="" class="img-fluid d-none d-lg-block lazyload"><br><br>
-
-                    </div>
-                    <div class="col-lg-7">
-                        <p class="lead">Попълнете този формуляр и ние ще ви ги изпратим по пощата:</p>
-                        <div class="info-box">
-
-                            <form class="align-self-center" action="https://formspree.io/rosa.sala@nubart.eu" method="POST">
-                                <input type="hidden" name="_next" value="https://www.nubart.eu/bg/blagodarya">
-                                <input type="hidden" name="_language" value="bg">
-                                <input type="hidden" name="_cc" value="boris.k.marinov@gmail.com">
-
-                                <label for="first-name">малко име *</label>
-                                <input type="text" class="form-control" id="first-name" name="first-name" placeholder="малко име *"><br>
-
-                                <label for="family-name">фамилно име *</label>
-                                <input type="text" class="form-control" id="family-name" name="family-name" placeholder="фамилно име *"><br>
-
-                                <label for="museum">Име на музея или фирма *</label>
-                                <input type="text" class="form-control" id="museum" name="museum" placeholder="Име на музея или фирма *"><br>
-
-                                <label for="address-1">адрес</label>
-                                <input type="text" class="form-control" id="address-1" name="address-1" placeholder="адрес"><br>
-
-                                <label for="cp">пощенски код</label>
-                                <input type="text" class="form-control" id="cp" name="cp" placeholder="пощенски код"><br>
-
-                                <label for="city">Телефон</label>
-                                <input type="text" class="form-control" id="city" name="city" placeholder="Телефон"><br>
-
-                                <label for="mail">Имейл адрес *</label>
-                                <input type="text" class="form-control" id="mail" name="mail" placeholder="Имейл адрес *"><br>
-
-                                <input type="submit" class="btn btn-lg btn-primary" value="ИЗПРАТИ">
-                            </form>
 
 
+                <!-- Card 2 -->
+                <div class="col-lg-6 align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/translate/index-about-translate.webp"
+                             class="card-img-top img-fluid lazyload"
+                             alt="Nubart TRANSLATE - AI симултанен устен превод за събития">
+                        <div class="card-icon">
+                            <a href="ai-simultanen-usten-prevod.html"> <i class="bi bi-translate product-icon"></i></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="ai-simultanen-usten-prevod.html">Nubart TRANSLATE</a></h5>
+                            <p class="card-text text-center fs-5"><a href="ai-simultanen-usten-prevod.html">AI симултанен устен превод за събития</a></p>
+                            <p class="card-text text-center">Симултанен превод за многоезичната ви аудитория, само чрез сканиране на QR код. Винаги с аудио и текст. Поддържа до 33 езика.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- ======= Features Section ======= -->
-    <section id="geo-features" class="features">
-        <div class="container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Функции за геолокация в аудио ръководствата на Nubart</h2>
-                <p>Трябва да покажете на посетителите си пътя?</p>
-            </div>
-            <div class="tab-pane active show" id="geolocation">
-                <div class="row">
-                    <div class="col-lg-8 mt-3 mt-lg-0">
-                        <h3>Интерактивни карти с местоположението на посетителите, географско превъртане, наслагване за закрито...</h3><br>
 
-                        <p class="lead">Нашият пакет за геолокация покрива практически всички навигационни нужди на вашите посетители. </p>
-
-                        <p class="lead">Вашите посетители могат да отворят интерактивна карта с всички точки на интерес. Картата показва местоположението на посетителя.</p>
-                        <p class="lead">Всяка геолокирана точка на интерес има бутон „покажи ми на картата“. </p>
-                        <p class="lead">На открито, нашите геолокирани аудиозаписи светват и автоматично превъртат до горната част на екрана на мобилния телефон, когато посетителите се доближат до определена точка. При Android този процес се подобрява от лека вибрация на мобилния телефон.
-
-                        </p>
-                        <p class="lead">Можем да включим наслагване към етажния план на вашето място, за да улесним навигацията на закрито. </p><br>
-                        <a role="button" href="https://vimeo.com/1005537071" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Вижте интерактивните карти на Nubart в действие</a>
-                    </div>
-
-                    <div class="col-lg-4 text-center">
-                        <img data-src="../assets/img/features/features-geolocation.webp" alt="Интерактивните карти на Nubart" class="img-fluid d-none d-lg-block lazyload">
-                    </div>
-
-                </div>
-            </div>
 
         </div>
     </section>
-
-    <section id="data" class="features">
+    <!-- End About Boxes Section -->
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about  d-none d-lg-block">
         <div class="container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Аудио обиколките на Nubart са инструмент за изследване на музейната публика</h2>
-                <p>Искате ли да познавате по-добре посетителите си?</p>
-            </div>
-            <div class="tab-pane">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <img data-src="../assets/img/features/features-data.webp" alt="" class="img-fluid d-none d-lg-block lazyload"><br><br>
+            <div class="row justify-content-end">
+                <div class="col-lg-11">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-credit-card-2-front"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="4237100"
+                                      data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Уникални кода</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-bank"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="177"
+                                      data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Доволни клиенти</p>
+                            </div>
+                        </div>
 
-                    </div>
-                    <div class="col-lg-8 mt-3 mt-lg-0">
-                        <h3>Събирайте данни за посетители, без да сте натрапчиви</h3><br>
 
-                        <p class="lead">Всеки обект знае колко важна е информацията за неговите посетители, но е трудно да я събере.
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-geo-alt"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="29" data-purecounter-duration="1"
+                                      class="purecounter"></span>
+                                <p>Държави</p>
+                            </div>
+                        </div>
 
-                        </p>
 
-                        <p class="lead">Картите на Nubart не са просто иновативни аудиогидове, които предоставят екскурзоводни разкази на множество езици, а са и перфектен инструмент за събиране на данни. За разлика от други аудиогид решения, Nubart събира данни за употребата на гида и поведението на вашите посетители анонимно от техните смартфони, като не нарушава техните лични права. (Вижте
-                            <a href="../bg/poveritelnost-audio-gidove.html" rel="nofollow" target="_blank"><strong>Политики за поверителност на аудиогидовете Nubart</strong>).</a>
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-translate"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="43" data-purecounter-duration="1"
+                                      class="purecounter"></span>
+                                <p>Поддържани езика</p>
+                            </div>
+                        </div>
 
-                        </p>
 
-                        <p class="lead">Като клиент на Nubart, вие получавате статистика за използваните аудиогидове. Какво съдържа тази наша безплатна статистика: </p>
-                        <ul>
-                            <li><i class="bi bi-check-all"></i>Държавата, от която е посетителят
-                            </li>
-                            <li><i class="bi bi-check-all"></i>Език, който използва
-                            </li>
-                            <li><i class="bi bi-check-all"></i>Брой посетители на ден
-                            </li>
-                            <li><i class="bi bi-check-all"></i>Брой посетители за конкретен час
-                            </li>
-                            <li><i class="bi bi-check-all"></i>Колко време прекарват посетителите в обекта
-                            </li>
-                            <li><i class="bi bi-check-all"></i>Класация на най-слушаните разкази
-                            </li>
-                            <li><i class="bi bi-check-all"></i>Брой използвани устройства
-                            </li>
-
-                        </ul>
-
-                        <a role="button" href="https://vimeo.com/569296194" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
-                            <i class="bi bi-play-circle-fill"></i>&nbsp; Вижте статистическото табло на Nubart в действие </a>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="feedback" class="features">
-        <div class="container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Nubart има интегрирана форма за обратна връзка за проучване на посетители</h2>
-                <p>Оставете посетителите си да ви кажат какво мислят</p>
-            </div>
-            <div class="tab-pane">
-
-                <div class="row">
-
-                    <div class="col-lg-8">
-                        <h3>Проучване на общественото мнение директно в аудиогида</h3><br>
-                        <p class="lead">Нашите безплатни отчети за данни събират много анонимна информация за вашите посетители и тяхното поведение. Определена важна информация не може да бъде извлечена автоматично, но можете да помолите вашите посетители да ви я предоставят.</p>
-
-                        <p class="lead">Ето защо след последната песен на всеки аудио гид, посетителят може да взаимодейства с вашия музей чрез кратка анкета с 5 въпроса. Нашите два стандартни въпроса са:</p>
-                        <ul>
-                            <li><i class="bi bi-check-all"></i>обща оценка на изложбата по скала от 1 до 5
-                            </li>
-                            <li><i class="bi bi-check-all"></i>текстово поле за коментари към изложбата или към аудиогида</li>
-                        </ul>
-                        <p class="lead">По желание посетителите, които дават висока оценка на посещението, са поканени да оценят вашето място в Google.</p>
-
-                        <p class="lead">Клиентите на Nubart могат да получават коментари от посетители в реално време по имейл.</p>
-
-                        <p class="lead">Вашият музей може да избере три допълнителни въпроса от списък с опции, като възраст и пол, стига посетителите да изберат да споделят тази информация с вас. Благодарение на нашата уникална кодова система, посетителят може да отговори само веднъж на въпросника, като гарантира качеството на данните. Непълните отговори също се улавят.</p>
-
-                    </div>
-                    <div class="col-lg-4">
-                        <img data-src="../assets/img/features/features-feedback.webp" alt="" class="img-fluid d-none d-lg-block lazyload">
                     </div>
                 </div>
             </div>
+
 
         </div>
-
-    </section><!-- End Features Section -->
-    <!-- ======= Testimonials Section ======= -->
-    <section id="content" style='background-image: url("../assets/img/hero-bg-content.webp");' class="testimonials">
-        <div class="container" style="padding-top: 150px; padding-bottom: 150px" data-aos="zoom-in">
-
-            <div data-aos="fade-up" data-aos-delay="100">
-                <div class="row">
-                    <div class="col text-center">
-                        <h4 class="fs-1" style="color: white">Имате ли нужда от производство на съдържание за вашето аудио ръководство?</h4><br><br>
-
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-10 offset-md-1 text-center">
-
-                        <p class="fs-3" style="color: white">Няма проблем. Ще ви бъде назначен производствен ръководител, който ще организира всичко вместо вас. Разполагаме с богат избор от сценаристи, преводачи и гласови артисти. </p>
-                        <br><br>
-                    </div>
-                    <br>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section><!-- End Testimonials Section -->
+    </section><!-- End About Section -->
 
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Клиенти на Nubart в България</h2>
-                <p>Клиенти, които са избрали нашия аудиогид в България</p>
-            </div>
-
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-4 col-md-6 portfolio-item filter-guide filter-museum filter-bulgaria">
-                    <img src="../assets/img/audioguides/audioguide-national-gallery-zlatyu-boyadzhiev.webp" class="img-fluid lazyload" alt="Audio guide Специална изложба Национална художествена галерия, Zlatyu Boyadzhiev, София">
-                    <div class="portfolio-info">
-                        <h4>"Zlatyu Boyadzhiev", Национална художествена галерия, София</h4>
-                        <p>Специална изложба</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-guide filter-museum filter-bulgaria">
-                    <img src="../assets/img/audioguides/audioguide-prod-bg.webp" class="img-fluid lazyload" alt="Аудио гид Музей на ракията">
-                    <div class="portfolio-info">
-                        <h4>Музей на ракията</h4>
-                        <p>Постоянна изложба</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-guide
-filter-route filter-bulgaria">
-                    <img src="../assets/img/audioguides/audioguide-kardzhali-bulgaria.webp" class="img-fluid lazyload" alt="Аудиогуиде Кърджали Провинце, Кърджали">
-                    <div class="portfolio-info">
-                        <h4>Кърджали Провинце, Кърджали</h4>
-                        <p>Аудио обиколка</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-guide
-filter-route filter-bulgaria">
-                    <img src="../assets/img/audioguides/audioguide-smolyan.webp" class="img-fluid lazyload" alt="Аудиогуиде Смолян Провинце, Смолян">
-                    <div class="portfolio-info">
-                        <h4>Смолян Провинце, Смолян</h4>
-                        <p>Аудио обиколка</p>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-guide
-filter-route filter-bulgaria">
-                    <img src="../assets/img/audioguides/audioguide-haskovo.webp" class="img-fluid lazyload" alt="Аудиогуиде Хасково Провинце, Хасково">
-                    <div class="portfolio-info">
-                        <h4>Haskovo Province, Haskovo</h4>
-                        <p>Audio Tour</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-guide filter-bulgaria filter-city">
-                    <img src="../assets/img/audioguides/audio-guide-card-panagyurishte-istoricheski-muzey-kashta-rayna-knyaginya-kolektsionerska-audiogid-karta.webp" class="img-fluid lazyload" alt="Аудио тур Панагюрище, област Пазарджик">
-                    <div class="portfolio-info">
-                        <h4>Панагюрище, област Пазарджик</h4>
-                        <p>Обиколка на града</p>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-bulgaria">
-                    <img src="../assets/img/audioguides/audio-guide-card-tsari-mali-grad-krepost-kolektsionerska-audiogid-karta.webp" class="img-fluid lazyload" alt="Аудиогид на Nubart за Tsari Mali Grad">
-                    <div class="portfolio-info">
-                        <h4>Цари Мали град</h4>
-                        <p>Аудио маршрут</p>
-
-                        <!-- <a href="../portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-bulgaria filter-route">
-                    <img src="../assets/img/audioguides/audio-guide-card-selo-chavdar-folkloren-tsentar-arheologicheski-park-topolnitsa-kolektsionerska-audiogid-karta.webp" class="img-fluid lazyload" alt="Аудиогид на Nubart за Чавдар">
-                    <div class="portfolio-info">
-                        <h4>Чавдар </h4>
-                        <p>Аудио маршрут</p>
-
-                        <!-- <a href="../portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-bulgaria filter-city">
-                    <img src="../assets/img/audioguides/audio-guide-card-samokov-istoricheski-muzey-kolektsionerska-audiogid-karta.webp" class="img-fluid lazyload" alt="Аудиогид на Nubart за Самоков">
-                    <div class="portfolio-info">
-                        <h4>Самоков</h4>
-                        <p>Аудио маршрут</p>
-
-                        <!-- <a href="../portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-bulgaria filter-city">
-                    <img src="../assets/img/audioguides/audio-guide-card-grad-pravets-muzeen-kompleks-i-rodna-kashta-na-todor-zhivkov-istoricheski-muzey-kolektsionerska-audiogid-karta.webp" class="img-fluid lazyload" alt="Аудиоръководство Nubart за правчани">
-                    <div class="portfolio-info">
-                        <h4>Правец</h4>
-                        <p>Постоянна изложба</p>
-
-                        <!-- <a href="../portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- End Portfolio Section -->
 </main><!-- End #main -->
+
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
@@ -746,67 +504,84 @@ filter-route filter-bulgaria">
         <div class="container">
             <div class="row">
 
+
                 <div class="col-lg-6 col-md-12">
                     <div class="footer-info">
                         <p class="fs-3">Nubart</p>
                         <p>
                             Барселона - Берлин - Ню Йорк - София<br>
 
+
                             <strong>E-mail:</strong> info@nubart.eu<br>
                         </p>
-                        <div class="social-links mt-3">
-                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                        <div class="social-links mt-3"><a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
                             <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
                             <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
                             <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+
 
                         </div>
                     </div>
                 </div>
 
+
                 <div class="col-lg-4 col-md-6 footer-links">
                     <h4>Полезни връзки</h4>
                     <ul>
 
+
                         <li><i class="bi bi-chevron-right"></i> <a href="../bg/kontakt.html">Контакти</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="../bg/pravna-informatsiya.html" rel="nofollow">Правна рамка</a></li>
+
 
                         <li><i class="bi bi-chevron-right"></i>
                             <a href="../bg/deklaratsiya-poveritelnost.html" rel="nofollow">Политика за поверителност</a>
                         <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Предпочитания за бисквитки</a>
 
+
+
+
                     </ul>
                 </div>
+
 
             </div>
         </div>
     </div>
 
+
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong><span>Nubart 2024</span></strong>. Всички права запазени
+            &copy; Copyright <strong><span>Nubart 2025</span></strong>. Всички права запазени
         </div>
+
 
     </div>
 </footer><!-- End Footer -->
+
 
 <div id="preloader"></div>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
+
 <!-- Critical JS Files -->
 <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
 <script src="../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
 <script src="../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+<script src="../assets/vendor/purecounter/purecounter.js" defer></script>
+
 
 <!-- Non-Critical JS Files - Still deferred but loaded directly -->
 <script src="../assets/vendor/aos/aos.js" defer></script>
 <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
 <script src="../assets/js/main-min.js" defer></script>
 
+
 <!-- Hubspot Analytics scripts with proper async loading -->
 <script type="text/plain" data-category="analytics" id="hs-script-loader" async
         src="//js.hs-scripts.com/2430134.js"></script>
+
 
 
 
