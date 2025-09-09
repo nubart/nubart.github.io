@@ -5,17 +5,21 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Structured data -->
 
     <!-- Structured data -->
     <script type="application/ld+json">
 
         {
             "@context": "https://schema.org",
-            "@type": "Corporation",
-            "name": "Nubart",
+            "@type": "AboutPage",
+            "name": "About Nubart",
+            "url": "https://www.nubart.eu/es/about",
+            "inLanguage": "es",
             "description": "Nubart es la marca registrada de las soluciones de audioguías vía QR desarrolladas y ofrecidas por Digital Tangible SL y Nubart GmbH. Desde 2013, Nubart ha sido pionera en experiencias innovadoras de audioguía, eliminando la necesidad de aplicaciones o dispositivos en museos y atracciones turísticas de todo el mundo.",
-            "url": "https://www.nubart.eu/es/",
+            "mainEntity": {
+                "@id": "https://www.nubart.eu/#organization"
+            },
+
             "logo": "https://www.nubart.eu/assets/img/logo-nubart.png",
             "founder": [
                 {
@@ -35,7 +39,7 @@
                 }
             ],
             "award": "Sello de Excelencia - Instrumento PYME del programa de financiación de la investigación y la innovación de la UE Horizonte 2020",
-             "foundingDate": "2013-07-17",
+            "foundingDate": "2013-07-17",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "email": "info@nubart.eu",
@@ -43,7 +47,14 @@
                 "areaServed": "Worldwide",
                 "availableLanguage": ["en", "de", "es", "fr", "it"]
             },
-            "foundingLocation": "Barcelona, Spain",
+            "foundingLocation": {
+                "@type": "Place",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Barcelona",
+                    "addressCountry": "Spain"
+                }
+            },
             "sameAs": [
                 "https://twitter.com/nub.art?lang=es",
                 "https://www.linkedin.com/company/nubart-eu/",
@@ -54,8 +65,9 @@
             ]
         }
 
+
     </script>
-    
+
     <!-- Structured Data: Breadcrumbs -->
     <script type="application/ld+json">
         {
