@@ -9,7 +9,184 @@
 
 
     <!-- Structured data -->
-    <script>
+
+        <!-- Organização -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://www.nubart.eu/#organization",
+            "name": "Nubart",
+            "url": "https://www.nubart.eu/pt-br/",
+            "inLanguage": "pt-BR"
+        }
+    </script>
+
+    <!-- Serviço Nubart MOTION -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/pt-br/audioguia/veiculos-turisticos.html#motionservice",
+            "name": "Nubart MOTION – Sistemas de comentários para passageiros",
+            "description": "Solução completa de audiocomentários multilíngues para operadores turísticos: ativação automática por GPS, controle manual ou automático remoto, ativação sequencial por tempo e tradução ao vivo com IA para guias humanos. Tudo por QR, sem apps ou hardware especial.",
+            "image": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "provider": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "serviceType": "Sistema de audiocomentários",
+            "areaServed": [
+                {
+                    "@type": "Place",
+                    "name": "Europa"
+                },
+                {
+                    "@type": "Place",
+                    "name": "América do Norte"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Austrália"
+                }
+            ],
+            "audience": {
+                "@type": "BusinessAudience",
+                "audienceType": [
+                    "Operadoras de turismo",
+                    "Empresas de cruzeiros fluviais",
+                    "Operadoras de ônibus turísticos",
+                    "Operadoras de barcos turísticos",
+                    "Trens turísticos urbanos"
+                ]
+            },
+            "hasPart": [
+                {
+                    "@type": "Service",
+                    "name": "Nubart TRANSLATE",
+                    "description": "Tradução simultânea com IA para guias, comunicação fluente em vários idiomas"
+                },
+                {
+                    "@type": "Service",
+                    "name": "Nubart MOTION",
+                    "description": "Audioguias automáticos multilíngues com ativação flexível: GPS, controle remoto manual, controle automático e ativação por tempo"
+                }
+            ],
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Ativação por GPS",
+                    "value": "Reprodução automática conforme localização do usuário"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Controle remoto manual",
+                    "value": "Guia ativa os áudios manualmente pela plataforma"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Controle remoto automático",
+                    "value": "Dispositivo mestre ativa os pontos via GPS"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Ativação sequencial",
+                    "value": "Avanço de faixas conforme intervalos de tempo"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Ativação híbrida",
+                    "value": "Métodos combinados para máxima flexibilidade"
+                }
+            ],
+            "inLanguage": "pt-BR"
+        }
+    </script>
+    <!-- FAQPage -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://www.nubart.eu/pt-br/audioguia/veiculos-turisticos.html#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Como posso oferecer um sistema de comentários aos meus passageiros?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "O Nubart MOTION oferece audiocomentários automáticos com vários modos de ativação (GPS, controle remoto manual ou automático, sequencial por tempo) e tradução ao vivo com IA para guias. Tudo através de QR, sem necessidade de apps ou hardware adicional."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Que equipamento é necessário para o audiocomentário?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Não é necessário nenhum equipamento especial. Os passageiros apenas escaneiam um código QR com o smartphone e acessam o comentário em diversos idiomas. Não há necessidade de apps ou dispositivos extras."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Que tipo de conexão com a internet é necessária para o Nubart MOTION?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "O Nubart TRANSLATE requer uma conexão estável para tradução por IA. O Nubart MOTION precisa de conexão básica para GPS e ativação remota; o modo sequencial funciona totalmente offline após o pré-carregamento inicial."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quais métodos de ativação existem para os tours automáticos?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "São oferecidos quatro métodos: GPS (requer permissão do usuário), controle remoto manual (pelo guia), controle remoto automático (por dispositivo mestre) e sequencial (progressão em intervalos de tempo)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "O Nubart funciona em áreas sem cobertura de internet?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sim. O modo offline pré-carrega os áudios e o conteúdo. A ativação sequencial funciona sem conexão; GPS e controle remoto precisam de conexão mínima. O conteúdo permanece disponível mesmo que a internet caia."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "É possível combinar diferentes métodos de ativação?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Com certeza. O Nubart MOTION permite combinar GPS, controle remoto e ativações sequenciais conforme necessário, garantindo uma experiência contínua em qualquer situação."
+                    }
+                }
+            ],
+            "inLanguage": "pt-BR"
+        }
+    </script>
+
+
+    <script type="application/ld+json">
+
+        {
+            "@context": "http://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@id": "https://www.nubart.eu/pt-br/",
+                        "name": "Nubart"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@id": "https://www.nubart.eu/pt-br/audioguia/veiculos-turisticos.html",
+                        "name": "Nubart MOTION: audioguia para veículos turísticos"
+                    }
+                }
+            ]
+        }
 
     </script>
     <!-- End Structured data -->
@@ -35,9 +212,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- Redirection by language -->
 
-    <title>Política de privacidade do site da Nubart</title>
+    <title>Nubart MOTION | Audioguias para veículos turísticos</title>
     <meta name="description"
-          content="Política de privacidade do site da Nubart">
+          content="Audioguias por GPS e tradução simultânea para barcos, ônibus e passeios. Acesso fácil via QR, sem app. Solicite sua demo personalizada.">
+
+    <meta name="author" content="Nubart">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description"
+          content="Audioguias por GPS e tradução simultânea para barcos, ônibus e passeios. Acesso fácil via QR, sem app. Solicite sua demo personalizada">
+    <meta name="twitter:site" content="@NubartEN">
+    <meta name="twitter:creator" content="@NubartEN">
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/nubart-guide.webp">
+
 
     <!-- Icons -->
     <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
@@ -157,7 +343,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 </header>
 
-XXXXX
+<section id="hero" style='background-image: url("../assets/img/bg/bg-boats-2.webp");'>
+    <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+        <!-- Logotipo responsivo: exibido em todos os tamanhos de tela, largura máxima de 320px no mobile -->
+        <img
+                data-src="../assets/img/logos/logo-nubart-motion-white.svg"
+                class="img-fluid mx-auto d-block lazyload mb-4"
+                style="max-width: 320px; width: 70vw; height: auto;"
+                alt="logo Nubart Motion">
+        <h1>Audioguia multilíngue e tradução por IA<br>para veículos turísticos</h1>
+        <h2>Ativação por GPS, manual ou temporizador – Tradução em tempo real da fala do guia<br>
+            Via QR, sem apps nem dispositivos extras.</h2>
+        <div class="d-flex">
+            <a href="https://vimeo.com/687432657" class="glightbox btn-watch-video">
+                <i class="bi bi-play-circle"></i>
+                <span style="font-size: 25px;"><b>Veja como funciona</b> (2 min)</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <i class="bi bi-bus-front-fill"></i>&nbsp;&nbsp;
+                    <b>Nubart MOTION:</b>
+                </div>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+
+
+                    <li style="margin-right: 22px;">
+                        <a class="getstarted scrollto" href="#samples">Solicite uma demonstração</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+XXXX
+
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
