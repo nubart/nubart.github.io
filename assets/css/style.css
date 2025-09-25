@@ -1163,26 +1163,60 @@ section {
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Clients - Bootstrap 5 Compatible
+--------------------------------------------------------------*/
 .clients {
-  background: #f0f4f8;
-  padding: 15px 0;
-  text-align: center;
+    background: #f0f4f8;
+    padding: 40px 0;
+    overflow: hidden; /* This is crucial for the scrolling effect */
 }
+
+.logo-scroll-container {
+    display: flex;
+    width: 200%;
+    animation: scrollLogos 25s linear infinite;
+}
+
+.logo-row {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.client-logo {
+    flex: 0 0 auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
 .clients img {
-  max-width: 45%;
-  transition: all 0.4s ease-in-out;
-  display: inline-block;
-  padding: 15px 0;
-  filter: grayscale(100);
+    max-width: 120px; /* Fixed size instead of percentage */
+    height: auto;
+    transition: all 0.4s ease-in-out;
+    display: inline-block;
+    padding: 15px 0;
+    filter: grayscale(100);
 }
+
 .clients img:hover {
-  filter: none;
-  transform: scale(1.15);
+    filter: none;
+    transform: scale(1.15);
 }
+
+.logo-scroll-container:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
 @media (max-width: 768px) {
-  .clients img {
-    max-width: 40%;
-  }
+    .clients img { max-width: 80px; }
+    .logo-scroll-container { animation-duration: 20s; }
 }
 
 /*--------------------------------------------------------------
