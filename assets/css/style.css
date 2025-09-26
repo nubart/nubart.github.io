@@ -1161,18 +1161,41 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Clients - Bootstrap 5 Compatible
+# Clients - Logo slider. Bootstrap 5 Compatible with RTL Support
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Clients - Bootstrap 5 Compatible with RTL Support
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Clients - Bootstrap 5 Compatible with RTL Support (Fixed)
 --------------------------------------------------------------*/
 .clients {
     background: #f0f4f8;
     padding: 40px 0;
-    overflow: hidden; /* This is crucial for the scrolling effect */
+    overflow: hidden;
 }
 
 .logo-scroll-container {
     display: flex;
     width: 200%;
+    /* Default LTR animation */
     animation: scrollLogos 25s linear infinite;
+}
+
+/* RTL Override - Reverse the entire container direction */
+.rtl .logo-scroll-container,
+html.rtl .logo-scroll-container {
+    /* Keep the same animation but reverse the flex direction */
+    flex-direction: row-reverse;
+    animation: scrollLogos 25s linear infinite !important;
+}
+
+/* Alternative RTL approach - if the above doesn't work */
+.rtl .logo-scroll-container.rtl-fix,
+html.rtl .logo-scroll-container.rtl-fix {
+    animation: scrollLogosRTL 25s linear infinite !important;
+    /* Adjust starting position for RTL */
+    transform: translateX(-50%);
 }
 
 .logo-row {
@@ -1182,6 +1205,12 @@ section {
     justify-content: space-around;
 }
 
+/* RTL: Reverse the logo order within rows */
+.rtl .logo-row,
+html.rtl .logo-row {
+    flex-direction: row-reverse;
+}
+
 .client-logo {
     flex: 0 0 auto;
     padding: 0 15px;
@@ -1189,7 +1218,7 @@ section {
 }
 
 .clients img {
-    max-width: 120px; /* Fixed size instead of percentage */
+    max-width: 120px;
     height: auto;
     transition: all 0.4s ease-in-out;
     display: inline-block;
@@ -1206,15 +1235,27 @@ section {
     animation-play-state: paused;
 }
 
+/* LTR Animation */
 @keyframes scrollLogos {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-@media (max-width: 768px) {
-    .clients img { max-width: 80px; }
-    .logo-scroll-container { animation-duration: 20s; }
+/* RTL Animation - Fixed seamless loop */
+@keyframes scrollLogosRTL {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(-100%); }
 }
+
+
+
+
+
+/* Adjust duration based on logo count */
+.logo-scroll-container {
+    animation: scrollLogos 40s linear infinite; /* Slower for more logos */
+}
+
 
 /*--------------------------------------------------------------
 # Features
