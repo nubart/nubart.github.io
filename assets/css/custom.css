@@ -801,3 +801,31 @@ section {
         font-size: 0.75rem;
     }
 }
+
+/*--------------------------------------------------------------
+# Team Section - 5 Columns Layout
+--------------------------------------------------------------*/
+/* Desktop: 5 cards per row */
+@media (min-width: 992px) {
+    .team .row .col-lg-3 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+
+/* Tablet: 3 cards per row */
+@media (min-width: 768px) and (max-width: 991px) {
+    .team .row .col-md-6 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+/* Mobile: 2 cards per row for better spacing */
+@media (max-width: 767px) {
+    .team .row .col-lg-3,
+    .team .row .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
