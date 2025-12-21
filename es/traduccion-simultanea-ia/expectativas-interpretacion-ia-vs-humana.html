@@ -16,7 +16,7 @@
             "inLanguage": "es",
             "description": "Análisis comparativo entre interpretación humana y por IA desde la perspectiva de una intérprete profesional. Descubre por qué las expectativas hacia la IA son tan diferentes y qué podemos esperar realmente de la traducción simultánea por inteligencia artificial.",
             "image": [
-                "https://www.nubart.eu/assets/img/blog/expectations-ai-interpreters.webp"
+                "https://www.nubart.eu/assets/img/blog/expectations-ai-interpretation.webp"
             ],
             "author": {
                 "@type": "Person",
@@ -155,7 +155,7 @@
                     "name": "¿Por qué los glosarios muy largos pueden empeorar la traducción por IA?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Un glosario muy largo obliga a la IA a comprobar continuamente si cada palabra figura en el listado y resolver conflictos entre términos similares. Este proceso de computación adicional genera mayor latencia y peor resultado. Además, cuantas más reglas se proporcionen, menor es la flexibilidad de la IA al traducir, lo que puede resultar en construcciones forzadas y poco idiomáticas. Un idioma no funciona como una ecuación matemática que siempre obedece a las mismas reglas."
+                        "text": "Cuando la IA fuerza una traducción de glosario, altera el modelo de probabilidades para el resto de la frase. Además, los glosarios largos inevitablemente contienen términos ambiguos: palabras que deberían traducirse de forma diferente según el contexto, pero la mayoría de sistemas de glosarios no pueden manejar esta ambigüedad contextual. Simplemente aplican la primera traducción de la lista, o la última, o ignoran el término por completo. El resultado es impredecible: traducciones forzadas que están equivocadas la mitad del tiempo. Un glosario conciso con 15-20 términos clave mejora la traducción, pero un glosario exhaustivo con 200 términos la degrada."
                     }
                 },
                 {
@@ -198,7 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           content="Desde la perspectiva de una intérprete profesional: por qué exigimos a la IA la perfección que nunca pedimos a los humanos.">
     <meta name="twitter:site" content="@nub_art">
     <meta name="twitter:creator" content="@nub_art">
-    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/expectations-ai-interpreters.webp">
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/expectations-ai-interpretation.webp">
 
 
     <!-- hreflang -->
@@ -223,7 +223,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- OpenGraph for LinkedIn -->
 
     <meta property="og:title" content="Qué esperar de la interpretación por IA vs interpretación humana"/>
-    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/expectations-ai-interpreters.webp"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/expectations-ai-interpretation.webp"/>
     <meta property="og:author" content="Rosa Sala"/>
     <meta property="og:description"
           content="Desde la perspectiva de una intérprete profesional: por qué exigimos a la IA la perfección que nunca pedimos a los humanos.">
@@ -470,7 +470,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="col-md-7 nubart-blog">
 
                     <h1>Qué podemos esperar (y qué no) de la interpretación por IA frente a la interpretación humana</h1>
-                    <img src="../../assets/img/blog/expectations-ai-interpreters.webp" class="img-fluid"
+                    <img src="../../assets/img/blog/expectations-ai-interpretation.webp" class="img-fluid"
                          alt="Intérprete en cabina realizando interpretación simultánea durante una conferencia, con auriculares y micrófono."><br><br>
                     <p class="lead">
 
@@ -577,7 +577,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p>Como intérprete humana he memorizado durante días vocabularios enteros enviados por el cliente que finalmente apenas fueron utilizados. Cuando esos glosarios eran muy largos (200 términos específicos sobre una aplicación robótica de imprimación, por ejemplo) mi cerebro percibía todo eso como ruido cognitivo. Esos glosarios inflados que trataban de cubrir todas y cada una de las posibles casuísticas de un evento incrementaban sensiblemente mi nivel de estrés y mi sensación de trabajar encorsetada. Una lista breve de términos de alto impacto con un texto explicativo que me hubiera ayudado a comprender el contexto tecnológico habrían redundado en una interpretación mucho mejor. Ningún intérprete profesional utiliza más que un número limitado de términos activos en un momento dado. Más allá de eso, la preparación se vuelve contraproducente.</p>
 
-                    <p>En el caso de la inteligencia artificial, tenemos una situación sorprendentemente similar, aunque por razones diferentes. Los sistemas de traducción neuronal funcionan calculando probabilidades entre palabras: qué palabra suele aparecer junto a qué otra palabra. Cada vez que un glosario fuerza la traducción de un término específico, no solo cambia ese término—cambia las probabilidades de traducción de todas las demás palabras de la frase..</p>
+                    <p>Los sistemas de traducción neuronal funcionan calculando probabilidades entre palabras: qué palabra suele aparecer junto a qué otra palabra. Cada vez que un glosario fuerza la traducción de un término específico, no solo cambia ese término—cambia las probabilidades de traducción de todas las demás palabras de la frase. Esto lo confirma OneWord, empresa alemana especializada en optimización de traducción automática, que descubrió que "un glosario sobrecargado puede incluso conducir a más errores" debido a este efecto cascada en las probabilidades del sistema neuronal.
+                    </p>
 
                     <p>Un idioma no funciona como una ecuación matemática que siempre obedece las mismas reglas. Un cliente puede querer que traduzcamos "market-driven sustainability strategy" como "estrategia de sostenibilidad impulsada por el mercado". Pero lo que el ponente termina diciendo es "the tactic we use to be sustainable is always based on the impulses that the market has provided us." La misma idea, expresada de forma diferente.</p>
                     <p>Ahora la IA tiene que consultar el glosario, identificar que contiene una frase similar, pero no idéntica, y decidir si traducirla según las instrucciones o seguir literalmente la formulación del ponente. Pero aquí está el problema técnico: cuando la IA fuerza una traducción de glosario, altera el modelo de probabilidades para el resto de la frase. Es como cambiar una pieza en un dominó: las demás piezas también se mueven.</p>
