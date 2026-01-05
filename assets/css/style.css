@@ -1182,22 +1182,6 @@ section {
     animation: scrollLogos 25s linear infinite;
 }
 
-/* RTL Override - Reverse the entire container direction */
-.rtl .logo-scroll-container,
-html.rtl .logo-scroll-container {
-    /* Keep the same animation but reverse the flex direction */
-    flex-direction: row-reverse;
-    animation: scrollLogos 25s linear infinite !important;
-}
-
-/* Alternative RTL approach - if the above doesn't work */
-.rtl .logo-scroll-container.rtl-fix,
-html.rtl .logo-scroll-container.rtl-fix {
-    animation: scrollLogosRTL 25s linear infinite !important;
-    /* Adjust starting position for RTL */
-    transform: translateX(-50%);
-}
-
 .logo-row {
     display: flex;
     width: 50%;

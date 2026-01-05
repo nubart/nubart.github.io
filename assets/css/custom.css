@@ -349,8 +349,8 @@ a:focus {
 
 .clients {
     background: #85DDD3;
-    padding: 15px 0;
-    text-align: center;
+    padding: 40px 0;
+    overflow: hidden;
 }
 
 /*--------------------------------------------------------------
@@ -828,4 +828,72 @@ section {
         flex: 0 0 50%;
         max-width: 50%;
     }
+}
+
+/*--------------------------------------------------------------
+# Clients Carousel - Bootstrap 5 Carousel
+--------------------------------------------------------------*/
+
+/* Full-width container for clients section */
+#clients .container {
+    max-width: 100%;
+    padding: 0;
+}
+
+/* Carousel styling */
+#clientsCarousel {
+    padding: 20px 0;
+}
+
+/* Carousel items - add min-height */
+#clientsCarousel .carousel-item {
+    min-height: 200px;
+    padding: 20px 0;
+}
+
+/* Client logo container */
+.client-logo {
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+/* Client logo images */
+.client-logo img {
+    height: 160px;
+    width: auto;
+    max-width: 400px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.client-logo img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Bootstrap carousel indicators positioning */
+#clientsCarousel .carousel-indicators {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+/* Indicator button styling */
+#clientsCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: none;
+    opacity: 1;
+}
+
+#clientsCarousel .carousel-indicators button.active {
+    background-color: #007bff;
+}
+
+#clientsCarousel .carousel-indicators button:hover {
+    background-color: #0056b3;
 }
