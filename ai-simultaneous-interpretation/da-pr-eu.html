@@ -226,6 +226,8 @@
 
 <p>5.1. Nubart shall, to the extent legally permitted and taking into account the nature of the Processing, assist Customer by appropriate technical and organizational measures to fulfill Customer's obligation to respond to requests for exercising the Data Subject's rights (e.g., access, rectification, erasure).</p>
 
+<p>5.2. <strong>Operational Handling of Requests.</strong> Data Subjects (such as speakers or Customer admin users) shall exercise their rights (access, rectification, erasure, restriction, objection) primarily vis‑à‑vis the Customer as Controller. Upon the Customer's documented instruction (e.g., via support ticket or email), Nubart will, to the extent technically feasible and taking into account the Service design and the selected retention option, assist the Customer by querying, providing or deleting event‑related Personal Data associated with the relevant event(s) and by confirming completion of deletion within reasonable time. Due to the design of the Service, listener access is anonymous and Nubart cannot identify individual listeners; in such cases, Nubart's assistance is limited to deletion of event‑level Data upon the Customer's instruction.</p>
+
 <h2>6. PERSONAL DATA BREACH</h2>
 
 <p>6.1. Nubart shall notify Customer without undue delay (and in any event within 72 hours) after becoming aware of a Personal Data Breach affecting Customer's Personal Data.</p>
@@ -325,6 +327,24 @@
     <ul>
       <li>Timestamps, event identifiers, usage counters (e.g., minutes used per speaker), and similar operational logs.</li>
       <li>IP addresses of listeners and speakers are not collected or stored. Nubart may log IP addresses only for its own administrative access sessions for security monitoring and system integrity purposes.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Environment Separation</strong>:
+    <ul>
+      <li>Nubart maintains a separation between production and non‑production environments. Pre‑production and testing environments do not use live customer Personal Data. Customer Personal Data in production is stored in multi‑tenant databases with logical separation and strict access controls appropriate to Nubart's size and risk profile.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Vulnerability and Patch Management</strong>:
+    <ul>
+      <li>Nubart operates a lightweight patch and update management process appropriate to its size. Nubart subscribes to release and security notifications for operating systems, frameworks and third‑party libraries used by the Service and applies updates on a regular basis. Vulnerabilities rated as high or critical are prioritised and remediated as soon as reasonably possible, taking into account technical feasibility and impact on Service availability.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Network and Application‑Level Protections</strong>:
+    <ul>
+      <li>To protect the Service against abuse and common web attacks, Nubart applies application‑level rate limiting and monitoring of failed login attempts. Additional network‑ and application‑level protections, including Web Application Firewall (WAF) and DDoS mitigation, are provided by Nubart's cloud hosting platforms (such as Heroku and AWS) as part of their managed, certified infrastructure.</li>
     </ul>
   </li>
 </ol>

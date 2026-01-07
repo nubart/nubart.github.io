@@ -226,6 +226,8 @@
 
 <p>5.1. Nubart unterstützt den Kunden, soweit rechtlich zulässig und unter Berücksichtigung der Art der Verarbeitung, durch geeignete technische und organisatorische Maßnahmen bei der Erfüllung der Pflicht des Kunden, auf Anträge zur Ausübung der Rechte der betroffenen Person zu reagieren (z. B. Auskunft, Berichtigung, Löschung).</p>
 
+<p>5.2. <strong>Operationale Handhabung von Anträgen.</strong> Betroffene Personen (z. B. Sprecher oder Administratoren des Kunden) üben ihre Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung und Widerspruch in erster Linie gegenüber dem Kunden als Verantwortlichem aus. Auf dokumentierte Weisung des Kunden (z. B. per Support‑Ticket oder E‑Mail) unterstützt Nubart den Kunden – soweit dies technisch möglich ist und unter Berücksichtigung des Servicedesigns und der gewählten Aufbewahrungsoption – indem veranstaltungsbezogene personenbezogene Daten abgefragt, bereitgestellt oder gelöscht werden und der Abschluss der Löschung innerhalb einer angemessenen Frist bestätigt wird. Aufgrund des Servicedesigns ist der Zugang für Zuhörer anonym, sodass Nubart einzelne Zuhörer nicht identifizieren kann; in solchen Fällen beschränkt sich die Unterstützung von Nubart auf die Löschung von Daten auf Ebene der jeweiligen Veranstaltung nach Weisung des Kunden.</p>
+
 <h2>6. VERLETZUNG DES SCHUTZES PERSONENBEZOGENER DATEN</h2>
 
 <p>6.1. Nubart benachrichtigt den Kunden unverzüglich (und in jedem Fall innerhalb von 72 Stunden), nachdem Nubart Kenntnis von einer Verletzung des Schutzes personenbezogener Daten erlangt hat, die die personenbezogenen Daten des Kunden betrifft.</p>
@@ -325,6 +327,24 @@
     <ul>
       <li>Zeitstempel, Ereigniskennungen, Nutzungszähler (z. B. verwendete Minuten pro Sprecher) und ähnliche Betriebsprotokolle.</li>
       <li>IP-Adressen von Zuhörern und Sprechern werden nicht erfasst oder gespeichert. Nubart kann IP-Adressen nur für eigene administrative Zugriffssitzungen zur Sicherheitsüberwachung und Systemintegritätszwecke protokollieren.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Umgebungstrennung</strong>:
+    <ul>
+      <li>Nubart hält eine Trennung zwischen Produktions- und Nicht-Produktionsumgebungen aufrecht. Vorproduktions- und Testumgebungen verwenden keine echten personenbezogenen Kundendaten. Personenbezogene Kundendaten in der Produktion werden in mandantenfähigen Datenbanken mit logischer Trennung und strengen Zugangskontrollen gespeichert, die der Größe und dem Risikoprofil von Nubart angemessen sind.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Schwachstellen- und Patch-Management</strong>:
+    <ul>
+      <li>Nubart betreibt einen schlanken Patch- und Update-Management-Prozess, der seiner Größe angemessen ist. Nubart abonniert Release- und Sicherheitsbenachrichtigungen für Betriebssysteme, Frameworks und Drittanbieter-Bibliotheken, die vom Dienst verwendet werden, und wendet regelmäßig Updates an. Schwachstellen, die als hoch oder kritisch eingestuft werden, werden priorisiert und so schnell wie vernünftigerweise möglich behoben, unter Berücksichtigung der technischen Machbarkeit und der Auswirkungen auf die Dienstverfügbarkeit.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Netzwerk- und Anwendungsschutz</strong>:
+    <ul>
+      <li>Zum Schutz des Dienstes vor Missbrauch und gängigen Web-Angriffen wendet Nubart Ratenbegrenzung auf Anwendungsebene und Überwachung fehlgeschlagener Anmeldeversuche an. Zusätzliche Schutzmaßnahmen auf Netzwerk- und Anwendungsebene, einschließlich Web Application Firewall (WAF) und DDoS-Mitigation, werden von Nubarts Cloud-Hosting-Plattformen (wie Heroku und AWS) als Teil ihrer verwalteten, zertifizierten Infrastruktur bereitgestellt.</li>
     </ul>
   </li>
 </ol>

@@ -226,6 +226,9 @@
 
 <p>5.1. Nubart assistera le Client, dans la mesure où cela est légalement permis et compte tenu de la nature du Traitement, par des mesures techniques et organisationnelles appropriées pour remplir l'obligation du Client de répondre aux demandes d'exercice des droits de la Personne Concernée (par exemple, accès, rectification, effacement).</p>
 
+<p>5.2. <strong>Traitement Opérationnel des Demandes.</strong> Les Personnes Concernées (telles que les orateurs ou les utilisateurs administrateurs du Client) exercent leurs droits d’accès, de rectification, d’effacement, de limitation et d’opposition principalement auprès du Client, en sa qualité de Responsable du Traitement. Sur instruction documentée du Client (par exemple au moyen d’un ticket de support ou d’un e‑mail), Nubart assistera le Client, dans la mesure où cela est techniquement réalisable et compte tenu de la conception du Service et de l’option de conservation choisie, en consultant, fournissant ou supprimant les Données Personnelles relatives au(x) événement(s) concerné(s), et en confirmant, dans un délai raisonnable, la bonne exécution de la suppression. En raison de la conception du Service, l’accès des auditeurs est anonyme et Nubart n’est pas en mesure d’identifier des auditeurs individuels ; dans ce cas, l’assistance de Nubart se limite à la suppression des Données au niveau de l’événement, sur instruction du Client.
+</p>
+
 <h2>6. VIOLATION DE DONNÉES PERSONNELLES</h2>
 
 <p>6.1. Nubart notifiera le Client sans délai indu (et en tout état de cause dans les 72 heures) après avoir pris connaissance d'une Violation de Données Personnelles affectant les Données Personnelles du Client.</p>
@@ -325,6 +328,24 @@
     <ul>
       <li>Horodatages, identifiants d'événements, compteurs d'utilisation (par exemple, minutes utilisées par orateur) et journaux opérationnels similaires.</li>
       <li>Les adresses IP des auditeurs et des orateurs ne sont pas collectées ni stockées. Nubart peut enregistrer les adresses IP uniquement pour ses propres sessions d'accès administratif à des fins de surveillance de la sécurité et d'intégrité du système.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Séparation des Environnements</strong> :
+    <ul>
+      <li>Nubart maintient une séparation entre les environnements de production et de non-production. Les environnements de pré-production et de test n'utilisent pas de Données Personnelles réelles des clients. Les Données Personnelles des Clients en production sont stockées dans des bases de données multi-locataires avec séparation logique et contrôles d'accès stricts appropriés à la taille et au profil de risque de Nubart.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Gestion des Vulnérabilités et des Correctifs</strong> :
+    <ul>
+      <li>Nubart exploite un processus de gestion des correctifs et des mises à jour léger approprié à sa taille. Nubart s'abonne aux notifications de publication et de sécurité pour les systèmes d'exploitation, les frameworks et les bibliothèques tierces utilisés par le Service et applique les mises à jour régulièrement. Les vulnérabilités classées comme élevées ou critiques sont priorisées et corrigées dès que raisonnablement possible, en tenant compte de la faisabilité technique et de l'impact sur la disponibilité du Service.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Protections au Niveau du Réseau et de l'Application</strong> :
+    <ul>
+      <li>Pour protéger le Service contre les abus et les attaques web courantes, Nubart applique une limitation de débit au niveau de l'application et surveille les tentatives de connexion échouées. Des protections supplémentaires au niveau du réseau et de l'application, notamment le Web Application Firewall (WAF) et l'atténuation des DDoS, sont fournies par les plateformes d'hébergement cloud de Nubart (telles que Heroku et AWS) dans le cadre de leur infrastructure gérée et certifiée.</li>
     </ul>
   </li>
 </ol>

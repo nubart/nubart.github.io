@@ -226,6 +226,9 @@
 
 <p>5.1. Nubart asistirá al Cliente, en la medida en que sea legalmente permitido y teniendo en cuenta la naturaleza del Tratamiento, mediante medidas técnicas y organizativas apropiadas para cumplir con la obligación del Cliente de responder a las solicitudes para ejercer los derechos del Interesado (por ejemplo, acceso, rectificación, supresión).</p>
 
+<p>5.2. <strong>Gestión Operativa de Solicitudes.</strong> Los interesados (como ponentes o administradores del Cliente) ejercerán sus derechos de acceso, rectificación, supresión, limitación y oposición directamente ante el Cliente, como Responsable del Tratamiento. Nubart ayudará al Cliente cuando este se lo pida por escrito (por ejemplo, mediante un ticket de soporte o un correo electrónico). Esta ayuda consistirá, en la medida en que sea técnicamente posible y según el diseño del Servicio y la opción de retención elegida, en consultar, facilitar o borrar los Datos Personales del evento relacionados con el o los eventos indicados, y en confirmar al Cliente, en un plazo razonable, que el borrado se ha realizado. Debido al diseño del Servicio, el acceso de los oyentes es anónimo y Nubart no puede identificar a oyentes individuales; en estos casos, Nubart solo puede borrar Datos a nivel de evento, siempre siguiendo las instrucciones del Cliente.
+</p>
+
 <h2>6. VIOLACIÓN DE LA SEGURIDAD DE LOS DATOS PERSONALES</h2>
 
 <p>6.1. Nubart notificará al Cliente sin demora indebida (y en cualquier caso dentro de las 72 horas) después de tener conocimiento de una Violación de la Seguridad de los Datos Personales que afecte a los Datos Personales del Cliente.</p>
@@ -264,17 +267,17 @@
 
 <p><strong>Categorías de Interesados</strong>:</p>
 <ul>
-  <li>Oradores (Usuarios autorizados que entregan contenido).</li>
+  <li>ponentes (Usuarios autorizados que entregan contenido).</li>
   <li>Oyentes (Participantes anónimos que reciben contenido).</li>
   <li>Empleados/Contratistas del Cliente (Usuarios administradores).</li>
 </ul>
 
 <p><strong>Categorías de Datos Personales</strong>:</p>
 <ul>
-  <li><strong>Datos de Audio</strong>: Entrada de voz de oradores (Transitorio/Tiempo real).</li>
+  <li><strong>Datos de Audio</strong>: Entrada de voz de ponentes (Transitorio/Tiempo real).</li>
   <li><strong>Datos de Texto</strong>: Transcripciones, Traducciones, Preguntas Escritas (Q&A).</li>
-  <li><strong>Datos de Cuenta</strong>: Nombre, Correo electrónico, Contraseña (Cifrada) para Oradores/Administradores.</li>
-  <li><strong>Datos Técnicos y de Uso</strong>: Marcas de tiempo, identificadores de eventos, contadores de uso (por ejemplo, minutos utilizados por orador) y registros operativos similares. Las direcciones IP no se almacenan para oyentes u oradores; puede producirse un registro limitado de IP para el propio acceso administrativo y la supervisión de seguridad de Nubart.</li>
+  <li><strong>Datos de Cuenta</strong>: Nombre, Correo electrónico, Contraseña (Cifrada) para ponentes/Administradores.</li>
+  <li><strong>Datos Técnicos y de Uso</strong>: Marcas de tiempo, identificadores de eventos, contadores de uso (por ejemplo, minutos utilizados por el ponente) y registros operativos similares. Las direcciones IP no se almacenan para oyentes u ponentes; puede producirse un registro limitado de IP para el propio acceso administrativo y la supervisión de seguridad de Nubart.</li>
 </ul>
 
 <p><strong>Naturaleza del Procesamiento</strong>: Recopilación, grabación, transmisión, traducción (mediante IA), almacenamiento y eliminación con el fin de proporcionar servicios de traducción en tiempo real.</p>
@@ -323,8 +326,26 @@
   <li>
     <strong>Datos Técnicos y de Uso</strong>:
     <ul>
-      <li>Marcas de tiempo, identificadores de eventos, contadores de uso (por ejemplo, minutos utilizados por orador) y registros operativos similares.</li>
-      <li>Las direcciones IP de oyentes y oradores no se recopilan ni almacenan. Nubart puede registrar direcciones IP solo para sus propias sesiones de acceso administrativo con fines de supervisión de seguridad e integridad del sistema.</li>
+      <li>Marcas de tiempo, identificadores de eventos, contadores de uso (por ejemplo, minutos utilizados por el ponente) y registros operativos similares.</li>
+      <li>Las direcciones IP de oyentes y ponentes no se recopilan ni almacenan. Nubart puede registrar direcciones IP solo para sus propias sesiones de acceso administrativo con fines de supervisión de seguridad e integridad del sistema.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Separación de Entornos</strong>:
+    <ul>
+      <li>Nubart mantiene una separación entre entornos de producción y no producción. Los entornos de preproducción y pruebas no utilizan Datos Personales reales de clientes. Los Datos Personales de los Clientes en producción se almacenan en bases de datos multiinquilino con separación lógica y controles de acceso estrictos apropiados al tamaño y perfil de riesgo de Nubart.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Gestión de Vulnerabilidades y Parches</strong>:
+    <ul>
+      <li>Nubart opera un proceso ligero de gestión de parches y actualizaciones apropiado a su tamaño. Nubart se suscribe a notificaciones de lanzamiento y seguridad para sistemas operativos, frameworks y bibliotecas de terceros utilizados por el Servicio y aplica actualizaciones de forma regular. Las vulnerabilidades clasificadas como altas o críticas se priorizan y remedian tan pronto como sea razonablemente posible, teniendo en cuenta la viabilidad técnica y el impacto en la disponibilidad del Servicio.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Protecciones a Nivel de Red y Aplicación</strong>:
+    <ul>
+      <li>Para proteger el Servicio contra el abuso y ataques web comunes, Nubart aplica limitación de tasa a nivel de aplicación y monitoreo de intentos de inicio de sesión fallidos. Protecciones adicionales a nivel de red y aplicación, incluyendo Web Application Firewall (WAF) y mitigación de DDoS, son proporcionadas por las plataformas de alojamiento en la nube de Nubart (como Heroku y AWS) como parte de su infraestructura gestionada y certificada.</li>
     </ul>
   </li>
 </ol>
