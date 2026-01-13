@@ -180,6 +180,11 @@ html {
         align-items: center;
     }
 
+    /* Page 3 has section-boxes in center column instead of just images */
+    .center-column .section-box {
+        align-self: flex-start;  /* Prevents weird centering */
+    }
+
     /* Screen view - images in center column */
     .center-column .interface-image {
         max-width: 100%;
@@ -222,6 +227,13 @@ html {
     padding: 0;
     margin-left: 0;
     margin-right: 0;
+}
+
+/* Fix for center column with mixed content */
+.center-column .section-box {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .instructions-quick-reference h2 {
@@ -413,6 +425,33 @@ html {
 
     ul, ol, p {
         page-break-inside: avoid;
+    }
+
+
+/* Print view - inherits from screen layout */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 1cm;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    /* Hide site navigation/footer */
+    header, footer, nav, .header, .footer, .breadcrumbs {
+        display: none !important;
     }
 
     /* Instructions Quick Reference specific print styles */
