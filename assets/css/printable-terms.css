@@ -265,6 +265,13 @@ html {
     font-weight: 600;
 }
 
+.instructions-quick-reference h4 {
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+}
+
 .instructions-quick-reference p {
     font-size: 0.85rem;
     line-height: 1.3;
@@ -280,6 +287,37 @@ html {
 
 .instructions-quick-reference li {
     margin-bottom: 0.2rem;
+}
+
+.instructions-quick-reference table {
+    width: 100%;
+    font-size: 0.85rem;
+    border-collapse: collapse;
+    margin-bottom: 0.5rem;
+}
+
+.instructions-quick-reference th,
+.instructions-quick-reference td {
+    padding: 0.25rem 0.4rem;
+    border: 1px solid #dee2e6;
+    text-align: left;
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+.instructions-quick-reference th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #00a7b5;
+}
+
+.instructions-quick-reference td ul {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.instructions-quick-reference td li {
+    margin-bottom: 0.1rem;
 }
 
 /* Instruction pages - screen view */
@@ -527,6 +565,12 @@ html {
         page-break-after: avoid;
     }
 
+    .instructions-quick-reference h4 {
+        font-size: 7pt;
+        margin: 0.1cm 0 0.06cm 0;
+        page-break-after: avoid;
+    }
+
     .instructions-quick-reference p,
     .instructions-quick-reference li {
         font-size: 6.5pt;
@@ -562,5 +606,36 @@ html {
     .section-box {
         page-break-inside: avoid;
         margin-bottom: 0.25cm;
+    }
+
+    .instructions-quick-reference table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 0.15cm;
+        page-break-inside: avoid;
+    }
+
+    .instructions-quick-reference th,
+    .instructions-quick-reference td {
+        padding: 0.08cm 0.15cm;
+        border: 0.5pt solid #dee2e6;
+        text-align: left;
+        font-size: 6pt;
+        line-height: 1.15;
+    }
+
+    .instructions-quick-reference th {
+        background-color: #f8f9fa !important;
+        font-weight: 600;
+        color: #00a7b5;
+    }
+
+    .instructions-quick-reference td ul {
+        margin: 0;
+        padding-left: 0.3cm;
+    }
+
+    .instructions-quick-reference td li {
+        margin-bottom: 0.03cm;
     }
 }
