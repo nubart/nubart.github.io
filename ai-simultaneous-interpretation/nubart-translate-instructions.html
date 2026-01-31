@@ -57,16 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="instructions-grid">
         <!-- LEFT COLUMN -->
         <div class="left-column">
-            <div class="section-box">
-                <h2>Understanding the System</h2>
-                <p><strong>Nubart TRANSLATE works in three steps:</strong></p>
-                <ol>
-                    <li><strong>Speech-to-text</strong> (transcription)</li>
-                    <li><strong>Text-to-text</strong> (translation text)</li>
-                    <li><strong>Text-to-speech</strong> (translation audio)</li>
-                </ol>
-                <p><strong>This means:</strong> Poor audio input = poor transcription = poor translation</p>
-            </div>
+
 
             <div class="section-box">
                 <h2>Critical Success Factor</h2>
@@ -117,6 +108,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <p>Ensure your router can handle simultaneous device connections.</p>
             </div>
+            <div class="section-box">
+                <h2>How Nubart Optimizes Translation for Your Event</h2>
+
+                <p><strong>During purchase, we request:</strong></p>
+                <ul>
+                    <li>Context documents (event agendas, technical papers, patents, manuals)</li>
+                    <li>Speaker names and languages</li>
+                    <li>Any written materials related to the event subject</li>
+                </ul>
+
+                <p><strong>What we do with these materials:</strong></p>
+                <ol>
+                    <li><strong>AI-powered extraction:</strong> We use AI to analyze documents and extract a 3-page summary containing the most relevant technical terminology in natural language context</li>
+                    <li><strong>Multi-language preparation:</strong> We translate this context summary into your event's target languages</li>
+                    <li><strong>Context feeding:</strong> The AI receives this contextual information (similar to briefing a human interpreter)</li>
+                    <li><strong>Internal testing:</strong> We read documents aloud through Nubart TRANSLATE to identify terms the AI doesn't recognize, then address them specifically</li>
+                </ol>
+
+                <div class="alert alert-info">
+                    <strong>Why context documents work better than glossaries:</strong> AI-extracted context from real documents captures terminology in natural usage patterns. This produces better results than standalone term lists, which often contain common words AI already knows while missing truly unique terminology.
+                </div>
+            </div>
+
         </div>
 
         <!-- CENTER COLUMN -->
@@ -306,12 +320,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <li><strong>Recommended:</strong> Delete after answering</li>
                 </ul>
 
-                <h3>If Speaker Device Not Visible to You:</h3>
-                <ol>
-                    <li>Create second "Guide and Translate" account</li>
-                    <li>Place second device where you can see it</li>
-                    <li><strong>IMPORTANT:</strong> Keep mic muted on this device</li>
-                </ol>
+
             </div>
         </div>
 
@@ -371,22 +380,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p>Tap <strong>"Disconnect"</strong> <strong style="color: red;">(9)</strong> to exit translation.</p>
             </div>
 
-            <div class="section-box">
-                <h2>Setup to Receive Questions</h2>
-                <p><strong>If the speaker device is out of the speaker's reach</strong> (e.g., in sound booth):</p>
-                
-                <ol>
-                    <li>Go to "Employees" tab in customer area</li>
-                    <li>Click "Invite employee"</li>
-                    <li>Assign name and email address</li>
-                    <li>Click link from nub.art and assign password</li>
-                    <li>Log in to device for questions</li>
-                    <li>Place in full view of speaker</li>
-                    <li><strong>IMPORTANT:</strong> Mute microphone on this device</li>
-                </ol>
 
-                <p><small>If you prefer not to have audience questions, contact us to disable this feature.</small></p>
-            </div>
         </div>
     </div>
     </section>
@@ -691,6 +685,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </ul>
             </div>
 
+
+        </div>
+
+        <div class="center-column">
             <div class="section-box">
                 <h2>Problem: "Translation repeats sentences"</h2>
 
@@ -708,10 +706,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <li>Reduce listener device volume</li>
                 </ul>
             </div>
-
-        </div>
-
-        <div class="center-column">
 
 
             <div class="section-box">
@@ -768,28 +762,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <li>Check microphone on this device is MUTED</li>
                 </ul>
             </div>
-            <div class="section-box">
-                <h2>Network Issues</h2>
 
-                <h3>Symptom: Connection drops or freezes</h3>
-
-                <h4>Possible Causes:</h4>
-                <ul>
-                    <li>Network blocks WebSocket connections (WSS)</li>
-                    <li>Insufficient bandwidth for event size</li>
-                    <li>Too many devices on same network</li>
-                    <li>Wi-Fi signal weak at speaker/listener location</li>
-                </ul>
-
-                <h4>Solutions:</h4>
-                <ul>
-                    <li>Verify network supports WSS protocol (check with IT)</li>
-                    <li>Use wired connection for speaker device if possible</li>
-                    <li>Move closer to Wi-Fi router</li>
-                    <li>Reduce number of active devices on network</li>
-                    <li>Upgrade internet plan for event day</li>
-                </ul>
-            </div>
         </div>
 
         <div class="right-column">
@@ -937,7 +910,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
         <div class="center-column">
+            <div class="section-box">
+                <h2>Speaker Device Out of Reach</h2>
 
+                <h3>Scenario: Device sending audio is not where speaker can see it</h3>
+                <p><strong>Example:</strong> Laptop connected to sound system is in a booth or back-of-room, but speaker is on stage.</p>
+
+                <h3>Problem:</h3>
+                <p>Speaker can't see incoming audience questions.</p>
+
+                <h3>Solution: Create Second "Guide and Translate" Account</h3>
+
+                <p><strong>Setup steps:</strong></p>
+                <ol>
+                    <li>Go to "Employees" tab in Customer Area</li>
+                    <li>Click "Invite employee"</li>
+                    <li>Assign a name (e.g., "Speaker Monitor - Room A") and email</li>
+                    <li>Complete invitation process to activate account</li>
+                    <li>Log in to new account on second device (tablet/phone)</li>
+                    <li><strong>Open the Questions panel</strong>  <strong style="color: green;">(3)</strong> so questions are visible as they arrive</li>
+                    <li>Place this device in speaker's view (on podium/table)</li>
+                </ol>
+
+                <div class="alert alert-danger">
+                    <strong>⚠️ CRITICAL:</strong> Keep microphone <strong>MUTED</strong> on the second device at all times!
+                </div>
+
+                <p><strong>What speaker sees on second device:</strong></p>
+                <ul>
+                    <li>Incoming audience questions (translated into speaker's language)</li>
+                    <li>Questions appear automatically as listeners submit them</li>
+                </ul>
+
+                <p><strong>What speaker can do:</strong></p>
+                <ul>
+                    <li>Read questions as they arrive (no touching required)</li>
+                    <li>Remove questions already answered (click X on question)</li>
+                </ul>
+
+                <p><strong>Primary device responsibilities (sound technician in booth):</strong></p>
+                <ul>
+                    <li>Handles audio transmission</li>
+                    <li>Monitors Audio Quality Indicator (keep green)</li>
+                    <li>Adjusts audio settings if quality drops</li>
+                </ul>
+
+                <div class="alert alert-info">
+                    <strong>Note:</strong> If you lack admin permissions to create employee accounts, contact Nubart support at info@nubart.eu. We can also disable audience questions completely.
+                </div>
+            </div>
 
             <div class="section-box">
                 <h2>Panel Discussions / Multiple Speakers</h2>
@@ -1026,213 +1047,213 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
     </section>
 
-<!-- PAGE 6: MANAGING EXPECTATIONS -->
+
+    <!-- PAGE 6: MANAGING EXPECTATIONS -->
     <section class="instruction-page">
-    <h1>What to Expect from AI Translation</h1>
-    
-    <div class="instructions-grid">
-        <div class="left-column">
-            <div class="section-box">
-                <h2>Realistic Expectations</h2>
-                
-                <p><strong>Nubart TRANSLATE provides professional-grade simultaneous interpretation comparable to experienced human interpreters.</strong></p>
+        <h1>What to Expect from AI Translation</h1>
 
-                <div class="alert alert-info">
-                    <strong>However, AI translation is NOT:</strong>
+        <div class="instructions-grid">
+            <div class="left-column">
+                <div class="section-box">
+                    <h2>Professional Excellence, Not Perfection</h2>
+                    <p><strong>Nubart TRANSLATE provides professional-grade simultaneous interpretation comparable to experienced human interpreters (85-95% accuracy range).</strong></p>
+
+                    <div class="alert alert-info">
+                        <strong>AI translation is NOT:</strong>
+                        <ul>
+                            <li>Mathematical certainty (language is subjective)</li>
+                            <li>Perfect like document translation (DeepL/ChatGPT)</li>
+                            <li>Infinitely customizable through glossaries</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <h2>Simultaneous ≠ Document Translation</h2>
+
+                    <table>
+                        <tr>
+                            <th>Document Translation<br>(DeepL, ChatGPT)</th>
+                            <th>Simultaneous Interpretation<br>(Nubart TRANSLATE)</th>
+                        </tr>
+                        <tr>
+                            <td>Complete texts, knows sentence endings</td>
+                            <td>Live, doesn't know how sentence continues</td>
+                        </tr>
+                        <tr>
+                            <td>Perfect text input</td>
+                            <td>Must transcribe speech first (accents, noise)</td>
+                        </tr>
+                        <tr>
+                            <td>No time pressure</td>
+                            <td>Immediate delivery required</td>
+                        </tr>
+                    </table>
+
+                    <div class="alert alert-warning">
+                        <strong>Double Challenge:</strong> AI must first convert speech to text (with accents, noise, imperfect mics), THEN translate.
+
+                    <strong>The analogy:</strong> Comparing simultaneous interpretation with document translation is like comparing a live broadcast with a studio-edited video. Both can be excellent, but they play by completely different rules.
+                    </div>
+                    <div class="alert alert-success">
+                        <strong>How Nubart Helps:</strong> We analyze your event's context documents (agendas, technical papers, manuals) using AI to extract relevant terminology in natural language. This context is translated and fed to the system—like briefing a human interpreter. See Page 1 for details.
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <h2>AI vs. Human Interpreters</h2>
+
+                    <table>
+                        <tr>
+                            <th>AI Advantages</th>
+                            <th>AI Challenges</th>
+                        </tr>
+                        <tr>
+                            <td>✅ Superhuman memory (terminology, figures)</td>
+                            <td>❌ Background voice separation</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Never fatigued</td>
+                            <td>❌ Too precise (replicates errors)</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Instant availability</td>
+                            <td>❌ Punctuation placement</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Unlimited scalability</td>
+                            <td>❌ Doesn't smooth speech</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Fraction of cost </td>
+                            <td>❌ Language mixing (code-switching)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>❌ Foreign name pronunciation (TTS)</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+            </div>
+
+            <div class="center-column">
+                <div class="section-box">
+                    <h2>Three Common Limitations</h2>
+
+                    <h3>1. Language Mixing (Code-Switching)</h3>
+                    <p><strong>Scenario:</strong> German speaker uses English terms ("customer journey," "machine learning").</p>
+                    <p><strong>Problem:</strong> AI set to German doesn't know if these are loan words (keep in English) or need translation.</p>
+                    <p><strong>Solution:</strong> If you know speakers will use specific English terms, mention these in your context documents. Brief speakers to stay consistent; use "Change language" button for full sections.</p>
+
+                    <h3>2. TTS Pronunciation of Foreign Names</h3>
+                    <p><strong>Example:</strong> German "Fraunhofer" → Text ✅ correct → English TTS voice ❌ "Frown-hoffer"</p>
+                    <p><strong>May affect:</strong> Company names (BMW, Siemens), people (François, Müller), places (München, København)</p>
+                    <p><strong>Why:</strong> TTS uses target language phonetic rules, doesn't auto-switch for foreign names.</p>
+                    <p><strong>Solution:</strong> Inform listeners text is accurate; recommend text-only mode for events with many foreign names.</p>
+
+                    <h3>3. External Conditions Impact Quality</h3>
+                    <table>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Impact</th>
+                        </tr>
+                        <tr>
+                            <td>Audio clarity/volume</td>
+                            <td>🔴 High</td>
+                        </tr>
+                        <tr>
+                            <td>Environmental noise</td>
+                            <td>🔴 High</td>
+                        </tr>
+                        <tr>
+                            <td>Room acoustics</td>
+                            <td>🔴 High</td>
+                        </tr>
+                        <tr>
+                            <td>Speaker pace/articulation</td>
+                            <td>🟡 Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Internet quality</td>
+                            <td>🟡 Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Speaker accent</td>
+                            <td>🟡 Low-Med</td>
+                        </tr>
+                    </table>
+
+                    <div class="alert alert-warning">
+                        <strong>AI is not magic.</strong> Requires optimal input conditions like human interpreters need good equipment and booth isolation.
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section-box">
+                    <h2>When AI Works Best</h2>
                     <ul>
-                        <li>❌ Mathematical certainty (language is subjective)</li>
-                        <li>❌ Perfect under all conditions (neither are humans)</li>
-                        <li>❌ Infinitely customizable through glossaries</li>
+                        <li>✅ Technical presentations (specialized vocabulary)</li>
+                        <li>✅ Business conferences (standard terminology)</li>
+                        <li>✅ Academic lectures (well-defined fields)</li>
+                        <li>✅ Product demos (clear structure)</li>
+                        <li>✅ Panel discussions (prepared speakers)</li>
                     </ul>
                 </div>
-            </div>
 
-            <div class="section-box">
-                <h2>Where AI Excels vs. Human Interpreters</h2>
-                
-                <h3>AI Advantages:</h3>
-                <ul>
-                    <li>✅ Superhuman memory for technical terminology</li>
-                    <li>✅ Excellent with lists of figures</li>
-                    <li>✅ Never fatigued</li>
-                    <li>✅ Instantly available</li>
-                    <li>✅ Unlimited scalability</li>
-                    <li>✅ Fraction of cost (humans: ~€500/day)</li>
-                </ul>
-
-                <h3>AI Challenges (vs. skilled humans):</h3>
-                <ul>
-                    <li>Sometimes struggles to distinguish speaker voice from background</li>
-                    <li>Can be "too precise" (replicates speaker errors)</li>
-                    <li>May struggle with punctuation placement</li>
-                    <li>Doesn't smooth or summarize redundant speech</li>
-                </ul>
-            </div>
-
-            <div class="section-box">
-                <h2>Professional Excellence, Not Perfection</h2>
-                
-                <p><strong>Both human and AI interpretation achieve professional excellence, not perfection.</strong></p>
-
-                <p>A human interpreter translating in writing, at home, with resources and time, might achieve near-perfect accuracy. That same interpreter working in real-time achieves 75-85% of that theoretical perfect translation.</p>
-
-                <p><strong>AI operates in the same professional range</strong> with different error patterns than humans.</p>
-            </div>
-        </div>
-
-        <div class="center-column">
-            <div class="section-box">
-                <h2>Subject to External Conditions</h2>
-                
-                <p><strong>Like human interpreters, AI translation quality depends on:</strong></p>
-                
-                <table>
-                    <tr>
-                        <th>Factor</th>
-                        <th>Impact</th>
-                    </tr>
-                    <tr>
-                        <td>Audio clarity</td>
-                        <td>High impact</td>
-                    </tr>
-                    <tr>
-                        <td>Audio volume</td>
-                        <td>High impact</td>
-                    </tr>
-                    <tr>
-                        <td>Speaker pace</td>
-                        <td>Medium impact</td>
-                    </tr>
-                    <tr>
-                        <td>Speaker articulation</td>
-                        <td>Medium impact</td>
-                    </tr>
-                    <tr>
-                        <td>Speaker accent</td>
-                        <td>Low-medium impact</td>
-                    </tr>
-                    <tr>
-                        <td>Internet quality</td>
-                        <td>Medium impact</td>
-                    </tr>
-                    <tr>
-                        <td>Environmental noise</td>
-                        <td>High impact</td>
-                    </tr>
-                    <tr>
-                        <td>Room acoustics</td>
-                        <td>High impact</td>
-                    </tr>
-                </table>
-
-                <div class="alert alert-warning">
-                    <strong>AI is not magic.</strong> It requires optimal input conditions just as human interpreters need good equipment, booth isolation, and clear delivery.
-                </div>
-            </div>
-
-            <div class="section-box">
-                <h2>Managing Glossaries Realistically</h2>
-                
-                <p><strong>Think of glossaries or context information like briefing a human interpreter:</strong></p>
-                
-                <ul>
-                    <li>✅ A 15-page briefing document: Helpful</li>
-                    <li>❌ A 200-page technical manual: Cognitive overload, counterproductive</li>
-                </ul>
-
-                <h3>Why Long Glossaries Backfire:</h3>
-                <p><strong>Neural translation works by probability models.</strong> Forcing one term changes probabilities for entire sentence. Force 50 terms = cascading errors.</p>
-
-                <h3>Best Practice:</h3>
-                <div class="alert alert-success">
-                    <strong>15-20 high-impact terms only</strong>
+                <div class="section-box">
+                    <h2>Challenging Scenarios</h2>
                     <ul>
-                        <li>Company/product names</li>
-                        <li>Sector-specific acronyms</li>
-                        <li>Truly unique terminology</li>
+                        <li>❌ Highly colloquial language (idioms/slang)</li>
+                        <li>❌ Rapid-fire dialogue (interruptions)</li>
+                        <li>❌ Poetry or wordplay</li>
+                        <li>❌ Poor audio (echo, noise, low volume)</li>
+                        <li>❌ Language mixing within sentences</li>
+                    </ul>
+                    <p><small><strong>Note:</strong> Human interpreters also struggle with these—not AI-specific.</small></p>
+                </div>
+
+                <div class="section-box">
+                    <h2>Setting Attendee Expectations</h2>
+
+                    <p><strong>Communicate in pre-event materials:</strong></p>
+                    <ul>
+                        <li>✅ "AI-powered real-time translation available"</li>
+                        <li>✅ "Quality comparable to professional interpreters"</li>
+                        <li>✅ "Bring headphones for best experience"</li>
+                        <li>✅ "35+ languages available"</li>
+                    </ul>
+
+                    <p><strong>Don't promise:</strong></p>
+                    <ul>
+                        <li>❌ "100% accurate translation"</li>
+                        <li>❌ "Perfect voice reproduction"</li>
+                        <li>❌ "Zero delay"</li>
                     </ul>
                 </div>
 
-                <h3>Don't Include:</h3>
-                <ul>
-                    <li>Common technical terms AI already knows</li>
-                    <li>Terms with multiple contextual meanings</li>
-                    <li>Stylistic preferences for correct translations</li>
-                </ul>
-            </div>
-        </div>
+                <div class="section-box">
+                    <h2>The Revolution</h2>
 
-        <div class="right-column">
-            <div class="section-box">
-                <h2>When AI Translation Works Best</h2>
-                
-                <ul>
-                    <li><strong>Technical presentations</strong> with specialized vocabulary</li>
-                    <li><strong>Business conferences</strong> with standard terminology</li>
-                    <li><strong>Academic lectures</strong> in well-defined fields</li>
-                    <li><strong>Product demonstrations</strong> with clear structure</li>
-                    <li><strong>Panel discussions</strong> with prepared speakers</li>
-                </ul>
-            </div>
+                    <p><strong>Technology has democratized professional interpretation.</strong> Events of any size can offer multilingual access at a fraction of traditional cost.</p>
 
-            <div class="section-box">
-                <h2>Challenging Scenarios for AI</h2>
-                
-                <ul>
-                    <li><strong>Highly colloquial language</strong> with idioms and slang</li>
-                    <li><strong>Rapid-fire dialogue</strong> with speaker interruptions</li>
-                    <li><strong>Poetry or wordplay</strong> relying on linguistic creativity</li>
-                    <li><strong>Heavily accented speech</strong> (though AI handles most accents well)</li>
-                    <li><strong>Poor audio conditions</strong> (echo, noise, low volume)</li>
-                </ul>
+                    <p><strong>AI improves rapidly:</strong></p>
+                    <ul>
+                        <li>Better accent recognition</li>
+                        <li>Improved contextual understanding</li>
+                        <li>More natural voice synthesis</li>
+                        <li>Faster processing, lower latency</li>
+                    </ul>
 
-                <div class="alert alert-info">
-                    <strong>Note:</strong> Human interpreters also struggle with these scenarios. They're not AI-specific limitations.
-                </div>
-            </div>
-
-            <div class="section-box">
-                <h2>Setting Event Attendee Expectations</h2>
-                
-                <h3>Recommend communicating to attendees:</h3>
-                
-                <p><strong>In pre-event materials:</strong></p>
-                <ul>
-                    <li>"AI-powered real-time translation will be available"</li>
-                    <li>"Translation quality is comparable to professional human interpreters"</li>
-                    <li>"All attendees should bring headphones for best experience"</li>
-                    <li>"Translation available in 35+ languages"</li>
-                </ul>
-
-                <p><strong>Don't promise:</strong></p>
-                <ul>
-                    <li>❌ "100% accurate translation"</li>
-                    <li>❌ "Perfect reproduction of speaker's voice"</li>
-                    <li>❌ "Zero delay"</li>
-                </ul>
-            </div>
-
-            <div class="section-box">
-                <h2>Technology is Constantly Improving</h2>
-                
-                <p>AI translation technology improves rapidly. What seems challenging today may work flawlessly next year.</p>
-
-                <p><strong>Current improvements underway:</strong></p>
-                <ul>
-                    <li>Better accent recognition</li>
-                    <li>Improved contextual understanding</li>
-                    <li>More natural voice synthesis</li>
-                    <li>Faster processing with lower latency</li>
-                </ul>
-
-                <div class="alert alert-success">
-                    <strong>The Revolution:</strong> Technology has democratized professional interpretation. Events of any size can now offer multilingual access at a fraction of traditional cost.
+                    <div class="alert alert-success">
+                        What seems challenging today may work flawlessly next year.
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </section>
-
 <!-- PAGE 7: FINAL CHECKLIST -->
     <section class="instruction-page">
     <h1>Final Checklist & Contact</h1>
@@ -1298,7 +1319,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <br><small>→ Causes feedback loops and poor audio</small>
                     </li>
                     <li><strong>Submitting 100+ term glossary</strong>
-                        <br><small>→ Keep to 15-20 high-impact terms</small>
+                        <br><small>→ Provide good written context information</small>
                     </li>
                     <li><strong>Ignoring Audio Quality Indicator</strong>
                         <br><small>→ Must stay green throughout event</small>
