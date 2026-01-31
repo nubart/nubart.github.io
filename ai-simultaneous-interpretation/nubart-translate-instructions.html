@@ -62,19 +62,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="section-box">
                 <h2>Critical Success Factor</h2>
                 <h3>Audio Quality Determines Everything</h3>
-                <p><strong>Event technicians optimize audio for:</strong></p>
-                <ul>
-                    <li>PA system (room speakers)</li>
-                    <li>Recording quality</li>
-                    <li>Broadcast mixing</li>
-                </ul>
+
                 
-                <p><strong>Nubart TRANSLATE requires different optimization:</strong></p>
+                <p><strong>Nubart TRANSLATE requires:</strong></p>
                 <ul>
                     <li>Clean, isolated speech signal</li>
-                    <li>No room echo or background voices</li>
+                    <li>No background voices</li>
                     <li>No feedback from translated audio</li>
-                    <li>Consistent volume levels</li>
+                    <li>Consistent volume levels with no distortion</li>
+                    <li>Clear voice signal without bass enhancement (which degrades AI transcription)</li>
+
                 </ul>
 
 
@@ -114,14 +111,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p><strong>During purchase, we request:</strong></p>
                 <ul>
                     <li>Context documents (event agendas, technical papers, patents, manuals)</li>
-                    <li>Speaker names and languages</li>
+                    <li>Speaker names</li>
+                    <li>Which language(s) will be <strong>spoken</strong> during the event (not listener translation languages)</li>
                     <li>Any written materials related to the event subject</li>
                 </ul>
 
                 <p><strong>What we do with these materials:</strong></p>
                 <ol>
                     <li><strong>AI-powered extraction:</strong> We use AI to analyze documents and extract a 3-page summary containing the most relevant technical terminology in natural language context</li>
-                    <li><strong>Multi-language preparation:</strong> We translate this context summary into your event's target languages</li>
+                    <li><strong>Multi-language preparation:</strong> We translate this context summary into your event's speakers' languages</li>
                     <li><strong>Context feeding:</strong> The AI receives this contextual information (similar to briefing a human interpreter)</li>
                     <li><strong>Internal testing:</strong> We read documents aloud through Nubart TRANSLATE to identify terms the AI doesn't recognize, then address them specifically</li>
                 </ol>
@@ -173,7 +171,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <h3>1️⃣ Professional Event Routing (STRONGLY RECOMMENDED)</h3>
                 <ul>
                     <li><strong>Line/Aux output</strong> from PA/mixing console into speaker device, OR</li>
-                    <li><strong>Y-splitter on microphone:</strong> One feed to PA, one to Nubart device</li>
+
                 </ul>
 
                 <h3>2️⃣ Quality External Microphone</h3>
@@ -197,13 +195,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div class="section-box">
                 <h2>1️⃣ Spectrum Display <strong style="color: green;">(1)</strong></h2>
-                <p><strong>Secondary diagnostic tool on speaker interface:</strong></p>
                 <ul>
                     <li>Shows audio signal like HiFi equipment</li>
                     <li>High tones right, bass tones left</li>
                     <li>Spectrum bars move when mic receives sound</li>
                 </ul>
-
                 <h3>Diagnostic Use:</h3>
                 <table>
                     <tr>
@@ -219,14 +215,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td>Signal too weak, increase volume</td>
                     </tr>
                     <tr>
-                        <td>Red vertical bars</td>
-                        <td>Signal distorted, reduce volume</td>
+                        <td>Red bars across all frequencies</td>
+                        <td>Overall signal too strong, reduce input volume</td>
+                    </tr>
+                    <tr>
+                        <td>Red bars only in specific frequencies</td>
+                        <td>Use equalizer to reduce those frequencies (lowering overall volume may weaken signal for transcription)</td>
                     </tr>
                 </table>
             </div>
             <div class="section-box">
                 <h2>2️⃣ Audio Quality Indicator <strong style="color: green;">(5)</strong></h2>
-                <p><strong>Your primary diagnostic tool on the speaker interface:</strong></p>
+
 
                 <div>
                     <p>🟢 <strong>Green (80%+)</strong> - Good quality</p>
@@ -778,7 +778,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <li>Restart browser/app</li>
                     <li>Clear browser cache and cookies</li>
                     <li>Update browser to latest version</li>
-                    <li>Try different browser (Chrome, Firefox, Safari, Edge)</li>
+                    <li>Try different browser (Chrome, Firefox, Safari)</li>
                     <li>Restart device</li>
                     <li>Close other apps consuming resources</li>
                 </ul>
@@ -1406,7 +1406,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p style="text-align: center; margin-top: 20px;">
                     <strong>Nubart TRANSLATE</strong><br>
                     Real-time AI-powered interpretation for events<br>
-                    <small>www.nubart.eu | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="563f38303916382334372422783323">[email&#160;protected]</a></small>
+                    <small>www.nubart.eu | <a href="mailto:info@nubart.eu">info@nubart.eu</a></small>
                 </p>
             </div>
         </div>
