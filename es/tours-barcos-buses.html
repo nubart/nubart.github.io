@@ -5,40 +5,29 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Organización -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "@id": "https://www.nubart.eu/es/#organization",
-            "name": "Nubart",
-            "url": "https://www.nubart.eu/es/",
-            "inLanguage": "es"
-        }
-    </script>
-
-    <!-- Servicio Nubart MOTION -->
+    <!-- Service: Nubart TRANSLATE -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://www.nubart.eu/es/tours-barcos-buses.html#motionservice",
-            "name": "Nubart MOTION – Sistemas de comentarios para pasajeros",
-            "description": "Solución integral de audiocomentarios multilingües para operadores turísticos: activación automática por GPS, control manual o automático a distancia, activación secuencial por tiempo y traducción en vivo con IA para guías humanos. Todo mediante QR, sin apps ni hardware especial.",
-            "image": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "@id": "https://www.nubart.eu/audio-commentary-system/#translate",
+            "name": "Nubart TRANSLATE",
+            "description": "Sistema de traducción en tiempo real con IA para guías turísticos. Los guías hablan con naturalidad mientras los pasajeros reciben la traducción instantánea en su idioma preferido en el smartphone, sin apps ni dispositivos adicionales.",
+            "mainEntityOfPage": "https://www.nubart.eu/es/tours-barcos-buses.html",
+            "image": "https://www.nubart.eu/assets/img/motion/motion-translate.webp",
             "provider": {
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization"
             },
-            "serviceType": "Sistema de audiocomentarios",
+            "serviceType": "Live Guide Translation System",
             "areaServed": [
                 {
                     "@type": "Place",
-                    "name": "Europa"
+                    "name": "Europe"
                 },
                 {
                     "@type": "Place",
-                    "name": "Norteamérica"
+                    "name": "North America"
                 },
                 {
                     "@type": "Place",
@@ -47,58 +36,239 @@
             ],
             "audience": {
                 "@type": "BusinessAudience",
-                "audienceType": [
-                    "Operadores turísticos",
-                    "Empresas de cruceros fluviales",
-                    "Operadores de autobuses turísticos",
-                    "Operadores de barcos turísticos",
-                    "Trenes turísticos urbanos"
-                ]
+                "audienceType": ["Tour Operators", "River Cruise Companies", "Sightseeing Bus Operators", "Boat Tour Providers"]
             },
-            "hasPart": [
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+            },
+            "additionalProperty": [
                 {
-                    "@type": "Service",
-                    "name": "Nubart TRANSLATE",
-                    "description": "Traducción simultánea con IA para guías, comunicación fluida en varios idiomas"
+                    "@type": "PropertyValue",
+                    "name": "Traducción IA en tiempo real",
+                    "value": "35 idiomas con audio y texto instantáneos"
                 },
                 {
-                    "@type": "Service",
-                    "name": "Nubart MOTION",
-                    "description": "Audioguías automáticas multilingües con activación flexible: GPS, control remoto manual, control automático y activación por tiempo"
+                    "@type": "PropertyValue",
+                    "name": "Modelo de precios",
+                    "value": "Licencia mensual personalizada según la operación, sin coste por pasajero"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Método de acceso",
+                    "value": "Código QR, sin descarga de apps"
+                }
+            ]
+        }
+    </script>
+
+    <!-- Service: Nubart MOTION -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/audio-commentary-system/#motion",
+            "name": "Nubart MOTION",
+            "description": "Sistema automatizado de audioguías multilingües para vehículos turísticos con métodos de activación flexibles: GPS, control remoto manual, control remoto automático mediante dispositivo maestro y activación secuencial temporizada. Funcionalidad offline mediante precarga de contenidos.",
+            "mainEntityOfPage": "https://www.nubart.eu/es/tours-barcos-buses.html",
+            "image": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "provider": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "serviceType": "Automated Audio Tour System",
+            "areaServed": [
+                {
+                    "@type": "Place",
+                    "name": "Europe"
+                },
+                {
+                    "@type": "Place",
+                    "name": "North America"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Australia"
                 }
             ],
+            "audience": {
+                "@type": "BusinessAudience",
+                "audienceType": ["Tour Operators", "River Cruise Companies", "Sightseeing Bus Operators", "Boat Tour Providers", "City Tour Train Operators"]
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+            },
             "additionalProperty": [
                 {
                     "@type": "PropertyValue",
                     "name": "Activación por GPS",
-                    "value": "Reproducción automática según ubicación del usuario"
+                    "value": "Reproducción automática basada en ubicación con permiso de geolocalización del usuario"
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Control remoto manual",
-                    "value": "Guía activa audios manualmente desde la plataforma"
+                    "value": "El capitán o guía activa las pistas manualmente desde el inicio de sesión en la plataforma"
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Control remoto automático",
-                    "value": "Dispositivo maestro activa los puntos mediante GPS"
+                    "value": "Activación por GPS mediante smartphone maestro sin necesidad de geolocalización de los pasajeros"
                 },
                 {
                     "@type": "PropertyValue",
-                    "name": "Activación secuencial",
-                    "value": "Avance de pistas según intervalos de tiempo"
+                    "name": "Activación secuencial temporizada",
+                    "value": "Avance automático de pistas por intervalos de tiempo para cobertura continua"
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Activación híbrida",
-                    "value": "Métodos combinables para máxima flexibilidad"
+                    "value": "Métodos combinables para un rendimiento óptimo en distintas condiciones"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Modo offline",
+                    "value": "Precarga de contenidos para el funcionamiento en zonas con conectividad limitada"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Modelo de precios",
+                    "value": "Licencia mensual o anual, sin coste por pasajero, idiomas ilimitados"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Estadísticas",
+                    "value": "Panel de análisis conforme al RGPD con información sobre los pasajeros"
                 }
-            ],
-            "inLanguage": "es"
+            ]
         }
     </script>
 
-    <!-- FAQPage -->
+    <!-- Video Object: Vídeo demo -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": "Nubart MOTION – Cómo funciona",
+            "description": "Demostración de 2 minutos del sistema de comentarios multilingüe de Nubart para vehículos turísticos",
+            "thumbnailUrl": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "contentUrl": "https://vimeo.com/687059740",
+            "uploadDate": "2022-03-15",
+            "duration": "PT2M",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            }
+        }
+    </script>
+
+    <!-- HowTo: Proceso de implementación de Nubart MOTION -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "Cómo implementar Nubart MOTION en su tour",
+            "description": "Proceso paso a paso para implementar el sistema automatizado de audioguías de Nubart",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Solicitar demo personalizada",
+                    "text": "Rellene el formulario de solicitud de demo con la información de su tour"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Facilitar detalles de la ruta",
+                    "text": "Comparta su mapa de ruta, 5–6 puntos de interés principales, duración del tour, idiomas necesarios y tipo de vehículo"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Recibir demo personalizada",
+                    "text": "En pocos días, recibirá un código QR configurado con su ruta real para pruebas in situ"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Prueba in situ",
+                    "text": "Pruebe la demo en su vehículo durante una ruta real para evaluar los métodos de activación y la experiencia del pasajero"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "Consulta y presupuesto",
+                    "text": "Comente los resultados con el equipo de Nubart y reciba un presupuesto detallado"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 6,
+                    "name": "Preparación de contenidos",
+                    "text": "Proporcione contenidos existentes o trabaje con el equipo de producción de Nubart para crear nuevos audiocomentarios (3–6 semanas si son contenidos nuevos)"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 7,
+                    "name": "Configuración del sistema",
+                    "text": "Nubart configura su aplicación web personalizada con los métodos de activación elegidos (aproximadamente 2 semanas)"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 8,
+                    "name": "Lanzamiento",
+                    "text": "Ponga en marcha audioguías multilingües para sus pasajeros"
+                }
+            ],
+            "totalTime": "PT4W"
+        }
+    </script>
+
+    <!-- HowTo: Proceso de implementación de Nubart TRANSLATE -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "Cómo implementar Nubart TRANSLATE en sus tours",
+            "description": "Proceso paso a paso para implementar la traducción en tiempo real con IA para guías",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Solicitar demo",
+                    "text": "Rellene el formulario de solicitud indicando su interés en la traducción para guías en vivo"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Recibir acceso a la demo",
+                    "text": "Reciba un acceso de guía y un código QR para 30 minutos acumulativos de prueba gratuita"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Probar la traducción",
+                    "text": "Pruebe la traducción en tiempo real con IA con sus guías y pasajeros durante varios días"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Consulta y presupuesto",
+                    "text": "Comente sus necesidades de uso y reciba un presupuesto personalizado de licencia mensual"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "Lanzamiento inmediato",
+                    "text": "Empiece a usar el sistema inmediatamente tras la firma del contrato, sin tiempo de configuración"
+                }
+            ],
+            "totalTime": "PT1W"
+        }
+    </script>
+
+    <!-- Datos estructurados FAQ -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -107,83 +277,116 @@
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "¿Cómo puedo ofrecer un sistema de comentarios a mis pasajeros?",
+                    "name": "¿Cómo puedo ofrecer audiocomentarios a mis pasajeros?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart MOTION ofrece audiocomentarios automáticos con varios modos de activación (GPS, control remoto manual o automático, secuencial por tiempo) y traducción en vivo con IA para guías. Todo mediante QR, sin app ni hardware adicional."
+                        "text": "Nubart ofrece dos soluciones: comentarios automatizados con múltiples métodos de activación (GPS, control remoto manual, control remoto automático, activación secuencial temporizada) y traducción en vivo con IA para tours con guía. Ambas utilizan códigos QR y no requieren apps ni hardware adicional."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "¿Qué equipo se necesita para el audiocomentario?",
+                    "name": "¿Qué equipamiento se necesita para el audiocomentario de pasajeros?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "No hace falta ningún equipo especial. Los pasajeros solo escanean un código QR con su móvil y acceden al comentario en varios idiomas. No se requieren apps ni dispositivos extra."
+                        "text": "Ningún equipamiento. Los pasajeros escanean un código QR con su smartphone para acceder al audiocomentario multilingüe. No se necesitan apps, dispositivos ni sistemas de megafonía."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "¿Qué conexión a internet se necesita para Nubart MOTION?",
+                    "name": "¿Qué conexión a internet se necesita?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart TRANSLATE requiere conexión estable para la traducción IA. Nubart MOTION necesita conexión básica para GPS y activación remoto; el modo secuencial funciona completamente offline tras la precarga inicial."
+                        "text": "Los requisitos varían según la solución: Nubart TRANSLATE requiere una conexión a internet estable para la traducción en vivo con IA. Nubart MOTION necesita internet básico para GPS y control remoto, pero la activación secuencial funciona completamente offline tras la precarga de contenidos."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "¿Qué métodos de activación existen para los tours automáticos?",
+                    "name": "¿Qué métodos de activación hay disponibles para tours automatizados?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Se ofrecen cuatro métodos: GPS (requiere permiso del usuario), control remoto manual (por guía), control remoto automático (por dispositivo maestro), y secuencial (progresión en intervalos de tiempo)."
+                        "text": "Nubart MOTION ofrece cuatro métodos de activación: por GPS (requiere permiso de geolocalización del usuario), control remoto manual (el capitán o guía activa las pistas), control remoto automático (activación por GPS mediante dispositivo maestro sin permisos de los pasajeros) y activación secuencial temporizada (avance automático por intervalos de tiempo)."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "¿Funciona Nubart en zonas sin cobertura?",
+                    "name": "¿Funciona Nubart en zonas con mala cobertura móvil?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Sí. El modo offline precarga los audios y el contenido. El activación secuencial funciona sin conexión; GPS y control remoto precisan conexión mínima. El contenido permanece aunque se pierda internet."
+                        "text": "Sí. El modo offline de Nubart precarga las pistas de audio, el código y las imágenes cuando hay internet disponible. La activación secuencial funciona totalmente offline, mientras que el GPS y el control remoto solo necesitan conectividad mínima. Los contenidos permanecen accesibles aunque los pasajeros pierdan la conexión."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "¿Se pueden combinar diferentes métodos de activación?",
+                    "name": "¿Se pueden combinar diferentes métodos de activación en un mismo tour?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Por supuesto. Nubart MOTION permite combinar GPS, control remoto y activacións secuenciales según demanda; garantizando una experiencia continuada en cualquier circunstancia."
+                        "text": "Por supuesto. Nubart MOTION permite combinar GPS para puntos clave, control remoto manual para mayor flexibilidad y activación secuencial para zonas con poca cobertura, garantizando una experiencia de tour fluida."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿En qué consiste la demo gratuita?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Para Nubart TRANSLATE, recibirá un acceso de guía y un código QR para probar la traducción con IA durante 30 minutos acumulativos de forma gratuita. Para Nubart MOTION, crearemos una demo personalizada con 5–6 puntos de interés a lo largo de su ruta real con los métodos de activación que recomendemos para su caso. La probará en condiciones reales en su vehículo."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Quién crea los contenidos de audio?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Tiene total flexibilidad: utilice contenidos existentes de un sistema anterior, produzca contenidos nuevos usted mismo o encargue al equipo de producción profesional de Nubart. Ofrecemos contenidos premium creados por profesionales con locutores profesionales, o producción asistida por IA revisada por nuestro equipo a menor coste."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Cuánto tiempo se tarda en poner en marcha el sistema?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart TRANSLATE se puede implementar de inmediato. Nubart MOTION con contenidos existentes necesita aproximadamente 2 semanas de configuración. Si producimos contenidos nuevos, cuente con 3–6 semanas según la complejidad de la ruta y el número de idiomas."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Qué pasa si nuestra ruta cambia?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sin problema. Nuestro paquete de geolocalización personalizada incluye hasta 2 adaptaciones de ruta al año sin coste adicional. Las adaptaciones adicionales están disponibles por 500 € cada una."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Necesitan los pasajeros datos móviles o WiFi?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart TRANSLATE requiere internet fiable en toda la ruta para la traducción en tiempo real. Nubart MOTION solo necesita buena conectividad cuando los pasajeros escanean el código QR, ya que el sistema se precarga en sus smartphones. Durante el tour, basta con un ancho de banda mínimo para las señales de activación. Los sistemas de activación secuencial funcionan completamente offline."
                     }
                 }
-            ],
-            "inLanguage": "es"
+            ]
         }
     </script>
 
-
+    <!-- Datos estructurados: Breadcrumbs -->
     <script type="application/ld+json">
-
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
                 {
                     "@type": "ListItem",
                     "position": 1,
-                    "item": {
-                        "@id": "https://www.nubart.eu/es/",
-                        "name": "Nubart"
-                    }
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/es/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "item": {
-                        "@id": "https://www.nubart.eu/es/tours-barcos-buses.html",
-                        "name": "Nubart MOTION: Audioguías para vehículos turísticos"
-                    }
+                    "name": "Soluciones de audiocomentarios para tours",
+                    "item": "https://www.nubart.eu/es/tours-barcos-buses.html"
                 }
             ]
         }
-
     </script>
 
     <!-- End Structured data -->

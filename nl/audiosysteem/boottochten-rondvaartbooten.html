@@ -6,102 +6,270 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 
-    <!-- Organisatie -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "@id": "https://www.nubart.eu/nl/#organization",
-            "name": "Nubart",
-            "url": "https://www.nubart.eu/nl/",
-            "inLanguage": "nl"
-        }
-    </script>
-
-    <!-- Service Nubart MOTION -->
+    <!-- Service: Nubart TRANSLATE -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://www.nubart.eu/nl/audiosysteem/boottochten-rondvaartbooten.html#motionservice",
-            "name": "Nubart MOTION – Audio commentsysteem voor passagiers",
-            "description": "Compleet meertalig audio commentaarsysteem voor rondvaartboten, touringcars en sightseeingvoertuigen. GPS-gestuurde automatische tours, handmatige of automatische afstandsbediening, tijdgestuurde triggers en live AI-vertaling voor gidsen. QR-gebaseerd, geen apps of extra apparaten nodig.",
-            "image": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "@id": "https://www.nubart.eu/audio-commentary-system/#translate",
+            "name": "Nubart TRANSLATE",
+            "description": "AI-gestuurd realtime vertaalsysteem voor live gidsen. Gidsen spreken gewoon terwijl passagiers directe vertaling in hun voorkeurstaal ontvangen via smartphone – geen apps of apparaten nodig.",
+            "mainEntityOfPage": "https://www.nubart.eu/nl/audiosysteem/boottochten-rondvaartbooten.html",
+            "image": "https://www.nubart.eu/assets/img/motion/motion-translate.webp",
             "provider": {
                 "@type": "Organization",
-                "@id": "https://www.nubart.eu/nl/#organization",
-                "name": "Nubart",
-                "url": "https://www.nubart.eu/nl/"
+                "@id": "https://www.nubart.eu/#organization"
             },
-            "serviceType": "Audio commentaarsysteem",
+            "serviceType": "Live Guide Translation System",
             "areaServed": [
                 {
                     "@type": "Place",
-                    "name": "Europa"
+                    "name": "Europe"
                 },
                 {
                     "@type": "Place",
-                    "name": "Noord-Amerika"
+                    "name": "North America"
                 },
                 {
                     "@type": "Place",
-                    "name": "Australië"
+                    "name": "Australia"
                 }
             ],
             "audience": {
                 "@type": "BusinessAudience",
-                "audienceType": [
-                    "Rondvaartbedrijven",
-                    "Toeristische busbedrijven",
-                    "Boottochtenaanbieders",
-                    "Verhuur sightseeingvoertuigen",
-                    "Toerorganisaties"
-                ]
+                "audienceType": ["Tour Operators", "River Cruise Companies", "Sightseeing Bus Operators", "Boat Tour Providers"]
             },
-            "hasPart": [
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+            },
+            "additionalProperty": [
                 {
-                    "@type": "Service",
-                    "name": "Nubart TRANSLATE",
-                    "description": "AI-ondersteunde realtime vertaling voor live gidsen met vlekkeloze meertalige communicatie"
+                    "@type": "PropertyValue",
+                    "name": "Realtime AI-vertaling",
+                    "value": "35 talen ondersteund met directe audio- en tekstweergave"
                 },
                 {
-                    "@type": "Service",
-                    "name": "Nubart MOTION",
-                    "description": "Geavanceerde automatische meertalige audiotours met flexibele triggers: GPS, handmatig of automatisch afstandsbediend, of tijdsgestuurd"
+                    "@type": "PropertyValue",
+                    "name": "Prijsmodel",
+                    "value": "Maandelijkse licentie op maat, geen kosten per passagier"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Toegang",
+                    "value": "Via QR-code, geen app-download vereist"
+                }
+            ]
+        }
+    </script>
+
+    <!-- Service: Nubart MOTION -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/audio-commentary-system/#motion",
+            "name": "Nubart MOTION",
+            "description": "Geautomatiseerd meertalig audiotour-systeem voor sightseeingvoertuigen met flexibele triggermethoden: GPS-locatie, handmatige afstandsbediening, automatische afstandsbediening via masterapparaat en tijdgestuurde sequentiële triggers. Offline mogelijkheid door voorladen van content.",
+            "mainEntityOfPage": "https://www.nubart.eu/nl/audiosysteem/boottochten-rondvaartbooten.html",
+            "image": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "provider": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "serviceType": "Automated Audio Tour System",
+            "areaServed": [
+                {
+                    "@type": "Place",
+                    "name": "Europe"
+                },
+                {
+                    "@type": "Place",
+                    "name": "North America"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Australia"
                 }
             ],
+            "audience": {
+                "@type": "BusinessAudience",
+                "audienceType": ["Tour Operators", "River Cruise Companies", "Sightseeing Bus Operators", "Boat Tour Providers", "City Tour Train Operators"]
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+            },
             "additionalProperty": [
                 {
                     "@type": "PropertyValue",
                     "name": "GPS-trigger",
-                    "value": "Automatische afspelen op basis van locatie, met toestemming gebruiker"
+                    "value": "Locatiegebaseerd automatisch afspelen met geolocatietoestemming van de gebruiker"
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Handmatige afstandsbediening",
-                    "value": "Schipper of gids start handmatig de audiotracks"
+                    "value": "Schipper of gids start tracks handmatig via het platformlogin"
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Automatische afstandsbediening",
-                    "value": "GPS-trigger via masterapparaat, geen passagierslocatie vereist"
+                    "value": "GPS-gestuurd via master-smartphone zonder locatietoestemming van passagiers"
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Tijdgestuurde triggers",
-                    "value": "Tracks volgen automatisch op basis van tijdsintervallen"
+                    "value": "Automatische trackvolgorde op basis van tijdsintervallen voor continue dekking"
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "Hybride triggering",
-                    "value": "Trigger-methoden vrij combineerbaar voor optimale prestaties"
+                    "value": "Methoden vrij combineerbaar voor optimale prestaties onder wisselende omstandigheden"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Offline modus",
+                    "value": "Voorladen van content voor gebruik in gebieden met beperkte connectiviteit"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Prijsmodel",
+                    "value": "Maand- of jaarlicentie, geen kosten per passagier, onbeperkt aantal talen"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Statistieken",
+                    "value": "AVG-conform analysedashboard met passagiersinzichten"
                 }
-            ],
-            "inLanguage": "nl"
+            ]
         }
     </script>
 
-    <!-- FAQPage -->
+    <!-- Video Object: Demo Video -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": "Nubart MOTION – Zo werkt het",
+            "description": "2 minuten demonstratie van Nubarts meertalig commentaarsysteem voor sightseeingvoertuigen",
+            "thumbnailUrl": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "contentUrl": "https://vimeo.com/687059740",
+            "uploadDate": "2022-03-15",
+            "duration": "PT2M",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            }
+        }
+    </script>
+
+    <!-- HowTo: Implementatie van Nubart MOTION -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "Zo implementeert u Nubart MOTION voor uw tour",
+            "description": "Stapsgewijs proces voor de implementatie van Nubarts geautomatiseerd audiotour-systeem",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Demo op maat aanvragen",
+                    "text": "Vul het demo-aanvraagformulier in met uw tourinformatie"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Routedetails doorgeven",
+                    "text": "Deel uw routekaart, 5–6 belangrijkste bezienswaardigheden, tourduur, gewenste talen en voertuigtype"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Demo op maat ontvangen",
+                    "text": "Binnen enkele dagen ontvangt u een QR-code geconfigureerd met uw daadwerkelijke route voor on-site testen"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Ter plaatse testen",
+                    "text": "Test de demo in uw voertuig tijdens een echte route om triggermethoden en passagierservaring te beoordelen"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "Adviesgesprek & offerte",
+                    "text": "Bespreek de resultaten met het Nubart-team en ontvang een gedetailleerde offerte"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 6,
+                    "name": "Contentvoorbereiding",
+                    "text": "Lever bestaande content aan of werk met Nubarts productieteam aan nieuw audiocommentaar (3–6 weken bij nieuwe content)"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 7,
+                    "name": "Systeemconfiguratie",
+                    "text": "Nubart configureert uw webapplicatie op maat met de gekozen triggermethoden (circa 2 weken)"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 8,
+                    "name": "Lancering",
+                    "text": "Start met meertalige audiotours voor uw passagiers"
+                }
+            ],
+            "totalTime": "PT4W"
+        }
+    </script>
+
+    <!-- HowTo: Implementatie van Nubart TRANSLATE -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "Zo implementeert u Nubart TRANSLATE voor uw tours",
+            "description": "Stapsgewijs proces voor de implementatie van realtime AI-vertaling voor live gidsen",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Demo aanvragen",
+                    "text": "Vul het demo-aanvraagformulier in en geef uw interesse in live gidsvertaling aan"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Demo-toegang ontvangen",
+                    "text": "Ontvang een gidslogin en QR-code voor 30 cumulatieve minuten gratis testen"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Vertaling testen",
+                    "text": "Test de AI-gestuurde realtime vertaling gedurende meerdere dagen met uw gidsen en passagiers"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Adviesgesprek & offerte",
+                    "text": "Bespreek uw gebruiksvereisten en ontvang een offerte voor een maandelijkse licentie op maat"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "Direct starten",
+                    "text": "Begin direct na ondertekening van de overeenkomst met het systeem – geen installatietijd vereist"
+                }
+            ],
+            "totalTime": "PT1W"
+        }
+    </script>
+
+    <!-- Gestructureerde FAQ-gegevens -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -110,59 +278,97 @@
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "Hoe bied ik mijn passagiers een commentsysteem aan?",
+                    "name": "Hoe kan ik mijn passagiers audiocommentaar aanbieden?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart MOTION biedt twee oplossingen: automatische audiocommentaren met verschillende triggers (GPS, handmatig en automatisch op afstand, tijdsgebaseerd) en AI-livevertaling voor gidsen. Alles via QR, geen app of extra hardware nodig."
+                        "text": "Nubart biedt twee oplossingen: geautomatiseerd commentaar met meerdere triggermethoden (GPS, handmatige afstandsbediening, automatische afstandsbediening, tijdgestuurde triggers) en AI-gestuurde live vertaling voor begeleide tours. Beide werken via QR-codes en vereisen geen apps of hardware."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Welke apparatuur is nodig voor het audiocommentaar?",
+                    "name": "Welke apparatuur is nodig voor audiocommentaar voor passagiers?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Geen extra apparatuur nodig. Passagiers scannen de QR-code met hun smartphone. Meertalig audiocommentaar, geen apps of devices vereist."
+                        "text": "Geen apparatuur nodig. Passagiers scannen een QR-code met hun smartphone voor meertalig audiocommentaar. Geen apps, apparaten of geluidssystemen vereist."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Welke internetverbinding is nodig voor Nubart MOTION?",
+                    "name": "Welke internetverbinding is vereist?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart TRANSLATE vereist een stabiele internetverbinding voor AI-vertaling. Nubart MOTION werkt met basisverbinding voor GPS/afstandsbediening; tijdstriggers werken offline na voorladen."
+                        "text": "De vereisten variëren per oplossing: Nubart TRANSLATE vereist een stabiele internetverbinding voor AI-gestuurde live vertaling. Nubart MOTION heeft basisinternet nodig voor GPS en afstandsbediening, maar tijdgestuurde triggers werken volledig offline na het voorladen van de content."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Welke triggers zijn mogelijk voor automatische rondleidingen?",
+                    "name": "Welke triggermethoden zijn beschikbaar voor geautomatiseerde tours?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Vier mogelijkheden: GPS (met toestemming gebruiker), handmatig op afstand (door bemanning), automatisch op afstand (via masterapparaat, geen passagierslocatie nodig) en tijdsgestuurd (volgt schema)."
+                        "text": "Nubart MOTION biedt vier triggermethoden: GPS-locatie (vereist geolocatietoestemming van de gebruiker), handmatige afstandsbediening (schipper of gids start tracks), automatische afstandsbediening (GPS-gestuurd via masterapparaat zonder passagierstoestemming) en tijdgestuurde sequentiële triggers (automatische voortgang op basis van tijdsintervallen)."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Werkt Nubart in gebieden met slechte dekking?",
+                    "name": "Werkt Nubart in gebieden met slechte mobiele dekking?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Ja. De offline modus laadt alle audiobestanden en content vooraf. Tijdtriggers werken volledig offline; GPS en afstandsbediening vereisen minimale verbinding."
+                        "text": "Ja. Nubarts offline modus laadt audiotracks, code en afbeeldingen vooraf wanneer internet beschikbaar is. Tijdgestuurde triggers werken volledig offline, terwijl GPS en afstandsbediening slechts minimale connectiviteit nodig hebben. Content blijft toegankelijk, ook als passagiers de verbinding verliezen."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Kan ik verschillende triggers combineren binnen een tour?",
+                    "name": "Kan ik verschillende triggermethoden combineren voor mijn tour?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Zeker! Nubart MOTION ondersteunt gecombineerde triggers: GPS, handmatig en tijdgestuurd – altijd een vlekkeloze beleving, ongeacht de omstandigheden."
+                        "text": "Absoluut. Nubart MOTION ondersteunt hybride triggerbenaderingen. U kunt GPS-triggers voor belangrijke locaties, handmatige afstandsbediening voor flexibiliteit en tijdgestuurde triggers voor gebieden met slechte internetdekking combineren – voor een naadloze tourbeleving."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Wat houdt de gratis demo in?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Voor Nubart TRANSLATE ontvangt u een gidslogin en QR-code om AI-gestuurde vertaling 30 cumulatieve minuten gratis te testen. Voor Nubart MOTION maken we een demo op maat met 5–6 bezienswaardigheden langs uw daadwerkelijke route met de triggermethoden die wij voor uw situatie aanbevelen. U test onder echte omstandigheden op uw voertuig."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Wie maakt de audiocontent?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "U heeft volledige flexibiliteit: gebruik bestaande content van een eerder systeem, maak zelf nieuwe content of schakel Nubarts professionele productieteam in. Wij bieden hoogwaardige, door mensen gemaakte content met professionele stemacteurs, of AI-ondersteunde productie gecontroleerd door ons team tegen lagere kosten."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Hoe lang duurt het tot de lancering?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart TRANSLATE kan direct worden geïmplementeerd. Nubart MOTION met bestaande content heeft circa 2 weken nodig voor configuratie. Bij nieuwe contentproductie rekent u op 3–6 weken, afhankelijk van de complexiteit van de route en het aantal talen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Wat als onze route verandert?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Geen probleem. Ons Custom Geolocation-pakket bevat tot 2 routeaanpassingen per jaar zonder extra kosten. Extra aanpassingen zijn beschikbaar voor € 500 per stuk."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Hebben passagiers mobiele data of wifi nodig?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart TRANSLATE vereist betrouwbaar internet over de hele route voor realtime vertaling. Nubart MOTION heeft alleen bij het scannen van de QR-code een goede verbinding nodig, omdat het systeem op de smartphones van de passagiers wordt voorgeladen. Tijdens de tour is minimale bandbreedte voldoende voor triggersignalen. Tijdgestuurde systemen werken volledig offline."
                     }
                 }
-            ],
-            "inLanguage": "nl"
+            ]
         }
     </script>
 
-
-    <!-- Structured -->
+    <!-- Gestructureerde gegevens: Breadcrumbs -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -177,13 +383,7 @@
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Nubart GUIDE - Aduiogidsen",
-                    "item": "https://www.nubart.eu/nl/audiosysteem/"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "Nubart - BYOD audiosysteem voor boottochten en rondvaartbooten",
+                    "name": "Audiocommentaaroplossingen voor tours",
                     "item": "https://www.nubart.eu/nl/audiosysteem/boottochten-rondvaartbooten.html"
                 }
             ]
