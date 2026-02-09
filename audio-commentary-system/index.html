@@ -6,35 +6,21 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 
-    <!-- Structured data Organisation -->
-    <!-- Minimal Organization Stub -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "@id": "https://www.nubart.eu/#organization",
-            "name": "Nubart",
-            "url": "https://www.nubart.eu",
-            "inLanguage": "en"
-        }
-    </script>
-    <!-- Service Block: Nubart MOTION -->
+    <!-- Service: Nubart TRANSLATE -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://www.nubart.eu/audio-commentary-system/#motionservice",
-            "name": "Nubart MOTION - Passenger Commentary Solutions",
-            "inLanguage": "en",
-            "description": "Comprehensive audio commentary system for tour operators with sightseeing vehicles featuring multiple triggering methods: GPS-triggered automated tours, manual remote control activation, automatic remote control via master device, timed sequential triggers, and AI-powered live translation for human guides.",
-            "image": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "@id": "https://www.nubart.eu/audio-commentary-system/#translate",
+            "name": "Nubart TRANSLATE",
+            "description": "AI-powered real-time translation system for live tour guides. Guides speak naturally while passengers receive instant translation in their preferred language via smartphone—no apps or devices required.",
+            "mainEntityOfPage": "https://www.nubart.eu/audio-commentary-system/",
+            "image": "https://www.nubart.eu/assets/img/motion/motion-translate.webp",
             "provider": {
                 "@type": "Organization",
-                "@id": "https://www.nubart.eu/#organization",
-                "name": "Nubart",
-                "url": "https://www.nubart.eu"
+                "@id": "https://www.nubart.eu/#organization"
             },
-            "serviceType": "Audio Commentary System",
+            "serviceType": "Live Guide Translation System",
             "areaServed": [
                 {
                     "@type": "Place",
@@ -51,26 +37,71 @@
             ],
             "audience": {
                 "@type": "BusinessAudience",
-                "audienceType": [
-                    "Tour Operators",
-                    "River Cruise Companies",
-                    "Sightseeing Bus Operators",
-                    "Boat Tour Providers",
-                    "City Tour Train Operators"
-                ]
+                "audienceType": ["Tour Operators", "River Cruise Companies", "Sightseeing Bus Operators", "Boat Tour Providers"]
             },
-            "hasPart": [
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+            },
+            "additionalProperty": [
                 {
-                    "@type": "Service",
-                    "name": "Nubart TRANSLATE",
-                    "description": "AI-powered real-time translation for live tour guides with seamless multilingual communication"
+                    "@type": "PropertyValue",
+                    "name": "Real-time AI Translation",
+                    "value": "35 languages supported with instant audio and text delivery"
                 },
                 {
-                    "@type": "Service",
-                    "name": "Nubart MOTION",
-                    "description": "Advanced automated multilingual audio tours with flexible triggering: GPS location-based, manual remote control, automatic remote control, and timed sequential activation for optimal coverage in any environment"
+                    "@type": "PropertyValue",
+                    "name": "Pricing Model",
+                    "value": "Custom monthly license based on operation, no per-passenger fees"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Access Method",
+                    "value": "QR code, no app downloads required"
+                }
+            ]
+        }
+    </script>
+
+    <!-- Service: Nubart MOTION -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/audio-commentary-system/#motion",
+            "name": "Nubart MOTION",
+            "description": "Automated multilingual audio tour system for sightseeing vehicles with flexible triggering methods: GPS location-based, manual remote control, automatic remote control via master device, and timed sequential triggers. Offline capability with content preloading.",
+            "mainEntityOfPage": "https://www.nubart.eu/audio-commentary-system/",
+            "image": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "provider": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "serviceType": "Automated Audio Tour System",
+            "areaServed": [
+                {
+                    "@type": "Place",
+                    "name": "Europe"
+                },
+                {
+                    "@type": "Place",
+                    "name": "North America"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Australia"
                 }
             ],
+            "audience": {
+                "@type": "BusinessAudience",
+                "audienceType": ["Tour Operators", "River Cruise Companies", "Sightseeing Bus Operators", "Boat Tour Providers", "City Tour Train Operators"]
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+            },
             "additionalProperty": [
                 {
                     "@type": "PropertyValue",
@@ -96,11 +127,147 @@
                     "@type": "PropertyValue",
                     "name": "Hybrid Triggering",
                     "value": "Combinable methods for optimal performance in varying conditions"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Offline Mode",
+                    "value": "Content preloading for operation in areas with limited connectivity"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Pricing Model",
+                    "value": "Monthly or annual license, no per-passenger fees, unlimited languages"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Analytics",
+                    "value": "GDPR-compliant analytics dashboard with passenger insights"
                 }
             ]
         }
     </script>
 
+    <!-- Video Object: Demo Video -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": "Nubart MOTION - How It Works",
+            "description": "2-minute demonstration of Nubart's multilingual commentary system for sightseeing vehicles",
+            "thumbnailUrl": "https://www.nubart.eu/assets/img/motion/audioguide-w-boat.webp",
+            "contentUrl": "https://vimeo.com/687059740",
+            "uploadDate": "2022-03-15",
+            "duration": "PT2M",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            }
+        }
+    </script>
+
+    <!-- HowTo: Implementation Process for MOTION -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Implement Nubart MOTION for Your Tour",
+            "description": "Step-by-step process for implementing Nubart's automated audio tour system",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Request Custom Demo",
+                    "text": "Fill out the demo request form with your tour information"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Provide Route Details",
+                    "text": "Share your route map, 5-6 main points of interest, tour duration, required languages, and vehicle type"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Receive Custom Demo",
+                    "text": "Within a few days, receive a QR code configured with your actual route for on-site testing"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Test On-Site",
+                    "text": "Test the demo on your vehicle during an actual route to evaluate triggering methods and passenger experience"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "Consultation & Quote",
+                    "text": "Discuss results with Nubart team and receive detailed pricing quote"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 6,
+                    "name": "Content Preparation",
+                    "text": "Provide existing content or work with Nubart's production team to create new audio commentary (3-6 weeks if new content needed)"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 7,
+                    "name": "System Setup",
+                    "text": "Nubart configures your custom web application with chosen triggering methods (approximately 2 weeks)"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 8,
+                    "name": "Launch",
+                    "text": "Go live with multilingual audio tours for your passengers"
+                }
+            ],
+            "totalTime": "PT4W"
+        }
+    </script>
+
+    <!-- HowTo: Implementation Process for TRANSLATE -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Implement Nubart TRANSLATE for Your Tours",
+            "description": "Step-by-step process for implementing real-time AI translation for live guides",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Request Demo",
+                    "text": "Fill out the demo request form indicating interest in live guide translation"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Receive Demo Access",
+                    "text": "Receive guide login and QR code for 30 cumulative minutes of free testing"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Test Translation",
+                    "text": "Test AI-powered real-time translation with your guides and passengers over several days"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Consultation & Quote",
+                    "text": "Discuss usage requirements and receive custom monthly license quote"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "Launch Immediately",
+                    "text": "Begin using the system immediately after signing agreement—no setup time required"
+                }
+            ],
+            "totalTime": "PT1W"
+        }
+    </script>
 
     <!-- Structured data FAQ -->
     <script type="application/ld+json">
@@ -111,10 +278,10 @@
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "How can I provide commentary system to my passengers?",
+                    "name": "How can I provide commentary to my passengers?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart MOTION offers two solutions: automated commentary with multiple triggering methods (GPS, manual remote control, automatic remote control, timed sequential triggers), and AI-powered live translation for human-guided tours. Both use QR codes and require no apps or hardware."
+                        "text": "Nubart offers two solutions: automated commentary with multiple triggering methods (GPS, manual remote control, automatic remote control, timed sequential triggers), and AI-powered live translation for human-guided tours. Both use QR codes and require no apps or hardware."
                     }
                 },
                 {
@@ -127,7 +294,7 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "What internet connection is required for Nubart MOTION?",
+                    "name": "What internet connection is required?",
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": "Internet requirements vary by solution: Nubart TRANSLATE requires solid internet for AI-powered live translation. Nubart MOTION needs basic internet for GPS and remote triggering, but timed triggers work fully offline after content is preloaded."
@@ -156,11 +323,50 @@
                         "@type": "Answer",
                         "text": "Absolutely. Nubart MOTION supports hybrid triggering approaches. You can combine GPS triggers for key locations, manual remote control for flexibility, and timed triggers for areas with poor internet coverage, ensuring seamless tour experiences."
                     }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What does the free demo consist of?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "For Nubart TRANSLATE, you'll receive a guide login and QR code to test AI-powered translation free for 30 cumulative minutes. For Nubart MOTION, we'll create a custom demo with 5-6 points of interest along your actual route using the triggering methods we recommend for your specific case. You'll test this under real conditions on your vehicle."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Who creates the audio content?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "You have complete flexibility: use your existing content from a previous system, produce new content yourself, or use Nubart's professional production team. We offer premium human-created content with professional voice artists, or AI-assisted production reviewed by our team at lower cost."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How long until we can launch?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart TRANSLATE can be implemented immediately. Nubart MOTION with existing content takes approximately 2 weeks to configure. If we're producing new content for you, allow 3-6 weeks depending on route complexity and number of languages."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What if our route changes?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No problem. Our Custom Geolocation package includes up to 2 route adaptations per year at no additional cost. Additional adaptations are available for €500 each."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Do passengers need data or WiFi?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart TRANSLATE requires reliable internet throughout the route for real-time translation. Nubart MOTION only needs good connectivity when passengers scan the QR code, as the system preloads onto their smartphones. During the tour, minimal bandwidth is sufficient for triggering signals. Time-triggered systems work completely offline."
+                    }
                 }
             ]
         }
     </script>
-
 
     <!-- Structured Data: Breadcrumbs -->
     <script type="application/ld+json">
@@ -177,13 +383,12 @@
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Nubart MOTION - Passenger Commentary Solutions",
+                    "name": "Audio Commentary Solutions for Tours",
                     "item": "https://www.nubart.eu/audio-commentary-system/"
                 }
             ]
         }
     </script>
-
 
     <!-- End Structured data -->
 
@@ -403,6 +608,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         class="bi bi-bus-front-fill product-icon"></i>&nbsp<span>Nubart MOTION</span></li>
 
                 <li class="d-md-none">
+
                     <a href="#samples" class="scrollto">Request a Custom Demo</a>
                 </li>
             </ul>
@@ -440,6 +646,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     MOTION:</b></div>
                 <ul id="secondary-menu-items" class="secondary-menu-list"
                     style="margin-left: 10px; display: flex; align-items: center;">
+                    <li style="margin-right: 22px;"><a href="#pricing-context">Pricing</a></li>
                     <li style="margin-right: 22px;"><a href="#faq">FAQ</a></li>
 
                     <li style="margin-right: 22px;">
@@ -1248,6 +1455,99 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </section>
     <!-- ======= End FAQ Section ======= -->
+
+    <!-- ======= PRICING Section ======= -->
+
+    <section id="pricing-context" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>No hidden fees, no per-passenger charges.</p>
+            </div>
+
+
+
+            <!-- Two Solutions Side by Side -->
+            <div class="row mt-5 g-4">
+                <!-- TRANSLATE Pricing -->
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-4">
+                                <img src="../assets/img/motion/motion-translate.webp"
+                                     alt="Nubart TRANSLATE pricing"
+                                     class="img-fluid" style="width: 100px; height: 100px;">
+                            </div>
+
+                            <h4 class="text-center mb-4">Nubart TRANSLATE</h4>
+
+                            <div class="mb-4">
+                                <h5 class="text-danger"><i class="bi bi-currency-euro me-2"></i>Pricing Model:</h5>
+                                <p class="lead">Custom monthly license based on your operation (tour frequency, duration, number of vessels)</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <h5 class="text-success"><i class="bi bi-check-circle-fill me-2"></i>What's Included:</h5>
+                                <ul class="lead">
+                                    <li><strong>No per-passenger fees</strong> — unlimited listeners</li>
+                                    <li><strong>35 languages available</strong> — no extra cost per language</li>
+                                    <li>Transparent overage pricing if you exceed your usage hours</li>
+                                    <li>Technical support and system maintenance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOTION Pricing -->
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-4">
+                                <img src="../assets/img/motion/motion-triggered.webp"
+                                     alt="Nubart MOTION pricing"
+                                     class="img-fluid" style="width: 100px; height: 100px;">
+                            </div>
+
+                            <h4 class="text-center mb-4">Nubart MOTION</h4>
+
+                            <div class="mb-4">
+                                <h5 class="text-danger"><i class="bi bi-currency-euro me-2"></i>Pricing Model:</h5>
+                                <p class="lead">Monthly or annual license for QR code usage (minimum 1-year commitment)</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <h5 class="text-success"><i class="bi bi-check-circle-fill me-2"></i>What's Included:</h5>
+                                <ul class="lead">
+                                    <li><strong>No per-passenger fees</strong> — unlimited scans</li>
+                                    <li><strong>Unlimited languages</strong> — add as many as you need</li>
+                                    <li><strong>Any route complexity</strong> — pricing doesn't change</li>
+                                    <li><strong>Any triggering method</strong> — GPS, manual, automatic, or timed</li>
+                                    <li>Up to 2 route adaptations per year</li>
+                                    <li>Advanced analytics dashboard (GDPR-compliant)</li>
+                                    <li>Integrated passenger feedback system</li>
+                                    <li>Technical support and maintenance</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-0">
+                                <h5 class="text-warning"><i class="bi bi-tools me-2"></i>One-Time Setup:</h5>
+                                <p class="lead mb-0">Initial setup fees apply (digital configuration, custom triggering, optional content production)</p>
+                            </div>
+                            <p class="text-muted small mt-3">
+                                <i class="bi bi-info-circle me-1"></i>
+                                Physical card options available for specific use cases — discuss during demo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- ======= End of PRICING Section ======= -->
+
     <!-- ======= Request a Custom Demo Section ======= -->
     <section id="samples" class="samples">
         <div class="container" data-aos="fade-up">
@@ -1409,7 +1709,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong><span>Nubart 2025</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. All Rights Reserved
         </div>
 
     </div>
