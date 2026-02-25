@@ -1,0 +1,119 @@
+/* Zoho Forms Lightbox Overlay Styles */
+
+.zf-lightbox-dimmer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    opacity: 0.8;
+    z-index: 10000000;
+}
+
+.zf-lightbox-container {
+    position: fixed;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    height: 750px;
+    width: 850px;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border: 7px solid none;
+    max-height: calc(100% - 60px);
+    z-index: 999999;
+}
+
+.zf-lightbox-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: 0;
+    margin-top: -180px;
+    z-index: 10000001;
+}
+
+.zf-lightbox-body {
+    height: 100%;
+    display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.zf-lightbox-close {
+    position: absolute;
+    right: -20px;
+    background: #2f2e2e;
+    padding: 0;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    top: -15px;
+    cursor: pointer;
+    border: 2px solid #d9d9d9;
+}
+
+.zf-lightbox-close:before,
+.zf-lightbox-close:after {
+    position: absolute;
+    left: 16px;
+    content: ' ';
+    height: 19px;
+    width: 2px;
+    top: 7px;
+    background-color: #f7f7f7;
+}
+
+.zf-lightbox-close:before {
+    transform: rotate(45deg);
+}
+
+.zf-lightbox-close:after {
+    transform: rotate(-45deg);
+}
+
+/* Responsive widths */
+@media screen and (max-width: 380px) {
+    .zf-lightbox-container {
+        width: 270px !important;
+    }
+}
+
+@media screen and (min-width: 381px) and (max-width: 480px) {
+    .zf-lightbox-container {
+        width: 300px !important;
+    }
+}
+
+@media screen and (min-width: 441px) and (max-width: 500px) {
+    .zf-lightbox-container {
+        width: 380px !important;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 600px) {
+    .zf-lightbox-container {
+        width: 450px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 700px) {
+    .zf-lightbox-container {
+        width: 540px;
+    }
+}
+
+@media screen and (min-width: 701px) and (max-width: 800px) {
+    .zf-lightbox-container {
+        width: 650px;
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1268px) {
+    .zf-lightbox-container {
+        width: 750px !important;
+    }
+}
