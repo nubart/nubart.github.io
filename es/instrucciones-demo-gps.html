@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>How to Test Your Nubart MOTION Demo | Nubart</title>
+    <title>Cómo probar tu demo de Nubart MOTION | Nubart</title>
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Vendor CSS Files -->
@@ -22,7 +22,6 @@
 
     <!-- QR Code generator library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
     <style>
         /* ─── Screen styles ─── */
 
@@ -387,53 +386,51 @@
 
 <div class="demo-wrap">
     <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
-        🖨️ Print Instructions (A4 portrait)
+        🖨️ Imprimir instrucciones (A4 vertical)
     </button>
     <!-- Header -->
     <div class="page-header">
         <img src="../assets/img/logo.png" alt="Nubart" class="nubart-logo">
-        <h1>How to Test Your Nubart MOTION Demo</h1>
-        <p class="subtitle">GPS-triggered audio guide &mdash; step-by-step instructions</p>
+        <h1>Cómo probar tu demo de Nubart MOTION</h1>
+        <p class="subtitle">Audioguía con activación por GPS &mdash; instrucciones paso a paso</p>
     </div>
 
-    <!-- QR Code (generated dynamically from ?demo= parameter) -->
+    <!-- QR Code -->
     <div class="qr-box">
-        <h2><i class="bi bi-qr-code me-2"></i>Your Personal Demo QR Code</h2>
-        <p class="qr-intro">Scan this code with your smartphone to open your demo audio guide.</p>
+        <h2><i class="bi bi-qr-code me-2"></i>Tu código QR personal de demostración</h2>
+        <p class="qr-intro">Escanea este código con tu smartphone para abrir tu demo de audioguía.</p>
         <div id="qrcode"></div>
         <div id="qr-missing" class="qr-missing" style="display:none;">
             <i class="bi bi-exclamation-triangle me-2"></i>
-            No demo URL was provided. Please contact your Nubart representative to receive your personalized link.
+            No se ha proporcionado ninguna URL de demo. Ponte en contacto con tu representante de Nubart para recibir tu enlace personalizado.
         </div>
         <p id="demo-url-display"></p>
     </div>
 
     <!-- What this covers -->
     <div class="situation-box">
-        <strong>What these instructions cover</strong>
-        The tracks in your demo are GPS-triggered and set to play automatically as your vehicle passes specific
-        points along your route. This test lets us confirm that GPS and internet connectivity work reliably in
-        your operating environment. This is a technical validation step, not the final audio guide experience. Please note any tracks that trigger too early, too late, or not at all &mdash;
-        we can fine-tune all settings afterwards.
+        <strong>Qué cubren estas instrucciones</strong>
+        Las pistas de tu demo se activan por GPS y están configuradas para reproducirse automáticamente cuando tu vehículo pasa por puntos específicos de la ruta.
+        Esta prueba nos permite confirmar que el GPS y la conectividad a internet funcionan de forma fiable en tu entorno operativo.
+        Este es un paso de validación técnica, no la experiencia final de la audioguía.
+        Toma nota de cualquier pista que se active demasiado pronto, demasiado tarde o que no se active en absoluto &mdash; podremos ajustar todos los parámetros posteriormente.
     </div>
 
     <!-- Recommended equipment -->
     <div class="step-block">
         <div class="step-header">
             <span class="step-number"><i class="bi bi-phone" style="font-size:0.8rem;"></i></span>
-            <h3>Recommended Equipment &amp; Browsers</h3>
+            <h3>Equipo y navegadores recomendados</h3>
         </div>
         <div class="step-body">
-            <p>GPS accuracy varies by device. For best results, use a smartphone with a reliable GPS chipset
-                (e.g. Samsung Galaxy S23 or equivalent).</p>
+            <p>La precisión del GPS varía según el dispositivo. Para obtener mejores resultados, utiliza un smartphone con un chipset GPS fiable (por ejemplo, Samsung Galaxy S23 o equivalente).</p>
             <ul>
-                <li><strong>Android:</strong> always use <strong>Chrome</strong></li>
-                <li><strong>iPhone:</strong> always use <strong>Safari</strong></li>
+                <li><strong>Android:</strong> utiliza siempre <strong>Chrome</strong></li>
+                <li><strong>iPhone:</strong> utiliza siempre <strong>Safari</strong></li>
             </ul>
             <div class="callout warning">
                 <i class="bi bi-exclamation-triangle me-1"></i>
-                Some browsers (such as Firefox) do not access Google's or Apple's GPS database and will not
-                work correctly with location-triggered content.
+                Algunos navegadores (como Firefox) no acceden a la base de datos GPS de Google o Apple y no funcionarán correctamente con contenidos activados por ubicación.
             </div>
         </div>
     </div>
@@ -442,24 +439,20 @@
     <div class="step-block">
         <div class="step-header">
             <span class="step-number">1</span>
-            <h3>Before You Start: Prepare Your Device</h3>
+            <h3>Antes de empezar: prepara tu dispositivo</h3>
         </div>
         <div class="step-body">
-            <p><strong>Grant geolocation permissions.</strong> Because Nubart is web-based (not a native app),
-                your browser needs location access. You will be prompted automatically when you scan the QR
-                code &mdash; tap <em>Allow</em> for all requests. Do not manually lock your screen during the test.</p>
-            <p><strong>Set your volume high enough</strong> before you begin.</p>
-            <p>If the demo does not trigger correctly, the issue is usually related to location permissions. These can exist at three levels:</p>
+            <p><strong>Concede los permisos de geolocalización.</strong> Como Nubart funciona en navegador (no es una app nativa), tu navegador necesita acceso a la ubicación.
+                Cuando escanees el código QR aparecerá una solicitud automáticamente &mdash; pulsa <em>Permitir</em> en todas las solicitudes.
+                No bloquees manualmente la pantalla durante la prueba.</p>
+            <p><strong>Asegúrate de que el volumen esté suficientemente alto</strong> antes de comenzar.</p>
+            <p>Si la demo no se activa correctamente, el problema suele estar relacionado con los permisos de ubicación. Estos pueden existir en tres niveles:</p>
             <ul>
-                <li><strong>System level</strong> &mdash; your phone's operating system settings</li>
-                <li><strong>Browser level</strong> &mdash; find your browser under "Applications" in system
-                    settings and enable location access there</li>
-                <li><strong>Domain level</strong> &mdash; our guides run on <code>nub.art</code>. In your
-                    browser's Privacy &amp; Security settings, confirm that <code>nub.art</code> has location
-                    access enabled.</li>
+                <li><strong>Nivel del sistema</strong> &mdash; ajustes del sistema operativo de tu teléfono</li>
+                <li><strong>Nivel del navegador</strong> &mdash; busca tu navegador en “Aplicaciones” dentro de los ajustes del sistema y habilita allí el acceso a la ubicación</li>
+                <li><strong>Nivel del dominio</strong> &mdash; nuestras guías funcionan en <code>nub.art</code>. En la sección de Privacidad y Seguridad de tu navegador, confirma que <code>nub.art</code> tiene acceso a la ubicación.</li>
             </ul>
-            <p>If your demo is in <strong>offline mode</strong>, wait until all tracks have finished
-                preloading before moving on.</p>
+            <p>Si tu demo está en <strong>modo offline</strong>, espera a que todas las pistas terminen de precargarse antes de continuar.</p>
         </div>
     </div>
 
@@ -467,17 +460,16 @@
     <div class="step-block">
         <div class="step-header">
             <span class="step-number">2</span>
-            <h3>Check the First Track &mdash; at Your Office</h3>
+            <h3>Comprueba la primera pista &mdash; en tu oficina</h3>
         </div>
         <div class="step-body">
-            <p>We have placed a temporary track at your office location. Scan the QR code above and wait a
-                moment. If the track starts playing automatically, your permissions are correctly set and you
-                are ready to go out on the route.</p>
+            <p>Hemos colocado una pista temporal en la ubicación de tu oficina. Escanea el código QR de arriba y espera unos segundos.
+                Si la pista empieza a reproducirse automáticamente, los permisos están correctamente configurados y puedes salir a probar la ruta.</p>
             <div class="callout tip">
                 <i class="bi bi-lightbulb me-1"></i>
-                If the track plays at your office, everything is working &mdash; head straight to the vehicle.
+                Si la pista se reproduce en tu oficina, todo está funcionando &mdash; dirígete directamente al vehículo.
             </div>
-            <p>If nothing plays, check the Troubleshooting section below before proceeding.</p>
+            <p>Si no se reproduce nada, consulta la sección de Resolución de problemas antes de continuar.</p>
         </div>
     </div>
 
@@ -485,73 +477,67 @@
     <div class="step-block">
         <div class="step-header">
             <span class="step-number">3</span>
-            <h3>On the Tour</h3>
+            <h3>Durante la ruta</h3>
         </div>
         <div class="step-body">
-            <p>Take your smartphone on your vehicle and run your route as normal. Tracks will play automatically as you approach each point of interest.</p>
+            <p>Lleva tu smartphone en el vehículo y realiza la ruta con normalidad. Las pistas se reproducirán automáticamente al acercarte a cada punto de interés.</p>
             <ul>
-                <li>Make sure mobile data is enabled during the entire route.</li>
-                <li>Keep the browser open and the screen active &mdash; do not lock it manually.</li>
-                <li>Hold the phone close to a window if you notice triggering issues.</li>
-                <li>If a track plays slightly early or late, note it &mdash; triggering zones can be adjusted.</li>
-                <li>To repeat the test, <strong>refresh the page or re-scan the QR code</strong> first so
-                    the guide restarts from the beginning.</li>
+                <li>Asegúrate de que los datos móviles estén activados durante toda la ruta.</li>
+                <li>Mantén el navegador abierto y la pantalla activa &mdash; no la bloquees manualmente.</li>
+                <li>Sitúa el teléfono cerca de una ventana si notas problemas de activación.</li>
+                <li>Si una pista se activa ligeramente antes o después, toma nota &mdash; las zonas de activación pueden ajustarse.</li>
+                <li>Para repetir la prueba, <strong>actualiza la página o vuelve a escanear el código QR</strong> para reiniciar la guía desde el principio.</li>
             </ul>
             <div class="callout">
                 <i class="bi bi-info-circle me-1"></i>
-                We have geo-tracking enabled for your demo. After your test we will review the heatmaps to
-                identify any connectivity gaps and discuss solutions with you. Your Nubart contact person will review the results with you.
+                Hemos activado la geolocalización de seguimiento para tu demo. Tras la prueba revisaremos los mapas de calor para identificar posibles zonas sin cobertura y comentar soluciones contigo.
+                Tu persona de contacto en Nubart revisará los resultados contigo.
             </div>
         </div>
     </div>
 
-    <!-- Troubleshooting (collapsed on screen, always expanded in print) -->
+    <!-- Resolución de problemas (contraído en pantalla, siempre expandido en impresión) -->
     <div class="troubleshooting-title" onclick="toggleTroubleshooting()" id="ts-toggle">
         <i class="bi bi-tools"></i>
-        Troubleshooting
+        Resolución de problemas
         <i class="bi bi-chevron-down ms-auto" id="ts-chevron"></i>
     </div>
 
     <div class="troubleshooting-body" id="ts-body" style="display:none;">
 
         <div class="trouble-item">
-            <strong><i class="bi bi-volume-mute me-2 text-danger"></i>Track plays but there is no sound</strong>
-            <p>Another app may be capturing your audio output. Close all background apps and try again.
-                Restart your phone if necessary.</p>
+            <strong><i class="bi bi-volume-mute me-2 text-danger"></i>La pista se reproduce pero no se oye nada</strong>
+            <p>Otra aplicación puede estar capturando el audio. Cierra todas las aplicaciones en segundo plano y vuelve a intentarlo. Reinicia el teléfono si es necesario.</p>
         </div>
 
         <div class="trouble-item">
-            <strong><i class="bi bi-geo me-2 text-danger"></i>Track is not triggered at your location</strong>
-            <p>Open the map in the audio guide and tap the small figure icon in the upper left corner. The map should
-                centre on your current position. If it does not, check all three permission levels described
-                in Step 1.</p>
+            <strong><i class="bi bi-geo me-2 text-danger"></i>La pista no se activa en tu ubicación</strong>
+            <p>Abre el mapa dentro de la audioguía y pulsa el icono de la pequeña figura en la esquina superior izquierda. El mapa debería centrarse en tu ubicación actual.
+                Si no lo hace, revisa los tres niveles de permisos descritos en el Paso 1.</p>
         </div>
 
         <div class="trouble-item">
-            <strong><i class="bi bi-crosshair me-2 text-warning"></i>Location visible but jumps around on the map</strong>
-            <p>Make sure you have granted <em>precise location</em> access rather than just a general area.
-                If jumps persist outdoors, your device may have a weak GPS chipset &mdash; try with a
-                different smartphone model.</p>
+            <strong><i class="bi bi-crosshair me-2 text-warning"></i>La ubicación aparece pero salta en el mapa</strong>
+            <p>Asegúrate de haber concedido acceso a la <em>ubicación precisa</em> y no solo a una ubicación aproximada.
+                Si los saltos continúan incluso en exteriores, tu dispositivo puede tener un chipset GPS débil &mdash; prueba con otro modelo de smartphone.</p>
         </div>
 
         <div class="trouble-item">
-            <strong><i class="bi bi-reception-0 me-2 text-danger"></i>A few tracks do not trigger at all</strong>
-            <p>These points likely fall in areas with limited internet or GPS coverage. Note which ones and
-                let us know &mdash; in rare coverage gaps, we can apply alternative triggering strategies, like timed triggers.</p>
+            <strong><i class="bi bi-reception-0 me-2 text-danger"></i>Algunas pistas no se activan</strong>
+            <p>Es probable que esos puntos estén en zonas con cobertura limitada de internet o GPS. Toma nota y avísanos &mdash; en casos puntuales podemos aplicar estrategias alternativas de activación, como activación temporizada.</p>
         </div>
 
         <div class="trouble-item">
-            <strong><i class="bi bi-x-circle me-2 text-danger"></i>Many tracks are not triggering</strong>
-            <p>This usually means there is no reliable internet or GPS signal in your vehicle. Try refreshing
-                and repeating the route with the phone held close to a window. If the problem persists across
-                the whole route, your area may need a dedicated antenna &mdash; contact us and we will advise.</p>
+            <strong><i class="bi bi-x-circle me-2 text-danger"></i>Muchas pistas no se activan</strong>
+            <p>Normalmente esto significa que no hay señal fiable de internet o GPS en tu vehículo. Actualiza la página y repite la ruta colocando el teléfono cerca de una ventana.
+                Si el problema persiste durante toda la ruta, puede que sea necesaria una antena dedicada &mdash; ponte en contacto con nosotros y te asesoraremos.</p>
         </div>
 
     </div>
 
     <!-- Footer -->
     <div class="instructions-footer">
-        <p>Questions? Write to us at <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+        <p>¿Tienes preguntas? Escríbenos a <a href="mailto:info@nubart.eu">info@nubart.eu</a>
             &nbsp;&mdash;&nbsp;
             <a href="https://www.nubart.eu">www.nubart.eu</a>
         </p>
@@ -560,7 +546,7 @@
 </div><!-- /.demo-wrap -->
 
 <script>
-    // ── Generate QR code from ?demo= URL parameter ──────────────────────────
+    // ── Genera el código QR a partir del parámetro URL ?demo= ────────────────
     (function () {
         const params  = new URLSearchParams(window.location.search);
         const demoUrl = params.get('demo');
@@ -584,7 +570,7 @@
         }
     })();
 
-    // ── Troubleshooting accordion ────────────────────────────────────────────
+    // ── Acordeón de resolución de problemas ──────────────────────────────────
     function toggleTroubleshooting() {
         const body    = document.getElementById('ts-body');
         const chevron = document.getElementById('ts-chevron');
