@@ -87,9 +87,24 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - BG: (still pending)
 - PT-BR: pt-br/traducao-simultanea-ia/da-pr-eu.html
 
+### Nubart GUIDE
+**Main product explainer:**
+- EN: audio-guides/index.html
+- DE: de/audioguides/index.html
+- ES: es/audioguias.html
+- IT: it/audioguida.html
+- FR: fr/audioguides.html
+- HE: he/audio-guides/index.html
+- BG: bg/audiogidove.html
+- PT-BR: pt-br/audioguia/index.html
+- JA: ja/audio-guides/index.html
+- NL: nl/audiogidsen/index.html
+- PL: pl/audioprzewodnik/index.html
+
 ## Product Distinctions (Important!)
 - **Nubart LIVE**: Tour guide system with optional AI translation for GUIDED tours
 - **Nubart TRANSLATE**: AI simultaneous interpretation for EVENTS (conferences, etc.)
+- **Nubart GUIDE**: Digital prerecorded multimedia PWA audio guide for self-guided tours
 - These are different products - do not conflate them in copy or links
 
 ## Technical Stack
