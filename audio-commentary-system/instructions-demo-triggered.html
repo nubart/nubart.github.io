@@ -577,7 +577,7 @@
                 colorLight: '#ffffff',
                 correctLevel: QRCode.CorrectLevel.H
             });
-            urlEl.textContent = demoUrl;
+            urlEl.innerHTML = `<a href="${demoUrl}" target="_blank" rel="noopener">${demoUrl}</a>`;
         } else {
             qrEl.style.display = 'none';
             missing.style.display = 'block';
