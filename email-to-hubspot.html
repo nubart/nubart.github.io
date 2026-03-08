@@ -427,9 +427,22 @@ function buildQualNote(d) {
 }
 
 // ─── HubSpot helpers ──────────────────────────────────────────────────────────
+const WORKER = 'https://nubart-hubspot-proxy.jolly-cake-8724.workers.dev';
+
 async function findOrCreateCompany(token, name) {
-  // HubSpot's search endpoint blocks browser requests (CORS), so we always create.
-  // Duplicate company records can be merged manually in HubSpot if needed.
+  // Search for existing company first (CORS handled by Worker)
+  const searchUrl = 'https://api.hubapi.com/crm/v3/objects/companies/search';
+  const proxyUrl = WORKER + '?target=' + encodeURIComponent(searchUrl);
+  const res = await fetch(proxyUrl, {
+    method: 'POST',
+    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      filterGroups: [{ filters: [{ propertyName: 'name', operator: 'EQ', value: name }] }],
+      properties: ['name'], limit: 1
+    })
+  });
+  const data = await res.json();
+  if (data.total > 0) return data.results[0].id;
   const created = await hsPost(token, 'https://api.hubapi.com/crm/v3/objects/companies', {
     properties: { name: name }
   });
@@ -437,7 +450,8 @@ async function findOrCreateCompany(token, name) {
 }
 
 async function hsPost(token, url, payload) {
-  const res = await fetch(url, {
+  const proxyUrl = WORKER + '?target=' + encodeURIComponent(url);
+  const res = await fetch(proxyUrl, {
     method: 'POST',
     headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
@@ -450,7 +464,9 @@ async function hsPost(token, url, payload) {
 }
 
 async function hsAssociate(token, fromType, fromId, toType, toId, assocType) {
-  await fetch(`https://api.hubapi.com/crm/v3/objects/${fromType}/${fromId}/associations/${toType}/${toId}/${assocType}`, {
+  const url = `https://api.hubapi.com/crm/v3/objects/${fromType}/${fromId}/associations/${toType}/${toId}/${assocType}`;
+  const proxyUrl = WORKER + '?target=' + encodeURIComponent(url);
+  await fetch(proxyUrl, {
     method: 'PUT',
     headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' }
   });
