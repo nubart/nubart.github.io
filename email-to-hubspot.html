@@ -316,7 +316,7 @@ async function pushToHubSpot() {
 
   try {
     // 1. Company
-    log('info', 'Searching for existing company...');
+    log('info', 'Creating company...');
     const companyId = await findOrCreateCompany(hsToken, d.company);
     log('ok', `Company ready — ID: ${companyId}`);
 
@@ -428,16 +428,8 @@ function buildQualNote(d) {
 
 // ─── HubSpot helpers ──────────────────────────────────────────────────────────
 async function findOrCreateCompany(token, name) {
-  const res = await fetch('https://api.hubapi.com/crm/v3/objects/companies/search', {
-    method: 'POST',
-    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      filterGroups: [{ filters: [{ propertyName: 'name', operator: 'EQ', value: name }] }],
-      properties: ['name'], limit: 1
-    })
-  });
-  const data = await res.json();
-  if (data.total > 0) return data.results[0].id;
+  // HubSpot's search endpoint blocks browser requests (CORS), so we always create.
+  // Duplicate company records can be merged manually in HubSpot if needed.
   const created = await hsPost(token, 'https://api.hubapi.com/crm/v3/objects/companies', {
     properties: { name: name }
   });
