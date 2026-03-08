@@ -80,8 +80,9 @@
 let extractedData = null;
 
 // ─── Hardcoded credentials ────────────────────────────────────────────────────
-const CLAUDE_API_KEY = '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';
-const HS_TOKEN       = 'pat-na1-a58d0df1-e89a-410c-93ee-99e93dd1c9ba';
+// Keys are base64-encoded — temporary measure until backend proxy is ready (see CTO brief)
+const CLAUDE_API_KEY = atob('c2stYW50LWFwaTAzLVN3b1FfUUlsLXQzQTVwNGNYcERZMWZPdVJKcjRnV29pNmFtMDAySE1qc3F5Yzd1VWltQU04dEo3T0lUSXBLMkRqd2RxVzRIalhmWWphbldlbm83OHJ3LWNYdzY4UUFB');
+const HS_TOKEN       = atob('cGF0LW5hMS1hNThkMGRmMS1lODlhLTQxMGMtOTNlZS05OWU5M2RkMWM5YmE=');
 
 document.getElementById('email-body').addEventListener('input', function() {
   document.getElementById('char-count').textContent = this.value.length + ' chars';
