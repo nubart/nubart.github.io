@@ -120,6 +120,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - Secondary: Template's existing CSS (Dewi)
 - Last resort: Custom overrides in `custom.css` only when Bootstrap/template CSS insufficient
 - Avoid inline styles unless absolutely necessary
+- Always place all new dedicated css files in assets/css/
 
 ## Images & Media
 - Location: `/assets/img/` (with subdirectories)
