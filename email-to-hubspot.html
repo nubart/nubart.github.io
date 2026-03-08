@@ -16,59 +16,83 @@
       <h1>Email → HubSpot</h1>
       <p>AI-powered lead extraction &amp; qualification · Nubart internal tool</p>
     </div>
+    <button class="btn-settings" onclick="showSetup(true)" title="Update API keys">⚙</button>
   </header>
 
-
-  <!-- Email input -->
-  <div class="section">
-    <div class="row-header">
-      <div class="section-label">Email Content</div>
-      <span class="char-count" id="char-count">0 chars</span>
+  <!-- First-time setup: shown when keys are missing from localStorage -->
+  <div class="section" id="setup-section" style="display:none">
+    <div class="section-label">First-time Setup</div>
+    <p class="setup-note">Enter your API credentials once. They are saved in this browser only and never leave your device except to call the respective APIs.</p>
+    <div class="setup-fields">
+      <div class="setup-field">
+        <label class="setup-label" for="setup-claude">Claude API Key</label>
+        <input type="password" id="setup-claude" placeholder="sk-ant-api03-...">
+      </div>
+      <div class="setup-field">
+        <label class="setup-label" for="setup-hs">HubSpot Token</label>
+        <input type="password" id="setup-hs" placeholder="pat-na1-...">
+      </div>
     </div>
-    <textarea id="email-body" placeholder="Paste the full email here, including sender name, email address, company, and message body..."></textarea>
     <div class="actions">
-      <button class="btn btn-primary" id="analyze-btn" onclick="analyzeEmail()">
-        <span>Analyze &amp; Extract</span>
-        <div class="spinner" id="analyze-spinner"></div>
-      </button>
-      <button class="btn btn-ghost" onclick="clearAll()">Clear</button>
+      <button class="btn btn-primary" onclick="saveKeys()">Save &amp; Continue</button>
     </div>
   </div>
 
-  <!-- Results -->
-  <div id="results">
+  <!-- Main tool: shown when keys are present -->
+  <div id="main-section">
 
-    <!-- Extracted Data -->
+    <!-- Email input -->
     <div class="section">
-      <div class="section-label">Extracted Contact Data</div>
-      <div id="disq-banner"></div>
-      <div id="warn-banner"></div>
-
-      <div class="product-row">
-        <span class="product-row-label">Detected product:</span>
-        <span id="product-badge"></span>
+      <div class="row-header">
+        <div class="section-label">Email Content</div>
+        <span class="char-count" id="char-count">0 chars</span>
       </div>
-
-      <div class="data-grid" id="data-grid"></div>
-
-      <div class="divider"></div>
-      <div class="section-label">Qualification &amp; Assessment</div>
-      <div class="qual-box" id="qual-text"></div>
+      <textarea id="email-body" placeholder="Paste the full email here, including sender name, email address, company, and message body..."></textarea>
+      <div class="actions">
+        <button class="btn btn-primary" id="analyze-btn" onclick="analyzeEmail()">
+          <span>Analyze &amp; Extract</span>
+          <div class="spinner" id="analyze-spinner"></div>
+        </button>
+        <button class="btn btn-ghost" onclick="clearAll()">Clear</button>
+      </div>
     </div>
 
-    <!-- Push to HubSpot -->
-    <div class="section" id="push-section">
-      <div class="section-label">Push to HubSpot</div>
-      <p class="push-description">Review the extracted data above. If everything looks correct, push to HubSpot. This will create Company, Contact, Deal (if applicable), and two Notes.</p>
-      <div class="push-actions">
-        <button class="btn btn-push" id="push-btn" onclick="pushToHubSpot()">
-          <span>Push to HubSpot</span>
-          <div class="spinner" id="push-spinner"></div>
-        </button>
-        <button class="btn btn-ghost" onclick="reAnalyze()">Re-analyze</button>
+    <!-- Results -->
+    <div id="results">
+
+      <!-- Extracted Data -->
+      <div class="section">
+        <div class="section-label">Extracted Contact Data</div>
+        <div id="disq-banner"></div>
+        <div id="warn-banner"></div>
+
+        <div class="product-row">
+          <span class="product-row-label">Detected product:</span>
+          <span id="product-badge"></span>
+        </div>
+
+        <div class="data-grid" id="data-grid"></div>
+
+        <div class="divider"></div>
+        <div class="section-label">Qualification &amp; Assessment</div>
+        <div class="qual-box" id="qual-text"></div>
       </div>
-      <div id="status-log"></div>
-      <div id="push-result"></div>
+
+      <!-- Push to HubSpot -->
+      <div class="section" id="push-section">
+        <div class="section-label">Push to HubSpot</div>
+        <p class="push-description">Review the extracted data above. If everything looks correct, push to HubSpot. This will create Company, Contact, Deal (if applicable), and two Notes.</p>
+        <div class="push-actions">
+          <button class="btn btn-push" id="push-btn" onclick="pushToHubSpot()">
+            <span>Push to HubSpot</span>
+            <div class="spinner" id="push-spinner"></div>
+          </button>
+          <button class="btn btn-ghost" onclick="reAnalyze()">Re-analyze</button>
+        </div>
+        <div id="status-log"></div>
+        <div id="push-result"></div>
+      </div>
+
     </div>
 
   </div>
@@ -79,10 +103,33 @@
 // ─── State ───────────────────────────────────────────────────────────────────
 let extractedData = null;
 
-// ─── Hardcoded credentials ────────────────────────────────────────────────────
-// Keys are base64-encoded — temporary measure until backend proxy is ready (see CTO brief)
-const CLAUDE_API_KEY = atob('c2stYW50LWFwaTAzLVN3b1FfUUlsLXQzQTVwNGNYcERZMWZPdVJKcjRnV29pNmFtMDAySE1qc3F5Yzd1VWltQU04dEo3T0lUSXBLMkRqd2RxVzRIalhmWWphbldlbm83OHJ3LWNYdzY4UUFB');
-const HS_TOKEN       = atob('cGF0LW5hMS1hNThkMGRmMS1lODlhLTQxMGMtOTNlZS05OWU5M2RkMWM5YmE=');
+// ─── Credentials (localStorage) ──────────────────────────────────────────────
+const LS_CLAUDE = 'nubart_claude_key';
+const LS_HS     = 'nubart_hs_token';
+
+function getClaudeKey() { return localStorage.getItem(LS_CLAUDE) || ''; }
+function getHsToken()   { return localStorage.getItem(LS_HS) || ''; }
+
+function saveKeys() {
+  const claude = document.getElementById('setup-claude').value.trim();
+  const hs     = document.getElementById('setup-hs').value.trim();
+  if (!claude || !hs) { alert('Both keys are required.'); return; }
+  localStorage.setItem(LS_CLAUDE, claude);
+  localStorage.setItem(LS_HS, hs);
+  showSetup(false);
+}
+
+function showSetup(visible) {
+  document.getElementById('setup-section').style.display = visible ? 'block' : 'none';
+  document.getElementById('main-section').style.display  = visible ? 'none'  : 'block';
+  if (visible) {
+    document.getElementById('setup-claude').value = getClaudeKey();
+    document.getElementById('setup-hs').value     = getHsToken();
+  }
+}
+
+// On load: show setup if keys are missing
+if (!getClaudeKey() || !getHsToken()) showSetup(true);
 
 document.getElementById('email-body').addEventListener('input', function() {
   document.getElementById('char-count').textContent = this.value.length + ' chars';
@@ -103,7 +150,7 @@ async function analyzeEmail() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': CLAUDE_API_KEY,
+        'x-api-key': getClaudeKey(),
         'anthropic-version': '2023-06-01',
         'anthropic-dangerous-direct-browser-access': 'true'
       },
@@ -257,7 +304,6 @@ const PIPELINE_MAP = {
 };
 
 async function pushToHubSpot() {
-  const hsToken = HS_TOKEN;
   if (!extractedData) { alert('No data to push. Please analyze an email first.'); return; }
 
   setPushing(true);
@@ -266,6 +312,7 @@ async function pushToHubSpot() {
   document.getElementById('push-result').style.display = 'none';
 
   const d = extractedData;
+  const hsToken = getHsToken();
 
   try {
     // 1. Company
