@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nubart · Email → HubSpot</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="email-to-hubspot.css">
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo-mark">N</div>
+    <div>
+      <h1>Email → HubSpot</h1>
+      <p>AI-powered lead extraction &amp; qualification · Nubart internal tool</p>
+    </div>
+  </header>
+
+
+  <!-- Email input -->
+  <div class="section">
+    <div class="row-header">
+      <div class="section-label">Email Content</div>
+      <span class="char-count" id="char-count">0 chars</span>
+    </div>
+    <textarea id="email-body" placeholder="Paste the full email here, including sender name, email address, company, and message body..."></textarea>
+    <div class="actions">
+      <button class="btn btn-primary" id="analyze-btn" onclick="analyzeEmail()">
+        <span>Analyze &amp; Extract</span>
+        <div class="spinner" id="analyze-spinner"></div>
+      </button>
+      <button class="btn btn-ghost" onclick="clearAll()">Clear</button>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="results">
+
+    <!-- Extracted Data -->
+    <div class="section">
+      <div class="section-label">Extracted Contact Data</div>
+      <div id="disq-banner"></div>
+      <div id="warn-banner"></div>
+
+      <div class="product-row">
+        <span class="product-row-label">Detected product:</span>
+        <span id="product-badge"></span>
+      </div>
+
+      <div class="data-grid" id="data-grid"></div>
+
+      <div class="divider"></div>
+      <div class="section-label">Qualification &amp; Assessment</div>
+      <div class="qual-box" id="qual-text"></div>
+    </div>
+
+    <!-- Push to HubSpot -->
+    <div class="section" id="push-section">
+      <div class="section-label">Push to HubSpot</div>
+      <p class="push-description">Review the extracted data above. If everything looks correct, push to HubSpot. This will create Company, Contact, Deal (if applicable), and two Notes.</p>
+      <div class="push-actions">
+        <button class="btn btn-push" id="push-btn" onclick="pushToHubSpot()">
+          <span>Push to HubSpot</span>
+          <div class="spinner" id="push-spinner"></div>
+        </button>
+        <button class="btn btn-ghost" onclick="reAnalyze()">Re-analyze</button>
+      </div>
+      <div id="status-log"></div>
+      <div id="push-result"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+// ─── State ───────────────────────────────────────────────────────────────────
+let extractedData = null;
+
+// ─── Hardcoded credentials ────────────────────────────────────────────────────
+const CLAUDE_API_KEY = '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';
+const HS_TOKEN       = 'pat-na1-a58d0df1-e89a-410c-93ee-99e93dd1c9ba';
+
+document.getElementById('email-body').addEventListener('input', function() {
+  document.getElementById('char-count').textContent = this.value.length + ' chars';
+});
+
+// ─── Analyze ─────────────────────────────────────────────────────────────────
+async function analyzeEmail() {
+  const emailBody = document.getElementById('email-body').value.trim();
+
+  if (!emailBody) { alert('Please paste an email to analyze.'); return; }
+
+  setAnalyzing(true);
+  document.getElementById('results').style.display = 'none';
+
+  try {
+    const prompt = buildPrompt(emailBody);
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': CLAUDE_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 2000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      throw new Error(err.error?.message || 'API error ' + response.status);
+    }
+
+    const data = await response.json();
+    const text = data.content[0].text;
+    const clean = text.replace(/```json\n?|\n?```/g, '').trim();
+    extractedData = JSON.parse(clean);
+    renderResults(extractedData);
+
+  } catch (err) {
+    alert('Error: ' + err.message);
+  } finally {
+    setAnalyzing(false);
+  }
+}
+
+function buildPrompt(emailText) {
+  return `You are a lead qualification assistant for Nubart, a European B2B company selling QR-based digital audio technology to museums, cultural venues, and tour operators.
+
+NUBART PRODUCTS:
+- GUIDE: Self-guided audio tours with prerecorded tracks. Visitors scan a QR code and listen at their own pace. For museums, historic sites, walking tours triggered by GPS. Key: prerecorded content, self-guided, no human guide present.
+- LIVE: Tour guide system. A human guide speaks and a group follows, listening on their phones in real time. Used for group tours, live guided experiences. Key: live human guide, group following simultaneously.
+- TRANSLATE: AI simultaneous interpretation/translation for events, conferences, seminars, guided tours needing multilingual real-time translation. Key: live event, multiple languages needed simultaneously, conference/seminar context.
+- SYNC: A QR code that lets visitors hear the audio of a silent on-site video screen, perfectly synced, on their own phone. Used in museums with video exhibits, digital signage, outdoor screens, art installations with video. Key: existing video playing on a screen, visitors need audio. NOT for tours.
+- MOTION: Automated multilingual audio commentary for sightseeing vehicles (boats, buses, trains, trams — any enclosed vehicle with passengers). GPS/remote/timed triggered. Key: vehicle, passengers, automated prerecorded commentary.
+
+IMPORTANT DISAMBIGUATION RULES:
+- "Audio guide" or "audioguía" or "multimedia guide" from a museum = likely GUIDE
+- "Audio guide" from an event company, for a temporary exhibition, or for a group = could be LIVE (tour guide) or GUIDE — be careful
+- "Tour guide system", "earpiece", "group guidance" = LIVE
+- "Silent video", "video screen audio", "sync audio to video", "film installation" = SYNC. IMPORTANT: only infer SYNC if the email explicitly mentions a video screen, film, projection, or audio-video synchronisation need. Do NOT suggest SYNC speculatively.
+- "Sightseeing bus/boat/train/tram", "vehicle commentary" = MOTION
+- "Translation", "interpretation", "multilingual event", "conference" = TRANSLATE
+- If genuinely ambiguous between two products, set product to "ambiguous" and explain in qualification
+
+WHEN PRODUCT IS AMBIGUOUS:
+- Always end the qualification_note's recommended action by explicitly stating that no Deal has been created automatically due to the ambiguous product, and that Evelyn should create it manually once the product is clarified.
+
+DISQUALIFYING SIGNALS:
+- Disposable/throwaway email domain (mailinator, guerrillamail, tempmail, 10minutemail, yopmail, sharklasers, trashmail, fakeinbox, throwam, dispostable, maildrop, spamgourmet, and similar) → disqualified = true, disqualify_reason = "Disposable email domain"
+- For TRANSLATE only: if the sender appears to be a competitor offering AI translation/interpretation tech, OR an IT development agency → disqualified = true, disqualify_reason = "Competitor or IT agency (TRANSLATE)"
+- Student/academic with no institutional budget → not disqualifying, but flag as risk
+
+RISK FLAGS (not disqualifying, just note in qualification):
+- Explicit "no budget" / "limited funds" / "just curious" signals
+- Very small venue/event (single room, <50 people)
+- Student project
+
+OUTPUT LANGUAGE RULES:
+- Detect the language from the BODY of the email written by the prospect — ignore any form field labels, field names, or UI text which may be in a different language
+- If the prospect's message body is in Spanish, Italian, or Portuguese → write qualification_note in Spanish
+- If the prospect's message body is in German → write qualification_note in German
+- Otherwise → write qualification_note in English
+
+COMPETING PRODUCTS:
+- If a prospect mentions a competing product (e.g. Mixtech, Orpheo, or any other competitor) this is NOT a risk flag — it simply means they need clarification about how our system differs. Mention it in the note as a clarification opportunity, not as a risk.
+
+You must respond with ONLY a valid JSON object, no preamble, no markdown fences:
+
+{
+  "first_name": "",
+  "last_name": "",
+  "email": "",
+  "phone": "",
+  "company": "",
+  "product": "GUIDE|LIVE|TRANSLATE|SYNC|MOTION|ambiguous",
+  "disqualified": false,
+  "disqualify_reason": "",
+  "risk_flags": [],
+  "create_deal": true,
+  "qualification_note": "",
+  "output_language": "es|de|en"
+}
+
+Rules:
+- If product is "ambiguous", set create_deal to false
+- If disqualified is true, still create company and contact, but set create_deal to false
+- qualification_note should be a thorough assessment: what the prospect needs, product fit, confidence level, any uncertainties, risk flags, recommended next step. Start with "@[8844205]" to tag Evelyn.
+- If you are uncertain about anything (product inference, company type, etc.), say so explicitly in the qualification_note
+- Extract as much contact info as possible from the email body
+
+EMAIL TO ANALYZE:
+${emailText}`;
+}
+
+// ─── Render results ───────────────────────────────────────────────────────────
+function renderResults(d) {
+  // Product badge
+  const productColors = {
+    GUIDE: 'guide', LIVE: 'live', TRANSLATE: 'translate',
+    SYNC: 'sync', MOTION: 'motion', ambiguous: 'ambiguous'
+  };
+  const cls = productColors[d.product] || 'ambiguous';
+  document.getElementById('product-badge').innerHTML =
+    `<span class="product-badge badge-${cls}"><span class="badge-dot"></span>${d.product}</span>`;
+
+  // Disqualified banner
+  const disqEl = document.getElementById('disq-banner');
+  disqEl.innerHTML = d.disqualified
+    ? `<div class="disq-box"><span>⚠</span><span><strong>Disqualified:</strong> ${d.disqualify_reason}. Company and Contact will still be created in HubSpot, but no Deal.</span></div>`
+    : '';
+
+  // Risk flags
+  const warnEl = document.getElementById('warn-banner');
+  warnEl.innerHTML = d.risk_flags && d.risk_flags.length
+    ? `<div class="warn-box"><span>⚡</span><span><strong>Risk flags:</strong> ${d.risk_flags.join(', ')}</span></div>`
+    : '';
+
+  // Data grid
+  const fields = [
+    ['First name', d.first_name],
+    ['Last name', d.last_name],
+    ['Email', d.email],
+    ['Phone', d.phone],
+    ['Company', d.company],
+    ['Product', d.product],
+    ['Create deal', d.create_deal ? 'Yes' : 'No — ' + (d.disqualified ? 'disqualified' : 'ambiguous product')],
+  ];
+
+  document.getElementById('data-grid').innerHTML = fields.map(([k, v]) =>
+    `<div class="data-key">${k}</div><div class="data-val ${!v ? 'empty' : ''}">${v || '(not found)'}</div>`
+  ).join('');
+
+  // Qualification note
+  document.getElementById('qual-text').textContent = d.qualification_note || '(no assessment)';
+
+  // Show results
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ─── Push to HubSpot ──────────────────────────────────────────────────────────
+const PIPELINE_MAP = {
+  GUIDE:     { pipeline: 'default',    stage: 'qualifiedtobuy' },
+  LIVE:      { pipeline: '30831931',   stage: '70029603' },
+  TRANSLATE: { pipeline: '774905140',  stage: '1132666480' },
+  SYNC:      { pipeline: '30829979',   stage: '70078864' },
+  MOTION:    { pipeline: '782785295',  stage: '1147287213' },
+};
+
+async function pushToHubSpot() {
+  const hsToken = HS_TOKEN;
+  if (!extractedData) { alert('No data to push. Please analyze an email first.'); return; }
+
+  setPushing(true);
+  showLog(true);
+  clearLog();
+  document.getElementById('push-result').style.display = 'none';
+
+  const d = extractedData;
+
+  try {
+    // 1. Company
+    log('info', 'Searching for existing company...');
+    const companyId = await findOrCreateCompany(hsToken, d.company);
+    log('ok', `Company ready — ID: ${companyId}`);
+
+    // 2. Contact
+    log('info', 'Creating contact...');
+    let contactId;
+    try {
+      const cProps = { firstname: d.first_name, lastname: d.last_name, email: d.email };
+      if (d.phone) cProps.phone = d.phone;
+      const cRes = await hsPost(hsToken, 'https://api.hubapi.com/crm/v3/objects/contacts', { properties: cProps });
+      contactId = cRes.id;
+      log('ok', `Contact created — ID: ${contactId}`);
+    } catch (e) {
+      if (e.message.includes('409')) {
+        const m = e.message.match(/Existing ID:\s*(\d+)/);
+        contactId = m ? m[1] : null;
+        log('ok', `Contact already exists — ID: ${contactId}`);
+      } else throw e;
+    }
+
+    // 3. Associate contact → company
+    log('info', 'Associating contact → company...');
+    await hsAssociate(hsToken, 'contacts', contactId, 'companies', companyId, 'contact_to_company');
+    log('ok', 'Contact → Company associated');
+
+    // 4. Deal (if applicable)
+    let dealId = null;
+    if (d.create_deal && d.product !== 'ambiguous' && !d.disqualified) {
+      log('info', `Creating deal for ${d.product}...`);
+      const pipeInfo = PIPELINE_MAP[d.product];
+      const dealProps = {
+        dealname: `${d.company} - ${d.first_name} ${d.last_name} - ${d.product}`,
+        pipeline: pipeInfo.pipeline,
+        dealstage: pipeInfo.stage,
+        form_submitted__2_: 'No form submitted'
+      };
+      const dRes = await hsPost(hsToken, 'https://api.hubapi.com/crm/v3/objects/deals', { properties: dealProps });
+      dealId = dRes.id;
+      log('ok', `Deal created — ID: ${dealId}`);
+
+      await hsAssociate(hsToken, 'deals', dealId, 'contacts', contactId, 'deal_to_contact');
+      await hsAssociate(hsToken, 'deals', dealId, 'companies', companyId, 'deal_to_company');
+      log('ok', 'Deal associations done');
+    } else {
+      log('info', 'Skipping deal creation (' + (d.disqualified ? 'disqualified' : 'ambiguous product') + ')');
+    }
+
+    // 5. Data note
+    log('info', 'Creating data note...');
+    const dataNoteBody = buildDataNote(d);
+    const dataNoteRes = await hsPost(hsToken, 'https://api.hubapi.com/crm/v3/objects/notes', {
+      properties: { hs_note_body: dataNoteBody, hs_timestamp: Date.now().toString() }
+    });
+    const dataNoteId = dataNoteRes.id;
+    await hsAssociate(hsToken, 'notes', dataNoteId, 'contacts', contactId, 'note_to_contact');
+    await hsAssociate(hsToken, 'notes', dataNoteId, 'companies', companyId, 'note_to_company');
+    if (dealId) await hsAssociate(hsToken, 'notes', dataNoteId, 'deals', dealId, 'note_to_deal');
+    log('ok', `Data note created — ID: ${dataNoteId}`);
+
+    // 6. Qualification note
+    log('info', 'Creating qualification note...');
+    const qualNoteBody = buildQualNote(d);
+    const qualNoteRes = await hsPost(hsToken, 'https://api.hubapi.com/crm/v3/objects/notes', {
+      properties: { hs_note_body: qualNoteBody, hs_timestamp: (Date.now() + 1000).toString() }
+    });
+    const qualNoteId = qualNoteRes.id;
+    await hsAssociate(hsToken, 'notes', qualNoteId, 'contacts', contactId, 'note_to_contact');
+    await hsAssociate(hsToken, 'notes', qualNoteId, 'companies', companyId, 'note_to_company');
+    if (dealId) await hsAssociate(hsToken, 'notes', qualNoteId, 'deals', dealId, 'note_to_deal');
+    log('ok', `Qualification note created — ID: ${qualNoteId}`);
+
+    showPushResult(true, `✓ All done! Company, Contact${dealId ? ', Deal' : ''} and 2 Notes created in HubSpot.`);
+
+  } catch (err) {
+    log('err', 'FATAL: ' + err.message);
+    showPushResult(false, '✗ Error: ' + err.message);
+  } finally {
+    setPushing(false);
+  }
+}
+
+function buildDataNote(d) {
+  const br = '<br>';
+  return '<p>'
+    + '--- NUBART: Email Lead (AI Extracted) ---' + br + br
+    + 'CONTACT' + br
+    + 'Name: ' + (d.first_name || '') + ' ' + (d.last_name || '') + br
+    + 'Email: ' + (d.email || '(not found)') + br
+    + 'Phone: ' + (d.phone || '(not found)') + br
+    + 'Company: ' + (d.company || '(not found)') + br + br
+    + 'PRODUCT INFERENCE' + br
+    + 'Detected product: ' + d.product + br
+    + 'Deal created: ' + (d.create_deal && !d.disqualified && d.product !== 'ambiguous' ? 'Yes' : 'No') + br
+    + (d.disqualify_reason ? 'Disqualification reason: ' + d.disqualify_reason + br : '')
+    + br
+    + 'SOURCE' + br
+    + 'Origin: Email (manual input via Nubart AI tool)' + br
+    + 'Processed at: ' + new Date().toISOString()
+    + '</p>';
+}
+
+function buildQualNote(d) {
+  const br = '<br>';
+  return '<p>'
+    + '--- NUBART: AI Qualification Assessment ---' + br + br
+    + (d.qualification_note || '(no assessment provided)').replace(/\n/g, br)
+    + '</p>';
+}
+
+// ─── HubSpot helpers ──────────────────────────────────────────────────────────
+async function findOrCreateCompany(token, name) {
+  const res = await fetch('https://api.hubapi.com/crm/v3/objects/companies/search', {
+    method: 'POST',
+    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      filterGroups: [{ filters: [{ propertyName: 'name', operator: 'EQ', value: name }] }],
+      properties: ['name'], limit: 1
+    })
+  });
+  const data = await res.json();
+  if (data.total > 0) return data.results[0].id;
+  const created = await hsPost(token, 'https://api.hubapi.com/crm/v3/objects/companies', {
+    properties: { name: name }
+  });
+  return created.id;
+}
+
+async function hsPost(token, url, payload) {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (res.status !== 200 && res.status !== 201) {
+    throw new Error(`HubSpot ${res.status} on ${url}: ${JSON.stringify(data).substring(0, 300)}`);
+  }
+  return data;
+}
+
+async function hsAssociate(token, fromType, fromId, toType, toId, assocType) {
+  await fetch(`https://api.hubapi.com/crm/v3/objects/${fromType}/${fromId}/associations/${toType}/${toId}/${assocType}`, {
+    method: 'PUT',
+    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' }
+  });
+}
+
+// ─── UI helpers ───────────────────────────────────────────────────────────────
+function setAnalyzing(on) {
+  const btn = document.getElementById('analyze-btn');
+  const sp = document.getElementById('analyze-spinner');
+  btn.disabled = on;
+  sp.style.display = on ? 'block' : 'none';
+  btn.querySelector('span').textContent = on ? 'Analyzing...' : 'Analyze & Extract';
+}
+
+function setPushing(on) {
+  const btn = document.getElementById('push-btn');
+  const sp = document.getElementById('push-spinner');
+  btn.disabled = on;
+  sp.style.display = on ? 'block' : 'none';
+  btn.querySelector('span').textContent = on ? 'Pushing...' : 'Push to HubSpot';
+}
+
+function showLog(visible) {
+  document.getElementById('status-log').style.display = visible ? 'block' : 'none';
+}
+
+function clearLog() {
+  document.getElementById('status-log').innerHTML = '';
+}
+
+function log(type, msg) {
+  const el = document.getElementById('status-log');
+  const line = document.createElement('div');
+  line.className = 'log-line';
+  const prefix = type === 'ok' ? '✓' : type === 'err' ? '✗' : '·';
+  line.innerHTML = `<span class="log-${type}">${prefix}</span><span class="log-${type}">${msg}</span>`;
+  el.appendChild(line);
+  el.scrollTop = el.scrollHeight;
+}
+
+function showPushResult(ok, msg) {
+  const el = document.getElementById('push-result');
+  el.style.display = 'block';
+  el.className = ok ? 'success' : 'error';
+  el.textContent = msg;
+}
+
+function clearAll() {
+  document.getElementById('email-body').value = '';
+  document.getElementById('char-count').textContent = '0 chars';
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('push-result').style.display = 'none';
+  clearLog();
+  showLog(false);
+  extractedData = null;
+}
+
+function reAnalyze() {
+  document.getElementById('results').style.display = 'none';
+  extractedData = null;
+  document.getElementById('email-body').focus();
+  document.getElementById('email-body').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
