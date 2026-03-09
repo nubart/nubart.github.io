@@ -396,7 +396,7 @@ async function pushToHubSpot() {
         hs_task_status:   'NOT_STARTED',
         hs_task_type:     'TODO',
         hs_timestamp:     (Date.now() + 86400000).toString(), // due tomorrow
-        hubspot_owner_id: EVELYN_OWNER_ID
+        hubspot_owner_id: getOwnerForLead(d.country)
       }
     });
     const taskId = taskRes.id;
@@ -442,7 +442,13 @@ function buildQualNote(d) {
 
 // ─── HubSpot helpers ──────────────────────────────────────────────────────────
 const WORKER           = 'https://nubart-hubspot-proxy.jolly-cake-8724.workers.dev';
-const EVELYN_OWNER_ID  = 'REPLACE_WITH_EVELYN_HUBSPOT_OWNER_ID'; // e.g. '12345678'
+function getOwnerForLead(country) {
+  const c = (country || '').trim().toLowerCase();
+  if (c === 'spain')                                          return '3825609';  // Jordi
+  if (['france','portugal','italy','brazil'].includes(c))     return '81896745'; // María
+  if (c === 'germany')                                        return '6743074';  // Ulrike
+  return '8844205';                                                              // Evelyn (default)
+}
 async function findOrCreateCompany(token, name) {
   // Search for existing company first (CORS handled by Worker)
   const searchUrl = 'https://api.hubapi.com/crm/v3/objects/companies/search';
