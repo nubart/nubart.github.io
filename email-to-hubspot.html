@@ -199,7 +199,7 @@ IMPORTANT DISAMBIGUATION RULES:
 - If genuinely ambiguous between two products, set product to "ambiguous" and explain in qualification
 
 WHEN PRODUCT IS AMBIGUOUS:
-- Always end the qualification_note's recommended action by explicitly stating that no Deal has been created automatically due to the ambiguous product, and that Evelyn should create it manually once the product is clarified.
+- Always end the qualification_note's recommended action by explicitly stating that no Deal has been created automatically due to the ambiguous product, and that it should be created manually once the product is clarified.
 
 DISQUALIFYING SIGNALS:
 - Disposable/throwaway email domain (mailinator, guerrillamail, tempmail, 10minutemail, yopmail, sharklasers, trashmail, fakeinbox, throwam, dispostable, maildrop, spamgourmet, and similar) → disqualified = true, disqualify_reason = "Disposable email domain"
@@ -243,7 +243,7 @@ You must respond with ONLY a valid JSON object, no preamble, no markdown fences:
 Rules:
 - If product is "ambiguous", set create_deal to false
 - If disqualified is true, still create company and contact, but set create_deal to false
-- qualification_note should be a thorough assessment: what the prospect needs, product fit, confidence level, any uncertainties, risk flags, recommended next step. Start with "Para Evelyn Crende:" (or language equivalent: "For Evelyn Crende:" in English, "Für Evelyn Crende:" in German) to address her directly.
+- qualification_note should be a thorough assessment: what the prospect needs, product fit, confidence level, any uncertainties, risk flags, recommended next step.
 - If you are uncertain about anything (product inference, company type, etc.), say so explicitly in the qualification_note
 - Extract as much contact info as possible from the email body
 - job_title: infer the sender's job title or role from the email content (signature, self-description, etc.). Leave empty string if cannot be inferred.
@@ -406,6 +406,10 @@ async function pushToHubSpot() {
     log('ok', `Qualification task created — ID: ${taskId}`);
 
     showPushResult(true, `✓ All done! Company, Contact${dealId ? ', Deal' : ''}, 1 Note and 1 Task created in HubSpot.`);
+    // Prevent accidental double-push
+    const pushBtn = document.getElementById('push-btn');
+    pushBtn.disabled = true;
+    pushBtn.title = 'Already pushed — clear and start a new email to push again';
 
   } catch (err) {
     log('err', 'FATAL: ' + err.message);
@@ -466,6 +470,16 @@ async function findOrCreateCompany(token, name) {
   const companyProps = { name: name };
   if (extractedData && extractedData.country) companyProps.country = extractedData.country;
   if (extractedData && extractedData.city) companyProps.city = extractedData.city;
+  if (extractedData && extractedData.email) {
+    const emailDomain = extractedData.email.split('@')[1];
+    // Exclude free/disposable email domains from company domain field
+    const freeDomains = ['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com',
+      'live.com','msn.com','aol.com','protonmail.com','proton.me','mailinator.com',
+      'guerrillamail.com','tempmail.com','yopmail.com','trashmail.com'];
+    if (emailDomain && !freeDomains.includes(emailDomain.toLowerCase())) {
+      companyProps.domain = emailDomain;
+    }
+  }
   const created = await hsPost(token, 'https://api.hubapi.com/crm/v3/objects/companies', {
     properties: companyProps
   });
