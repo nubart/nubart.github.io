@@ -339,8 +339,8 @@ html {
 
 /* Instruction pages - screen view */
 .instruction-page {
-    margin-bottom: 4rem;
-    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
     border-bottom: 2px solid #dee2e6;
 }
 
@@ -405,7 +405,7 @@ html {
     }
 
     body {
-        font-size: 11pt;
+        font-size: 10.8pt;
         line-height: 1.5;
         margin: 0;
         padding: 0;
@@ -496,33 +496,6 @@ html {
         page-break-inside: avoid;
     }
 
-
-/* Print view - inherits from screen layout */
-@media print {
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-
-    @page {
-        size: A4 landscape;
-        margin: 1cm;
-    }
-
-    html, body {
-        margin: 0;
-        padding: 0;
-    }
-
-    .no-print {
-        display: none !important;
-    }
-
-    /* Hide site navigation/footer */
-    header, footer, nav, .header, .footer, .breadcrumbs {
-        display: none !important;
-    }
-
     /* Instructions Quick Reference specific print styles */
     .instructions-quick-reference {
         max-width: 100%;
@@ -571,14 +544,14 @@ html {
 
     .instructions-quick-reference h2 {
         font-size: 8.5pt;
-        margin: 0.2cm 0 0.15cm 0;
+        margin: 0.18cm 0 0.12cm 0;
         page-break-after: avoid;
         border-bottom: none;
     }
 
     .instructions-quick-reference h3 {
         font-size: 7.5pt;
-        margin: 0.15cm 0 0.08cm 0;
+        margin: 0.12cm 0 0.06cm 0;
         page-break-after: avoid;
     }
 
@@ -597,15 +570,15 @@ html {
 
     .instructions-quick-reference ul,
     .instructions-quick-reference ol {
-        margin: 0.1cm 0 0.2cm 0;
-        padding-left: 0.4cm;
+        margin: 0.08cm 0 0.18cm 0;
+        padding-left: 0.38cm;
     }
 
     .instructions-quick-reference .alert {
         background: #e6f7f9 !important;
         border-left: 2px solid #00a7b5 !important;
-        padding: 0.15cm;
-        margin: 0.15cm 0;
+        padding: 0.13cm;
+        margin: 0.12cm 0;
         font-size: 7pt;
         page-break-inside: avoid;
     }
@@ -622,7 +595,7 @@ html {
 
     .section-box {
         page-break-inside: avoid;
-        margin-bottom: 0.25cm;
+        margin-bottom: 0.2cm;
     }
 
     .instructions-quick-reference table {
@@ -634,11 +607,11 @@ html {
 
     .instructions-quick-reference th,
     .instructions-quick-reference td {
-        padding: 0.08cm 0.15cm;
+        padding: 0.07cm 0.13cm;
         border: 0.5pt solid #dee2e6;
         text-align: left;
         font-size: 6pt;
-        line-height: 1.15;
+        line-height: 1.12;
     }
 
     .instructions-quick-reference th {
