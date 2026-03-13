@@ -66,6 +66,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - HE: he/ai-simultaneous-interpretation/terms-and-conditions.html
 - BG: (still pending)
 - PT-BR: pt-br/traducao-simultanea-ia/termos-e-condicoes.html
+- EL: el/ai-simultaneous-translation/terms-and-conditions.html
 
 **Instructions:**
 - EN: ai-simultaneous-interpretation/nubart-translate-instructions.html
@@ -76,16 +77,18 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - HE: he/ai-simultaneous-interpretation/nubart-translate-instructions.html
 - BG: (still pending)
 - PT-BR: pt-br/traducao-simultanea-ia/instrucoes-nubart-translate.html
+- EL: el/ai-simultaneous-translation/nubart-translate-instructions.html
 
 **DPA:**
 - EN: ai-simultaneous-interpretation/da-pr-eu.html
 - DE: de/simultan-uebersetzung-ki/da-pr-eu.html
 - ES: es/traduccion-simultanea-ia/da-pr-eu.html
 - IT: it/traduzione-simultanea-ia/da-pr-eu.html
-- FR: fr/traduction-simultanee-ia/ida-pr-eu.html
+- FR: fr/traduction-simultanee-ia/da-pr-eu.html
 - HE: (still pending)
 - BG: (still pending)
 - PT-BR: pt-br/traducao-simultanea-ia/da-pr-eu.html
+- EL: el/ai-simultaneous-translation/da-pr-eu.html
 
 ### Nubart GUIDE
 **Main product explainer:**
