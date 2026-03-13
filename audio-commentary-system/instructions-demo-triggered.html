@@ -187,7 +187,7 @@
 
         /* Troubleshooting */
         .troubleshooting-title {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #555;
             border-top: 1px solid #dee2e6;
@@ -204,7 +204,7 @@
         .troubleshooting-body { padding-top: 10px; }
         .trouble-item { margin-bottom: 12px; }
 
-        .trouble-item strong {
+        .trouble-item > strong {
             display: block;
             font-size: 0.9rem;
             color: #333;
@@ -352,7 +352,7 @@
             .troubleshooting-title {
                 display: flex !important;
                 cursor: default;
-                font-size: 9.5pt;
+                font-size: 11pt;
                 margin-top: 0.4cm;
                 padding-top: 0.25cm;
                 border-top: 1pt solid #dee2e6;
@@ -367,7 +367,7 @@
             }
 
             .trouble-item { margin-bottom: 0.2cm; page-break-inside: avoid; }
-            .trouble-item strong { font-size: 8pt; }
+            .trouble-item > strong { font-size: 8pt; }
             .trouble-item p { font-size: 7.5pt; line-height: 1.35; }
 
             /* Footer */
@@ -513,7 +513,16 @@
     </div>
 
     <div class="troubleshooting-body" id="ts-body" style="display:none;">
-
+        <div class="trouble-item">
+            <strong><i class="bi-apple me-2 text-warning"></i>GPS works on Chrome (Android) but not on Safari (iPhone)</strong>
+            <p>Safari on iPhone requires geolocation to be enabled at three separate levels. Please check each one:</p>
+            <ol>
+                <li><strong>System level:</strong> Go to <em>Settings → Privacy & Security → Location Services</em> and make sure <strong>Location Services is switched on.</strong></li>
+                <li><strong>Browser level:</strong> Still in <em>Settings → Privacy & Security → Location Services</em>, scroll down to find <strong>Safari</strong> and set it to <em>While Using the App</em>.</li>
+                <li><strong>Domain level:</strong> Open Safari, go to <em>Settings → Apps → Safari → Settings for Websites → Location</em> and make sure it is not set to <em>Deny</em>.</li>
+            </ol>
+            <p>Also make sure you have selected <strong>Precise Location</strong> rather than a general area. Once all three levels are enabled, reload the page and try again.</p>
+        </div>
         <div class="trouble-item">
             <strong><i class="bi bi-volume-mute me-2 text-danger"></i>Track plays but there is no sound</strong>
             <p>Another app may be capturing your audio output. Close all background apps and try again.
