@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="de">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>So testen Sie Ihre Nubart MOTION-Demo | Nubart</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet" />
+
+    <!-- QR Code generator library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        /* ─── Screen styles ─── */
+
+        .demo-wrap {
+            max-width: 860px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+        }
+
+        .nubart-logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .page-header {
+            border-bottom: 3px solid #028a8c;
+            padding-bottom: 14px;
+            margin-bottom: 28px;
+        }
+
+        .page-header h1 {
+            color: #028a8c;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .page-header .subtitle {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        /* QR box */
+        .qr-box {
+            border: 2px dashed #028a8c;
+            border-radius: 10px;
+            padding: 22px;
+            text-align: center;
+            background: #f0fafa;
+            margin-bottom: 28px;
+        }
+
+        .qr-box h2 {
+            font-size: 1rem;
+            color: #028a8c;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .qr-box .qr-intro {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        #qrcode { display: inline-block; }
+
+        #qrcode img,
+        #qrcode canvas {
+            border: 6px solid white;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            border-radius: 6px;
+        }
+
+        .qr-missing {
+            color: #b04000;
+            background: #fff3e0;
+            border: 1px solid #f5a623;
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            display: inline-block;
+        }
+
+        #demo-url-display {
+            margin-top: 10px;
+            font-size: 0.78rem;
+            color: #777;
+            word-break: break-all;
+        }
+
+        /* Situation box */
+        .situation-box {
+            background: #028a8c;
+            color: white;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 26px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .situation-box strong {
+            display: block;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+            opacity: 0.85;
+        }
+
+        /* Steps */
+        .step-block { margin-bottom: 22px; }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #028a8c;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-right: 12px;
+        }
+
+        .step-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #028a8c;
+            margin: 0;
+        }
+
+        .step-body {
+            padding-left: 44px;
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .step-body p  { margin-bottom: 6px; }
+        .step-body li { margin-bottom: 4px; }
+
+        /* Callouts — mirror the alert style from printable-terms.css */
+        .callout {
+            border-left: 4px solid #028a8c;
+            background: #f0fafa;
+            padding: 8px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            margin: 8px 0;
+            line-height: 1.45;
+        }
+
+        .callout.warning {
+            border-color: #e07b00;
+            background: #fff8ed;
+        }
+
+        .callout.tip {
+            border-color: #2e7d32;
+            background: #f1f8f1;
+        }
+
+        /* Troubleshooting */
+        .troubleshooting-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #555;
+            border-top: 1px solid #dee2e6;
+            padding-top: 18px;
+            margin-top: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+        }
+
+        .troubleshooting-title .bi-tools { color: #028a8c; }
+        .troubleshooting-body { padding-top: 10px; }
+        .trouble-item { margin-bottom: 12px; }
+
+        .trouble-item > strong {
+            display: block;
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .trouble-item p {
+            font-size: 0.88rem;
+            color: #555;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .instructions-footer {
+            border-top: 1px solid #dee2e6;
+            margin-top: 36px;
+            padding-top: 14px;
+            font-size: 0.82rem;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .instructions-footer a { color: #028a8c; }
+
+        /* ─── Print styles ───────────────────────────────────────────────────
+           These supplement (and where needed override) printable-terms.css.
+           That file already handles: hiding header/footer/nav, @page A4
+           landscape, color-adjust, and body font-size 11pt.
+           We override @page to portrait here since this is a single page doc.
+        ─────────────────────────────────────────────────────────────────── */
+        @media print {
+
+            @page {
+                size: A4 portrait;
+                margin: 1cm;
+            }
+
+            body { font-size: 10pt; }
+
+            .demo-wrap {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Page header */
+            .page-header {
+                border-bottom: 2pt solid #028a8c;
+                margin-bottom: 0.45cm;
+                padding-bottom: 0.25cm;
+            }
+
+            .page-header h1 {
+                font-size: 15pt;
+                color: #028a8c !important;
+            }
+
+            .page-header .subtitle {
+                font-size: 8.5pt;
+                color: #6c757d !important;
+            }
+
+            /* QR box */
+            .qr-box {
+                border: 1.5pt solid #028a8c !important;
+                background: #f0fafa !important;
+                padding: 0.35cm;
+                margin-bottom: 0.4cm;
+                page-break-inside: avoid;
+                text-align: center;
+            }
+
+            .qr-box h2 { font-size: 9.5pt; color: #028a8c !important; }
+            .qr-box .qr-intro { font-size: 7.5pt; margin-bottom: 0.25cm; }
+
+            #qrcode canvas,
+            #qrcode img {
+                max-width: 130px !important;
+                max-height: 130px !important;
+            }
+
+            #demo-url-display { font-size: 7pt; margin-top: 0.2cm; }
+
+            /* Situation box */
+            .situation-box {
+                background: #028a8c !important;
+                color: white !important;
+                border-radius: 4pt;
+                padding: 0.25cm 0.35cm;
+                margin-bottom: 0.35cm;
+                font-size: 8.5pt;
+                page-break-inside: avoid;
+            }
+
+            .situation-box strong { font-size: 7pt; }
+
+            /* Steps */
+            .step-block {
+                page-break-inside: avoid;
+                margin-bottom: 0.35cm;
+            }
+
+            .step-number {
+                background: #028a8c !important;
+                color: white !important;
+                width: 18pt;
+                height: 18pt;
+                font-size: 8.5pt;
+                margin-right: 7pt;
+            }
+
+            .step-header h3 {
+                font-size: 9.5pt;
+                color: #028a8c !important;
+            }
+
+            .step-body {
+                font-size: 8pt;
+                padding-left: 25pt;
+                line-height: 1.35;
+            }
+
+            /* Callouts */
+            .callout {
+                background: #f0fafa !important;
+                border-left: 3pt solid #028a8c !important;
+                font-size: 7.5pt;
+                padding: 0.1cm 0.25cm;
+                margin: 0.1cm 0;
+                page-break-inside: avoid;
+            }
+
+            .callout.warning {
+                background: #fff8ed !important;
+                border-left-color: #e07b00 !important;
+            }
+
+            .callout.tip {
+                background: #f1f8f1 !important;
+                border-left-color: #2e7d32 !important;
+            }
+
+            /* Troubleshooting: always fully visible when printing */
+            .troubleshooting-title {
+                display: flex !important;
+                cursor: default;
+                font-size: 11pt;
+                margin-top: 0.4cm;
+                padding-top: 0.25cm;
+                border-top: 1pt solid #dee2e6;
+            }
+
+            /* Hide the chevron icon in print — it's meaningless there */
+            #ts-chevron { display: none !important; }
+
+            .troubleshooting-body {
+                display: block !important;
+                font-size: 7.5pt;
+            }
+
+            .trouble-item { margin-bottom: 0.2cm; page-break-inside: avoid; }
+            .trouble-item > strong { font-size: 8pt; }
+            .trouble-item p { font-size: 7.5pt; line-height: 1.35; }
+
+            /* Footer */
+            .instructions-footer {
+                font-size: 7pt;
+                margin-top: 0.4cm;
+                padding-top: 0.15cm;
+                color: #aaa !important;
+            }
+
+            a { color: #028a8c !important; text-decoration: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="demo-wrap">
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Anleitung drucken (A4 Hochformat)
+    </button>
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo" />
+        <h1>So testen Sie Ihre Nubart MOTION-Demo</h1>
+        <p class="subtitle">GPS-gesteuerter Audioguide – So testen Sie Ihre Demo</p>
+    </div>
+
+    <!-- QR Code (generated dynamically from ?demo= parameter) -->
+    <div class="qr-box">
+        <h2><i class="bi bi-qr-code me-2"></i>Ihr persönlicher Demo-QR-Code</h2>
+        <p class="qr-intro">Scannen Sie diesen Code mit Ihrem Smartphone, um Ihren Demo-Audioguide zu öffnen.</p>
+        <div id="qrcode"></div>
+        <div id="qr-missing" class="qr-missing" style="display:none;">
+           <i class="bi bi-exclamation-triangle me-2"></i> 
+            Es wurde keine Demo-URL angegeben. Bitte wenden Sie sich an Ihren Nubart-Ansprechpartner, um Ihren persönlichen Link zu erhalten.
+        </div>
+        <p id="demo-url-display"></p>
+    </div>
+
+    <!-- What this covers -->
+    <div class="situation-box">
+       <strong>Worum es in dieser Anleitung geht</strong>
+        Die Audiotracks in Ihrer Demo werden per GPS ausgelöst und so eingestellt, dass sie automatisch abgespielt werden, sobald Ihr Fahrzeug an bestimmten Punkten der Route vorbeifährt. Mit diesem Test können wir sicherstellen, dass GPS und Internetverbindung in
+        Ihrer Betriebsumgebung zuverlässig funktionieren. Dieser Test dient nur der technischen Überprüfung und ist nicht das endgültige Audioguide-Erlebnis. Bitte notieren Sie sich alle Audiotracks, die zu früh, zu spät oder gar nicht ausgelöst werden –
+        wir können alle Einstellungen anschließend feinabstimmen.
+    </div>
+
+    <!-- Recommended equipment -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number"><i class="bi bi-phone" style="font-size:0.8rem;"></i></span>
+            <h3>Empfohlene Geräte und Browser</h3>
+        </div>
+        <div class="step-body">
+            <p>Die GPS-Genauigkeit variiert je nach Gerät. Für optimale Ergebnisse verwenden Sie ein Smartphone mit einem zuverlässigen GPS-Chipsatz
+                (z. B. Samsung Galaxy S23 oder ein vergleichbares Modell).</p>
+            <ul>
+                <li><strong>Android:</strong> Verwenden Sie immer <strong>Chrome</strong></li>
+                <li><strong>iPhone:</strong> Verwenden Sie immer <strong>Safari</strong></li>
+            </ul>
+            <div class="callout warning">
+               <i class="bi bi-exclamation-triangle me-1"></i> 
+                Einige Browser (wie z. B. Firefox) greifen nicht auf die Standortdienste von Google oder Apple zu und funktionieren daher nicht
+                korrekt mit standortabhängigen Inhalten.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Bevor Sie beginnen: Bereiten Sie Ihr Gerät vor</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>Erlauben Sie den Zugriff auf Ihren Standort.</strong> Da Nubart webbasiert ist (keine native App),
+benötigt Ihr Browser Zugriff auf den Standort. Sie werden automatisch dazu aufgefordert, wenn Sie den QR-Code scannen
+– tippen Sie bei allen Anfragen auf <em>„Zulassen“</em>. Sperren Sie Ihren Bildschirm während des Tests nicht manuell.</p>
+            <p><strong>Stellen Sie die Lautstärke</strong> vor dem Start<strong>hoch genug ein</strong>.</p>
+            <p>Wenn die Demo nicht korrekt ausgelöst wird, hängt das Problem in der Regel mit den Standortberechtigungen zusammen. Die Einstellungen können auf drei Ebenen liegen:</p>
+            <ul>
+                <li><strong>Systemebene</strong> – die Betriebssystemeinstellungen Ihres Telefons</li>
+                <li><strong>Browserebene</strong> – suchen Sie Ihren Browser unter „Anwendungen“ in den Systemeinstellungen
+                    und aktivieren Sie dort den Standortzugriff</li>
+                <li><strong>Domänenebene</strong> – unsere Audioguides laufen auf <code>nub.art</code>. Stellen Sie in den
+                    Datenschutz- und Sicherheitseinstellungen Ihres Browsers sicher, dass für <code>nub.art</code> der Standortzugriff
+                    aktiviert ist.</li>
+            </ul>
+            <p>Wenn sich Ihre Demo im <strong>Offline-Modus</strong> befindet, warten Sie, bis alle Audiotracks vollständig
+                vorbeladen sind, bevor Sie fortfahren.</p>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Testen Sie den ersten Track – in Ihrem Büro</h3>
+        </div>
+        <div class="step-body">
+            <p>Wir haben einen temporären Audiotrack an Ihrem Bürostandort platziert. Scannen Sie den obigen QR-Code und warten Sie einen
+                Moment. Wenn der Audiotrack automatisch abgespielt wird, sind Ihre Berechtigungen korrekt eingestellt und Sie
+                sind bereit, die Route zu befahren.</p>
+            <div class="callout tip">
+               <i class="bi bi-lightbulb me-1"></i>
+                Wenn der Track in Ihrem Büro automatisch abgespielt wird, funktioniert alles – begeben Sie sich direkt zum Fahrzeug.
+            </div>
+            <p>Wenn nichts abgespielt wird, lesen Sie bitte den Abschnitt „Fehlerbehebung“ weiter unten, bevor Sie fortfahren.</p>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Auf der Tour</h3>
+        </div>
+        <div class="step-body">
+            <p>Nehmen Sie Ihr Smartphone mit ins Fahrzeug und fahren Sie Ihre Route wie gewohnt ab. Die Audiotracks werden automatisch abgespielt, sobald Sie sich einem Punkt von Interesse nähern.</p>
+            <ul>
+                <li>Stellen Sie sicher, dass die mobilen Daten während der gesamten Route aktiviert sind.</li>
+                <li>Lassen Sie den Browser geöffnet und den Bildschirm aktiv – sperren Sie ihn nicht manuell.</li>
+                <li>Halten Sie das Smartphone nahe an ein Fenster, wenn Sie Probleme mit der Auslösung feststellen.</li>
+                <li>Wenn ein Audiotracks etwas zu früh oder zu spät abgespielt wird, notieren Sie dies – die Auslösepunkte können angepasst werden.</li>
+                <li>Um den Test zu wiederholen, <strong>aktualisieren Sie</strong> zunächst <strong>die Seite oder scannen Sie den QR-Code erneut</strong>, damit
+                    der Guide von vorne beginnt.</li>
+            </ul>
+            <div class="callout">
+               <i class="bi bi-info-circle me-1"></i> 
+                Für Ihre Demo haben wir die Standortverfolgung aktiviert. Nach Ihrem Test werden wir die Heatmaps überprüfen, um
+                etwaige Verbindungslücken zu identifizieren und Lösungen mit Ihnen zu besprechen. Ihr Ansprechpartner bei Nubart wird die Ergebnisse mit Ihnen besprechen.
+            </div>
+        </div>
+    </div>
+
+    <!-- Troubleshooting (collapsed on screen, always expanded in print) -->
+    <div class="troubleshooting-title" onclick="toggleTroubleshooting()" id="ts-toggle">
+       <i class="bi bi-tools"></i> 
+        Fehlerbehebung
+       <i class="bi bi-chevron-down ms-auto" id="ts-chevron"></i> 
+    </div>
+
+    <div class="troubleshooting-body" id="ts-body" style="display:none;">
+        <div class="trouble-item">
+            <strong><i class="bi-apple me-2 text-warning"></i>GPS funktioniert in Chrome (Android), jedoch nicht in Safari (iPhone)</strong>
+            <p>Bei Safari auf dem iPhone muss die Standortbestimmung auf drei verschiedenen Ebenen aktiviert sein. Bitte überprüfen Sie jede einzelne:</p>
+            <ol>
+                <li><strong>Systemebene:</strong> Gehen Sie zu <em>„Einstellungen“ → „Datenschutz &amp; Sicherheit“ → „Ortungsdienste“</em> und stellen Sie sicher, dass <strong>die Ortungsdienste aktiviert sind.</strong></li>
+                <li><strong>Browser-Ebene:</strong> Scrollen Sie in <em>den Einstellungen → Datenschutz &amp; Sicherheit → Ortungsdienste</em> nach unten, bis Sie <strong>Safari</strong> finden, und stellen Sie die Option auf <em>„Während der Nutzung der App“</em> ein.</li>
+                <li><strong>Domänenebene:</strong> Öffnen Sie Safari, gehen Sie zu <em>„Einstellungen“ → „Apps“ → „Safari“ → „Einstellungen für Websites“ → „Standort“</em> und stellen Sie sicher, dass die Option nicht auf <em>„Ablehnen“</em> gesetzt ist.</li>
+            </ol>
+            <p>Stellen Sie außerdem sicher, dass Sie <strong>„Genaue Position“</strong> anstelle eines allgemeinen Bereichs ausgewählt haben. Sobald alle drei Ebenen aktiviert sind, laden Sie die Seite neu und versuchen Sie es erneut.</p>
+        </div>
+        <div class="trouble-item">
+            <strong><i class="bi bi-volume-mute me-2 text-danger"></i>Der Audiotrack wird abgespielt, aber es ist kein Ton zu hören</strong>
+            <p>Möglicherweise erfasst eine andere App Ihre Audioausgabe. Schließen Sie alle Hintergrund-Apps und versuchen Sie es erneut.
+                Starten Sie Ihr Smartphone gegebenenfalls neu.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-geo me-2 text-danger"></i>Der Audiotrack wird an Ihrem Standort nicht ausgelöst</strong>
+            <p>Öffnen Sie die Karte im Audioguide und tippen Sie auf das kleine Figuren-Symbol in der oberen linken Ecke. Die Karte sollte
+                Ihre aktuelle Position in die Mitte rücken. Ist dies nicht der Fall, überprüfen Sie alle drei in
+                Schritt 1 beschriebenen Berechtigungsstufen.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-crosshair me-2 text-warning"></i>Standort ist sichtbar, springt aber auf der Karte hin und her</strong>
+            <p>Stellen Sie sicher, dass Sie den Zugriff <em>auf den genauen Standort</em> und nicht nur auf einen allgemeinen Bereich gewährt haben.
+                Wenn die Sprünge im Freien weiterhin auftreten, verfügt Ihr Gerät möglicherweise über einen schwachen GPS-Chip – versuchen Sie es mit einem
+                anderen Smartphone-Modell.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-reception-0 me-2 text-danger"></i>Einige Tracks werden überhaupt nicht ausgelöst</strong>
+            <p>Diese Punkte liegen wahrscheinlich in Gebieten mit eingeschränkter Internet- oder GPS-Abdeckung. Notieren Sie sich, welche das sind, und
+                teilen Sie uns dies mit – bei seltenen Lücken in der Abdeckung können wir alternative Auslösestrategien anwenden, wie z. B. zeitgesteuerte Auslöser.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-x-circle me-2 text-danger"></i>Viele Audiotracks werden nicht ausgelöst</strong>
+            <p>Dies bedeutet in der Regel, dass in Ihrem Fahrzeug kein zuverlässiges Internet- oder GPS-Signal vorhanden ist. Versuchen Sie, die Seite zu aktualisieren
+und die Route zu wiederholen, wobei Sie das Telefon nahe an ein Fenster halten. Wenn das Problem über
+die gesamte Strecke hinweg anhält, benötigt Ihr Fahrzeug möglicherweise eine spezielle Antenne – kontaktieren Sie uns, und wir beraten Sie gerne.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Fragen? Schreiben Sie uns an <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+             — 
+ <a href="https://www.nubart.eu">           www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script>
+    // ── Generate QR code from ?demo= URL parameter ──────────────────────────
+    (function () {
+        const params  = new URLSearchParams(window.location.search);
+        const demoUrl = params.get('demo');
+        const qrEl    = document.getElementById('qrcode');
+        const missing = document.getElementById('qr-missing');
+        const urlEl   = document.getElementById('demo-url-display');
+
+        if (demoUrl) {
+            new QRCode(qrEl, {
+                text: demoUrl,
+                width: 200,
+                height: 200,
+                colorDark:  '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            urlEl.innerHTML = `<a href="${demoUrl}" target="_blank" rel="noopener">${demoUrl}</a>`;
+        } else {
+            qrEl.style.display = 'none';
+            missing.style.display = 'block';
+        }
+    })();
+
+    // ── Troubleshooting accordion ────────────────────────────────────────────
+    function toggleTroubleshooting() {
+        const body    = document.getElementById('ts-body');
+        const chevron = document.getElementById('ts-chevron');
+        const isOpen  = body.style.display !== 'none';
+        body.style.display = isOpen ? 'none' : 'block';
+        chevron.className  = isOpen
+            ? 'bi bi-chevron-down ms-auto'
+            : 'bi bi-chevron-up ms-auto';
+    }
+</script>
+
+</body>
+</html>
