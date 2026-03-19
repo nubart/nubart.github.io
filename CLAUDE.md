@@ -10,6 +10,19 @@ Not all our languages have exactly the same content: sometimes we don't commerci
 
 Some of our products/languages have a subdirectory for a specific product, but this is not always the case. If they have, please don't reference the link as "personenfuehrungsanlage-app/index.html" but as "personenfuehrungsanlage-app/" instead, unless there is a solid technical reason to add index.html.
 
+## Home page
+
+- EN: index.html
+- DE: de/index.html
+- FR: fr/index.html
+- ES: es/index.html
+- IT: it/index.html
+- JA: ja/index.html
+- PL: pl/index.html
+- NL: nl/index.html
+- HE: he/index.html
+- BG: bg/index.html
+
 ## Product Pages Paths
 
 ### Nubart LIVE
@@ -56,6 +69,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - HE: he/ai-simultaneous-interpretation/index.html
 - BG: bg/ai-simultanen-usten-prevod.html
 - PT-BR: pt-br/traducao-simultanea-ia/index.html
+- JA: ja/ai-simultaneous-translation/index.html
 
 **Terms and conditions:**
 - EN: ai-simultaneous-interpretation/terms-and-conditions.html
@@ -67,6 +81,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - BG: (still pending)
 - PT-BR: pt-br/traducao-simultanea-ia/termos-e-condicoes.html
 - EL: el/ai-simultaneous-translation/terms-and-conditions.html
+- JA: ja/ai-simultaneous-translation/terms-and-conditions.html
 
 **Instructions:**
 - EN: ai-simultaneous-interpretation/nubart-translate-instructions.html
@@ -78,6 +93,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - BG: (still pending)
 - PT-BR: pt-br/traducao-simultanea-ia/instrucoes-nubart-translate.html
 - EL: el/ai-simultaneous-translation/nubart-translate-instructions.html
+- JA: ja/ai-simultaneous-translation/nubart-translate-instructions.html
 
 **DPA:**
 - EN: ai-simultaneous-interpretation/da-pr-eu.html
@@ -89,6 +105,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - BG: (still pending)
 - PT-BR: pt-br/traducao-simultanea-ia/da-pr-eu.html
 - EL: el/ai-simultaneous-translation/da-pr-eu.html
+- JA: (still pending)
 
 ### Nubart GUIDE
 **Main product explainer:**
