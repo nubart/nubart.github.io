@@ -120,11 +120,22 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - JA: ja/audio-guides/index.html
 - NL: nl/audiogidsen/index.html
 - PL: pl/audioprzewodnik/index.html
+- 
+### Nubart MOTION
+**Main product explainer:**
+- EN: audio-commentary-system/index.html
+- DE: de/audioguides/fuer-bootsfahrten-und-schiffstouren.html
+- ES: es/tours-barcos-buses.html
+- FR: fr/audioguide-bateaux-bus.html
+- IT: it/percorsi-navi-autobus.html
+- NL: nl/audiosysteem/boottochten-rondvaartbooten.html
+- PT: pt-br/audioguia/veiculos-turisticos.html
 
 ## Product Distinctions (Important!)
 - **Nubart LIVE**: Tour guide system with optional AI translation for GUIDED tours
 - **Nubart TRANSLATE**: AI simultaneous interpretation for EVENTS (conferences, etc.)
 - **Nubart GUIDE**: Digital prerecorded multimedia PWA audio guide for self-guided tours
+- **Nubart MOTION**: This is a digital audio guide concept for touristic vehicles (boats, buses, trains...). It consists of either a) a digital prerecorded PWA audio guide with automatically triggered tracks for self-guided tours or b) if there is a human guide explaining the tour, a special application with a different price structure of our Nubart TRNASLATE for events
 - These are different products - do not conflate them in copy or links
 
 ## Technical Stack
