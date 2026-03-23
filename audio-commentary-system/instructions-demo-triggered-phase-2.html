@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>How to Test Remote Control — Nubart MOTION Demo Phase 2 | Nubart</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+
+    <!-- Shared printable stylesheet -->
+    <link href="../assets/css/printable-terms.css" rel="stylesheet">
+
+    <!-- QR Code generator library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        /* ─── Screen styles (identical base to Phase 1) ─── */
+
+        .demo-wrap {
+            max-width: 860px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+        }
+
+        .nubart-logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .page-header {
+            border-bottom: 3px solid #028a8c;
+            padding-bottom: 14px;
+            margin-bottom: 28px;
+        }
+
+        .page-header h1 {
+            color: #028a8c;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .page-header .subtitle {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        /* QR + login box — side by side on desktop */
+        .credentials-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .qr-box, .login-box {
+            flex: 1 1 280px;
+            border-radius: 10px;
+            padding: 22px;
+            text-align: center;
+            background: #f0fafa;
+        }
+
+        .qr-box {
+            border: 2px dashed #028a8c;
+        }
+
+        .login-box {
+            border: 2px dashed #555;
+            text-align: left;
+        }
+
+        .qr-box h2, .login-box h2 {
+            font-size: 1rem;
+            color: #028a8c;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .login-box h2 { color: #333; }
+
+        .qr-box .qr-intro, .login-box .login-intro {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        #qrcode { display: inline-block; }
+
+        #qrcode img,
+        #qrcode canvas {
+            border: 6px solid white;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            border-radius: 6px;
+        }
+
+        .qr-missing {
+            color: #b04000;
+            background: #fff3e0;
+            border: 1px solid #f5a623;
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            display: inline-block;
+        }
+
+        #demo-url-display {
+            margin-top: 10px;
+            font-size: 0.78rem;
+            color: #777;
+            word-break: break-all;
+        }
+
+        .login-link-block {
+            margin-top: 10px;
+            font-size: 0.88rem;
+        }
+
+        .login-link-block a {
+            color: #028a8c;
+            word-break: break-all;
+            font-weight: 600;
+        }
+
+        .login-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            margin-bottom: 3px;
+        }
+
+        /* Situation box */
+        .situation-box {
+            background: #028a8c;
+            color: white;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 26px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .situation-box strong {
+            display: block;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+            opacity: 0.85;
+        }
+
+        /* Why box */
+        .why-box {
+            border: 1px solid #c8e6e6;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 26px;
+            background: #f7fdfd;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .why-box h4 {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #028a8c;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .why-box ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+
+        .why-box li { margin-bottom: 4px; }
+
+        /* Two-device banner */
+        .two-device-banner {
+            background: #fff3e0;
+            border: 1.5px solid #e07b00;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 26px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .two-device-banner .bi {
+            font-size: 1.5rem;
+            color: #e07b00;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .device-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            padding: 1px 7px;
+            margin-right: 6px;
+        }
+
+        .device-master {
+            background: #028a8c;
+            color: white;
+        }
+
+        .device-passenger {
+            background: #555;
+            color: white;
+        }
+
+        /* Steps */
+        .step-block { margin-bottom: 22px; }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #028a8c;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-right: 12px;
+        }
+
+        .step-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #028a8c;
+            margin: 0;
+        }
+
+        .step-body {
+            padding-left: 44px;
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .step-body p  { margin-bottom: 6px; }
+        .step-body li { margin-bottom: 4px; }
+
+        /* Callouts */
+        .callout {
+            border-left: 4px solid #028a8c;
+            background: #f0fafa;
+            padding: 8px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            margin: 8px 0;
+            line-height: 1.45;
+        }
+
+        .callout.warning {
+            border-color: #e07b00;
+            background: #fff8ed;
+        }
+
+        .callout.tip {
+            border-color: #2e7d32;
+            background: #f1f8f1;
+        }
+
+        /* Troubleshooting */
+        .troubleshooting-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #555;
+            border-top: 1px solid #dee2e6;
+            padding-top: 18px;
+            margin-top: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+        }
+
+        .troubleshooting-title .bi-tools { color: #028a8c; }
+        .troubleshooting-body { padding-top: 10px; }
+        .trouble-item { margin-bottom: 12px; }
+
+        .trouble-item strong {
+            display: block;
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .trouble-item p {
+            font-size: 0.88rem;
+            color: #555;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .instructions-footer {
+            border-top: 1px solid #dee2e6;
+            margin-top: 36px;
+            padding-top: 14px;
+            font-size: 0.82rem;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .instructions-footer a { color: #028a8c; }
+
+        /* ─── Print styles ─── */
+        @media print {
+
+            @page {
+                size: A4 portrait;
+                margin: 1cm;
+            }
+
+            body { font-size: 10pt; }
+
+            .demo-wrap {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .no-print { display: none !important; }
+
+            .page-header {
+                border-bottom: 2pt solid #028a8c;
+                margin-bottom: 0.45cm;
+                padding-bottom: 0.25cm;
+            }
+
+            .page-header h1 {
+                font-size: 15pt;
+                color: #028a8c !important;
+            }
+
+            .page-header .subtitle {
+                font-size: 8.5pt;
+                color: #6c757d !important;
+            }
+
+            /* Credentials row — stacked in print */
+            .credentials-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.3cm;
+                margin-bottom: 0.4cm;
+            }
+
+            .qr-box, .login-box {
+                flex: 1 1 45%;
+                page-break-inside: avoid;
+                padding: 0.3cm;
+            }
+
+            .qr-box {
+                border: 1.5pt solid #028a8c !important;
+                background: #f0fafa !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                text-align: center;
+            }
+
+            .login-box {
+                border: 1.5pt solid #555 !important;
+                background: #f0fafa !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .qr-box h2 { font-size: 9.5pt; color: #028a8c !important; }
+            .login-box h2 { font-size: 9.5pt; color: #333 !important; }
+            .qr-box .qr-intro, .login-box .login-intro { font-size: 7.5pt; margin-bottom: 0.2cm; }
+
+            #qrcode canvas, #qrcode img {
+                max-width: 120px !important;
+                max-height: 120px !important;
+            }
+
+            #demo-url-display { font-size: 7pt; margin-top: 0.15cm; }
+            .login-link-block { font-size: 8pt; }
+            .login-label { font-size: 7pt; }
+
+            /* Situation box */
+            .situation-box {
+                background: #028a8c !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                border-radius: 4pt;
+                padding: 0.25cm 0.35cm;
+                margin-bottom: 0.3cm;
+                font-size: 8.5pt;
+                page-break-inside: avoid;
+            }
+
+            .situation-box strong { font-size: 7pt; }
+
+            /* Why box */
+            .why-box {
+                border: 0.75pt solid #c8e6e6 !important;
+                background: #f7fdfd !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 0.2cm 0.3cm;
+                margin-bottom: 0.3cm;
+                font-size: 8pt;
+                page-break-inside: avoid;
+            }
+
+            .why-box h4 { font-size: 7.5pt; color: #028a8c !important; margin-bottom: 0.15cm; }
+
+            /* Two-device banner */
+            .two-device-banner {
+                background: #fff3e0 !important;
+                border: 1pt solid #e07b00 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 0.2cm 0.3cm;
+                margin-bottom: 0.3cm;
+                font-size: 8pt;
+                page-break-inside: avoid;
+            }
+
+            .device-master {
+                background: #028a8c !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .device-passenger {
+                background: #555 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Steps */
+            .step-block { page-break-inside: avoid; margin-bottom: 0.35cm; }
+
+            .step-number {
+                background: #028a8c !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                width: 18pt;
+                height: 18pt;
+                font-size: 8.5pt;
+                margin-right: 7pt;
+            }
+
+            .step-header h3 { font-size: 9.5pt; color: #028a8c !important; }
+
+            .step-body {
+                font-size: 8pt;
+                padding-left: 25pt;
+                line-height: 1.35;
+            }
+
+            /* Callouts */
+            .callout {
+                background: #f0fafa !important;
+                border-left: 3pt solid #028a8c !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                font-size: 7.5pt;
+                padding: 0.1cm 0.25cm;
+                margin: 0.1cm 0;
+                page-break-inside: avoid;
+            }
+
+            .callout.warning {
+                background: #fff8ed !important;
+                border-left-color: #e07b00 !important;
+            }
+
+            .callout.tip {
+                background: #f1f8f1 !important;
+                border-left-color: #2e7d32 !important;
+            }
+
+            /* Troubleshooting */
+            .troubleshooting-title {
+                display: flex !important;
+                cursor: default;
+                font-size: 9.5pt;
+                margin-top: 0.4cm;
+                padding-top: 0.25cm;
+                border-top: 1pt solid #dee2e6;
+            }
+
+            #ts-chevron { display: none !important; }
+
+            .troubleshooting-body {
+                display: block !important;
+                font-size: 7.5pt;
+            }
+
+            .trouble-item { margin-bottom: 0.2cm; page-break-inside: avoid; }
+            .trouble-item strong { font-size: 8pt; }
+            .trouble-item p { font-size: 7.5pt; line-height: 1.35; }
+
+            .instructions-footer {
+                font-size: 7pt;
+                margin-top: 0.4cm;
+                padding-top: 0.15cm;
+            }
+
+            a { color: #028a8c !important; text-decoration: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Print Instructions (A4 portrait)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../assets/img/logo.png" alt="Nubart" class="nubart-logo">
+        <h1>Nubart MOTION Demo &mdash; Phase 2</h1>
+        <p class="subtitle">Remote control setup &mdash; step-by-step instructions</p>
+    </div>
+
+    <!-- QR code + Login credentials side by side -->
+    <div class="credentials-row">
+
+        <!-- QR box (same as Phase 1) -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>Passenger Demo QR Code</h2>
+            <p class="qr-intro">Scan this with the second device to open the audio guide as a passenger.</p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                No demo URL provided. Please contact your Nubart representative.
+            </div>
+            <p id="demo-url-display"></p>
+        </div>
+
+        <!-- Login box -->
+        <div class="login-box">
+            <h2><i class="bi bi-phone me-2"></i>Master Smartphone Login</h2>
+            <p class="login-intro">Use this on the master smartphone to access the remote control panel.</p>
+
+            <p class="login-label">Step 1 &mdash; First time only: create your account</p>
+            <div class="login-link-block" id="invite-link-block">
+                <a id="invite-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Use this link to set your password. You only need it once.
+            </p>
+
+            <hr style="border-color:#ddd; margin: 12px 0;">
+
+            <p class="login-label">Step 2 &mdash; Every time: log in here</p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                <i class="bi bi-bookmark me-1"></i>
+                Bookmark this address on the master smartphone for quick access before each journey.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Phase 2 context -->
+    <div class="situation-box">
+        <strong>Phase 2 of 2 &mdash; Remote Control Validation</strong>
+        Phase 1 confirmed that GPS and connectivity work along your route. Now we test the production
+        setup: a dedicated master smartphone on board your vehicle controls all audio triggering centrally,
+        while passengers simply scan a QR code and listen in their chosen language &mdash; no permissions,
+        no interaction required on their part. This is the experience your passengers will have from day one.
+    </div>
+
+    <!-- Why remote control -->
+    <div class="why-box">
+        <h4><i class="bi bi-info-circle me-2"></i>Why remote control instead of individual GPS?</h4>
+        <ul>
+            <li><strong>No permissions needed from passengers.</strong> GPS on smartphones requires browser
+                location permissions, which are confusing &mdash; especially on iPhones. With a master
+                smartphone, passengers don't need to grant anything.</li>
+            <li><strong>Works even when passengers switch apps.</strong> Passengers may take photos, check
+                messages, or briefly lock their screen. Tracks still trigger correctly via the master
+                smartphone regardless.</li>
+            <li><strong>More consistent GPS accuracy.</strong> A single, well-positioned master device with
+                a good GPS chipset is far more reliable than depending on dozens of different passenger phones.</li>
+        </ul>
+    </div>
+
+    <!-- Two devices required -->
+    <div class="two-device-banner">
+        <i class="bi bi-phone-flip"></i>
+        <div>
+            <strong>You will need two smartphones for this test.</strong><br>
+            <span class="device-label device-master">Master smartphone</span>
+            The device that controls triggering. Log in here and keep the Remote Control screen open.
+            Use a phone with a good GPS chipset (e.g. Samsung Galaxy S23) and place it at the
+            highest point of the vehicle, near a window. Keep it connected to power and never lock
+            the screen.<br><br>
+            <span class="device-label device-passenger">Passenger device</span>
+            Any second smartphone. Scan the QR code above and select a language. This simulates
+            what your passengers will experience.
+        </div>
+    </div>
+
+    <!-- Recommended equipment -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number"><i class="bi bi-phone" style="font-size:0.8rem;"></i></span>
+            <h3>Recommended Equipment &amp; Browsers</h3>
+        </div>
+        <div class="step-body">
+            <p>GPS accuracy depends heavily on the device used. For the master smartphone, use a model
+                with a reliable GPS chipset (e.g. Samsung Galaxy S23 or equivalent). Avoid budget models
+                or older iPhones for this role.</p>
+            <ul>
+                <li><strong>Master smartphone (Android):</strong> use <strong>Chrome</strong></li>
+                <li><strong>Master smartphone (iPhone):</strong> use <strong>Safari</strong></li>
+                <li><strong>Passenger device:</strong> any browser will work &mdash; passengers do not
+                    use GPS</li>
+            </ul>
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                Do not use Firefox on the master smartphone. Firefox does not have full access to
+                Google's or Apple's location databases, which can cause tracks to trigger too early,
+                too late, or not at all.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Set Up the Passenger Device</h3>
+        </div>
+        <div class="step-body">
+            <p>On the <span class="device-label device-passenger">Passenger device</span>, scan the QR
+                code at the top of this page (or tap the link below it).</p>
+            <p>If the demo has multiple languages, select your preferred language when prompted.</p>
+            <p>You do not need to grant any location permissions on this device. Just keep the browser
+                open and the screen active.</p>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                Set the volume high enough to hear the tracks clearly during the test.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Log In on the Master Smartphone</h3>
+        </div>
+        <div class="step-body">
+            <p>On the <span class="device-label device-master">Master smartphone</span>, open the login
+                link shown at the top of this page. If this is your first time, use the registration link
+                to set your password first, then log in.</p>
+            <p>Once logged in:</p>
+            <ol>
+                <li>Tap <strong>Remote Control</strong> in the menu.</li>
+                <li>Select your tour from the list.</li>
+                <li>Keep this screen open for the entire test &mdash; do not navigate away or lock the screen.</li>
+            </ol>
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                The Remote Control screen must remain visible on the master smartphone throughout the journey.
+                If the screen locks or the browser is closed, triggering will stop.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3a: Manual -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3a</span>
+            <h3>Testing Manual Remote Control</h3>
+        </div>
+        <div class="step-body">
+            <p>If your demo is configured for <strong>manual remote control</strong>, you trigger each
+                track yourself from the master smartphone.</p>
+            <ol>
+                <li>On the <span class="device-label device-master">Master smartphone</span>, tap any
+                    track name in the Remote Control screen.</li>
+                <li>On the <span class="device-label device-passenger">Passenger device</span>, that
+                    track should start playing automatically in the selected language.</li>
+                <li>Tracks that have already been sent will change colour on the master smartphone screen.
+                </li>
+            </ol>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                To repeat the test with colours reset, tap <strong>Restart Tour</strong> at the bottom
+                of the Remote Control screen. This is optional &mdash; the remote control works
+                regardless, but resetting lets you see the original track colours again.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3b: GPS-triggered -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3b</span>
+            <h3>Testing GPS-Triggered Remote Control</h3>
+        </div>
+        <div class="step-body">
+            <p>If your demo is configured for <strong>GPS-triggered remote control</strong>, no manual
+                action is needed. The master smartphone reads its own GPS position and triggers tracks
+                automatically when the vehicle crosses the predefined points.</p>
+            <ol>
+                <li>Place the <span class="device-label device-master">Master smartphone</span> at the
+                    highest point of the vehicle, near a window, connected to power.</li>
+                <li>Keep the Remote Control screen open and the screen unlocked.</li>
+                <li>Run your route. Tracks should play automatically on the
+                    <span class="device-label device-passenger">Passenger device</span> at the right
+                    moments.</li>
+                <li>On the master smartphone, tracks change colour once they have been sent.</li>
+            </ol>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                If a track plays slightly early or late, note it. Triggering zones can be adjusted
+                after the test.
+            </div>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                To repeat the test with colours reset, tap <strong>Restart Tour</strong> at the bottom
+                of the Remote Control screen.
+            </div>
+        </div>
+    </div>
+
+    <!-- Troubleshooting -->
+    <div class="troubleshooting-title" onclick="toggleTroubleshooting()" id="ts-toggle">
+        <i class="bi bi-tools"></i>
+        Troubleshooting
+        <i class="bi bi-chevron-down ms-auto" id="ts-chevron"></i>
+    </div>
+
+    <div class="troubleshooting-body" id="ts-body" style="display:none;">
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-x-circle me-2 text-danger"></i>Passenger device receives no audio at all</strong>
+            <p>Make sure the Remote Control screen is still open on the master smartphone and the screen
+                has not locked. Check that the passenger device has its volume turned up and no background
+                app is capturing the audio output.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-geo me-2 text-danger"></i>GPS-triggered tracks are not firing (master smartphone)</strong>
+            <p>Check that the master smartphone has location permissions enabled in both the system
+                settings and the browser settings. Make sure you are using Chrome (Android) or Safari
+                (iPhone) &mdash; not Firefox. Try holding the phone closer to a window or moving to a
+                higher position on the vehicle.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-browser-safari me-2 text-warning"></i>GPS works on Chrome but not on Safari (iPhone master smartphone)</strong>
+            <p>Safari on iPhone requires geolocation enabled at three levels:</p>
+            <ol style="font-size:0.88rem;">
+                <li><strong>System:</strong> <em>Settings → Privacy &amp; Security → Location Services</em> → ON</li>
+                <li><strong>Browser:</strong> same menu → find <strong>Safari</strong> → set to <em>While Using the App</em></li>
+                <li><strong>Domain:</strong> <em>Settings → Apps → Safari → Settings for Websites → Location</em> → not Deny.
+                    Or tap <strong>AA</strong> in Safari's address bar → Website Settings → Location → Allow.</li>
+            </ol>
+            <p>Also confirm <strong>Precise Location</strong> is enabled, then reload the page.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-crosshair me-2 text-warning"></i>Location jumps around on the master smartphone</strong>
+            <p>Make sure <em>precise location</em> is granted, not just a general area. If the problem
+                persists outdoors, the device may have a weak GPS chipset &mdash; try a different
+                smartphone model.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-door-open me-2 text-danger"></i>Remote Control screen disappeared / session expired</strong>
+            <p>Log back in at <a href="https://www.nub.art/customer/login" target="_blank"
+               rel="noopener">www.nub.art/customer/login</a>, go to Remote Control, and select
+               your tour again. To avoid this, keep the screen on and the browser open at all times.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Questions? Write to us at <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+            &nbsp;&mdash;&nbsp;
+            <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script>
+    // ── QR code from ?demo= parameter ──────────────────────────────────────
+    (function () {
+        const params  = new URLSearchParams(window.location.search);
+        const demoUrl = params.get('demo');
+        const qrEl    = document.getElementById('qrcode');
+        const missing = document.getElementById('qr-missing');
+        const urlEl   = document.getElementById('demo-url-display');
+
+        if (demoUrl) {
+            new QRCode(qrEl, {
+                text: demoUrl,
+                width: 200,
+                height: 200,
+                colorDark:  '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            urlEl.innerHTML = `<a href="${demoUrl}" target="_blank" rel="noopener">${demoUrl}</a>`;
+        } else {
+            qrEl.style.display = 'none';
+            missing.style.display = 'block';
+        }
+    })();
+
+    // ── Invite link from ?invite= parameter ────────────────────────────────
+    (function () {
+        const params    = new URLSearchParams(window.location.search);
+        const inviteUrl = params.get('invite');
+        const inviteLink = document.getElementById('invite-link');
+        if (inviteUrl) {
+            inviteLink.href        = inviteUrl;
+            inviteLink.textContent = inviteUrl;
+        } else {
+            inviteLink.textContent = '(registration link to be provided by your Nubart contact)';
+            inviteLink.removeAttribute('href');
+            inviteLink.style.color = '#aaa';
+            inviteLink.style.fontStyle = 'italic';
+        }
+    })();
+
+    // ── Troubleshooting accordion ───────────────────────────────────────────
+    function toggleTroubleshooting() {
+        const body    = document.getElementById('ts-body');
+        const chevron = document.getElementById('ts-chevron');
+        const isOpen  = body.style.display !== 'none';
+        body.style.display = isOpen ? 'none' : 'block';
+        chevron.className  = isOpen
+            ? 'bi bi-chevron-down ms-auto'
+            : 'bi bi-chevron-up ms-auto';
+    }
+</script>
+
+</body>
+</html>
