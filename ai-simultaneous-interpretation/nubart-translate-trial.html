@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Your Nubart TRANSLATE Free Trial | Nubart</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+
+    <!-- Shared printable stylesheet -->
+    <link href="../assets/css/printable-terms.css" rel="stylesheet">
+
+    <!-- QR Code generator library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        /* ─── Screen styles ─── */
+
+        .demo-wrap {
+            max-width: 860px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+        }
+
+        .nubart-logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .page-header {
+            border-bottom: 3px solid #028a8c;
+            padding-bottom: 14px;
+            margin-bottom: 28px;
+        }
+
+        .page-header h1 {
+            color: #028a8c;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .page-header .subtitle {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        /* Welcome box */
+        .welcome-box {
+            background: #028a8c;
+            color: white;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 28px;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .welcome-box strong {
+            display: block;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+            opacity: 0.85;
+        }
+
+        /* Credentials row — QR + login side by side */
+        .credentials-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .qr-box, .login-box {
+            flex: 1 1 280px;
+            border-radius: 10px;
+            padding: 22px;
+            background: #f0fafa;
+        }
+
+        .qr-box {
+            border: 2px dashed #028a8c;
+            text-align: center;
+        }
+
+        .login-box {
+            border: 2px dashed #555;
+            text-align: left;
+        }
+
+        .qr-box h2 {
+            font-size: 1rem;
+            color: #028a8c;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .login-box h2 {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .qr-box .qr-intro, .login-box .login-intro {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        #qrcode { display: inline-block; }
+
+        #qrcode img,
+        #qrcode canvas {
+            border: 6px solid white;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            border-radius: 6px;
+        }
+
+        .qr-missing {
+            color: #b04000;
+            background: #fff3e0;
+            border: 1px solid #f5a623;
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            display: inline-block;
+        }
+
+        #demo-url-display {
+            margin-top: 10px;
+            font-size: 0.78rem;
+            color: #777;
+            word-break: break-all;
+        }
+
+        .login-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            margin-bottom: 3px;
+        }
+
+        .login-link-block {
+            font-size: 0.88rem;
+            margin-bottom: 6px;
+        }
+
+        .login-link-block a {
+            color: #028a8c;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        /* Role labels */
+        .role-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            padding: 1px 7px;
+            margin-right: 6px;
+        }
+
+        .role-speaker {
+            background: #028a8c;
+            color: white;
+        }
+
+        .role-listener {
+            background: #555;
+            color: white;
+        }
+
+        /* Trial tips box */
+        .trial-tips-box {
+            border: 1.5px solid #028a8c;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 28px;
+            background: #f7fdfd;
+        }
+
+        .trial-tips-box h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #028a8c;
+            margin-bottom: 14px;
+        }
+
+        .trial-tip {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            align-items: flex-start;
+        }
+
+        .trial-tip .tip-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+            color: #028a8c;
+        }
+
+        /* Steps */
+        .step-block { margin-bottom: 22px; }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #028a8c;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-right: 12px;
+        }
+
+        .step-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #028a8c;
+            margin: 0;
+        }
+
+        .step-body {
+            padding-left: 44px;
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .step-body p  { margin-bottom: 6px; }
+        .step-body li { margin-bottom: 4px; }
+
+        /* Callouts */
+        .callout {
+            border-left: 4px solid #028a8c;
+            background: #f0fafa;
+            padding: 8px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            margin: 8px 0;
+            line-height: 1.45;
+        }
+
+        .callout.warning {
+            border-color: #e07b00;
+            background: #fff8ed;
+        }
+
+        .callout.tip {
+            border-color: #2e7d32;
+            background: #f1f8f1;
+        }
+
+        /* Full instructions link */
+        .full-instructions-box {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            background: #fafafa;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .full-instructions-box .bi {
+            font-size: 1.8rem;
+            color: #028a8c;
+            flex-shrink: 0;
+        }
+
+        .full-instructions-box a {
+            color: #028a8c;
+            font-weight: 600;
+        }
+
+        /* Sales rep card */
+        .rep-card {
+            border: 1px solid #c8e6e6;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+            background: #f7fdfd;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .rep-photo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #028a8c;
+            flex-shrink: 0;
+        }
+
+        .rep-photo-placeholder {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #d0eeee;
+            border: 3px solid #028a8c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #028a8c;
+            font-size: 2rem;
+        }
+
+        .rep-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #028a8c;
+            margin-bottom: 2px;
+        }
+
+        .rep-info .rep-title {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 8px;
+        }
+
+        .rep-info .rep-contact {
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .rep-info .rep-contact a {
+            color: #028a8c;
+        }
+
+        .rep-intro {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        /* Order button */
+        .order-section {
+            text-align: center;
+            margin-top: 36px;
+            margin-bottom: 20px;
+            padding: 28px 20px;
+            background: #f0fafa;
+            border-radius: 10px;
+            border: 1.5px solid #028a8c;
+        }
+
+        .order-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #028a8c;
+            margin-bottom: 6px;
+        }
+
+        .order-section p {
+            font-size: 0.92rem;
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .btn-order {
+            display: inline-block;
+            background: #028a8c;
+            color: white !important;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 12px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: background 0.2s;
+        }
+
+        .btn-order:hover {
+            background: #016e70;
+            color: white !important;
+        }
+
+        /* Footer */
+        .instructions-footer {
+            border-top: 1px solid #dee2e6;
+            margin-top: 36px;
+            padding-top: 14px;
+            font-size: 0.82rem;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .instructions-footer a { color: #028a8c; }
+
+        /* ─── Print styles ─── */
+        @media print {
+
+            @page {
+                size: A4 portrait;
+                margin: 1cm;
+            }
+
+            body { font-size: 10pt; }
+
+            .demo-wrap { max-width: 100%; margin: 0; padding: 0; }
+            .no-print { display: none !important; }
+
+            .page-header {
+                border-bottom: 2pt solid #028a8c;
+                margin-bottom: 0.45cm;
+                padding-bottom: 0.25cm;
+            }
+
+            .page-header h1 { font-size: 15pt; color: #028a8c !important; }
+            .page-header .subtitle { font-size: 8.5pt; }
+
+            .welcome-box {
+                background: #028a8c !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                font-size: 8.5pt;
+                padding: 0.25cm 0.35cm;
+                margin-bottom: 0.35cm;
+                page-break-inside: avoid;
+            }
+
+            .credentials-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.3cm;
+                margin-bottom: 0.4cm;
+            }
+
+            .qr-box, .login-box {
+                flex: 1 1 45%;
+                page-break-inside: avoid;
+                padding: 0.3cm;
+            }
+
+            .qr-box {
+                border: 1.5pt solid #028a8c !important;
+                background: #f0fafa !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                text-align: center;
+            }
+
+            .login-box {
+                border: 1.5pt solid #555 !important;
+                background: #f0fafa !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .qr-box h2 { font-size: 9pt; color: #028a8c !important; }
+            .login-box h2 { font-size: 9pt; }
+            .qr-box .qr-intro, .login-box .login-intro { font-size: 7.5pt; }
+
+            #qrcode canvas, #qrcode img {
+                max-width: 110px !important;
+                max-height: 110px !important;
+            }
+
+            #demo-url-display { font-size: 6.5pt; }
+            .login-link-block { font-size: 8pt; }
+            .login-label { font-size: 7pt; }
+
+            .role-speaker {
+                background: #028a8c !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .role-listener {
+                background: #555 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .trial-tips-box {
+                border: 1pt solid #028a8c !important;
+                background: #f7fdfd !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 0.25cm 0.35cm;
+                margin-bottom: 0.35cm;
+                page-break-inside: avoid;
+                font-size: 8pt;
+            }
+
+            .trial-tips-box h3 { font-size: 9pt; color: #028a8c !important; margin-bottom: 0.2cm; }
+            .trial-tip { font-size: 7.5pt; margin-bottom: 0.2cm; gap: 8pt; }
+            .trial-tip .tip-icon { font-size: 9pt; }
+
+            .step-block { page-break-inside: avoid; margin-bottom: 0.35cm; }
+
+            .step-number {
+                background: #028a8c !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                width: 18pt;
+                height: 18pt;
+                font-size: 8.5pt;
+                margin-right: 7pt;
+            }
+
+            .step-header h3 { font-size: 9.5pt; color: #028a8c !important; }
+            .step-body { font-size: 8pt; padding-left: 25pt; line-height: 1.35; }
+
+            .callout {
+                background: #f0fafa !important;
+                border-left: 3pt solid #028a8c !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                font-size: 7.5pt;
+                padding: 0.1cm 0.25cm;
+                margin: 0.1cm 0;
+                page-break-inside: avoid;
+            }
+
+            .callout.warning {
+                background: #fff8ed !important;
+                border-left-color: #e07b00 !important;
+            }
+
+            .callout.tip {
+                background: #f1f8f1 !important;
+                border-left-color: #2e7d32 !important;
+            }
+
+            .full-instructions-box {
+                border: 1pt solid #dee2e6 !important;
+                background: #fafafa !important;
+                font-size: 8pt;
+                padding: 0.2cm 0.3cm;
+                margin-bottom: 0.3cm;
+                page-break-inside: avoid;
+            }
+
+            .rep-card {
+                border: 1pt solid #c8e6e6 !important;
+                background: #f7fdfd !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 0.25cm 0.35cm;
+                margin-bottom: 0.35cm;
+                page-break-inside: avoid;
+            }
+
+            .rep-photo, .rep-photo-placeholder {
+                width: 60px;
+                height: 60px;
+            }
+
+            .rep-info h4 { font-size: 9pt; color: #028a8c !important; }
+            .rep-info .rep-title { font-size: 7.5pt; }
+            .rep-info .rep-contact { font-size: 8pt; }
+            .rep-intro { font-size: 7.5pt; }
+
+            /* Hide order button in print — not actionable on paper */
+            .order-section { display: none !important; }
+
+            .instructions-footer {
+                font-size: 7pt;
+                margin-top: 0.4cm;
+                padding-top: 0.15cm;
+            }
+
+            a { color: #028a8c !important; text-decoration: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Print Instructions (A4 portrait)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../assets/img/logo.png" alt="Nubart" class="nubart-logo">
+        <h1>Your Nubart TRANSLATE Free Trial</h1>
+        <p class="subtitle">AI-powered live translation &mdash; up to 30 minutes, free of charge</p>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-box">
+        <strong>Welcome</strong>
+        Thank you for your interest in Nubart TRANSLATE. This page contains everything you need to
+        run your free trial. You have <strong>30 minutes of live translation</strong> at no cost.<br>The 30 minutes
+        are cumulative &mdash; you can use them across as many sessions as you like. Test for
+        5 minutes with one colleague today, show it to your team for 10 minutes tomorrow, and so on,
+        until you have used your full allowance.
+    </div>
+
+    <!-- QR + Login credentials -->
+    <div class="credentials-row">
+
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>Listener QR Code</h2>
+            <p class="qr-intro">
+                <span class="role-label role-listener">Listener device</span>
+                Scan this to receive the live translation in your chosen language.
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                No QR link provided. Please contact your Nubart representative.
+            </div>
+            <p id="demo-url-display"></p>
+        </div>
+
+        <!-- Login box: speaker device -->
+        <div class="login-box">
+            <h2><i class="bi bi-mic me-2"></i>Speaker Login</h2>
+            <p class="login-intro">
+                <span class="role-label role-speaker">Speaker device</span>
+                Log in here to activate the translation and start speaking.
+            </p>
+
+            <p class="login-label">Step 1 &mdash; First time only: create your account</p>
+            <div class="login-link-block">
+                <a id="invite-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Use this link to set your password. You only need it once.
+            </p>
+
+            <hr style="border-color:#ddd; margin: 12px 0;">
+
+            <p class="login-label">Step 2 &mdash; Every time: log in here</p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Once logged in, click <strong>Nubart TRANSLATE</strong>, select the language you
+                will speak, then tap <strong>Unmute</strong> to start.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Trial tips -->
+    <div class="trial-tips-box">
+        <h3><i class="bi bi-lightbulb me-2"></i>How to get the best out of your trial</h3>
+
+        <div class="trial-tip">
+            <i class="bi bi-people tip-icon"></i>
+            <div>
+                <strong>Test with another person.</strong> Testing alone is possible but gives you a much less realistic
+                sense of the experience.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-phone-flip tip-icon"></i>
+            <div>
+                <strong>You will need two devices.</strong> One acts as the
+                <span class="role-label role-speaker">Speaker device</span> (this can be a smartphone or a laptop) and logs in to transmit. The other acts as the
+                <span class="role-label role-listener">Listener device</span> and scans the QR
+                code to receive the translation.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-soundwave tip-icon"></i>
+            <div>
+                <strong>Keep the two devices apart &mdash; or use headphones.</strong> The AI
+                captures all audio it hears, including the translated audio coming from the
+                listener device. If both devices are next to each other without headphones, the
+                speaker device's microphone will pick up the translation and start translating the
+                translation &mdash; creating an echo loop of increasingly inaccurate results.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-translate tip-icon"></i>
+            <div>
+                <strong>The listener defaults to the browser's language.</strong> If the
+                speaker and listener are both using browsers set to the same language &mdash;a very common scenario in a trial!&mdash; the listener
+                device will simply repeat the speaker's words in an AI voice, rather than
+                translating them. Ask the listener to manually select a different language using the
+                language selector button on their screen. This will not happen in a real case scenario with foreign listeners.
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- Step 1: Speaker -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Set Up the Speaker Device</h3>
+        </div>
+        <div class="step-body">
+            <p>On the <span class="role-label role-speaker">Speaker device</span>, go to
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                www.nub.art/customer/login</a> and log in. If this is your first time, use the
+                registration link in the box above to create your account first.</p>
+            <ol>
+                <li>Click <strong>Nubart TRANSLATE</strong>.</li>
+                <li>Select the <strong>language you will be speaking</strong> (not the language
+                    you want to translate into).</li>
+                <li>Tap <strong>Unmute</strong> and start speaking naturally.</li>
+            </ol>
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                If you change language during the test, always update the selected speaker language
+                before continuing. Forgetting to do this is the most common cause of poor
+                translation quality.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Listener -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Set Up the Listener Device</h3>
+        </div>
+        <div class="step-body">
+            <p>On the <span class="role-label role-listener">Listener device</span>, scan the QR
+                code at the top of this page (or tap the link below it).</p>
+            <ol>
+                <li>Select the language you want to <strong>hear the translation in</strong>.</li>
+                <li>Make sure your volume is turned up.</li>
+                <li>No login, no app, no permissions required.</li>
+            </ol>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                For the clearest audio experience, use headphones or earphones on the listener device.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Monitor quality -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Check Translation Quality</h3>
+        </div>
+        <div class="step-body">
+            <p>On the speaker interface, you will see two quality indicators:</p>
+            <ul>
+                <li><strong>Spectrum display:</strong> the bars should move when you speak. If
+                    they don't move, your microphone is not active or the wrong input is selected.
+                </li>
+                <li><strong>Audio quality indicator:</strong> aim for green (80%+). Yellow is
+                    usable; red means the translation quality will be poor and you should check
+                    your audio setup.</li>
+            </ul>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                For a full explanation of the quality indicators and audio setup options, see the
+                complete instructions linked below.
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to full instructions -->
+    <div class="full-instructions-box">
+        <i class="bi bi-file-earmark-text"></i>
+        <div>
+            <strong>Full operational instructions</strong><br>
+            <span style="font-size:0.88rem; color:#555;">For detailed guidance on audio setup,
+            microphone options, diagnostic tools, and best practices for live events, download
+            our complete instructions:</span><br>
+            <a href="https://www.nubart.eu/ai-simultaneous-interpretation/nubart-translate-instructions.html"
+               target="_blank" rel="noopener">
+                nubart.eu &rarr; Nubart TRANSLATE Instructions
+            </a>
+        </div>
+    </div>
+
+    <!-- Sales rep card -->
+    <!-- TO CUSTOMISE PER LANGUAGE VERSION: replace photo src, name, title, email and phone -->
+    <div class="rep-card">
+        <div>
+            <img src="../assets/img/team/evelyn.webp"
+                 alt="Your Nubart contact"
+                 class="rep-photo"
+                 onerror="this.style.display='none'; document.getElementById('rep-photo-fallback').style.display='flex';">
+            <div class="rep-photo-placeholder" id="rep-photo-fallback" style="display:none;">
+                <i class="bi bi-person"></i>
+            </div>
+        </div>
+        <div class="rep-info">
+            <p class="rep-intro">Any questions? I am the real person behind this trial and will
+                be happy to help:</p>
+            <h4>Evelyn Crende</h4>
+            <p class="rep-title">Sales Manager</p>
+            <div class="rep-contact">
+                <i class="bi bi-envelope me-1"></i>
+                <a href="mailto:evelyn.crende@nubart.eu">evelyn.crende@nubart.eu</a><br>
+                <i class="bi bi-telephone me-1"></i>
+                Europe: +49 307 5669416<br>
+                <i class="bi bi-telephone me-1"></i>
+                USA: +1 (305) 454-2085
+            </div>
+        </div>
+    </div>
+
+    <!-- Order section -->
+    <div class="order-section no-print">
+        <h3>Happy with the trial?</h3>
+        <p>If Nubart TRANSLATE is the right fit for your events, we'd love to get you set up.
+            Place your order directly or get in touch and we'll guide you through the options.</p>
+        <a href="https://forms.zohopublic.eu/rosasala/form/NewcustomerNubartTRANSLATENG/formperma/ETrptLGQQeOtU-Q_gm13Jn27MHw24lD1a58YUK4ROp4" class="btn-order" id="order-btn">
+            Place your order &rarr;
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Questions? Write to us at <a href="/cdn-cgi/l/email-protection#533a3d353c133d26313221277d3626"><span class="__cf_email__" data-cfemail="640d0a020b240a11060516104a0111">[email&#160;protected]</span></a>
+            &nbsp;&mdash;&nbsp;
+            <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script>
+    // ── QR code from ?demo= parameter ──────────────────────
+    (function () {
+        const params  = new URLSearchParams(window.location.search);
+        const demoUrl = params.get('demo');
+        const qrEl    = document.getElementById('qrcode');
+        const missing = document.getElementById('qr-missing');
+        const urlEl   = document.getElementById('demo-url-display');
+
+        if (demoUrl) {
+            new QRCode(qrEl, {
+                text: demoUrl,
+                width: 200,
+                height: 200,
+                colorDark:  '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            urlEl.innerHTML = '<a href="' + demoUrl + '" target="_blank" rel="noopener">' + demoUrl + '</a>';
+        } else {
+            qrEl.style.display = 'none';
+            missing.style.display = 'block';
+        }
+    })();
+
+    // ── Invite link from ?invite= parameter ──────────────────────
+    (function () {
+        const params     = new URLSearchParams(window.location.search);
+        const inviteUrl  = params.get('invite');
+        const inviteLink = document.getElementById('invite-link');
+        if (inviteUrl) {
+            inviteLink.href        = inviteUrl;
+            inviteLink.textContent = inviteUrl;
+        } else {
+            inviteLink.textContent = '(registration link to be provided by your Nubart contact)';
+            inviteLink.removeAttribute('href');
+            inviteLink.style.color = '#aaa';
+            inviteLink.style.fontStyle = 'italic';
+        }
+    })();
+
+    // ── Order button link from ?order= parameter (optional override) ─────
+    (function () {
+        const params   = new URLSearchParams(window.location.search);
+        const orderUrl = params.get('order');
+        if (orderUrl) {
+            document.getElementById('order-btn').href = orderUrl;
+        }
+    })();
+</script>
+
+</body>
+</html>
