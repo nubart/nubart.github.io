@@ -1,0 +1,358 @@
+/* ============================================================
+   demos-trials.css
+   Shared styles for demo / trial instruction pages:
+     - ai-simultaneous-interpretation/nubart-translate-trial.html
+     - audio-commentary-system/instructions-demo-triggered.html
+     - audio-commentary-system/instructions-demo-triggered-phase-2.html
+     - es/instrucciones-demo-gps.html
+     - de/audioguides/anleitung-demo-gps-aktiviert.html
+   ============================================================ */
+
+/* ─── Font: restore website standard fonts ─────────────────
+   printable-terms.css sets body { font-family: system-ui ... }
+   globally, overriding style.css. We restore the site fonts here.
+──────────────────────────────────────────────────────────── */
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+}
+
+/* ─── Screen styles ─── */
+
+.demo-wrap {
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 0 20px 60px;
+}
+
+.nubart-logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.page-header {
+    border-bottom: 3px solid #028a8c;
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+}
+
+.page-header h1 {
+    color: #028a8c;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.page-header .subtitle {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+/* QR box */
+.qr-box {
+    border: 2px dashed #028a8c;
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+    background: #f0fafa;
+    margin-bottom: 28px;
+}
+
+.qr-box h2 {
+    font-size: 1rem;
+    color: #028a8c;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.qr-box .qr-intro {
+    font-size: 0.88rem;
+    color: #555;
+    margin-bottom: 14px;
+}
+
+#qrcode { display: inline-block; }
+
+#qrcode img,
+#qrcode canvas {
+    border: 6px solid white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    border-radius: 6px;
+}
+
+.qr-missing {
+    color: #b04000;
+    background: #fff3e0;
+    border: 1px solid #f5a623;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    display: inline-block;
+}
+
+#demo-url-display {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: #777;
+    word-break: break-all;
+}
+
+/* Situation box (teal banner used to describe the scenario) */
+.situation-box {
+    background: #028a8c;
+    color: white;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 26px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.situation-box strong {
+    display: block;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    opacity: 0.85;
+}
+
+/* Steps */
+.step-block { margin-bottom: 22px; }
+
+.step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #028a8c;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+.step-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #028a8c;
+    margin: 0;
+}
+
+.step-body {
+    padding-left: 44px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.step-body p  { margin-bottom: 6px; }
+.step-body li { margin-bottom: 4px; }
+
+/* Callouts */
+.callout {
+    border-left: 4px solid #028a8c;
+    background: #f0fafa;
+    padding: 8px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.88rem;
+    margin: 8px 0;
+    line-height: 1.45;
+}
+
+.callout.warning {
+    border-color: #e07b00;
+    background: #fff8ed;
+}
+
+.callout.tip {
+    border-color: #2e7d32;
+    background: #f1f8f1;
+}
+
+/* Troubleshooting accordion */
+.troubleshooting-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #555;
+    border-top: 1px solid #dee2e6;
+    padding-top: 18px;
+    margin-top: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+}
+
+.troubleshooting-title .bi-tools { color: #028a8c; }
+.troubleshooting-body { padding-top: 10px; }
+.trouble-item { margin-bottom: 12px; }
+
+.trouble-item > strong {
+    display: block;
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.trouble-item p {
+    font-size: 0.88rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Footer */
+.instructions-footer {
+    border-top: 1px solid #dee2e6;
+    margin-top: 36px;
+    padding-top: 14px;
+    font-size: 0.82rem;
+    color: #aaa;
+    text-align: center;
+}
+
+.instructions-footer a { color: #028a8c; }
+
+/* ─── Print styles ─── */
+@media print {
+
+    @page {
+        size: A4 portrait;
+        margin: 1cm;
+    }
+
+    body { font-size: 10pt; }
+
+    .demo-wrap { max-width: 100%; margin: 0; padding: 0; }
+    .no-print  { display: none !important; }
+
+    /* Page header */
+    .page-header {
+        border-bottom: 2pt solid #028a8c;
+        margin-bottom: 0.45cm;
+        padding-bottom: 0.25cm;
+    }
+
+    .page-header h1 { font-size: 15pt; color: #028a8c !important; }
+    .page-header .subtitle { font-size: 8.5pt; color: #6c757d !important; }
+
+    /* QR box */
+    .qr-box {
+        border: 1.5pt solid #028a8c !important;
+        background: #f0fafa !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 0.35cm;
+        margin-bottom: 0.4cm;
+        page-break-inside: avoid;
+        text-align: center;
+    }
+
+    .qr-box h2 { font-size: 9.5pt; color: #028a8c !important; }
+    .qr-box .qr-intro { font-size: 7.5pt; margin-bottom: 0.25cm; }
+
+    #qrcode canvas, #qrcode img {
+        max-width: 130px !important;
+        max-height: 130px !important;
+    }
+
+    #demo-url-display { font-size: 7pt; margin-top: 0.2cm; }
+
+    /* Situation box */
+    .situation-box {
+        background: #028a8c !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        border-radius: 4pt;
+        padding: 0.25cm 0.35cm;
+        margin-bottom: 0.35cm;
+        font-size: 8.5pt;
+        page-break-inside: avoid;
+    }
+
+    .situation-box strong { font-size: 7pt; }
+
+    /* Steps */
+    .step-block { page-break-inside: avoid; margin-bottom: 0.35cm; }
+
+    .step-number {
+        background: #028a8c !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        width: 18pt;
+        height: 18pt;
+        font-size: 8.5pt;
+        margin-right: 7pt;
+    }
+
+    .step-header h3 { font-size: 9.5pt; color: #028a8c !important; }
+    .step-body { font-size: 8pt; padding-left: 25pt; line-height: 1.35; }
+
+    /* Callouts */
+    .callout {
+        background: #f0fafa !important;
+        border-left: 3pt solid #028a8c !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-size: 7.5pt;
+        padding: 0.1cm 0.25cm;
+        margin: 0.1cm 0;
+        page-break-inside: avoid;
+    }
+
+    .callout.warning {
+        background: #fff8ed !important;
+        border-left-color: #e07b00 !important;
+    }
+
+    .callout.tip {
+        background: #f1f8f1 !important;
+        border-left-color: #2e7d32 !important;
+    }
+
+    /* Troubleshooting: always fully visible when printing */
+    .troubleshooting-title {
+        display: flex !important;
+        cursor: default;
+        font-size: 9.5pt;
+        margin-top: 0.4cm;
+        padding-top: 0.25cm;
+        border-top: 1pt solid #dee2e6;
+    }
+
+    #ts-chevron { display: none !important; }
+
+    .troubleshooting-body {
+        display: block !important;
+        font-size: 7.5pt;
+    }
+
+    .trouble-item { margin-bottom: 0.2cm; page-break-inside: avoid; }
+    .trouble-item > strong { font-size: 8pt; }
+    .trouble-item p { font-size: 7.5pt; line-height: 1.35; }
+
+    /* Footer */
+    .instructions-footer {
+        font-size: 7pt;
+        margin-top: 0.4cm;
+        padding-top: 0.15cm;
+        color: #aaa !important;
+    }
+
+    a { color: #028a8c !important; text-decoration: none; }
+}
