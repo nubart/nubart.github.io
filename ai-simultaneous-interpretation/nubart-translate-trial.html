@@ -56,27 +56,6 @@
     <!-- QR + Login credentials -->
     <div class="credentials-row">
 
-        <!-- QR box: listener device -->
-        <div class="qr-box">
-            <h2><i class="bi bi-qr-code me-2"></i>Listener QR Code</h2>
-            <p class="qr-intro">
-                <span class="role-label role-listener">Listener device</span>
-                Scan this to receive the live translation in your chosen language.
-            </p>
-            <div id="qrcode"></div>
-            <div id="qr-missing" class="qr-missing" style="display:none;">
-                <i class="bi bi-exclamation-triangle me-2"></i>
-                No QR link provided. Please contact your Nubart representative.
-            </div>
-            <p id="demo-url-display"></p>
-            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
-                <i class="bi bi-info-circle me-1"></i>
-                This is your permanent QR code. If you place an order, your listeners will use
-                this exact code. We don't change QR codes for our customers, so you can
-                safely print it on permanent materials.
-            </p>
-        </div>
-
         <!-- Login box: speaker device -->
         <div class="login-box">
             <h2><i class="bi bi-mic me-2"></i>Speaker Login</h2>
@@ -104,6 +83,27 @@
             <p style="font-size:0.8rem; color:#888; margin-top:6px;">
                 Once logged in, click <strong>Nubart TRANSLATE</strong>, select the language you
                 will speak, then tap <strong>Unmute</strong> to start.
+            </p>
+        </div>
+
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>Listener QR Code</h2>
+            <p class="qr-intro">
+                <span class="role-label role-listener">Listener device</span>
+                Scan this to receive the live translation in your chosen language.
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                No QR link provided. Please contact your Nubart representative.
+            </div>
+            <p id="demo-url-display"></p>
+            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
+                <i class="bi bi-info-circle me-1"></i>
+                This is your permanent QR code. If you place an order, your listeners will use
+                this exact code. We don't change QR codes for our customers, so you can
+                safely print it on permanent materials.
             </p>
         </div>
 
@@ -149,7 +149,7 @@
                 speaker and listener are both using browsers set to the same language &mdash;a very common scenario in a trial!&mdash; the listener
                 device will simply repeat the speaker's words in an AI voice, rather than
                 translating them. Ask the listener to manually select a different language using the
-                language selector button on their screen. This will not happen in a real case scenario with foreign listeners.
+                language selector button on their screen. This will not happen in a real case scenario with foreign listeners, as their browsers will already be set to their native languages.
             </div>
         </div>
 
