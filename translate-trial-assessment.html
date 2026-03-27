@@ -342,11 +342,14 @@ ${csv}`;
         log('ok', 'Note → Deal associated');
       }
 
-      // Mark trial_kit_has_been_tried on deal if found
+      // Mark trial kit as tried on deal, using the correct property per pipeline
       if (foundDealId) {
         log('info', 'Updating deal: trial kit tried...');
+        const trialProps = foundDealPipeline === 'LIVE'
+          ? { live_has_been_tried:      'Trial kit TRIED' }
+          : { trial_kit_has_been_tried: 'true' }; // TRANSLATE and MOTION
         await hsPatch(hsToken, `https://api.hubapi.com/crm/v3/objects/deals/${foundDealId}`, {
-          properties: { trial_kit_has_been_tried: 'true' }
+          properties: trialProps
         });
         log('ok', 'Deal updated');
       }
