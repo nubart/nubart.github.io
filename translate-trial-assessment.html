@@ -342,14 +342,11 @@ ${csv}`;
         log('ok', 'Note → Deal associated');
       }
 
-      // Mark trial kit as tried on deal, using the correct property per pipeline
+      // Mark trial_kit_has_been_tried on deal if found
       if (foundDealId) {
         log('info', 'Updating deal: trial kit tried...');
-        const trialProps = foundDealPipeline === 'LIVE'
-          ? { live_has_been_tried:      'Trial kit TRIED' }
-          : { trial_kit_has_been_tried: 'true' }; // TRANSLATE and MOTION
         await hsPatch(hsToken, `https://api.hubapi.com/crm/v3/objects/deals/${foundDealId}`, {
-          properties: trialProps
+          properties: { trial_kit_has_been_tried: 'true' }
         });
         log('ok', 'Deal updated');
       }
@@ -368,10 +365,13 @@ ${csv}`;
 
   function buildNoteBody(assessment) {
     const br = '<br>';
-    const lines = assessment.split('\n').join(br);
+    // Convert markdown bold (**text**) to HTML <strong>text</strong>
+    const html = assessment
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .split('\n').join(br);
     return '<p>'
       + '<strong>--- NUBART: TRANSLATE Trial Assessment (AI) ---</strong>' + br + br
-      + lines + br + br
+      + html + br + br
       + '<em>Generated: ' + new Date().toISOString() + '</em>'
       + '</p>';
   }
@@ -439,6 +439,7 @@ ${csv}`;
       headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
+    if (res.status === 204) return {}; // No Content = success
     const data = await res.json();
     if (res.status !== 200 && res.status !== 201)
       throw new Error(`HubSpot PATCH ${res.status}: ${JSON.stringify(data).substring(0, 300)}`);
