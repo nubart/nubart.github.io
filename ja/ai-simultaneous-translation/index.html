@@ -108,10 +108,10 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "リアルタイム翻訳の速度はどれくらいですか？",
+                    "name": "どの程度の遅延が発生しますか？",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "翻訳は発話から約1〜2秒後に表示されます。ほぼリアルタイムで利用可能です。"
+                        "text": "翻訳自体は通常1秒未満で行われます。体感される遅延の主な原因は技術的なものではなく言語的なものです。システムは話者が意味のある単位で発話を終えるのを待ちます。ドイツ語・日本語・トルコ語のような動詞が文末に来る言語では文全体を待つ必要がありますが、英語やスペイン語では文の一部で区切られる場合もあります。また、音声合成によるわずかな遅延も発生しますが、多くの言語ではほとんど気になりません。"
                     }
                 },
                 {
@@ -1196,6 +1196,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                         </div>
 
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingDelayJA">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqDelayJA" aria-expanded="false" aria-controls="faqDelayJA">
+                                    <b>どの程度の遅延が発生しますか？</b>
+                                </button>
+                            </h2>
+                            <div id="faqDelayJA" class="accordion-collapse collapse" aria-labelledby="headingDelayJA" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="text-align: justify;">
+                                    Nubart TRANSLATEでは、元の発話と翻訳の間に約<strong>1秒</strong>の遅延が生じます。この軽微な遅延はAI翻訳に固有のもので、排除することはできません。システムが文脈を理解し、自然な翻訳を生成するために、数語を聞き取る必要があるためです。実際には、参加者のほとんどはこのずれに容易に対応できると感じています。
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTen">
