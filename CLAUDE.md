@@ -87,7 +87,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - EN: ai-simultaneous-interpretation/nubart-translate-instructions.html
 - DE: de/simultan-uebersetzung-ki/anleitung-nubart-translate.html
 - ES: es/traduccion-simultanea-ia/instrucciones-nubart-translate.html
-- IT: it/traduzione-simultanea-ia/termini-e-condizioni.html
+- IT: it/traduzione-simultanea-ia/istruzioni-nubart-translate.html
 - FR: fr/traduction-simultanee-ia/instructions-nubart-translate.html
 - HE: he/ai-simultaneous-interpretation/nubart-translate-instructions.html
 - BG: (still pending)
