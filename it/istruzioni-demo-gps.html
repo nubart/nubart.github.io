@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Come provare la tua demo di Nubart MOTION | Nubart</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Shared printable stylesheet -->
+    <link href="../assets/css/printable-terms.css" rel="stylesheet" />
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../assets/css/demos-trials.css" rel="stylesheet" />
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+
+<body>
+
+<div class="demo-wrap">
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Stampa le istruzioni (A4 verticale)
+    </button>
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../assets/img/logo.png" alt="Nubart" class="nubart-logo" />
+        <h1>Come provare la tua demo di Nubart MOTION</h1>
+        <p class="subtitle">Audioguida con attivazione tramite GPS — istruzioni passo passo</p>
+    </div>
+
+    <!-- QR Code -->
+    <div class="qr-box">
+        <h2><i class="bi bi-qr-code me-2"></i>Il tuo codice QR personale per la demo</h2>
+        <p class="qr-intro">Scansiona questo codice con il tuo smartphone per aprire la tua demo dell'audioguida.</p>
+        <div id="qrcode"></div>
+        <div id="qr-missing" class="qr-missing" style="display:none;">
+           <i class="bi bi-exclamation-triangle me-2"></i> 
+            Non è stato fornito alcun URL di demo. Contatta il tuo rappresentante Nubart per ricevere il tuo link personalizzato.
+        </div>
+        <p id="demo-url-display"></p>
+    </div>
+
+    <!-- What this covers -->
+    <div class="situation-box">
+       <strong>Fase 1 di 2 — Verifica del GPS e della connettività</strong>
+        Questa demo è il primo di due passaggi verso la configurazione finale della tua audioguida. Serve a due scopi:
+        permetterti di vedere come i contenuti si attivano automaticamente quando il tuo veicolo passa per ogni punto di interesse,
+        e permetterci di analizzare le mappe di calore della geolocalizzazione generate durante il tuo percorso e valutare la
+        copertura Internet e GPS lungo il tragitto. I risultati di questa fase ci forniranno a entrambi le informazioni
+        necessarie per procedere con sicurezza verso la Fase 2, in cui configureremo l'intero sistema di controllo remoto
+        per i tuoi passeggeri. Per favore, prendi nota di qualsiasi contenuto che si attivi troppo presto, troppo tardi o che non si
+        attivi affatto — tutto può essere regolato una volta che avremo esaminato i dati insieme.
+    </div>
+
+
+
+    <!-- Step 1 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Prima di iniziare: prepara il tuo dispositivo</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>Concedi le autorizzazioni di geolocalizzazione.</strong> Poiché Nubart funziona nel browser (non è un'app nativa), il tuo browser deve poter accedere alla posizione.
+                Quando scansioni il codice QR apparirà automaticamente una richiesta: tocca <em>Consenti</em> in tutte le richieste.
+                Non bloccare lo schermo manualmente durante la prova.</p>
+            <p><strong>Assicurati che il volume sia sufficientemente alto</strong> prima di iniziare.</p>
+            <p>Se la demo non si avvia correttamente, il problema è solitamente legato alle autorizzazioni di localizzazione. Queste possono essere di tre livelli:</p>
+            <ul>
+                <li><strong>Livello di sistema</strong> — impostazioni del sistema operativo del tuo telefono</li>
+                <li><strong>Livello del browser</strong> — cerca il tuo browser in “Applicazioni” all’interno delle impostazioni di sistema e abilita lì l’accesso alla posizione</li>
+                <li><strong>Livello del dominio</strong> — le nostre guide funzionano su <code>nub.art</code>. Nella sezione Privacy e sicurezza del tuo browser, verifica che <code>nub.art</code> abbia accesso alla posizione.</li>
+            </ul>
+            <p>Se la tua demo è in <strong>modalità offline</strong>, aspetta che tutti i brani finiscano di caricarsi prima di continuare.</p>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Controlla il primo punto del percorso — nel tuo ufficio</h3>
+        </div>
+        <div class="step-body">
+            <p>Abbiamo inserito una traccia audio temporanea nella posizione del tuo ufficio. Scansiona il codice QR qui sopra e aspetta qualche secondo.
+                Se la traccia inizia a riprodursi automaticamente, le autorizzazioni sono configurate correttamente e puoi uscire a provare il percorso.</p>
+            <div class="callout tip">
+               <i class="bi bi-lightbulb me-1"></i> 
+                Se la traccia viene riprodotta nel tuo ufficio, è tutto a posto: vai direttamente al veicolo.
+            </div>
+            <p>Se non viene riprodotto nulla, consulta la sezione Risoluzione dei problemi prima di continuare.</p>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Durante il percorso</h3>
+        </div>
+        <div class="step-body">
+            <p>Porta il tuo smartphone nel veicolo e percorri il percorso normalmente. Le tracce verranno riprodotte automaticamente quando ti avvicini a ciascun punto di interesse.</p>
+            <ul>
+                <li>Assicurati che i dati mobili siano attivi per tutto il percorso.</li>
+                <li>Tieni il browser aperto e lo schermo attivo — non bloccarlo manualmente.</li>
+                <li>Metti il telefono vicino a una finestrino se noti problemi di attivazione.</li>
+                <li>Se una traccia audio si attiva leggermente prima o dopo, prendine nota — le zone di attivazione possono variare.</li>
+                <li>Per ripetere il test, <strong>aggiorna la pagina o scansiona nuovamente il codice QR</strong> per ricominciare la guida dall'inizio.</li>
+            </ul>
+            <div class="callout">
+               <i class="bi bi-info-circle me-1"></i> 
+                Abbiamo attivato la geolocalizzazione di tracciamento per la tua demo. Dopo la prova esamineremo le mappe di calore per identificare eventuali zone senza copertura e discutere le soluzioni con te.
+                Il tuo referente Nubart esaminerà i risultati con te.
+            </div>
+        </div>
+    </div>
+
+    <!-- Resolución de problemas (contraído en pantalla, siempre expandido en impresión) -->
+    <div class="troubleshooting-title" onclick="toggleTroubleshooting()" id="ts-toggle">
+       <i class="bi bi-tools"></i> 
+        Risoluzione dei problemi
+       <i class="bi bi-chevron-down ms-auto" id="ts-chevron"></i> 
+    </div>
+
+    <div class="troubleshooting-body" id="ts-body" style="display:none;">
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-volume-mute me-2 text-danger"></i>Il brano viene riprodotto ma non si sente nulla</strong>
+            <p>Un'altra app potrebbe stare registrando l'audio. Chiudi tutte le app in background e riprova. Riavvia il telefono se necessario.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-geo me-2 text-danger"></i>Il brano non si attiva nella tua posizione</strong>
+            <p>Apri la mappa all'interno dell'audioguida e tocca l'icona della piccola figura nell'angolo in alto a sinistra. La mappa dovrebbe centrarsi sulla tua posizione attuale.
+                Se non lo fa, controlla i tre livelli di autorizzazioni descritti nel Passo 1.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-crosshair me-2 text-warning"></i>La posizione appare ma salta sulla mappa</strong>
+            <p>Assicurati di aver concesso l'accesso alla <em>posizione precisa</em> e non solo a una posizione approssimativa.
+                Se i salti continuano anche all'aperto, il tuo dispositivo potrebbe avere un chipset GPS debole: prova con un altro modello di smartphone.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-reception-0 me-2 text-danger"></i>Alcuni percorsi non si attivano</strong>
+            <p>È probabile che quei punti si trovino in zone con copertura Internet o GPS limitata. Prendi nota e faccelo sapere: in casi specifici possiamo applicare strategie di attivazione alternative, come l'attivazione a tempo.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-x-circle me-2 text-danger"></i>Molte tracce audio non si attivano</strong>
+            <p>Di solito questo significa che non c'è un segnale Internet o GPS affidabile nel tuo veicolo. Aggiorna la pagina e ripeti il percorso mettendo il telefono vicino a un finestrino.
+                Se il problema persiste per tutto il percorso, potrebbe essere necessaria un'antenna dedicata — contattaci e ti daremo consigli.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Hai domande? Scrivici a <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+             — 
+           <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script src="../assets/js/demos-trials.js"></script>
+
+</body>
+</html>
