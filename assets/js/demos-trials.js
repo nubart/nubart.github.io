@@ -15,13 +15,20 @@
     const urlEl   = document.getElementById('demo-url-display');
 
     if (demoUrl) {
-        new QRCode(qrEl, {
-            text: demoUrl,
+        const canvas = document.createElement('canvas');
+        qrEl.appendChild(canvas);
+        QRCode.toCanvas(canvas, demoUrl, {
+            errorCorrectionLevel: 'M',
+            margin: 4,
             width: 200,
-            height: 200,
-            colorDark:  '#000000',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
+            color: {
+                dark:  '#000000',
+                light: '#ffffff'
+            }
+        }, function (error) {
+            if (error) {
+                console.error('QR generation error:', error);
+            }
         });
         urlEl.innerHTML = '<a href="' + demoUrl + '" target="_blank" rel="noopener">' + demoUrl + '</a>';
     } else {
