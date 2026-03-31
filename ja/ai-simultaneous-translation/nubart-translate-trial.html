@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Nubart TRANSLATE 無料トライアル | Nubart</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet" />
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../../assets/css/demos-trials.css" rel="stylesheet" />
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+
+</head>
+
+<body>
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ 手順を印刷する（A4・縦）
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo" />
+        <h1>Nubart TRANSLATE 無料トライアル</h1>
+        <p class="subtitle">AIによるリアルタイム翻訳 — 最大30分間無料</p>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-box">
+        <strong>ようこそ</strong>
+        このページでは、トライアルに必要な情報をご案内します。
+        <strong>リアルタイム翻訳を30分間無料でご利用いただけます。</strong><br>
+        この時間は、複数のセッションに分けて自由にご利用いただけます。
+        例えば、今日は他の方と5分、明日はチームと10分など、
+        合計30分の範囲でお試しいただけます。
+    </div>
+
+    <!-- QR + Login credentials -->
+    <div class="credentials-row">
+
+        <!-- Login box: speaker device -->
+        <div class="login-box">
+            <h2><i class="bi bi-mic me-2"></i>話者用ログイン</h2>
+            <p class="login-intro">
+                <span class="role-label role-speaker">話者用デバイス</span>
+                こちらからログインして、翻訳を開始し、話し始めてください。
+            </p>
+
+            <p class="login-label"><strong>ステップ1 — 初回のみ：アカウントを作成</strong></p>
+            <div class="login-link-block">
+                <a id="invite-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+            <p style="font-size:0.8rem; color:#000; margin-top:6px;">
+                このリンクからパスワードを設定してください。初回のみ必要です。
+            </p>
+
+            <hr style="border-color:#ddd; margin: 12px 0;" />
+
+            <p class="login-label"><strong>ステップ2 — 毎回：こちらからログイン</strong></p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                ログイン後、「<strong>Nubart TRANSLATE</strong>」をクリックし、
+                話す言語を選択してから、「<strong>マイクをオン</strong>」をタップしてください。
+            </p>
+        </div>
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>リスナー用QRコード</h2>
+            <p class="qr-intro">
+                <span class="role-label role-listener">リスナー用デバイス</span>
+                このコードをスキャンすると、選択した言語で翻訳を聞くことができます。
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                QRリンクが設定されていません。Nubartの担当者までお問い合わせください。
+            </div>
+            <p id="demo-url-display"></p>
+            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
+                <i class="bi bi-info-circle me-1"></i>
+                このQRコードは固定されています。ご注文後も同じコードをご利用いただきます。
+                弊社ではお客様のQRコードを変更することはありませんので、印刷物などにも安心してご利用いただけます。
+            </p>
+        </div>
+
+    </div>
+    <!-- Trial tips -->
+    <div class="trial-tips-box">
+        <h3><i class="bi bi-lightbulb me-2"></i>トライアルを最大限に活用する方法</h3>
+
+        <div class="trial-tip">
+            <i class="bi bi-people tip-icon"></i>
+            <div>
+                <strong>他の方と一緒にお試しください。</strong>お一人でも利用できますが、
+                実際の使用感を十分に確認できない場合があります。
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-phone-flip tip-icon"></i>
+            <div>
+                <strong>2台のデバイスが必要です。</strong>
+                1台は<span class="role-label role-speaker">話者用デバイス</span>
+                （スマートフォンまたはノートパソコン）で、ログインして翻訳を開始します。
+                もう1台は<span class="role-label role-listener">リスナー用デバイス</span>です。
+                こちらでQRコードをスキャンし、翻訳を聞きます。
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-soundwave tip-icon"></i>
+            <div>
+                <strong>2台のデバイスは離して使用するか、ヘッドフォンをご利用ください。</strong>
+                AIは、リスナー側のデバイスから再生される翻訳音声を含め、周囲の音をすべて認識します。
+                ヘッドフォンを使わずに両デバイスを近くに置くと、
+                話者側のマイクが翻訳音声を拾い、すでに翻訳された音声を再度処理してしまいます。
+                その結果、音声がループし、翻訳の精度が徐々に低下します。
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-translate tip-icon"></i>
+            <div>
+                <strong>リスナー側のデバイスは、デフォルトでブラウザの言語を使用します。</strong>
+                話者とリスナーが同じ言語のブラウザを使用している場合（テストではよくあるケースです）、
+                リスナー側のデバイスは翻訳せず、話者の言葉をそのままAI音声で再生します。
+                リスナーは、言語選択ボタン（<i class="bi bi-translate"></i>）をタップして、別の言語を選択してください。
+                実際の利用では、リスナーのブラウザはそれぞれの母国語に設定されているため、この問題は通常発生しません。
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-pencil tip-icon"></i>
+            <div>
+                <strong>固有名詞や専門用語でうまく認識されないものはメモしてください。</strong>
+                AI翻訳は日常的な表現には非常に強いですが、珍しい固有名詞やブランド名、
+                専門性の高い用語では精度が下がる場合があります。
+                テスト中にそのような点に気づいた場合は、ぜひメモしてお知らせください。
+                ご注文後、その情報をもとにAIを最適化し、より良い翻訳体験をご提供します。
+            </div>
+        </div>
+
+    </div>
+    <!-- Step 1: Speaker -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>話者用デバイスの設定</h3>
+        </div>
+        <div class="step-body">
+            <p><span class="role-label role-speaker">話者用デバイス</span>で<a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+
+                www.nub.art/customer/login</a>を開き、ログインしてください。初回は、上記の登録リンクからアカウントを作成してください。</p>
+            <ol>
+                <li>「<strong>Nubart TRANSLATE</strong>」をクリックします。</li>
+                <li><strong>話す言語を選択します</strong>（翻訳先の言語ではありません）。</li>
+                <li>「<strong>マイクをオン</strong>」をタップし、自然に話してください。</li>
+            </ol>
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                テスト中に言語を変更する場合は、必ず話者の言語設定を更新してから続行してください。
+                この設定を更新しないと、翻訳の品質が低下する原因になります。
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Listener -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>リスナー用デバイスの設定</h3>
+        </div>
+        <div class="step-body">
+            <p><span class="role-label role-listener">リスナー用デバイス</span>で、
+                このページ上部のQRコードをスキャンしてください（または、下のリンクをタップしてください）。</p>
+            <ol>
+                <li><strong>翻訳を聞きたい言語</strong>を選択してください。</li>
+                <li>音量が十分に上がっていることを確認してください。</li>
+                <li>ログイン、アプリのインストール、権限の許可は不要です。</li>
+            </ol>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                より良い音質で利用するため、リスナー用デバイスではヘッドフォンまたはイヤホンの使用をおすすめします。
+            </div>
+        </div>
+    </div>
+    <!-- Step 3: Monitor quality -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>翻訳の品質を確認する</h3>
+        </div>
+        <div class="step-body">
+            <p>話者用インターフェースには、2つの指標が表示されます：</p>
+            <ul>
+                <li><strong>音声レベル表示：</strong>話すとバーが動きます。
+                    何も動かない場合は、マイクが有効になっていないか、
+                    正しい入力デバイスが選択されていない可能性があります。
+                </li>
+                <li><strong>音声品質インジケーター：</strong>目安は緑色（80％以上）です。黄色は許容範囲ですが、
+                    赤色の場合は翻訳品質が低下するため、音声設定を確認してください。</li>
+            </ul>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                詳細な説明や音声設定については、以下のマニュアルをご覧ください。
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to full instructions -->
+    <div class="full-instructions-box">
+        <i class="bi bi-file-earmark-text"></i>
+        <div>
+            <strong>操作ガイド</strong><br>
+            <span style="font-size:0.88rem; color:#555;">オーディオ設定、マイクオプション、ベストプラクティスの詳細はこちら：</span><br>
+            <a href="https://www.nubart.eu/ja/ai-simultaneous-translation/nubart-translate-instructions.html" target="_blank" rel="noopener">
+                nubart.eu → Nubart TRANSLATE マニュアル
+            </a>
+        </div>
+    </div>
+
+    <!-- Sales rep card -->
+    <div class="rep-card">
+        <img src="../../assets/img/team/nami.webp" alt="Nubartの担当者" class="rep-photo" onerror="this.style.display='none'; document.getElementById('rep-photo-fallback').style.display='flex';" />
+        <div class="rep-photo-placeholder" id="rep-photo-fallback" style="display:none;">
+            <i class="bi bi-person"></i>
+        </div>
+        <div class="rep-info">
+            <p class="rep-intro">ご質問はありますか？このテストを担当している実在の担当者が対応いたします。お気軽にご連絡ください。</p>
+            <h4>廣田 奈美</h4>
+            <p class="rep-title">日本における独占販売代理店</p>
+            <div class="rep-contact">
+                <i class="bi bi-envelope me-1"></i>
+                <a href="mailto:nami.hirota@nubart.eu">nami.hirota@nubart.eu</a><br>
+                <i class="bi bi-telephone me-1"></i> + <i class="bi bi-whatsapp"></i>
+                +81 070 1808 1218
+            </div>
+        </div>
+    </div>
+
+    <!-- Order section -->
+    <div class="order-section no-print">
+        <h3>トライアルはいかがでしたか？</h3>
+        <p>Nubart TRANSLATEがイベントに適していると感じられた場合は、導入のお手伝いをいたします。
+            そのままご注文いただくか、お気軽にお問い合わせください。最適なプランをご案内いたします。</p>
+        <a href="https://forms.zohopublic.eu/rosasala/form/NewcustomerNubartTRANSLATENG/formperma/ETrptLGQQeOtU-Q_gm13Jn27MHw24lD1a58YUK4ROp4?zf_lang=ja" class="btn-order" id="order-btn">
+            今すぐ注文する →
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>ご質問がありましたら、<a href="mailto:info@nubart.eu">info@nubart.eu</a>までご連絡ください —
+            <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script src="../../assets/js/demos-trials.js"></script>
+
+</body>
+</html>
