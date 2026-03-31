@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Dostęp do testu Nubart TRANSLATE | Nubart</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet" />
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../../assets/css/demos-trials.css" rel="stylesheet" />
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+
+</head>
+
+<body>
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Wydrukuj instrukcję (format A4, orientacja pionowa)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo" />
+        <h1>Dostęp do testu Nubart TRANSLATE</h1>
+        <p class="subtitle">Tłumaczenie symultaniczne wspomagane sztuczną inteligencją — do 30 minut bezpłatnie</p>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-box">
+        <strong>Witamy</strong>
+        Na tej stronie znajdziesz wszystko, czego potrzebujesz, aby przetestować usługę.
+        Otrzymujesz <strong>30 minut bezpłatnego tłumaczenia na żywo</strong>.<br>
+        Możesz wykorzystać ten czas w kilku sesjach.
+        Na przykład dziś przetestuj usługę przez 5 minut z inną osobą, a jutro przez 10 minut ze swoim zespołem —
+        aż do wykorzystania czasu.
+    </div>
+
+    <!-- QR + Login credentials -->
+    <div class="credentials-row">
+
+        <!-- Login box: speaker device -->
+        <div class="login-box">
+            <h2><i class="bi bi-mic me-2"></i>Logowanie dla mówcy</h2>
+            <p class="login-intro">
+                <span class="role-label role-speaker">Urządzenie mówcy</span>
+                Zaloguj się tutaj, aby rozpocząć tłumaczenie i zacząć mówić.
+            </p>
+
+            <p class="login-label"><strong>Krok 1 — tylko przy pierwszym logowaniu: utwórz konto</strong></p>
+            <div class="login-link-block">
+                <a id="invite-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+            <p style="font-size:0.8rem; color:#000; margin-top:6px;">
+                Za pomocą tego linku ustawisz hasło. Będzie ono potrzebne tylko raz.
+            </p>
+
+            <hr style="border-color:#ddd; margin: 12px 0;" />
+
+            <p class="login-label"><strong>Krok 2 — za każdym razem: zaloguj się tutaj</strong></p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Po zalogowaniu kliknij <strong>Nubart TRANSLATE</strong>, wybierz
+                język, w którym będziesz mówić, a następnie naciśnij przycisk <strong>„Włącz mikrofon”</strong>.
+            </p>
+        </div>
+
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>Kod QR dla słuchaczy</h2>
+            <p class="qr-intro">
+                <span class="role-label role-listener">Urządzenie słuchacza</span>
+                Zeskanuj kod, aby słuchać tłumaczenia w wybranym języku.
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                Nie podano linku do kodu QR. Skontaktuj się z Nubart.
+            </div>
+            <p id="demo-url-display"></p>
+            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
+                <i class="bi bi-info-circle me-1"></i>
+                To jest Twój stały kod QR. Po złożeniu zamówienia
+                słuchacze będą korzystać dokładnie z tego kodu. Nie zmieniamy kodów QR naszych klientów, więc możesz
+                bez problemu wydrukować go na trwałych materiałach.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Trial tips -->
+    <div class="trial-tips-box">
+        <h3><i class="bi bi-lightbulb me-2"></i>Jak najlepiej wykorzystać test</h3>
+
+        <div class="trial-tip">
+            <i class="bi bi-people tip-icon"></i>
+            <div>
+                <strong>Przetestuj usługę z inną osobą.</strong> Test w pojedynkę jest możliwy,
+                ale nie oddaje prawdziwego doświadczenia.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-phone-flip tip-icon"></i>
+            <div>
+                <strong>Potrzebujesz dwóch urządzeń.</strong>
+                Jedno z nich to <span class="role-label role-speaker">urządzenie mówcy</span>
+                (smartfon lub laptop). Na tym urządzeniu logujesz się i uruchamiasz tłumaczenie.
+                Drugie to <span class="role-label role-listener">urządzenie słuchacza</span>.
+                Na tym urządzeniu skanujesz kod QR, aby słuchać tłumaczenia.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-soundwave tip-icon"></i>
+            <div>
+                <strong>Trzymaj oba urządzenia z dala od siebie lub używaj słuchawek.</strong>
+                Sztuczna inteligencja rejestruje wszystkie dźwięki, w tym także tłumaczenie odtwarzane
+                na urządzeniu słuchacza. Jeśli oba urządzenia znajdują się blisko siebie bez słuchawek,
+                mikrofon urządzenia mówcy wychwytuje tłumaczenie i zaczyna ponownie tłumaczyć już przetworzony dźwięk,
+                co powoduje pętlę i stopniowo pogarsza jakość tłumaczenia.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-translate tip-icon"></i>
+            <div>
+                <strong>Urządzenie słuchacza domyślnie używa języka przeglądarki.</strong> Jeśli
+                przeglądarki mówcy i słuchacza są ustawione na ten sam język — co podczas testów zdarza się bardzo
+                często! — urządzenie słuchacza po prostu powtarza słowa mówcy
+                syntetycznym głosem zamiast je tłumaczyć. Poproś słuchacza, aby kliknął przycisk wyboru języka <i class="bi bi-translate"></i>, aby wybrać inny język.
+                W rzeczywistym scenariuszu z udziałem zagranicznych słuchaczy problem ten nie występuje,
+                ponieważ ich przeglądarki są ustawione na ich język ojczysty.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-pencil tip-icon"></i>
+            <div>
+                <strong>Zanotuj błędnie wymawiane nazwy lub terminy specjalistyczne.</strong>
+                Tłumaczenie AI bardzo dobrze radzi sobie z językiem potocznym, ale może mieć trudności z nietypowymi
+                nazwami własnymi, markami lub bardzo specjalistycznymi terminami.
+                Jeśli podczas testu zauważysz takie przypadki, zanotuj je i przekaż nam.
+                Po złożeniu zamówienia wykorzystamy te informacje, aby dostosować AI do Twoich treści,
+                tak aby Twoi odbiorcy od początku mieli jak najlepsze doświadczenie.
+            </div>
+        </div>
+
+    </div>
+    <!-- Step 1: Speaker -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Konfiguracja urządzenia mówcy</h3>
+        </div>
+        <div class="step-body">
+            <p>Na <span class="role-label role-speaker">urządzeniu mówcy</span> otwórz <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+
+                www.nub.art/customer/login</a> i zaloguj się. Przy pierwszym logowaniu utwórz konto, korzystając z linku rejestracyjnego powyżej.</p>
+            <ol>
+                <li>Kliknij <strong>Nubart TRANSLATE</strong>.</li>
+                <li>Wybierz <strong>język, w którym będziesz mówić</strong> (nie język, na który będzie tłumaczone).</li>
+                <li>Naciśnij przycisk <strong>„Włącz mikrofon”</strong> i mów naturalnie.</li>
+            </ol>
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                Jeśli podczas testu zmienisz język, pamiętaj, aby zaktualizować język mówcy przed kontynuowaniem.
+                Pominięcie tego kroku jest najczęstszą przyczyną niskiej jakości tłumaczenia.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Listener -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Konfiguracja urządzenia słuchacza</h3>
+        </div>
+        <div class="step-body">
+            <p>Na <span class="role-label role-listener">urządzeniu słuchacza</span> zeskanuj
+                kod QR znajdujący się u góry tej strony (lub kliknij link poniżej).</p>
+            <ol>
+                <li>Wybierz język, w którym <strong>chcesz słuchać tłumaczenia</strong>.</li>
+                <li>Upewnij się, że głośność jest ustawiona odpowiednio wysoko.</li>
+                <li>Nie trzeba się logować, instalować aplikacji ani udzielać uprawnień.</li>
+            </ol>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                Aby uzyskać najlepszą jakość dźwięku, zalecamy używanie słuchawek.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Monitor quality -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Sprawdź jakość tłumaczenia</h3>
+        </div>
+        <div class="step-body">
+            <p>W interfejsie mówcy zobaczysz dwa wskaźniki:</p>
+            <ul>
+                <li><strong>Wskaźnik widma:</strong> paski powinny poruszać się podczas mówienia.
+                    Jeśli nic się nie porusza, mikrofon nie jest aktywny lub wybrano niewłaściwe
+                    urządzenie wejściowe.
+                </li>
+                <li><strong>Wskaźnik jakości dźwięku:</strong> najlepiej, aby wskaźnik był zielony (80%+). Żółty jest
+                    jeszcze akceptowalny; czerwony oznacza, że jakość tłumaczenia będzie niska
+                    i należy sprawdzić ustawienia audio.</li>
+            </ul>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                Szczegółowe wyjaśnienie wskaźników jakości oraz opcji konfiguracji dźwięku
+                znajdziesz w pełnej instrukcji poniżej.
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to full instructions -->
+    <div class="full-instructions-box">
+        <i class="bi bi-file-earmark-text"></i>
+        <div>
+            <strong>Pełna instrukcja obsługi</strong><br>
+            <span style="font-size:0.88rem; color:#555;">Tutaj znajdziesz szczegółowe wskazówki dotyczące konfiguracji audio, opcji mikrofonu i najlepszych praktyk:</span><br>
+            <a href="https://www.nubart.eu/pl/tlumaczenie-symultaniczne-ai/instrukcje-nubart-translate.html" target="_blank" rel="noopener">
+                nubart.eu → Instrukcja Nubart TRANSLATE
+            </a>
+        </div>
+    </div>
+
+    <!-- Sales rep card -->
+    <div class="rep-card">
+        <img src="../../assets/img/team/placeholder-profile.webp" alt="Osoba kontaktowa w Nubart" class="rep-photo" onerror="this.style.display='none'; document.getElementById('rep-photo-fallback').style.display='flex';" />
+        <div class="rep-photo-placeholder" id="rep-photo-fallback" style="display:none;">
+            <i class="bi bi-person"></i>
+        </div>
+        <div class="rep-info">
+            <p class="rep-intro">Masz pytania? Jestem prawdziwą osobą stojącą za tym testem i chętnie Ci pomogę:</p>
+            <h4>Anikó Zsigmond</h4>
+            <p class="rep-title">Rozwój biznesowy (PL)</p>
+            <div class="rep-contact">
+                <i class="bi bi-envelope me-1"></i>
+                <a href="mailto:aniko.zsigmond@nubart.eu">aniko.zsigmond@nubart.eu</a><br>
+                <i class="bi bi-telephone me-1"></i> + <i class="bi bi-whatsapp"></i>
+                +36 30 1926226
+            </div>
+        </div>
+    </div>
+
+    <!-- Order section -->
+    <div class="order-section no-print">
+        <h3>Czy test Cię przekonał?</h3>
+        <p>Jeśli Nubart TRANSLATE to odpowiednie rozwiązanie dla Twoich wydarzeń, chętnie pomożemy Ci zacząć.
+            Możesz złożyć zamówienie bezpośrednio lub skontaktować się z nami — przeprowadzimy Cię przez wszystkie opcje.</p>
+        <a href="https://forms.zohopublic.eu/rosasala/form/NewcustomerNubartTRANSLATENG/formperma/ETrptLGQQeOtU-Q_gm13Jn27MHw24lD1a58YUK4ROp4?zf_lang=pl" class="btn-order" id="order-btn">
+            Zamów teraz →
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Masz pytania? Napisz do nas: <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+            — <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script src="../../assets/js/demos-trials.js"></script>
+
+</body>
+</html>
