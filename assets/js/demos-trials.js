@@ -1,7 +1,7 @@
 /* ============================================================
    demos-trials.js
    Shared scripts for demo / trial instruction pages.
-   Include at the bottom of <body>, after zxing browser bundle.
+   Include at the bottom of <body>, after qrcode.min.js.
    ============================================================ */
 
 // ── QR code from ?demo= URL parameter ──────────────────────
@@ -15,11 +15,14 @@
     const urlEl   = document.getElementById('demo-url-display');
 
     if (demoUrl) {
-        const hints = new Map();
-        hints.set(ZXingBrowser.EncodeHintType.ERROR_CORRECTION, 'M');
-        const writer = new ZXingBrowser.BrowserQRCodeSvgWriter();
-        const svgEl  = writer.write(demoUrl, 200, 200, hints);
-        qrEl.appendChild(svgEl);
+        new QRCode(qrEl, {
+            text: demoUrl,
+            width: 200,
+            height: 200,
+            colorDark:  '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
         urlEl.innerHTML = '<a href="' + demoUrl + '" target="_blank" rel="noopener">' + demoUrl + '</a>';
     } else {
         qrEl.style.display = 'none';
