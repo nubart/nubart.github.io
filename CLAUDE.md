@@ -107,6 +107,19 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - EL: el/ai-simultaneous-translation/da-pr-eu.html
 - JA: (still pending)
 
+- **Unlinked URL to send our trial kits**
+- EN: ai-simultaneous-interpretation/nubart-translate-trial.html
+- DE (only for Austrian leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-oes.html
+- DE (only for German and Swiss leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-dach.html
+- ES: es/traduccion-simultanea-ia/nubart-translate-prueba-gratis.html
+- IT: it/traduzione-simultanea-ia/nubart-translate-prova-gratuita.html
+- FR: fr/traduction-simultanee-ia/nubart-translate-essai-gratuit.html
+- HE: (still pending)
+- BG: (still pending)
+- PT-BR: pt-br/traducao-simultanea-ia/nubart-translate-teste-gratuito.html
+- EL: (still pending)
+- JA: ja/ai-simultaneous-translation/nubart-translate-trial.html
+
 ### Nubart GUIDE
 **Main product explainer:**
 - EN: audio-guides/index.html

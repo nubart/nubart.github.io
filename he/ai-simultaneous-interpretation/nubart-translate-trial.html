@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Nubart TRANSLATE – ניסיון חינם | Nubart</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet" />
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../../assets/css/demos-trials.css" rel="stylesheet" />
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+
+</head>
+
+<body>
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ הדפסת הוראות (A4, לאורך)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo" />
+        <h1>Nubart TRANSLATE – ניסיון חינם</h1>
+        <p class="subtitle">תרגום בזמן אמת מבוסס בינה מלאכותית — עד 30 דקות ללא תשלום</p>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-box">
+        <strong>ברוכים הבאים</strong>
+        דף זה כולל את כל מה שצריך כדי להתחיל עם הניסיון.
+        תוכלו להשתמש ב-<strong>30 דקות של תרגום בזמן אמת ללא עלות</strong>.<br>
+        ניתן לחלק את הזמן הזה בין כמה סשנים שתרצו.
+        לדוגמה, אפשר לנסות היום 5 דקות עם אדם נוסף ומחר 10 דקות עם הצוות שלכם,
+        עד לניצול מלא של הזמן.
+    </div>
+
+    <!-- QR + Login credentials -->
+    <div class="credentials-row">
+
+        <!-- Login box: speaker device -->
+        <div class="login-box">
+            <h2><i class="bi bi-mic me-2"></i>כניסת דובר</h2>
+            <p class="login-intro">
+                <span class="role-label role-speaker">מכשיר הדובר</span>
+                התחברו כאן כדי להתחיל את התרגום ולהתחיל לדבר.
+            </p>
+
+            <p class="login-label"><strong>שלב 1 — בפעם הראשונה בלבד: יצירת חשבון</strong></p>
+            <div class="login-link-block">
+                <a id="invite-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+            <p style="font-size:0.8rem; color:#000; margin-top:6px;">
+                באמצעות קישור זה תוכלו להגדיר סיסמה. יש צורך בכך רק בפעם הראשונה.
+            </p>
+
+            <hr style="border-color:#ddd; margin: 12px 0;" />
+
+            <p class="login-label"><strong>שלב 2 — בכל פעם: התחברות</strong></p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                לאחר הכניסה, לחצו על <strong>Nubart TRANSLATE</strong>, בחרו את השפה שבה תדברו,
+                ולאחר מכן הקישו על <strong>הפעלת מיקרופון</strong>.
+            </p>
+        </div>
+
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>קוד QR למאזינים</h2>
+            <p class="qr-intro">
+                <span class="role-label role-listener">מכשיר המאזין</span>
+                סרקו את הקוד כדי לשמוע את התרגום בשפה שתבחרו.
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                לא סופק קישור QR. אנא פנו לנציג Nubart.
+            </div>
+            <p id="demo-url-display"></p>
+            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
+                <i class="bi bi-info-circle me-1"></i>
+                זהו קוד QR קבוע. גם לאחר הזמנה, המאזינים ישתמשו באותו קוד.
+                אנו לא משנים קודי QR של לקוחות, ולכן ניתן להדפיס אותו בבטחה גם על חומרים קבועים.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Trial tips -->
+    <div class="trial-tips-box">
+        <h3><i class="bi bi-lightbulb me-2"></i>איך להפיק את המרב מהטרייל</h3>
+
+        <div class="trial-tip">
+            <i class="bi bi-people tip-icon"></i>
+            <div>
+                <strong>נסו יחד עם אדם נוסף.</strong> אפשר להשתמש גם לבד, אך כך לא תקבלו חוויה מלאה של השימוש בפועל.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-phone-flip tip-icon"></i>
+            <div>
+                <strong>יש צורך בשני מכשירים.</strong>
+                אחד הוא <span class="role-label role-speaker">מכשיר הדובר</span>
+                (טלפון חכם או מחשב נייד), שבו מתחברים ומתחילים את התרגום.
+                השני הוא <span class="role-label role-listener">מכשיר המאזין</span>,
+                שבו סורקים את קוד ה-QR כדי לשמוע את התרגום.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-soundwave tip-icon"></i>
+            <div>
+                <strong>הרחיקו בין שני המכשירים או השתמשו באוזניות.</strong>
+                ה-AI קולט את כל הצלילים, כולל התרגום שמתנגן ממכשיר המאזין.
+                אם המכשירים קרובים זה לזה ללא אוזניות, המיקרופון של מכשיר הדובר קולט את התרגום
+                ומעבד אותו שוב, מה שיוצר לולאה וגורם לירידה באיכות התרגום.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-translate tip-icon"></i>
+            <div>
+                <strong>מכשיר המאזין משתמש כברירת מחדל בשפת הדפדפן.</strong>
+                אם הדובר והמאזין משתמשים בדפדפנים המוגדרים לאותה שפה — מצב נפוץ מאוד במהלך הבדיקה —
+                מכשיר המאזין לא יתרגם, אלא ישמיע את דברי הדובר בקול סינתטי.
+                בקשו מהמאזין לבחור שפה אחרת באמצעות כפתור בחירת השפה <i class="bi bi-translate"></i>.
+                במצב שימוש אמיתי עם מאזינים מחו״ל, בעיה זו בדרך כלל לא מתרחשת,
+                שכן הדפדפנים שלהם מוגדרים לשפת האם שלהם.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-pencil tip-icon"></i>
+            <div>
+                <strong>רשמו שמות או מונחים שלא זוהו נכון.</strong>
+                תרגום מבוסס AI עובד היטב עם שפה יומיומית, אך עלול להתקשות עם שמות לא נפוצים,
+                שמות מותגים או מונחים טכניים מאוד.
+                אם אתם מבחינים בכך במהלך הבדיקה, רשמו זאת והעבירו לנו.
+                לאחר הזמנה, נשתמש במידע הזה כדי להתאים את המערכת לתוכן שלכם,
+                כך שהמאזינים יקבלו חוויית שימוש טובה כבר מההתחלה.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Step 1: Speaker -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>הגדרת מכשיר הדובר</h3>
+        </div>
+        <div class="step-body">
+            <p><span class="role-label role-speaker">במכשיר הדובר</span>, היכנסו לכתובת <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+
+                www.nub.art/customer/login</a> והתחברו. אם זו הפעם הראשונה, השתמשו בקישור ההרשמה למעלה כדי ליצור חשבון.</p>
+            <ol>
+                <li>לחצו על <strong>Nubart TRANSLATE</strong>.</li>
+                <li>בחרו את <strong>השפה שבה תדברו</strong> (לא את שפת היעד לתרגום).</li>
+                <li>הקישו על <strong>הפעלת מיקרופון</strong> והתחילו לדבר באופן טבעי.</li>
+            </ol>
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                אם אתם משנים שפה במהלך הבדיקה, ודאו שאתם מעדכנים את שפת הדובר לפני שממשיכים.
+                אי-עדכון ההגדרה הוא הסיבה הנפוצה ביותר לירידה באיכות התרגום.
+            </div>
+        </div>
+    </div>
+    <!-- Step 2: Listener -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>הגדרת מכשיר המאזין</h3>
+        </div>
+        <div class="step-body">
+            <p><span class="role-label role-listener">במכשיר המאזין</span>, סרקו את קוד ה-QR
+                שמופיע בראש הדף (או הקישו על הקישור למטה).</p>
+            <ol>
+                <li>בחרו את השפה שבה תרצו <strong>לשמוע את התרגום</strong> באמצעות כפתור בחירת השפה <i class="bi bi-translate"></i>.</li>
+                <li>ודאו שעוצמת הקול גבוהה מספיק.</li>
+                <li>אין צורך בהרשמה, התקנת אפליקציה או מתן הרשאות.</li>
+            </ol>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                לאיכות שמע מיטבית, מומלץ להשתמש באוזניות או באוזניות בתוך האוזן.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Monitor quality -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>בדיקת איכות התרגום</h3>
+        </div>
+        <div class="step-body">
+            <p>בממשק הדובר תראו שני מדדים:</p>
+            <ul>
+                <li><strong>מדד עוצמת קול:</strong> הפסים אמורים לזוז כאשר אתם מדברים.
+                    אם הם לא זזים, ייתכן שהמיקרופון לא פעיל או שנבחר התקן קלט שגוי.
+                </li>
+                <li><strong>מדד איכות השמע:</strong> המטרה היא להגיע לירוק (80%+). צהוב עדיין תקין,
+                    ואדום מצביע על איכות תרגום נמוכה — במקרה כזה יש לבדוק את הגדרות השמע.</li>
+            </ul>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                להסבר מפורט על המדדים והגדרות השמע, ראו את המדריך המלא למטה.
+            </div>
+        </div>
+    </div>
+    <!-- Link to full instructions -->
+    <div class="full-instructions-box">
+        <i class="bi bi-file-earmark-text"></i>
+        <div>
+            <strong>הוראות תפעול מלאות</strong><br>
+            <span style="font-size:0.88rem; color:#555;">לקבלת הנחיות מפורטות על הגדרת אודיו, אפשרויות מיקרופון ושיטות עבודה מומלצות, עיינו במדריך המלא:</span><br>
+            <a href="https://www.nubart.eu/he/ai-simultaneous-interpretation/nubart-translate-instructions.html" target="_blank" rel="noopener">
+                nubart.eu → הוראות Nubart TRANSLATE
+            </a>
+        </div>
+    </div>
+
+    <!-- Sales rep card -->
+    <div class="rep-card">
+        <div>
+            <img src="../../assets/img/team/udi.webp" alt="איש קשר Nubart" class="rep-photo" onerror="this.style.display='none'; document.getElementById('rep-photo-fallback').style.display='flex';" />
+            <div class="rep-photo-placeholder" id="rep-photo-fallback" style="display:none;">
+                <i class="bi bi-person"></i>
+            </div>
+        </div>
+        <div class="rep-info">
+            <p class="rep-intro">יש לכם שאלות? אני כאן כדי לעזור — אדם אמיתי מאחורי השירות.</p>
+            <h4>אודי לנדאו</h4>
+            <p class="rep-title">מפיץ בלעדי בישראל</p>
+            <div class="rep-contact">
+                <i class="bi bi-envelope me-1"></i>
+                <a href="mailto:udi.landau@nubart.eu">udi.landau@nubart.eu</a><br>
+                <i class="bi bi-telephone me-1"></i>
+                <span dir="ltr">+972-54-4697447</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order section -->
+    <div class="order-section no-print">
+        <h3>מרוצים מהניסיון?</h3>
+        <p>אם Nubart TRANSLATE מתאים לאירועים שלכם, נשמח לעזור לכם להתחיל להשתמש בו.
+            תוכלו להזמין ישירות או ליצור איתנו קשר — ונלווה אתכם בתהליך.</p>
+        <a href="https://forms.zohopublic.eu/rosasala/form/NewcustomerNubartTRANSLATENG/formperma/ETrptLGQQeOtU-Q_gm13Jn27MHw24lD1a58YUK4ROp4?zf_lang=he" class="btn-order" id="order-btn">
+            הזמינו עכשיו →
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>יש לכם שאלות? כתבו לנו ל- <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+            — <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script src="../../assets/js/demos-trials.js"></script>
+
+</body>
+</html>
