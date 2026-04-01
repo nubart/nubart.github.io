@@ -296,6 +296,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Template Main CSS File -->
     <link href="../../assets/css/style.css" rel="stylesheet" />
     <link href="../../assets/css/custom.css" rel="stylesheet" />
+    <link href="../../assets/css/translate-calculator.css" rel="stylesheet" />
 
 
 </head>
@@ -800,115 +801,244 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- ======= About Boxes Section ======= -->
     <section id="pricing" class="services section-bg">
         <div class="container my-5">
+            <!-- Header -->
             <div class="row justify-content-center">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="display-4 fw-bold">プランと料金</h2>
+                <div class="col-12 text-center mb-4">
+                    <h2 class="display-4 fw-bold mb-2">料金とコスト計算ツール</h2>
+                    <p class="text-muted mb-0">イベントの正確な費用を数秒で算出できます</p>
                 </div>
             </div>
 
-            <div class="row g-4 justify-content-center">
-                <!-- Pay-as-you-go Plan -->
+            <div class="row g-4 align-items-stretch justify-content-center">
+
+                <!-- LEFT: Pricing -->
                 <div class="col-lg-5 col-md-6">
-                    <div class="card h-100 shadow-sm border">
-                        <div class="card-body p-4">
-                            <h4 class="fw-bold mb-2">オンデマンド利用</h4>
-                            <p class="text-muted mb-4">（単発のイベントに最適です）</p>
+                    <div class="card h-100 border card-static">
+                        <div class="card-body p-4 d-flex flex-column">
 
-                            <div class="mb-4">
-                                <span class="display-4 fw-bold">€349</span>
+                            <h4 class="fw-bold mb-1">従量課金制</h4>
+
+                            <div class="mb-3">
+                                <span class="display-5 fw-bold">€349</span>
                                 <div class="mt-2">
-                                    <small class="text-muted">イベント開催日1日あたり、2時間の
-                                        利用料込み</small>
-                                    <br>
-                                    <small class="text-muted">同日追加1時間につき<strong>€39。</strong></small><br>
-                                    <small class="text-muted">
-                                        （時間はアクティブなストリームごとに計算されます。通常、話者1人につき1ストリームとなります）
-                                    </small>
+                                    <small class="text-muted d-block">イベント1日あたり（2時間分を含む）</small>
+                                    <small class="text-muted d-block">追加1時間ごとに<strong>€39</strong></small>
                                 </div>
                             </div>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex align-items-center mb-2">
-                                       <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i> 
-                                        聴衆数無制限
-                                    </li>
-                                    <li class="d-flex align-items-center mb-2">
-                                       <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i> 
-                                        話者数無制限
-                                    </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                       <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i> 
-                                        36言語
-                                    </li>
 
-                                </ul>
-                            <br /> <br />
+                            <ul class="list-unstyled mb-4 small">
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check2 text-success me-2"></i>
+                                    参加者数無制限
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check2 text-success me-2"></i>
+                                    登壇者数無制限
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check2 text-success me-2"></i>
+                                    36言語対応
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-check2 text-success me-2"></i>
+                                    発話中の時間のみ課金されます
+                                </li>
+                            </ul>
+
                             <div class="mt-auto">
-                                    <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4?zf_lang=ja" class="btn btn-primary px-4 py-3 text-start text-decoration-none" target="_blank" rel="noopener noreferrer">
-                                        <div class="fw-bold fs-5">30分間の無料トライアルを開始する
-                                        </div>
-                                        <div class="small text-light">クレジットカードは不要です</div>
-                                    </a>
-                                    <div class="mt-2 text-center">
-                                        <small style="color: #1f2937; font-size: 0.8rem;">トライアルを開始すると、当社の<a href="terms-and-conditions.html" style="color: #1f2937; text-decoration: underline;">利用規約に</a>同意したものとみなされます</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4"
+                                   class="btn btn-primary w-100 py-3"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    <div class="fw-bold">30分間の無料トライアルを開始</div>
+                                    <div class="small text-light">クレジットカード不要</div>
+                                </a>
 
-                    <!-- Monthly Subscription Plan -->
-                    <div class="col-lg-5 col-md-6">
-                        <div class="card h-100 shadow position-relative" style="background: linear-gradient(135deg, #84efd8 0%, #6dc7b9 100%); border: none;">
-                            <!-- Best Value Badge -->
-                            <div class="position-absolute top-0 end-0 translate-middle-y">
-                            <span class="badge text-white px-3 py-2" style="background-color: #059669; border-radius: 20px; margin-right: -10px; font-size: 0.75rem;">最高の価値</span>
+                                <p class="text-muted mt-2 mb-0" style="font-size: 0.8rem;">
+                                    トライアルを開始すると、
+                                    <a href="terms-and-conditions.html" class="text-decoration-none">利用規約</a>
+                                    に同意したものとみなされます
+                                </p>
                             </div>
 
-                            <div class="card-body p-4">
-                                <h4 class="fw-bold mb-2" style="color: #065f46;">月額サブスクリプション</h4>
-                                <p class="mb-4" style="color: #047857;">（定期的なイベントや
-                                    講座に最適）</p>
-
-                                <div class="mb-4">
-                                    <span class="display-4 fw-bold" style="color: #065f46;">€1,999</span>
-                                    <small style="color: #047857;">/月 + 消費税</small>
-                                    <div class="mt-2">
-                                        <small style="color: #047857;">定額料金</small><br>
-                                        <small style="color: #047857;"><strong>月間</strong>最大<strong>150時間</strong>（1時間あたり約13ユーロ）
-                                            実際の利用時間に基づき</small><br>
-                                        <small style="color: #047857;">
-                                            （時間はアクティブなストリームごとに計算されます。通常、話者1人につき1ストリームとなります）
-                                        </small>
-                                    </div>
-                                </div>
-
-                                <ul class="list-unstyled">
-                                    <li class="d-flex align-items-center mb-2">
-                                        <i class="bi bi-check2 me-2" style="color: #065f46; font-size: 1.2rem;"></i>
-                                        <span style="color: #065f46;">聴講者数無制限</span></li>
-                                    <li class="d-flex align-items-center mb-2">
-                                        <i class="bi bi-check2 me-2" style="color: #065f46; font-size: 1.2rem;"></i>
-                                        <span style="color: #065f46;">イベント数無制限</span></li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <i class="bi bi-check2 me-2" style="color: #065f46; font-size: 1.2rem;"></i>
-                                        <span style="color: #065f46;">36言語</span></li>
-                                </ul>
-                                <div class="mt-auto">
-                                    <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4?zf_lang=ja" class="btn btn-primary px-4 py-3 text-start text-decoration-none" target="_blank" rel="noopener noreferrer">
-                                        <div class="fw-bold fs-5">30分間無料トライアルを開始
-                                        </div>
-                                        <div class="small text-light">クレジットカードは不要です</div>
-                                    </a>
-                                    <div class="mt-2 text-center">
-                                        <small style="color: #065f46; font-size: 0.8rem;">トライアルを開始すると、当社の<a href="terms-and-conditions.html" style="color: #065f46; text-decoration: underline;">利用規約に</a>同意したものとみなされます</small>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- RIGHT: Calculator -->
+                <div class="col-lg-7">
+
+                    <!-- Print-only logo header -->
+                    <div id="calc-print-header" class="d-none">
+                        <img src="../../assets/img/logos/logo-nubart-translate-teal.svg"
+                             alt="Nubart TRANSLATE">
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="card shadow-lg border mb-3" id="calc-step-1">
+                        <div class="card-body p-4">
+                            <h4 class="fw-bold mb-1">イベント費用の見積もり</h4>
+                            <p class="text-muted small mb-3">数秒で計算できます</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">ステップ 1 / 4</p>
+                            <h6 class="fw-bold mb-3">イベントの開催期間を教えてください</h6>
+
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label small fw-semibold">開催日数</label>
+                                    <input type="number" id="calc-days" class="form-control" min="1" max="365" placeholder="例：2">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label small fw-semibold">1日あたりの利用時間</label>
+                                    <input type="number" id="calc-hours" class="form-control" min="0.5" step="0.5" max="24" placeholder="例：3">
+                                    <div class="form-text">発話中の時間のみが課金対象となります</div>
+                                </div>
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-primary px-4" onclick="calcStep1Next()">次へ →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Multi-room -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 2 / 4</p>
+                            <h5 class="fw-bold mb-1">複数会場での開催ですか？</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">例：複数の会場で同時にセッションが行われるカンファレンスなど、それぞれに登壇者がいる場合。</p>
+                            <div class="d-flex gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-multiroom-no" onclick="calcSetMultiroom(false)">いいえ、1会場 / 同時に1人の登壇者</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-multiroom-yes" onclick="calcSetMultiroom(true)">はい、複数会場で同時進行</button>
+                            </div>
+
+                            <!-- Multi-room sub-form -->
+                            <div class="d-none" id="calc-multiroom-form">
+                                <label class="form-label fw-semibold" style="font-size: 0.85rem;">同時に稼働する会場数を入力してください</label>
+                                <input type="number" id="calc-room-count" class="form-control mb-3" min="2" max="50" placeholder="例：3" style="max-width: 160px;" oninput="calcRenderRoomTable()">
+                                <div id="calc-room-table-wrap"></div>
+                                <div class="form-text mt-1">会場ごとに利用時間が異なる場合、それぞれ個別に入力できます。</div>
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(1)">← 戻る</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep2Next()">次へ →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: First-time customer? -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 3 / 4</p>
+                            <h5 class="fw-bold mb-1">Nubart TRANSLATE を初めてご利用ですか？</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">初回のお客様は、30分の無料トライアル分を最終請求額から差し引くことができます。</p>
+                            <div class="d-flex gap-3 mb-2">
+                                <button class="btn btn-outline-secondary px-4" id="btn-firsttime-yes" onclick="calcSetFirstTime(true)">はい、初めてです</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-firsttime-no" onclick="calcSetFirstTime(false)">いいえ、以前に利用したことがあります</button>
+                            </div>
+                            <div class="d-none text-danger mt-2" id="calc-firsttime-warning" style="font-size:0.85rem;">
+                                <i class="bi bi-exclamation-circle me-1"></i>続行するには選択してください。
+                            </div>
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← 戻る</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">計算する →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Result -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 4 / 4</p>
+                            <h5 class="fw-bold mb-3">お見積もり結果</h5>
+
+                            <!-- Summary chips -->
+                            <div class="d-flex flex-wrap gap-2 mb-4" id="calc-summary-chips"></div>
+
+                            <!-- Result card -->
+                            <div class="p-4 rounded-3 mb-3" style="background: #f0fdfb; border: 1.5px solid #2ec4b6;">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-7">
+                                        <div class="text-muted mb-1" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">推定合計金額（従量課金）</div>
+                                        <div style="font-size: 2.6rem; font-weight: 700; color: #065f46; line-height: 1;" id="calc-result-total">—</div>
+                                        <div class="text-muted mt-1" style="font-size: 0.8rem;">税別・概算</div>
+                                    </div>
+                                    <div class="col-sm-5 mt-3 mt-sm-0">
+                                        <ul class="list-unstyled mb-0" style="font-size: 0.83rem;" id="calc-result-breakdown"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Notes -->
+                            <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
+                                <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
+                                <strong>ご注意：</strong>本見積もりは1時間単位での概算です。Nubartは実際の使用時間を分単位で計測し、登壇者のマイクが有効な時間のみ課金されます。休憩時間、準備時間、発話のない質疑応答は課金対象外です。また、参加者数は料金に影響しません。イベント終了後、実際の使用量に基づいた最終請求書が発行されます。
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2 align-items-center">
+                                <button class="btn btn-outline-secondary" onclick="calcGoToStep(1)">← 最初からやり直す</button>
+                                <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4?zf_lang=ja"
+                                   class="btn btn-primary px-4" target="_blank" rel="noopener noreferrer">
+                                    無料トライアルを開始 →
+                                </a>
+                                <button class="btn btn-outline-secondary" onclick="window.print()" id="calc-print-btn">
+                                    <i class="bi bi-printer me-1"></i>見積もりを印刷
+                                </button>
+                                <button class="btn btn-outline-secondary" onclick="calcRequestQuote()">
+                                    <i class="bi bi-envelope me-1"></i>正式なお見積もりを依頼
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise hint -->
+                    <div class="text-center mt-3">
+                        <small class="text-muted">
+                            定期的にイベントを開催されていますか？
+                            <a href="../../contact.html" class="text-decoration-none fw-semibold">カスタムプランについてお問い合わせください</a>
+                        </small>
+                    </div>
+
+                </div>
+
             </div>
+        </div>
+
+        <script>
+        window.CALC_I18N = {
+            subject:    (days, total) => `お見積もり依頼 – Nubart TRANSLATE イベント（${days}日間、推定 ${total}）`,
+            roomLabel:  (i)           => `会場 ${i}`,
+            roomSuffix: (n)           => `${n} 会場同時進行`,
+            tableRoom:  '会場',
+            tableHours: '1日あたりのアクティブ利用時間',
+            trialYes:   'はい（30分の無料トライアル分を差し引き）',
+            trialNo:    'いいえ',
+            body:       (eventDetails, trial, total) =>
+`こんにちは、
+
+ウェブサイトのコスト計算ツールを利用し、以下のイベントについて正式なお見積もりをお願いしたく存じます。
+
+イベント詳細：${eventDetails}
+初回利用：${trial}
+推定費用（計算結果）：${total}（税別）
+
+会社宛ての正式なお見積もりをお送りください。
+
+［お名前、会社名、VAT番号をご記入ください］
+
+よろしくお願いいたします。`,
+            ui: {
+                baseFee:    (days) => `基本料金（${days}日間、2時間/日含む）`,
+                extraHours: (h)    => `追加時間（${h}時間 × €39）`,
+                totalHours: '請求対象ストリーミング時間合計',
+                trialRow:   '無料トライアル控除（30分）',
+                chipDays:   (days) => `${days}日間のイベント`,
+                chipRoom:   (h)    => `${h}時間/日 · 1会場`,
+                trialChip:  '30分トライアル控除済み'
+            }
+        };
+        </script>
+        <script src="../../assets/js/translate-calculator.js" defer></script>
 
     </section>
     <!-- End About Boxes Section -->

@@ -292,6 +292,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Template Main CSS File -->
   <link href="../../assets/css/style.css" rel="stylesheet">
   <link href="../../assets/css/custom.css" rel="stylesheet">
+  <link href="../../assets/css/translate-calculator.css" rel="stylesheet">
 
 
 
@@ -741,121 +742,246 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
   </section>
-  <!-- ======= Planos e preços ======= -->
   <section id="pricing" class="services section-bg">
     <div class="container my-5">
-      <div class="row justify-content-center">
-        <div class="col-12 text-center mb-5">
-          <h2 class="display-4 fw-bold">Planos e preços</h2>
-        </div>
-      </div>
-
-      <div class="row g-4 justify-content-center">
-        <!-- Plano pagamento avulso -->
-        <div class="col-lg-5 col-md-6">
-          <div class="card h-100 shadow-sm border">
-            <div class="card-body p-4">
-              <h4 class="fw-bold mb-2">Pagamento por uso</h4>
-              <p class="text-muted mb-4">(Ideal para eventos pontuais)</p>
-
-              <div class="mb-4">
-                <span class="display-4 fw-bold">349 €</span>
-                <small  class="text-muted"> + IVA</small>
-                <div class="mt-2">
-                  <small class="text-muted">por dia do seu evento, incluindo 2 horas de utilização
-                  </small>
-                  <br>
-                  <small class="text-muted"><strong>39 €</strong> por cada hora adicional no mesmo dia.</small><br>
-                  <small class="text-muted">
-                      (As horas são calculadas por fluxo de tradução ativo — tipicamente um por palestrante por vez)
-                  </small>
-                </div>
-              </div>
-
-              <ul class="list-unstyled">
-                <li class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i>
-                  Número ilimitado de ouvintes </li>
-                <li class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i>
-                  Número ilimitado de palestrantes </li>
-                <li class="d-flex align-items-center mb-3">
-                  <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i>
-                  36 idiomas </li>
-              </ul>
-
-              <div class="mt-auto">
-                <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4?zf_lang=pt" class="btn btn-primary px-4 py-3 text-start text-decoration-none" target="_blank" rel="noopener noreferrer">
-                  <div class="fw-bold fs-5">Experimente grátis por 30 minutos</div>
-                  <div class="small text-light">Não é necessário cartão de crédito</div>
-                </a>
-                <div class="mt-2 text-center">
-                  <small style="color: #1f2937; font-size: 0.8rem;">Ao iniciar um teste, você aceita nossos <a href="termos-e-condicoes.html" style="color: #1f2937; text-decoration: underline;">Termos e Condições</a></small>
-                </div>
-              </div>
+        <!-- Header -->
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-4">
+                <h2 class="display-4 fw-bold mb-2">Preços e calculadora de custos</h2>
+                <p class="text-muted mb-0">Calcule o custo exato do seu evento em segundos</p>
             </div>
-          </div>
         </div>
 
-        <!-- Plano assinatura mensal -->
-        <div class="col-lg-5 col-md-6">
-          <div class="card h-100 shadow position-relative" style="background: linear-gradient(135deg, #84efd8 0%, #6dc7b9 100%); border: none;">
-            <!-- Selo Melhor Valor -->
-            <div class="position-absolute top-0 end-0 translate-middle-y">
-              <span class="badge text-white px-3 py-2" style="background-color: #059669; border-radius: 20px; margin-right: -10px; font-size: 0.75rem;">MELHOR CUSTO-BENEFÍCIO</span>
+        <div class="row g-4 align-items-stretch justify-content-center">
+
+            <!-- LEFT: Pricing -->
+            <div class="col-lg-5 col-md-6">
+                <div class="card h-100 border card-static">
+                    <div class="card-body p-4 d-flex flex-column">
+
+                        <h4 class="fw-bold mb-1">Pagamento conforme o uso</h4>
+
+                        <div class="mb-3">
+                            <span class="display-5 fw-bold">€349</span>
+                            <div class="mt-2">
+                                <small class="text-muted d-block">por dia de evento (inclui 2 horas de utilização)</small>
+                                <small class="text-muted d-block"><strong>€39</strong> por cada hora adicional</small>
+                            </div>
+                        </div>
+
+                        <ul class="list-unstyled mb-4 small">
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="bi bi-check2 text-success me-2"></i>
+                                Ouvintes ilimitados
+                            </li>
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="bi bi-check2 text-success me-2"></i>
+                                Oradores ilimitados
+                            </li>
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="bi bi-check2 text-success me-2"></i>
+                                36 idiomas
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <i class="bi bi-check2 text-success me-2"></i>
+                                Pague apenas pelo tempo de fala ativo
+                            </li>
+                        </ul>
+
+                        <div class="mt-auto">
+                            <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4"
+                               class="btn btn-primary w-100 py-3"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <div class="fw-bold">Experimente gratuitamente durante 30 minutos</div>
+                                <div class="small text-light">Não é necessário cartão de crédito</div>
+                            </a>
+
+                            <p class="text-muted mt-2 mb-0" style="font-size: 0.8rem;">
+                                Ao iniciar o teste, você concorda com os nossos
+                                <a href="termos-e-condicoes.html" class="text-decoration-none">Termos</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
-            <div class="card-body p-4">
-              <h4 class="fw-bold mb-2" style="color: #065f46;">Assinatura mensal</h4>
-              <p class="mb-4" style="color: #047857;">(Ideal para eventos recorrentes ou webinars)</p>
+            <!-- RIGHT: Calculator -->
+            <div class="col-lg-7">
 
-              <div class="mb-4">
-                <span class="display-4 fw-bold" style="color: #065f46;">1.999 €</span>
-                <small style="color: #047857;">/mês + IVA</small>
-                <div class="mt-2">
-                  <small style="color: #047857;">Tarifa fixa</small><br>
-                  <small style="color: #047857;">Até <strong>150 horas/mês</strong> (aprox. 13 €/hora) de uso real</small><br>
-                  <small style="color: #047857;">
-                      (As horas são calculadas por fluxo de tradução ativo — tipicamente um por palestrante por vez)
-                  </small>
+                <!-- Print-only logo header -->
+                <div id="calc-print-header" class="d-none">
+                    <img src="../../assets/img/logos/logo-nubart-translate-teal.svg"
+                         alt="Nubart TRANSLATE">
                 </div>
-              </div>
 
-              <ul class="list-unstyled">
-                <li class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2 me-2" style="color: #065f46; font-size: 1.2rem;"></i>
-                  <span style="color: #065f46;">Número ilimitado de ouvintes</span> </li>
-                <li class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2 me-2" style="color: #065f46; font-size: 1.2rem;"></i>
-                  <span style="color: #065f46;">Número ilimitado de eventos</span> </li>
-                <li class="d-flex align-items-center mb-3">
-                  <i class="bi bi-check2 me-2" style="color: #065f46; font-size: 1.2rem;"></i>
-                  <span style="color: #065f46;">36 idiomas</span></li>
-              </ul>
-              <div class="mt-auto">
-                <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4?zf_lang=pt" class="btn btn-primary px-4 py-3 text-start text-decoration-none" target="_blank" rel="noopener noreferrer">
-                  <div class="fw-bold fs-5">Experimente grátis por 30 minutos</div>
-                  <div class="small text-light">Não é necessário cartão de crédito</div>
-                </a>
-                <div class="mt-2 text-center">
-                  <small style="color: #065f46; font-size: 0.8rem;">Ao iniciar um teste, você aceita nossos <a href="termos-e-condicoes.html" style="color: #065f46; text-decoration: underline;">Termos e Condições</a></small>
+                <!-- Step 1 -->
+                <div class="card shadow-lg border mb-3" id="calc-step-1">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold mb-1">Custo do seu evento</h4>
+                        <p class="text-muted small mb-3">Calcule em segundos</p>
+                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Passo 1 de 4</p>
+                        <h6 class="fw-bold mb-3">Qual é a duração do seu evento?</h6>
+
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label class="form-label small fw-semibold">Dias do evento</label>
+                                <input type="number" id="calc-days" class="form-control" min="1" max="365" placeholder="ex.: 2">
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label small fw-semibold">Horas por dia</label>
+                                <input type="number" id="calc-hours" class="form-control" min="0.5" step="0.5" max="24" placeholder="ex.: 3">
+                                <div class="form-text">Apenas o tempo de fala ativo é faturado</div>
+                            </div>
+                        </div>
+
+                        <div class="text-end mt-3">
+                            <button class="btn btn-primary px-4" onclick="calcStep1Next()">Seguinte →</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+                <!-- Step 2: Multi-room -->
+                <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
+                    <div class="card-body p-4">
+                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 2 de 4</p>
+                        <h5 class="fw-bold mb-1">Trata-se de um evento com várias salas?</h5>
+                        <p class="text-muted mb-3" style="font-size: 0.85rem;">Por exemplo: uma conferência com sessões paralelas em diferentes salas, cada uma com o seu próprio orador.</p>
+                        <div class="d-flex gap-3 mb-3">
+                            <button class="btn btn-outline-secondary px-4" id="btn-multiroom-no" onclick="calcSetMultiroom(false)">Não, apenas uma sala / um orador de cada vez</button>
+                            <button class="btn btn-outline-secondary px-4" id="btn-multiroom-yes" onclick="calcSetMultiroom(true)">Sim, várias salas em simultâneo</button>
+                        </div>
+
+                        <!-- Multi-room sub-form -->
+                        <div class="d-none" id="calc-multiroom-form">
+                            <label class="form-label fw-semibold" style="font-size: 0.85rem;">Quantas salas estarão a funcionar em simultâneo?</label>
+                            <input type="number" id="calc-room-count" class="form-control mb-3" min="2" max="50" placeholder="ex.: 3" style="max-width: 160px;" oninput="calcRenderRoomTable()">
+                            <div id="calc-room-table-wrap"></div>
+                            <div class="form-text mt-1">Se as salas funcionarem durante períodos diferentes, pode indicar diferentes durações para cada uma.</div>
+                        </div>
+
+                        <div class="text-end mt-3">
+                            <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(1)">← Voltar</button>
+                            <button class="btn btn-primary px-4" onclick="calcStep2Next()">Seguinte →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: First-time customer? -->
+                <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
+                    <div class="card-body p-4">
+                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 3 de 4</p>
+                        <h5 class="fw-bold mb-1">É a primeira vez que utiliza o Nubart TRANSLATE?</h5>
+                        <p class="text-muted mb-3" style="font-size: 0.85rem;">Os novos clientes podem deduzir os 30 minutos de teste gratuito do valor final.</p>
+                        <div class="d-flex gap-3 mb-2">
+                            <button class="btn btn-outline-secondary px-4" id="btn-firsttime-yes" onclick="calcSetFirstTime(true)">Sim, é a primeira vez</button>
+                            <button class="btn btn-outline-secondary px-4" id="btn-firsttime-no" onclick="calcSetFirstTime(false)">Não, já utilizámos anteriormente</button>
+                        </div>
+                        <div class="d-none text-danger mt-2" id="calc-firsttime-warning" style="font-size:0.85rem;">
+                            <i class="bi bi-exclamation-circle me-1"></i>Por favor, selecione uma opção para continuar.
+                        </div>
+                        <div class="text-end mt-3">
+                            <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← Voltar</button>
+                            <button class="btn btn-primary px-4" onclick="calcStep3Next()">Calcular →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Result -->
+                <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
+                    <div class="card-body p-4">
+                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 4 de 4</p>
+                        <h5 class="fw-bold mb-3">A sua estimativa</h5>
+
+                        <!-- Summary chips -->
+                        <div class="d-flex flex-wrap gap-2 mb-4" id="calc-summary-chips"></div>
+
+                        <!-- Result card -->
+                        <div class="p-4 rounded-3 mb-3" style="background: #f0fdfb; border: 1.5px solid #2ec4b6;">
+                            <div class="row align-items-center">
+                                <div class="col-sm-7">
+                                    <div class="text-muted mb-1" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">Custo total estimado (pagamento conforme o uso)</div>
+                                    <div style="font-size: 2.6rem; font-weight: 700; color: #065f46; line-height: 1;" id="calc-result-total">—</div>
+                                    <div class="text-muted mt-1" style="font-size: 0.8rem;">sem IVA · aproximado</div>
+                                </div>
+                                <div class="col-sm-5 mt-3 mt-sm-0">
+                                    <ul class="list-unstyled mb-0" style="font-size: 0.83rem;" id="calc-result-breakdown"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
+                            <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
+                            <strong>Nota:</strong> Esta é uma estimativa baseada em horas completas. A Nubart fatura ao minuto real — apenas enquanto o microfone do orador está ativo. Pausas, preparação e sessões de perguntas sem fala ativa não são faturadas. O número de ouvintes não influencia o preço. Após o evento, será emitida uma fatura final com base na utilização real.
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <button class="btn btn-outline-secondary" onclick="calcGoToStep(1)">← Recomeçar</button>
+                            <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrial/formperma/7ghj0xlQ-TcTGpfqs2Vd1V3i96nQQNddJh5xIrumeJ4?zf_lang=pt"
+                               class="btn btn-primary px-4" target="_blank" rel="noopener noreferrer">
+                                Iniciar teste gratuito →
+                            </a>
+                            <button class="btn btn-outline-secondary" onclick="window.print()" id="calc-print-btn">
+                                <i class="bi bi-printer me-1"></i>Imprimir estimativa
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="calcRequestQuote()">
+                                <i class="bi bi-envelope me-1"></i>Solicitar orçamento oficial
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise hint -->
+                <div class="text-center mt-3">
+                    <small class="text-muted">
+                        Organiza eventos com frequência?
+                        <a href="../../contact.html" class="text-decoration-none fw-semibold">Fale connosco sobre planos personalizados</a>
+                    </small>
+                </div>
+
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Alerta orçamento personalizado -->
-      <div class="row justify-content-center mt-4">
-        <div class="col-lg-10">
-          <div class="alert p-3 text-center" style="background-color: #fef3c7; border: 1px solid #f59e0b; color: #92400e;">
-            <i class="bi bi-lightbulb-fill me-2" style="color: #f59e0b;"></i>
-            <strong>Quer algo personalizado?</strong> <a href="mailto:info@nubart.eu"> Entre em contato conosco para solicitar um orçamento sob medida.</a>
-          </div>
         </div>
-      </div>
     </div>
+
+    <script>
+    window.CALC_I18N = {
+        subject:    (days, total) => `Pedido de orçamento – evento Nubart TRANSLATE (${days} dia${days>1?'s':''}, estimado ${total})`,
+        roomLabel:  (i)           => `Sala ${i}`,
+        roomSuffix: (n)           => `${n} salas simultâneas`,
+        tableRoom:  'Sala',
+        tableHours: 'Horas de utilização ativa por dia',
+        trialYes:   'Sim (os 30 minutos de teste serão deduzidos)',
+        trialNo:    'Não',
+        body:       (eventDetails, trial, total) =>
+`Olá,
+
+utilizei a calculadora de custos no seu site e gostaria de receber um orçamento oficial para o seguinte evento:
+
+Detalhes do evento: ${eventDetails}
+Primeira utilização: ${trial}
+Custo estimado (calculadora): ${total} sem IVA
+
+Por favor, envie-me um orçamento oficial em nome da minha empresa.
+
+[Por favor, adicione o seu nome, o nome da empresa e o NIF]
+
+Obrigado`,
+        ui: {
+            baseFee:    (days) => `Taxa base (${days} dia${days>1?'s':''}, incl. 2 h/dia)`,
+            extraHours: (h)    => `Horas adicionais (${h} h × €39)`,
+            totalHours: 'Total de horas de streaming faturadas',
+            trialRow:   'Dedução teste gratuito (30 min)',
+            chipDays:   (days) => `${days} dia${days>1?'s':''} de evento`,
+            chipRoom:   (h)    => `${h} h/dia · 1 sala`,
+            trialChip:  'Teste de 30 min deduzido'
+        }
+    };
+    </script>
+    <script src="../../assets/js/translate-calculator.js" defer></script>
+
   </section>
   <!-- ======= Sobre eventos de alto nível ======= -->
   <section id="basics" style="background-image: url('../../assets/img/translate/seats-audience.webp');" class="testimonials">

@@ -331,6 +331,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/translate-calculator.css" rel="stylesheet">
 
 
 
@@ -806,125 +807,243 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- ======= About Boxes Section ======= -->
     <section id="pricing" class="services section-bg">
         <div class="container my-5">
+            <!-- Header -->
             <div class="row justify-content-center">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="display-4 fw-bold">Планове и цени</h2>
+                <div class="col-12 text-center mb-4">
+                    <h2 class="display-4 fw-bold mb-2">Цени и калкулатор на разходите</h2>
+                    <p class="text-muted mb-0">Изчислете точната цена на вашето събитие за секунди</p>
                 </div>
             </div>
 
+            <div class="row g-4 align-items-stretch justify-content-center">
 
-            <div class="row g-4 justify-content-center">
-                <!-- Pay-as-you-go Plan -->
+                <!-- LEFT: Pricing -->
                 <div class="col-lg-5 col-md-6">
-                    <div class="card h-100 shadow-sm border">
-                        <div class="card-body p-4">
-                            <h4 class="fw-bold mb-2">Заплащане според употребата</h4>
-                            <p class="text-muted mb-4">(Най-подходящ за единични събития)</p>
+                    <div class="card h-100 border card-static">
+                        <div class="card-body p-4 d-flex flex-column">
 
+                            <h4 class="fw-bold mb-1">Плащане според използването</h4>
 
-                            <div class="mb-4">
-                                <span class="display-4 fw-bold">€349</span>
+                            <div class="mb-3">
+                                <span class="display-5 fw-bold">€349</span>
                                 <div class="mt-2">
-                                    <small class="text-muted">за до 2 часа използване в рамките на една дата на събитието</small><br>
-                                    <small class="text-muted"><strong>€39/час</strong> за всеки допълнителен час в същия ден</small><br>
-                                    <small class="text-muted">
-                                        (Часовете се изчисляват за всеки активен поток на превод — обикновено един на говорител наведнъж)
-                                    </small>
+                                    <small class="text-muted d-block">за ден на събитието (включва 2 часа използване)</small>
+                                    <small class="text-muted d-block"><strong>€39</strong> за всеки допълнителен час</small>
                                 </div>
                             </div>
 
-
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled mb-4 small">
                                 <li class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i>
-                                    Неограничен брой слушатели
+                                    <i class="bi bi-check2 text-success me-2"></i>
+                                    Неограничен брой участници
                                 </li>
                                 <li class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i>
+                                    <i class="bi bi-check2 text-success me-2"></i>
                                     Неограничен брой говорители
                                 </li>
-                                <li class="d-flex align-items-center mb-3">
-                                    <i class="bi bi-check2 text-success me-2" style="font-size: 1.2rem;"></i>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-check2 text-success me-2"></i>
                                     36 езика
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-check2 text-success me-2"></i>
+                                    Плащате само за активно време на говорене
                                 </li>
                             </ul>
 
-
                             <div class="mt-auto">
                                 <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrialBulgaria/formperma/fDjFo_ECbv-ixf3-vstX6HPWO25HBqMejDEmV5w84fM?zf_lang=bg"
-                                   class="btn btn-primary px-4 py-3 text-start text-decoration-none"
+                                   class="btn btn-primary w-100 py-3"
                                    target="_blank"
                                    rel="noopener noreferrer">
-                                    <div class="fw-bold fs-5">Започнете своя 30-минутен безплатен тест</div>
-                                    <div class="small text-light">Без нужда от кредитна карта</div>
+                                    <div class="fw-bold">Стартирайте 30-минутен безплатен тест</div>
+                                    <div class="small text-light">Не се изисква кредитна карта</div>
                                 </a>
+
+                                <p class="text-muted mt-2 mb-0" style="font-size: 0.8rem;">
+                                    Със стартирането на теста приемате нашите
+                                    <a href="terms-and-conditions.html" class="text-decoration-none">условия</a>
+                                </p>
                             </div>
+
                         </div>
                     </div>
                 </div>
 
+                <!-- RIGHT: Calculator -->
+                <div class="col-lg-7">
 
-                <!-- Monthly Subscription Plan -->
-                <div class="col-lg-5 col-md-6">
-                    <div class="card h-100 shadow position-relative"
-                         style="background: linear-gradient(135deg, #84efd8 0%, #6dc7b9 100%); border: none;">
-                        <!-- Best Value Badge -->
-                        <div class="position-absolute top-0 end-0 translate-middle-y">
-                       <span class="badge text-white px-3 py-2"
-                             style="background-color: #059669; border-radius: 20px; margin-right: -10px; font-size: 0.75rem;">НАЙ-ИЗГОДНО</span>
-                        </div>
+                    <!-- Print-only logo header -->
+                    <div id="calc-print-header" class="d-none">
+                        <img src="../assets/img/logos/logo-nubart-translate-teal.svg"
+                             alt="Nubart TRANSLATE">
+                    </div>
 
-
+                    <!-- Step 1 -->
+                    <div class="card shadow-lg border mb-3" id="calc-step-1">
                         <div class="card-body p-4">
-                            <h4 class="fw-bold mb-2" style="color: #065f46;">Месечен абонамент</h4>
-                            <p class="mb-4" style="color: #047857;">(Най-подходящ за редовни събития или курсове)</p>
+                            <h4 class="fw-bold mb-1">Цена на вашето събитие</h4>
+                            <p class="text-muted small mb-3">Изчислете за секунди</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Стъпка 1 от 4</p>
+                            <h6 class="fw-bold mb-3">Колко продължава вашето събитие?</h6>
 
-
-                            <div class="mb-4">
-                                <span class="display-4 fw-bold" style="color: #065f46;">€1,999</span>
-                                <small style="color: #047857;">/месец</small>
-                                <div class="mt-2">
-                                    <small style="color: #047857;">фиксирана такса</small><br>
-                                    <small style="color: #047857;">До <strong>150 часа/месец</strong> (приблизително €13/час)</small><br>
-                                    <small style="color: #047857;">
-                                        (Часовете се изчисляват за всеки активен поток на превод — обикновено един на говорител наведнъж)
-                                    </small>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label small fw-semibold">Дни на събитието</label>
+                                    <input type="number" id="calc-days" class="form-control" min="1" max="365" placeholder="напр. 2">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label small fw-semibold">Часове на ден</label>
+                                    <input type="number" id="calc-hours" class="form-control" min="0.5" step="0.5" max="24" placeholder="напр. 3">
+                                    <div class="form-text">Фактурира се само активното време на говорене</div>
                                 </div>
                             </div>
 
-
-                            <ul class="list-unstyled">
-                                <li class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-check2 me-2" style="color: #065f46; font-size: 1.2rem;"></i>
-                                    <span style="color: #065f46;">Неограничен брой слушатели</span>
-                                </li>
-                                <li class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-check2 me-2" style="color: #065f46; font-size: 1.2rem;"></i>
-                                    <span style="color: #065f46;">Неограничен брой събития</span>
-                                </li>
-                                <li class="d-flex align-items-center mb-3">
-                                    <i class="bi bi-check2 me-2" style="color: #065f46; font-size: 1.2rem;"></i>
-                                    <span style="color: #065f46;">36 езика</span>
-                                </li>
-                            </ul>
-                            <div class="mt-auto">
-                                <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrialBulgaria/formperma/fDjFo_ECbv-ixf3-vstX6HPWO25HBqMejDEmV5w84fM?zf_lang=bg"
-                                   class="btn btn-primary px-4 py-3 text-start text-decoration-none"
-                                   target="_blank"
-                                   rel="noopener noreferrer">
-                                    <div class="fw-bold fs-5">Започнете своя 30-минутен безплатен тест</div>
-                                    <div class="small text-light">Без нужда от кредитна карта</div>
-                                </a>
+                            <div class="text-end mt-3">
+                                <button class="btn btn-primary px-4" onclick="calcStep1Next()">Напред →</button>
                             </div>
-
-
                         </div>
                     </div>
-                </div>
-            </div>
 
+                    <!-- Step 2: Multi-room -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Стъпка 2 от 4</p>
+                            <h5 class="fw-bold mb-1">Събитието провежда ли се в няколко зали?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">Например: конференция с паралелни сесии в различни зали, всяка със свой говорител.</p>
+                            <div class="d-flex gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-multiroom-no" onclick="calcSetMultiroom(false)">Не, една зала / един говорител в даден момент</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-multiroom-yes" onclick="calcSetMultiroom(true)">Да, няколко зали едновременно</button>
+                            </div>
+
+                            <!-- Multi-room sub-form -->
+                            <div class="d-none" id="calc-multiroom-form">
+                                <label class="form-label fw-semibold" style="font-size: 0.85rem;">Колко зали ще работят едновременно?</label>
+                                <input type="number" id="calc-room-count" class="form-control mb-3" min="2" max="50" placeholder="напр. 3" style="max-width: 160px;" oninput="calcRenderRoomTable()">
+                                <div id="calc-room-table-wrap"></div>
+                                <div class="form-text mt-1">Ако залите работят различно време, можете да въведете различни стойности за всяка.</div>
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(1)">← Назад</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep2Next()">Напред →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: First-time customer? -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Стъпка 3 от 4</p>
+                            <h5 class="fw-bold mb-1">Използвате ли Nubart TRANSLATE за първи път?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">Новите клиенти могат да приспаднат 30-минутния безплатен тест от крайната сума.</p>
+                            <div class="d-flex gap-3 mb-2">
+                                <button class="btn btn-outline-secondary px-4" id="btn-firsttime-yes" onclick="calcSetFirstTime(true)">Да, за първи път</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-firsttime-no" onclick="calcSetFirstTime(false)">Не, използвали сме го преди</button>
+                            </div>
+                            <div class="d-none text-danger mt-2" id="calc-firsttime-warning" style="font-size:0.85rem;">
+                                <i class="bi bi-exclamation-circle me-1"></i>Моля, изберете опция, за да продължите.
+                            </div>
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← Назад</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">Изчисли →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Result -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Стъпка 4 от 4</p>
+                            <h5 class="fw-bold mb-3">Вашата оценка</h5>
+
+                            <!-- Summary chips -->
+                            <div class="d-flex flex-wrap gap-2 mb-4" id="calc-summary-chips"></div>
+
+                            <!-- Result card -->
+                            <div class="p-4 rounded-3 mb-3" style="background: #f0fdfb; border: 1.5px solid #2ec4b6;">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-7">
+                                        <div class="text-muted mb-1" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">Ориентировъчна обща цена (плащане според използването)</div>
+                                        <div style="font-size: 2.6rem; font-weight: 700; color: #065f46; line-height: 1;" id="calc-result-total">—</div>
+                                        <div class="text-muted mt-1" style="font-size: 0.8rem;">без ДДС · приблизително</div>
+                                    </div>
+                                    <div class="col-sm-5 mt-3 mt-sm-0">
+                                        <ul class="list-unstyled mb-0" style="font-size: 0.83rem;" id="calc-result-breakdown"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Notes -->
+                            <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
+                                <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
+                                <strong>Моля, имайте предвид:</strong> Това е приблизителна оценка, базирана на цели часове. Nubart таксува по реално използваното време, измерено до минута — само докато микрофонът на говорителя е активен. Почивки, подготовка и сесии с въпроси без активно говорене не се таксуват. Броят на слушателите не влияе на цената. След събитието ще получите окончателна фактура на база реалното използване.
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2 align-items-center">
+                                <button class="btn btn-outline-secondary" onclick="calcGoToStep(1)">← Започнете отначало</button>
+                                <a href="https://forms.zohopublic.eu/rosasala/form/NubartTRANSLATERequestaTrialBulgaria/formperma/fDjFo_ECbv-ixf3-vstX6HPWO25HBqMejDEmV5w84fM?zf_lang=bg"
+                                   class="btn btn-primary px-4" target="_blank" rel="noopener noreferrer">
+                                    Стартирайте безплатен тест →
+                                </a>
+                                <button class="btn btn-outline-secondary" onclick="window.print()" id="calc-print-btn">
+                                    <i class="bi bi-printer me-1"></i>Отпечатай оценката
+                                </button>
+                                <button class="btn btn-outline-secondary" onclick="calcRequestQuote()">
+                                    <i class="bi bi-envelope me-1"></i>Заявете официална оферта
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise hint -->
+                    <div class="text-center mt-3">
+                        <small class="text-muted">
+                            Организирате ли събития редовно?
+                            <a href="../contact.html" class="text-decoration-none fw-semibold">Попитайте за персонализирани планове</a>
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
 
+        <script>
+        window.CALC_I18N = {
+            subject:    (days, total) => `Заявка за оферта – събитие Nubart TRANSLATE (${days} ден${days>1?'а':''}, приблизително ${total})`,
+            roomLabel:  (i)           => `Зала ${i}`,
+            roomSuffix: (n)           => `${n} едновременни зали`,
+            tableRoom:  'Зала',
+            tableHours: 'Часове активно използване на ден',
+            trialYes:   'Да (30-минутният тест ще бъде приспаднат)',
+            trialNo:    'Не',
+            body:       (eventDetails, trial, total) =>
+`Здравейте,
+
+използвах калкулатора на разходите на вашия уебсайт и бих искал/а да получа официална оферта за следното събитие:
+
+Детайли за събитието: ${eventDetails}
+Първо използване: ${trial}
+Ориентировъчна цена (калкулатор): ${total} без ДДС
+
+Моля, изпратете ми официална оферта на името на моята компания.
+
+[Моля, добавете вашето име, ime на компанията и ДДС номер]
+
+Благодаря`,
+            ui: {
+                baseFee:    (days) => `Базова такса (${days} ден${days>1?'а':''}, вкл. 2 ч/ден)`,
+                extraHours: (h)    => `Допълнителни часове (${h} ч × €39)`,
+                totalHours: 'Общо фактурирани часове стрийминг',
+                trialRow:   'Приспадане на безплатен тест (30 мин)',
+                chipDays:   (days) => `${days} ден${days>1?'а':''} на събитие`,
+                chipRoom:   (h)    => `${h} ч/ден · 1 зала`,
+                trialChip:  'Тест от 30 мин приспаднат'
+            }
+        };
+        </script>
+        <script src="../assets/js/translate-calculator.js" defer></script>
 
     </section>
     <!-- End About Boxes Section -->
