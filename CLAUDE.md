@@ -144,6 +144,25 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - NL: nl/audiosysteem/boottochten-rondvaartbooten.html
 - PT: pt-br/audioguia/veiculos-turisticos.html
 
+**Unlinked URL to send our trial kits for Nubart MOTION - Phase 1**
+- EN: audio-commentary-system/instructions-demo-triggered.html
+- DE: de/audioguides/anleitung-demo-gps-aktiviert.html
+- ES: es/instrucciones-demo-gps.html
+- FR: (still pending)
+- IT: it/istruzioni-demo-gps.html
+- NL: (still pending)
+- PT: (still pending)
+
+**Unlinked URL to send our trial kits for Nubart MOTION - Phase 2**
+
+- EN: audio-commentary-system/instructions-demo-triggered-phase-2.html
+- DE: (still pending)
+- ES: (still pending)
+- FR: (still pending)
+- IT: (still pending)
+- NL: (still pending)
+- PT: (still pending)
+
 ## Product Distinctions (Important!)
 - **Nubart LIVE**: Tour guide system with optional AI translation for GUIDED tours
 - **Nubart TRANSLATE**: AI simultaneous interpretation for EVENTS (conferences, etc.)
