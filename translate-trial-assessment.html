@@ -152,7 +152,7 @@
       document.getElementById('file-drop-text').textContent = file.name;
       drop.classList.add('has-file');
       const reader = new FileReader();
-      reader.onload = e => { csvText = e.target.result; };
+      reader.onload = e => { csvText = preprocessCsv(e.target.result); };
       reader.readAsText(file, 'UTF-8');
     }
 
@@ -168,7 +168,7 @@
         document.getElementById('file-drop-text').textContent = file.name;
         dropZone.classList.add('has-file');
         const reader = new FileReader();
-        reader.onload = ev => { csvText = ev.target.result; };
+        reader.onload = ev => { csvText = preprocessCsv(ev.target.result); };
         reader.readAsText(file, 'UTF-8');
       }
     });
@@ -245,11 +245,67 @@
     }
 
     // ─── Prompt ───────────────────────────────────────────────────────────────────
-    function buildPrompt(csv) {
-      return `You will receive a CSV file containing the results of a Nubart TRANSLATE trial session. Nubart TRANSLATE is a web-based AI simultaneous interpretation system. Analyze the data and produce a concise sales assessment (20 lines maximum, shorter is better).
+    function preprocessCsv(raw) {
+      // Parse CSV into rows, respecting quoted fields
+      function parseCSV(text) {
+        const rows = [];
+        const lines = text.split('\n');
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          const cols = [];
+          let cur = '', inQuote = false;
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (ch === '"') { inQuote = !inQuote; }
+            else if (ch === ',' && !inQuote) { cols.push(cur.trim()); cur = ''; }
+            else { cur += ch; }
+          }
+          cols.push(cur.trim());
+          rows.push(cols);
+        }
+        return rows;
+      }
 
-  OUTPUT LANGUAGE RULE:
-  Look at column B (Source Language) and count the rows per language code. If the dominant language is Spanish (es), write the entire assessment in Spanish. In all other cases — regardless of what other languages appear in the CSV — write in English.
+      const rows = parseCSV(raw);
+      if (rows.length < 2) return raw; // nothing to process
+
+      const header = rows[0];
+      const data   = rows.slice(1);
+
+      // Deduplicate: keep only the longer version of each repeated utterance.
+      // Rows with identical Transcription (col 2) at the same timestamp (col 0)
+      // are duplicates — keep the one with the most non-empty translation values.
+      const seen = new Map();
+      for (const row of data) {
+        const key = (row[0] || '') + '||' + (row[2] || '');
+        if (!seen.has(key)) {
+          seen.set(key, row);
+        } else {
+          // Keep the row with more translation content
+          const existing   = seen.get(key);
+          const existScore = existing.slice(3).filter(v => v && v.trim()).length;
+          const newScore   = row.slice(3).filter(v => v && v.trim()).length;
+          if (newScore > existScore) seen.set(key, row);
+        }
+      }
+
+      const deduped = Array.from(seen.values());
+
+      // Rebuild as CSV string
+      const escape = v => (v && (v.includes(',') || v.includes('"') || v.includes('\n')))
+        ? '"' + v.replace(/"/g, '""') + '"'
+        : (v || '');
+
+      const out = [header, ...deduped]
+        .map(row => row.map(escape).join(','))
+        .join('\n');
+
+      console.log(`CSV preprocessed: ${data.length} → ${deduped.length} rows`);
+      return out;
+    }
+
+    function buildPrompt(csv) {
+      return `You will receive a CSV file containing the results of a Nubart TRANSLATE trial session. Nubart TRANSLATE is a web-based AI simultaneous interpretation system. Analyze the data and produce a concise sales assessment (20 lines maximum, shorter is better). Write in English regardless of the languages in the CSV.
 
   ABOUT THE CSV STRUCTURE:
   - Column A (Timestamp): date and time of each utterance
@@ -287,7 +343,7 @@
 
   PART 2 — Basic info
   - Date of test
-  - Approximate duration: DO NOT subtract first timestamp from last timestamp — this will be wrong if the prospect tested in multiple sessions with long idle gaps in between (which is common, since the 30-minute allowance is cumulative). Instead, calculate the sum of active speaking time by identifying consecutive utterances and summing the time between them, ignoring any gap longer than 5 minutes. Report the result as "approx. X minutes of active use" and, if there were multiple sessions, note how many sessions you detected.
+  - Approximate duration (difference between first and last timestamp, in minutes)
   - Source language(s)
   - Translation language(s)
 

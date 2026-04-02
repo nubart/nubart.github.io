@@ -133,6 +133,20 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - JA: ja/audio-guides/index.html
 - NL: nl/audiogidsen/index.html
 - PL: pl/audioprzewodnik/index.html
+
+**Terms and conditions for Nubart GUIDE:**
+
+- EN: audio-guides/terms-conditions.html
+- DE: de/audioguides/index.html
+- ES: es/audioguias.html
+- IT: it/audioguida.html
+- FR: fr/audioguides.html
+- HE: he/audio-guides/index.html
+- BG: bg/audiogidove.html
+- PT-BR: pt-br/audioguia/index.html
+- JA: ja/audio-guides/index.html
+- NL: nl/audiogidsen/index.html
+- PL: pl/audioprzewodnik/index.html
 - 
 ### Nubart MOTION
 **Main product explainer:**
