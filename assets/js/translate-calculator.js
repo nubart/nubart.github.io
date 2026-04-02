@@ -224,8 +224,40 @@ function calcRequestQuote() {
 
     const trial = firstTime ? i18n.trialYes : i18n.trialNo;
 
-    const subject = encodeURIComponent(i18n.subject(days, total));
-    const body    = encodeURIComponent(i18n.body(eventDetails, trial, total));
+    const subject = i18n.subject(days, total);
+    const body    = i18n.body(eventDetails, trial, total);
 
-    window.location.href = `mailto:info@nubart.eu?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:info@nubart.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Populate the fallback panel
+    document.getElementById('calc-quote-subject').textContent = subject;
+    document.getElementById('calc-quote-body').textContent = body;
+    document.getElementById('calc-quote-mailto').href = mailtoLink;
+
+    // Clipboard copy — reads feedback text from data-copied-text attribute (language-agnostic)
+    const copyBtn = document.getElementById('calc-quote-copy');
+    copyBtn.onclick = function() {
+        const fullText = `To: info@nubart.eu\nSubject: ${subject}\n\n${body}`;
+        navigator.clipboard.writeText(fullText).then(() => {
+            const btn = document.getElementById('calc-quote-copy');
+            const original = btn.textContent;
+            const copiedText = btn.getAttribute('data-copied-text') || '✓ Copied!';
+            btn.textContent = copiedText;
+            btn.classList.add('btn-success');
+            btn.classList.remove('btn-outline-secondary');
+            setTimeout(() => {
+                btn.textContent = original;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-outline-secondary');
+            }, 2500);
+        });
+    };
+
+    // Show the panel
+    document.getElementById('calc-quote-panel').classList.remove('d-none');
+    document.getElementById('calc-quote-panel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function calcCloseQuotePanel() {
+    document.getElementById('calc-quote-panel').classList.add('d-none');
 }

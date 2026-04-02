@@ -933,6 +933,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
                 </div>
 
+                <!-- Quote request fallback panel -->
+                <div id="calc-quote-panel" class="d-none mt-2">
+                    <div class="card border shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h6 class="fw-bold mb-0">O seu pedido de orçamento está pronto</h6>
+                                <button type="button" class="btn-close" onclick="calcCloseQuotePanel()"></button>
+                            </div>
+                            <p class="text-muted mb-3" style="font-size:0.85rem;">
+                                Copie o texto abaixo e cole-o no seu cliente de e-mail, ou use o botão
+                                <strong>Abrir na aplicação de e-mail</strong> se tiver um configurado.
+                            </p>
+                            <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
+                                <strong>To:</strong> info@nubart.eu
+                            </div>
+                            <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
+                                <strong>Subject:</strong> <span id="calc-quote-subject"></span>
+                            </div>
+                            <textarea id="calc-quote-body" class="form-control mb-3" rows="10"
+                                      style="font-size:0.8rem; font-family: monospace; resize:vertical;"
+                                      readonly></textarea>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button id="calc-quote-copy" class="btn btn-outline-secondary btn-sm" data-copied-text="✓ Copiado!">
+                                    <i class="bi bi-clipboard me-1"></i>Copiar para a área de transferência
+                                </button>
+                                <a id="calc-quote-mailto" href="#" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-envelope me-1"></i>Abrir na aplicação de e-mail →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Enterprise hint -->
                 <div class="text-center mt-3">
                     <small class="text-muted">

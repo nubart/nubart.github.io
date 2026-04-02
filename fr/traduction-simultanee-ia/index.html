@@ -1028,6 +1028,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
 
+                    <!-- Quote request fallback panel -->
+                    <div id="calc-quote-panel" class="d-none mt-2">
+                        <div class="card border shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h6 class="fw-bold mb-0">Votre demande de devis est prête</h6>
+                                    <button type="button" class="btn-close" onclick="calcCloseQuotePanel()"></button>
+                                </div>
+                                <p class="text-muted mb-3" style="font-size:0.85rem;">
+                                    Copiez le texte ci-dessous et collez-le dans votre client de messagerie, ou utilisez le bouton
+                                    <strong>Ouvrir dans l'application mail</strong> si vous en avez un configuré.
+                                </p>
+                                <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
+                                    <strong>To:</strong> info@nubart.eu
+                                </div>
+                                <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
+                                    <strong>Subject:</strong> <span id="calc-quote-subject"></span>
+                                </div>
+                                <textarea id="calc-quote-body" class="form-control mb-3" rows="10"
+                                          style="font-size:0.8rem; font-family: monospace; resize:vertical;"
+                                          readonly></textarea>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button id="calc-quote-copy" class="btn btn-outline-secondary btn-sm" data-copied-text="✓ Copié !">
+                                        <i class="bi bi-clipboard me-1"></i>Copier dans le presse-papiers
+                                    </button>
+                                    <a id="calc-quote-mailto" href="#" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-envelope me-1"></i>Ouvrir dans l'application mail →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Enterprise hint -->
                     <div class="text-center mt-3">
                         <small class="text-muted">
