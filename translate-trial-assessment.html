@@ -249,12 +249,7 @@
       return `You will receive a CSV file containing the results of a Nubart TRANSLATE trial session. Nubart TRANSLATE is a web-based AI simultaneous interpretation system. Analyze the data and produce a concise sales assessment (20 lines maximum, shorter is better).
 
   OUTPUT LANGUAGE RULE:
-  Look at column B (Source Language) and identify the dominant spoken language across all rows.
-  - If the dominant source language is Spanish (es) → write the entire assessment in Spanish.
-  - If the dominant source language is French (fr) → write the entire assessment in French.
-  - If the dominant source language is German (de) → write the entire assessment in German.
-  - Otherwise → write in English.
-  Apply this rule consistently throughout all parts of the assessment.
+  Look at column B (Source Language) and count the rows per language code. If the dominant language is Spanish (es), write the entire assessment in Spanish. In all other cases — regardless of what other languages appear in the CSV — write in English.
 
   ABOUT THE CSV STRUCTURE:
   - Column A (Timestamp): date and time of each utterance
@@ -298,10 +293,10 @@
 
   PART 3 — Prospect reactions and comments
   This is the most important part. Identify any utterances where the speaker appears to be reacting to or commenting on the product rather than producing content for translation. This includes: usability reactions, voice quality comments, comparisons with competitors or human interpreters, mentions of specific use cases or events, questions about privacy or terms, pricing reactions, latency or accuracy questions, or any other meta-commentary.
-  - Summarize each finding concisely
+  - Summarize each finding concisely in English
   - If the meaning of a comment is ambiguous, quote it verbatim in the original language
   - Group thematically if several (e.g. usability / voice quality / competitor mentions / use case fit)
-  - If nothing found: write that no product reactions were detected.
+  - If nothing found: "No product reactions detected in the transcription."
 
   PART 4 — What did they talk about?
   2–3 lines. Test phrases? Casual conversation? A text read aloud? A real use case? Identify the topic if possible.
