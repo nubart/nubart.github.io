@@ -56,6 +56,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - ES: es/sistema-guiado-grupos/instrucciones-nubart-live.html
 - IT: it/tour-guide-app/istruzioni-nubart-live.html
 - JA: ja/digital-tour-guide-app/instructions-nubart-live.html
+- PT-BR: pt-br/sistema-comunicacao-visitas-guiadas/instrucoes-nubart-live.html
 - PL: (still pending)
 - NL: (still pending)
 
