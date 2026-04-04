@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>How to Test Nubart LIVE | Nubart</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+
+    <!-- Shared printable stylesheet -->
+    <link href="../assets/css/printable-terms.css" rel="stylesheet">
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../assets/css/demos-trials.css" rel="stylesheet">
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+    <style>
+        /* ── SCREEN: page wrapper ── */
+        .trial-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.92rem;
+            color: #222;
+        }
+
+        /* ── HEADER ── */
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            border-bottom: 3px solid #00a7b5;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .nubart-logo { height: 42px; }
+        .page-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            color: #00a7b5;
+        }
+        .page-header .subtitle {
+            margin: 0.2rem 0 0;
+            color: #555;
+            font-size: 0.88rem;
+        }
+
+        /* ── REGISTRATION LINK BOX ── */
+        .reg-box {
+            background: #f0fbfc;
+            border: 2px solid #00a7b5;
+            border-radius: 8px;
+            padding: 1rem 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+        .reg-box h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #00a7b5;
+            margin-bottom: 0.4rem;
+        }
+        .reg-box p { margin: 0 0 0.4rem; }
+        .reg-link {
+            display: inline-block;
+            background: #00a7b5;
+            color: #fff !important;
+            font-weight: 700;
+            padding: 0.45rem 1.1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            word-break: break-all;
+        }
+        .reg-link:hover { background: #007f8a; }
+        .reg-missing {
+            color: #c0392b;
+            font-style: italic;
+            font-size: 0.88rem;
+        }
+
+        /* ── STEP BLOCKS ── */
+        .step-block {
+            border: 1px solid #d0eef0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #e8f8f9;
+            padding: 0.55rem 1rem;
+        }
+        .step-number {
+            background: #00a7b5;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .step-header h3 {
+            margin: 0;
+            font-size: 0.97rem;
+            font-weight: 700;
+            color: #005f6a;
+        }
+        .step-body {
+            padding: 0.75rem 1rem;
+        }
+        .step-body p { margin: 0 0 0.5rem; }
+        .step-body ul { margin: 0 0 0.5rem; padding-left: 1.3rem; }
+        .step-body li { margin-bottom: 0.25rem; }
+
+        /* ── CALLOUT ── */
+        .callout {
+            background: #fff8e1;
+            border-left: 4px solid #f5a623;
+            border-radius: 4px;
+            padding: 0.55rem 0.9rem;
+            margin: 0.6rem 0;
+            font-size: 0.88rem;
+        }
+        .callout.info {
+            background: #e8f8f9;
+            border-left-color: #00a7b5;
+        }
+
+        /* ── TROUBLESHOOTING ── */
+        .troubleshooting-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 0.65rem 1rem;
+            margin: 1rem 0 0;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #444;
+            user-select: none;
+        }
+        .troubleshooting-title:hover { background: #ececec; }
+        .troubleshooting-title .ts-chevron { margin-left: auto; transition: transform 0.2s; }
+        .troubleshooting-title.open .ts-chevron { transform: rotate(180deg); }
+
+        .troubleshooting-body {
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 0.8rem 1rem;
+            background: #fafafa;
+        }
+        .trouble-item {
+            padding: 0.55rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.88rem;
+        }
+        .trouble-item:last-child { border-bottom: none; }
+        .trouble-item strong { display: block; margin-bottom: 0.3rem; }
+        .trouble-item p { margin: 0.2rem 0; }
+        .trouble-item ul { margin: 0.2rem 0 0; padding-left: 1.2rem; }
+        .trouble-item li { margin-bottom: 0.2rem; }
+
+        /* Always expand troubleshooting for print */
+        @media print {
+            .troubleshooting-title .ts-chevron { display: none; }
+            .troubleshooting-body { display: block !important; border-top: 1px solid #ddd; border-radius: 0 0 8px 8px; }
+            .troubleshooting-title { border-radius: 8px 8px 0 0; cursor: default; }
+        }
+
+        /* ── PHASE DIVIDERS ── */
+        .phase-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 1.4rem 0 0.8rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #fff;
+            background: #00a7b5;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            letter-spacing: 0.02em;
+        }
+        .phase-divider.field {
+            background: #2c7a4b;
+        }
+        .phase-divider i { font-size: 1rem; }
+
+        @media print {
+            .phase-divider { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+
+        /* ── PARTICIPANT NOTE ── */
+        .participant-note {
+            background: #fafafa;
+            border: 1px dashed #aaa;
+            border-radius: 6px;
+            padding: 0.7rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.88rem;
+        }
+        .participant-note strong { color: #005f6a; }
+
+        /* ── FOOTER ── */
+        .instructions-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.83rem;
+            color: #777;
+            border-top: 1px solid #ddd;
+            padding-top: 0.8rem;
+        }
+        .instructions-footer a { color: #00a7b5; }
+
+        /* ════════════════════════════════════════
+           QR CARD PAGE  (always starts on new page)
+           ════════════════════════════════════════ */
+        .qr-page {
+            page-break-before: always;
+        }
+
+        /* Screen: center the grid */
+        .qr-page-header {
+            text-align: center;
+            margin-bottom: 1.2rem;
+            padding-top: 1.5rem;
+        }
+        .qr-page-header h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #00a7b5;
+            margin-bottom: 0.2rem;
+        }
+        .qr-page-header p {
+            font-size: 0.85rem;
+            color: #555;
+            margin: 0;
+        }
+
+        /* 2 × 3 grid */
+        .qr-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* Individual card */
+        .qr-card {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .qr-card-body {
+            padding: 14px 16px 10px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .qr-card-text { flex: 1; }
+
+        .qr-scan-label {
+            font-size: 1.45rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #111;
+            margin: 0 0 4px;
+        }
+
+        .qr-nub-art {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #00a7b5;
+            margin: 0 0 10px;
+        }
+
+        .qr-private-label {
+            font-size: 0.72rem;
+            color: #777;
+            margin: 0 0 2px;
+        }
+
+        .qr-code-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: 0.04em;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .qr-image-wrap canvas,
+        .qr-image-wrap img {
+            width: 110px !important;
+            height: 110px !important;
+            display: block;
+        }
+
+        /* Red footer bar like the PDF */
+        .qr-card-footer {
+            background: #c0392b;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 12px;
+            font-size: 0.72rem;
+        }
+        .qr-card-footer .powered-by {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .qr-card-footer img.footer-logo {
+            height: 14px;
+            filter: brightness(0) invert(1);
+        }
+        .qr-card-footer .badge-icons {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
+            opacity: 0.9;
+        }
+
+        /* missing card placeholder */
+        .qr-card-missing {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+            color: #aaa;
+            font-size: 0.83rem;
+            font-style: italic;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* ════════════════════════════════════════
+           PRINT OVERRIDES
+           ════════════════════════════════════════ */
+        @media print {
+            @page { size: A4 portrait; margin: 12mm 12mm 12mm 12mm; }
+
+            .no-print { display: none !important; }
+
+            body { font-size: 8.5pt; }
+
+            .trial-wrap { max-width: 100%; padding: 0; }
+
+            .page-header h1 { font-size: 13pt; }
+
+            /* Tighten steps for print */
+            .step-block { margin-bottom: 6px; }
+            .step-body { padding: 5px 8px; }
+            .step-header { padding: 4px 8px; }
+            .step-header h3 { font-size: 8.5pt; }
+            .step-body p, .step-body li { font-size: 8pt; margin-bottom: 2px; }
+
+            /* QR page: full-width grid */
+            .qr-page { page-break-before: always; }
+            .qr-grid {
+                max-width: 100%;
+                gap: 10px;
+            }
+            .qr-card-body { padding: 10px 12px 6px; gap: 10px; }
+            .qr-scan-label { font-size: 13pt; }
+            .qr-nub-art { font-size: 10pt; }
+            .qr-code-text { font-size: 9pt; }
+            .qr-image-wrap canvas,
+            .qr-image-wrap img {
+                width: 95px !important;
+                height: 95px !important;
+            }
+            .qr-page-header { padding-top: 0; }
+        }
+    </style>
+</head>
+
+<body>
+<div class="trial-wrap">
+
+    <!-- Print button (screen only) -->
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Print (A4 portrait)
+    </button>
+
+    <!-- ══ PAGE 1: INSTRUCTIONS ══════════════════════════════════════════ -->
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../assets/img/logo.png" alt="Nubart" class="nubart-logo">
+        <div>
+            <h1>How to Test Nubart LIVE</h1>
+            <p class="subtitle">Web-based group guide system &mdash; trial instructions</p>
+        </div>
+    </div>
+
+    <!-- Intro text -->
+    <div style="background:#f0fbfc; border:1px solid #00a7b5; border-radius:8px; padding:1rem 1.4rem; margin-bottom:1.2rem; font-size:0.9rem;">
+        <p style="margin:0 0 0.5rem;">Welcome to your Nubart LIVE trial! Your trial includes <strong>30 minutes of free AI simultaneous translation</strong> — entirely optional, the system works perfectly well without it.</p>
+        <p style="margin:0;">We recommend reading through these steps once before you start. The whole process is straightforward, and a quick read will make the test much smoother.</p>
+    </div>
+
+    <!-- Registration + Login link box -->
+    <div class="reg-box">
+        <h2><i class="bi bi-person-check me-2"></i>Your Guide Access Links</h2>
+        <p><strong>Registration link</strong> (use this once to create your account):</p>
+        <div id="reg-link-display" style="margin-bottom:1rem;"></div>
+        <p><strong>Login link</strong> (use this every time after that):</p>
+        <a class="reg-link" href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+            https://www.nub.art/customer/login
+        </a>
+    </div>
+
+    <!-- ── PHASE 1 ─────────────────────────────────────────────────────── -->
+    <div class="phase-divider">
+        <i class="bi bi-house-door"></i>
+        Before you meet your group &mdash; do these two steps first
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Register as the guide and create your password</h3>
+        </div>
+        <div class="step-body">
+            <p>Click the <strong>registration link</strong> above. You will be asked to choose a password and log in.</p>
+            <p>Once logged in, you will see the guide interface. You can close it afterwards — you are all set for the test.</p>
+            <div class="callout info">
+                <i class="bi bi-info-circle me-1"></i>
+                <strong>Tip for the day of the test:</strong> Bookmark <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener"><strong>www.nub.art/customer/login</strong></a> on your smartphone now, so you can log in quickly when you are with your group.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Print and cut the 6 participant cards</h3>
+        </div>
+        <div class="step-body">
+            <p>Print this document and cut out the QR cards on the next page. Keep them ready to hand out when you meet your group.</p>
+            <div class="callout">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                <strong>Each code is unique and non-transferable.</strong> One card per person — do not share or swap them.
+            </div>
+            <div class="callout info" style="margin-top:0.5rem;">
+                <i class="bi bi-info-circle me-1"></i>
+                These printed cards are for testing purposes only. If you decide to go ahead with Nubart LIVE, your participants will receive proper cards — printed on FSC-certified high-quality cardboard (customised with your branding if you order 3,000 cards or more).
+            </div>
+        </div>
+    </div>
+
+    <!-- ── PHASE 2 ─────────────────────────────────────────────────────── -->
+    <div class="phase-divider field">
+        <i class="bi bi-play-circle"></i>
+        Running the test &mdash; do these steps with your group
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Log in and open the group</h3>
+        </div>
+        <div class="step-body">
+            <p>On your smartphone, go to <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener"><strong>www.nub.art/customer/login</strong></a> (or use your bookmark) and log in with the password you created in Step 1.</p>
+            <p>Once logged in, tap <strong>"Open group"</strong>.</p>
+            <div class="callout info">
+                <i class="bi bi-info-circle me-1"></i>
+                <strong>AI translation:</strong> right after logging in, a pop-up will ask whether you want to activate the translation add-on. You can enable or skip it here — you can always change this later.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">4</span>
+            <h3>Scan the participant cards with your phone</h3>
+        </div>
+        <div class="step-body">
+            <p>Tap <strong>"Open scanner"</strong> on the guide screen and scan the QR cards of the participants joining your test — you do not need to scan all 6 if you are only testing with a smaller group.</p>
+            <div class="callout info">
+                <i class="bi bi-info-circle me-1"></i>
+                We recommend scanning the cards before handing them out — it is the easiest approach. That said, participants can also scan their own card first and then show it to you. Both work fine.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">5</span>
+            <h3>Hand out the cards — ask participants to scan their own</h3>
+        </div>
+        <div class="step-body">
+            <p>Give <strong>one card per person</strong>. Each participant scans the QR code on <em>their own</em> card with their smartphone.</p>
+            <p>Tap <strong>"View participants"</strong> on your guide screen. The green indicator next to each slot will light up as each participant completes the connection from their own device.</p>
+        </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">6</span>
+            <h3>Start talking — and try the AI translation if you wish</h3>
+        </div>
+        <div class="step-body">
+            <p>Tap <strong>"Unmute"</strong> and speak. You will see a moving bar on screen — this confirms your voice is being transmitted to all participants.</p>
+            <div class="callout info">
+                <i class="bi bi-info-circle me-1"></i>
+                <strong>If translation is active:</strong> participants receive it automatically in their browser language. <strong>Important for testing:</strong> if your colleagues' phones have the same browser language as yours, they will hear the original voice rather than a translation. Ask them to tap the <i class="bi bi-translate"></i> (translate) icon on their screen to manually select a different language.
+            </div>
+        </div>
+    </div>
+
+    <!-- ── PHASE 3 ─────────────────────────────────────────────────────── -->
+    <div class="phase-divider" style="background:#6c757d;">
+        <i class="bi bi-flag-fill"></i>
+        After the test
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">7</span>
+            <h3>Keep the group open or close it</h3>
+        </div>
+        <div class="step-body">
+            <p>If you want to run another test with the same group later, simply leave the group open. Next time you log in, your participants will already be connected — no need to scan the cards again.</p>
+            <p>If you are done testing, tap <strong>"Close group"</strong> to end the session.</p>
+        </div>
+    </div>
+
+    <!-- Participant note -->
+    <div class="participant-note">
+        <strong>What participants will see and can do:</strong><br>
+        Once connected, participants hear the guide through their own smartphone. If translation is active, they receive it automatically in their browser language — or they can tap the <i class="bi bi-translate"></i> icon to pick a different one. They can also send a written question to the guide at any time without interrupting — the guide sees these in a list and can reply when convenient.
+    </div>
+
+    <!-- Troubleshooting -->
+    <div class="troubleshooting-title" id="ts-toggle" onclick="toggleTS()">
+        <i class="bi bi-tools"></i>
+        Troubleshooting
+        <i class="bi bi-chevron-down ts-chevron" id="ts-chevron"></i>
+    </div>
+    <div class="troubleshooting-body" id="ts-body" style="display:none;">
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-mic-mute me-2 text-danger"></i>You are unmuted but participants hear nothing</strong>
+            <p>Check that the moving bar (spectrum display) is reacting when you speak. If it is not:</p>
+            <ul>
+                <li>Another app may be using your microphone — close all background apps and try again</li>
+                <li>If you are using a Bluetooth or wireless microphone, switch to Firefox browser, which handles external audio devices more reliably than Chrome or Safari</li>
+            </ul>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-volume-mute me-2 text-danger"></i>Participants see the screen but hear no sound</strong>
+            <p>Ask them to:</p>
+            <ul>
+                <li>Turn up their phone volume</li>
+                <li>Check that the audio is not muted in the participant interface</li>
+                <li>Close any other app that might be using sound (music players, videos, etc.)</li>
+            </ul>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-translate me-2 text-warning"></i>The translation does not make sense</strong>
+            <p>This is almost always caused by poor audio input. Check the audio quality indicator on your guide screen:</p>
+            <ul>
+                <li><strong>Green</strong> = audio is clear enough for translation</li>
+                <li><strong>Yellow or red</strong> = audio quality needs improvement</li>
+            </ul>
+            <p>To improve quality: use a headset with a microphone close to your mouth to isolate your voice from the environment, speak clearly, and confirm the correct speaking language is selected.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-arrow-repeat me-2 text-warning"></i>The translation keeps repeating sentences</strong>
+            <p>Your microphone is probably picking up the translated audio output from nearby devices. Try:</p>
+            <ul>
+                <li>Using a headset with a microphone</li>
+                <li>Asking participants to use headphones</li>
+                <li>Increasing the distance between phones</li>
+                <li>Lowering the volume on nearby devices</li>
+            </ul>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-person-x me-2 text-danger"></i>A participant does not appear in the participants list</strong>
+            <p>They may not have scanned their card yet. Ask them to scan their own QR card again — or, if they cannot scan, to go to <strong>nub.art</strong> and type in the private code printed on their card. The connection can only be established from the participant's own device.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-wifi-off me-2 text-danger"></i>The connection drops during the test</strong>
+            <p>This is usually a temporary coverage gap. Simply move a few metres with your group — the connection will recover automatically once coverage is available again.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Questions? Write to us at <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+            &nbsp;&mdash;&nbsp;
+            <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+    <!-- ══ PAGE 2: QR CARDS ══════════════════════════════════════════════ -->
+    <div class="qr-page">
+        <div class="qr-page-header no-print">
+            <h2><i class="bi bi-qr-code me-2"></i>Participant Cards — print, cut and distribute</h2>
+            <p>Each card is unique and non-transferable. Give one card per participant.</p>
+        </div>
+
+        <div class="qr-grid" id="qr-grid">
+            <!-- Cards injected by JS -->
+        </div>
+    </div>
+
+</div><!-- /.trial-wrap -->
+
+<script>
+    function toggleTS() {
+        const body = document.getElementById('ts-body');
+        const toggle = document.getElementById('ts-toggle');
+        const isOpen = body.style.display !== 'none';
+        body.style.display = isOpen ? 'none' : 'block';
+        toggle.classList.toggle('open', !isOpen);
+    }
+
+    (function () {
+        const params = new URLSearchParams(window.location.search);
+
+        /* ── Registration link ─────────────────────────── */
+        const regUrl = params.get('reg');
+        const regDisplay = document.getElementById('reg-link-display');
+        if (regUrl) {
+            regDisplay.innerHTML =
+                '<a class="reg-link" href="' + regUrl + '" target="_blank" rel="noopener">' +
+                regUrl + '</a>';
+        } else {
+            regDisplay.innerHTML =
+                '<span class="reg-missing"><i class="bi bi-exclamation-triangle me-1"></i>' +
+                'No registration link provided. Please contact your Nubart representative.</span>';
+        }
+
+        /* ── Extract alphanumeric code from a nub.art URL ─ */
+        function extractCode(url) {
+            try {
+                const path = new URL(url).pathname.replace(/\/$/, '');
+                const segment = path.split('/').filter(Boolean).pop() || '';
+                // Show the full code; split roughly in half with a space for readability
+                if (segment.length > 6) {
+                    const mid = Math.round(segment.length / 2);
+                    return segment.slice(0, mid) + ' ' + segment.slice(mid);
+                }
+                return segment;
+            } catch (e) {
+                return url;
+            }
+        }
+
+        /* ── Build one card ────────────────────────────── */
+        function buildCard(url, index) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'qr-card';
+
+            const body = document.createElement('div');
+            body.className = 'qr-card-body';
+
+            // Text column
+            const textCol = document.createElement('div');
+            textCol.className = 'qr-card-text';
+            textCol.innerHTML =
+                '<p class="qr-scan-label">Scan this QR<br>or go to</p>' +
+                '<p class="qr-nub-art">www.nub.art</p>' +
+                '<p class="qr-private-label">Your private code:</p>' +
+                '<p class="qr-code-text">' + extractCode(url) + '</p>';
+
+            // QR code column
+            const qrWrap = document.createElement('div');
+            qrWrap.className = 'qr-image-wrap';
+            const canvas = document.createElement('canvas');
+            qrWrap.appendChild(canvas);
+            QRCode.toCanvas(canvas, url, {
+                width: 110,
+                margin: 1,
+                color: { dark: '#000000', light: '#ffffff' }
+            });
+
+            body.appendChild(textCol);
+            body.appendChild(qrWrap);
+
+            // Footer bar
+            const footer = document.createElement('div');
+            footer.className = 'qr-card-footer';
+            footer.innerHTML =
+                '<span class="powered-by">' +
+                'POWERED BY &nbsp;<img src="../assets/img/logo.png" alt="Nubart" class="footer-logo">' +
+                '</span>' +
+                '<span class="badge-icons">♻ &nbsp;&#127807; 100% CARBON NEUTRAL</span>';
+
+            wrapper.appendChild(body);
+            wrapper.appendChild(footer);
+            return wrapper;
+        }
+
+        /* ── Render grid ───────────────────────────────── */
+        const grid = document.getElementById('qr-grid');
+        let anyCard = false;
+        for (let i = 1; i <= 6; i++) {
+            const url = params.get('card' + i);
+            if (url) {
+                anyCard = true;
+                grid.appendChild(buildCard(url, i));
+            } else {
+                const missing = document.createElement('div');
+                missing.className = 'qr-card-missing';
+                missing.innerHTML =
+                    '<i class="bi bi-exclamation-circle me-1"></i>' +
+                    'Card ' + i + ' not provided';
+                grid.appendChild(missing);
+            }
+        }
+
+    })();
+</script>
+
+</body>
+</html>
