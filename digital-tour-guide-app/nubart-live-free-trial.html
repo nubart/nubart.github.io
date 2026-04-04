@@ -367,6 +367,43 @@
             padding: 1rem;
         }
 
+        /* ── QR PAGE PRINT HEADER & FOOTER ── */
+        .qr-print-header {
+            display: none; /* hidden on screen */
+        }
+        .qr-print-footer {
+            display: none; /* hidden on screen */
+        }
+        @media print {
+            .qr-print-header {
+                display: block;
+                border: 2px solid #00a7b5;
+                border-radius: 8px;
+                padding: 8pt 12pt;
+                margin-bottom: 10pt;
+                font-size: 8pt;
+                color: #222;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .qr-print-header p {
+                margin: 0 0 3pt;
+                line-height: 1.4;
+            }
+            .qr-print-header p:last-child { margin: 0; }
+            .qr-print-header strong { color: #c0392b; }
+
+            .qr-print-footer {
+                display: block;
+                text-align: center;
+                margin-top: 10pt;
+                font-size: 7.5pt;
+                color: #777;
+                border-top: 1px solid #ddd;
+                padding-top: 5pt;
+            }
+        }
+
         /* ════════════════════════════════════════
            PRINT OVERRIDES
            ════════════════════════════════════════ */
@@ -648,8 +685,21 @@
             <p>Each card is unique and non-transferable. Give one card per participant.</p>
         </div>
 
+        <!-- Print-only header -->
+        <div class="qr-print-header">
+            <p><strong>These codes are unique and non-transferable!</strong> Please use only one per person.</p>
+            <p>Each code can be reused across sessions — consider writing the participant's name on their card so everyone keeps the same one.</p>
+            <p>Your trial includes <strong>30 minutes of free AI simultaneous translation</strong>. Translation is optional: if you only need to amplify the guide's voice, Nubart LIVE works perfectly without it.</p>
+            <p>Make sure you read the instructions before you start!</p>
+        </div>
+
         <div class="qr-grid" id="qr-grid">
             <!-- Cards injected by JS -->
+        </div>
+
+        <!-- Print-only footer -->
+        <div class="qr-print-footer">
+            Questions? Write to us at <strong>info@nubart.eu</strong> &nbsp;&mdash;&nbsp; <strong>www.nubart.eu</strong>
         </div>
     </div>
 
