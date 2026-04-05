@@ -544,6 +544,145 @@ h1, h2, h3, h4, h5, h6 {
     color: white !important;
 }
 
+/* ════════════════════════════════════════
+   QR CARD PAGE  (used in nubart-live-free-trial.html)
+   Always starts on a new page when printing.
+   ════════════════════════════════════════ */
+.qr-page {
+    page-break-before: always;
+}
+
+.qr-page-header {
+    text-align: center;
+    margin-bottom: 1.2rem;
+    padding-top: 1.5rem;
+}
+.qr-page-header h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #00a7b5;
+    margin-bottom: 0.2rem;
+}
+.qr-page-header p {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 0;
+}
+
+/* 2-column grid */
+.qr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+/* Individual card */
+.qr-card {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.qr-card-body {
+    padding: 14px 16px 10px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.qr-card-text { flex: 1; }
+
+.qr-scan-label {
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #111;
+    margin: 0 0 4px;
+}
+
+.qr-nub-art {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00a7b5;
+    margin: 0 0 10px;
+}
+
+.qr-private-label {
+    font-size: 0.72rem;
+    color: #777;
+    margin: 0 0 2px;
+}
+
+.qr-code-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: 0.04em;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.qr-image-wrap canvas,
+.qr-image-wrap img {
+    width: 110px !important;
+    height: 110px !important;
+    display: block;
+}
+
+/* Red footer bar */
+.qr-card-footer {
+    background: #c0392b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    font-size: 0.72rem;
+}
+.qr-card-footer .powered-by {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.qr-card-footer img.footer-logo {
+    height: 14px;
+    filter: brightness(0) invert(1);
+}
+.qr-card-footer .badge-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.65rem;
+    opacity: 0.9;
+}
+
+/* Missing card placeholder */
+.qr-card-missing {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    color: #aaa;
+    font-size: 0.83rem;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Print-only header/footer on the QR page — hidden on screen */
+.qr-print-header,
+.qr-print-footer {
+    display: none;
+}
+
 /* ─── Print styles ─── */
 @media print {
 
@@ -822,4 +961,53 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Order section — not actionable on paper */
     .order-section { display: none !important; }
+
+    /* QR card page */
+    .qr-page { page-break-before: always; }
+    .qr-page-header { padding-top: 0; }
+    .qr-grid {
+        max-width: 100%;
+        gap: 10px;
+    }
+    .qr-card-body { padding: 10px 12px 6px; gap: 10px; }
+    .qr-scan-label { font-size: 13pt; }
+    .qr-nub-art { font-size: 10pt; }
+    .qr-code-text { font-size: 9pt; }
+    .qr-image-wrap canvas,
+    .qr-image-wrap img {
+        width: 95px !important;
+        height: 95px !important;
+    }
+    .qr-card-footer {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .qr-print-header {
+        display: block;
+        border: 2px solid #00a7b5;
+        border-radius: 8px;
+        padding: 8pt 12pt;
+        margin-bottom: 10pt;
+        font-size: 8pt;
+        color: #222;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .qr-print-header p {
+        margin: 0 0 3pt;
+        line-height: 1.4;
+    }
+    .qr-print-header p:last-child { margin: 0; }
+    .qr-print-header strong { color: #c0392b; }
+
+    .qr-print-footer {
+        display: block;
+        text-align: center;
+        margin-top: 10pt;
+        font-size: 7.5pt;
+        color: #777;
+        border-top: 1px solid #ddd;
+        padding-top: 5pt;
+    }
 }
