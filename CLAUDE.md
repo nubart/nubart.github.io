@@ -60,7 +60,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - PL: (still pending)
 - NL: (still pending)
 
-**Unlinked URL to send our trial kits for Nubart LIVE - Version 1 - no media library**
+**Unlinked URL to send our trial kits for Nubart LIVE**
 - EN: digital-tour-guide-app/nubart-live-free-trial.html
 - DE: (still pending)
 - FR: (still pending)
@@ -70,17 +70,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - PT-BR: (still pending)
 - PL: (still pending)
 - NL: (still pending)
-- 
-  **Unlinked URL to send our trial kits for Nubart LIVE - Version 2 - with media library**
-- EN: digital-tour-guide-app/nubart-live-free-trial-with-media-library.html
-- DE: (still pending)
-- FR: (still pending)
-- ES: (still pending)
-- IT: (still pending)
-- JA: (still pending)
-- PT-BR: (still pending)
-- PL: (still pending)
-- NL: (still pending)
+
 
 ### Nubart TRANSLATE
 **Main product explainer:**
