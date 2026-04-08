@@ -65,7 +65,7 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 - DE: (still pending)
 - FR: (still pending)
 - ES: (still pending)
-- IT: (still pending)
+- IT: it/tour-guide-app/nubart-live-prova-gratuita.html
 - JA: (still pending)
 - PT-BR: (still pending)
 - PL: (still pending)
