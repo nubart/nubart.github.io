@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cómo probar Nubart LIVE con la biblioteca multimedia | Nubart</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet" />
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../../assets/css/demos-trials.css" rel="stylesheet" />
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+</head>
+
+<body>
+<div class="trial-wrap">
+
+    <!-- Print button (screen only) -->
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Imprimir (A4 vertical)
+    </button>
+
+    <!-- ══ PAGE 1: INSTRUCTIONS ══════════════════════════════════════════ -->
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo" />
+        <div>
+            <h1>Cómo probar Nubart LIVE</h1>
+            <p class="subtitle">
+                Haz que tu grupo te oiga con claridad en sus propios móviles, con traducción opcional por IA y contenido sincronizado
+            </p> </div>
+    </div>
+
+    <!-- Intro text -->
+    <!-- INTRO -->
+    <div class="trial-tips-box">
+        <h3>En esta prueba tendrás:</h3>
+        <div class="trial-tip">
+            <i class="bi bi-person-circle tip-icon"></i>
+            <div><strong>Un registro como guía</strong> para la prueba.</div>
+        </div>
+        <div class="trial-tip">
+            <i class="bi bi-qr-code tip-icon"></i>
+            <div><strong>6 tarjetas QR únicas</strong> para la prueba, impresas en la última página de este documento.</div>
+        </div>
+        <div class="trial-tip">
+            <i class="bi bi-images tip-icon"></i>
+            <div><strong>Una biblioteca multimedia de demostración</strong>, que el guía puede enviar en directo a las pantallas de todos los participantes.</div>
+        </div>
+        <div class="trial-tip mb-0">
+            <i class="bi bi-translate tip-icon"></i>
+            <div><strong>30 minutos de traducción simultánea con IA</strong>. Esto es opcional: Nubart LIVE funciona perfectamente sin ello.</div>
+        </div>
+
+    </div>
+    <div class="full-instructions-box">
+        <i class="bi bi-printer"></i>
+        <div>
+           <strong>Consejo práctico:</strong> imprime ahora las instrucciones completas y recorta las seis tarjetas antes de salir. Esto facilita mucho la prueba sobre el terreno.
+        </div>
+    </div>
+    <!-- ── PHASE 1 ─────────────────────────────────────────────────────── -->
+    <!-- SETUP -->
+    <div class="phase-divider">
+       <i class="bi bi-house-door"></i> Antes de reunirte con tu grupo
+    </div>
+
+
+    <!-- Step 1 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Regístrate como guía y crea tu contraseña</h3>
+        </div>
+
+        <!-- Registration + Login link box -->
+        <div class="reg-box">
+
+            <p><strong>Enlace de registro</strong> (utilízalo una vez para crear tu cuenta):</p>
+            <div id="reg-link-display" style="margin-bottom:1rem;"></div>
+            <p><strong>Enlace de inicio de sesión</strong> (utilízalo cada vez que entres):</p>
+            <a class="reg-link" href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                https://www.nub.art/customer/login
+            </a>
+        </div>
+
+        <div class="step-body">
+
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+               <strong>Consejo para cuando hagas la prueba:</strong> Añádelo a tus favoritos <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener"><strong>www.nub.art/customer/login</strong></a>
+                en tu smartphone ahora mismo, para que puedas iniciar sesión rápidamente cuando estés con tu grupo.
+            </div>
+        </div>
+
+    </div>
+    <!-- Step 2 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Imprime y recorta las 6 tarjetas de participante</h3>
+        </div>
+        <div class="step-body">
+            <p>Recorta las 6 tarjetas de la última página impresa; te llevará menos de un minuto. Tenlas listas para
+                repartirlas
+                cuando te reúnas con tu grupo.</p>
+            <div class="callout">
+               <i class="bi bi-exclamation-triangle me-1"></i> 
+               <strong>Cada código es único e intransferible.</strong> Una tarjeta por persona: no las compartas ni
+                las intercambies. Considera la posibilidad de escribir el nombre de cada participante en su tarjeta para que conserven la misma en sesiones posteriores.
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── PHASE 2 ─────────────────────────────────────────────────────── -->
+    <div class="phase-divider field">
+       <i class="bi bi-play-circle"></i>
+        Durante la prueba: sigue estos pasos con tu grupo
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Inicia sesión y abre el grupo</h3>
+        </div>
+        <div class="step-body">
+            <p>En tu smartphone, ve a <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener"><strong>www.nub.art/customer/login</strong></a> (o guárdalo en tus favoritos) e inicia sesión con la contraseña que creaste en el paso 1.</p>
+            <p>Una vez que hayas iniciado sesión, pulsa <strong> «Abrir grupo</strong>».</p>
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+               <strong>Traducción de IA:</strong> justo después de iniciar sesión, aparecerá una ventana emergente preguntándote si quieres
+                activar el
+                complemento de traducción. Puedes habilitarlo o saltártelo aquí; siempre podrás cambiarlo más adelante.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">4</span>
+            <h3>Escanea las tarjetas de los participantes con tu teléfono</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>Primero, tú (el guía) escaneas las tarjetas.</strong></p>
+            <p>Toca <strong> «Abrir escáner»</strong> en la pantalla del guía y escanea las tarjetas QR de los participantes
+                que se unen
+                a tu prueba; no es necesario que escanees las 6 si solo estás haciendo la prueba con un grupo más pequeño.</p>
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+                Te recomendamos escanear las tarjetas antes de repartirlas; es la forma más fácil. Dicho esto,
+                los participantes también pueden escanear primero su propia tarjeta y luego mostrártela. Ambas opciones funcionan bien.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">5</span>
+            <h3>Reparte las tarjetas: pide a los participantes que escaneen la suya</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>A continuación, cada participante escanea su propia tarjeta.</strong></p>
+            <p>Entrega <strong>una tarjeta por persona</strong>. Cada participante escanea el código QR de <em>su propia</em>
+                tarjeta con
+                su smartphone.</p>
+            <p>Toca <strong> «Ver participantes»</strong> en la pantalla del guía. El indicador verde junto a cada espacio
+                se
+                iluminará a medida que cada participante complete la conexión desde su propio dispositivo.</p>
+        </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">6</span>
+            <h3>Empieza a hablar, y prueba la traducción con IA si quieres</h3>
+        </div>
+        <div class="step-body">
+
+            <p>Toca <strong> «Activar sonido»</strong> y habla. Verás una barra que se mueve en la pantalla; esto confirma que tu
+                voz se
+                está transmitiendo a todos los participantes.</p>
+            <p><strong>Tu prueba incluye 30 minutos de traducción gratis</strong>; puedes probarla ahora si quieres.</p>
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+               <strong>Si la traducción está activa:</strong> los participantes la reciben automáticamente en el idioma de su navegador
+                .
+ <strong>               Importante para la prueba:</strong> si los teléfonos de tus compañeros tienen el mismo idioma de navegador que
+                el tuyo,
+                oirán tu voz original en lugar de una traducción. Pídeles que toquen el icono « <i class="bi bi-translate"></i> » (traducir) en su pantalla para seleccionar manualmente un idioma diferente
+                .
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">7</span>
+            <h3>Prueba la biblioteca multimedia</h3>
+        </div>
+        <div class="step-body">
+            <p>En cualquier momento durante la prueba, toca <strong> «Control remoto»</strong> en tu pantalla del guía. Se abrirá una
+                biblioteca multimedia
+                de muestra que hemos preparado para esta prueba; es totalmente funcional y está lista para usar.</p>
+            <p>Toca cualquier elemento de la biblioteca para enviarlo al instante a los smartphones de todos los participantes. Lo verán
+                aparecer
+                automáticamente en su pantalla, sin que tengan que hacer nada. Puedes seguir hablando mientras el contenido
+                se
+                muestra.</p>
+            <p><strong>Esto te permite controlar exactamente lo que ve tu grupo, justo en el momento en que lo estás
+                explicando
+                .</strong></p>
+            <p>Si tocas otro elemento, este sustituirá al anterior en las pantallas de los participantes. Cuando hayas
+                terminado, toca
+ <strong>               «Cerrar»</strong> para cerrar el panel de la biblioteca en tu pantalla.</p>
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+               <strong>Colores de los botones en la biblioteca multimedia:</strong> verde = aún no enviado, gris = ya enviado, rojo
+                =
+                envío fallido (toca de nuevo para reenviar).
+            </div>
+            <div class="callout">
+               <i class="bi bi-stars me-1"></i> 
+               <strong>En tu cuenta real:</strong> nuestro equipo crea la biblioteca multimedia basándose en tu contenido
+                y tu recorrido. Puede incluir imágenes, galerías de imágenes, pistas de audio, vídeos, objetos 3D, imágenes yuxtapuestas
+                y
+                panorámicas de 360°. Si gestionas varias rutas diferentes, cada una puede tener su propia biblioteca.
+            </div>
+        </div>
+    </div>
+
+    <!-- ── PHASE 3 ─────────────────────────────────────────────────────── -->
+    <div class="phase-divider" style="background:#6c757d;">
+       <i class="bi bi-flag-fill"></i> 
+        Después de la prueba
+    </div>
+
+    <!-- Step 8 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">8</span>
+            <h3>Mantén el grupo abierto o ciérralo</h3>
+        </div>
+        <div class="step-body">
+            <p>Si quieres hacer otra prueba con el mismo grupo más tarde, simplemente deja el grupo abierto. La próxima vez que
+                inicies sesión,
+                tus participantes ya estarán conectados, sin necesidad de escanear las tarjetas de nuevo.</p>
+            <p>Si has terminado la prueba, pulsa <strong> «Cerrar grupo»</strong> para finalizar la sesión.</p>
+        </div>
+    </div>
+
+    <!-- Participant note -->
+    <div class="participant-note">
+       <strong>Lo que verán y podrán hacer los participantes:</strong><br>
+        Una vez conectados, los participantes escuchan al guía a través de su propio smartphone. Si la traducción está activa,
+        la reciben
+        automáticamente en el idioma de su navegador, o pueden tocar el icono <i class="bi bi-translate"></i> para elegir
+        otro. Cuando el guía envía un elemento multimedia, este aparece automáticamente en su pantalla, sin necesidad de
+        hacer nada. También
+        pueden enviar una pregunta por escrito al guía en cualquier momento sin interrumpir; el guía las ve en una
+        lista y
+        puede responder cuando le venga bien.
+    </div>
+    <!-- CTA -->
+    <div class="callout" style="margin-top:1rem;">
+       <strong>¿Quieres usar Nubart LIVE en tus propias visitas guiadas?</strong><br>
+        Configuraremos tu primera biblioteca multimedia y te ayudaremos a empezar. Solo tienes que responder al correo electrónico en el que recibiste este
+        enlace.
+    </div>
+    <!-- Troubleshooting -->
+    <div class="troubleshooting-title" id="ts-toggle" onclick="toggleTS()">
+       <i class="bi bi-tools"></i> 
+        Solución de problemas
+       <i class="bi bi-chevron-down ts-chevron" id="ts-chevron"></i> 
+    </div>
+    <div class="troubleshooting-body" id="ts-body" style="display:none;">
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-mic-mute me-2 text-danger"></i>Tienes el micrófono activado, pero los participantes no oyen
+                nada</strong>
+            <p>Comprueba que la barra móvil (indicador de espectro) reacciona cuando hablas. Si no es así:</p>
+            <ul>
+                <li>Es posible que otra aplicación esté utilizando tu micrófono: cierra todas las aplicaciones en segundo plano y vuelve a intentarlo</li>
+                <li>Si estás usando un micrófono Bluetooth o inalámbrico, cambia al navegador Firefox, que gestiona
+                    los dispositivos de audio externos
+                    de forma más fiable que Chrome o Safari
+                </li>
+            </ul>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-volume-mute me-2 text-danger"></i>Los participantes ven la pantalla pero no oyen
+                ningún sonido</strong>
+            <p>Pídeles que:</p>
+            <ul>
+                <li>Suban el volumen de su teléfono</li>
+                <li>Comprueben que el audio no esté silenciado en la interfaz del participante</li>
+                <li>Cierren cualquier otra aplicación que pueda estar utilizando sonido (reproductores de música, vídeos, etc.)</li>
+            </ul>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-translate me-2 text-warning"></i>La traducción no tiene sentido</strong>
+            <p>Esto casi siempre se debe a una mala entrada de audio. Comprueba el indicador de calidad de audio en tu pantalla del guía
+                :</p>
+            <ul>
+                <li><strong>Verde</strong> = el audio es lo suficientemente claro para la traducción</li>
+                <li><strong>Amarillo o rojo</strong> = la calidad del audio debe mejorarse</li>
+            </ul>
+            <p>Para mejorar la calidad: usa unos auriculares con micrófono cerca de la boca para aislar tu voz del
+                entorno,
+                habla con claridad y confirma que está seleccionado el idioma correcto.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-arrow-repeat me-2 text-warning"></i>La traducción sigue repitiendo
+                las frases</strong>
+            <p>Probablemente tu micrófono esté captando el audio traducido de dispositivos cercanos. Prueba lo siguiente:</p>
+            <ul>
+                <li>Usa unos auriculares con micrófono</li>
+                <li>Pide a los participantes que usen auriculares</li>
+                <li>Aumenta la distancia entre los teléfonos</li>
+                <li>Baja el volumen de los dispositivos más próximos</li>
+            </ul>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-person-x me-2 text-danger"></i>Un participante no aparece en la lista de participantes
+                </strong>
+            <p>Puede que aún no haya escaneado su tarjeta. Pídele que vuelva a escanear su propia tarjeta QR o, si
+                no puede escanearla,
+                que vaya a <strong>nub.art</strong> y escriba el código privado impreso en su tarjeta. La conexión
+                solo
+                se puede establecer desde el propio dispositivo del participante.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-wifi-off me-2 text-danger"></i>Se pierde la conexión durante la prueba</strong>
+            <p>Normalmente se trata de una falta de cobertura temporal. Basta con que te desplaces unos metros con tu grupo; la conexión
+                se
+                restablecerá automáticamente en cuanto vuelva a haber cobertura.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-collection me-2 text-warning"></i>Un botón de la biblioteca multimedia se pone rojo</strong>
+            <p>No se ha podido enviar el contenido, normalmente debido a un breve fallo de conexión. Solo tienes que volver a tocar el
+                botón
+                para reenviarlo. Si varios botones se ponen rojos a la vez, comprueba que tanto el teléfono del guía como los de los participantes
+                tengan
+                una conexión a Internet activa.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>¿Preguntas? Escríbenos a <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+             — 
+ <a href="https://www.nubart.eu">           www.nubart.eu</a>
+        </p>
+    </div>
+
+    <!-- ══ PAGE 2: QR CARDS ══════════════════════════════════════════════ -->
+    <div class="qr-page">
+        <div class="qr-page-header no-print">
+            <h2><i class="bi bi-qr-code me-2"></i>Tarjetas de participante: imprime, recorta y reparte</h2>
+            <p>Cada tarjeta es única e intransferible. Entrega una tarjeta por participante.</p>
+        </div>
+
+        <!-- Print-only header -->
+        <div class="qr-print-header">
+            <p><strong>¡Estos códigos son únicos e intransferibles!</strong> Por favor, usa solo uno por persona.</p>
+            <p>Cada código se puede reutilizar en diferentes sesiones; considera escribir el nombre del participante en su tarjeta para que
+                todos
+                conserven la misma.</p>
+            <p>Tu prueba incluye <strong>30 minutos de traducción simultánea con IA gratis</strong>. La traducción es
+                opcional:
+                si solo necesitas amplificar la voz del guía, Nubart LIVE funciona perfectamente sin ella.</p>
+            <p>¡Asegúrate de leer las instrucciones antes de empezar!</p>
+        </div>
+
+        <div class="qr-grid" id="qr-grid">
+            <!-- Cards injected by JS -->
+        </div>
+
+        <!-- Print-only footer -->
+        <div class="qr-print-footer">
+            ¿Preguntas? Escríbenos a <strong>info@nubart.eu</strong> — <strong>
+            www.nubart.eu</strong>
+        </div>
+    </div>
+
+</div><!-- /.trial-wrap -->
+
+<script>
+    function toggleTS() {
+        const body = document.getElementById('ts-body');
+        const toggle = document.getElementById('ts-toggle');
+        const isOpen = body.style.display !== 'none';
+        body.style.display = isOpen ? 'none' : 'block';
+        toggle.classList.toggle('open', !isOpen);
+    }
+
+    (function () {
+        const params = new URLSearchParams(window.location.search);
+
+        /* ── Registration link ─────────────────────────── */
+        const regUrl = params.get('invite');
+        const regDisplay = document.getElementById('reg-link-display');
+        if (regUrl) {
+            regDisplay.innerHTML =
+                '<a class="reg-link" href="' + regUrl + '" target="_blank" rel="noopener">' +
+                regUrl + '</a>';
+        } else {
+            regDisplay.innerHTML =
+                '<span class="reg-missing"><i class="bi bi-exclamation-triangle me-1"></i>' +
+                'No registration link provided. Please contact your Nubart representative.</span>';
+        }
+
+        /* ── Extract alphanumeric code from a nub.art URL ─ */
+        function extractCode(url) {
+            try {
+                const path = new URL(url).pathname.replace(/\/$/, '');
+                const segment = path.split('/').filter(Boolean).pop() || '';
+                // Show the full code; split roughly in half with a space for readability
+                if (segment.length > 6) {
+                    const mid = Math.round(segment.length / 2);
+                    return segment.slice(0, mid) + ' ' + segment.slice(mid);
+                }
+                return segment;
+            } catch (e) {
+                return url;
+            }
+        }
+
+        /* ── Build one card ────────────────────────────── */
+        function buildCard(url, index) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'qr-card';
+
+            const body = document.createElement('div');
+            body.className = 'qr-card-body';
+
+            // Text column
+            const textCol = document.createElement('div');
+            textCol.className = 'qr-card-text';
+            textCol.innerHTML =
+                '<p class="qr-scan-label">Escanea este QR<br>o entra en</p>' +
+                '<p class="qr-nub-art">www.nub.art</p>' +
+                '<p class="qr-private-label">Tu código personal:</p>' +
+                '<p class="qr-code-text">' + extractCode(url) + '</p>';
+
+            // QR code column
+            const qrWrap = document.createElement('div');
+            qrWrap.className = 'qr-image-wrap';
+            const canvas = document.createElement('canvas');
+            qrWrap.appendChild(canvas);
+            QRCode.toCanvas(canvas, url, {
+                width: 110,
+                margin: 1,
+                color: { dark: '#000000', light: '#ffffff' }
+            });
+
+            body.appendChild(textCol);
+            body.appendChild(qrWrap);
+
+            // Footer bar
+            const footer = document.createElement('div');
+            footer.className = 'qr-card-footer';
+            footer.innerHTML =
+                '<span class="powered-by">' +
+                'POWERED BY &nbsp;<img src="../../assets/img/logo.png" alt="Nubart" class="footer-logo">' +
+                '</span>';
+
+            wrapper.appendChild(body);
+            wrapper.appendChild(footer);
+            return wrapper;
+        }
+
+        /* ── Render grid ───────────────────────────────── */
+        const grid = document.getElementById('qr-grid');
+        let anyCard = false;
+        for (let i = 1; i <= 6; i++) {
+            const url = params.get('card' + i);
+            if (url) {
+                anyCard = true;
+                grid.appendChild(buildCard(url, i));
+            } else {
+                const missing = document.createElement('div');
+                missing.className = 'qr-card-missing';
+                missing.innerHTML =
+                    '<i class="bi bi-exclamation-circle me-1"></i>' +
+                    'Card ' + i + ' not provided';
+                grid.appendChild(missing);
+            }
+        }
+
+    })();
+</script>
+
+</body>
+</html>
