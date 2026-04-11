@@ -6,77 +6,132 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
 
+    <!-- Structured Data: Product + FAQs + breadcrumbs -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://www.nubart.eu/digital-tour-guide-app/#service",
-            "name": "Nubart LIVE – Digitaal rondleidingssysteem",
-            "provider": {
-                "@id": "https://www.nubart.eu/#organization"
+            "@type": "Product",
+            "@id": "https://www.nubart.eu/digital-tour-guide-app/#product",
+            "name": "Nubart LIVE",
+            "description": "QR-gebaseerd digitaal rondleidingssysteem met optionele AI-vertaling en mediabibliotheek. Inclusief fysieke QR-codekaarten en toegang tot een cloudplatform waarmee gidsen hun stem kunnen streamen naar de smartphones van deelnemers. Geen app-download vereist.",
+            "url": "https://www.nubart.eu/nl/digital-rondleidingsysteem/",
+            "brand": {
+                "@type": "Brand",
+                "name": "Nubart"
             },
-            "inLanguage": "nl",
-            "description": "Nubart LIVE is een digitaal rondleidingssysteem op basis van QR-codes dat de stem van de gids rechtstreeks naar de smartphones van deelnemers stuurt, zonder extra hardware of apps. Optioneel met AI-gestuurde live vertaling in meer dan 35 talen, ruisonderdrukking, browsergebaseerde werking en interactieve vraag-en-antwoordfuncties.",
+            "category": "Rondleidingssysteem",
             "image": [
                 "https://www.nubart.eu/assets/img/live/nubart-live.webp",
                 "https://www.nubart.eu/assets/img/live/nubart-live.png",
                 "https://www.nubart.eu/assets/img/live/nubart-live-logo.webp",
-                "https://www.nubart.eu/assets/img/live/nubart-live-logo.png"
+                "https://www.nubart.eu/assets/img/live/nubart-live-logo.png",
+                "https://www.nubart.eu/assets/img/group-guiding-card.webp"
             ],
-            "serviceType": "Digitaal rondleidingssysteem",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": [
-                    "Musea",
-                    "Tentoonstellingen",
-                    "Fabrieksrondleidingen",
-                    "Opleidingsorganisaties"
-                ]
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.nubart.eu/nl/digital-rondleidingsysteem/"
-            },
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#print-your-own",
+                    "name": "Print-Your-Own Pakket",
+                    "price": "79.00",
+                    "priceCurrency": "EUR",
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": "79.00",
+                        "priceCurrency": "EUR",
+                        "valueAddedTaxIncluded": false,
+                        "description": "Activeringskosten van €79 plus €1,50 per code, minimum 50 codes"
+                    },
+                    "availability": "https://schema.org/InStock",
+                    "description": "Afdrukklare PDF met unieke QR-codes. Afdrukken op standaard Avery visitekaartjesvellen. Minimum 50 codes. Onbeperkt aantal gidsen en functie 'Vraag aan de gids' inbegrepen.",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Nubart LIVE Print-Your-Own Pakket",
+                        "description": "PDF met unieke QR-codes + onbeperkt gidsen"
+                    },
+                    "seller": {
+                        "@id": "https://www.nubart.eu/#organization"
+                    },
+                    "areaServed": "Worldwide",
+                    "url": "https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
+                },
+                {
+                    "@type": "Offer",
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#basic-package",
+                    "name": "Basic Pakket",
+                    "price": "599.00",
+                    "priceCurrency": "EUR",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "price": "599.00",
+                        "priceCurrency": "EUR",
+                        "valueAddedTaxIncluded": false
+                    },
+                    "availability": "https://schema.org/InStock",
+                    "description": "500 QR-codekaarten in ultradun karton met Nubart standaarddesign. Onbeperkt aantal gidsen en functie 'Vraag aan de gids' inbegrepen. Kaarten vervallen nooit.",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Nubart LIVE Basic Pakket",
+                        "description": "500 gedrukte kaarten + onbeperkt gidsen"
+                    },
+                    "seller": {
+                        "@id": "https://www.nubart.eu/#organization"
+                    },
+                    "areaServed": "Worldwide",
+                    "url": "https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
+                },
+                {
+                    "@type": "Offer",
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#custom-package",
+                    "name": "Custom Pakket",
+                    "price": "3500.00",
+                    "priceCurrency": "EUR",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "price": "3500.00",
+                        "priceCurrency": "EUR",
+                        "valueAddedTaxIncluded": false,
+                        "description": "Vanaf €3.500 voor 3.000 kaarten. Volumekortingen: 5.000 kaarten €5.000; 10.000 kaarten €8.500; 20.000+ op aanvraag."
+                    },
+                    "availability": "https://schema.org/InStock",
+                    "description": "3.000+ QR-codekaarten in gerecyclede PVC of ultradun karton met aangepast design. Alle Basic functies plus: gepersonaliseerd kaartdesign, toegang tot gebruikersstatistieken, combineerbaar met een audiogids.",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Nubart LIVE Custom Pakket",
+                        "description": "3.000+ kaarten met eigen merk + onbeperkt gidsen + statistieken"
+                    },
+                    "seller": {
+                        "@id": "https://www.nubart.eu/#organization"
+                    },
+                    "areaServed": "Worldwide",
+                    "url": "https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
+                }
+            ],
             "additionalProperty": [
                 {
                     "@type": "PropertyValue",
-                    "name": "Ruisonderdrukking",
-                    "value": "Zorgt voor duidelijke communicatie, zelfs in zeer lawaaierige omgevingen."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Zonder hardware",
-                    "value": "Werkt op smartphones, bespaart kosten en onderhoud van conventionele apparaten."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Webgebaseerd",
-                    "value": "Werkt direct in de browser zonder app-download."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "AI-vertaling in realtime",
-                    "value": "Audio en/of tekst in meer dan 35 talen via kunstmatige intelligentie."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Vragen en antwoorden in realtime",
-                    "value": "Deelnemers kunnen rechtstreeks vragen stellen via hun smartphone."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Technologietype",
+                    "name": "Technology Type",
                     "value": "Progressive Web App (PWA)"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Hardware Required",
+                    "value": "None - works on participants' own smartphones"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "App Download Required",
+                    "value": "No"
                 }
             ],
             "video": {
                 "@type": "VideoObject",
-                "name": "Nubart LIVE – Digitaal rondleidingssysteem",
-                "description": "Introductievideo van Nubart LIVE: digitaal rondleidingssysteem zonder apps of hardware.",
+                "name": "Nubart LIVE – Digitaal Rondleidingssysteem",
+                "description": "Overzicht van Nubart LIVE, het QR-gebaseerde rondleidingssysteem met optionele AI live-vertaling en mediabibliotheek dat app-downloads en hardware overbodig maakt.",
                 "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/nubart-live-en.png",
                 "contentUrl": "https://vimeo.com/435834609",
                 "embedUrl": "https://player.vimeo.com/video/435834609",
                 "uploadDate": "2020-07-06",
+                "duration": "PT90S",
                 "inLanguage": "nl",
                 "publisher": {
                     "@id": "https://www.nubart.eu/#organization"
@@ -85,7 +140,84 @@
         }
     </script>
 
-    <!-- Structured Data: FAQ -->
+    <!-- Structured Data: AI Translation Add-on Service -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/digital-tour-guide-app/#ai-translation-addon",
+            "name": "Nubart LIVE - AI-vertaling Add-on",
+            "description": "Realtime AI-vertaling add-on voor begeleide rondleidingen met Nubart LIVE. Vertaalt de stem van de gids en vragen van bezoekers in realtime naar 35+ talen. Prijs per streaming-uur, niet per taal of per luisteraar.",
+            "serviceType": "AI-vertaalservice",
+            "provider": {
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "areaServed": "Worldwide",
+            "availableLanguage": [
+                "ar",
+                "bg",
+                "yue",
+                "ca",
+                "zh",
+                "cs",
+                "da",
+                "de",
+                "el",
+                "en",
+                "es",
+                "et",
+                "fil",
+                "fi",
+                "fr",
+                "he",
+                "hu",
+                "id",
+                "it",
+                "ja",
+                "ko",
+                "lv",
+                "lt",
+                "nl",
+                "no",
+                "pl",
+                "pt",
+                "ro",
+                "ru",
+                "sk",
+                "sl",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "vi"
+            ],
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://www.nubart.eu/digital-tour-guide-app/#translation-hourly",
+                "name": "Pay-as-you-go vertaling",
+                "price": "39.00",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "39.00",
+                    "priceCurrency": "EUR",
+                    "unitText": "stream-hour",
+                    "valueAddedTaxIncluded": false
+                },
+                "availability": "https://schema.org/InStock",
+                "description": "€39 per streaming-uur (per gids met actieve vertaling). Geen kosten per bezoeker of per taal. Alleen gefactureerd terwijl de gids spreekt met actieve vertaling. Eerste 30 minuten gratis met proefkit.",
+                "seller": {
+                    "@id": "https://www.nubart.eu/#organization"
+                },
+                "areaServed": "Worldwide",
+                "url": "https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
+            }
+        }
+    </script>
+
+    <!-- End Structured data -->
+
+    <!-- Structured Data: FAQ (Technical + Pricing) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -96,15 +228,15 @@
                     "name": "Moeten deelnemers een app downloaden?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nee. Nubart LIVE werkt volledig in de mobiele browser – scan en luister."
+                        "text": "Nee. Nubart LIVE werkt volledig in de mobiele browser – gewoon scannen en luisteren."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Hoe weet ik of mijn fabriek of locatie geschikt is voor Nubart LIVE?",
+                    "name": "Hoe weet ik of mijn locatie geschikt is voor Nubart LIVE?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart LIVE werkt in elke omgeving met internetverbinding. Voor lawaaierige omgevingen zoals fabrieken raden we een richtingsgevoelige microfoon aan. Vraag een gratis proefkit aan om het systeem in uw specifieke omgeving te testen."
+                        "text": "Nubart LIVE werkt in elke omgeving met internetverbinding. Voor lawaaierige omgevingen zoals fabrieken raden we aan een richtmicrofoon te gebruiken. Vraag een gratis proefkit aan om het in uw specifieke omgeving te testen."
                     }
                 },
                 {
@@ -112,23 +244,23 @@
                     "name": "Kan ik Nubart LIVE binnen en buiten gebruiken?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Ja. Het werkt op elke locatie met internetverbinding – via WiFi binnenshuis of mobiele data buitenshuis."
+                        "text": "Ja. Het werkt op elke locatie met internetverbinding – via WiFi binnen of mobiele data buiten."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Heeft Nubart LIVE latentie?",
+                    "name": "Heeft Nubart LIVE vertraging?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Een kleine vertraging van maximaal één seconde tussen de gids en de deelnemers (latentie) is onvermijdelijk bij op internet gebaseerde systemen. De latentie wordt beïnvloed door de prestaties van de smartphone, de verbindingskwaliteit en of de deelnemers dezelfde mobiele dataprovider gebruiken. Als de gids echter zachtjes spreekt, is de latentie nauwelijks merkbaar."
+                        "text": "Een kleine vertraging van maximaal één seconde tussen gids en deelnemers (latentie) is onvermijdelijk bij internetgebaseerde systemen. Latentie wordt beïnvloed door de prestaties van de smartphone, de verbindingskwaliteit en of deelnemers dezelfde mobiele dataprovider gebruiken. Als de gids echter zachtjes spreekt, is de vertraging nauwelijks merkbaar."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Wat gebeurt er als de internetverbinding wegvalt tijdens een rondleiding?",
+                    "name": "Wat als de internetverbinding wegvalt tijdens een rondleiding?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Het systeem maakt automatisch opnieuw verbinding zodra de verbinding hersteld is. Deelnemers hoeven hun kaarten niet opnieuw te scannen."
+                        "text": "Het systeem maakt automatisch opnieuw verbinding wanneer de verbinding is hersteld. Deelnemers hoeven hun kaarten niet opnieuw te scannen."
                     }
                 },
                 {
@@ -136,7 +268,7 @@
                     "name": "Wat als iemand geen oordopjes heeft?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Deelnemers kunnen de luidspreker van hun telefoon gebruiken. Oordopjes bieden echter een betere geluidskwaliteit en voorkomen dat de versterkte stem van de gids een echoëffect veroorzaakt."
+                        "text": "Deelnemers kunnen de luidspreker van hun telefoon gebruiken. Oordopjes geven echter betere geluidskwaliteit en voorkomen dat de versterkte stem van de gids een echo-effect veroorzaakt."
                     }
                 },
                 {
@@ -144,7 +276,7 @@
                     "name": "Hoe werkt de AI-vertaling?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "De gids selecteert de taal waarin hij zal spreken en activeert de vertaler. Deelnemers scannen de QR-code en kiezen hun voorkeurstaal uit meer dan 35 opties. Ze kunnen luisteren naar de originele stem van de gids of realtime AI-vertaling ontvangen als tekst en audio op hun scherm."
+                        "text": "De gids selecteert de taal waarin hij of zij zal spreken en activeert de vertaler. Deelnemers scannen de QR-code en kiezen hun voorkeurstaal uit 35+ opties. Ze kunnen de oorspronkelijke stem van de gids beluisteren of realtime AI-vertaling ontvangen als tekst en audio op hun scherm."
                     }
                 },
                 {
@@ -152,23 +284,23 @@
                     "name": "Welke talen ondersteunt de AI-vertaling?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "De AI-vertaling van Nubart LIVE ondersteunt momenteel Arabisch, Bulgaars, Catalaans, Chinees, Deens, Duits, Engels, Ests, Filipijns, Fins, Frans, Grieks, Hebreeuws, Hongaars, Indonesisch, Italiaans, Japans, Kantonees, Koreaans, Lets, Litouws, Noors, Nederlands, Pools, Portugees, Roemeens, Russisch, Slowaaks, Sloveens, Spaans, Zweeds, Thais, Tsjechisch, Turks, Oekraïens en Vietnamees."
+                        "text": "De AI-vertaling add-on van Nubart LIVE ondersteunt momenteel Arabisch, Bulgaars, Kantonees, Catalaans, Chinees, Tsjechisch, Deens, Nederlands, Engels, Estlands, Filipijns, Fins, Frans, Duits, Grieks, Hebreeuws, Hongaars, Indonesisch, Italiaans, Japans, Koreaans, Lets, Litouws, Noors, Pools, Portugees, Roemeens, Russisch, Slowaaks, Sloveens, Spaans, Zweeds, Thais, Turks, Oekraïens en Vietnamees."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Hoeveel batterij verbruikt Nubart LIVE?",
+                    "name": "Hoeveel batterij gebruikt Nubart LIVE?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Al het achtergrondwerk vindt plaats op de smartphone van de gids. Voor groepsleden is het batterijverbruik niet veel hoger dan bij het luisteren naar een podcast. Eén uur continu gebruik verbruikt bijvoorbeeld 8% van de batterij van een vier jaar oud Android-telefoon."
+                        "text": "Al het achtergrondwerk vindt plaats op de smartphone van de gids. Voor groepsleden is het batterijverbruik niet veel hoger dan bij het luisteren naar een podcast. Eén uur continu gebruik verbruikt bijvoorbeeld 8% van de batterij van een 4 jaar oude Android-telefoon."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Hoeveel data verbruikt Nubart LIVE?",
+                    "name": "Hoeveel data gebruikt Nubart LIVE?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Ongeveer 20 MB per uur. Omdat ons systeem eenrichtingsverkeer is (alleen de gids spreekt) en geen video uitzendt, verbruikt het veel minder data dan een videogesprek via Zoom of Skype."
+                        "text": "Ongeveer 20 MB per uur. Omdat ons systeem eenrichtingsverkeer is (alleen de gids spreekt) en we geen video uitzenden, gebruikt ons systeem veel minder data dan een videogesprek via Zoom of Skype."
                     }
                 },
                 {
@@ -176,7 +308,7 @@
                     "name": "Hebben de kaarten een vervaldatum?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nee. Ongeacht het gekozen pakket hoeft u de kaarten slechts eenmalig te kopen en te bewaren totdat u ze nodig heeft. Bestel gewoon een nieuwe voorraad wanneer u door uw kaarten heen bent."
+                        "text": "Nee. Ongeacht welk pakket u kiest, u koopt de kaarten eenmalig en bewaart ze totdat u ze nodig heeft. Bestel gewoon een aanvulling als u door uw kaarten heen bent."
                     }
                 },
                 {
@@ -184,7 +316,47 @@
                     "name": "Zijn uw kaarten milieuvriendelijk?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Ja. De kaarten zijn gedrukt op FSC-gecertificeerd karton en wij compenseren volledig alle CO2-uitstoot door productie en verzending."
+                        "text": "Ja. Onze Basic kaarten zijn gedrukt op FSC-gecertificeerd karton en we compenseren volledig alle CO2-uitstoot van productie en verzending."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Kan ik de AI-vertaling aan elk kaartenpakket toevoegen?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja. De AI-vertaling add-on werkt met elk kaartenpakket – Print-Your-Own, Basic of Custom. U bent vrij om ze te combineren zoals nodig."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Hoe wordt vertaaltijd gemeten? Wat telt als een streaming-uur?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Eén streaming-uur is gelijk aan één gids met actieve vertaling gedurende één uur. Als twee gidsen tegelijkertijd vertaalde rondleidingen geven, telt dit als twee streaming-uren per klokuur. De prijs is per stream, niet per taal – als uw groep tegelijkertijd in het Japans, Frans en Arabisch luistert, is dat toch één streaming-uur voor €39."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Word ik gefactureerd voor stille of ongebruikte minuten?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nee. De vertaalteller loopt alleen wanneer de gids actief spreekt met de vertaling add-on ingeschakeld. Als de gids de microfoon dempt, stoppen zowel de live audiostream als de vertaling – en daarmee ook de teller. Als de gids spreekt zonder de vertaling add-on geactiveerd, zijn er geen vertaalkosten. En als de gids per ongeluk de vertaling aan laat maar stil blijft, stopt het systeem automatisch met tellen na één uur stilte. U betaalt alleen voor de werkelijke vertaalde spreektijd."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Kan ik de AI-vertaling proberen voordat ik een beslissing neem?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Absoluut. Gebruik een van de knoppen 'Vraag een gratis proefkit aan' op de pagina en u ontvangt 6 QR-codes voor een testgroep. De eerste 30 minuten vertaalgebruik zijn gratis. De proef bevat ook een demonstratiemediabibliotheek zodat u de functie voor afstandsbediening kunt proberen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Hoe weet ik hoeveel vertaaluren ik heb gebruikt?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Elke gids ziet een timer op zijn mobiele scherm die zijn gebruikstijd weergeeft. U kunt ook gedetailleerde gebruiksstatistieken bekijken in uw klantengebied, inclusief totaal gebruikte uren en eventuele openstaande bedragen voor uw bedrijf."
                     }
                 }
             ]
@@ -202,17 +374,19 @@
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Nubart",
-                    "item": "https://www.nubart.eu/nl/"
+                    "item": "https://www.nubart.eu/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Nubart LIVE - digital rondleidingsysteem",
+                    "name": "Nubart LIVE - Digitaal Rondleidingssysteem",
                     "item": "https://www.nubart.eu/nl/digital-rondleidingsysteem/"
                 }
             ]
         }
     </script>
+
+
     <!-- Google Tag Manager -->
     <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -419,7 +593,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                          target="_blank">
                     Gebruiksaanwijzing</a>
                 </li>
-                <li class="d-md-none"><a href="prijzen.html">Prijzen</a></li>
+                <li class="d-md-none"><a href="#pricing">Prijzen</a></li>
                 <li class="d-md-none">
                     <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl"
                        target="_blank" onclick="ZohoLightbox.open(); return false;">Testkit aanvragen</a>
@@ -444,8 +618,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 class="img-fluid mx-auto d-block lazyload mb-4"
                 style="max-width: 320px; width: 70vw; height: auto;"
                 alt="logo Nubart LIVE">
-        <h1>Nubart Live - Groepen rondleidingssysteem </h1>
-        <h2>Het enige smartphone-gebaseerde rondleidingssysteem waarvoor je geen app hoeft te downloaden.</h2>
+        <h1>Vervang traditionele toursystemen door QR-codes</h1>
+        <h2>Stuur je stem live naar de smartphone van elke deelnemer.<br>Geen ontvangers, geen app-downloads, geen logistieke rompslomp.<br>Optionele AI-vertaling in meer dan 35 talen.</h2>
 
         <div class="d-flex">
 
@@ -475,7 +649,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                        href="../../digital-tour-guide-app/instructions-nubart-live.html">
                         <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Gebruiksaanwijzing</a>
                     </li>
-                    <li style="margin-right: 22px;"><a href="prijzen.html">Prijzen</a></li>
+                    <li style="margin-right: 22px;"><a href="#pricing">Prijzen</a></li>
                     <li>
                         <a class="getstarted scrollto"
                            href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl"
@@ -540,315 +714,207 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
 
     <!-- ======= Comparison normal vs LIVE  ======= -->
-    <section class="py-5 bg-light">
-        <div class="container">
-                <h2 class="text-center mb-5">Er is een betere manier om groepsreizen te organiseren dan met grote
-                    apparatuur</h2>
-
-                <div class="row text-center g-4">
-                    <!-- OUDE MANIER Kolom -->
-
-                    <div class="col-lg-6">
-                        <div class="p-4 rounded-4 shadow-sm h-100 bg-white border-top border-4 border-danger">
-                            <h3 class="h4 mb-4 text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i>Oude
-                                manier</h3>
-
-                            <ul class="list-unstyled text-start">
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-volume-up text-danger fs-4 me-2"></i>
-
-                                    Gidsen praten luid boven het lawaai uit
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-headset text-danger fs-4 me-2"></i>
-                                    Gasten dragen grote, niet-gereinigde apparaten
-
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-box-arrow-in-down-left text-danger fs-4 me-2"></i>
-
-                                    Je huurt of koopt dure technologie
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-globe2 text-danger fs-4 me-2"></i>
-
-                                    Internationale bezoekers voelen zich buitengesloten
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-emoji-frown text-danger fs-4 me-2"></i>
-                                    Chaotisch groepsbeheer met tweerichtingsaudio
-                                </li>
-
-                                <li class="mb-0 d-flex align-items-center">
-                                    <i class="bi bi-cash text-danger fs-4 me-2"></i>
-                                    Doorlopende huurkosten
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- NUBART WAY Column -->
-
-                    <div class="col-lg-6">
-                        <div class="p-4 rounded-4 shadow-sm h-100 bg-white border-top border-4 border-success">
-                            <h3 class="h4 mb-4 text-success"><i class="bi bi-stars me-2"></i>Met Nubart LIVE</h3>
-
-                            <ul class="list-unstyled text-start">
-
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-phone text-success fs-4 me-2"></i>
-                                    Gids praat op een natuurlijke manier → gasten horen het op hun eigen telefoons
-
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-emoji-smile text-success fs-4 me-2"></i>
-
-                                    Geen apps om te installeren, geen apparatuur om schoon te maken
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-qr-code-scan text-success fs-4 me-2"></i>
-                                    Gasten scannen gewoon een code – geen technische gedoe
-
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-translate text-success fs-4 me-2"></i>
-                                    Optioneel AI-vertaling in maximaal 35+ talen
-
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <i class="bi bi-chat-dots text-success fs-4 me-2"></i>
-                                    Gasten kunnen stilletjes vragen stellen
-                                </li>
-
-                                <li class="mb-0 d-flex align-items-center">
-                                    <i class="bi bi-cash-stack text-success fs-4 me-2"></i>
-                                    Je betaalt één keer en bezoekers kunnen hun kaarten opnieuw gebruiken
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-            </div>
-
-            <div class="mt-5 text-center">
-      <span class="fw-bold fs-5">
-        Je doet minder, biedt meer en bespaart – <a href="prijzen.html">voor een fractie van de kosten</a>.
-      </span>
-            </div>
-            <!-- Pricing Teaser -->
-            <div class="text-center mt-4 pb-4">
-                <p class="text-muted">
-                    <strong>Vanaf €599</strong> voor 500 herbruikbare kaarten (eenmalige aankoop, geen abonnementen)
-                    · <a href="prijzen.html">Bekijk alle prijzen →</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= End Comparison normal vs LIVE ======= -->
-
     <!-- ======= Testimonials Section ======= -->
     <section id="how-nubart-live-works" class="testimonials"
              style="background: linear-gradient(135deg, #028a8c 0%, #783119 100%);">
         <div class="container" data-aos="zoom-in">
 
-                <div data-aos="fade-up" data-aos-delay="70">
+            <div data-aos="fade-up" data-aos-delay="70">
 
-                    <div class="d-grid gap-2">
-                        <div class="section-heading">
-                            <h2 style="color:#ffffff">Hoe Nubart Live werkt</h2><br/>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-md-12">
-
-                                <img class="img-fluid lazyload text-center"
-                                     data-src="../../assets/img/live/nl-nubart-live-group-guiding-system.png"
-                                     alt="Hoe werkt het groepsbeheersysteem van Nubart - Nubart Live"/>
-                            </div>
-                        </div>
-
+                <div class="d-grid gap-2">
+                    <div class="section-heading">
+                        <h2 style="color:#ffffff">Hoe Nubart Live werkt</h2><br/>
                     </div>
 
-                    <br/> <br/>
-                    <div class="row text-center">
-                        <h3 style="color:#ffffff">Wil je meer weten?</h3>
-                        <div class="col">
+                    <div class="row">
 
-                            <div class="mr-auto ml-auto
-                            text-center">
-                                <br> <a class="btn btn-primary" role="button" href="#faq">
-                                <h5>Bezoek onze FAQ</h5></a>
+                        <div class="col-md-12">
 
-                            </div>
+                            <img class="img-fluid lazyload text-center"
+                                 data-src="../../assets/img/live/nl-nubart-live-group-guiding-system.png"
+                                 alt="Hoe werkt het groepsbeheersysteem van Nubart - Nubart Live"/>
                         </div>
-                        <div class="col">
-
-                            <div class="mr-auto ml-auto
-                            text-center">
-                                <br> <a class="btn btn-primary" target="_blank" role="button"
-                                        href="../../digital-tour-guide-app/instructions-nubart-live.html">
-                                <h5>Download onze instructies</h5></a>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CTA after diagram -->
-                    <div class="text-center mt-5">
-                        <p class="lead mb-3" style="color:#ffffff">Wilt u zien hoe Nubart LIVE werkt voor uw
-                            rondleidingen?</p>
-                        <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl"
-                           class="btn btn-lg btn-primary"
-                           target="_blank"
-                           onclick="ZohoLightbox.open(); return false;">
-                            Vraag een gratis proefpakket aan
-                        </a>
                     </div>
 
                 </div>
 
-            </div>
-
-        </section><!-- End Testimonials Section -->
-        <!-- ======= About Boxes Section ======= -->
-        <section id="benefits-qr-tour-guide-system" class="about-boxes">
-            <div class="container" data-aos="fade-up">
+                <br/> <br/>
                 <div class="row text-center">
-                    <div class="col-12">
-                        <p class="fs-1">Eenvoudiger kan het niet</p>
+                    <h3 style="color:#ffffff">Wil je meer weten?</h3>
+                    <div class="col">
+
+                        <div class="mr-auto ml-auto
+                            text-center">
+                            <br> <a class="btn btn-primary" role="button" href="#faq">
+                            <h5>Bezoek onze FAQ</h5></a>
+
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="mr-auto ml-auto
+                            text-center">
+                            <br> <a class="btn btn-primary" target="_blank" role="button"
+                                    href="../../digital-tour-guide-app/instructions-nubart-live.html">
+                            <h5>Download onze instructies</h5></a>
+
+                        </div>
                     </div>
                 </div>
 
-                <div class="row text-center mb-4">
-                    <div class="col-12">
-                        <h5>Waarom een rondleidingssysteem als iedereen een smartphone heeft?</h5>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <!-- First Column -->
-                    <div class="col-12 col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <p class="fs-1"><i class="bi bi-qr-code-scan" style="color:#028A8C;"></i></p>
-                        <h3 class="card-title">Gemakkelijk te bedienen</h3>
-                        <p class="card-text">Zowel bezoekers als de gids scannen de QR-code op de kaarten. Dat is alles!
-                            Geen registratie of app download nodig. (Alleen de gids moet inloggen).</p>
-
-                        <p class="fs-1"><i class="bi bi-piggy-bank" style="color:#028A8C;"></i></p>
-                        <h3 class="card-title">Betaalbaar</h3>
-                        <p class="card-text">Ons basispakket van 500 tickets kost minder dan het inhuren van een
-                            groepsreis-systeem en is voldoende voor veel tours.</p>
-
-                        <p class="fs-1"><i class="bi bi-file-lock" style="color:#028A8C;"></i></p>
-                        <h3 class="card-title">Anoniem</h3>
-                        <p class="card-text">Je bezoekers hoeven geen persoonlijke gegevens op te geven om Nubart Live
-                            te gebruiken. Het is volledig anoniem!</p>
-                    </div>
-
-                    <!-- Second Column (now visible on all screens) -->
-                    <div class="col-12 col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <p class="fs-1"><i class="bi bi-translate" style="color:#028A8C;"></i></p>
-                        <h3 class="card-title">AI-vertalingn</h3>
-                        <p class="card-text">Leidt u een meertalige groep? Geen probleem! Voeg eenvoudig onze live
-                            vertaalfunctie toe en iedereen kan meedoen, ongeacht hun moedertaal.</p>
-                        <a href="#ai-translation-benefits" class="btn btn-primary btn-sm" role="button">Learn more</a>
-                        <div class="text-center mb-4">
-                            <img data-src="../../assets/img/group-guiding-card.webp" class="lazyload img-fluid"
-                                 alt="Nubart Live: rondleidingssysteem voor rondleidingen.">
-                        </div>
-
-                        <p class="fs-1"><i class="bi bi-question-circle" style="color:#028A8C;"></i></p>
-                        <h3 class="card-title">Onderzoeksfunctie</h3>
-                        <p class="card-text">Je gasten kunnen de gids op elk moment een vraag stellen zonder hem te
-                            onderbreken: De gids heeft op elk moment toegang tot de lijst met verzamelde vragen.</p>
-                        <a href="#questions" class="btn btn-primary btn-sm mb-3" role="button">Hoe het werkt</a>
-                    </div>
-
-                    <!-- Third Column -->
-                    <div class="col-12 col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <p class="fs-1"><i class="bi bi-wind" style="color:#028A8C;"></i></p>
-                        <h3 class="card-title">Gemakkelijk te vervoeren</h3>
-                        <p class="card-text">Een koffer met apparatuur voor een groepsrondleiding is zwaar om te dragen
-                            en aantrekkelijk voor dieven. Onze kaarten niet!</p>
-
-                        <p class="fs-1"><i class="bi bi-brightness-alt-high" style="color:#028A8C;"></i></p>
-                        <h3 class="card-title">Hygiënisch</h3>
-                        <p class="card-text">Apparatuur voor groepsrondleiding moet na elk gebruik worden ontsmet. Niet
-                            onze kaarten!</p>
-
-                        <p class="fs-1"><i class="bi bi-tree" style="color:#028A8C;"></i></p>
-                        <h3 class="card-title">Milieuvriendelijk</h3>
-                        <p class="card-text">Apparaten produceren schadelijk elektronisch afval. Onze kaarten worden
-                            gedrukt op FSC-karton met CO2-compensatie.</p>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End About Boxes Section -->
-
-        <!-- ======= Features Section ======= -->
-        <section id="use-cases-factory-city-museum-tours" style="background:#000000;" class="about-boxes">
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Bekijk de gebruikscases van Nubart Live</h2>
-                    <p>Gebruikscases</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
-                        <div class="card">
-                            <img data-src="../../assets/img/index/web-factory.webp" width="417" height="285"
-                                 class="card-img-top img-fluid lazyload" alt="..."/>
-                            <div class="card-icon">
-                                <i class="bi bi-bricks"></i>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="fs-5 card-title">
-                                    Fabrieks- en bedrijfsrondleidingen</h3>
-                                <p class="card-text">Geef je bezoekers een kosteneffectieve rondleiding over je
-                                    fabrieksvloer: Door gebruik van een 'unidirectionele' microfoon voor smartphones is
-                                    Nubart Live ideaal voor fabrieksrondleidingen in lawaaiige omgevingen.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card">
-                            <img data-src="../../assets/img/index/about-nubart-live.webp" width="417" height="278"
-                                 class="card-img-top img-fluid lazyload" alt="..."/>
-                            <div class="card-icon">
-                                <a href=""> <i class="bi bi-headset"></i></a>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="fs-5 card-title">Rondleidingen door de stad</h3>
-                                <p class="card-text">Nubart Live is een eenvoudig en betaalbaar systeem om groepen door
-                                    een stad te leiden:<br> De stem van de gids overstemt het verkeerslawaai en het
-                                    maakt niet uit hoe ver weg de deelnemers zijn. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card">
-                            <img data-src="../../assets/img/about-hearing-impaired.jpg" width="417" height="278"
-                                 class="card-img-top img-fluid lazyload" alt="..."/>
-                            <div class="card-icon">
-                                <i class="bi bi-headset"></i>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="fs-5 card-title">Toegankelijkheid voor slechthorenden</h3>
-                                <p class="card-text">Nubart Live helpt je om je rondleidingen inclusiever te maken: Het
-                                    gebruik van een koptelefoon op een smartphone zorgt voor een veel betere
-                                    luisterervaring voor mensen met gehoorproblemen (geen interferentie door
-                                    achtergrondgeluiden, volume aanpassen, enz.) </p>
-                            </div>
-                        </div>
-                    </div>
+                <!-- CTA after diagram -->
+                <div class="text-center mt-5">
+                    <p class="lead mb-3" style="color:#ffffff">Wilt u zien hoe Nubart LIVE werkt voor uw
+                        rondleidingen?</p>
+                    <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl"
+                       class="btn btn-lg btn-primary"
+                       target="_blank"
+                       onclick="ZohoLightbox.open(); return false;">
+                        Vraag een gratis proefpakket aan
+                    </a>
                 </div>
 
             </div>
 
-        </section><!-- End Features Section -->
+        </div>
+
+    </section><!-- End Testimonials Section -->
+    <!-- ======= About Boxes Section ======= -->
+    <section id="benefits-qr-tour-guide-system" class="about-boxes">
+        <div class="container" data-aos="fade-up">
+            <div class="row text-center">
+                <div class="col-12">
+                    <p class="fs-1">Eenvoudiger kan het niet</p>
+                </div>
+            </div>
+
+            <div class="row text-center mb-4">
+                <div class="col-12">
+                    <h5>Waarom een rondleidingssysteem als iedereen een smartphone heeft?</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- First Column -->
+                <div class="col-12 col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <p class="fs-1"><i class="bi bi-qr-code-scan" style="color:#028A8C;"></i></p>
+                    <h3 class="card-title">Gemakkelijk te bedienen</h3>
+                    <p class="card-text">Zowel bezoekers als de gids scannen de QR-code op de kaarten. Dat is alles!
+                        Geen registratie of app download nodig. (Alleen de gids moet inloggen).</p>
+
+                    <p class="fs-1"><i class="bi bi-piggy-bank" style="color:#028A8C;"></i></p>
+                    <h3 class="card-title">Betaalbaar</h3>
+                    <p class="card-text">Ons basispakket van 500 tickets kost minder dan het inhuren van een
+                        groepsreis-systeem en is voldoende voor veel tours.</p>
+
+                    <p class="fs-1"><i class="bi bi-file-lock" style="color:#028A8C;"></i></p>
+                    <h3 class="card-title">Anoniem</h3>
+                    <p class="card-text">Je bezoekers hoeven geen persoonlijke gegevens op te geven om Nubart Live
+                        te gebruiken. Het is volledig anoniem!</p>
+                </div>
+
+                <!-- Second Column (now visible on all screens) -->
+                <div class="col-12 col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <p class="fs-1"><i class="bi bi-translate" style="color:#028A8C;"></i></p>
+                    <h3 class="card-title">AI-vertalingn</h3>
+                    <p class="card-text">Leidt u een meertalige groep? Geen probleem! Voeg eenvoudig onze live
+                        vertaalfunctie toe en iedereen kan meedoen, ongeacht hun moedertaal.</p>
+                    <a href="#ai-translation-benefits" class="btn btn-primary btn-sm" role="button">Learn more</a>
+                    <div class="text-center mb-4">
+                        <img data-src="../../assets/img/group-guiding-card.webp" class="lazyload img-fluid"
+                             alt="Nubart Live: rondleidingssysteem voor rondleidingen.">
+                    </div>
+
+                    <p class="fs-1"><i class="bi bi-question-circle" style="color:#028A8C;"></i></p>
+                    <h3 class="card-title">Onderzoeksfunctie</h3>
+                    <p class="card-text">Je gasten kunnen de gids op elk moment een vraag stellen zonder hem te
+                        onderbreken: De gids heeft op elk moment toegang tot de lijst met verzamelde vragen.</p>
+                    <a href="#questions" class="btn btn-primary btn-sm mb-3" role="button">Hoe het werkt</a>
+                </div>
+
+                <!-- Third Column -->
+                <div class="col-12 col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <p class="fs-1"><i class="bi bi-wind" style="color:#028A8C;"></i></p>
+                    <h3 class="card-title">Gemakkelijk te vervoeren</h3>
+                    <p class="card-text">Een koffer met apparatuur voor een groepsrondleiding is zwaar om te dragen
+                        en aantrekkelijk voor dieven. Onze kaarten niet!</p>
+
+                    <p class="fs-1"><i class="bi bi-brightness-alt-high" style="color:#028A8C;"></i></p>
+                    <h3 class="card-title">Hygiënisch</h3>
+                    <p class="card-text">Apparatuur voor groepsrondleiding moet na elk gebruik worden ontsmet. Niet
+                        onze kaarten!</p>
+
+                    <p class="fs-1"><i class="bi bi-tree" style="color:#028A8C;"></i></p>
+                    <h3 class="card-title">Milieuvriendelijk</h3>
+                    <p class="card-text">Apparaten produceren schadelijk elektronisch afval. Onze kaarten worden
+                        gedrukt op FSC-karton met CO2-compensatie.</p>
+                </div>
+            </div>
+        </div>
+    </section><!-- End About Boxes Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="use-cases-factory-city-museum-tours" style="background:#000000;" class="about-boxes">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Bekijk de gebruikscases van Nubart Live</h2>
+                <p>Gebruikscases</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../../assets/img/index/web-factory.webp" width="417" height="285"
+                             class="card-img-top img-fluid lazyload" alt="..."/>
+                        <div class="card-icon">
+                            <i class="bi bi-bricks"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="fs-5 card-title">
+                                Fabrieks- en bedrijfsrondleidingen</h3>
+                            <p class="card-text">Geef je bezoekers een kosteneffectieve rondleiding over je
+                                fabrieksvloer: Door gebruik van een 'unidirectionele' microfoon voor smartphones is
+                                Nubart Live ideaal voor fabrieksrondleidingen in lawaaiige omgevingen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <img data-src="../../assets/img/index/about-nubart-live.webp" width="417" height="278"
+                             class="card-img-top img-fluid lazyload" alt="..."/>
+                        <div class="card-icon">
+                            <a href=""> <i class="bi bi-headset"></i></a>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="fs-5 card-title">Rondleidingen door de stad</h3>
+                            <p class="card-text">Nubart Live is een eenvoudig en betaalbaar systeem om groepen door
+                                een stad te leiden:<br> De stem van de gids overstemt het verkeerslawaai en het
+                                maakt niet uit hoe ver weg de deelnemers zijn. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <img data-src="../../assets/img/about-hearing-impaired.jpg" width="417" height="278"
+                             class="card-img-top img-fluid lazyload" alt="..."/>
+                        <div class="card-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="fs-5 card-title">Toegankelijkheid voor slechthorenden</h3>
+                            <p class="card-text">Nubart Live helpt je om je rondleidingen inclusiever te maken: Het
+                                gebruik van een koptelefoon op een smartphone zorgt voor een veel betere
+                                luisterervaring voor mensen met gehoorproblemen (geen interferentie door
+                                achtergrondgeluiden, volume aanpassen, enz.) </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section><!-- End Features Section -->
     <!-- Stgart factory tours Section -->
 
     <section id="factory-tours" class="team section light-background">
@@ -857,25 +923,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="section-title">
                 <h2>Perfect voor fabrieks- en bedrijfsbezoeken</h2>
 
-                <p>Efficiënte communicatie tijdens fabrieksrondleidingen – zelfs in een luidruchtige productieomgeving</p>
+                <p>Efficiënte communicatie tijdens fabrieksrondleidingen – zelfs in een luidruchtige
+                    productieomgeving</p>
             </div>
 
             <div class="row">
                 <div class="col-lg-8">
 
-                    <p style="font-size: 20px;">Luidruchtige productieomgevingen maken het lastig om elkaar goed te verstaan tijdens fabrieksbezoeken.
+                    <p style="font-size: 20px;">Luidruchtige productieomgevingen maken het lastig om elkaar goed te
+                        verstaan tijdens fabrieksbezoeken.
 
-                        Traditionele draadloze gidsinstallaties zijn duur in aanschaf of huur, vergen veel onderhoud en zijn slechts in beperkte mate geschikt voor meertalige groepen.</p>
+                        Traditionele draadloze gidsinstallaties zijn duur in aanschaf of huur, vergen veel onderhoud en
+                        zijn slechts in beperkte mate geschikt voor meertalige groepen.</p>
                     <h3>Waarom industriële bedrijven voor Nubart LIVE kiezen:</h3>
                     <ul style="font-size: 20px;">
 
-                        <li><strong>Geavanceerde ruisonderdrukking</strong> – Kristalhelder geluid, zelfs in luidruchtige productiehallen, dankzij een unidirectionele USB-microfoon</li>
+                        <li><strong>Geavanceerde ruisonderdrukking</strong> – Kristalhelder geluid, zelfs in
+                            luidruchtige productiehallen, dankzij een unidirectionele USB-microfoon
+                        </li>
 
-                        <li><strong>Medewerkersopleiding en onboarding</strong> – Train internationale medewerkers in hun moedertaal, zonder extra hardware</li>
+                        <li><strong>Medewerkersopleiding en onboarding</strong> – Train internationale medewerkers in
+                            hun moedertaal, zonder extra hardware
+                        </li>
 
-                        <li><strong>Discretie voor VIP-bezoekers</strong> – Anonieme deelname via smartphone, ideaal voor vertrouwelijke rondleidingen door de fabriek</li>
+                        <li><strong>Discretie voor VIP-bezoekers</strong> – Anonieme deelname via smartphone, ideaal
+                            voor vertrouwelijke rondleidingen door de fabriek
+                        </li>
 
-                        <li><strong>Flexibel gebruik zonder investeringskosten</strong> – Perfect voor incidentele bezoeken van investeerders of afspraken met klanten, zonder dagelijkse systeemhuur</li>
+                        <li><strong>Flexibel gebruik zonder investeringskosten</strong> – Perfect voor incidentele
+                            bezoeken van investeerders of afspraken met klanten, zonder dagelijkse systeemhuur
+                        </li>
                     </ul>
 
                     <h3>Typische toepassingsgebieden in fabrieken en industriële bedrijven:</h3>
@@ -889,7 +966,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
 
                 <div class="col-lg-4">
-                    <img src="../../assets/img/factory/factory-tour.jpg" alt="Fabrieksrondleiding in een productiehallen met Nubart LIVE audiogids-systeem"                     class="img-fluid">
+                    <img src="../../assets/img/factory/factory-tour.jpg"
+                         alt="Fabrieksrondleiding in een productiehallen met Nubart LIVE audiogids-systeem"
+                         class="img-fluid">
 
                     <div class="cta-box mt-4 p-3 bg-light">
                         <h4>Ben je van plan om fabrieksrondleidingen te organiseren?</h4>
@@ -906,757 +985,1245 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
 
-    </section>  <!-- Sectie “Fabriek" sluiten -->
-        <!-- ======= About Section ======= -->
-        <section id="ai-translation-benefits" class="contact section">
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Voeg AI-aangedreven simultaanvertaling toe</h2>
-                    <p>Optionele AI-aangedreven simultaanvertaling</p>
+    </section>
+    <!-- Sectie “Fabriek" sluiten -->
+    <!-- =======  Video demo LIVE with AI  Section ======= -->
+    <section id="ai-translation-benefits" class="contact section">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Voeg AI-aangedreven simultaanvertaling toe</h2>
+                <p>Optionele AI-aangedreven simultaanvertaling</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                    <br>
+                    <img data-src="../../assets/img/translate/nubart-translate-video.webp"
+                         class="img-fluid lazyload"
+                         alt="Nubart TRANSLATE - AI-based simultaneous interpretation and translation of your tours">
+
+
                 </div>
 
-                <div class="row">
+                <div class="col-lg-6 pt-3 pt-lg-0 content">
+                    <br>
 
-                    <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                        <br>
-                        <img data-src="../../assets/img/translate/nubart-translate-video.webp"
-                             class="img-fluid lazyload"
-                             alt="Nubart TRANSLATE - AI-based simultaneous interpretation and translation of your tours">
+                    <p style="font-size: 20px;">Begeleidt u rondleidingen met internationale bezoekers? Met onze
+                        optionele AI-add-on kan één gids nu een meertalige groep begeleiden zonder tolken in te huren.
+                    </p>
+
+                    <p style="font-size: 20px;">
+                        Onze optionele AI-vertalingsadd-on werkt naadloos samen met Nubart LIVE:
+                    </p>
+
+                    <ul style="font-size: 20px;">
+                        <li><strong>Deelnemers scannen hun QR-code</strong> en selecteren hun voorkeurstaal uit 35+
+                            opties
+                        </li>
+                        <li><strong>Ze kunnen luisteren in de oorspronkelijke taal</strong> om de natuurlijke stem van
+                            de gids te horen
+                        </li>
+                        <li><strong>Of realtime AI-vertaling ontvangen</strong> als tekst en audio op hun scherm</li>
+                        <li><strong>Vragen worden automatisch vertaald</strong> als deelnemers in hun eigen taal
+                            schrijven
+                        </li>
+                    </ul>
+
+                    <p style="font-size: 20px;">
+                        Één rondleiding. Meerdere talen. Geen extra gidsen nodig.
+                    </p>
 
 
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Video demo LIVE with AI Section -->
+
+    <!-- ======= Pricing and Calculator Section ======= -->
+    <section id="pricing" class="services section-bg">
+        <div class="container my-5">
+
+            <!-- Header -->
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="display-4 fw-bold mb-2">Prijzen &amp; Kostencalculator</h2>
+                    <p class="text-muted mb-0">Eenvoudige, transparante prijzen. Bereken je offerte in enkele seconden.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-stretch justify-content-center">
+
+                <!-- LEFT: Pricing summary -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="card h-100 border card-static">
+                        <div class="card-body p-4 d-flex flex-column">
+
+                            <!-- Card Packages -->
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-qr-code-scan fs-3 me-2" style="color: #783119;"></i>
+                                <h4 class="fw-bold mb-0">QR-codekaarten</h4>
+                            </div>
+                            <p class="text-muted small mb-2">Eenmalige aankoop · onbeperkte gidsen · geen abonnement</p>
+
+                            <div class="mb-0" style="font-size: 0.9rem;">
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="../../assets/img/live/live-print-your-own.png" alt="Print-Your-Own" style="width:75px; height:auto; border-radius:4px; flex-shrink:0;">
+                                        <div><strong>Print-Your-Own</strong><br>
+                                            <small class="text-muted">PDF · afdrukken &amp; gebruiken</small><br>
+                                            <small class="text-muted">Geleverd binnen max. 1 dag</small></div>
+                                    </div>
+                                    <div class="text-end"><strong>€79</strong> installatiekosten<br><small class="text-muted">+ €1,50/code · min. 50</small></div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="../../assets/img/live/live-basic.png" alt="Basic" style="width:75px; height:auto; border-radius:4px; flex-shrink:0;">
+                                        <div><strong>Basic</strong> <span class="badge rounded-pill" style="background: #028a8c; font-size: 0.65rem;">Populair</span><br>
+                                            <small class="text-muted">500 voorgedrukte kartonnen kaarten</small><br><small class="text-muted">Verzonden in 2-3 dagen</small></div>
+                                    </div>
+                                    <div class="text-end"><strong>€599</strong></div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center py-2">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="../../assets/img/live/live-custom.png" alt="Custom" style="width:75px; height:auto; border-radius:4px; flex-shrink:0;">
+                                        <div><strong>Custom</strong><br><small class="text-muted">3.000+ kaarten · jouw huisstijl</small><br>
+                                            <small class="text-muted">Verzonden in 30 dagen</small></div>
+                                    </div>
+                                    <div class="text-end"><strong>vanaf €3.500</strong><br><small class="text-muted">volumekortingen</small></div>
+                                </div>
+                            </div>
+
+                            <hr class="mt-1">
+
+                            <!-- AI Translation -->
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi bi-translate fs-4 me-2" style="color: #b22222;"></i>
+                                <h5 class="fw-bold mb-0">AI-vertaling add-on</h5>
+                            </div>
+
+                            <div class="mb-2">
+                                <span class="fs-3 fw-bold">€39</span>
+                                <small class="text-muted"> per stream-uur</small>
+                            </div>
+
+                            <ul class="list-unstyled mb-3" style="font-size: 0.85rem;">
+                                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Meer dan 35 talen, audio &amp; tekst in realtime</li>
+                                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Prijs per gids-stream, niet per taal</li>
+                                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Onbeperkte luisteraars — geen kosten per bezoeker</li>
+                                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Alleen in rekening gebracht terwijl de gids spreekt met vertaling ingeschakeld</li>
+                                <li><i class="bi bi-check2 text-success me-1"></i> Gids schakelt op elk moment in/uit</li>
+                            </ul>
+
+                            <hr>
+
+                            <!-- Media Library -->
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi bi-collection-play fs-4 me-2" style="color: #028a8c;"></i>
+                                <h5 class="fw-bold mb-0">Mediabibliotheek</h5>
+                            </div>
+                            <p class="text-muted small mb-2">De gids stuurt multimedia-inhoud via afstandsbediening naar de schermen van deelnemers. Één bibliotheek per route.</p>
+                            <div class="d-flex gap-3" style="font-size: 0.9rem;">
+                                <div><strong>€500</strong> <span class="text-muted">eerste bibliotheek</span></div>
+                                <div><strong>€250</strong> <span class="text-muted">elke extra</span></div>
+                            </div>
+
+                            <div class="mt-auto pt-4">
+                                <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
+                                   class="btn btn-primary w-100 py-3"
+                                   target="_blank"
+                                   onclick="ZohoLightbox.open(); return false;">
+                                    <div class="fw-bold">Vraag een gratis proefkit aan</div>
+                                    <div class="small text-light">6 kaarten + 30 min gratis AI-vertaling + demo mediabibliotheek</div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Calculator -->
+                <div class="col-lg-7" id="live-calc-wrapper">
+
+                    <!-- Print-only logo header -->
+                    <div id="live-calc-print-header" class="d-none">
+                        <img src="../../assets/img/logos/logo-nubart-live-teal.svg" alt="Nubart LIVE">
                     </div>
 
-                    <div class="col-lg-6 pt-3 pt-lg-0 content">
-                        <br>
+                    <!-- Step 1: Card package -->
+                    <div class="card shadow-lg border mb-3" id="live-calc-step-1">
+                        <div class="card-body p-4">
+                            <h4 class="fw-bold mb-1">Jouw kostenschatting</h4>
+                            <p class="text-muted small mb-3">Bereken je Nubart LIVE offerte in een paar klikken</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Stap 1 van 4</p>
+                            <h6 class="fw-bold mb-3">Welk kaartenspakket heb je nodig?</h6>
 
-                        <p style="font-size: 20px;">Begeleidt u rondleidingen met internationale bezoekers? Met onze optionele AI-add-on kan één gids nu een meertalige groep begeleiden zonder tolken in te huren.
-                        </p>
+                            <div class="d-flex flex-column gap-2 mb-3">
+                                <button class="btn btn-outline-secondary text-start px-3 py-2" id="btn-pkg-pyo" onclick="liveCalcSetPackage('pyo')">
+                                    <strong>Print-Your-Own</strong> — <small>€79 installatiekosten + €1,50/code</small>
+                                </button>
+                                <button class="btn btn-outline-secondary text-start px-3 py-2" id="btn-pkg-basic" onclick="liveCalcSetPackage('basic')">
+                                    <strong>Basic</strong> — <small>500 gedrukte kaarten · €599</small>
+                                </button>
+                                <button class="btn btn-outline-secondary text-start px-3 py-2" id="btn-pkg-custom" onclick="liveCalcSetPackage('custom')">
+                                    <strong>Custom</strong> — <small>3.000+ kaarten op maat · vanaf €3.500</small>
+                                </button>
+                            </div>
 
-                        <p style="font-size: 20px;">
-                            Onze optionele AI-vertalingsadd-on werkt naadloos samen met Nubart LIVE:
-                        </p>
+                            <!-- PYO sub-form -->
+                            <div class="d-none mb-3" id="live-calc-pyo-form">
+                                <label class="form-label small fw-semibold">Hoeveel codes heb je nodig?</label>
+                                <input type="number" id="live-calc-pyo-qty" class="form-control" min="50" max="10000" placeholder="min. 50" style="max-width: 200px;">
+                                <div class="form-text">Minimum 50 codes</div>
+                            </div>
 
-                        <ul style="font-size: 20px;">
-                            <li><strong>Deelnemers scannen hun QR-code</strong> en selecteren hun voorkeurstaal uit 35+ opties</li>
-                            <li><strong>Ze kunnen luisteren in de oorspronkelijke taal</strong> om de natuurlijke stem van de gids te horen</li>
-                            <li><strong>Of realtime AI-vertaling ontvangen</strong> als tekst en audio op hun scherm</li>
-                            <li><strong>Vragen worden automatisch vertaald</strong> als deelnemers in hun eigen taal schrijven</li>
-                        </ul>
+                            <!-- Basic sub-form -->
+                            <div class="d-none mb-3" id="live-calc-basic-form">
+                                <label class="form-label small fw-semibold">Hoeveel pakketten van 500 kaarten?</label>
+                                <input type="number" id="live-calc-basic-qty" class="form-control" min="1" max="100" placeholder="e.g. 1" value="1" style="max-width: 200px;">
+                            </div>
 
-                        <p style="font-size: 20px;">
-                            Één rondleiding. Meerdere talen. Geen extra gidsen nodig.
-                        </p>
+                            <!-- Custom sub-form -->
+                            <div class="d-none mb-3" id="live-calc-custom-form">
+                                <label class="form-label small fw-semibold">Hoeveel kaarten heb je nodig?</label>
+                                <input type="number" id="live-calc-custom-qty" class="form-control" min="3000" step="1000" placeholder="min. 3.000" style="max-width: 200px;">
+                                <div id="live-calc-custom-hint" style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem;"></div>
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-primary px-4" onclick="liveCalcStep1Next()">Volgende →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Media Library -->
+                    <div class="card shadow-sm border mb-3 d-none" id="live-calc-step-2">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Stap 2 van 4</p>
+                            <h5 class="fw-bold mb-1">Heb je een mediabibliotheek nodig?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">Met een mediabibliotheek kan de gids tijdens de rondleiding via afstandsbediening afbeeldingen, video's of documenten naar de schermen van deelnemers sturen. Je kunt voor elke route een aparte bibliotheek aanmaken.</p>
+                            <div class="d-flex gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-media-no" onclick="liveCalcSetMedia(false)">Nee</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-media-yes" onclick="liveCalcSetMedia(true)">Ja</button>
+                            </div>
+
+                            <div class="d-none mb-3" id="live-calc-media-form">
+                                <label class="form-label small fw-semibold">Hoeveel mediabibliotheken? <small class="text-muted fw-normal">(één per route)</small></label>
+                                <input type="number" id="live-calc-media-qty" class="form-control" min="1" max="50" placeholder="e.g. 1" value="1" style="max-width: 160px;">
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="liveCalcGoToStep(1)">← Terug</button>
+                                <button class="btn btn-primary px-4" onclick="liveCalcStep2Next()">Volgende →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: AI Translation -->
+                    <div class="card shadow-sm border mb-3 d-none" id="live-calc-step-3">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Stap 3 van 4</p>
+                            <h5 class="fw-bold mb-1">Heb je de AI-vertaling add-on nodig?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">Realtime vertaling in meer dan 35 talen. €39 per stream-uur (per gids met actieve vertaling).</p>
+                            <div class="d-flex gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-translate-no" onclick="liveCalcSetTranslation(false)">Nee</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-translate-yes" onclick="liveCalcSetTranslation(true)">Ja</button>
+                            </div>
+
+                            <div class="d-none mb-3" id="live-calc-translate-form">
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <label class="form-label small fw-semibold">Verwachte gidsen die vertaling gebruiken</label>
+                                        <input type="number" id="live-calc-guides" class="form-control" min="1" max="50" placeholder="e.g. 1" value="1">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label small fw-semibold">Uren vertaling per gids</label>
+                                        <input type="number" id="live-calc-hours" class="form-control" min="0.5" step="0.5" max="1000" placeholder="e.g. 2">
+                                        <div class="form-text">Totaal verwachte uren (we factureren per minuut)</div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <p class="fw-semibold mb-2" style="font-size: 0.85rem;">Is dit de eerste keer dat je de AI-vertaling van Nubart LIVE gebruikt?</p>
+                                    <div class="d-flex gap-3">
+                                        <button class="btn btn-outline-secondary btn-sm px-3" id="btn-live-firsttime-yes" onclick="liveCalcSetFirstTime(true)">Ja, eerste keer</button>
+                                        <button class="btn btn-outline-secondary btn-sm px-3" id="btn-live-firsttime-no" onclick="liveCalcSetFirstTime(false)">Nee, al eerder gebruikt</button>
+                                    </div>
+                                    <div class="d-none text-danger mt-2" id="live-calc-firsttime-warning" style="font-size:0.85rem;">
+                                        <i class="bi bi-exclamation-circle me-1"></i>Selecteer een optie om door te gaan.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="liveCalcGoToStep(2)">← Terug</button>
+                                <button class="btn btn-primary px-4" onclick="liveCalcStep3Next()">Bereken →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Result -->
+                    <div class="card shadow-sm border mb-3 d-none" id="live-calc-step-4">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Jouw schatting</p>
+                            <h5 class="fw-bold mb-3">Kostenoverzicht</h5>
+
+                            <!-- Summary chips -->
+                            <div class="d-flex flex-wrap gap-2 mb-4" id="live-calc-summary-chips"></div>
+
+                            <!-- Result card -->
+                            <div class="p-4 rounded-3 mb-3" style="background: #f0fdfb; border: 1.5px solid #2ec4b6;">
+                                <div class="row align-items-center g-2">
+                                    <div class="col-sm-5">
+                                        <div class="text-muted mb-1" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">Geschat totaal</div>
+                                        <div style="font-size: 2.6rem; font-weight: 700; color: #065f46; line-height: 1;" id="live-calc-result-total">—</div>
+                                        <div class="text-muted mt-1" style="font-size: 0.8rem;">excl. btw · indicatief</div>
+                                    </div>
+                                    <div class="col-sm-7 mt-3 mt-sm-0">
+                                        <ul class="list-unstyled mb-0" style="font-size: 0.83rem;" id="live-calc-result-breakdown"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Notes -->
+                            <div class="alert mb-3 p-3 d-none" id="live-calc-translation-note" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
+                                <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
+                                <strong>Let op:</strong> De vertaaluren zijn indicatief en gebaseerd op volledige uren. Nubart factureert per werkelijke minuut — alleen terwijl de gids spreekt met vertaling ingeschakeld. Er wordt een eindafrekening met exact gebruik uitgestuurd.
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2 align-items-center">
+                                <button class="btn btn-outline-secondary" onclick="liveCalcGoToStep(1)">← Opnieuw beginnen</button>
+                                <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
+                                   class="btn btn-primary px-4" target="_blank"
+                                   onclick="ZohoLightbox.open(); return false;">
+                                    Vraag een gratis proefkit aan →
+                                </a>
+                                <button class="btn btn-outline-secondary" onclick="window.print()" id="live-calc-print-btn">
+                                    <i class="bi bi-printer me-1"></i>Schatting afdrukken
+                                </button>
+                                <button class="btn btn-outline-secondary" onclick="liveCalcRequestQuote()">
+                                    <i class="bi bi-envelope me-1"></i>Wil je een officiële offerte?
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quote request fallback panel -->
+                    <div id="live-calc-quote-panel" class="d-none mt-2">
+                        <div class="card border shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h6 class="fw-bold mb-0">Je offerteaanvraag is klaar</h6>
+                                    <button type="button" class="btn-close" onclick="liveCalcCloseQuotePanel()"></button>
+                                </div>
+                                <p class="text-muted mb-3" style="font-size:0.85rem;">
+                                    Kopieer de tekst hieronder en plak hem in je e-mailclient, of gebruik de knop <strong>Openen in mail-app</strong> als je er een hebt geconfigureerd.
+                                </p>
+                                <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
+                                    <strong>Aan:</strong> info@nubart.eu
+                                </div>
+                                <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
+                                    <strong>Onderwerp:</strong> <span id="live-calc-quote-subject"></span>
+                                </div>
+                                <textarea id="live-calc-quote-body" class="form-control mb-3" rows="10"
+                                          style="font-size:0.8rem; font-family: monospace; resize:vertical;"
+                                          readonly></textarea>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button id="live-calc-quote-copy" class="btn btn-outline-secondary btn-sm" data-copied-text="✓ Gekopieerd!">
+                                        <i class="bi bi-clipboard me-1"></i>Kopiëren naar klembord
+                                    </button>
+                                    <a id="live-calc-quote-mailto" href="#" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-envelope me-1"></i>Openen in mail-app →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise hint -->
+                    <div class="text-center mt-3">
+                        <small class="text-muted">
+                            Organiseer je evenementen in plaats van rondleidingen?
+                            <a href="../../ai-simultaneous-interpretation/" class="text-decoration-none fw-semibold">Ontdek Nubart TRANSLATE voor evenementen →</a>
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <script src="../../assets/js/live-calculator-nl.js" defer></script>
+
+    <!-- ======= End of Pricing and Calculator Section ======= -->
 
 
+
+    <!-- ======= Questions to the Guide Section ======= -->
+    <section id="questions" class="testimonials"
+             style="background: linear-gradient(135deg, #028a8c 0%, #783119 100%);">
+        <div class="container" data-aos="zoom-in">
+
+            <div data-aos="fade-up" data-aos-delay="100">
+
+                <div class="d-grid gap-4">
+                    <div class="section-heading">
+                        <h2 style="color:#ffffff" class="text-center">Vragen voor de gids? Geen probleem</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <p style="color:#ffffff" class="fs-5">Met de meeste standaard groepsbegeleidingssystemen
+                                (apparaten) kunnen gasten geen vragen stellen.<br>
+                                <br>Andere hebben een talkbackfunctie waarmee de gast een vraag kan stellen aan de
+                                hele groep. Verlegen deelnemers hebben de neiging zich in te houden, terwijl de
+                                andere deelnemers de gids soms onderbreken met eindeloze vragen, waardoor de hele
+                                ervaring bedorven wordt.<br>
+                                <br> Nubart Live biedt een niet-invasieve oplossing waarbij de vragen worden
+                                verzameld op de smartphone van de gids, zodat hij ze op het juiste moment kan
+                                beantwoorden.<br>Indien u de module voor gelijktijdige vertaling heeft aangeschaft,
+                                worden de vragen automatisch vertaald. </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p style="color:#ffffff" class="text-center fs-3">Deelnemers</p>
+                            <img data-src="../../assets/img/tivfl/tivfl-questions-live-guest.gif"
+                                 class="img-fluid lazyload  mx-auto d-block"
+                                 alt="Hoe stel je vragen aan de gids op het Nubart Live rondleidingssysteem?"/>
+
+                        </div>
+                        <div class="col-md-4">
+                            <p style="color:#ffffff" class="text-center fs-3">Gids</p>
+                            <img data-src="../../assets/img/tivfl/tivfl-questions-live-guide.gif"
+                                 class="img-fluid lazyload mx-auto d-block"
+                                 alt="Hoe gidsen vragen ontvangen in het Nubart Live rondleidingssysteem"/>
+
+                        </div>
+                        <div class="col-md-1">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- End Questions to the Guide Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="clients section light-background">
+        <div class="container" data-aos="fade-up">
+
+            <h3 class="text-center mb-4 clients-heading">Vertrouwen ons</h3>
+            <div id="clientsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000"
+                 data-bs-pause="hover">
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button>
+                </div>
+                <!-- Carousel Inner -->
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
+                            <div class="client-logo"><img src="../../assets/img/clients/barcelona-activa.webp"
+                                                          class="img-fluid"
+                                                          alt="Systeem voor reisleiders Barcelona Activa"></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/a-raymond.webp"
+                                                          class="img-fluid" alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/hefed.webp" class="img-fluid"
+                                                          alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/neuman.webp" class="img-fluid"
+                                                          alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/betomax.webp" class="img-fluid"
+                                                          alt=""></div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
+                            <div class="client-logo"><img src="../../assets/img/clients/international-policy.webp"
+                                                          class="img-fluid" alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/colussi.webp" class="img-fluid"
+                                                          alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/travel-tech.webp"
+                                                          class="img-fluid" alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/caf.webp" class="img-fluid"
+                                                          alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/escola-hostaleria-girona.webp"
+                                                          class="img-fluid" alt=""></div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
+                            <div class="client-logo"><img src="../../assets/img/clients/draxton.webp" class="img-fluid"
+                                                          alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/ivar-spa.webp" class="img-fluid"
+                                                          alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/ksg.webp" class="img-fluid"
+                                                          alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/gemu.webp" class="img-fluid"
+                                                          alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/nebext.webp" class="img-fluid"
+                                                          alt=""></div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
+                            <div class="client-logo"><img src="../../assets/img/clients/spenner.webp" class="img-fluid"
+                                                          alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/de-castelli.webp"
+                                                          class="img-fluid"
+                                                          alt="Tour guide system, De Castelli, Crocetta del Montello">
+                            </div>
+                            <div class="client-logo"><img src="../../assets/img/clients/fycma.webp" class="img-fluid"
+                                                          alt="FYCMA, Malaga Congress Center (Spanien)"></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/nisva-trafilix.webp"
+                                                          class="img-fluid"
+                                                          alt="Tour guide system, Nisva, Gruppo Lucefin-Trafilix"></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/vorarlberg.webp"
+                                                          class="img-fluid" alt=""></div>
+                        </div>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
+                            <div class="client-logo"><img src="../../assets/img/clients/informatica-alto-adige.webp"
+                                                          class="img-fluid" alt=""></div>
+                            <div class="client-logo"><img src="../../assets/img/clients/meet-inn-patagonia.webp"
+                                                          class="img-fluid" alt="Meet inn Patagonia"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- ======= Testimonials Section ======= -->
-        <section id="questions" class="testimonials"
-                 style="background: linear-gradient(135deg, #028a8c 0%, #783119 100%);">
-            <div class="container" data-aos="zoom-in">
-
-                <div data-aos="fade-up" data-aos-delay="100">
-
-                    <div class="d-grid gap-4">
-                        <div class="section-heading">
-                            <h2 style="color:#ffffff" class="text-center">Vragen voor de gids? Geen probleem</h2>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4 d-flex align-items-center">
-                                <p style="color:#ffffff" class="fs-5">Met de meeste standaard groepsbegeleidingssystemen
-                                    (apparaten) kunnen gasten geen vragen stellen.<br>
-                                    <br>Andere hebben een talkbackfunctie waarmee de gast een vraag kan stellen aan de
-                                    hele groep. Verlegen deelnemers hebben de neiging zich in te houden, terwijl de
-                                    andere deelnemers de gids soms onderbreken met eindeloze vragen, waardoor de hele
-                                    ervaring bedorven wordt.<br>
-                                    <br> Nubart Live biedt een niet-invasieve oplossing waarbij de vragen worden
-                                    verzameld op de smartphone van de gids, zodat hij ze op het juiste moment kan
-                                    beantwoorden.<br>Indien u de module voor gelijktijdige vertaling heeft aangeschaft,
-                                    worden de vragen automatisch vertaald. </p>
-                            </div>
-                            <div class="col-md-4">
-                                <p style="color:#ffffff" class="text-center fs-3">Deelnemers</p>
-                                <img data-src="../../assets/img/tivfl/tivfl-questions-live-guest.gif"
-                                     class="img-fluid lazyload  mx-auto d-block"
-                                     alt="Hoe stel je vragen aan de gids op het Nubart Live rondleidingssysteem?"/>
-
-                            </div>
-                            <div class="col-md-4">
-                                <p style="color:#ffffff" class="text-center fs-3">Gids</p>
-                                <img data-src="../../assets/img/tivfl/tivfl-questions-live-guide.gif"
-                                     class="img-fluid lazyload mx-auto d-block"
-                                     alt="Hoe gidsen vragen ontvangen in het Nubart Live rondleidingssysteem"/>
-
-                            </div>
-                            <div class="col-md-1">
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+        </div>
+    </section><!-- End Portfolio Section -->
+    <!-- ======= FAQ-Bereich ======= -->
+    <section id="faq" class="faq">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Veelgestelde vragen</h2>
+                <p>FAQ</p>
 
             </div>
 
-        </section><!-- End Testimonials Section -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
 
-        <!-- ======= Portfolio Section ======= -->
-        <section id="portfolio" class="clients section light-background">
-            <div class="container" data-aos="fade-up">
-
-                <h3 class="text-center mb-4 clients-heading">Vertrouwen ons</h3>
-                <div id="clientsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000"
-                     data-bs-pause="hover">
-                    <!-- Carousel Indicators -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="0" class="active"
-                                aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="3"
-                                aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#clientsCarousel" data-bs-slide-to="4"
-                                aria-label="Slide 5"></button>
-                    </div>
-                    <!-- Carousel Inner -->
-                    <div class="carousel-inner">
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active">
-                            <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
-                                <div class="client-logo"><img src="../../assets/img/clients/barcelona-activa.webp" class="img-fluid" alt="Systeem voor reisleiders Barcelona Activa"></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/a-raymond.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/hefed.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/neuman.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/betomax.webp" class="img-fluid" alt=""></div>
-                            </div>
-                        </div>
-                        <!-- Slide 2 -->
-                        <div class="carousel-item">
-                            <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
-                                <div class="client-logo"><img src="../../assets/img/clients/international-policy.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/colussi.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/travel-tech.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/caf.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/escola-hostaleria-girona.webp" class="img-fluid" alt=""></div>
-                            </div>
-                        </div>
-                        <!-- Slide 3 -->
-                        <div class="carousel-item">
-                            <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
-                                <div class="client-logo"><img src="../../assets/img/clients/draxton.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/ivar-spa.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/ksg.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/gemu.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/nebext.webp" class="img-fluid" alt=""></div>
-                            </div>
-                        </div>
-                        <!-- Slide 4 -->
-                        <div class="carousel-item">
-                            <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
-                                <div class="client-logo"><img src="../../assets/img/clients/spenner.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/de-castelli.webp" class="img-fluid" alt="Tour guide system, De Castelli, Crocetta del Montello"></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/fycma.webp" class="img-fluid" alt="FYCMA, Malaga Congress Center (Spanien)"></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/nisva-trafilix.webp" class="img-fluid" alt="Tour guide system, Nisva, Gruppo Lucefin-Trafilix"></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/vorarlberg.webp" class="img-fluid" alt=""></div>
-                            </div>
-                        </div>
-                        <!-- Slide 5 -->
-                        <div class="carousel-item">
-                            <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap px-3">
-                                <div class="client-logo"><img src="../../assets/img/clients/informatica-alto-adige.webp" class="img-fluid" alt=""></div>
-                                <div class="client-logo"><img src="../../assets/img/clients/meet-inn-patagonia.webp" class="img-fluid" alt="Meet inn Patagonia"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End Portfolio Section -->
-        <!-- ======= FAQ-Bereich ======= -->
-        <section id="faq" class="faq">
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Veelgestelde vragen</h2>
-                    <p>FAQ</p>
-
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-
-                     <h3 class="mb-3 mt-4">
+                    <h3 class="mb-3 mt-4">
                         Eerste stappen</h3>
-                        <div class="accordion accordion-flush" id="faqGettingStarted">
+                    <div class="accordion accordion-flush" id="faqGettingStarted">
 
-                            <div class="accordion-item">
+                        <div class="accordion-item">
 
-                                <h2 class="accordion-header" id="heading-app">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-app" aria-expanded="false"
-                                            aria-controls="collapse-app">
-                                        Moeten deelnemers een app downloaden?
-                                    </button>
-                                </h2>
-                                <div id="collapse-app" class="accordion-collapse collapse" aria-labelledby="heading-app"
-                                     data-bs-parent="#faqGettingStarted">
-                                    <div class="accordion-body">
-                                        Nee. Nubart LIVE werkt volledig in de mobiele browser. Scan eenvoudig de QR-code
-                                        en luister.
-                                    </div>
+                            <h2 class="accordion-header" id="heading-app">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-app" aria-expanded="false"
+                                        aria-controls="collapse-app">
+                                    Moeten deelnemers een app downloaden?
+                                </button>
+                            </h2>
+                            <div id="collapse-app" class="accordion-collapse collapse" aria-labelledby="heading-app"
+                                 data-bs-parent="#faqGettingStarted">
+                                <div class="accordion-body">
+                                    Nee. Nubart LIVE werkt volledig in de mobiele browser. Scan eenvoudig de QR-code
+                                    en luister.
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
+                        <div class="accordion-item">
 
-                                <h2 class="accordion-header" id="heading-suitable">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-suitable" aria-expanded="false"
-                                            aria-controls="collapse-suitable">
+                            <h2 class="accordion-header" id="heading-suitable">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-suitable" aria-expanded="false"
+                                        aria-controls="collapse-suitable">
 
-                                        Hoe kan ik bepalen of mijn fabriek/evenementenlocatie geschikt is voor Nubart
-                                        LIVE?
-                                    </button>
-                                </h2>
-                                <div id="collapse-suitable" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-suitable" data-bs-parent="#faqGettingStarted">
+                                    Hoe kan ik bepalen of mijn fabriek/evenementenlocatie geschikt is voor Nubart
+                                    LIVE?
+                                </button>
+                            </h2>
+                            <div id="collapse-suitable" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-suitable" data-bs-parent="#faqGettingStarted">
 
-                                    <div class="accordion-body">
-                                        Nubart LIVE werkt in elke omgeving met een internetverbinding. Voor luidruchtige
-                                        omgevingen, zoals fabrieken, raden wij het gebruik van een unidirectionele
-                                        microfoon aan. Vraag
-                                        een gratis testkit aan om het in uw specifieke omgeving te testen.
-                                    </div>
+                                <div class="accordion-body">
+                                    Nubart LIVE werkt in elke omgeving met een internetverbinding. Voor luidruchtige
+                                    omgevingen, zoals fabrieken, raden wij het gebruik van een unidirectionele
+                                    microfoon aan. Vraag
+                                    een gratis testkit aan om het in uw specifieke omgeving te testen.
                                 </div>
                             </div>
-
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-indoors-outdoors">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-indoors-outdoors" aria-expanded="false"
-                                            aria-controls="collapse-indoors-outdoors">
-                                        Kan ik Nubart LIVE zowel binnen als buiten gebruiken?
-                                    </button>
-                                </h2>
-                                <div id="collapse-indoors-outdoors" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-indoors-outdoors" data-bs-parent="#faqGettingStarted">
-                                    <div class="accordion-body">
-                                        Ja. Het werkt op elke locatie met een internetverbinding: via wifi binnenshuis
-                                        of via mobiel
-                                        dataverkeer buitenshuis.
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
 
-                        <!--<!- - Während der Tour - ->-->
-                        <h3 class="mb-3 mt-5">Tijdens de tour</h3>
-                        <div class="accordion accordion-flush" id="faqDuringTour">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingLate">
-
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseLate" aria-expanded="false"
-                                            aria-controls="flush-collapseLate">
-                                        Wat gebeurt er als iemand te laat is voor de groep?
-                                    </button>
-                                </h2>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-indoors-outdoors">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-indoors-outdoors" aria-expanded="false"
+                                        aria-controls="collapse-indoors-outdoors">
+                                    Kan ik Nubart LIVE zowel binnen als buiten gebruiken?
+                                </button>
+                            </h2>
+                            <div id="collapse-indoors-outdoors" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-indoors-outdoors" data-bs-parent="#faqGettingStarted">
+                                <div class="accordion-body">
+                                    Ja. Het werkt op elke locatie met een internetverbinding: via wifi binnenshuis
+                                    of via mobiel
+                                    dataverkeer buitenshuis.
+                                </div>
                             </div>
+                        </div>
 
-                            <div id="flush-collapseLate" class="accordion-collapse collapse"
-                                 aria-labelledby="flush-headingLate" data-bs-parent="#accordionFlushExample">
+                    </div>
+
+
+                    <!--<!- - Während der Tour - ->-->
+                    <h3 class="mb-3 mt-5">Tijdens de tour</h3>
+                    <div class="accordion accordion-flush" id="faqDuringTour">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingLate">
+
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseLate" aria-expanded="false"
+                                        aria-controls="flush-collapseLate">
+                                    Wat gebeurt er als iemand te laat is voor de groep?
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="flush-collapseLate" class="accordion-collapse collapse"
+                             aria-labelledby="flush-headingLate" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+
+                                Dit is geen enkel probleem.<br><br>
+
+
+                                Wanneer u een groep als gids opent, raden wij u aan om enkele extra kaarten te
+                                scannen voor het geval iemand te laat komt.
+                                In dat geval kunt u de te late deelnemer eenvoudig een van de reeds gescande kaarten
+                                overhandigen.<br><br>
+
+                                In dat geval geeft u de te late deelnemer gewoon een van de reeds gescande kaarten.
+                                Dat is alles – hij kan zich onmiddellijk bij de groep voegen.<br><br>
+
+
+                                Zodra u de groep sluit, kunt u deze extra kaarten opnieuw gebruiken voor de volgende
+                                tour. Kaarten
+                                verliezen hun overdraagbaarheid pas wanneer de deelnemers ze zelf scannen, niet
+                                wanneer de gids ze scant.
+
+                                <hr class="bg-danger border-2 border-top border-danger">
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-latency">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-latency" aria-expanded="false"
+                                        aria-controls="collapse-latency">
+                                    Zijn er bij Nubart LIVE vertragingen?
+                                </button>
+                            </h2>
+                            <div id="collapse-latency" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-latency" data-bs-parent="#faqDuringTour">
+
+                                <div class="accordion-body">
+                                    Een kleine vertraging van maximaal één seconde tussen de gids en de deelnemers
+                                    (latentie) is
+                                    onvermijdelijk bij internetgebaseerde systemen.
+                                    <br><br>
+                                    De latentie wordt beïnvloed door de prestaties van de smartphone, de
+                                    verbindingskwaliteit en de mobiele provider.
+                                    <br><br>
+                                    Als de gids echter zachtjes spreekt, is de latentie nauwelijks waarneembaar – de
+                                    deelnemers horen vooral de versterkte stem uit hun smartphone en niet de echo
+                                    van de natuurlijke stem van de gids.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-call">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-call" aria-expanded="false"
+                                        aria-controls="collapse-call">
+
+                                    Wat gebeurt er als ik tijdens mijn werk als gids een telefoontje ontvang?
+                                </button>
+                            </h2>
+                            <div id="collapse-call" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-call" data-bs-parent="#faqDuringTour">
+
+                                <div class="accordion-body">
+                                    Als u het telefoontje wilt aannemen, tikt u gewoon op "Dempen" en neemt u het
+                                    telefoontje aan.
+                                    <br><br>
+                                    De groep blijft verbonden. Wanneer u het gesprek hebt beëindigd,
+                                    keert u terug naar de browser. Als bij sommige deelnemers in plaats van
+                                    groen een rood lampje brandt, tikt u op 'Opnieuw laden' – iedereen wordt opnieuw
+                                    verbonden zonder dat ze hun QR-codes opnieuw hoeven te scannen.
+                                    <br><br>
+                                    Opmerking: als u op Android vergeet om het geluid te dempen voordat u de oproep
+                                    aanneemt, kunnen de deelnemers mogelijk uw
+                                    kant van het gesprek horen. Op de iPhone horen ze niets.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-connection-drops">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-connection-drops" aria-expanded="false"
+                                        aria-controls="collapse-connection-drops">
+                                    Wat gebeurt er als de internetverbinding tijdens een tour wordt onderbroken?
+                                </button>
+                            </h2>
+                            <div id="collapse-connection-drops" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-connection-drops" data-bs-parent="#faqDuringTour">
+                                <div class="accordion-body">
+                                    Het systeem maakt automatisch een nieuwe verbinding zodra de verbinding is
+                                    hersteld.
+                                    De deelnemers hoeven hun kaarten niet opnieuw te scannen.
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-headphones">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-headphones" aria-expanded="false"
+                                        aria-controls="collapse-headphones ">
+                                    Wat gebeurt er als iemand geen koptelefoon heeft?
+                                </button>
+                            </h2>
+                            <div id="collapse-headphones" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-headphones" data-bs-parent="#faqDuringTour">
+
+                                <div class="accordion-body">
+                                    Deelnemers kunnen de luidspreker van hun telefoon gebruiken. Een koptelefoon
+                                    biedt echter een betere geluidskwaliteit
+                                    en voorkomt dat de versterkte stem van de gids een echo-effect veroorzaakt.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-multiday">
+
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-multiday" aria-expanded="false"
+                                        aria-controls="collapse-multiday">
+                                    Ik plan een meerdaagse tour. Moet ik elke dag een nieuwe kaart laten zien?
+
+                                </button>
+                            </h2>
+                            <div id="collapse-multiday" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-multiday" data-bs-parent="#faqDuringTour">
                                 <div class="accordion-body">
 
-                                    Dit is geen enkel probleem.<br><br>
-
-
-                                    Wanneer u een groep als gids opent, raden wij u aan om enkele extra kaarten te
-                                    scannen voor het geval iemand te laat komt.
-                                    In dat geval kunt u de te late deelnemer eenvoudig een van de reeds gescande kaarten
-                                    overhandigen.<br><br>
-
-                                    In dat geval geeft u de te late deelnemer gewoon een van de reeds gescande kaarten.
-                                    Dat is alles – hij kan zich onmiddellijk bij de groep voegen.<br><br>
-
-
-                                    Zodra u de groep sluit, kunt u deze extra kaarten opnieuw gebruiken voor de volgende
-                                    tour. Kaarten
-                                    verliezen hun overdraagbaarheid pas wanneer de deelnemers ze zelf scannen, niet
-                                    wanneer de gids ze scant.
-
-                                    <hr class="bg-danger border-2 border-top border-danger">
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-latency">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-latency" aria-expanded="false"
-                                            aria-controls="collapse-latency">
-                                        Zijn er bij Nubart LIVE vertragingen?
-                                    </button>
-                                </h2>
-                                <div id="collapse-latency" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-latency" data-bs-parent="#faqDuringTour">
-
-                                    <div class="accordion-body">
-                                        Een kleine vertraging van maximaal één seconde tussen de gids en de deelnemers
-                                        (latentie) is
-                                        onvermijdelijk bij internetgebaseerde systemen.
-                                        <br><br>
-                                        De latentie wordt beïnvloed door de prestaties van de smartphone, de
-                                        verbindingskwaliteit en de mobiele provider.
-                                        <br><br>
-                                        Als de gids echter zachtjes spreekt, is de latentie nauwelijks waarneembaar – de
-                                        deelnemers horen vooral de versterkte stem uit hun smartphone en niet de echo
-                                        van de natuurlijke stem van de gids.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-call">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-call" aria-expanded="false"
-                                            aria-controls="collapse-call">
-
-                                        Wat gebeurt er als ik tijdens mijn werk als gids een telefoontje ontvang?
-                                    </button>
-                                </h2>
-                                <div id="collapse-call" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-call" data-bs-parent="#faqDuringTour">
-
-                                    <div class="accordion-body">
-                                        Als u het telefoontje wilt aannemen, tikt u gewoon op "Dempen" en neemt u het
-                                        telefoontje aan.
-                                        <br><br>
-                                        De groep blijft verbonden. Wanneer u het gesprek hebt beëindigd,
-                                        keert u terug naar de browser. Als bij sommige deelnemers in plaats van
-                                        groen een rood lampje brandt, tikt u op 'Opnieuw laden' – iedereen wordt opnieuw
-                                        verbonden zonder dat ze hun QR-codes opnieuw hoeven te scannen.
-                                        <br><br>
-                                        Opmerking: als u op Android vergeet om het geluid te dempen voordat u de oproep
-                                        aanneemt, kunnen de deelnemers mogelijk uw
-                                        kant van het gesprek horen. Op de iPhone horen ze niets.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-connection-drops">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-connection-drops" aria-expanded="false"
-                                            aria-controls="collapse-connection-drops">
-                                        Wat gebeurt er als de internetverbinding tijdens een tour wordt onderbroken?
-                                    </button>
-                                </h2>
-                                <div id="collapse-connection-drops" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-connection-drops" data-bs-parent="#faqDuringTour">
-                                    <div class="accordion-body">
-                                        Het systeem maakt automatisch een nieuwe verbinding zodra de verbinding is
-                                        hersteld.
-                                        De deelnemers hoeven hun kaarten niet opnieuw te scannen.
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-headphones">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-headphones" aria-expanded="false"
-                                            aria-controls="collapse-headphones ">
-                                        Wat gebeurt er als iemand geen koptelefoon heeft?
-                                    </button>
-                                </h2>
-                                <div id="collapse-headphones" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-headphones" data-bs-parent="#faqDuringTour">
-
-                                    <div class="accordion-body">
-                                        Deelnemers kunnen de luidspreker van hun telefoon gebruiken. Een koptelefoon
-                                        biedt echter een betere geluidskwaliteit
-                                        en voorkomt dat de versterkte stem van de gids een echo-effect veroorzaakt.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-multiday">
-
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-multiday" aria-expanded="false"
-                                            aria-controls="collapse-multiday">
-                                        Ik plan een meerdaagse tour. Moet ik elke dag een nieuwe kaart laten zien?
-
-                                    </button>
-                                </h2>
-                                <div id="collapse-multiday" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-multiday" data-bs-parent="#faqDuringTour">
-                                    <div class="accordion-body">
-
-                                        Nee. De kaarten zijn herbruikbaar, maar niet overdraagbaar. Elke deelnemer
-                                        behoudt zijn eigen kaart
-                                        gedurende de hele reis.
-                                        <br>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!--<!- - KI-Übersetzung - ->-->
-                        <h3 class="mb-3 mt-5">AI-vertaaladd-on</h3>
-                        <div class="accordion accordion-flush" id="faqTranslation">
-
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-how-translation">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-how-translation" aria-expanded="false"
-                                            aria-controls="collapse-how-translation">
-                                        Hoe werkt de AI-vertaling?
-                                    </button>
-                                </h2>
-                                <div id="collapse-how-translation" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-how-translation" data-bs-parent="#faqTranslation">
-                                    <div class="accordion-body">
-                                        De gids selecteert de taal waarin hij zal spreken en activeert de vertaler.
-
-                                        De deelnemers scannen de QR-code en selecteren hun voorkeurstaal uit meer dan 35
-                                        opties.
-                                        Zij kunnen ofwel de originele stem van de gids horen, ofwel de AI-vertaling
-                                        in realtime als tekst en audio op hun mobiele telefoon ontvangen.
-
-                                        <br><br>
-                                        <a href="../../digital-tour-guide-app/instructions-nubart-live.html"
-                                           target="_blank">Raadpleeg onze handleiding voor meer informatie.
-
-                                        </a></div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-languages">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-languages" aria-expanded="false"
-                                            aria-controls="collapse-languages">
-                                        Welke talen ondersteunt de AI-vertaling?
-                                    </button>
-                                </h2>
-                                <div id="collapse-languages" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-languages" data-bs-parent="#faqTranslation">
-                                    <div class="accordion-body">
-                                        De Nubart LIVE AI-ondersteunde vertaaladd-on ondersteunt momenteel Arabisch,
-                                        Bulgaars,
-
-                                        Kantonees, Catalaans, Chinees, Tsjechisch, Deens, Nederlands, Engels, Ests,
-                                        Filipijns,
-                                        Fins, Frans, Duits, Grieks, Hebreeuws, Hongaars, Indonesisch, Italiaans, Japans,
-                                        Koreaans, Lets, Litouws, Noors, Pools, Portugees, Roemeens, Russisch,
-                                        Slowaaks, Sloveens, Spaans, Zweeds, Thais, Turks, Oekraïens en Vietnamees.
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-nubart-vs-translate">
-
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-nubart-vs-translate" aria-expanded="false"
-                                            aria-controls="collapse-nubart-vs-translate">
-
-                                        Waarin verschilt Nubart LIVE van Google Translate?
-                                    </button>
-                                </h2>
-                                <div id="collapse-nubart-vs-translate" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-nubart-vs-translate" data-bs-parent="#faqTranslation">
-
-                                    <div class="accordion-body">
-
-                                        Google Translate is een uitstekende persoonlijke tool voor het vertalen van
-                                        korte zinnen, borden of
-                                        eenvoudige gesprekken op uw eigen apparaat.
-                                        Het is echter niet ontworpen om een bewegende groep bezoekers in realtime te
-                                        begeleiden.
-                                        <br><br>
-
-
-                                        Google Translate kan weliswaar korte audiofragmenten afspelen, maar is niet
-                                        ontworpen om
-                                        een continue, handsfree audiostream te leveren.
-                                        Elke bezoeker moet de app individueel beheren, de microfoon starten en stoppen,
-                                        het afspelen activeren en de kleine tekst op zijn scherm lezen.
-                                        Timing, onderbrekingen en vertragingen variëren van persoon tot persoon, wat in
-                                        een groep snel tot verwarring kan leiden.
-
-                                        <br><br>
-
-                                        Nubart LIVE is speciaal ontwikkeld voor rondleidingen en fabrieksbezoeken. Een
-                                        gids
-                                        spreekt in een microfoon en alle deelnemers
-                                        ontvangen synchroon dezelfde audiostream op hun eigen smartphone – zonder dat ze
-                                        een app of een bepaalde talencombinatie hoeven te downloaden.
-                                        <br><br>
-
-
-                                        Met de optionele AI-vertaaladd-on wordt de vertaling rechtstreeks gekoppeld aan
-                                        de
-                                        live audiostream van de gids.
-                                        De deelnemers selecteren eenvoudig hun voorkeurstaal en nemen samen deel aan de
-                                        rondleiding,
-                                        in plaats van dat elke persoon een aparte vertaalapp moet gebruiken.
-                                        <br><br>
-
-                                        Kortom: Google Translate is ideaal voor individueel gebruik; Nubart LIVE is
-                                        ontwikkeld voor
-                                        gezamenlijke, gesynchroniseerde rondleidingen.
-
-                                    </div>
+                                    Nee. De kaarten zijn herbruikbaar, maar niet overdraagbaar. Elke deelnemer
+                                    behoudt zijn eigen kaart
+                                    gedurende de hele reis.
+                                    <br>
 
                                 </div>
                             </div>
-
-
-                        </div>
-
-                        <!--<!- - Technische Details - ->-->
-                        <h3 class="mb-3 mt-5">Technische details</h3>
-                        <div class="accordion accordion-flush" id="faqTechnical">
-
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-battery">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-battery" aria-expanded="false"
-                                            aria-controls="collapse-battery">
-                                        Hoeveel batterijvermogen verbruikt Nubart LIVE?
-                                    </button>
-                                </h2>
-                                <div id="collapse-battery" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-battery" data-bs-parent="#faqTechnical">
-                                    <div class="accordion-body">
-                                        Al het "achtergrondwerk" van onze technologie vindt plaats op de smartphone van
-                                        de gids.
-                                        Daarom is het wenselijk dat uw gidsen beschikken over een moderne smartphone met
-                                        een krachtige
-                                        processor en een relatief nieuwe batterij.<br><br> Dit heeft echter geen invloed
-                                        op de
-                                        groepsleden: voor hen is het batterijverbruik niet veel hoger dan bij het
-                                        luisteren naar een
-                                        podcast of een audioboek.
-
-                                        Een uur continu gebruik verbruikt bijvoorbeeld 8% van de
-                                        batterij van een vier jaar oude Android-smartphone.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-
-                                <h2 class="accordion-header" id="heading-data">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-data" aria-expanded="false"
-                                            aria-controls="collapse-data">
-
-                                        Hoeveel data verbruikt Nubart LIVE?
-                                    </button>
-                                </h2>
-                                <div id="collapse-data" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-data" data-bs-parent="#faqTechnical">
-                                    <div class="accordion-body">
-                                        Ongeveer 20 MB per uur. Omdat ons systeem unidirectioneel is (alleen de gids
-                                        spreekt) en
-                                        we geen video's verzenden, verbruikt ons systeem veel minder data dan een
-                                        videogesprek in Zoom
-                                        of Skype. Zelfs minder dan een normaal telefoongesprek!
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-wifi">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-wifi" aria-expanded="false"
-                                            aria-controls="collapse-wifi">
-                                        Als Nubart LIVE uitsluitend via wifi wordt gebruikt: aan welke eisen moet de
-                                        wifi voldoen?
-                                    </button>
-                                </h2>
-                                <div id="collapse-wifi" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-wifi" data-bs-parent="#faqTechnical">
-                                    <div class="accordion-body">
-                                        Bij exclusief gebruik via wifi moet uw netwerk het verwachte aantal
-                                        gelijktijdige gebruikers ondersteunen
-                                        en peer-to-peer-verbindingen (WebRTC) toestaan. Neem contact met ons op voor
-                                        specifieke
-                                        technische vereisten.
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!--<!- - Karten - ->-->
-                        <h3 class="mb-3 mt-5">Kaarten</h3>
-                        <div class="accordion accordion-flush" id="faqCards">
-
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-expire">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-expire" aria-expanded="false"
-                                            aria-controls="collapse-expire">
-                                        Hebben de kaarten een vervaldatum?
-                                    </button>
-                                </h2>
-                                <div id="collapse-expire" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-expire" data-bs-parent="#faqCards">
-                                    <div class="accordion-body">
-                                        Nee. Ongeacht het pakket dat u kiest, hoeft u de kaarten slechts eenmaal aan te
-                                        schaffen en
-                                        ze te bewaren totdat u ze nodig heeft. Bestel eenvoudig nieuwe kaarten wanneer
-                                        de oude op zijn.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-custom-design">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-custom-design" aria-expanded="false"
-                                            aria-controls="collapse-custom-design">
-                                        Is het mogelijk om een individueel ontwerp voor mijn kaarten te kiezen?
-                                    </button>
-
-                                </h2>
-                                <div id="collapse-custom-design" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-custom-design" data-bs-parent="#faqCards">
-                                    <div class="accordion-body">
-                                        Ontwerpaangepast is inbegrepen in onze pakketten "Medium" en "Professional".
-
-                                        <br> U stuurt ons de afbeeldingen, logo's en andere elementen die u op uw kaart
-                                        wilt hebben en onze
-                                        ontwerper maakt verschillende ontwerpvoorstellen waaruit u kunt kiezen.
-                                        <br><br>
-                                        <a href="prijzen.html">Bekijk onze prijzen voor Nubart LIVE</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-minimum-order">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-minimum-order" aria-expanded="false"
-                                            aria-controls="collapse-minimum-order">
-                                        Wat is de minimale bestelhoeveelheid voor kaarten?
-                                    </button>
-                                </h2>
-                                <div id="collapse-minimum-order" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-minimum-order" data-bs-parent="#faqCards">
-                                    <div class="accordion-body">
-
-                                        Onze minimale bestelhoeveelheid voor Nubart LIVE in het basispakket is 500
-                                        niet-personaliseerbare kaarten.
-                                        <br><br>
-                                        Indien u uw kaarten liever individueel wilt ontwerpen, is de minimale
-                                        bestelhoeveelheid
-                                        3.000 stuks.
-                                        <a href="prijzen.html"> Bekijk onze prijzen voor Nubart LIVE</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-
-                                <h2 class="accordion-header" id="heading-eco">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-eco" aria-expanded="false"
-                                            aria-controls="collapse-eco">
-                                        Zijn uw kaarten milieuvriendelijk?
-                                    </button>
-                                </h2>
-                                <div id="collapse-eco" class="accordion-collapse collapse" aria-labelledby="heading-eco"
-                                     data-bs-parent="#faqCards">
-                                    <div class="accordion-body">
-
-                                        Ja. De kaarten worden gedrukt op FSC-gecertificeerd karton en <a
-                                            href="https://fpm.climatepartner.com/tracking/15485-2107-1002/en"
-                                            target="_blank">wij compenseren volledig alle CO2-uitstoot van de productie
-                                        en verzending</a>.
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-digital">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse-digital" aria-expanded="false"
-                                            aria-controls="collapse-digital">
-                                        Waarom krijgt elke deelnemer een eigen kaart in plaats van een gedeelde QR-code te scannen?
-                                    </button>
-                                </h2>
-                                <div id="collapse-digital" class="accordion-collapse collapse"
-                                     aria-labelledby="heading-digital" data-bs-parent="#faqCards">
-                                    <div class="accordion-body">
-                                        Elke Nubart LIVE-kaart bevat een unieke, niet-overdraagbare code. Dit is een bewuste
-                                        ontwerpkeuze die echte problemen oplost die andere systemen negeren.<br><br>
-                                        <strong>Geen knelpunt bij de start van de tour:</strong> In plaats van 25 mensen die in de rij
-                                        staan om een klein telefoonscherm te scannen, scant elke deelnemer zijn eigen kaart
-                                        zelfstandig. De gids kan de kaarten zelfs vooraf inscannen voordat hij ze uitdeelt, zodat de
-                                        groep van tevoren wordt gevormd.<br><br>
-                                        <strong>Sessieherstel:</strong> Toeristen verlaten voortdurend hun browser om foto's te maken,
-                                        berichten te checken of andere apps te gebruiken. Met een gedeelde digitale code verliezen ze
-                                        hun verbinding en moeten ze de gids onderbreken. Met een Nubart LIVE-kaart scannen ze gewoon
-                                        opnieuw en sluiten ze zich onmiddellijk aan — zonder hulp van de gids.<br><br>
-                                        <strong>Toegangscontrole:</strong> In tegenstelling tot systemen waarbij iedereen die een PIN
-                                        kent of een QR-code ziet kan deelnemen, geeft Nubart LIVE de gids volledige controle over wie
-                                        er in de groep zit. Geen ongenodigde toehoorders, geen verwarring tussen overlappende
-                                        tourgroepen op dezelfde locatie.<br><br>
-                                        Heeft u een kaartvrije optie nodig voor spontane of eenmalige evenementen? Vraag ons naar onze
-                                        afdrukbare QR-codebladen — dezelfde unieke codes, binnen enkele minuten klaar.
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
                     </div>
+
+                    <!--<!- - KI-Übersetzung - ->-->
+                    <h3 class="mb-3 mt-5">AI-vertaaladd-on</h3>
+                    <div class="accordion accordion-flush" id="faqTranslation">
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-how-translation">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-how-translation" aria-expanded="false"
+                                        aria-controls="collapse-how-translation">
+                                    Hoe werkt de AI-vertaling?
+                                </button>
+                            </h2>
+                            <div id="collapse-how-translation" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-how-translation" data-bs-parent="#faqTranslation">
+                                <div class="accordion-body">
+                                    De gids selecteert de taal waarin hij zal spreken en activeert de vertaler.
+
+                                    De deelnemers scannen de QR-code en selecteren hun voorkeurstaal uit meer dan 35
+                                    opties.
+                                    Zij kunnen ofwel de originele stem van de gids horen, ofwel de AI-vertaling
+                                    in realtime als tekst en audio op hun mobiele telefoon ontvangen.
+
+                                    <br><br>
+                                    <a href="../../digital-tour-guide-app/instructions-nubart-live.html"
+                                       target="_blank">Raadpleeg onze handleiding voor meer informatie.
+
+                                    </a></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-languages">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-languages" aria-expanded="false"
+                                        aria-controls="collapse-languages">
+                                    Welke talen ondersteunt de AI-vertaling?
+                                </button>
+                            </h2>
+                            <div id="collapse-languages" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-languages" data-bs-parent="#faqTranslation">
+                                <div class="accordion-body">
+                                    De Nubart LIVE AI-ondersteunde vertaaladd-on ondersteunt momenteel Arabisch,
+                                    Bulgaars,
+
+                                    Kantonees, Catalaans, Chinees, Tsjechisch, Deens, Nederlands, Engels, Ests,
+                                    Filipijns,
+                                    Fins, Frans, Duits, Grieks, Hebreeuws, Hongaars, Indonesisch, Italiaans, Japans,
+                                    Koreaans, Lets, Litouws, Noors, Pools, Portugees, Roemeens, Russisch,
+                                    Slowaaks, Sloveens, Spaans, Zweeds, Thais, Turks, Oekraïens en Vietnamees.
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-nubart-vs-translate">
+
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-nubart-vs-translate" aria-expanded="false"
+                                        aria-controls="collapse-nubart-vs-translate">
+
+                                    Waarin verschilt Nubart LIVE van Google Translate?
+                                </button>
+                            </h2>
+                            <div id="collapse-nubart-vs-translate" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-nubart-vs-translate" data-bs-parent="#faqTranslation">
+
+                                <div class="accordion-body">
+
+                                    Google Translate is een uitstekende persoonlijke tool voor het vertalen van
+                                    korte zinnen, borden of
+                                    eenvoudige gesprekken op uw eigen apparaat.
+                                    Het is echter niet ontworpen om een bewegende groep bezoekers in realtime te
+                                    begeleiden.
+                                    <br><br>
+
+
+                                    Google Translate kan weliswaar korte audiofragmenten afspelen, maar is niet
+                                    ontworpen om
+                                    een continue, handsfree audiostream te leveren.
+                                    Elke bezoeker moet de app individueel beheren, de microfoon starten en stoppen,
+                                    het afspelen activeren en de kleine tekst op zijn scherm lezen.
+                                    Timing, onderbrekingen en vertragingen variëren van persoon tot persoon, wat in
+                                    een groep snel tot verwarring kan leiden.
+
+                                    <br><br>
+
+                                    Nubart LIVE is speciaal ontwikkeld voor rondleidingen en fabrieksbezoeken. Een
+                                    gids
+                                    spreekt in een microfoon en alle deelnemers
+                                    ontvangen synchroon dezelfde audiostream op hun eigen smartphone – zonder dat ze
+                                    een app of een bepaalde talencombinatie hoeven te downloaden.
+                                    <br><br>
+
+
+                                    Met de optionele AI-vertaaladd-on wordt de vertaling rechtstreeks gekoppeld aan
+                                    de
+                                    live audiostream van de gids.
+                                    De deelnemers selecteren eenvoudig hun voorkeurstaal en nemen samen deel aan de
+                                    rondleiding,
+                                    in plaats van dat elke persoon een aparte vertaalapp moet gebruiken.
+                                    <br><br>
+
+                                    Kortom: Google Translate is ideaal voor individueel gebruik; Nubart LIVE is
+                                    ontwikkeld voor
+                                    gezamenlijke, gesynchroniseerde rondleidingen.
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!--<!- - Technische Details - ->-->
+                    <h3 class="mb-3 mt-5">Technische details</h3>
+                    <div class="accordion accordion-flush" id="faqTechnical">
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-battery">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-battery" aria-expanded="false"
+                                        aria-controls="collapse-battery">
+                                    Hoeveel batterijvermogen verbruikt Nubart LIVE?
+                                </button>
+                            </h2>
+                            <div id="collapse-battery" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-battery" data-bs-parent="#faqTechnical">
+                                <div class="accordion-body">
+                                    Al het "achtergrondwerk" van onze technologie vindt plaats op de smartphone van
+                                    de gids.
+                                    Daarom is het wenselijk dat uw gidsen beschikken over een moderne smartphone met
+                                    een krachtige
+                                    processor en een relatief nieuwe batterij.<br><br> Dit heeft echter geen invloed
+                                    op de
+                                    groepsleden: voor hen is het batterijverbruik niet veel hoger dan bij het
+                                    luisteren naar een
+                                    podcast of een audioboek.
+
+                                    Een uur continu gebruik verbruikt bijvoorbeeld 8% van de
+                                    batterij van een vier jaar oude Android-smartphone.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header" id="heading-data">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-data" aria-expanded="false"
+                                        aria-controls="collapse-data">
+
+                                    Hoeveel data verbruikt Nubart LIVE?
+                                </button>
+                            </h2>
+                            <div id="collapse-data" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-data" data-bs-parent="#faqTechnical">
+                                <div class="accordion-body">
+                                    Ongeveer 20 MB per uur. Omdat ons systeem unidirectioneel is (alleen de gids
+                                    spreekt) en
+                                    we geen video's verzenden, verbruikt ons systeem veel minder data dan een
+                                    videogesprek in Zoom
+                                    of Skype. Zelfs minder dan een normaal telefoongesprek!
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-wifi">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-wifi" aria-expanded="false"
+                                        aria-controls="collapse-wifi">
+                                    Als Nubart LIVE uitsluitend via wifi wordt gebruikt: aan welke eisen moet de
+                                    wifi voldoen?
+                                </button>
+                            </h2>
+                            <div id="collapse-wifi" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-wifi" data-bs-parent="#faqTechnical">
+                                <div class="accordion-body">
+                                    Bij exclusief gebruik via wifi moet uw netwerk het verwachte aantal
+                                    gelijktijdige gebruikers ondersteunen
+                                    en peer-to-peer-verbindingen (WebRTC) toestaan. Neem contact met ons op voor
+                                    specifieke
+                                    technische vereisten.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--<!- - Karten - ->-->
+                    <h3 class="mb-3 mt-5">Kaarten</h3>
+                    <div class="accordion accordion-flush" id="faqCards">
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-expire">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-expire" aria-expanded="false"
+                                        aria-controls="collapse-expire">
+                                    Hebben de kaarten een vervaldatum?
+                                </button>
+                            </h2>
+                            <div id="collapse-expire" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-expire" data-bs-parent="#faqCards">
+                                <div class="accordion-body">
+                                    Nee. Ongeacht het pakket dat u kiest, hoeft u de kaarten slechts eenmaal aan te
+                                    schaffen en
+                                    ze te bewaren totdat u ze nodig heeft. Bestel eenvoudig nieuwe kaarten wanneer
+                                    de oude op zijn.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-custom-design">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-custom-design" aria-expanded="false"
+                                        aria-controls="collapse-custom-design">
+                                    Is het mogelijk om een individueel ontwerp voor mijn kaarten te kiezen?
+                                </button>
+
+                            </h2>
+                            <div id="collapse-custom-design" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-custom-design" data-bs-parent="#faqCards">
+                                <div class="accordion-body">
+                                    Ontwerpaangepast is inbegrepen in onze pakketten "Medium" en "Professional".
+
+                                    <br> U stuurt ons de afbeeldingen, logo's en andere elementen die u op uw kaart
+                                    wilt hebben en onze
+                                    ontwerper maakt verschillende ontwerpvoorstellen waaruit u kunt kiezen.
+                                    <br><br>
+                                    <a href="#pricing">Bekijk onze prijzen voor Nubart LIVE</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-minimum-order">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-minimum-order" aria-expanded="false"
+                                        aria-controls="collapse-minimum-order">
+                                    Wat is de minimale bestelhoeveelheid voor kaarten?
+                                </button>
+                            </h2>
+                            <div id="collapse-minimum-order" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-minimum-order" data-bs-parent="#faqCards">
+                                <div class="accordion-body">
+
+                                    Onze minimale bestelhoeveelheid voor Nubart LIVE in het basispakket is 500
+                                    niet-personaliseerbare kaarten.
+                                    <br><br>
+                                    Indien u uw kaarten liever individueel wilt ontwerpen, is de minimale
+                                    bestelhoeveelheid
+                                    3.000 stuks.
+                                    <a href="#pricing"> Bekijk onze prijzen voor Nubart LIVE</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header" id="heading-eco">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-eco" aria-expanded="false"
+                                        aria-controls="collapse-eco">
+                                    Zijn uw kaarten milieuvriendelijk?
+                                </button>
+                            </h2>
+                            <div id="collapse-eco" class="accordion-collapse collapse" aria-labelledby="heading-eco"
+                                 data-bs-parent="#faqCards">
+                                <div class="accordion-body">
+
+                                    Ja. De kaarten worden gedrukt op FSC-gecertificeerd karton en <a
+                                        href="https://fpm.climatepartner.com/tracking/15485-2107-1002/en"
+                                        target="_blank">wij compenseren volledig alle CO2-uitstoot van de productie
+                                    en verzending</a>.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-digital">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-digital" aria-expanded="false"
+                                        aria-controls="collapse-digital">
+                                    Waarom krijgt elke deelnemer een eigen kaart in plaats van een gedeelde QR-code te
+                                    scannen?
+                                </button>
+                            </h2>
+                            <div id="collapse-digital" class="accordion-collapse collapse"
+                                 aria-labelledby="heading-digital" data-bs-parent="#faqCards">
+                                <div class="accordion-body">
+                                    Elke Nubart LIVE-kaart bevat een unieke, niet-overdraagbare code. Dit is een bewuste
+                                    ontwerpkeuze die echte problemen oplost die andere systemen negeren.<br><br>
+                                    <strong>Geen knelpunt bij de start van de tour:</strong> In plaats van 25 mensen die
+                                    in de rij
+                                    staan om een klein telefoonscherm te scannen, scant elke deelnemer zijn eigen kaart
+                                    zelfstandig. De gids kan de kaarten zelfs vooraf inscannen voordat hij ze uitdeelt,
+                                    zodat de
+                                    groep van tevoren wordt gevormd.<br><br>
+                                    <strong>Sessieherstel:</strong> Toeristen verlaten voortdurend hun browser om foto's
+                                    te maken,
+                                    berichten te checken of andere apps te gebruiken. Met een gedeelde digitale code
+                                    verliezen ze
+                                    hun verbinding en moeten ze de gids onderbreken. Met een Nubart LIVE-kaart scannen
+                                    ze gewoon
+                                    opnieuw en sluiten ze zich onmiddellijk aan — zonder hulp van de gids.<br><br>
+                                    <strong>Toegangscontrole:</strong> In tegenstelling tot systemen waarbij iedereen
+                                    die een PIN
+                                    kent of een QR-code ziet kan deelnemen, geeft Nubart LIVE de gids volledige controle
+                                    over wie
+                                    er in de groep zit. Geen ongenodigde toehoorders, geen verwarring tussen
+                                    overlappende
+                                    tourgroepen op dezelfde locatie.<br><br>
+                                    Heeft u een kaartvrije optie nodig voor spontane of eenmalige evenementen? Vraag ons
+                                    naar onze
+                                    afdrukbare QR-codebladen — dezelfde unieke codes, binnen enkele minuten klaar.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <h3 class="mb-3 mt-5">Prijzen</h3>
+                <div class="accordion accordion-flush" id="faqPricing">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-cards-expire">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-cards-expire" aria-expanded="false"
+                                    aria-controls="collapse-cards-expire">
+                                Hebben de kaarten een vervaldatum?
+                            </button>
+                        </h2>
+                        <div id="collapse-cards-expire" class="accordion-collapse collapse"
+                             aria-labelledby="heading-cards-expire"
+                             data-bs-parent="#faqPricing">
+                            <div class="accordion-body">
+                                Nee. Ongeacht welk pakket je kiest, koop je de kaarten één keer en gebruik je ze wanneer
+                                je ze nodig hebt. Bestel eenvoudig nieuwe kaarten wanneer ze op zijn.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-add-translation">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-add-translation" aria-expanded="false"
+                                    aria-controls="collapse-add-translation">
+                                Kan ik AI-vertaling toevoegen aan elk kaartenpakket?
+                            </button>
+                        </h2>
+                        <div id="collapse-add-translation" class="accordion-collapse collapse"
+                             aria-labelledby="heading-add-translation"
+                             data-bs-parent="#faqPricing">
+                            <div class="accordion-body">
+                                Ja. De AI-vertaling add-on werkt met elk kaartenpakket — Print-Your-Own, Basic of
+                                Custom. Je kunt deze vrij combineren naar behoefte.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-stream-hour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-stream-hour" aria-expanded="false"
+                                    aria-controls="collapse-stream-hour">
+                                Hoe wordt de vertalingstijd gemeten? Wat is een "stream-uur"?
+                            </button>
+                        </h2>
+                        <div id="collapse-stream-hour" class="accordion-collapse collapse"
+                             aria-labelledby="heading-stream-hour"
+                             data-bs-parent="#faqPricing">
+                            <div class="accordion-body">
+                                Eén stream-uur = één gids met actieve vertaling gedurende één uur. Als twee gidsen
+                                tegelijkertijd rondleidingen met vertaling geven, telt dat als twee stream-uren per
+                                klokuur. De prijs is per stream, niet per taal — als je groep tegelijkertijd luistert in
+                                het Japans, Frans en Arabisch, blijft dat één stream-uur voor €39.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-muted-minutes">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-muted-minutes" aria-expanded="false"
+                                    aria-controls="collapse-muted-minutes">
+                                Worden gedempte of niet-gebruikte minuten van vertaling in rekening gebracht?
+                            </button>
+                        </h2>
+                        <div id="collapse-muted-minutes" class="accordion-collapse collapse"
+                             aria-labelledby="heading-muted-minutes"
+                             data-bs-parent="#faqPricing">
+                            <div class="accordion-body">
+                                Nee. De vertalingsteller loopt alleen wanneer de gids actief spreekt en de vertaling is
+                                ingeschakeld. Als de gids de microfoon dempt, stoppen zowel de live audio als de
+                                vertaling — en dus ook de teller (die wordt zwart zodat je ziet dat er niets wordt
+                                berekend). Spreekt de gids zonder vertaling, dan zijn er geen kosten. En als de
+                                vertaling per ongeluk aan blijft terwijl de gids stil is, stopt het systeem automatisch
+                                na één uur stilte. Je betaalt alleen voor daadwerkelijk gesproken en vertaalde tijd.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-try-translation">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-try-translation" aria-expanded="false"
+                                    aria-controls="collapse-try-translation">
+                                Kan ik de AI-vertaling eerst uitproberen?
+                            </button>
+                        </h2>
+                        <div id="collapse-try-translation" class="accordion-collapse collapse"
+                             aria-labelledby="heading-try-translation"
+                             data-bs-parent="#faqPricing">
+                            <div class="accordion-body">
+                                Zeker. Gebruik een van de knoppen "Vraag een gratis testkit aan" op deze pagina en je
+                                ontvangt 6 QR-codes voor een testgroep. De eerste 30 minuten vertaling zijn gratis. De
+                                test bevat ook een demo-mediabibliotheek waarmee je de afstandsbediening kunt
+                                uitproberen.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-hours-used">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-hours-used" aria-expanded="false"
+                                    aria-controls="collapse-hours-used">
+                                Hoe kan ik zien hoeveel uur vertaling ik heb gebruikt?
+                            </button>
+                        </h2>
+                        <div id="collapse-hours-used" class="accordion-collapse collapse"
+                             aria-labelledby="heading-hours-used"
+                             data-bs-parent="#faqPricing">
+                            <div class="accordion-body">
+                                Elke gids ziet een timer op zijn smartphone met de gebruikstijd. Daarnaast kun je in je
+                                klantomgeving gedetailleerde statistieken bekijken, inclusief het totale aantal
+                                gebruikte uren en eventuele openstaande bedragen voor je organisatie.
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </section>
-        <!-- ======= Ende des FAQ-Abschnitts ======= -->
-        <!-- ======= Final CTA Section ======= -->
-        <section id="final-cta" class="py-5" style="background: linear-gradient(135deg, #028a8c 0%, #783119 100%);">
-            <div class="container text-center" data-aos="fade-up">
-                <h2 class="text-white mb-3">Klaar om uw groepsrondleidingen te transformeren?</h2>
-                <p class="text-white lead mb-4">
-                    Test Nubart LIVE risicovrij. Ontvang een proefpakket met 30 minuten gratis AI-vertaling.
-                </p>
-                <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl"
-                   class="btn btn-lg btn-light"
-                   target="_blank"
-                   onclick="ZohoLightbox.open(); return false;">
-                    Vraag een gratis proefpakket aan
-                </a>
-                <p class="text-white mt-3 small opacity-75">
-                    <i class="bi bi-check-circle me-2"></i>Geen creditcard nodig
-                    <i class="bi bi-check-circle mx-2"></i>Volledige ondersteuning tijdens het testen
-                </p>
-            </div>
-        </section>
-        <!-- End Final CTA -->
+        </div>
+    </section>
+    <!-- ======= Ende des FAQ-Abschnitts ======= -->
+    <!-- ======= Final CTA Section ======= -->
+    <section id="final-cta" class="py-5" style="background: linear-gradient(135deg, #028a8c 0%, #783119 100%);">
+        <div class="container text-center" data-aos="fade-up">
+            <h2 class="text-white mb-3">Klaar om uw groepsrondleidingen te transformeren?</h2>
+            <p class="text-white lead mb-4">
+                Test Nubart LIVE risicovrij. Ontvang een proefpakket met 30 minuten gratis AI-vertaling.
+            </p>
+            <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=nl"
+               class="btn btn-lg btn-light"
+               target="_blank"
+               onclick="ZohoLightbox.open(); return false;">
+                Vraag een gratis proefpakket aan
+            </a>
+            <p class="text-white mt-3 small opacity-75">
+                <i class="bi bi-check-circle me-2"></i>Geen creditcard nodig
+                <i class="bi bi-check-circle mx-2"></i>Volledige ondersteuning tijdens het testen
+            </p>
+        </div>
+    </section>
+    <!-- End Final CTA -->
 
 </main><!-- End #main -->
 
@@ -1745,7 +2312,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script>
     plausible('Live Page View')
 </script>
-
 
 
 <!-- Zoho Forms Lightbox -->

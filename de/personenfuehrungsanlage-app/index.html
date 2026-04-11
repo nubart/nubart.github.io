@@ -7,81 +7,147 @@
 
 
 
-    <!-- structured data -->
+        <!-- Structured Data: Product + FAQs + breadcrumbs -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://www.nubart.eu/digital-tour-guide-app/#service",
-            "name": "Nubart LIVE – Digitales Personenführungssystem",
-            "provider": { "@id": "https://www.nubart.eu/#organization" },
-            "inLanguage": "de",
-            "description": "Nubart LIVE ist ein webbasiertes Gruppenführungssystem, das sperrige Hardware ersetzt und erheblich günstiger ist als herkömmliche Personenführungssysteme. Die Stimme des Guides wird direkt über das Internet an die Smartphones der Teilnehmenden übertragen – ohne App-Download. QR-Codes auf gedruckten Karten verbinden Guide und Gäste in Sekunden. Optional KI-gestützte Live-Übersetzung in über 35 Sprachen, interaktive Q&A-Funktionen und klare Kommunikation auch in lauten Umgebungen.",
+            "@type": "Product",
+            "@id": "https://www.nubart.eu/digital-tour-guide-app/#product",
+            "name": "Nubart LIVE",
+            "description": "QR-basiertes digitales Gruppenführungssystem mit optionaler KI-Übersetzung. Beinhaltet physische QR-Code-Karten und einen cloudbasierten Plattformzugang, über den Guides ihre Stimme auf die Smartphones der Teilnehmer übertragen. Kein App-Download erforderlich.",
+            "url": "https://www.nubart.eu/digital-tour-guide-app/",
+            "brand": {"@type": "Brand", "name": "Nubart"},
+            "category": "Tour-Guide-System",
             "image": [
                 "https://www.nubart.eu/assets/img/live/nubart-live.webp",
                 "https://www.nubart.eu/assets/img/live/nubart-live.png",
                 "https://www.nubart.eu/assets/img/live/nubart-live-logo.webp",
-                "https://www.nubart.eu/assets/img/live/nubart-live-logo.png"
+                "https://www.nubart.eu/assets/img/live/nubart-live-logo.png",
+                "https://www.nubart.eu/assets/img/group-guiding-card.webp"
             ],
-            "serviceType": "Digitales Personenführungssystem",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": [
-                    "Museen",
-                    "Ausstellungen",
-                    "Fabriken",
-                    "Schulungsanbieter"
-                ]
-            },
-            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/de/personenfuehrungsanlage-app/" },
-
-
-
-
-
-            "additionalProperty": [
+                        "offers": [
                 {
-                    "@type": "PropertyValue",
-                    "name": "Technologietyp",
-                    "value": "Progressive Web App (PWA)"
+                    "@type": "Offer",
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#print-your-own",
+                    "name": "Print-Your-Own-Paket",
+                    "price": "79.00",
+                    "priceCurrency": "EUR",
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": "79.00",
+                        "priceCurrency": "EUR",
+                        "valueAddedTaxIncluded": false,
+                        "description": "Einrichtungsgebühr von 79 Euro zzgl. 1,50 Euro pro Code, Mindestbestellung 50 Codes"
+                    },
+                    "availability": "https://schema.org/InStock",
+                    "description": "Druckfertige PDF mit einzigartigen QR-Codes. Drucken auf Standard-Visitenkartenbögen. Mindestens 50 Codes. Unbegrenzte Guides und Funktion Fragen an den Guide inklusive.",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Nubart LIVE Print-Your-Own-Paket",
+                        "description": "PDF mit einzigartigen QR-Codes + unbegrenzte Guides"
+                    },
+                    "seller": {"@id": "https://www.nubart.eu/#organization"},
+                    "areaServed": "Worldwide",
+                    "url": "https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "Noise Cancellation",
-                    "value": "Sorgt auch in sehr lauten Umgebungen für klare Kommunikation, ideal für Werksführungen."
+                    "@type": "Offer",
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#basic-package",
+                    "name": "Basic",
+                    "price": "599.00",
+                    "priceCurrency": "EUR",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "price": "599.00",
+                        "priceCurrency": "EUR",
+                        "valueAddedTaxIncluded": false
+                    },
+                    "availability": "https://schema.org/InStock",
+                    "description": "500 QR-Code-Karten im kompakten Kartonformat mit Nubart-Standarddesign. Unbegrenzte Guides und Funktion Fragen an den Guide inklusive. Karten laufen nie ab.",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Nubart LIVE Basic-Paket",
+                        "description": "500 gedruckte Karten + unbegrenzte Guides"
+                    },
+                    "seller": {"@id": "https://www.nubart.eu/#organization"},
+                    "areaServed": "Worldwide",
+                    "url": "https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "Ohne Hardware",
-                    "value": "Läuft auf dem Smartphone – spart Kosten und Wartung."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Browser-basiert",
-                    "value": "Funktioniert ohne App-Installation, nur per QR-Code."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "KI-Übersetzung in Echtzeit",
-                    "value": "Audio und/oder Textübersetzung in über 35 Sprachen."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Fragen und Antworten in Echtzeit",
-                    "value": "Teilnehmer können Fragen direkt über ihr Smartphone einreichen."
+                    "@type": "Offer",
+                    "@id": "https://www.nubart.eu/digital-tour-guide-app/#custom-package",
+                    "name": "Custom",
+                    "price": "3500.00",
+                    "priceCurrency": "EUR",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "price": "3500.00",
+                        "priceCurrency": "EUR",
+                        "valueAddedTaxIncluded": false,
+                        "description": "Ab 3.500 Euro für 3.000 Karten. Mengenrabatte: 5.000 Karten 5.000 Euro; 10.000 Karten 8.500 Euro; ab 20.000 auf Anfrage."
+                    },
+                    "availability": "https://schema.org/InStock",
+                    "description": "3.000+ QR-Code-Karten aus recyceltem PVC oder kompaktem Karton mit individuellem Design. Alle Basic-Funktionen plus: individuelles Kartendesign, Zugang zu Nutzungsstatistiken, kombinierbar mit einem Audioguide.",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Nubart LIVE Custom-Paket",
+                        "description": "3.000+ individuell gestaltete Karten + unbegrenzte Guides + Statistiken"
+                    },
+                    "seller": {"@id": "https://www.nubart.eu/#organization"},
+                    "areaServed": "Worldwide",
+                    "url": "https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
                 }
             ],
-
-            "video": {
+                        "additionalProperty": [
+                {"@type": "PropertyValue", "name": "Technologietyp", "value": "Progressive Web App (PWA)"},
+                {"@type": "PropertyValue", "name": "Erforderliche Hardware", "value": "Keine – läuft auf den eigenen Smartphones der Teilnehmer"},
+                {"@type": "PropertyValue", "name": "App-Download erforderlich", "value": "Nein"}
+            ],
+                        "video": {
                 "@type": "VideoObject",
                 "name": "Nubart LIVE – Digitales Personenführungssystem",
-                "description": "Einführungsvideo zu Nubart LIVE: Web-basiertes Gruppenführungssystem ohne Hardware und App-Downloads.",
+                "description": "Einführungsvideo zu Nubart LIVE: webbasiertes Gruppenführungssystem ohne Hardware und App-Download.",
                 "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/nubart-live-de.png",
                 "contentUrl": "https://vimeo.com/436728219",
                 "embedUrl": "https://player.vimeo.com/video/436728219",
                 "uploadDate": "2020-07-09",
+                "duration": "PT90S",
                 "inLanguage": "de",
-                "publisher": { "@id": "https://www.nubart.eu/#organization" }
+                "publisher": {"@id": "https://www.nubart.eu/#organization"}
+            }
+        }
+    </script>
+
+    <!-- Structured Data: AI Translation Add-on Service -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/digital-tour-guide-app/#ai-translation-addon",
+            "name": "Nubart LIVE – KI-Übersetzungs-Add-on",
+            "description": "Echtzeit-KI-Übersetzungs-Add-on für geführte Touren mit Nubart LIVE. Übersetzt die Stimme des Guides und die Fragen der Besucher in Echtzeit in über 35 Sprachen. Preis pro Stream-Stunde, nicht pro Sprache oder Zuhörer.",
+            "serviceType": "KI-Übersetzungsdienst",
+            "provider": {"@id": "https://www.nubart.eu/#organization"},
+            "areaServed": "Worldwide",
+            "availableLanguage": ["ar", "bg", "yue", "ca", "zh", "cs", "da", "de", "el", "en", "es", "et", "fil", "fi", "fr", "he", "hu", "id", "it", "ja", "ko", "lv", "lt", "nl", "no", "pl", "pt", "ro", "ru", "sk", "sl", "sv", "th", "tr", "uk", "vi"],
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://www.nubart.eu/digital-tour-guide-app/#translation-hourly",
+                "name": "Pay-as-you-go-Übersetzung",
+                "price": "39.00",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "39.00",
+                    "priceCurrency": "EUR",
+                    "unitText": "stream-hour",
+                    "valueAddedTaxIncluded": false
+                },
+                "availability": "https://schema.org/InStock",
+                "description": "39 Euro pro Stream-Stunde (pro Guide mit aktiver Übersetzung). Keine Gebühr pro Besucher oder Sprache. Nur abgerechnet, wenn der Guide mit aktiver Übersetzung spricht. Erste 30 Minuten im Testkit kostenlos.",
+                "seller": {"@id": "https://www.nubart.eu/#organization"},
+                "areaServed": "Worldwide",
+                "url": "https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
             }
         }
     </script>
@@ -97,122 +163,101 @@
                 {
                     "@type": "Question",
                     "name": "Müssen die Teilnehmer eine App herunterladen?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nein. Nubart LIVE funktioniert vollständig im mobilen Browser – einfach scannen und zuhören."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Nein. Nubart LIVE funktioniert vollständig im mobilen Browser – einfach scannen und zuhören."}
                 },
                 {
                     "@type": "Question",
                     "name": "Wie erkenne ich, ob meine Fabrik oder mein Veranstaltungsort für Nubart LIVE geeignet ist?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nubart LIVE funktioniert in jeder Umgebung mit Internetverbindung. Für laute Umgebungen wie Fabriken empfehlen wir ein Richtmikrofon. Fordern Sie ein kostenloses Testkit an, um das System in Ihrer konkreten Umgebung zu testen."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Nubart LIVE funktioniert in jeder Umgebung mit Internetverbindung. Für laute Umgebungen wie Fabriken empfehlen wir ein Richtmikrofon. Fordern Sie ein kostenloses Testkit an, um das System in Ihrer konkreten Umgebung zu testen."}
                 },
                 {
                     "@type": "Question",
                     "name": "Kann ich Nubart LIVE drinnen und draußen verwenden?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Ja. Es funktioniert an jedem Ort mit Internetverbindung – per WLAN in Innenräumen oder mit mobilen Daten im Freien."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Ja. Es funktioniert an jedem Ort mit Internetverbindung – per WLAN in Innenräumen oder mit mobilen Daten im Freien."}
                 },
                 {
                     "@type": "Question",
                     "name": "Hat Nubart LIVE eine Latenz?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Eine kleine Verzögerung von bis zu einer Sekunde zwischen Guide und Teilnehmern (Latenz) ist bei internetbasierten Systemen unvermeidlich. Die Latenz hängt von der Smartphone-Leistung, der Verbindungsqualität und davon ab, ob die Teilnehmer denselben Mobilfunkanbieter nutzen. Spricht der Guide jedoch leise, ist die Latenz kaum wahrnehmbar."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Eine kleine Verzögerung von bis zu einer Sekunde zwischen Guide und Teilnehmern (Latenz) ist bei internetbasierten Systemen unvermeidlich. Die Latenz hängt von der Smartphone-Leistung, der Verbindungsqualität und davon ab, ob die Teilnehmer denselben Mobilfunkanbieter nutzen. Spricht der Guide jedoch leise, ist die Latenz kaum wahrnehmbar."}
                 },
                 {
                     "@type": "Question",
                     "name": "Was passiert, wenn die Internetverbindung während einer Führung abbricht?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Das System stellt automatisch die Verbindung wieder her, sobald die Verbindung wiederhergestellt ist. Die Teilnehmer müssen ihre Karten nicht erneut scannen."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Das System stellt automatisch die Verbindung wieder her, sobald die Verbindung wiederhergestellt ist. Die Teilnehmer müssen ihre Karten nicht erneut scannen."}
                 },
                 {
                     "@type": "Question",
                     "name": "Was, wenn jemand keine Kopfhörer dabei hat?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Die Teilnehmer können den Lautsprecher ihres Telefons verwenden. Kopfhörer bieten jedoch bessere Audioqualität und verhindern, dass die verstärkte Stimme des Guides einen Echoeffekt erzeugt."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Die Teilnehmer können den Lautsprecher ihres Telefons verwenden. Kopfhörer bieten jedoch bessere Audioqualität und verhindern, dass die verstärkte Stimme des Guides einen Echoeffekt erzeugt."}
                 },
                 {
                     "@type": "Question",
                     "name": "Wie funktioniert die KI-Übersetzung?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Der Guide wählt die Sprache, in der er sprechen wird, und aktiviert den Übersetzer. Die Teilnehmer scannen den QR-Code und wählen ihre bevorzugte Sprache aus über 35 Optionen. Sie können entweder die Originalstimme des Guides hören oder eine KI-Echtzeit-Übersetzung als Text und Audio auf ihrem Bildschirm empfangen."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Der Guide wählt die Sprache, in der er sprechen wird, und aktiviert den Übersetzer. Die Teilnehmer scannen den QR-Code und wählen ihre bevorzugte Sprache aus über 35 Optionen. Sie können entweder die Originalstimme des Guides hören oder eine KI-Echtzeit-Übersetzung als Text und Audio auf ihrem Bildschirm empfangen."}
                 },
                 {
                     "@type": "Question",
                     "name": "Welche Sprachen unterstützt die KI-Übersetzung?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Das KI-Übersetzungs-Add-on von Nubart LIVE unterstützt derzeit Arabisch, Bulgarisch, Dänisch, Deutsch, Englisch, Estnisch, Filipino, Finnisch, Französisch, Griechisch, Hebräisch, Indonesisch, Italienisch, Japanisch, Kantonesisch, Katalanisch, Koreanisch, Lettisch, Litauisch, Mandarin, Niederländisch, Norwegisch, Polnisch, Portugiesisch, Rumänisch, Russisch, Schwedisch, Slowakisch, Slowenisch, Spanisch, Tschechisch, Türkisch, Ukrainisch, Ungarisch, Vietnamesisch und Thailändisch."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Das KI-Übersetzungs-Add-on von Nubart LIVE unterstützt derzeit Arabisch, Bulgarisch, Dänisch, Deutsch, Englisch, Estnisch, Filipino, Finnisch, Französisch, Griechisch, Hebräisch, Indonesisch, Italienisch, Japanisch, Kantonesisch, Katalanisch, Koreanisch, Lettisch, Litauisch, Mandarin, Niederländisch, Norwegisch, Polnisch, Portugiesisch, Rumänisch, Russisch, Schwedisch, Slowakisch, Slowenisch, Spanisch, Tschechisch, Türkisch, Ukrainisch, Ungarisch, Vietnamesisch und Thailändisch."}
                 },
                 {
                     "@type": "Question",
                     "name": "Wie viel Akku verbraucht Nubart LIVE?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Die gesamte Hintergrundarbeit findet auf dem Smartphone des Guides statt. Für Gruppenmitglieder ist der Akkuverbrauch nicht viel höher als beim Podcast-Hören. Eine Stunde Dauerbetrieb verbraucht beispielsweise 8 % des Akkus eines vier Jahre alten Android-Smartphones."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Die gesamte Hintergrundarbeit findet auf dem Smartphone des Guides statt. Für Gruppenmitglieder ist der Akkuverbrauch nicht viel höher als beim Podcast-Hören. Eine Stunde Dauerbetrieb verbraucht beispielsweise 8 % des Akkus eines vier Jahre alten Android-Smartphones."}
                 },
                 {
                     "@type": "Question",
                     "name": "Wie viele Daten verbraucht Nubart LIVE?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Etwa 20 MB pro Stunde. Da unser System unidirektional ist (nur der Guide spricht) und kein Video überträgt, verbraucht es deutlich weniger Daten als ein Videoanruf in Zoom oder Skype."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Etwa 20 MB pro Stunde. Da unser System unidirektional ist (nur der Guide spricht) und kein Video überträgt, verbraucht es deutlich weniger Daten als ein Videoanruf in Zoom oder Skype."}
                 },
                 {
                     "@type": "Question",
                     "name": "Haben die Karten ein Ablaufdatum?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nein. Unabhängig vom gewählten Paket müssen die Karten nur einmal gekauft und aufbewahrt werden, bis sie gebraucht werden. Einfach Nachschub bestellen, wenn der Vorrat zur Neige geht."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Nein. Unabhängig vom gewählten Paket müssen die Karten nur einmal gekauft und aufbewahrt werden, bis sie gebraucht werden. Einfach Nachschub bestellen, wenn der Vorrat zur Neige geht."}
                 },
                 {
                     "@type": "Question",
                     "name": "Sind Ihre Karten umweltfreundlich?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Ja. Die Karten werden auf FSC-zertifiziertem Karton gedruckt, und wir kompensieren vollständig alle CO2-Emissionen aus Produktion und Versand."
-                    }
+                    "acceptedAnswer": {"@type": "Answer", "text": "Ja. Die Karten werden auf FSC-zertifiziertem Karton gedruckt, und wir kompensieren vollständig alle CO2-Emissionen aus Produktion und Versand."}
+                },
+                {
+                    "@type": "Question",
+                    "name": "Kann ich das KI-Übersetzungs-Add-on mit jedem Kartenpaket kombinieren?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Ja. Das KI-Übersetzungs-Add-on funktioniert mit jedem Kartenpaket – Print-Your-Own, Basic oder Custom. Sie können sie nach Bedarf frei kombinieren."}
+                },
+                {
+                    "@type": "Question",
+                    "name": "Wie wird die Übersetzungszeit gemessen? Was gilt als Stream-Stunde?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Eine Stream-Stunde entspricht einem Guide mit aktiver Übersetzung für eine Stunde. Führen zwei Guides gleichzeitig übersetzte Touren durch, entspricht das zwei Stream-Stunden pro Uhr-Stunde. Der Preis gilt pro Stream, nicht pro Sprache – wenn Ihre Gruppe gleichzeitig auf Japanisch, Französisch und Arabisch zuhört, ist es dennoch eine Stream-Stunde für 39 Euro."}
+                },
+                {
+                    "@type": "Question",
+                    "name": "Werde ich für stummgeschaltete oder nicht genutzte Minuten berechnet?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Nein. Der Übersetzungszähler läuft nur, während der Guide aktiv spricht und das Übersetzungs-Add-on eingeschaltet ist. Wenn der Guide das Mikrofon stummschaltet, stoppen sowohl der Live-Audiostream als auch die Übersetzung. Spricht der Guide ohne aktiviertes Add-on, entstehen keine Übersetzungskosten. Lässt der Guide die Übersetzung versehentlich eingeschaltet, ohne zu sprechen, stoppt das System die Zählung automatisch nach einer Stunde Stille."}
+                },
+                {
+                    "@type": "Question",
+                    "name": "Kann ich die KI-Übersetzung vor dem Kauf ausprobieren?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Absolut. Nutzen Sie eine der Schaltflächen Kostenloses Testkit anfordern auf dieser Seite und Sie erhalten 6 QR-Codes für eine Testgruppe. Die ersten 30 Minuten sind kostenlos. Das Testkit enthält außerdem eine Demo-Medienbibliothek, damit Sie unsere Fernsteuerungsfunktion ausprobieren können."}
+                },
+                {
+                    "@type": "Question",
+                    "name": "Wie erfahre ich, wie viele Stunden ich verbraucht habe?",
+                    "acceptedAnswer": {"@type": "Answer", "text": "Jeder Guide sieht auf seinem Mobilbildschirm einen Timer, der seine Nutzungszeit anzeigt. Sie können auch detaillierte Nutzungsstatistiken in Ihrem Kundenbereich einsehen, einschließlich der insgesamt genutzten Stunden und aller offenen Beträge für Ihr Unternehmen."}
                 }
             ]
         }
     </script>
     <!-- End FAQ Structured data -->
 
-    <!-- Structured data -->
+    <!-- Structured Data: Breadcrumbs -->
     <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "item": "https://www.nubart.eu/de/",
-                    "name": "Nubart"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "item": "https://www.nubart.eu/de/personenfuehrungsanlage-app/",
-                    "name": "Nubart LIVE - digitales Personenführungssystem"
-                }
+                {"@type": "ListItem", "position": 1, "name": "Nubart", "item": "https://www.nubart.eu/de/"},
+                {"@type": "ListItem", "position": 2, "name": "Nubart LIVE - Digitales Personenführungssystem", "item": "https://www.nubart.eu/de/personenfuehrungsanlage-app/"}
             ]
         }
     </script>
@@ -435,7 +480,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <li class="d-md-none"><a href="anleitung-nubart-live.html" target="_blank">
                     Anleitung</a>
                 </li>
-                <li class="d-md-none"><a href="preis.html">Preise</a></li>
+                <li class="d-md-none"><a href="#pricing">Preise</a></li>
                 <li class="d-md-none">
                     <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=de" target="_blank" onclick="ZohoLightbox.open(); return false;">Test-Kit anfordern</a>
                 </li>
@@ -457,14 +502,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 class="img-fluid mx-auto d-block lazyload mb-4"
                 style="max-width: 320px; width: 70vw; height: auto;"
                 alt="logo Nubart LIVE">
-        <h1>Nubart Live - Personen
-            <wbr>
-            führungs
-            <wbr>
-            system
-        </h1>
-        <h2>Verwandeln Sie jedes Smartphone in ein professionelles Reiseleitersystem – ganz ohne Apps oder weitere Geräte.</h2>
-
+        <h1>Ersetzen Sie Fünkgeräte durch QR-Codes</h1>
+        <h2>Bessere Gruppenführungen mit Live-Übertragung Ihrer Stimme via Smartphone.<br>Keine Geräte, keine App-Downloads, kein Logistikaufwand.<br>Optionale KI-Übersetzung in über 35 Sprachen.</h2>
         <div class="d-flex">
 
             <a href="https://vimeo.com/436728219" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span style="font-size: 25px;">Sehen Sie das Video</span></a>
@@ -502,7 +541,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                        href="anleitung-nubart-live.html"> <i
                             class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Anleitung</a>
                     </li>
-                    <li style="margin-right: 22px;"><a href="preis.html">Preise</a></li>
+                    <li style="margin-right: 22px;"><a href="#pricing">Preise</a></li>
                     <li>
                         <a class="getstarted scrollto"
                            href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=de"
@@ -558,27 +597,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
         </div>
     </section>
+    <!-- ======= Comparison normal vs LIVE ======= -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Gruppenführungen gehen viel besser – ganz ohne sperrige Technik</h2>
+            <h2 class="text-center mb-5">Es gibt eine bessere Art, Gruppen zu führen als mit sperrigen Funkgeräten</h2>
 
             <div class="row text-center g-4">
-                <!-- ALTE METHODE Column -->
+                <!-- OLD WAY Column -->
                 <div class="col-lg-6">
                     <div class="p-4 rounded-4 shadow-sm h-100 bg-white border-top border-4 border-danger">
-                        <h3 class="h4 mb-4 text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i>Alte Methode</h3>
+                        <h3 class="h4 mb-4 text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i>Herkömmliche Personenführungsanlagen</h3>
                         <ul class="list-unstyled text-start">
-                            <li class="mb-3 d-flex align-items-center">
-                                <i class="bi bi-volume-up text-danger fs-4 me-2"></i>
-                                Guides müssen laut sprechen, um über den Lärm hinweg gehört zu werden
-                            </li>
+
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-headset text-danger fs-4 me-2"></i>
-                                Gäste tragen sperrige und unhygienische Geräte
+                                Sperrige Headsets müssen nach jedem Einsatz gereinigt werden
                             </li>
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-box-arrow-in-down-left text-danger fs-4 me-2"></i>
-                                Technik muss gemietet oder gekauft werden
+                                Teure Geräte zum Kaufen, Mieten oder Warten
                             </li>
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-globe2 text-danger fs-4 me-2"></i>
@@ -586,68 +623,64 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </li>
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-emoji-frown text-danger fs-4 me-2"></i>
-                                Keiner stellt Fragen weil es peinlich ist
+                                Wenig flexibel für gelegentliche Führungen
                             </li>
                             <li class="mb-0 d-flex align-items-center">
                                 <i class="bi bi-cash text-danger fs-4 me-2"></i>
-                                Laufende Mietkosten
+                                Batterien, Aufladen und Logistik notwendig
                             </li>
+
                         </ul>
                     </div>
                 </div>
 
-                <!-- NUBART LIVE Column -->
+                <!-- NUBART WAY Column -->
                 <div class="col-lg-6">
                     <div class="p-4 rounded-4 shadow-sm h-100 bg-white border-top border-4 border-success">
-                        <h3 class="h4 mb-4 text-success"><i class="bi bi-stars me-2"></i>Mit Nubart LIVE</h3>
+                        <h3 class="h4 mb-4 text-success"><i class="bi bi-stars me-2"></i>Nubart LIVE</h3>
                         <ul class="list-unstyled text-start">
 
                             <li class="mb-3 d-flex align-items-center">
-                                <i class="bi bi-phone text-success fs-4 me-2"></i>
-                                Gästerführer sprechen ganz normal und Gäste hören alles auf dem eigenen Smartphone
-                            </li>
-                            <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-emoji-smile text-success fs-4 me-2"></i>
-                                Keine App, kein Desinfizieren von Geräten notwendig
+                                Besucher verwenden das eigene Smartphone: keine Apps, keine Geräte
                             </li>
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-qr-code-scan text-success fs-4 me-2"></i>
-                                Gäste scannen einfach einen QR-Code – ohne Technikstress
+                                Gäste scannen einfach einen Code – ganz ohne Technikstress
                             </li>
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-translate text-success fs-4 me-2"></i>
-                                Optional: KI-Übersetzung in bis zu 35+ Sprachen
+                                Optionale KI-Übersetzung in über 35 Sprachen
                             </li>
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-chat-dots text-success fs-4 me-2"></i>
-                                Gäste können Fragen diskret digital stellen
+                                Stille Fragenfunktion für reibungslosere Führungen
                             </li>
                             <li class="mb-0 d-flex align-items-center">
                                 <i class="bi bi-cash-stack text-success fs-4 me-2"></i>
-
-                                Einmal zahlen – Teilnehmer können ihre Karten wiederverwenden
+                                Einmaliger Kartenkauf, keine Verwaltung von Geräten nötig
                             </li>
+
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="mt-5 text-center">
-      <span class="fw-bold fs-5">
-        Sie tun weniger, bieten mehr &amp; sparen dabei – <a href="preis.html">zum halben Preis</a>.
-      </span>
+  <span class="fw-bold fs-5">
+  Einfachere Abläufe, besseres Erlebnis. Zu
+<a href="#pricing">einem Bruchteil der Kosten</a>.
+  </span>
             </div>
-            <!-- Pricing Teaser -->
+
             <div class="text-center mt-4 pb-4">
                 <p class="text-muted">
-                    <strong>Ab 599 €</strong> für 500 wiederverwendbare Karten (einmaliger Kauf, kein Abo)
-                    · <a href="preis.html">Alle Preise ansehen →</a>
+                    <strong>Ab 154 €</strong> (Einmalkauf, keine Abos)· <a href="#pricing">Alle Preise ansehen →</a>
                 </p>
             </div>
+
         </div>
     </section>
-
-
     <!-- ======= Testimonials Section ======= -->
     <section id="how-nubart-live-works" class="testimonials"
              style="background: linear-gradient(135deg, #028a8c 0%, #783119 100%);">
@@ -943,7 +976,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
         </div>
     </section>
-    <!-- Video Section -->
+    <!-- Video demo LIVE with AI Section -->
     <section id="video" class="video-section py-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -966,23 +999,332 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
             </div>
 
-        <!-- CTA after video -->
-        <div class="row justify-content-center mt-5">
-            <div class="col-lg-6 text-center">
-                <p class="lead mb-3">Beeindruckt von dem, was Sie sehen?</p>
-                <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=de"
-                   class="btn btn-lg btn-primary"
-                   target="_blank"
-                   onclick="ZohoLightbox.open(); return false;">
-                    Kostenloses Testkit anfordern
-                </a>
-                <p class="text-muted mt-2 small">Inklusive 30 Minuten kostenloser KI-Übersetzung</p>
-            </div>
         </div>
+    </section>
+    <!-- End Video demo LIVE with AI Section -->
+
+    <!-- ======= Pricing and Calculator Section ======= -->
+    <section id="pricing" class="services section-bg">
+        <div class="container my-5">
+
+            <!-- Header -->
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="display-4 fw-bold mb-2">Preise &amp; Kostenrechner</h2>
+                    <p class="text-muted mb-0">Einfache, transparente Preise. Erstellen Sie Ihr Angebot in wenigen Sekunden.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-stretch justify-content-center">
+
+                <!-- LEFT: Pricing summary -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="card h-100 border card-static">
+                        <div class="card-body p-4 d-flex flex-column">
+
+                            <!-- Card Packages -->
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-qr-code-scan fs-3 me-2" style="color: #783119;"></i>
+                                <h4 class="fw-bold mb-0">QR-Code-Karten</h4>
+                            </div>
+                            <p class="text-muted small mb-2">Einmalkauf · unbegrenzte Guides · keine Abonnements</p>
+
+                            <div class="mb-0" style="font-size: 0.9rem;">
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="../../assets/img/live/live-print-your-own.png" alt="Print-Your-Own" style="width:75px; height:auto; border-radius:4px; flex-shrink:0;">
+                                        <div><strong>Print-Your-Own</strong><br>
+                                            <small class="text-muted">PDF · ausdrucken &amp; verwenden</small><br>
+                                            <small class="text-muted">Lieferung in max. 1 Tag</small></div>
+                                    </div>
+                                    <div class="text-end"><strong>€79</strong> Einrichtungsgebühr<br><small class="text-muted">+ €1,50/Code · min. 50</small></div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="../../assets/img/live/live-basic.png" alt="Basic" style="width:75px; height:auto; border-radius:4px; flex-shrink:0;">
+                                        <div><strong>Basic</strong> <span class="badge rounded-pill" style="background: #028a8c; font-size: 0.65rem;">Beliebt</span><br>
+                                            <small class="text-muted">500 vorgedruckte Karten aus Karton</small><br><small class="text-muted">Versand in 2–3 Tagen</small></div>
+                                    </div>
+                                    <div class="text-end"><strong>€599</strong></div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center py-2">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="../../assets/img/live/live-custom.png" alt="Custom" style="width:75px; height:auto; border-radius:4px; flex-shrink:0;">
+                                        <div><strong>Custom</strong><br><small class="text-muted">3.000+ Karten · Ihr Design</small><br>
+                                            <small class="text-muted">Versand in 30 Tagen</small></div>
+                                    </div>
+                                    <div class="text-end"><strong>ab €3.500</strong><br><small class="text-muted">Mengenrabatte</small></div>
+                                </div>
+                            </div>
+
+                            <hr class="mt-1">
+
+                            <!-- AI Translation -->
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi bi-translate fs-4 me-2" style="color: #b22222;"></i>
+                                <h5 class="fw-bold mb-0">KI-Übersetzungs-Add-on</h5>
+                            </div>
+
+                            <div class="mb-2">
+                                <span class="fs-3 fw-bold">€39</span>
+                                <small class="text-muted"> pro Stream-Stunde</small>
+                            </div>
+
+                            <ul class="list-unstyled mb-3" style="font-size: 0.85rem;">
+                                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Über 35 Sprachen, Audio &amp; Text in Echtzeit</li>
+                                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Preis pro Guide-Stream, nicht pro Sprache</li>
+                                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Unbegrenzte Zuhörer — keine Kosten pro Besucher</li>
+                                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Wird nur berechnet, während der Guide mit aktiver Übersetzung spricht</li>
+                                <li><i class="bi bi-check2 text-success me-1"></i> Guide kann jederzeit aktivieren/deaktivieren</li>
+                            </ul>
+
+                            <hr>
+
+                            <!-- Media Library -->
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi bi-collection-play fs-4 me-2" style="color: #028a8c;"></i>
+                                <h5 class="fw-bold mb-0">Mediathek</h5>
+                            </div>
+                            <p class="text-muted small mb-2">Der Guide sendet Multimediadateien per Fernsteuerung auf die Bildschirme der Teilnehmer. Eine Mediathek pro Route.</p>
+                            <div class="d-flex gap-3" style="font-size: 0.9rem;">
+                                <div><strong>€500</strong> <span class="text-muted">erste Mediathek</span></div>
+                                <div><strong>€250</strong> <span class="text-muted">jede weitere</span></div>
+                            </div>
+
+                            <div class="mt-auto pt-4">
+                                <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
+                                   class="btn btn-primary w-100 py-3"
+                                   target="_blank"
+                                   onclick="ZohoLightbox.open(); return false;">
+                                    <div class="fw-bold">Kostenloses Testkit anfordern</div>
+                                    <div class="small text-light">6 Karten + 30 Min. kostenlose KI-Übersetzung + Demo-Mediathek</div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Calculator -->
+                <div class="col-lg-7" id="live-calc-wrapper">
+
+                    <!-- Print-only logo header -->
+                    <div id="live-calc-print-header" class="d-none">
+                        <img src="../../assets/img/logos/logo-nubart-live-teal.svg" alt="Nubart LIVE">
+                    </div>
+
+                    <!-- Step 1: Card package -->
+                    <div class="card shadow-lg border mb-3" id="live-calc-step-1">
+                        <div class="card-body p-4">
+                            <h4 class="fw-bold mb-1">Ihre Kostenschätzung</h4>
+                            <p class="text-muted small mb-3">Erstellen Sie Ihr Nubart LIVE Angebot in wenigen Klicks</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Schritt 1 von 4</p>
+                            <h6 class="fw-bold mb-3">Welches Kartenpaket benötigen Sie?</h6>
+
+                            <div class="d-flex flex-column gap-2 mb-3">
+                                <button class="btn btn-outline-secondary text-start px-3 py-2" id="btn-pkg-pyo" onclick="liveCalcSetPackage('pyo')">
+                                    <strong>Print-Your-Own</strong> — <small>€79 Einrichtungsgebühr + €1,50/Code</small>
+                                </button>
+                                <button class="btn btn-outline-secondary text-start px-3 py-2" id="btn-pkg-basic" onclick="liveCalcSetPackage('basic')">
+                                    <strong>Basic</strong> — <small>500 gedruckte Karten · €599</small>
+                                </button>
+                                <button class="btn btn-outline-secondary text-start px-3 py-2" id="btn-pkg-custom" onclick="liveCalcSetPackage('custom')">
+                                    <strong>Custom</strong> — <small>3.000+ individuelle Karten · ab €3.500</small>
+                                </button>
+                            </div>
+
+                            <!-- PYO sub-form -->
+                            <div class="d-none mb-3" id="live-calc-pyo-form">
+                                <label class="form-label small fw-semibold">Wie viele Codes benötigen Sie?</label>
+                                <input type="number" id="live-calc-pyo-qty" class="form-control" min="50" max="10000" placeholder="min. 50" style="max-width: 200px;">
+                                <div class="form-text">Mindestens 50 Codes</div>
+                            </div>
+
+                            <!-- Basic sub-form -->
+                            <div class="d-none mb-3" id="live-calc-basic-form">
+                                <label class="form-label small fw-semibold">Wie viele Pakete à 500 Karten?</label>
+                                <input type="number" id="live-calc-basic-qty" class="form-control" min="1" max="100" placeholder="e.g. 1" value="1" style="max-width: 200px;">
+                            </div>
+
+                            <!-- Custom sub-form -->
+                            <div class="d-none mb-3" id="live-calc-custom-form">
+                                <label class="form-label small fw-semibold">Wie viele Karten benötigen Sie?</label>
+                                <input type="number" id="live-calc-custom-qty" class="form-control" min="3000" step="1000" placeholder="min. 3.000" style="max-width: 200px;">
+                                <div id="live-calc-custom-hint" style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem;"></div>
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-primary px-4" onclick="liveCalcStep1Next()">Weiter →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Media Library -->
+                    <div class="card shadow-sm border mb-3 d-none" id="live-calc-step-2">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Schritt 2 von 4</p>
+                            <h5 class="fw-bold mb-1">Benötigen Sie eine Mediathek?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">Eine Mediathek ermöglicht es dem Guide, Bilder, Videos oder Dokumente während der Tour per Fernsteuerung auf die Bildschirme der Teilnehmer zu senden. Sie können für jede Route eine eigene Mediathek erstellen.</p>
+                            <div class="d-flex gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-media-no" onclick="liveCalcSetMedia(false)">Nein</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-media-yes" onclick="liveCalcSetMedia(true)">Ja</button>
+                            </div>
+
+                            <div class="d-none mb-3" id="live-calc-media-form">
+                                <label class="form-label small fw-semibold">Wie viele Mediatheken? <small class="text-muted fw-normal">(eine pro Route)</small></label>
+                                <input type="number" id="live-calc-media-qty" class="form-control" min="1" max="50" placeholder="e.g. 1" value="1" style="max-width: 160px;">
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="liveCalcGoToStep(1)">← Zurück</button>
+                                <button class="btn btn-primary px-4" onclick="liveCalcStep2Next()">Weiter →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: AI Translation -->
+                    <div class="card shadow-sm border mb-3 d-none" id="live-calc-step-3">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Schritt 3 von 4</p>
+                            <h5 class="fw-bold mb-1">Benötigen Sie das KI-Übersetzungs-Add-on?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">Echtzeit-Übersetzung in über 35 Sprachen. €39 pro Stream-Stunde (pro Guide mit aktiver Übersetzung).</p>
+                            <div class="d-flex gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-translate-no" onclick="liveCalcSetTranslation(false)">Nein</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-translate-yes" onclick="liveCalcSetTranslation(true)">Ja</button>
+                            </div>
+
+                            <div class="d-none mb-3" id="live-calc-translate-form">
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <label class="form-label small fw-semibold">Voraussichtliche Guides mit Übersetzung</label>
+                                        <input type="number" id="live-calc-guides" class="form-control" min="1" max="50" placeholder="e.g. 1" value="1">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label small fw-semibold">Übersetzungsstunden pro Guide</label>
+                                        <input type="number" id="live-calc-hours" class="form-control" min="0.5" step="0.5" max="1000" placeholder="e.g. 2">
+                                        <div class="form-text">Gesamte erwartete Stunden (Abrechnung pro Minute)</div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <p class="fw-semibold mb-2" style="font-size: 0.85rem;">Ist dies das erste Mal, dass Sie die KI-Übersetzung von Nubart LIVE nutzen?</p>
+                                    <div class="d-flex gap-3">
+                                        <button class="btn btn-outline-secondary btn-sm px-3" id="btn-live-firsttime-yes" onclick="liveCalcSetFirstTime(true)">Ja, zum ersten Mal</button>
+                                        <button class="btn btn-outline-secondary btn-sm px-3" id="btn-live-firsttime-no" onclick="liveCalcSetFirstTime(false)">Nein, bereits genutzt</button>
+                                    </div>
+                                    <div class="d-none text-danger mt-2" id="live-calc-firsttime-warning" style="font-size:0.85rem;">
+                                        <i class="bi bi-exclamation-circle me-1"></i>Bitte wählen Sie eine Option, um fortzufahren.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="liveCalcGoToStep(2)">← Zurück</button>
+                                <button class="btn btn-primary px-4" onclick="liveCalcStep3Next()">Berechnen →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Result -->
+                    <div class="card shadow-sm border mb-3 d-none" id="live-calc-step-4">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Ihre Schätzung</p>
+                            <h5 class="fw-bold mb-3">Kostenübersicht</h5>
+
+                            <!-- Summary chips -->
+                            <div class="d-flex flex-wrap gap-2 mb-4" id="live-calc-summary-chips"></div>
+
+                            <!-- Result card -->
+                            <div class="p-4 rounded-3 mb-3" style="background: #f0fdfb; border: 1.5px solid #2ec4b6;">
+                                <div class="row align-items-center g-2">
+                                    <div class="col-sm-5">
+                                        <div class="text-muted mb-1" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">Geschätzter Gesamtbetrag</div>
+                                        <div style="font-size: 2.6rem; font-weight: 700; color: #065f46; line-height: 1;" id="live-calc-result-total">—</div>
+                                        <div class="text-muted mt-1" style="font-size: 0.8rem;">zzgl. MwSt. · ca.</div>
+                                    </div>
+                                    <div class="col-sm-7 mt-3 mt-sm-0">
+                                        <ul class="list-unstyled mb-0" style="font-size: 0.83rem;" id="live-calc-result-breakdown"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Notes -->
+                            <div class="alert mb-3 p-3 d-none" id="live-calc-translation-note" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
+                                <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
+                                <strong>Bitte beachten Sie:</strong> Die Übersetzungsstunden sind Schätzwerte auf Basis ganzer Stunden. Nubart rechnet pro tatsächliche Minute ab — nur solange der Guide mit aktiver Übersetzung spricht. Eine endgültige Rechnung mit dem genauen Verbrauch wird ausgestellt.
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2 align-items-center">
+                                <button class="btn btn-outline-secondary" onclick="liveCalcGoToStep(1)">← Neu beginnen</button>
+                                <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA"
+                                   class="btn btn-primary px-4" target="_blank"
+                                   onclick="ZohoLightbox.open(); return false;">
+                                    Kostenloses Testkit anfordern →
+                                </a>
+                                <button class="btn btn-outline-secondary" onclick="window.print()" id="live-calc-print-btn">
+                                    <i class="bi bi-printer me-1"></i>Schätzung drucken
+                                </button>
+                                <button class="btn btn-outline-secondary" onclick="liveCalcRequestQuote()">
+                                    <i class="bi bi-envelope me-1"></i>Offizielles Angebot anfordern?
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quote request fallback panel -->
+                    <div id="live-calc-quote-panel" class="d-none mt-2">
+                        <div class="card border shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h6 class="fw-bold mb-0">Ihre Angebotsanfrage ist fertig</h6>
+                                    <button type="button" class="btn-close" onclick="liveCalcCloseQuotePanel()"></button>
+                                </div>
+                                <p class="text-muted mb-3" style="font-size:0.85rem;">
+                                    Kopieren Sie den Text unten und fügen Sie ihn in Ihren E-Mail-Client ein, oder verwenden Sie den Button <strong>In Mail-App öffnen</strong>, falls eine konfiguriert ist.
+                                </p>
+                                <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
+                                    <strong>An:</strong> info@nubart.eu
+                                </div>
+                                <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
+                                    <strong>Betreff:</strong> <span id="live-calc-quote-subject"></span>
+                                </div>
+                                <textarea id="live-calc-quote-body" class="form-control mb-3" rows="10"
+                                          style="font-size:0.8rem; font-family: monospace; resize:vertical;"
+                                          readonly></textarea>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button id="live-calc-quote-copy" class="btn btn-outline-secondary btn-sm" data-copied-text="✓ Kopiert!">
+                                        <i class="bi bi-clipboard me-1"></i>In die Zwischenablage kopieren
+                                    </button>
+                                    <a id="live-calc-quote-mailto" href="#" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-envelope me-1"></i>In Mail-App öffnen →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise hint -->
+                    <div class="text-center mt-3">
+                        <small class="text-muted">
+                            Organisieren Sie Events statt geführter Touren?
+                            <a href="../simultan-uebersetzung-ki/" class="text-decoration-none fw-semibold">Entdecken Sie Nubart TRANSLATE für Events →</a>
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
     </section>
-    <!-- ======= Testimonials Section ======= -->
+
+    <script src="../../assets/js/live-calculator-de.js" defer></script>
+
+    <!-- ======= End of Pricing and Calculator Section ======= -->
+
+
+
+    <!-- ======= Questions to the Guide Section ======= -->
     <section id="questions" class="testimonials"
              style="background: linear-gradient(135deg, #028a8c 0%, #783119 100%);">
 
@@ -1032,15 +1374,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="clients section light-background">
         <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="d-grid gap-4 text-center">
 
-                    <a style="margin:45px; font-size: 35px;" class="btn-lg btn-primary" type="button" href="../personenfuehrungsanlage-app/preis.html"
-
-                       target="_blank">Sehen Sie unser Preisangebot</a><br>
-                </div>
-
-            </div>
             <h3 class="text-center mb-4 clients-heading">Unsere Kunden und Partner</h3>
             <div id="clientsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover">
                 <!-- Carousel Indicators -->
@@ -1116,7 +1450,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="row justify-content-center">
                 <div class="col-lg-10">
 
-                    Erste Schritte
 
                     <h3 class="mb-3 mt-4">Erste Schritte</h3>
                     <div class="accordion accordion-flush" id="faqGettingStarted">
@@ -1557,7 +1890,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <br> Sie senden uns die Bilder, Logos und anderen Elemente, die Sie auf Ihrer Karte haben möchten, und unser
                                     Designer erstellt mehrere Designvorschläge, aus denen Sie auswählen können.
                                     <br><br>
-                                    <a href="preis.html">Informieren Sie sich über unsere Preise für Nubart LIVE</a>
+                                    <a href="#pricing">Informieren Sie sich über unsere Preise für Nubart LIVE</a>
                                 </div>
                             </div>
                         </div>
@@ -1580,7 +1913,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <br><br>
                                     Wenn Sie Ihre Karten lieber individuell gestalten möchten, beträgt die Mindestbestellmenge
                                     3.000 Stück.
-                                    <a href="preis.html">Informieren Sie sich über unsere Preise für Nubart LIVE</a>
+                                    <a href="#pricing">Informieren Sie sich über unsere Preise für Nubart LIVE</a>
                                 </div>
                             </div>
                         </div>
@@ -1634,6 +1967,107 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     am selben Ort.<br><br>
                                     Benötigen Sie eine kartenfreie Option für spontane oder einmalige Veranstaltungen? Fragen Sie uns nach
                                     unseren druckbaren QR-Code-Blättern – dieselben einzigartigen Codes, in Minuten bereit.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <h3 class="mb-3 mt-5">Preise</h3>
+                    <div class="accordion accordion-flush" id="faqPricing">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-cards-expire">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-cards-expire" aria-expanded="false"
+                                        aria-controls="collapse-cards-expire">
+                                    Haben die Karten ein Ablaufdatum?
+                                </button>
+                            </h2>
+                            <div id="collapse-cards-expire" class="accordion-collapse collapse" aria-labelledby="heading-cards-expire"
+                                 data-bs-parent="#faqPricing">
+                                <div class="accordion-body">
+                                    Nein. Unabhängig vom gewählten Paket kaufen Sie die Karten einmal und behalten sie, bis Sie sie benötigen. Bestellen Sie einfach Nachschub, wenn Ihr Vorrat aufgebraucht ist.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-add-translation">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-add-translation" aria-expanded="false"
+                                        aria-controls="collapse-add-translation">
+                                    Kann ich die KI-Übersetzung zu jedem Kartenpaket hinzufügen?
+                                </button>
+                            </h2>
+                            <div id="collapse-add-translation" class="accordion-collapse collapse" aria-labelledby="heading-add-translation"
+                                 data-bs-parent="#faqPricing">
+                                <div class="accordion-body">
+                                    Ja. Das KI-Übersetzungs-Add-on funktioniert mit allen Kartenpaketen — Print-Your-Own, Basic oder Custom. Sie können diese frei nach Bedarf kombinieren.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-stream-hour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-stream-hour" aria-expanded="false"
+                                        aria-controls="collapse-stream-hour">
+                                    Wie wird die Übersetzungszeit gemessen? Was bedeutet eine „Stream-Stunde"?
+                                </button>
+                            </h2>
+                            <div id="collapse-stream-hour" class="accordion-collapse collapse" aria-labelledby="heading-stream-hour"
+                                 data-bs-parent="#faqPricing">
+                                <div class="accordion-body">
+                                    Eine Stream-Stunde = ein Guide mit aktivierter Übersetzung für eine Stunde. Wenn zwei Guides gleichzeitig übersetzte Führungen durchführen, entspricht das zwei Stream-Stunden pro Stunde. Der Preis gilt pro Stream, nicht pro Sprache — wenn Ihre Gruppe gleichzeitig auf Japanisch, Französisch und Arabisch hört, bleibt es bei einer Stream-Stunde zum Preis von 39 €.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-muted-minutes">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-muted-minutes" aria-expanded="false"
+                                        aria-controls="collapse-muted-minutes">
+                                    Werden stummgeschaltete oder ungenutzte Minuten berechnet?
+                                </button>
+                            </h2>
+                            <div id="collapse-muted-minutes" class="accordion-collapse collapse" aria-labelledby="heading-muted-minutes"
+                                 data-bs-parent="#faqPricing">
+                                <div class="accordion-body">
+                                    Nein. Der Übersetzungszähler läuft nur, wenn der Guide aktiv spricht und das Übersetzungs-Add-on eingeschaltet ist. Wenn der Guide das Mikrofon stummschaltet, stoppen sowohl der Live-Audiostream als auch die Übersetzung — und damit auch der Zähler (er wird schwarz angezeigt, sodass Sie sehen, dass nichts berechnet wird). Spricht der Guide ohne aktivierte Übersetzung, entstehen keinerlei Übersetzungskosten. Und falls die Übersetzung versehentlich aktiviert bleibt, während der Guide schweigt, stoppt das System automatisch nach einer Stunde ohne Aktivität. Sie zahlen nur für tatsächlich übersetzte Sprechzeit.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-try-translation">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-try-translation" aria-expanded="false"
+                                        aria-controls="collapse-try-translation">
+                                    Kann ich die KI-Übersetzung vorab testen?
+                                </button>
+                            </h2>
+                            <div id="collapse-try-translation" class="accordion-collapse collapse" aria-labelledby="heading-try-translation"
+                                 data-bs-parent="#faqPricing">
+                                <div class="accordion-body">
+                                    Natürlich. Nutzen Sie einen der Buttons „Kostenloses Testkit anfordern" auf dieser Seite, und Sie erhalten 6 QR-Codes für eine Testgruppe. Die ersten 30 Minuten Übersetzung sind kostenlos. Das Testkit enthält außerdem eine Demo-Mediathek, mit der Sie auch unsere Fernsteuerungsfunktion ausprobieren können.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-hours-used">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-hours-used" aria-expanded="false"
+                                        aria-controls="collapse-hours-used">
+                                    Wie kann ich sehen, wie viele Stunden ich verbraucht habe?
+                                </button>
+                            </h2>
+                            <div id="collapse-hours-used" class="accordion-collapse collapse" aria-labelledby="heading-hours-used"
+                                 data-bs-parent="#faqPricing">
+                                <div class="accordion-body">
+                                    Jeder Guide sieht auf seinem Smartphone einen Timer mit der Nutzungsdauer. Zusätzlich können Sie im Kundenbereich detaillierte Statistiken einsehen, einschließlich der insgesamt genutzten Stunden und eventuell offener Beträge für Ihr Unternehmen.
                                 </div>
                             </div>
                         </div>
