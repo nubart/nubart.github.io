@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Comment tester Nubart LIVE avec traduction IA et médiathèque | Nubart</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet" />
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../../assets/css/demos-trials.css" rel="stylesheet" />
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+</head>
+
+<body>
+<div class="trial-wrap">
+
+    <!-- Print button (screen only) -->
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Imprimer (A4 portrait)
+    </button>
+
+    <!-- ══ PAGE 1: INSTRUCTIONS ══════════════════════════════════════════ -->
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo" />
+        <div>
+            <h1>Comment tester Nubart LIVE</h1>
+            <p class="subtitle">
+                Votre groupe vous entend clairement sur leurs propres smartphones — avec traduction IA en option et contenus synchronisés
+            </p></div>
+    </div>
+
+    <!-- Intro text -->
+    <!-- INTRO -->
+    <div class="trial-tips-box">
+        <h3>Votre essai comprend</h3>
+        <div class="trial-tip">
+            <i class="bi bi-person-circle tip-icon"></i>
+            <div><strong>Une inscription en tant que guide</strong> pour les tests.</div>
+        </div>
+        <div class="trial-tip">
+            <i class="bi bi-qr-code tip-icon"></i>
+            <div><strong>6 cartes QR uniques</strong> pour le test, imprimées à la dernière page de ce document.</div>
+        </div>
+        <div class="trial-tip">
+            <i class="bi bi-images tip-icon"></i>
+            <div><strong>Une bibliothèque multimédia de démonstration</strong>, que le guide peut diffuser en direct sur les écrans de tous les participants.</div>
+        </div>
+        <div class="trial-tip mb-0">
+            <i class="bi bi-translate tip-icon"></i>
+            <div><strong>30 minutes de traduction simultanée par IA</strong>. Cette option est facultative — Nubart LIVE fonctionne parfaitement bien sans elle.</div>
+        </div>
+
+    </div>
+    <div class="full-instructions-box">
+        <i class="bi bi-printer"></i>
+        <div>
+           <strong>Conseil pratique :</strong> imprimez dès maintenant les instructions complètes et découpez les six cartes avant de partir. Cela facilitera grandement le test sur le terrain.
+        </div>
+    </div>
+    <!-- ── PHASE 1 ─────────────────────────────────────────────────────── -->
+    <!-- SETUP -->
+    <div class="phase-divider">
+       <i class="bi bi-house-door"></i> Avant de rencontrer votre groupe
+    </div>
+
+
+    <!-- Step 1 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Inscrivez-vous en tant que guide et créez votre mot de passe</h3>
+        </div>
+
+        <!-- Registration + Login link box -->
+        <div class="reg-box">
+
+            <p><strong>Lien d'inscription</strong> (utilisez-le une seule fois pour créer votre compte) :</p>
+            <div id="reg-link-display" style="margin-bottom:1rem;"></div>
+            <p><strong>Lien de connexion</strong> (utilisez-le à chaque fois par la suite) :</p>
+            <a class="reg-link" href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                https://www.nub.art/customer/login
+            </a>
+        </div>
+
+        <div class="step-body">
+
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+               <strong>Conseil pour le jour du test :</strong> ajoutez cette page à vos favoris <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener"><strong>www.nub.art/customer/login</strong></a>
+                sur votre smartphone dès maintenant, afin de pouvoir vous connecter rapidement lorsque vous serez avec votre groupe.
+            </div>
+        </div>
+
+    </div>
+    <!-- Step 2 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Imprimez et découpez les 6 cartes de participant</h3>
+        </div>
+        <div class="step-body">
+            <p>Découpez les 6 cartes sur la dernière page imprimée — cela prend moins d’une minute. Gardez-les à portée de
+                main
+                pour les distribuer lorsque vous rencontrerez votre groupe.</p>
+            <div class="callout">
+               <i class="bi bi-exclamation-triangle me-1"></i> 
+               <strong>Chaque code est unique et non transférable.</strong> Une carte par personne — ne les partagez pas et ne les
+                échangez pas. Pensez à inscrire le nom de chaque participant sur sa carte afin qu’il conserve la même pour les sessions suivantes.
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── PHASE 2 ─────────────────────────────────────────────────────── -->
+    <div class="phase-divider field">
+       <i class="bi bi-play-circle"></i>
+        Pendant le test — suivez ces étapes avec votre groupe
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Connectez-vous et ouvrez le groupe</h3>
+        </div>
+        <div class="step-body">
+            <p>Sur votre smartphone, rendez-vous sur <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener"><strong>www.nub.art/customer/login</strong></a> (ou utilisez le favori enregistré) et connectez-vous à l'aide du mot de passe que vous avez créé à l'étape 1.</p>
+            <p>Une fois connecté, appuyez sur <strong>« Ouvrir le groupe »</strong>.</p>
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+               <strong>Traduction IA :</strong> juste après vous être connecté, une fenêtre contextuelle vous demandera si vous souhaitez
+                activer le
+                module complémentaire de traduction. Vous pouvez l'activer ou l'ignorer ici — vous pourrez toujours modifier ce paramètre ultérieurement.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">4</span>
+            <h3>Scannez les cartes des participants avec votre téléphone</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>Tout d'abord, c'est vous (le guide) qui scannez les cartes.</strong></p>
+            <p>Appuyez sur <strong> « Ouvrir le scanner »</strong> sur l'écran du guide et scannez les cartes QR des participants
+                qui participent
+                à votre test — vous n'avez pas besoin de scanner les 6 si vous ne testez qu'avec un petit groupe.</p>
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+                Nous vous recommandons de scanner les cartes avant de les distribuer — c'est la méthode la plus simple. Cela dit,
+                les participants peuvent également scanner leur propre carte en premier, puis vous la montrer. Les deux méthodes fonctionnent très bien.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">5</span>
+            <h3>Distribuez les cartes — demandez aux participants de scanner la leur</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>Ensuite, chaque participant scanne sa propre carte.</strong></p>
+            <p>Remettez <strong>une carte par personne</strong>. Chaque participant scanne le code QR figurant sur <em>sa propre</em>
+                carte à l'aide de
+                son smartphone.</p>
+            <p>Appuyez sur <strong> « Afficher les participants »</strong> sur votre écran de guide. L'indicateur vert à côté de chaque emplacement
+                s'allumera
+                à mesure que chaque participant aura établi la connexion depuis son propre appareil.</p>
+        </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">6</span>
+            <h3>Parlez — et testez la traduction IA si vous le souhaitez</h3>
+        </div>
+        <div class="step-body">
+
+            <p>Appuyez sur <strong> « Activer le micro »</strong> et parlez. Un indicateur audio en mouvement s'affichera à l'écran : cela confirme que votre
+                voix est
+                transmise à tous les participants.</p>
+            <p><strong>Votre essai comprend 30 minutes de traduction gratuite</strong> — n'hésitez pas à la tester dès maintenant.</p>
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+               <strong>Si la traduction est activée :</strong> les participants la reçoivent automatiquement dans la
+                langue de leur navigateur.
+ <strong>               Important pour le test :</strong> si les téléphones de vos collègues ont la même langue de navigateur que
+                le vôtre,
+                ils entendront votre voix d'origine plutôt qu'une traduction. Demandez-leur d'appuyer sur l'icône « <i class="bi bi-translate"></i> » (traduire) sur leur écran pour sélectionner manuellement une autre
+                langue.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">7</span>
+            <h3>Essayez la médiathèque</h3>
+        </div>
+        <div class="step-body">
+            <p>À tout moment pendant le test, appuyez sur <strong> « Télécommande »</strong> sur votre écran de guide. Un exemple de
+                bibliothèque multimédia
+                que nous avons préparé pour cet essai s'ouvrira — elle est entièrement fonctionnelle et prête à l'emploi.</p>
+            <p>Appuyez sur n'importe quel élément de la bibliothèque pour l'envoyer instantanément sur les smartphones de tous les participants. Ils le verront
+                apparaître
+                automatiquement sur leur écran — aucune action n'est requise de leur part. Vous pouvez continuer à parler pendant que le contenu
+                est
+                affiché.</p>
+            <p><strong>Cela vous permet de contrôler exactement ce que votre groupe voit — au moment précis où vous
+                l'expliquez
+                .</strong></p>
+            <p>Si vous appuyez sur un autre élément, celui-ci remplace le précédent sur les écrans des participants. Lorsque vous avez
+                terminé, appuyez sur
+ <strong>               « Fermer »</strong> pour fermer le panneau de la bibliothèque sur votre écran.</p>
+            <div class="callout info">
+               <i class="bi bi-info-circle me-1"></i> 
+               <strong>Couleurs des boutons dans la médiathèque :</strong> vert = pas encore envoyé, gris = déjà envoyé, rouge
+                =
+                échec de la transmission (appuyez à nouveau pour renvoyer).
+            </div>
+            <div class="callout">
+               <i class="bi bi-stars me-1"></i> 
+               <strong>Dans votre compte client :</strong> la médiathèque est créée par notre équipe en fonction de votre contenu
+                et de votre
+                itinéraire de visite. Elle peut inclure des images, des diaporamas, des pistes audio, des vidéos, des objets 3D, des images juxtaposées
+                et des
+                panoramas à 360°. Si vous proposez plusieurs itinéraires différents, chacun peut disposer de sa propre médiathèque dédiée.
+            </div>
+        </div>
+    </div>
+
+    <!-- ── PHASE 3 ─────────────────────────────────────────────────────── -->
+    <div class="phase-divider" style="background:#6c757d;">
+       <i class="bi bi-flag-fill"></i> 
+        Après le test
+    </div>
+
+    <!-- Step 8 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">8</span>
+            <h3>Gardez le groupe ouvert ou fermez-le</h3>
+        </div>
+        <div class="step-body">
+            <p>Si vous souhaitez effectuer un autre test avec le même groupe ultérieurement, laissez simplement le groupe ouvert. Lors de votre prochaine
+                connexion,
+                vos participants seront déjà connectés — il ne sera pas nécessaire de scanner à nouveau les cartes.</p>
+            <p>Si vous avez terminé le test, appuyez sur <strong> « Fermer le groupe »</strong> pour mettre fin à la session.</p>
+        </div>
+    </div>
+
+    <!-- Participant note -->
+    <div class="participant-note">
+       <strong>Ce que les participants verront et pourront faire :</strong><br>
+        Une fois connectés, les participants entendent le guide via leur propre smartphone. Si la traduction est activée, ils
+        la reçoivent
+        automatiquement dans la langue de leur navigateur — ou ils peuvent appuyer sur l’icône <i class="bi bi-translate"></i> pour en choisir une
+        autre. Lorsque le guide envoie un élément multimédia, celui-ci s'affiche automatiquement sur leur écran — aucune action
+        n'est nécessaire. Ils
+        peuvent également envoyer une question écrite au guide à tout moment sans l'interrompre — le guide les voit dans une
+        liste et
+        peut y répondre quand cela lui convient.
+    </div>
+    <!-- CTA -->
+    <div class="callout" style="margin-top:1rem;">
+       <strong>Prêt à utiliser Nubart LIVE pour vos propres visites guidées ?</strong><br>
+        Nous configurerons votre première médiathèque et vous aiderons à démarrer. Il vous suffit de répondre à l’e-mail contenant ce
+        lien.
+    </div>
+    <!-- Troubleshooting -->
+    <div class="troubleshooting-title" id="ts-toggle" onclick="toggleTS()">
+       <i class="bi bi-tools"></i> 
+        Dépannage
+       <i class="bi bi-chevron-down ts-chevron" id="ts-chevron"></i> 
+    </div>
+    <div class="troubleshooting-body" id="ts-body" style="display:none;">
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-mic-mute me-2 text-danger"></i>Votre micro est activé, mais les participants n'entendent
+                rien</strong>
+            <p>Vérifiez que la barre mobile (affichage du spectre) réagit lorsque vous parlez. Si ce n'est pas le cas :</p>
+            <ul>
+                <li>Une autre application utilise peut-être votre microphone — fermez toutes les applications en arrière-plan et réessayez</li>
+                <li>Si vous utilisez un microphone Bluetooth ou sans fil, passez au navigateur Firefox, qui gère
+                    les périphériques audio externes
+                    de manière plus fiable que Chrome ou Safari
+                </li>
+            </ul>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-volume-mute me-2 text-danger"></i>Les participants voient l'écran mais n'entendent aucun
+                son</strong>
+            <p>Demandez-leur de :</p>
+            <ul>
+                <li>Augmentez le volume de leur téléphone</li>
+                <li>Vérifiez que le son n'est pas coupé dans l'interface des participants</li>
+                <li>Fermez toute autre application susceptible d'utiliser le son (lecteurs de musique, vidéos, etc.)</li>
+            </ul>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-translate me-2 text-warning"></i>La traduction n'a pas de sens</strong>
+            <p>Ceci est presque toujours dû à une mauvaise qualité de l'entrée audio. Vérifiez l'indicateur de qualité audio sur votre écran de guidage
+                :</p>
+            <ul>
+                <li><strong>Vert</strong> = le son est suffisamment clair pour permettre la traduction</li>
+                <li><strong>Jaune ou rouge</strong> = la qualité audio doit être améliorée</li>
+            </ul>
+            <p>Pour améliorer la qualité : utilisez un casque avec un microphone proche de votre bouche afin d'isoler votre voix de
+                l'
+                environnement, parlez clairement et vérifiez que la langue de parole sélectionnée est correcte.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-arrow-repeat me-2 text-warning"></i>La traduction répète sans cesse les
+                phrases</strong>
+            <p>Votre microphone capte probablement le son traduit provenant d'appareils situés à proximité. Essayez :</p>
+            <ul>
+                <li>Utiliser un casque avec microphone</li>
+                <li>Demander aux participants d'utiliser des écouteurs</li>
+                <li>Augmenter la distance entre les téléphones</li>
+                <li>Baisser le volume des appareils à proximité</li>
+            </ul>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-person-x me-2 text-danger"></i>Un participant n'apparaît pas dans la liste des participants
+                </strong>
+            <p>Il se peut qu'il n'ait pas encore scanné sa carte. Demandez-lui de scanner à nouveau sa propre carte QR — ou, s'il
+                ne parvient pas à la scanner,
+                de se rendre sur <strong>nub.art</strong> et de saisir le code privé imprimé sur sa carte. La connexion
+                ne peut
+                être établie qu'à partir de l'appareil du participant lui-même.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-wifi-off me-2 text-danger"></i>La connexion est interrompue pendant le test</strong>
+            <p>Il s'agit généralement d'une interruption temporaire de la couverture. Déplacez-vous simplement de quelques mètres avec votre groupe — la connexion
+                sera
+                rétablie automatiquement dès que la couverture sera à nouveau disponible.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-collection me-2 text-warning"></i>Un bouton de la médiathèque devient rouge</strong>
+            <p>Le contenu n'a pas pu être transmis — généralement en raison d'un bref problème de connexion. Il suffit d'appuyer à nouveau sur le
+                bouton
+                pour le renvoyer. Si plusieurs boutons deviennent rouges en même temps, vérifiez que les téléphones du guide et des participants
+                disposent
+                d'une connexion Internet active.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Des questions ? Écrivez-nous à <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+             — 
+ <a href="https://www.nubart.eu">           www.nubart.eu</a>
+        </p>
+    </div>
+
+    <!-- ══ PAGE 2: QR CARDS ══════════════════════════════════════════════ -->
+    <div class="qr-page">
+        <div class="qr-page-header no-print">
+            <h2><i class="bi bi-qr-code me-2"></i>Cartes des participants — imprimer, découper et distribuer</h2>
+            <p>Chaque carte est unique et non transférable. Remettez une carte par participant.</p>
+        </div>
+
+        <!-- Print-only header -->
+        <div class="qr-print-header">
+            <p><strong>Ces codes sont uniques et non transférables !</strong> Veuillez n'en utiliser qu'un par personne.</p>
+            <p>Chaque code peut être réutilisé d'une session à l'autre — pensez à inscrire le nom du participant sur sa carte afin que
+                chacun
+                conserve la même.</p>
+            <p>Votre essai comprend <strong>30 minutes de traduction simultanée par IA gratuite</strong>. La traduction est
+                facultative :
+                si vous avez seulement besoin d'amplifier la voix du guide, Nubart LIVE fonctionne parfaitement sans elle.</p>
+            <p>Assurez-vous de lire les instructions avant de commencer !</p>
+        </div>
+
+        <div class="qr-grid" id="qr-grid">
+            <!-- Cards injected by JS -->
+        </div>
+
+        <!-- Print-only footer -->
+        <div class="qr-print-footer">
+            Des questions ? Écrivez-nous à <strong>info@nubart.eu</strong> — <strong>
+            www.nubart.eu</strong>
+        </div>
+    </div>
+
+</div><!-- /.trial-wrap -->
+
+<script>
+    function toggleTS() {
+        const body = document.getElementById('ts-body');
+        const toggle = document.getElementById('ts-toggle');
+        const isOpen = body.style.display !== 'none';
+        body.style.display = isOpen ? 'none' : 'block';
+        toggle.classList.toggle('open', !isOpen);
+    }
+
+    (function () {
+        const params = new URLSearchParams(window.location.search);
+
+        /* ── Registration link ─────────────────────────── */
+        const regUrl = params.get('invite');
+        const regDisplay = document.getElementById('reg-link-display');
+        if (regUrl) {
+            regDisplay.innerHTML =
+                '<a class="reg-link" href="' + regUrl + '" target="_blank" rel="noopener">' +
+                regUrl + '</a>';
+        } else {
+            regDisplay.innerHTML =
+                '<span class="reg-missing"><i class="bi bi-exclamation-triangle me-1"></i>' +
+                'No registration link provided. Please contact your Nubart representative.</span>';
+        }
+
+        /* ── Extract alphanumeric code from a nub.art URL ─ */
+        function extractCode(url) {
+            try {
+                const path = new URL(url).pathname.replace(/\/$/, '');
+                const segment = path.split('/').filter(Boolean).pop() || '';
+                // Show the full code; split roughly in half with a space for readability
+                if (segment.length > 6) {
+                    const mid = Math.round(segment.length / 2);
+                    return segment.slice(0, mid) + ' ' + segment.slice(mid);
+                }
+                return segment;
+            } catch (e) {
+                return url;
+            }
+        }
+
+        /* ── Build one card ────────────────────────────── */
+        function buildCard(url, index) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'qr-card';
+
+            const body = document.createElement('div');
+            body.className = 'qr-card-body';
+
+            // Text column
+            const textCol = document.createElement('div');
+            textCol.className = 'qr-card-text';
+            textCol.innerHTML =
+                '<p class="qr-scan-label">Scannez ce QR<br>ou allez sur</p>' +
+                '<p class="qr-nub-art">www.nub.art</p>' +
+                '<p class="qr-private-label">Votre code privé :</p>' +
+                '<p class="qr-code-text">' + extractCode(url) + '</p>';
+
+            // QR code column
+            const qrWrap = document.createElement('div');
+            qrWrap.className = 'qr-image-wrap';
+            const canvas = document.createElement('canvas');
+            qrWrap.appendChild(canvas);
+            QRCode.toCanvas(canvas, url, {
+                width: 110,
+                margin: 1,
+                color: { dark: '#000000', light: '#ffffff' }
+            });
+
+            body.appendChild(textCol);
+            body.appendChild(qrWrap);
+
+            // Footer bar
+            const footer = document.createElement('div');
+            footer.className = 'qr-card-footer';
+            footer.innerHTML =
+                '<span class="powered-by">' +
+                'POWERED BY &nbsp;<img src="../../assets/img/logo.png" alt="Nubart" class="footer-logo">' +
+                '</span>';
+
+            wrapper.appendChild(body);
+            wrapper.appendChild(footer);
+            return wrapper;
+        }
+
+        /* ── Render grid ───────────────────────────────── */
+        const grid = document.getElementById('qr-grid');
+        let anyCard = false;
+        for (let i = 1; i <= 6; i++) {
+            const url = params.get('card' + i);
+            if (url) {
+                anyCard = true;
+                grid.appendChild(buildCard(url, i));
+            } else {
+                const missing = document.createElement('div');
+                missing.className = 'qr-card-missing';
+                missing.innerHTML =
+                    '<i class="bi bi-exclamation-circle me-1"></i>' +
+                    'Card ' + i + ' not provided';
+                grid.appendChild(missing);
+            }
+        }
+
+    })();
+</script>
+
+</body>
+</html>

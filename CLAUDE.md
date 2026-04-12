@@ -63,8 +63,8 @@ Currently Nubart LIVE is our only product with a separate pricing page.
 **Unlinked URL to send our trial kits for Nubart LIVE**
 - EN: digital-tour-guide-app/nubart-live-free-trial.html
 - DE: de/personenfuehrungsanlage-app/nubart-live-gratis-test.html
-- FR: (still pending)
-- ES: (still pending)
+- FR: fr/systeme-audio-visite-guidee/nubart-live-essai-gratuit.html
+- ES: es/sistema-guiado-grupos/nubart-live-prueba-gratuita.html
 - IT: it/tour-guide-app/nubart-live-prova-gratuita.html
 - JA: ja/digital-tour-guide-app/nubart-live-free-trial.html
 - PT-BR: (still pending)
