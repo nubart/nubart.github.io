@@ -23,6 +23,10 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - HE: he/index.html
 - BG: bg/index.html
 
+- **Terms and conditions - General Hub:**
+- EN: terms-conditions.html
+- DE: de/agb.html
+
 ## Product Pages Paths
 
 ### Nubart LIVE
@@ -138,8 +142,8 @@ Some of our products/languages have a subdirectory for a specific product, but t
 **Terms and conditions for Nubart GUIDE:**
 
 - EN: audio-guides/terms-conditions.html
-- DE: de/audioguides/index.html
-- ES: es/audioguias.html
+- DE: de/audioguides/agb.html
+- ES: es/audioguias/condiciones-generales-servicio.html
 - IT: it/audioguida.html
 - FR: fr/audioguides.html
 - HE: he/audio-guides/index.html
