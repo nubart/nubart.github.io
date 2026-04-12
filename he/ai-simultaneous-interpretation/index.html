@@ -942,6 +942,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                             </div>
 
+                            <!-- Israel distributor note -->
+                            <div class="alert mb-3 p-3" style="background: #f0fdfb; border: 1px solid #2ec4b6; color: #065f46; font-size: 0.82rem;" dir="rtl">
+                                <i class="bi bi-info-circle me-1"></i>
+                                בישראל, ל-Nubart TRANSLATE יש מפיץ בלעדי. תקבל/י את הצעת המחיר בשקלים (₪) לפי שער החליפין הנוכחי. הסכום באירו המוצג כאן הוא לעיון בלבד.
+                            </div>
+
                             <!-- Notes -->
                             <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
                                 <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
@@ -977,7 +983,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <strong>פתח באפליקציית הדוא״ל</strong> אם יש לך אחת מוגדרת.
                                 </p>
                                 <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
-                                    <strong>To:</strong> info@nubart.eu
+                                    <strong>To:</strong> <span id="calc-quote-to">info@nubart.eu</span>
                                 </div>
                                 <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
                                     <strong>Subject:</strong> <span id="calc-quote-subject"></span>
@@ -1013,6 +1019,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <script>
     window.CALC_I18N = {
+        email:      'udi.landau@nubart.eu',
         subject:    (days, total) => `בקשת הצעת מחיר – אירוע Nubart TRANSLATE (${days} ימים, הערכה ${total})`,
         roomLabel:  (i)           => `חדר ${i}`,
         roomSuffix: (n)           => `${n} חדרים במקביל`,

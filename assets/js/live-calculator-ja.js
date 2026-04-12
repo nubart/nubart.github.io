@@ -229,15 +229,17 @@ function liveCalcRequestQuote() {
     const subject = '見積もり依頼 \u2013 Nubart LIVE（推定 ' + total + '）';
     const body = 'ご担当者様\n\nウェブサイトのコスト計算ツールを使用しました。Nubart LIVEの正式見積もりをお送りいただけますでしょうか。\n\n構成：' + config + '\n初回利用：' + trial + '\n推定合計（計算ツール）：' + total + '（税別）\n\n弊社宛の正式見積書をお送りください。\n\n【お名前、会社名、法人番号をご記入ください】\n\nよろしくお願いいたします。';
 
-    const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    const mailtoLink = 'mailto:nami.hirota@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 
     document.getElementById('live-calc-quote-subject').textContent = subject;
     document.getElementById('live-calc-quote-body').textContent = body;
     document.getElementById('live-calc-quote-mailto').href = mailtoLink;
+    const toEl = document.getElementById('live-calc-quote-to');
+    if (toEl) toEl.textContent = 'nami.hirota@nubart.eu';
 
     const copyBtn = document.getElementById('live-calc-quote-copy');
     copyBtn.onclick = function() {
-        const fullText = '宛先: info@nubart.eu\n件名: ' + subject + '\n\n' + body;
+        const fullText = '宛先: nami.hirota@nubart.eu\n件名: ' + subject + '\n\n' + body;
         navigator.clipboard.writeText(fullText).then(function() {
             var btn = document.getElementById('live-calc-quote-copy');
             var original = btn.textContent;

@@ -175,6 +175,7 @@ function calcCompute() {
 
 // Default English strings — override per page via window.CALC_I18N
 const CALC_I18N_DEFAULT = {
+    email:        'info@nubart.eu',
     subject:      (days, total) => `Quote request – Nubart TRANSLATE event (${days} day${days>1?'s':''}, est. ${total})`,
     roomLabel:    (i)           => `Room ${i}`,
     roomSuffix:   (n)           => `${n} simultaneous rooms`,
@@ -227,17 +228,19 @@ function calcRequestQuote() {
     const subject = i18n.subject(days, total);
     const body    = i18n.body(eventDetails, trial, total);
 
-    const mailtoLink = `mailto:info@nubart.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${i18n.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     // Populate the fallback panel
     document.getElementById('calc-quote-subject').textContent = subject;
     document.getElementById('calc-quote-body').textContent = body;
     document.getElementById('calc-quote-mailto').href = mailtoLink;
+    const toEl = document.getElementById('calc-quote-to');
+    if (toEl) toEl.textContent = i18n.email;
 
     // Clipboard copy — reads feedback text from data-copied-text attribute (language-agnostic)
     const copyBtn = document.getElementById('calc-quote-copy');
     copyBtn.onclick = function() {
-        const fullText = `To: info@nubart.eu\nSubject: ${subject}\n\n${body}`;
+        const fullText = `To: ${i18n.email}\nSubject: ${subject}\n\n${body}`;
         navigator.clipboard.writeText(fullText).then(() => {
             const btn = document.getElementById('calc-quote-copy');
             const original = btn.textContent;

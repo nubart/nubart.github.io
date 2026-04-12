@@ -969,6 +969,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                             </div>
 
+                            <!-- Japan distributor note -->
+                            <div class="alert mb-3 p-3" style="background: #f0fdfb; border: 1px solid #2ec4b6; color: #065f46; font-size: 0.82rem;">
+                                <i class="bi bi-info-circle me-1"></i>
+                                日本では、Nubartは廣田 奈美（Nami Hirota）様を独占代理店としています。お見積もりは現在の為替レートで日本円（¥）にてお送りします。ここに表示されているユーロ金額はご参考としてのみお使いください。
+                            </div>
+
                             <!-- Notes -->
                             <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
                                 <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
@@ -1004,7 +1010,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <strong>メールアプリで開く</strong>ボタンをご利用ください（メールアプリが設定されている場合）。
                                 </p>
                                 <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
-                                    <strong>To:</strong> info@nubart.eu
+                                    <strong>To:</strong> <span id="calc-quote-to">info@nubart.eu</span>
                                 </div>
                                 <div class="mb-2" style="font-size:0.8rem; color:#6b7f93;">
                                     <strong>Subject:</strong> <span id="calc-quote-subject"></span>
@@ -1028,7 +1034,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="text-center mt-3">
                         <small class="text-muted">
                             定期的にイベントを開催されていますか？
-                            <a href="mailto:info@nubart.eu" class="text-decoration-none fw-semibold">カスタムプランについてお問い合わせください</a>
+                            <a href="mailto:nami.hirota@nubart.eu" class="text-decoration-none fw-semibold">カスタムプランについてお問い合わせください</a>
                         </small>
                     </div>
 
@@ -1039,6 +1045,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <script>
         window.CALC_I18N = {
+            email:      'nami.hirota@nubart.eu',
             subject:    (days, total) => `お見積もり依頼 – Nubart TRANSLATE イベント（${days}日間、推定 ${total}）`,
             roomLabel:  (i)           => `会場 ${i}`,
             roomSuffix: (n)           => `${n} 会場同時進行`,
