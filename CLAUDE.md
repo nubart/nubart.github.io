@@ -23,9 +23,16 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - HE: he/index.html
 - BG: bg/index.html
 
+## Generic Root pages that apply to Nubart in general
+
 - **Terms and conditions - General Hub:**
 - EN: terms-conditions.html
 - DE: de/agb.html
+- ES: es/condiciones-generales-servicio.html
+- FR: fr/conditions-generales-service.html
+- IT: it/condizioni-generali-di-servizio.html
+- NL: nl/algemene-voorwaarden.html
+- JA: ja/terms-conditions.html
 
 ## Product Pages Paths
 
@@ -144,14 +151,14 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - EN: audio-guides/terms-conditions.html
 - DE: de/audioguides/agb.html
 - ES: es/audioguias/condiciones-generales-servicio.html
-- IT: it/audioguida.html
-- FR: fr/audioguides.html
-- HE: he/audio-guides/index.html
-- BG: bg/audiogidove.html
-- PT-BR: pt-br/audioguia/index.html
-- JA: ja/audio-guides/index.html
-- NL: nl/audiogidsen/index.html
-- PL: pl/audioprzewodnik/index.html
+- IT: it/audioguida/condizioni-generali-di-servizio.html
+- FR: fr/audioguide/conditions-generales-service.html
+- HE: (still pending)
+- BG: (still pending)
+- PT-BR: (still pending)
+- JA: ja/audio-guides/terms-conditions.html
+- NL: nl/audiogidsen/algemene-voorwaarden.html
+- PL: (still pending)
 - 
 ### Nubart MOTION
 **Main product explainer:**
