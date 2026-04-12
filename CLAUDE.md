@@ -37,18 +37,6 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - PL: pl/tour-guide-system/index.html
 - NL: nl/digital-rondleidingsysteem/index.html
 
-**Nubart LIVE - Pricing page**
-Currently Nubart LIVE is our only product with a separate pricing page.
-
-- EN: digital-tour-guide-app/pricing.html
-- DE: de/personenfuehrungsanlage-app/preis.html
-- FR: fr/systeme-audio-visite-guidee/prix.html
-- ES: es/sistema-guiado-grupos/precio.html
-- IT: it/tour-guide-app/prezzi.html
-- JA: ja/digital-tour-guide-app/pricing.html
-- PL: pl/tour-guide-system/cena.html
-- NL: nl/digital-rondleidingsysteem/prijzen.html
-
 **Nubart LIVE - Instructions**
 - EN: digital-tour-guide-app/instructions-nubart-live.html
 - DE: de/personenfuehrungsanlage-app/anleitung-nubart-live.html
