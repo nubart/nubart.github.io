@@ -5,37 +5,106 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Structured data -->
-
-    <!-- Structured data -->
+    <!-- Structured Data: Article -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "WebPage",
-
-            "mainEntity": {
-                "@type": "Article",
-                "headline": "How to structure your museum audio guide for ease of use, usability and clarity",
-                "description": "With traditional audio guides, there is not much thought given to the structure of the content: visitors typically type in the number of an exhibit on the device's keypad and receive the corresponding audio explanation. But the rich multimedia capabilities of digital audio guides require a more complex content presentation strategy to ensure easy and accessible navigation for people of all ages and to make the museum audio guide experience enjoyable.",
-                "image": "https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg",
-                "author": {
-                    "@type": "Organization",
-                    "name": "Nubart's Team"
-                },
-                "datePublished": "2018-02-22",
-                "dateModified": "2024-05-12",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Nubart",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
-                    }
+            "@type": "Article",
+            "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html#article",
+            "headline": "Scrolling vs. Clicking: How Navigation Design Makes or Breaks a Digital Audio Guide",
+            "inLanguage": "en",
+            "description": "A reference analysis of the two dominant navigation paradigms in web-based digital audio guides — scroll-and-play-in-place vs. click-and-navigate-away — with UX arguments grounded in cognitive load theory, recognition vs. recall, and progressive disclosure. Intended for museums, audio guide vendors, and UX designers.",
+            "image": "https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg",
+            "author": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
                 }
-            }
+            },
+            "datePublished": "2018-02-22",
+            "dateModified": "2026-04-12",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+            },
+            "keywords": "digital audio guide UX, scroll-and-play-in-place, click-and-navigate-away, scrollable audio guide, museum audio guide navigation, web-based audio guide structure, cognitive load audio guide, recognition vs recall, progressive disclosure, PWA audio guide, audio guide usability",
+            "articleSection": "Audio Guide UX, Museum Technology, Digital Visitor Experience",
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Audio guide",
+                    "sameAs": "https://en.wikipedia.org/wiki/Audio_tour"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Cognitive load",
+                    "sameAs": "https://en.wikipedia.org/wiki/Cognitive_load"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Progressive web app",
+                    "sameAs": "https://en.wikipedia.org/wiki/Progressive_web_app"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Usability heuristic",
+                    "sameAs": "https://en.wikipedia.org/wiki/Heuristic_evaluation"
+                }
+            ]
         }
     </script>
-    
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "inLanguage": "en",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Is scrolling better than clicking in digital museum audio guides?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "For most museum contexts, yes. A scroll-and-play-in-place interface keeps all tracks visible in a continuous list, reducing cognitive load and leveraging the scrolling gesture that visitors already use daily in social media and messaging apps. Click-and-navigate-away interfaces, where each track opens on a separate screen, require more navigation steps and break the visitor's spatial orientation."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How should I structure content in a web-based audio guide?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Content groupings should mirror the physical layout of the venue — organized by floor, building, or gallery rather than by theme or chronology. For complex or multi-site venues, a modular system works well: each module contains its own scrollable track list, and visitors switch between modules via a top-level menu."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can a scrollable audio guide still let visitors jump to a specific track?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. When a visitor enters a track number on a keypad or uses a text search, the interface scrolls directly to the corresponding position within the same continuous list. This combines the free-form browsing of a scrollable layout with the direct-access precision of a search function, without requiring a separate screen or page transition."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is a scrollable audio guide accessible for users with disabilities?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A finite, semantically structured scrollable page — with proper headings, landmark regions, and consistent numbering — can be fully accessible to screen reader and keyboard users. The well-documented accessibility problems associated with scrolling typically apply to infinite scroll patterns in social media, not to the finite, numbered track lists used in audio guides."
+                    }
+                }
+            ]
+        }
+    </script>
+
     <!-- Structured Data: Breadcrumbs -->
     <script type="application/ld+json">
         {
@@ -57,14 +126,12 @@
                 {
                     "@type": "ListItem",
                     "position": 3,
-                    "name": "How to structure the content of a digital audio guide",
+                    "name": "Scrolling vs. clicking: navigation design in digital audio guides",
                     "item": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
                 }
             ]
         }
     </script>
-    
-    <!-- End Structured data -->
 
     <!-- End Structured data -->
     <!-- Google Tag Manager -->
@@ -92,8 +159,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="module" src="/js/cookieconsent-config.js"></script>
 
 
-    <title>User-friendly structure of museum audio guides </title>
-    <meta name="description" content="Digital audio guides offer many opportunities for multimedia content. Learn how to structure your audio guide for ease of use, usability and clarity.">
+    <title>Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide</title>
+    <meta name="description" content="Scroll-and-play-in-place or click-and-navigate-away? The navigation model of a digital audio guide determines how easily museum visitors of all ages can use it. Learn how scrollable interfaces reduce cognitive load and improve usability.">
     <meta name="author" content="Nubart">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="twitter:card" content="summary_large_image">
@@ -116,11 +183,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- OpenGraph for LinkedIn -->
 
-    <meta property="og:title" content="User-friendly structure of museum audio guides "/>
+    <meta property="og:title" content="Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide"/>
     <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg"/>
     <meta property="og:author" content="Nubart International"/>
-    <meta property="og:description" content="Digital audio guides offer more possibilities than ever to integrate multimedia content. This article is about what you should keep in mind when structuring the content of your audio guide so it still remains user-friendly and clear. 
-. ">
+    <meta property="og:description" content="Scroll-and-play-in-place or click-and-navigate-away? The navigation model of a digital audio guide determines how easily museum visitors of all ages can use it. Learn how scrollable interfaces reduce cognitive load and improve usability.">
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html">
 
@@ -370,126 +436,210 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <div class="col-md-8 nubart-blog">
 
-                    <h1>User-friendly structure of museum audio guides</h1>
-                    <img src="../assets/img/blog/jpg/cover-structure-audioguide.jpg" class="img-fluid" alt="Nubart's blog - how to give  auser friendly structure to audio guides"><br><br>
-                    <p class="lead">Digital audio guides offer more possibilities than ever to integrate multimedia content. This article is about what you should keep in mind when structuring the content of your audio guide so it still remains user-friendly and clear. </p>
-                    <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
-                    <p>With traditional audio guide devices you don’t have to worry much about the structure of the content: usually visitors type the number of an exhibit on the device’s keypad and receive the corresponding audio explanation.</p>
-                    <p>Even though most digital audio guides (whether apps or <a href="implementing-pwa-museum-guide.html" target="_blank">PWAs</a>) also offer the ability to type in a number to reach specific content, with the rise of touchscreens new opportunities but also new challenges arise. The goal is to structure the multimedia content of the audio guide on the small screen of the smartphone in a way visitors enjoy using their digital audio guide frequently.</p>
-                    <br>
-                    <h2>How to structure your digital audio guide so it becomes user-friendly
-                    </h2>
-                    <p>Obviously, visitors should use your audio guides a lot during their visit. That's why it's so important to have a user-friendly structure, so that people can use the guide intuitively, without having to think too much about it. The main reasons why this is so important are that not every museum visitor is a digital native and the guide is not the main focus of the visit. It plays a supporting role, and visitors are expected to pay most of their attention to the exhibition itself. As a result, they won't have the time or interest to figure out how the guide works.
+                    <h1>Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide</h1>
 
-                    </p>
-                    <p>The following points make the structure of the audio guide user-friendly:
-                    </p>
-                    <ul>
-                        <li>Reasonable
- structuring of the content
-                        </li>
-                        <li>
-                            <a href="https://bootcamp.uxdesign.cc/navigate-to-the-top-essential-strategies-for-creating-intuitive-navigation-bcaedce4b32f" target="_blank">Intuitive navigation</a>
-                        </li>
-                        <li>Personalized content
-                        </li>
-                    </ul>
-                    <br>
-                    <h2>Reasonable structuring of the content  </h2>
-                    <p>Usually an audio guide consists of one or more lists of the different stations along the route. Each of these stations contains an audio track and possibly other multimedia elements such as videos or photos.</p>
-                    <p>The way in which these lists and stations are structured is of paramount importance to the user-friendliness of the audio guide. In large and complex exhibition sites, it is helpful to provide a branched structure, with each branch consisting of a separate list of stations.
 
-                    </p>
-                    <p>The lists that structure the audio guide should provide clarity and relate to the actual circumstances of the <a href="https://en.wikipedia.org/wiki/Audio_tour" target="_blank">audio tour</a>. For example, if the exhibits are spread over two or three floors or two different buildings, it is advisable that the structure of the audio tour takes this into account, as it will make it more user-friendly and help visitors find their way around.
 
-                    </p>
-                    <p>However, care should be taken with thematic lists if they do not correlate with the physical exhibition space. When designing the user-friendly structure of a digital audio guide, it is important to keep in mind the route a visitor will take. For example, if medieval artefacts share a space with modern history artefacts, it is usually better to prioritise spatial distribution rather than chronological or thematic congruence.
-                    </p>
-                    <br>
-                    <h2>Nubart's modular system</h2>
-                    <p>To solve this problem of user-friendly structuring Nubart developed a
-                        <a href="../audio-guides/multimedia-features.html#modules" target="_blank">modular system</a> which organizes broad sets of content in blocks or modules that are well differentiated from each other.</p>
-                    <p>This way of organizing content is ideal for venues that have several independent buildings or spaces. For example,
-                        <a href="https://www.spain.info/en/leisure-parks/riotinto-mining-park/" target="_blank">the Riotinto Mining Park</a> in Huelva (Spain) consists of a museum, a train, a mine and a house, so we created separate modules for each of these sites which were all integrated in the audio guide.
+                    <p class="lead">The way visitors navigate a digital audio guide matters far more than most museums realize. While the multimedia content of an audio guide gets plenty of attention — scripts, voice talent, images, videos — the underlying navigation model often goes unconsidered. Yet it is this structural decision that materially affects how many tracks visitors listen to and how deeply they engage with the exhibition. This article examines the two dominant navigation paradigms in web-based digital audio guides, explains why one is better suited to the museum context — for reasons grounded in established UX principles — and offers practical guidance on structuring content for clarity, personalization, and ease of use. It is intended as a reference for museums, audio guide vendors, and UX designers working in the cultural sector.</p>
 
-                    </p>
+                    <!-- Table of Contents -->
+                    <nav aria-label="Table of contents" style="margin-bottom:2em;">
+                        <h2 style="font-size:1.3em; margin-top:1.5em;">Table of Contents</h2>
+                        <ol style="padding-left:1.2em; font-size:1.07em;">
+                            <li><a href="#from-keypad-to-touchscreen">From keypad to touchscreen: why structure matters now</a></li>
+                            <li>
+                                <a href="#two-navigation-paradigms">Two navigation paradigms in digital audio guides</a>
+                            </li>
+                            <li>
+                                <a href="#why-scroll-and-play-works-better">Why scroll-and-play-in-place works better: four UX arguments</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>3.1 <a href="#lower-cognitive-load">Lower cognitive load through persistent spatial context</a></li>
+                                    <li>3.2 <a href="#familiarity-scrolling-universal-skill">Familiarity: scrolling is now a universal digital skill</a></li>
+                                    <li>3.3 <a href="#incidental-discovery">Incidental discovery: scrolling supports the museum's educational mission</a></li>
+                                    <li>3.4 <a href="#compatibility-search-direct-access">Compatibility with search and direct access features</a></li>
+                                </ol>
+                            </li>
+                            <li>
+                                <a href="#structuring-content">Structuring content within a scrollable audio guide</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>4.1 <a href="#match-structure-physical-space">Match the structure to the physical space</a></li>
+                                    <li>4.2 <a href="#modules-complex-venues">Use modules for complex or multi-site venues</a></li>
+                                </ol>
+                            </li>
+                            <li>
+                                <a href="#personalization">Personalization without breaking the scroll</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>5.1 <a href="#expandable-detail">Expandable detail within each track</a></li>
+                                    <li>5.2 <a href="#transcriptions-overlay">Transcriptions and text content: overlay, don't embed</a></li>
+                                    <li>5.3 <a href="#tags-filtering">Tags for filtering content</a></li>
+                                </ol>
+                            </li>
+                            <li><a href="#geolocation-triggered-scrolling">The special case of geolocation-triggered scrolling</a></li>
+                            <li><a href="#summary">Summary</a></li>
+                            <li><a href="#faq">Frequently asked questions</a></li>
+                        </ol>
+                    </nav>
+
+                    <hr>
+
+                    <h2 id="from-keypad-to-touchscreen">From keypad to touchscreen: why structure matters now</h2>
+
+                    <p>With traditional audio guide devices, content structure was barely a concern. Visitors typed a number on a keypad, heard the corresponding track, and moved on. The device imposed no navigational decisions beyond "which number next?"</p>
+
+                    <p>Digital audio guides — whether native apps or progressive web apps (PWAs) — changed this entirely. A touchscreen interface must present a list of available tracks, offer ways to find specific content, and sometimes accommodate supplementary media like videos, image galleries, or text. These capabilities are valuable, but they also introduce a design challenge that hardware devices never faced: <strong>how should visitors move between tracks?</strong></p>
+
+                    <p>The answer to that question splits today's digital audio guides into two fundamentally different navigation paradigms.</p>
+
+                    <h2 id="two-navigation-paradigms">Two navigation paradigms in digital audio guides: scroll-and-play-in-place vs. click-and-navigate-away</h2>
+
+                    <p>Many web-based digital audio guides follow what can be called the <strong>click-and-navigate-away</strong> model. The visitor sees a list of available tracks — often in a scrollable menu or bottom navigation bar. Tapping on a track opens it in a new view or screen. To choose a different track, the visitor must navigate back to the list, scroll to find the next item, and tap again. In many implementations, selecting another track requires returning to the list and reopening another item — at least two steps: one to leave the current track, one to arrive at the next.</p>
+
+                    <p>This pattern is essentially <strong>desktop website thinking applied to a mobile screen</strong>. On a desktop computer, multi-page navigation works well: each page fills a large monitor, menus remain visible in a sidebar or header, and the back button is easy to find. But on a six-inch phone screen, held in one hand while standing in front of an exhibit, this architecture loses most of its advantages. The screen is too small to show meaningful context alongside the content, the back button competes with the browser's own controls, and every page transition disrupts the visitor's attention — attention that should be directed at the exhibition, not at the interface.</p>
+
+                    <p>The alternative is the <strong>scroll-and-play-in-place</strong> model. Here, all tracks within a section are arranged in a single, continuously scrollable page. Tapping a track starts playback without leaving the page. The visitor can scroll up or down at any time to see what comes before or after, and can switch tracks with a single tap — no back-button, no page transition, no re-orientation needed. The result is a flow-based experience: browsing, selecting, and listening happen in one continuous interaction, without the constant interruptions that pull the visitor out of the exhibition and into the interface.</p>
+
+                    <p>To be fair, most click-and-navigate-away guides do include a scrollable list view somewhere — typically in a bottom menu bar. But the crucial difference is that tapping an item in that list still takes the visitor to a separate, fixed screen. To scroll and browse again, they must return to the list. The scrolling and the listening happen in separate contexts.</p>
+
+                    <p>In a scroll-and-play-in-place guide, scrolling and listening coexist on the same screen. This distinction may sound subtle, but its impact on usability is significant — especially for the diverse, often non-technical audience that uses audio guides in museums.</p>
                     <figure class="figure">
-                        <img src="../assets/img/blog/structure-riotinto.webp" class="figure-img img-fluid rounded" alt="Nubart audio guide for the Riotinto Foundation Museum in Huelva">
-                        <figcaption class="figure-caption text-center">Nubart audio guide for the Riotinto Foundation Museum in Huelva
-                        </figcaption>
-                    </figure>
-
-                    <p>This modular structure is also ideal for separating content thematically or chronologically, mostly used by museums with many exhibitions, both permanent and temporary. In such cases, each exhibition is assigned a separate module. An example is
-                        <a href="../portfolio/albertina-audioguide.html">the audio guide of the Albertina Museum in Vienna, Austria</a>.</p>
-                    <figure class="figure">
-                        <img src="../assets/img/blog/structure-albertina.webp" class="figure-img img-fluid rounded" alt="Nubart audio guide for the Albertina Museum in Vienna">
-                        <figcaption class="figure-caption text-center">Nubart audio guide for the Albertina Museum in Vienna
-                        </figcaption>
-                    </figure>
-                    <br>
-                    <h2>User-friendly structure through intuitive navigation</h2>
-                    <p>Navigating the audio guide should happen intuitively for the visitors, meaning the simpler the better. Besides a
-                        <a href="https://www.merriam-webster.com/dictionary/user-friendly#:~:text=%3A%20easy%20to%20learn%2C%20use%2C,user%2Dfriendliness%20noun" target="_blank">user-friendly</a> structure of the content which is oriented towards the physical circumstances of the museum, the menu items should be easily understandable and single audio tracks should be accessed easily (with as few clicks as possible).
-
-                    </p>
-                    <p>Nubart is arranging all the content of one module on one single site, enabling users to access different audio tracks through scrolling. If audio tracks are on separate sites users always have to switch between the overview page and the single audio track which takes a lot more time and is more complicated. Especially for older generations who are no digital natives, this feature makes handling the audio guide a lot easier.
-                    </p>
-                    <figure class="figure">
-                        <img src="../assets/img/blog/structure-audioguide-clicking.webp" class="figure-img img-fluid rounded" alt="Traditional digital audio guide with too many clicks">
-                        <figcaption class="figure-caption text-center">Digital audio guide with too many clicks
-                        </figcaption>
-                    </figure>
-                    <figure class="figure">
-                        <img src="../assets/img/blog/structure-audioguide-scrolling.webp" class="figure-img img-fluid rounded" alt="Digital audio guide with scrolling navigation">
-                        <figcaption class="figure-caption text-center">Digital audio guide with scrolling navigation
-                        </figcaption>
-                    </figure>
-
-                    <p>Even more practical: through the optional feature of
-                        <a href="../audio-guides/multimedia-features.html#geolocation" target="_blank">Geo-scrolling</a> the right audio track slides to the upper side of the screen automatically when the user approaches the corresponding exhibit. In that manner, no clicks at all are necessary.
-
-                    </p>
-                    <br>
-                    <h2>Personalized content</h2>
-                    <p>Not all visitors to a museum or attraction are interested in the same things. Some come to a museum because they find it coincidentally while visiting a city and only have time to see the exhibit’s highlights. Others may be great specialists of a subject and spend hours in front of a single display case.
-                    </p>
-                    <p>Corresponding to the different interests of visitors, the audio guide should be adaptable in a flexible way. For those who are very interested additional knowledge and information should be accessible. Unlike traditional audio guide devices, digital audio guides allow easy extension of the information. Secondary audio tracks, but also videos, image carousels, superimposed images, 3D objects, downloadable PDFs, etc. can be added. </p>
-                    <p>However, it is important that the (optional) expansion of content is presented in such a way that the structure of the audio guide remains clear and the visitor is not overwhelmed with an excess of information.</p>
-                    <br>
-                    <h2>Collapsible button with more information</h2>
-                    <p>For this reason Nubart has created
-                        <a href="../audio-guides/multimedia-features.html#more-info" target="_blank">collapsible “more information” buttons</a>. These buttons allow you to add a second level of depth to the audio guide tracks, without forcing visitors to leave the screen or distracting them from the main content. Users who wish to receive more information about a particular piece can do so and easily resume the tour. And if there is not enough time during the visit to consume all the content which is of interest, with the help of the QR code the audio guide can also be listened to at home.
-
-                    </p>
-                    <figure class="figure">
-                        <img src="../assets/img/blog/structure-dornier.webp" class="figure-img img-fluid rounded" alt="Nubart audio guide for the Dornier Museum in Friedrichshafen">
-                        <figcaption class="figure-caption text-center">Nubart audio guide for the Dornier Museum in Friedrichshafen
-                        </figcaption>
-                    </figure>
-                    <br>
-                    <h2>Tags for a personalized structure</h2>
-                    <p>Another solution of Nubart to personalize the audio guide are
-                        <a href="../audio-guides/multimedia-features.html#tags" target="_blank">tags</a>. Tags are an ideal tool when you have to structure very rich and diverse content and you want to give users the option to filter it according to their particular interests.
-
-                    </p>
-                    <p>A common use case are very large museums that want to enable visitors to filter the high volume of available exhibits according to their interests. An example is
-                        <a href="../portfolio/national-museum-slovenia-audioguide.html" target="_blank">the audio guide of the National Museum of Slovenia in Ljubljana</a>, which uses tags to offer visitors a 30-minute route with the highlights.
-
-                    </p>
-                    <p>Therefore, the tag system helps both to <i>limit</i> and <i>extend</i> the content of the audioguide, always according to the visitor’s preferences, making the structure even more user-friendly.
-                    </p>
-                    <figure class="figure">
-                        <img src="../assets/img/blog/structure-baden.webp" class="figure-img img-fluid rounded" alt="Nubart audio guide for the city of Baden, Austria.">
-                        <figcaption class="figure-caption text-center">Nubart audio guide for the city of Baden, Austria.
+                        <img src="../assets/img/blog/structure-audioguide-clicking.webp" class="figure-img img-fluid rounded" alt="Click-and-navigate-away model: a digital audio guide requiring multiple taps and page transitions to switch between tracks">
+                        <figcaption class="figure-caption text-center">Click-and-navigate-away model: selecting a track requires leaving the list, opening a separate view, and navigating back — multiple steps for each track.
                         </figcaption>
                     </figure>
                     <figure class="figure">
-                        <img src="../assets/img/blog/structure-aluminium.webp" class="figure-img img-fluid rounded" alt="Nubart audio guide for a trade fair">
-                        <figcaption class="figure-caption text-center">Nubart audio guide for a trade fair</figcaption>
+                        <img src="../assets/img/blog/structure-audioguide-scrolling.webp" class="figure-img img-fluid rounded" alt="Scroll-and-play-in-place model: a digital audio guide where playback starts within the scrollable track list">
+                        <figcaption class="figure-caption text-center">Scroll-and-play-in-place model: the visitor taps to play and continues scrolling without ever leaving the track list.
+                        </figcaption>
                     </figure>
+
+                    <h2 id="why-scroll-and-play-works-better">Why scroll-and-play-in-place works better: four UX arguments</h2>
+
+                    <h3 id="lower-cognitive-load">1. Lower cognitive load through persistent spatial context</h3>
+
+                    <p>Cognitive load theory, originally developed by the psychologist John Sweller and widely applied in UX design, describes the mental effort required to process information and learn to use an interface. One of the most effective ways to reduce cognitive load is to minimize the information users must hold in working memory.</p>
+
+                    <p>In a click-and-navigate-away model, every tap into a track breaks the visitor's spatial context. They leave the list, enter a new screen, and when they return, they must re-orient: <em>Where was I? Which track was next? How many are left?</em> Each of these micro-decisions adds to the cognitive burden — a burden that competes directly with the visitor's primary task, which is to look at the exhibition.</p>
+
+                    <p>In a scroll-and-play-in-place model, this problem largely disappears. Because all tracks remain visible in a single scrollable list with persistent numbering, visitors always know where they are in the overall structure. Track 4 is always visibly between track 3 and track 5. There is no need to remember, because the information is always on screen.</p>
+
+                    <p>This aligns directly with Jakob Nielsen's sixth usability heuristic: <strong>recognition rather than recall</strong>. Interfaces should make objects, actions, and options visible, so that users do not have to remember information from one part of the interaction to another. A scrollable, numbered list of audio tracks is a textbook implementation of this principle. A click-and-navigate-away model, by contrast, forces recall — the visitor must reconstruct their position from memory each time they return to the list.</p>
+
+                    <p>There is a practical dimension to this as well. A scrollable list gives visitors an intuitive sense of the audio guide's overall scope — how many tracks there are, how far along they have progressed, and how much remains. This spatial awareness helps them budget their time: a visitor who can see they are at track 6 of 20 can decide to skip ahead or slow down accordingly. In a click-and-navigate-away model, the total volume of content is hidden behind the list view, making it much harder for visitors to gauge the scale of the guide or plan their visit around it.</p>
+
+                    <h3 id="familiarity-scrolling-universal-skill">2. Familiarity: scrolling is now a universal digital skill</h3>
+
+                    <p>Not every museum visitor is a digital native. Museum audiences span all ages and levels of technical comfort — from teenagers who navigate apps instinctively to retirees who may use only a few apps regularly. Designing for this range means choosing interaction patterns that are as universally understood as possible.</p>
+
+                    <p>Scrolling has become precisely such a pattern. The vertical scroll is the dominant interaction model of the mobile era: social media feeds (Facebook, Instagram, TikTok), messaging apps (WhatsApp, Telegram), news sites, and email clients all rely on it. Even users who would describe themselves as "not good with technology" scroll through WhatsApp conversations and social media timelines daily. The gesture is habitual and requires no instruction.</p>
+
+                    <p>Click-based navigation with back-buttons and screen transitions, on the other hand, represents a more complex interaction pattern. It requires understanding that tapping an item will replace the current view, that a separate action (back button, menu icon) is needed to return, and that the previous view's state (scroll position, context) may or may not be preserved. For visitors unfamiliar with this pattern — or simply not paying close attention because they are focused on the art — it becomes a source of friction.</p>
+
+                    <p>An audio guide that relies on scrolling to browse tracks and a single tap to play — without ever leaving the page — leverages the interaction model that the broadest possible audience already knows.</p>
+
+                    <p>There is also a physical dimension to this. For seniors or visitors with motor impairments, precision-tapping small back buttons or menu icons is a high-effort task that is easy to get wrong. Scrolling, by contrast, is a low-precision gesture — a broad swipe of the thumb, forgiving of imprecise input and difficult to execute incorrectly. In a museum context, where a significant share of the audience may be older adults, this difference in gestural effort is not trivial.</p>
+
+                    <p>A note on accessibility: scrollable interfaces sometimes have a poor reputation because of the well-documented problems with <em>infinite scroll</em> patterns in social media and e-commerce, which trap screen reader and keyboard users in a never-ending page with no landmarks or predictable structure. But an audio guide is not an infinite feed. It is a finite, numbered list of tracks with a clear beginning and end. When built with proper semantic HTML — headings, landmark regions, and consistent content structure — a scrollable audio guide page can be straightforward for assistive technologies to navigate. In practice, this means using a heading for each stop, consistent numbering in the visible text, landmark regions for the main content area, and predictable keyboard focus when search or filters move the user to a different track. By contrast, a click-and-navigate-away model that constantly opens and closes separate views, modals, or pseudo-pages can — if not implemented with great care — disrupt focus management and disorient screen reader users, which is one of the most common accessibility pitfalls in mobile web applications.</p>
+
+                    <h3 id="incidental-discovery">3. Incidental discovery: scrolling supports the museum's educational mission</h3>
+
+                    <p>A well-designed digital audio guide does not just illustrate the exhibits a visitor already planned to see — it can also lead them to things they did not know existed. This capacity for incidental discovery is one of the most underappreciated advantages of the scroll-and-play-in-place model.</p>
+
+                    <p>In a scrollable audio guide, each track is typically represented by a thumbnail image alongside its number and title. As visitors scroll to find or listen to a specific track, the thumbnails of adjacent tracks are always visible in their peripheral visual field. A striking image, an unexpected title, an intriguing exhibit they walked past without noticing — any of these can catch a visitor's eye and prompt them to explore a track they would never have actively searched for.</p>
+
+                    <p>In a click-and-navigate-away model, this kind of passive discovery is far less likely. Once a visitor taps into a track, the dedicated screen shows only that track's content. Adjacent tracks are invisible until the visitor navigates back to the list and deliberately scrolls. Content that the visitor did not already intend to find effectively ceases to exist.</p>
+
+                    <p>This matters because one of the core missions of any museum is to educate — to expand visitors' horizons beyond what they came to see. A scrollable interface with visual thumbnails acts as a kind of passive recommendation system, continuously exposing visitors to content they might otherwise miss. It does not require algorithmic personalization or push notifications; the simple act of scrolling past neighboring tracks is enough. Whether the discovery happens during the visit or later — since many web-based audio guides remain accessible after leaving the museum — the result is the same: a richer, more expansive experience that aligns the guide's UX directly with the institution's educational purpose.</p>
+
+                    <h3 id="compatibility-search-direct-access">4. Compatibility with search and direct access features</h3>
+
+                    <p>A common concern about scroll-based interfaces is that they might not accommodate structured navigation features — such as searching for a specific track by number or by keyword. In practice, the opposite is true: scroll-and-play-in-place interfaces integrate these features seamlessly, often more elegantly than click-based alternatives.</p>
+
+                    <p>When a visitor enters a track number on a keypad or uses a text search, the interface simply scrolls to the corresponding position. The visitor arrives at the right track within the familiar, continuous context of the full list — not on a separate screen stripped of surrounding context. After listening, they can scroll up or down to explore adjacent tracks without any additional navigation step.</p>
+
+                    <p>This means that a well-designed scrollable audio guide offers the best of both interaction models: the free-form browsing of a continuous list and the direct-access precision of a search or keypad function, unified in a single, consistent interface.</p>
+
+                    <h2 id="structuring-content">Structuring content within a scrollable audio guide</h2>
+
+                    <p>Choosing the scroll-and-play-in-place model answers the navigation question, but it does not resolve a second, equally important design challenge: how to organize the content itself. A museum with dozens or even hundreds of audio tracks cannot simply dump them all into one endless scroll. The content must be grouped logically, in ways that help visitors orient themselves physically within the exhibition space.</p>
+
+                    <h3 id="match-structure-physical-space">Match the structure to the physical space</h3>
+
+                    <p>The most important structural principle for any audio guide is to align content groupings with the physical layout of the venue. If exhibits are spread across three floors, the audio guide should reflect that with three clearly separated sections. If a heritage site comprises several buildings, each building should correspond to a distinct content block.</p>
+
+                    <p>This may seem obvious, but it is a mistake many audio guides make — particularly when curators prefer to organize content thematically or chronologically. A thematic grouping can be intellectually satisfying, but if medieval artifacts share a gallery with modern-history displays, an audio guide that separates them into different thematic lists will confuse visitors trying to match what they hear with what they see. <strong>Physical proximity should take priority over thematic coherence</strong> when the two conflict.</p>
+
+                    <h3 id="modules-complex-venues">Use modules for complex or multi-site venues</h3>
+
+                    <p>For venues with clearly distinct areas — separate buildings, indoor and outdoor sections, permanent and temporary exhibitions — a modular approach works well. Each module is its own scrollable section with its own track list, and visitors can switch between modules via a clear, top-level menu.</p>
+
+                    <p>This modular system keeps each individual scroll manageable in length while accommodating the full breadth of a complex venue. For example, a mining park with a museum, a historical train, an underground mine, and a period house can present four separate modules, each with its own logical structure and numbering — all within a single audio guide. Similarly, a museum hosting both a permanent collection and rotating temporary exhibitions can assign each exhibition its own module, adding or removing them as shows change.</p>
+
+                    <p>The key is that within each module, the scroll-and-play-in-place model remains intact. Modules organize the macro-structure; scrolling handles the micro-navigation.</p>
+
+                    <h2 id="personalization">Personalization without breaking the scroll</h2>
+
+                    <p>One of the strengths of digital audio guides over traditional devices is the ability to adapt content to different visitor profiles. Not every visitor wants the same depth of information: some want a quick highlights tour, others want to spend an hour examining a single display case. The challenge is to offer this flexibility without cluttering the interface or breaking the simplicity of the scrollable structure.</p>
+
+                    <h3 id="expandable-detail">Expandable detail within each track</h3>
+
+                    <p>The most effective solution is progressive disclosure — a well-established UX principle that presents only essential information upfront and reveals additional detail on demand. In the context of an audio guide, this means each track can include a collapsible section (often labeled "More information") that visitors can open if they want deeper content: a second audio commentary, a video, an image carousel, a downloadable PDF, or a link to further reading.</p>
+
+                    <p>The crucial point is that opening this additional content does not navigate the visitor away from the track list. The expansion happens in place, within the scroll. When the visitor is done, they collapse the section and continue scrolling. The guide's overall structure remains visible and intact at all times.</p>
+
+                    <h3 id="transcriptions-overlay">Transcriptions and text content: overlay, don't embed</h3>
+
+                    <p>The same principle of progressive disclosure applies to a detail that many audio guide providers get wrong: where to place the transcription or written text associated with a track.</p>
+
+                    <p>A common approach is to display the full text directly below the play button, inline with the track. This creates two problems. First, it makes each track visually very long, pushing neighboring tracks far out of view and undermining the spatial awareness that makes scrollable guides effective. Second — and somewhat ironically — it forces the visitor to scroll extensively within a single track's content, while making it harder to scroll across tracks. The vertical space that should serve navigation gets consumed by text.</p>
+
+                    <p>A better solution is to present transcriptions and other text-heavy content in a closable overlay or pop-up window. The visitor taps to read, and the text appears on top of the track list. When they close it, they return to exactly the position they left — no scrolling back, no re-orientation. The track list underneath remains undisturbed, and the guide's structure stays intact. The underlying principle is straightforward: the vertical track list should remain short and scannable, and heavy text or media belong in overlays rather than inline. Or, put more simply: keep the scroll sacred, and let everything else happen in layers on top of it.</p>
+
+                    <h3 id="tags-filtering">Tags for filtering content</h3>
+
+                    <p>For very large collections or venues that serve diverse audiences, a tag-based filtering system adds another layer of personalization. Visitors can filter the track list by interest — for example, "highlights only," "family-friendly," "architecture," or "contemporary art" — and the scrollable list dynamically adjusts to show only the relevant tracks.</p>
+
+                    <p>This approach serves two complementary purposes. It can limit the content for visitors who want a shorter, more focused experience (such as a 30-minute highlights tour of a large national museum), and it can extend the content for specialists who want to explore a particular theme in depth. In both cases, the visitor remains within the same scrollable interface, and the spatial logic of the guide remains coherent.</p>
+
+                    <h2 id="geolocation-triggered-scrolling">The special case of geolocation-triggered scrolling</h2>
+
+                    <p>An advanced extension of the scroll-and-play-in-place model is automatic scrolling triggered by the visitor's location. Using geolocation, the audio guide can detect when a visitor approaches a particular exhibit and automatically scroll the corresponding track to the top of the screen. The visitor does not even need to search, scroll, or tap — the right content appears at the right moment.</p>
+
+                    <p>This represents the logical endpoint of the scroll-based paradigm: an audio guide that requires zero active navigation from the visitor, while still preserving the full track list as a visible, browsable reference at all times. The visitor retains full control — they can still scroll manually, jump to a different track, or use search — but the default experience is entirely frictionless. Naturally, this feature depends on the visitor granting location permissions, and GPS accuracy can be limited indoors — which is why it works best as an enhancement to manual navigation, not a replacement for it.</p>
+
+                    <h2 id="summary">Summary: what makes an audio guide structure user-friendly</h2>
+
+                    <div class="summary-block">
+
+                        <p>The structure of a digital audio guide is not a secondary concern — it is a core design decision that directly affects how many visitors use the guide, how many tracks they listen to, and how positively they remember the experience. The key principles are:</p>
+
+                        <p><strong>Navigation model:</strong> A scroll-and-play-in-place interface reduces cognitive load, leverages universally familiar interaction patterns, and integrates seamlessly with search and direct-access features. It is better suited to the museum context than a click-and-navigate-away model, particularly for non-technical audiences.</p>
+
+                        <p><strong>Content structure:</strong> Track groupings should mirror the physical layout of the venue. Complex or multi-site venues benefit from a modular system that organizes the macro-structure while preserving scrollable micro-navigation within each module.</p>
+
+                        <p><strong>Personalization:</strong> Expandable detail sections and tag-based filtering allow visitors to customize depth and focus without leaving the scrollable interface or losing spatial orientation.</p>
+
+                        <p><strong>Assisted navigation:</strong> Geolocation-triggered scrolling extends the model to its most frictionless form, automatically presenting relevant content based on the visitor's physical position while keeping the full guide browsable at all times.</p>
+
+                        <p>These principles are not specific to any one product or platform. They reflect well-established UX heuristics — particularly the principle of recognition over recall and the practice of progressive disclosure — applied to the specific constraints and audience of the museum audio guide context. Several providers, including <a href="../audio-guides/">Nubart</a>, have adopted the scroll-and-play-in-place model as a default for their web-based audio guides, precisely because it fits the museum context and diverse visitor base described above.</p>
+                </div>
+
+                    <h2 id="faq">Frequently asked questions</h2>
+
+                    <h3>Is scrolling better than clicking in digital museum audio guides?</h3>
+                    <p>For most museum contexts, yes. A scroll-and-play-in-place interface keeps all tracks visible in a continuous list, reducing cognitive load and leveraging the scrolling gesture that visitors already use daily in social media and messaging apps. Click-and-navigate-away interfaces, where each track opens on a separate screen, require more navigation steps and break the visitor's spatial orientation.</p>
+
+                    <h3>How should I structure content in a web-based audio guide?</h3>
+                    <p>Content groupings should mirror the physical layout of the venue — organized by floor, building, or gallery rather than by theme or chronology. For complex or multi-site venues, a modular system works well: each module contains its own scrollable track list, and visitors switch between modules via a top-level menu.</p>
+
+                    <h3>Can a scrollable audio guide still let visitors jump to a specific track?</h3>
+                    <p>Yes. When a visitor enters a track number on a keypad or uses a text search, the interface scrolls directly to the corresponding position within the same continuous list. This combines the free-form browsing of a scrollable layout with the direct-access precision of a search function, without requiring a separate screen or page transition.</p>
+
+                    <h3>Is a scrollable audio guide accessible for users with disabilities?</h3>
+                    <p>A finite, semantically structured scrollable page — with proper headings, landmark regions, and consistent numbering — can be fully accessible to screen reader and keyboard users. The well-documented accessibility problems associated with scrolling typically apply to infinite scroll patterns in social media, not to the finite, numbered track lists used in audio guides.</p>
+
                 </div>
             </div>
-        </div>
+            </div>
 
 
     </section>
@@ -506,7 +656,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <p>
                             Barcelona - Berlin<br>
 
-                            <strong>Email:</strong> info@nubart.eu<br>
+                            <strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7d14131b123d13081f1c0f09531808">[email&#160;protected]</a><br>
                         </p>
                         <div class="social-links mt-3">
                             <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
@@ -554,7 +704,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         class="bi bi-arrow-up-short"></i></a>
 
 <!-- Critical JS Files -->
-<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
 <script src="../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
 <script src="../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
 
@@ -563,11 +713,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
 <script src="../assets/js/main-min.js" defer></script>
 
-<!-- Hubspot Analytics scripts with proper async loading -->
-<script type="text/plain" data-category="analytics" id="hs-script-loader" async
-        src="//js.hs-scripts.com/2430134.js"></script>
-
-
-<script type="module" src="/js/cookieconsent-config.js"></script>
-</body>
-</html>
+<!-- Hubspot Analytics scripts with proper async loadin
