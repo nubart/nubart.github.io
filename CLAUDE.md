@@ -74,6 +74,11 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - DE: de/audioguides/streaming-oder-offline.html
 - ES: es/blog/audioguia-streaming-versus-offline.html
 
+### Museum Audio Guide Apps: Only 2.47% of Visitors Download Them
+- EN: audio-guides/museum-audio-guide-app-adoption-rates.html
+- DE: de/audioguides/download-raten-audioguide-apps-fuer-museen.html
+- ES: es/blog/tasa-adopcion-app-audioguia-para-museos.html
+
 ## Product Pages Paths
 
 ### Nubart LIVE
