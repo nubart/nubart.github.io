@@ -10,8 +10,8 @@
         {
             "@context": "https://schema.org",
             "@type": "Article",
-            "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html#article",
-            "headline": "Scroll frente a clic: cómo el diseño de navegación puede impulsar o arruinar una audioguía digital",
+            "@id": "https://www.nubart.eu/audio-guides/offline-mode-best-practices.html#article",
+            "headline": "Modo offline para audioguías de museos: cuándo conviene, cuándo no y cómo hacerlo bien",
             "inLanguage": "es",
             "description": "¿Cuándo conviene que una audioguía digital funcione sin conexión? Streaming, modo offline total o precarga selectiva: una guía práctica según la conectividad de tu espacio.",
             "image": "https://www.nubart.eu/assets/img/blog/cover-offline-mode-best-practices.webp",
@@ -25,38 +25,38 @@
                     "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
                 }
             },
-            "datePublished": "2018-02-22",
-            "dateModified": "2026-04-12",
+            "datePublished": "2026-04-13",
+            "dateModified": "2026-04-13",
             "publisher": {
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization"
             },
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+                "@id": "https://www.nubart.eu/es/blog/audioguia-streaming-versus-offline.html"
             },
-            "keywords": "UX audioguía digital, scroll y reproducción en la misma pantalla, clic y cambio de pantalla, audioguía con scroll, navegación audioguía museo, estructura audioguía web, carga cognitiva audioguía, reconocimiento frente a recuerdo, divulgación progresiva, audioguía PWA, usabilidad audioguía",
-            "articleSection": "UX de Audioguías, Tecnología para Museos, Experiencia Digital del Visitante",
+            "keywords": "audioguía offline museo, modo offline audioguía digital, streaming audioguía, PWA modo offline, service worker audioguía, IndexedDB audioguía, offline parcial audioguía, offline total audioguía, conectividad museo, audioguía QR offline",
+            "articleSection": "Tecnología de Audioguías, Tecnología para Museos, Experiencia Digital del Visitante",
             "about": [
                 {
                     "@type": "Thing",
-                    "name": "Audioguía",
+                    "name": "Audio guide",
                     "sameAs": "https://en.wikipedia.org/wiki/Audio_tour"
                 },
                 {
                     "@type": "Thing",
-                    "name": "Carga cognitiva",
-                    "sameAs": "https://en.wikipedia.org/wiki/Cognitive_load"
-                },
-                {
-                    "@type": "Thing",
-                    "name": "Aplicación web progresiva",
+                    "name": "Progressive web app",
                     "sameAs": "https://en.wikipedia.org/wiki/Progressive_web_app"
                 },
                 {
                     "@type": "Thing",
-                    "name": "Heurística de usabilidad",
-                    "sameAs": "https://en.wikipedia.org/wiki/Heuristic_evaluation"
+                    "name": "IndexedDB",
+                    "sameAs": "https://en.wikipedia.org/wiki/Indexed_Database_API"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Service worker",
+                    "sameAs": "https://en.wikipedia.org/wiki/Service_worker"
                 }
             ]
         }
@@ -71,34 +71,34 @@
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "¿Es mejor hacer scroll que hacer clic en las audioguías digitales de museos?",
+                    "name": "¿Cuáles son las formas de ofrecer una audioguía sin conexión?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "En la mayoría de los contextos museísticos, sí. Una interfaz de scroll y reproducción en la misma pantalla mantiene todas las pistas visibles en una lista continua, lo que reduce la carga cognitiva y aprovecha el gesto de desplazamiento que los visitantes ya utilizan a diario en redes sociales y aplicaciones de mensajería. Las interfaces de clic y cambio de pantalla, en las que cada pista se abre en una vista separada, requieren más pasos de navegación y rompen la orientación espacial del visitante."
+                        "text": "Las audioguías digitales pueden entregar su contenido de tres maneras. El streaming carga cada pista bajo demanda cuando el visitante pulsa reproducir: sin precarga, con un consumo mínimo de datos y la opción más adecuada para la mayoría de espacios. El modo offline total descarga todo lo necesario (audio, imágenes, mapas, código de la aplicación) tras elegir el idioma, de modo que la guía funciona sin ninguna conexión; esto requiere wifi gratuito en la entrada. El modo offline parcial precarga solo las pistas de las zonas con mala señal, dejando el resto en streaming: el enfoque más preciso, aunque también el menos habitual en el sector."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "¿Cómo debería estructurar el contenido de una audioguía web?",
+                    "name": "¿Qué modo offline es el más adecuado para mi museo o espacio?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Lo ideal es que la organización del contenido refleje la distribución física del recinto: por planta, edificio o galería, en lugar de por tema o cronología. En espacios complejos o con varias sedes, suele funcionar bien un sistema modular: cada módulo contiene su propia lista de pistas con scroll y los visitantes cambian de módulo mediante un menú principal."
+                        "text": "La elección depende del perfil de conectividad de tu espacio. El streaming es la mejor opción por defecto si el recinto dispone de cobertura móvil razonable o no tiene wifi público para ofrecer una precarga. El modo offline total funciona bien cuando hay wifi gratuito en la entrada pero mala o nula señal en el interior (cuevas, galerías subterráneas, muros de piedra gruesos) o cuando muchos visitantes internacionales tienen costes elevados de roaming. El modo offline parcial es adecuado para recintos con conectividad generalmente aceptable pero algunos puntos problemáticos concretos. Si no hay ni wifi ni cobertura móvil, conviene mejorar la infraestructura antes de elegir cualquier modelo de entrega de audioguía."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "¿Puede una audioguía con scroll llevar al visitante directamente a una pista concreta?",
+                    "name": "¿Cómo saber si una solución offline de audioguía es fiable?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Sí. Cuando el visitante introduce un número de pista o utiliza la búsqueda por texto, la interfaz se desplaza directamente hasta la posición correspondiente dentro de la misma lista continua. Esto combina la libertad de navegación de una estructura con scroll con la precisión del acceso directo, sin necesidad de abrir otra pantalla ni realizar transiciones adicionales."
+                        "text": "La distinción clave está entre el almacenamiento offline persistente y la caché temporal del navegador. La mayoría de proveedores de audioguías PWA dependen de la caché estándar del navegador, que puede vaciarse automáticamente y que a menudo desaparece al cerrar la pestaña. Una implementación robusta usa service workers e IndexedDB, donde el proveedor controla qué se almacena y durante cuánto tiempo: el contenido persiste incluso después de cerrar el navegador. Un test sencillo: si un visitante cierra el navegador para atender una llamada y vuelve a abrir la guía una hora después, ¿sigue ahí el contenido offline? Si la respuesta es sí, la implementación es fiable."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "¿Es accesible una audioguía con scroll para personas con discapacidad?",
+                    "name": "¿Cómo implantar correctamente el modo offline en una audioguía de museo?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Una página finita, bien estructurada semánticamente y con encabezados claros, regiones identificables y numeración coherente puede ser plenamente accesible para usuarios de teclado y lectores de pantalla. Los problemas de accesibilidad más conocidos asociados al scroll suelen referirse al scroll infinito de redes sociales o comercio electrónico, no a listas cerradas y numeradas como las que se utilizan en audioguías."
+                        "text": "Las buenas prácticas clave son: comunicarlo claramente en la entrada para que los visitantes sepan que deben esperar a que termine la descarga; optimizar el bitrate del audio (una guía bien optimizada de 13 pistas puede pesar tan solo 9 MB); mostrar un indicador de progreso visible durante la descarga; asegurarse de que el wifi del punto de escaneo tiene suficiente potencia para soportar conexiones simultáneas; y no activar nunca la precarga offline total si el espacio no ofrece wifi gratuito, ya que sin él los visitantes se ven obligados a usar sus datos móviles para una descarga masiva, lo que genera exactamente la fricción que se pretendía evitar."
                     }
                 }
             ]
@@ -126,8 +126,8 @@
                 {
                     "@type": "ListItem",
                     "position": 3,
-                    "name": "Scroll frente a clics: diseño de la navegación en las audioguías digitales",
-                    "item": "https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html"
+                    "name": "Modo offline para audioguías de museos: cuándo conviene, cuándo no y cómo hacerlo bien",
+                    "item": "https://www.nubart.eu/es/blog/audioguia-streaming-versus-offline.html"
                 }
             ]
         }
@@ -172,22 +172,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-offline-mode-best-practices.webp"/>
 
     <!-- hreflang -->
-    <link rel="canonical" href="https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+    <link rel="canonical" href="https://www.nubart.eu/es/blog/audioguia-streaming-versus-offline.html"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/offline-mode-best-practices.html"
           hreflang="x-default"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/offline-mode-best-practices.html"
           hreflang="en-gb"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/offline-mode-best-practices.html"
           hreflang="en"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/offline-mode-best-practices.html"
           hreflang="en-us"/>
-    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html"
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/streaming-oder-offline.html"
           hreflang="de"/>
-    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html"
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/streaming-oder-offline.html"
           hreflang="de-ch"/>
-    <link rel="alternate" href="https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html"
+    <link rel="alternate" href="https://www.nubart.eu/es/blog/audioguia-streaming-versus-offline.html"
           hreflang="es"/>
-    <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/how-to-structure-content.html" hreflang="ja"/>
 
 
     <!-- OpenGraph for LinkedIn -->
@@ -199,7 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:description"
           content="¿Cuándo conviene que una audioguía digital funcione sin conexión? Streaming, modo offline total o precarga selectiva: una guía práctica según la conectividad de tu espacio."/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"/>
+    <meta property="og:url" content="https://www.nubart.eu/es/blog/audioguia-streaming-versus-offline.html"/>
 
     <!-- Icons -->
     <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
@@ -430,13 +429,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Scroll versus clic en audioguías digitales</h2>
+            <h2>Modo offline para audioguías de museos</h2>
             <ol>
                 <li><a href="../">Inicio</a></li>
                 <li><a href="../blog/">Blog</a></li>
 
 
-                <li>Scroll versus clic en audioguías digitales</li>
+                <li>Modo offline para audioguías de museos</li>
             </ol>
 
         </div>
