@@ -6,66 +6,137 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Structured data -->
-    <!-- Structured data -->
-
+    <!-- Structured Data: Article -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "WebPage",
-            "mainEntity": {
-                "@type": "Article",
-                "headline": "使いやすさ、使いやすさ、わかりやすさを追求した美術館音声ガイドの構成法",
-                "description": "従来の音声ガイドでは、コンテンツの構成はあまり考慮されていませんでした。来館者は通常、機器のキーパッドに展示物の番号を入力し、対応する音声説明を受けます。しかし、デジタル音声ガイドの豊富なマルチメディア機能は、あらゆる年齢層の人々にとって簡単で利用しやすいナビゲーションを保証し、博物館の音声ガイド体験を楽しいものにするために、より複雑なコンテンツ提示戦略を必要とします。",
-                "image": "https://www.nubart.eu/assets/assets/img/blog/jpg/cover-data-museum.jpg",
-                "author": "廣田 奈美",
-                "datePublished": "2024-10-13",
-                "dateModified": "2024-10-13",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Nubart",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
-                    }
+            "@type": "Article",
+            "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html#article",
+            "headline": "スクロール型とクリック型：ナビゲーション設計がデジタル音声ガイドの使いやすさを左右する理由",
+            "inLanguage": "ja",
+            "description": "Webベースのデジタル音声ガイドにおける2つの主要なナビゲーションモデル――その場で再生できるスクロール型と画面遷移型――を比較分析。認知負荷理論、再認と想起、プログレッシブ・ディスクロージャーの観点からUX上の利点を解説します。博物館、美術館、音声ガイド提供事業者、UX設計担当者向け。",
+            "image": "https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg",
+            "author": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
                 }
-            }
+            },
+            "datePublished": "2018-02-22",
+            "dateModified": "2026-04-12",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+            },
+            "keywords": "デジタル音声ガイド UX, スクロール型音声ガイド, 画面遷移型音声ガイド, 博物館 音声ガイド ナビゲーション, Web音声ガイド 構成, 認知負荷 音声ガイド, 再認と想起, progressive disclosure, PWA 音声ガイド, 音声ガイド ユーザビリティ",
+            "articleSection": "音声ガイドUX, ミュージアムテクノロジー, デジタル来館者体験",
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "音声ガイド",
+                    "sameAs": "https://en.wikipedia.org/wiki/Audio_tour"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "認知負荷",
+                    "sameAs": "https://en.wikipedia.org/wiki/Cognitive_load"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "プログレッシブウェブアプリ",
+                    "sameAs": "https://en.wikipedia.org/wiki/Progressive_web_app"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "ユーザビリティヒューリスティクス",
+                    "sameAs": "https://en.wikipedia.org/wiki/Heuristic_evaluation"
+                }
+            ]
         }
     </script>
 
-    <!-- End Structured data -->
-    <!-- Structured data -->
-    
+    <!-- Structured Data: FAQPage -->
     <script type="application/ld+json">
-        
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "inLanguage": "ja",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "博物館向けデジタル音声ガイドでは、クリック型よりスクロール型のほうが優れていますか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "多くの博物館環境では、その傾向があります。スクロールしながらその場で再生できるインターフェースは、すべてのトラックを連続した一覧で表示できるため、認知負荷を下げ、来館者が日常的に使っているスクロール操作を活用できます。各トラックが別画面で開くクリック型は、操作手順が増え、空間的な把握が途切れやすくなります。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Webベースの音声ガイドでは、どのようにコンテンツを構成すべきですか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "コンテンツ構成は、テーマや年代順ではなく、フロア、建物、展示室など実際の館内動線に合わせるのが理想的です。複雑な施設や複数拠点では、各モジュールごとに独立したスクロール式トラック一覧を持たせ、上位メニューから切り替える構成が有効です。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "スクロール型の音声ガイドでも、特定のトラックへ直接移動できますか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "はい。番号入力やテキスト検索を使うと、同じ一覧内の該当位置まで直接スクロールできます。これにより、一覧を自由に閲覧する使いやすさと、検索による直接アクセスの正確さを両立できます。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "スクロール型の音声ガイドは、障害のある利用者にもアクセシブルですか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "適切な見出し構造、ランドマーク領域、一貫した番号付けを備えた有限ページであれば、スクリーンリーダー利用者やキーボード利用者にも十分アクセシブルにできます。スクロールに関する代表的なアクセシビリティ問題は、SNSなどの無限スクロールに多く見られるもので、番号付きの有限リストである音声ガイドとは性質が異なります。"
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: Breadcrumbs -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
                 {
                     "@type": "ListItem",
                     "position": 1,
-                    "item": "https://www.nubart.eu/ja/",
-                    "name": "Nubart - ヌバルト"
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/ja/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "item": "https://www.nubart.eu/ja/audio-guides/",
-                    "name": "ヌバートオーディオガイド"
+                    "name": "Nubart GUIDE - QRコード対応PWA音声ガイド",
+                    "item": "https://www.nubart.eu/ja/audio-guides/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 3,
-                    "item": "https://www.nubart.eu/ja/audio-guides/how-to-structure-content.html",
-                    "name": "使いやすさ、使いやすさ、わかりやすさを追求した美術館音声ガイドの構成法"
+                    "name": "スクロール型とクリック型：デジタル音声ガイドの導線設計",
+                    "item": "https://www.nubart.eu/ja/audio-guides/how-to-structure-content.html"
                 }
             ]
         }
-    
     </script>
-    
+
+
     <!-- End Structured data -->
-    
+
     <!-- Google Tag Manager -->
     <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -80,47 +151,57 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
     <script>
-      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-      plausible.init()
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
     </script>
 
-<!-- 2. Cookie consent CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+    <!-- 2. Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
 
-<!-- 3. Cookie consent config (MOVED HERE) -->
-<script type="module" src="/js/cookieconsent-config.js"></script>
+    <!-- 3. Cookie consent config (MOVED HERE) -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
 
 
-    <title>使いやすさ、使いやすさ、わかりやすさを追求した美術館音声ガイドの構成法</title>
-    <meta name="description" content="使いやすさ、使いやすさ、わかりやすさを追求した美術館音声ガイドの構成法">
+    <title>博物館向けデジタル音声ガイド：スクロール型とクリック型、使いやすい導線設計とは</title>
+
+    <meta name="description"
+          content="デジタル音声ガイドは導線設計で使いやすさが変わります。スクロール型とクリック型を比較し、認知負荷の軽減、操作性向上、幅広い来館者にやさしいUI設計のポイントを解説します。">
     <meta name="author" content="Nubart">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="使いやすさ、使いやすさ、わかりやすさを追求した美術館音声ガイドの構成法">
     <meta name="twitter:site" content="@NubartEN">
     <meta name="twitter:creator" content="@NubartEN">
-    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/jpg/cover-data-museum.jpg">
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg">
 
     <!-- hreflang -->
     <link rel="canonical" href="https://www.nubart.eu/ja/audio-guides/how-to-structure-content.html"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html" hreflang="x-default"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html" hreflang="en-gb"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html" hreflang="en"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html" hreflang="en-us"/>
-    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html" hreflang="de"/>
-    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html" hreflang="de-ch"/>
-    <link rel="alternate" href="https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html" hreflang="es"/>
-    <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/how-to-structure-content.html" hreflang="ja" />
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+          hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+          hreflang="en-gb"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+          hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+          hreflang="en-us"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html"
+          hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html"
+          hreflang="de-ch"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html"
+          hreflang="es"/>
+    <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/how-to-structure-content.html" hreflang="ja"/>
 
 
     <!-- OpenGraph for LinkedIn -->
 
-    <meta property="og:title" content="使いやすさ、使いやすさ、わかりやすさを追求した美術館音声ガイドの構成法"/>
-    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/jpg/cover-data-museum.jpg"/>
+    <meta property="og:title" content="博物館向けデジタル音声ガイド：スクロール型とクリック型、使いやすい導線設計とは"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg"/>
     <meta property="og:author" content="Nubart International"/>
-    <meta property="og:description" content="使いやすさ、使いやすさ、わかりやすさを追求した美術館音声ガイドの構成法">
+    <meta property="og:description"
+          content="デジタル音声ガイドは導線設計で使いやすさが変わります。スクロール型とクリック型を比較し、認知負荷の軽減、操作性向上、幅広い来館者にやさしいUI設計のポイントを解説します。">
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://www.nubart.eu/ja/audio-guides/how-to-collect-visitors-data.html">
+    <meta property="og:url" content="https://www.nubart.eu/ja/audio-guides/how-to-structure-content.html">
 
     <!-- Icons -->
     <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
@@ -146,10 +227,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link href="../../assets/css/custom.css" rel="stylesheet">
 
 
-
-
-
-
     <!-- =======================================================
     * Template Name: Dewi - v4.6.0
     * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
@@ -161,7 +238,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
 
 
-
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top header-inner-pages">
 
@@ -171,7 +247,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li class="dropdown"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i
+                        class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="../../">English</a></li>
                         <li><a href="../../es/">Español</a></li>
@@ -186,7 +263,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </ul>
                 </li>
 
-                 <li class="dropdown">
+                <li class="dropdown">
                     <a href="#"><span>製品一覧</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li>
@@ -229,49 +306,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <li><a class="nav-link scrollto" href="../audio-guides/customers/">お客様</a></li>
                 <li class="dropdown">
-    <a href="#"><span>製品一覧</span> <i class="bi bi-chevron-down"></i></a>
-    <ul>
-        <li>
-            <a href="../audio-guides/">
-                <i class="bi bi-headphones product-icon"></i>
-                <div class="product-text">
-                    <span class="product-name">NUBART GUIDE（ヌバート・ガイド）</span>
-                    <span class="product-description">QRコード対応のセルフ音声ガイドツアー（PWA）</span>
-                </div>
-            </a>
-        </li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
+                    <a href="#"><span>製品一覧</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a href="../audio-guides/">
+                                <i class="bi bi-headphones product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GUIDE（ヌバート・ガイド）</span>
+                                    <span class="product-description">QRコード対応のセルフ音声ガイドツアー（PWA）</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
 
-        <li>
-            <a href="../digital-tour-guide-app/">
-                <i class="bi bi-headset product-icon"></i>
-                <div class="product-text">
-                    <span class="product-name">NUBART LIVE（ヌバート・ライブ）</span>
-                    <span class="product-description">AIによるリアルタイム通訳機能付きツアーガイドシステム</span>
-                </div>
-            </a>
-        </li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
+                        <li>
+                            <a href="../digital-tour-guide-app/">
+                                <i class="bi bi-headset product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART LIVE（ヌバート・ライブ）</span>
+                                    <span class="product-description">AIによるリアルタイム通訳機能付きツアーガイドシステム</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
 
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li>
-            <a href="../ai-simultaneous-translation/">
-                <i class="bi bi-translate product-icon"></i>
-                <div class="product-text">
-                    <span class="product-name">NUBART TRANSLATE（ヌバート・トランスレート）</span>
-                    <span class="product-description">イベント・会議向けのAI同時通訳（リアルタイム）</span>
-                </div>
-            </a>
-        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="../ai-simultaneous-translation/">
+                                <i class="bi bi-translate product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART TRANSLATE（ヌバート・トランスレート）</span>
+                                    <span class="product-description">イベント・会議向けのAI同時通訳（リアルタイム）</span>
+                                </div>
+                            </a>
+                        </li>
 
-    </ul>
-</li>
+                    </ul>
+                </li>
                 <li class="dropdown"><a href="#"><span>連絡先</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="../team.html">チーム紹介</a></li>
@@ -280,7 +357,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </ul>
                 </li>
                 <li>
-                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login"><i class="bi bi-person-circle"></i>&nbsp; ログイン</a>
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                       href="https://www.nub.art/customer/login"><i class="bi bi-person-circle"></i>&nbsp; ログイン</a>
                 </li>
                 <li><a class="getstarted scrollto" href="../quote-samples.html">見積もりやサンプルの依頼</a></li>
             </ul>
@@ -293,7 +371,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <main id="main">
     <!-- ======= Breadcrumbs ======= -->
     <div class="d-md-none" style="height: 60px;"></div>
-    <section id="breadcrumbs"  class="breadcrumbs d-none d-md-block">
+    <section id="breadcrumbs" class="breadcrumbs d-none d-md-block">
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
@@ -316,7 +394,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="col-md-3">
                     <div style="align-items:top;">
 
-                        <img src="../../assets/img/team/nami.jpg" class="img-thumbnail rounded-circle" style="margin-right:30px;" width="45%" alt="Theres">
+                        <img src="../../assets/img/team/nami.jpg" class="img-thumbnail rounded-circle"
+                             style="margin-right:30px;" width="45%" alt="Theres">
 
                     </div>
                     <div>
@@ -326,133 +405,221 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
                 </div>
 
-                <div class="col-md-7 nubart-blog">
+                <div class="col-md-8 nubart-blog">
+                    <h1>スクロール型とクリック型：デジタル音声ガイドの使いやすさを左右する導線設計とは</h1>
 
-                    <h1>博物館音声ガイドの使いやすい構造</h1>
-                    <img src="../../assets/img/blog/jpg/cover-structure-audioguide.jpg" class="img-fluid" alt="Nubart's blog - 音声ガイドにユーザーフレンドリーな構造を与える方法"><br><br>
-                    <p class="lead">デジタル音声ガイドには、マルチメディアコンテンツを統合する可能性がこれまで以上に広がっています。この記事では、音声ガイドのコンテンツを構成する際、ユーザーフレンドリーで分かりやすいものにするために留意すべき点についてご紹介します。 </p>
+                    <p class="lead">来館者がデジタル音声ガイドをどのように操作するかは、多くの博物館・美術館が考える以上に重要です。音声ガイドでは、台本、ナレーション、画像、動画などのコンテンツに注目が集まりがちですが、その土台となるナビゲーション設計は見落とされることが少なくありません。しかし実際には、この構造上の選択こそが、来館者が何件のトラックを再生するか、そして展示にどれだけ深く関わるかに大きく影響します。<br>本記事では、Webベースのデジタル音声ガイドで主流となっている2つのナビゲーションモデルを比較し、なぜ一方が博物館環境により適しているのかを、確立されたUX原則に基づいて解説します。また、わかりやすさ、パーソナライズ性、使いやすさを高めるためのコンテンツ設計についても実践的に紹介します。博物館・美術館、音声ガイド提供事業者、文化分野のUX担当者に向けた参考記事です。</p>
+
                     <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
-                    <p>従来の音声ガイド機器では、コンテンツの構成についてあまり心配する必要はありませんでした。通常、来館者が機器のキーパッドに展示物の番号を入力すると、対応する音声説明が流れます。</p>
-                    <p>ほとんどのデジタル音声ガイド（アプリであれ、<a href="../audio-guides/how-to-structure-content.html" target="_blank">PWAであれ</a>）は、数字を入力して特定のコンテンツに到達する機能も提供していますが、タッチスクリーンの台頭により、新たなチャンスと同時に新たな課題も生じています。スマートフォンの小さな画面上で音声ガイドのマルチメディアコンテンツを構成し、利用者がデジタル音声ガイドを楽しく、たくさん使ってもらうようにすることが目標となります。</p>
-                    <br>
-                    <h2>ユーザーフレンドリーなデジタル音声ガイドの構成方法
-                    </h2>
-                    <p>訪問中にオーディオガイドをたくさん利用してもらうのが理想です。そのため、ユーザーフレンドリーな構造が非常に重要であり、ユーザーはガイドの使い方について深く考えることなく、直感的に扱える必要があります。このことが重要である主な理由は、ミュージアムを訪れるすべての人がデジタルネイティブではないこと、そしてガイドが来館の主役ではないことです。ガイドはあくまで付随的な役割を果たすだけで、来館者は展示そのものに注目するのが本来あるべき姿です。利用者はガイドの仕組みを理解する時間も興味もないことでしょう。
 
-                    </p>
-                    <p>ユーザーフレンドリーなオーディオガイドの構成は、次のような点になっていることです。
-                    </p>
-                    <ul>
-                        <li>コンテンツの合理的な構成
-
-                        </li>
-                        <li>
-                            直感的なナビゲーション
-                        </li>
-                        <li>パーソナライズされたコンテンツ
-                        </li>
-                    </ul>
-                    <br>
-                    <h2>コンテンツの合理的な構成
-                    </h2>
-                    <p>通常、オーディオガイドは、ルート上のさまざまなロケーション（スポット）のリストまたは複数のリストで構成されています。それぞれのスポットにはオーディオトラックがあり、ビデオや写真などのマルチメディア要素も含まれます。</p>
-                    <p>これらのリストとスポットをどのように構成するかは、オーディオガイドのユーザーフレンドリーな構成にとって最も重要です。大規模で複雑な展示会場では、分岐した構成を提供し、各分岐が個別のリストから構成されるようにすると便利です。 </p>
-                    <p>オーディオガイドを構成するリストは、分かりやすく、<a href="https://ja.wikipedia.org/wiki/%E9%9F%B3%E5%A3%B0%E3%82%AC%E3%82%A4%E3%83%89" target="_blank">音声ガイド</a>の実際の状況に関連したものでなければなりません。例えば、展示物が2～3階や2つの異なる建物に分かれている場合、音声ガイドの構成はそれを考慮したものにすることが望ましいです。
-
-                    </p>
-                    <p>しかし、テーマ別リストが物理的な展示スペースと関連していない場合は注意が必要です。デジタル音声ガイドのユーザーフレンドリーな構成を設計する際には、来館者がどのような経路をたどるかを常に念頭に置くことが重要です。例えば、中世の展示品が近現代史の展示品と部屋を共有している場合、通常は年代やテーマの一致よりも、空間的な配置を優先した方がよいです。
-                    </p>
-                    <br>
-                    <h2>Nubartのモジュラーシステム</h2>
-                    <p>ユーザーフレンドリーな構造を構築しやすくために、Nubartは、幅広いコンテンツ・セットを互いによく区別されたブロックまたはモジュールに編成する
-                        <a href="../audio-guides/multimedia.html#modules" target="_blank">モジュラー・システム</a>を開発しました。
-                    </p>
-                    <p>このようにコンテンツを整理する方法は、複数の独立した建物やスペースを持つ会場に最適です。例えば、ウエルバ（スペイン）にある
-                        <a href="https://www.spain.info/ja/rejaa-paaku/rioteinto-kozan-koen/" target="_blank">リオティント鉱山公園</a>は博物館、列車、鉱山、住宅から構成されています。
-
-
-                    </p>
                     <figure class="figure">
-                        <img src="../../assets/img/blog/structure-riotinto.webp" class="figure-img img-fluid rounded" alt="ウエルバのリオティント財団美術館のためのNubartオーディオガイド ">
-                        <figcaption class="figure-caption text-center">ウエルバのリオティント財団美術館のためのNubartオーディオガイド
+                        <img src="../../assets/img/blog/jpg/cover-structure-audioguide.jpg"
+                             class="figure-img img-fluid rounded"
+                             alt="Nubartブログ - アクセシブルなデジタル音声ガイド" />
+                    </figure>
+
+                    <!-- Table of Contents -->
+                    <nav aria-label="目次" style="margin-bottom:2em;">
+                        <h2 style="font-size:1.3em; margin-top:1.5em;">目次</h2>
+                        <ol style="padding-left:1.2em; font-size:1.07em;">
+                            <li><a href="#from-keypad-to-touchscreen">テンキーからタッチスクリーンへ：なぜ構成設計が重要なのか</a></li>
+                            <li>
+                                <a href="#two-navigation-paradigms">デジタル音声ガイドにおける2つのナビゲーションモデル</a>
+                            </li>
+                            <li>
+                                <a href="#why-scroll-and-play-works-better">なぜスクロール型が優れているのか：4つのUX視点</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>3.1 <a href="#lower-cognitive-load">一覧性による認知負荷の軽減</a></li>
+                                    <li>3.2 <a href="#familiarity-scrolling-universal-skill">慣れ親しんだ操作としてのスクロール</a></li>
+                                    <li>3.3 <a href="#incidental-discovery">偶然の発見が学びを広げる</a></li>
+                                    <li>3.4 <a href="#compatibility-search-direct-access">検索機能や直接アクセスとの相性</a></li>
+                                </ol>
+                            </li>
+                            <li>
+                                <a href="#structuring-content">スクロール型音声ガイドのコンテンツ構成</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>4.1 <a href="#match-structure-physical-space">館内動線に合わせて構成する</a></li>
+                                    <li>4.2 <a href="#modules-complex-venues">複雑な施設ではモジュール構成を使う</a></li>
+                                </ol>
+                            </li>
+                            <li>
+                                <a href="#personalization">スクロールを損なわないパーソナライズ</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>5.1 <a href="#expandable-detail">各トラック内で詳細情報を展開する</a></li>
+                                    <li>5.2 <a href="#transcriptions-overlay">文字起こしやテキストは埋め込まず重ねて表示する</a></li>
+                                    <li>5.3 <a href="#tags-filtering">タグでコンテンツを絞り込む</a></li>
+                                </ol>
+                            </li>
+                            <li><a href="#geolocation-triggered-scrolling">位置情報連動スクロールという発展形</a></li>
+                            <li><a href="#summary">まとめ</a></li>
+                        </ol>
+                    </nav>
+
+                    <hr>
+                    <h2 id="from-keypad-to-touchscreen">テンキーからタッチスクリーンへ：なぜ構成設計が重要なのか</h2>
+
+                    <p>従来の専用音声ガイド端末では、コンテンツ構成はそれほど重要視されていませんでした。来館者は番号を入力し、対応する音声を再生し、次へ進むだけだったからです。求められる操作は「次は何番か」を選ぶこと程度でした。</p>
+
+                    <p>しかし、デジタル音声ガイド — ネイティブアプリであれ、PWA（Progressive Web App）であれ — は状況を大きく変えました。タッチスクリーン型のインターフェースでは、利用可能なトラック一覧を表示し、目的のコンテンツを探せるようにし、ときには動画・画像ギャラリー・テキストなどの補足情報も扱う必要があります。こうした機能は大きな利点ですが、同時に専用端末にはなかった新たな設計課題を生みました。<strong>来館者はトラック間をどのように移動すべきか？</strong></p>
+
+                    <p>この問いに対する答えによって、現在のデジタル音声ガイドは大きく2つのナビゲーションモデルに分かれます。</p>
+
+                    <h2 id="two-navigation-paradigms">デジタル音声ガイドにおける2つのナビゲーションモデル：スクロール型と画面遷移型</h2>
+
+                    <p>多くのWebベース音声ガイドは、ここでいう<strong>画面遷移型</strong>を採用しています。来館者にはトラック一覧が表示され、スクロール可能なメニューや下部ナビゲーションバーに収められていることが一般的です。トラックをタップすると、新しい画面または別ビューで内容が開きます。別のトラックを選ぶには、一覧へ戻り、次の項目までスクロールし、再度タップする必要があります。実装によっては、現在のトラックを閉じて一覧に戻り、次のトラックを開くという少なくとも2段階の操作が必要になります。</p>
+
+                    <p>これは本質的に、<strong>PC向けWebサイトの発想をそのままスマートフォン画面へ持ち込んだ設計</strong>です。デスクトップ環境では、複数ページを行き来する構成は合理的です。大きな画面があり、サイドバーやヘッダーにメニューを常時表示でき、戻る操作も簡単だからです。しかし、展示の前で片手に持つ6インチ前後のスマートフォン画面では、多くの利点が失われます。画面は小さく、コンテンツと一覧情報を同時に見せにくく、戻る操作はブラウザのUIと競合し、画面遷移のたびに来館者の注意が途切れます。本来向けられるべき注意は、展示物そのものに向かうべきです。</p>
+
+                    <p>その対極にあるのが<strong>スクロール型</strong>です。この方式では、あるセクション内のすべてのトラックが1つの連続したページ上に並びます。トラックをタップすると、その場で再生が始まり、画面は切り替わりません。来館者は上下にスクロールして前後の項目を確認でき、別のトラックへの切り替えもワンタップで行えます。戻る操作も、画面遷移も、現在位置の再確認も不要です。閲覧、選択、視聴がひと続きの流れとして進むため、展示体験を妨げにくい設計です。</p>
+
+                    <p>公平を期して言えば、多くの画面遷移型ガイドにも一覧画面は存在します。多くは下部メニューなどから開けるようになっています。ただし重要なのは、その一覧から項目を選ぶと、結局は別画面へ移動する点です。再び一覧を見ながら探すには、また戻る必要があります。つまり、一覧を見る行為と音声を聴く行為が別々の文脈に分断されています。</p>
+
+                    <p>スクロール型では、一覧の閲覧と音声再生が同じ画面上で共存します。一見すると小さな違いに思えるかもしれませんが、使いやすさへの影響は非常に大きく、特に年齢層もIT習熟度も幅広い博物館の来館者にとって重要な差となります。</p>
+
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/structure-audioguide-clicking.webp"
+                             class="figure-img img-fluid rounded"
+                             alt="画面遷移型モデル：トラックを切り替えるたびに複数回のタップと画面移動が必要なデジタル音声ガイド">
+                        <figcaption class="figure-caption text-center">画面遷移型モデル：トラックを選ぶたびに一覧を離れ、別画面を開き、戻る操作が必要になります。各トラックごとに複数の手順が発生します。
                         </figcaption>
                     </figure>
 
-                    <p>このモジュール構造は、テーマ別や年代別にコンテンツを分けるのにも理想的です。また、常設展と企画展の両方を多数開催する美術館で多く使われています。このような場合、各展覧会には個別のモジュールが割り当てられます。
-                        <a href="../audio-guides/customers/albertina.html">オーストリアのウィーンにあるアルベルティーナ美術館のオーディオガイドが</a>その例です。</p>
                     <figure class="figure">
-                        <img src="../../assets/img/blog/structure-albertina.webp" class="figure-img img-fluid rounded" alt="ウィーンのアルベルティーナ美術館のためのNubartオーディオガイド ">
-                        <figcaption class="figure-caption text-center">ウィーンのアルベルティーナ美術館のためのNubartオーディオガイド
+                        <img src="../../assets/img/blog/structure-audioguide-scrolling.webp"
+                             class="figure-img img-fluid rounded"
+                             alt="スクロール型モデル：スクロール可能な一覧の中でそのまま再生できるデジタル音声ガイド">
+                        <figcaption class="figure-caption text-center">スクロール型モデル：トラックをタップして再生し、そのまま一覧を離れず次の項目を探し続けられます。
                         </figcaption>
                     </figure>
-                    <br>
-                    <h2>直感的なナビゲーションによるユーザーフレンドリーな構造</h2>
-                    <p>つまり、シンプルであればあるほどよいです。ミュージアムの物理的な状況を考慮したユーザーフレンドリーなコンテンツ構成に加え、メニュー項目はわかりやすく、1つのオーディオトラックには簡単に（できるだけ少ないクリック数で）アクセスできる必要があります。
+                    <h2 id="why-scroll-and-play-works-better">なぜスクロール型が優れているのか：4つのUX視点</h2>
 
-                    </p>
-                    <p>Nubartは、1つのモジュールのすべてのコンテンツを1つのページに配置し、ユーザーがスクロールして異なるオーディオトラックにアクセスできるようにしています。オーディオトラックが別々のページにある場合、ユーザーは常に概要ページとオーディオトラックの間を切り替えなければならず、多くの時間がかかり、より複雑になります。特に、デジタルネイティブではない年配の世代にとって、この機能はオーディオガイドの取り扱いをより簡単にしてくれます。
+                    <h3 id="lower-cognitive-load">1. 一覧性による認知負荷の軽減</h3>
 
-                    </p>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-audioguide-clicking.webp" class="figure-img img-fluid rounded" alt="クリック数が多すぎるデジタル音声ガイド">
-                        <figcaption class="figure-caption text-center">クリック数が多すぎるデジタル音声ガイド
-                        </figcaption>
-                    </figure>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-audioguide-scrolling.webp" class="figure-img img-fluid rounded" alt="ナビゲーションがスクロールするデジタル音声ガイド 
-">
-                        <figcaption class="figure-caption text-center">ナビゲーションがスクロールするデジタル音声ガイド
+                    <p>認知負荷理論（Cognitive Load Theory）は、心理学者ジョン・スウェラーによって提唱され、現在ではUX設計にも広く応用されています。人が情報を処理し、新しいインターフェースの使い方を理解する際に必要となる精神的負担を説明する理論です。認知負荷を下げる最も有効な方法の一つは、利用者が作業記憶の中で保持しなければならない情報量を減らすことです。</p>
 
-                        </figcaption>
-                    </figure>
+                    <p>画面遷移型では、トラックを開くたびに来館者の位置感覚が途切れます。一覧を離れて別画面へ移動し、戻ってきたときには再び確認しなければなりません。<em>どこまで見たのか。次はどのトラックか。あと何件残っているのか。</em>こうした小さな判断の積み重ねが認知的負担となり、本来展示を見るために使うべき注意力を奪ってしまいます。</p>
 
-                    <p>さらに実用的なのは、オプションの
-                        <a href="../audio-guides/multimedia.html#geolocation" target="_blank">ジオスクロール</a>機能により、ユーザーが対応する展示物に近づくと、そのオーディオトラックが自動的に画面の上側にスライドします。この方法では、クリックは全く必要ありません。
+                    <p>スクロール型では、この問題の多くが解消されます。すべてのトラックが番号付きの一覧として同じ画面上に残るため、来館者は常に全体の中で自分の位置を把握できます。たとえばトラック4は、常にトラック3と5の間に表示されています。覚えておく必要がなく、必要な情報は常に画面上に存在します。</p>
 
-                    </p>
-                    <br>
-                    <h2>パーソナライズされたコンテンツ</h2>
-                    <p>博物館やアトラクションを訪れるすべての人が、同じことに興味を持っているわけではありません。ある都市を訪れているときに、偶然その博物館を見つけ、その展示の見どころを見るだけの時間がちょうどあるから博物館に来る人もいます。または専門家で、ひとつの展示ケースの前で何時間も過ごす人もいるかもしれません。
-                    </p>
-                    <p>訪問者のさまざまな興味に対応するため、オーディオガイドは柔軟な方法で適応可能でなければいけません。非常に興味のある人のために、追加的な知識や情報にもアクセスできるようにすべきです。従来の音声ガイド機器とは異なり、デジタル音声ガイドでは、情報を簡単に拡張することができます。副音声トラックだけでなく、ビデオ、画像カルーセル、重ね合わせた画像、3Dオブジェクト、ダウンロード可能なPDFなどを追加することができます。</p>
-                    <p>しかし、（オプションの）コンテンツの拡張は、オーディオガイドの構造が明確であり続け、訪問者が過剰な情報で圧倒されないような方法で提示されることが重要です。</p>
-                    <br>
-                    <h2>折りたたみ式ボタンで詳細情報を表示</h2>
-                    <p>このような理由から、Nubartは
-                        <a href="../audio-guides/multimedia.html#more-info" target="_blank">折りたたみ式の「詳細情報」ボタンを</a>作成しました。このボタンにより、訪問者を強制的に画面から離したり、メインコンテンツから注意をそらしたりすることなく、オーディオガイドトラックに第二レベルの深みを加えることができます。特定の作品についてさらに情報を得たいユーザーは、情報を得た後、簡単にツアーを再開することができます。また、見学中に興味のあるコンテンツをすべて視聴するのに十分な時間がない場合は、QRコードを利用して、オーディオガイドを自宅で聴くこともできます。
+                    <p>これは、ヤコブ・ニールセンのユーザビリティ原則の一つである<strong>「想起より再認」</strong>に合致します。ユーザーが記憶に頼らず、見ればわかる状態にしておくべきという考え方です。番号付きのスクロール一覧は、この原則を非常に自然な形で実現しています。一方、画面遷移型では、一覧に戻るたびに自分の位置を思い出さなければなりません。</p>
 
-                    </p>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-dornier.webp" class="figure-img img-fluid rounded" alt="フリードリヒスハーフェンのドルニエ博物館のためのNubartオーディオガイド ">
-                        <figcaption class="figure-caption text-center"><a href="../audio-guides/multimedia.html#tags" target="_blank">フリードリヒスハーフェンのドルニエ博物館のためのNubartオーディオガイド</a>
-                        </figcaption>
-                    </figure>
-                    <br>
-                    <h2>パーソナライズされた構成のためのタグ</h2>
-                    <p><a href="../audio-guides/multimedia.html#more-info" target="_blank">音声ガイドをパーソナライズするNubartのもう一つのソリューションはタグです。</a>タグは、非常にリッチで多様なコンテンツを構造化する必要があり、ユーザーが特定の興味に応じてフィルタリングできるオプションを提供したい場合に理想的なツールです。
+                    <p>実務面でも利点があります。スクロール一覧を見るだけで、来館者はガイド全体の規模感を把握できます。トラック数はいくつあるのか、どこまで進んだのか、残りはどれくらいか。たとえば20件中6件目にいるとわかれば、先を急ぐか、ゆっくり回るかを判断しやすくなります。画面遷移型では、こうした全体像が一覧の奥に隠れやすく、訪問時間とのバランスを取りづらくなります。</p>
 
-                    </p>
-                    <p>一般的なユースケースは、非常に大規模な博物館で、来館者が自分の興味に応じ て、利用可能な大量の展示物をフィルタリングできるようにすることです。
-                        <a href="../../portfolio/national-museum-slovenia-audioguide.html" target="_blank">リュブリャナにあるスロベニア国立博物館の音声ガイドが</a>その例で、タグを使って来館者に見どころを30分で案内しています。
+                    <h3 id="familiarity-scrolling-universal-skill">2. 慣れ親しんだ操作としてのスクロール</h3>
 
+                    <p>すべての来館者がデジタル機器に慣れているわけではありません。博物館・美術館の来館者層は幅広く、アプリ操作に慣れた若年層から、限られたアプリしか日常的に使わない高齢者までさまざまです。そのため、できるだけ多くの人に直感的に理解される操作方法を選ぶことが重要です。</p>
 
-                    </p>
-                    <p>したがって、タグ・システムは、オーディオガイドの内容を制限したり、拡張したりするのに役立ち、常に訪問者の好みに応じて、よりユーザーフレンドリーな構成となります。
-                    </p>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-baden.webp" class="figure-img img-fluid rounded" alt="バーデン市（オーストリア）のNubartオーディオガイド。">
-                        <figcaption class="figure-caption text-center">バーデン市（オーストリア）のNubartオーディオガイド。
-                        </figcaption>
-                    </figure>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-aluminium.webp" class="figure-img img-fluid rounded" alt="見本市用Nubartオーディオガイド">
-                        <figcaption class="figure-caption text-center">見本市用Nubartオーディオガイド
-                        </figcaption>
-                    </figure>
+                    <p>その代表例がスクロールです。スマートフォン時代における最も一般的な操作の一つであり、SNS（Facebook、Instagram、TikTok）、メッセージアプリ（WhatsApp、Telegram）、ニュースサイト、メールアプリなど、多くのサービスが縦スクロールを基本としています。自分は機械が苦手だと感じている人でも、日常的にメッセージ履歴やタイムラインをスクロールしています。説明が不要な動作なのです。</p>
+
+                    <p>一方、戻るボタンや画面切り替えを伴う操作は、それより複雑です。タップすると現在の画面が置き換わること、戻るには別の操作が必要なこと、さらに前の画面の位置情報が保持されているかどうかが分かりにくいこともあります。こうした仕組みに慣れていない人や、展示に集中している来館者にとっては、余計な負担になります。</p>
+
+                    <p>一覧をスクロールして選び、タップでその場再生する方式は、最も幅広い層がすでに理解している操作モデルを活用できます。</p>
+
+                    <p>身体的な面でも利点があります。高齢者や手先の操作に制約のある利用者にとって、小さな戻るボタンやメニューアイコンを正確に押すことは負担になりがちです。スクロールはそれに比べて大まかな指の動きで済み、多少ずれても問題になりにくい操作です。高齢層の来館者が一定数いる博物館では、この差は小さくありません。</p>
+
+                    <p>アクセシビリティの観点も重要です。スクロール型UIは、ときに評価が低く見られることがありますが、その多くはSNSやECサイトの<strong>無限スクロール</strong>に由来します。終わりのないページ構成では、スクリーンリーダー利用者やキーボード操作ユーザーが現在地を見失いやすくなります。しかし音声ガイドは本質的に異なります。トラック数が決まった有限の一覧であり、開始点と終了点が明確です。</p>
+
+                    <p>適切なHTML構造で実装すれば、スクロール型音声ガイドは十分にアクセシブルです。各スポットに見出しを設ける、一貫した番号表記を行う、主要領域を明示する、検索やフィルター後のフォーカス移動を予測可能にする、といった対応が有効です。反対に、画面遷移型で別画面やモーダルを頻繁に開閉する設計は、丁寧に実装しない限り、フォーカス管理の乱れやスクリーンリーダー利用者の混乱を招きやすく、モバイルWebでよく見られる問題の一つです。</p>
+
+                    <h3 id="incidental-discovery">3. 偶然の発見が学びを広げる</h3>
+
+                    <p>優れたデジタル音声ガイドは、来館者が最初から見る予定だった展示だけを案内するものではありません。存在を知らなかった作品や、見逃していた展示との出会いを生み出すこともできます。こうした偶然の発見を促せる点は、スクロール型の大きな利点でありながら、十分に評価されていない要素の一つです。</p>
+
+                    <p>スクロール型音声ガイドでは、多くの場合、各トラックに番号・タイトル・サムネイル画像が表示されます。目的のトラックを探してスクロールしている間も、前後の項目の画像が視界に入り続けます。印象的な写真、意外性のあるタイトル、通り過ぎてしまった展示物の画像などが目に留まり、「これも聴いてみよう」と思うきっかけになります。</p>
+
+                    <p>画面遷移型では、このような受動的な発見は起こりにくくなります。あるトラックを開くと、その画面にはその内容しか表示されず、周辺のトラックは見えなくなります。再び一覧に戻って意識的に探さない限り、もともと探していなかった情報は存在しないも同然になります。</p>
+
+                    <p>これは、博物館・美術館の本質的な役割とも関係します。来館者が最初に興味を持っていたものだけでなく、新しい視点や知識に出会えることは、文化施設の重要な価値です。サムネイル付きのスクロール一覧は、いわば受動的なレコメンド機能として働きます。高度なアルゴリズムやプッシュ通知は不要で、ただ一覧を見ながら移動するだけで、新たなコンテンツとの接点が生まれます。</p>
+
+                    <p>その発見が館内で起こる場合もあれば、後日、自宅などで再びガイドを開いたときに起こる場合もあります。多くのWeb型音声ガイドは、退館後もアクセス可能だからです。いずれにしても、来館体験をより豊かで広がりのあるものにし、施設の教育的使命とも自然に一致します。</p>
+
+                    <h3 id="compatibility-search-direct-access">4. 検索機能や直接アクセスとの相性</h3>
+
+                    <p>スクロール型インターフェースに対して、「番号検索やキーワード検索のような構造的なナビゲーションには向かないのではないか」と懸念されることがあります。しかし実際には、その逆であることが少なくありません。スクロール型は、こうした機能を非常に自然に統合できます。</p>
+
+                    <p>来館者が番号を入力したり、キーワード検索を行ったりすると、画面は該当する位置までそのままスクロールします。目的のトラックに到達しても、一覧全体の文脈は保たれたままです。周辺のトラックも見えるため、再生後に前後の項目へ移るのも簡単です。</p>
+
+                    <p>つまり、優れたスクロール型音声ガイドは、連続一覧の自由な閲覧性と、検索・番号入力による正確な直接アクセス性を、ひとつの統一されたUIの中で両立できます。</p>
+
+                    <h2 id="structuring-content">スクロール型音声ガイドのコンテンツ構成</h2>
+
+                    <p>スクロール型を採用することで、ナビゲーションの課題は大きく改善されます。しかし、もう一つ同じくらい重要な設計課題が残ります。それは、コンテンツ自体をどう整理するかです。数十件、場合によっては数百件の音声トラックを持つ博物館で、すべてを1本の長い一覧に並べるだけでは十分とはいえません。来館者が実際の展示空間の中で現在地を把握しやすいよう、論理的かつ空間的に整理する必要があります。</p>
+
+                    <h3 id="match-structure-physical-space">館内動線に合わせて構成する</h3>
+
+                    <p>音声ガイドの構成設計において最も重要な原則は、コンテンツの区分けを実際の施設レイアウトに合わせることです。展示が3フロアに分かれているなら、音声ガイド側も3つの明確なセクションに分けるのが自然です。歴史施設のように複数の建物で構成されている場合は、建物ごとに独立したコンテンツブロックを用意するとわかりやすくなります。</p>
+
+                    <p>これは一見当然のことのようですが、実際には多くの音声ガイドで見落とされています。特に、学芸員やキュレーターの視点から、テーマ別や年代順に整理したくなるケースで起こりがちです。もちろん、学術的にはそのほうが整然として見える場合もあります。しかし、中世の展示物と近代史の展示が同じ展示室に並んでいるにもかかわらず、音声ガイドでは別々のテーマ一覧に分かれていると、来館者は「目の前にあるもの」と「今聴いている内容」を結びつけにくくなります。<strong>テーマ的な整合性と現地でのわかりやすさが衝突する場合は、物理的な近さを優先すべきです。</strong></p>
+
+                    <h3 id="modules-complex-venues">複雑な施設ではモジュール構成を使う</h3>
+
+                    <p>エリアが明確に分かれている施設では、モジュール型の構成が有効です。たとえば別棟、屋内外エリア、常設展と企画展など、それぞれを独立したセクションとして分けます。各モジュールは独自のスクロール一覧とトラック番号を持ち、利用者は上位メニューから簡単に切り替えられるようにします。</p>
+
+                    <p>この方式なら、各一覧の長さを適切に保ちながら、複雑な施設全体を一つの音声ガイドでカバーできます。たとえば鉱山テーマパークであれば、「博物館」「歴史列車」「坑道エリア」「旧住宅エリア」の4モジュールに分けられます。常設展と企画展を併設する美術館であれば、展示ごとに独立したモジュールを追加・削除することも可能です。</p>
+
+                    <p>重要なのは、各モジュールの内部ではスクロール型UIを維持することです。モジュールは全体構造（マクロ構造）を整理し、スクロール一覧は個別の移動（ミクロナビゲーション）を担います。</p>
+
+                    <h2 id="personalization">スクロールを損なわないパーソナライズ</h2>
+
+                    <p>デジタル音声ガイドが従来型端末より優れている点の一つは、来館者ごとに情報量や内容を調整できることです。短時間で主要作品だけ見たい人もいれば、ひとつの展示ケースの解説をじっくり聞きたい人もいます。課題は、この柔軟性を提供しつつ、画面を複雑にせず、スクロール型のわかりやすさを保つことです。</p>
+
+                    <h3 id="expandable-detail">各トラック内で詳細情報を展開する</h3>
+
+                    <p>そのために有効なのが、<strong>プログレッシブ・ディスクロージャー</strong>（段階的開示）です。まず必要最小限の情報だけを表示し、追加情報は希望する人だけが開けるようにするUX原則です。</p>
+
+                    <p>音声ガイドでは、各トラックに「詳細を見る」「さらに読む」といった折りたたみ式セクションを設ける方法が考えられます。そこに追加の音声解説、動画、画像ギャラリー、PDF資料、関連リンクなどを入れることができます。</p>
+
+                    <p>重要なのは、これらの追加情報を開いても一覧画面を離れないことです。詳細はその場で展開され、読み終えたら閉じて、そのまま次へスクロールできます。全体構造が常に見えているため、利用者は迷いにくくなります。</p>
+
+                    <h3 id="transcriptions-overlay">文字起こしやテキストは埋め込まず重ねて表示する</h3>
+
+                    <p>段階的開示の考え方は、文字起こしや補足テキストの配置にも当てはまります。この点は、多くの音声ガイドで十分に最適化されていない部分です。</p>
+
+                    <p>よくある方法は、再生ボタンのすぐ下に全文テキストをそのまま表示することです。しかし、この方法には2つの問題があります。第一に、各トラックの表示が縦に長くなり、前後のトラックが画面外へ押し出されてしまいます。その結果、スクロール型UIの強みである一覧性や位置把握が弱まります。第二に、ひとつのトラック内の長文を読むために大きくスクロールしなければならず、トラック間を移動しづらくなります。本来ナビゲーションに使うべき縦方向のスペースが、文章で埋まってしまうのです。</p>
+
+                    <p>より望ましい方法は、文字起こしや長文コンテンツを、閉じられるオーバーレイ画面やポップアップで表示することです。利用者がタップすると一覧の上にテキストが重なって表示され、閉じれば元の位置にそのまま戻れます。再びスクロールし直す必要もなく、現在地を見失うこともありません。下層の一覧構造は保たれたままです。</p>
+
+                    <p>原則はシンプルです。縦に並ぶトラック一覧は、短く・見やすく・素早く確認できる状態に保つべきです。長文テキストや補足メディアは一覧の中に埋め込むのではなく、別レイヤーで見せるほうが適しています。言い換えれば、スクロール一覧はできるだけ純粋に保ち、それ以外の情報は上に重ねて提供するという考え方です。</p>
+
+                    <h3 id="tags-filtering">タグでコンテンツを絞り込む</h3>
+
+                    <p>大規模なコレクションや、多様な来館者層を持つ施設では、タグによる絞り込み機能が有効です。たとえば「ハイライトのみ」「家族向け」「建築」「現代美術」といったカテゴリでトラック一覧を絞り込み、関心のある内容だけを表示できます。</p>
+
+                    <p>この方法には二つの利点があります。短時間で主要作品だけ見たい来館者には、必要な情報だけを簡潔に提示できます。一方で、特定テーマを深く学びたい専門家や熱心な来館者には、より詳細なコンテンツへの入口を提供できます。どちらの場合も、利用者は同じスクロール型UIの中に留まり、全体構造の一貫性も維持されます。</p>
+
+                    <h2 id="geolocation-triggered-scrolling">位置情報連動スクロールという発展形</h2>
+
+                    <p>スクロール型UIをさらに発展させた形として、位置情報に応じて自動的に一覧を移動させる方式があります。来館者が特定の展示物やスポットに近づくと、音声ガイドがそれを検知し、該当トラックを一覧の先頭付近に自動表示します。来館者は検索もスクロールもタップも必要なく、その場に適した解説へ自然に到達できます。</p>
+
+                    <p>これは、スクロール型ナビゲーションの一つの到達点といえます。来館者に能動的な操作をほとんど求めず、それでいて一覧全体は常に参照可能な状態で残ります。必要であれば手動でスクロールしたり、別トラックへ移動したり、検索機能を使ったりすることも可能です。</p>
+
+                    <p>もちろん、この機能には位置情報の利用許可が必要であり、屋内ではGPS精度に限界がある場合もあります。そのため、手動ナビゲーションを置き換えるものではなく、補助機能として使うのが現実的です。</p>
+
+                    <h2 id="summary">まとめ：使いやすい音声ガイド構成とは</h2>
+
+                    <div class="summary-block">
+
+                        <p>デジタル音声ガイドの構成は、単なる細部の問題ではありません。来館者が実際に利用するかどうか、何件のトラックを再生するか、そして体験を好意的に記憶するかにまで影響する、重要な設計判断です。主なポイントは以下のとおりです。</p>
+
+                        <p><strong>ナビゲーションモデル：</strong> スクロール型UIは、認知負荷を下げ、多くの人にとって馴染みのある操作方法を活用でき、検索や直接アクセス機能とも自然に統合できます。特にITに不慣れな来館者を含む博物館環境では、画面遷移型より適している場面が多くあります。</p>
+
+                        <p><strong>コンテンツ構成：</strong> トラックの区分けは、実際の館内レイアウトや見学動線に合わせるべきです。複雑な施設や複数エリアを持つ会場では、モジュール構成によって全体構造を整理しつつ、各モジュール内ではスクロール型の使いやすさを維持できます。</p>
+
+                        <p><strong>パーソナライズ：</strong> 展開式の詳細情報やタグによる絞り込みを使えば、利用者ごとに情報量やテーマを調整できます。しかも一覧画面を離れる必要がなく、現在位置も見失いにくくなります。</p>
+
+                        <p><strong>補助ナビゲーション：</strong> 位置情報連動スクロールを使えば、来館者の現在位置に応じて関連コンテンツを自動表示できます。全体一覧を保持したまま、よりスムーズな体験を提供できます。</p>
+
+                        <p>これらの考え方は、特定の製品やプラットフォームに限定されるものではありません。UX分野で広く認められている原則、たとえば「想起より再認」や「段階的開示」を、博物館音声ガイドという利用環境に適用したものです。<a href="../audio-guides/">Nubart</a> を含む複数の事業者が、Web型音声ガイドの標準設計としてスクロール型UIを採用しているのは、その考え方が多様な来館者層と博物館環境に適しているためです。</p>
+
+                    </div>
+
                 </div>
-
             </div>
         </div>
+
+
+
+
     </section>
 </main><!-- End #main -->
 
@@ -472,10 +639,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <i class="bi bi-envelope"></i>&nbsp info@nubart.eu<br>
                         </p>
                         <div class="social-links mt-3">
-                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
-                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
-                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i
+                                    class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
 
                         </div>
                     </div>
@@ -486,12 +657,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <ul>
 
                         <li><i class="bi bi-chevron-right"></i> <a href="../contact.html">連絡先</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../legal-notice.html" rel="nofollow">法的通知</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../terms-conditions.html" rel="nofollow">Nubart利用規約</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../legal-notice.html"
+                                                                   rel="nofollow">法的通知</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../terms-conditions.html" rel="nofollow">Nubart利用規約</a>
+                        </li>
 
-                        <li><i class="bi bi-chevron-right"></i> <a href="../privacy-policy.html" rel="nofollow">データ保護</a>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../privacy-policy.html"
+                                                                   rel="nofollow">データ保護</a>
                         <li><i class="bi bi-chevron-right"></i>
-                            <a href="https://share.hsforms.com/1rnttDBERSv-v83VE2HJOcA1g33q" rel="nofollow">ニュースレターを購読する</a></li>
+                            <a href="https://share.hsforms.com/1rnttDBERSv-v83VE2HJOcA1g33q"
+                               rel="nofollow">ニュースレターを購読する</a></li>
 
                     </ul>
 

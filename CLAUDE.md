@@ -36,10 +36,21 @@ Some of our products/languages have a subdirectory for a specific product, but t
 
 ## Blog pages path
 
+## Main blog hub
+
+- EN: x-blog/index.html
+- DE: de/blog/index.html
+- ES: es/blog/index.html
+- FR: fr/blog/index.html
+- IT: it/blog/index.html
+- JA: ja/blog/index.html
+
+
 ### Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide
 - EN: audio-guides/content-structure-digital-guides.html
 - DE: de/audioguides/mit-benutzerfreundlicher-struktur.html
 - ES: es/blog/como-estructurar-navegacion-intuitiva-audioguia.html
+- JA: ja/audio-guides/how-to-structure-content.html
 
 ## Product Pages Paths
 
