@@ -67,7 +67,12 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - PL: pl/audioprzewodnik/dostepnosc-i-inkluzywnosc.html
 - NL: nl/audiogidsen/inclusief.html
 - PT-BR: pt-br/audioguia/acessivel.html
+- 
+### Offline Mode for Museum Audio Guides: A Practical Framework
 
+- EN: audio-guides/offline-mode-best-practices.html
+- DE: de/audioguides/streaming-oder-offline.html
+- ES: es/blog/audioguia-streaming-versus-offline.html
 
 ## Product Pages Paths
 
