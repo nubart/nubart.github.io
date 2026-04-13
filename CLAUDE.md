@@ -23,7 +23,7 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - HE: he/index.html
 - BG: bg/index.html
 
-## Generic Root pages that apply to Nubart in general
+### Generic Root pages that apply to Nubart in general
 
 - **Terms and conditions - General Hub:**
 - EN: terms-conditions.html
@@ -36,7 +36,7 @@ Some of our products/languages have a subdirectory for a specific product, but t
 
 ## Blog pages path
 
-## Main blog hub
+### Main blog hub
 
 - EN: x-blog/index.html
 - DE: de/blog/index.html
@@ -51,6 +51,23 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - DE: de/audioguides/mit-benutzerfreundlicher-struktur.html
 - ES: es/blog/como-estructurar-navegacion-intuitiva-audioguia.html
 - JA: ja/audio-guides/how-to-structure-content.html
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+
+### Accessible Digital Audio Guides for Museums | Nubart GUIDE
+- EN: audio-guides/inclusive-museum-qr-codes.html
+- DE: de/audioguides/barrierefrei.html
+- ES: es/blog/audioguia-nubart-accesible.html
+- JA: (still pending)
+- IT: it/blog/audioguide-digitali-accessibili.html
+- FR: fr/blog/audioguides-numeriques-accessibles-musees.html
+- PL: pl/audioprzewodnik/dostepnosc-i-inkluzywnosc.html
+- NL: nl/audiogidsen/inclusief.html
+- PT-BR: pt-br/audioguia/acessivel.html
+
 
 ## Product Pages Paths
 
