@@ -2,80 +2,145 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-    <!-- Structured data -->
-    <!-- Structured data -->
+    <!-- Structured Data: Article -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "WebPage",
-
-            "mainEntity": {
-                "@type": "Article",
-                "headline": "Cómo estructurar la audioguía de tu museo para que sea fácil de usar y de navegar",
-                "description": "Con las audioguías tradicionales, no hay que pensar mucho en la estructura del contenido: los visitantes simplemente teclean el número de una vitrina en el teclado del dispositivo y reciben la explicación de audio correspondiente. Sin embargo, las numerosas capacidades multimedia de las audioguías digitales exigen una estrategia de presentación de contenidos más compleja para garantizar una navegación fácil y accesible para personas de todas las edades y hacer agradable la navegació por la audioguía de un museo.",
-                "image": "https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg",
-                "author": {
-                    "@type": "Organization",
-                    "name": "El equipo de Nubart"
-                },
-                "datePublished": "2018-02-22",
-                "dateModified": "2024-05-12",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Nubart",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
-                    }
+            "@type": "Article",
+            "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html#article",
+            "headline": "Scroll frente a clic: cómo el diseño de navegación puede impulsar o arruinar una audioguía digital",
+            "inLanguage": "es",
+            "description": "Un análisis de referencia sobre los dos modelos de navegación dominantes en las audioguías digitales basadas en la web —scroll y reproducción en la misma pantalla frente a clic y cambio de pantalla— con argumentos de UX basados en la teoría de la carga cognitiva, reconocimiento frente a recuerdo y divulgación progresiva. Dirigido a museos, proveedores de audioguías y diseñadores UX.",
+            "image": "https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg",
+            "author": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
                 }
-            }
+            },
+            "datePublished": "2018-02-22",
+            "dateModified": "2026-04-12",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+            },
+            "keywords": "UX audioguía digital, scroll y reproducción en la misma pantalla, clic y cambio de pantalla, audioguía con scroll, navegación audioguía museo, estructura audioguía web, carga cognitiva audioguía, reconocimiento frente a recuerdo, divulgación progresiva, audioguía PWA, usabilidad audioguía",
+            "articleSection": "UX de Audioguías, Tecnología para Museos, Experiencia Digital del Visitante",
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Audioguía",
+                    "sameAs": "https://en.wikipedia.org/wiki/Audio_tour"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Carga cognitiva",
+                    "sameAs": "https://en.wikipedia.org/wiki/Cognitive_load"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Aplicación web progresiva",
+                    "sameAs": "https://en.wikipedia.org/wiki/Progressive_web_app"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Heurística de usabilidad",
+                    "sameAs": "https://en.wikipedia.org/wiki/Heuristic_evaluation"
+                }
+            ]
         }
     </script>
-    <!-- End Structured data -->
-    
-    
-    <!-- Structured data -->
-    
+
+    <!-- Structured Data: FAQPage -->
     <script type="application/ld+json">
-        
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "inLanguage": "es",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Es mejor hacer scroll que hacer clic en las audioguías digitales de museos?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En la mayoría de los contextos museísticos, sí. Una interfaz de scroll y reproducción en la misma pantalla mantiene todas las pistas visibles en una lista continua, lo que reduce la carga cognitiva y aprovecha el gesto de desplazamiento que los visitantes ya utilizan a diario en redes sociales y aplicaciones de mensajería. Las interfaces de clic y cambio de pantalla, en las que cada pista se abre en una vista separada, requieren más pasos de navegación y rompen la orientación espacial del visitante."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Cómo debería estructurar el contenido de una audioguía web?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Lo ideal es que la organización del contenido refleje la distribución física del recinto: por planta, edificio o galería, en lugar de por tema o cronología. En espacios complejos o con varias sedes, suele funcionar bien un sistema modular: cada módulo contiene su propia lista de pistas con scroll y los visitantes cambian de módulo mediante un menú principal."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Puede una audioguía con scroll llevar al visitante directamente a una pista concreta?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sí. Cuando el visitante introduce un número de pista o utiliza la búsqueda por texto, la interfaz se desplaza directamente hasta la posición correspondiente dentro de la misma lista continua. Esto combina la libertad de navegación de una estructura con scroll con la precisión del acceso directo, sin necesidad de abrir otra pantalla ni realizar transiciones adicionales."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Es accesible una audioguía con scroll para personas con discapacidad?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Una página finita, bien estructurada semánticamente y con encabezados claros, regiones identificables y numeración coherente puede ser plenamente accesible para usuarios de teclado y lectores de pantalla. Los problemas de accesibilidad más conocidos asociados al scroll suelen referirse al scroll infinito de redes sociales o comercio electrónico, no a listas cerradas y numeradas como las que se utilizan en audioguías."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: Breadcrumbs -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
                 {
                     "@type": "ListItem",
                     "position": 1,
-                    "item": "https://www.nubart.eu/es/",
-                    "name": "Nubart"
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/es/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "item": "https://www.nubart.eu/es/blog/",
-                    "name": "Blog de Nubart"
+                    "name": "Blog de Nubart",
+                    "item": "https://www.nubart.eu/es/blog/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 3,
-                    "item": "https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html",
-                    "name": "Cómo dar una estructura intuitiva al contenido de una audioguía"
+                    "name": "Scroll frente a clics: diseño de la navegación en las audioguías digitales",
+                    "item": "https://www.nubart.eu/es/blog/content-structure-digital-guides es-ES.html"
                 }
             ]
         }
-    
     </script>
-    
+
     <!-- End Structured data -->
-    
     <!-- Google Tag Manager -->
     <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TRW7KZS');
+
     </script>
     <!-- End Google Tag Manager -->
 
@@ -83,195 +148,220 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
     <script>
-      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-      plausible.init()
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
     </script>
 
-<!-- 2. Cookie consent CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+    <!-- 2. Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css"/>
 
-<!-- 3. Cookie consent config (MOVED HERE) -->
-<script type="module" src="/js/cookieconsent-config.js"></script>
+    <!-- 3. Cookie consent config (MOVED HERE) -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
 
 
-    <title>Cómo dar una estructura intuitiva al contenido de una audioguía</title>
+    <title>Scroll frente a clic: qué tipo de navegación funciona mejor en una audioguía digital</title>
     <meta name="description"
-          content="Las pantallas táctiles y audioguías digitales (apps o PWAs) permiten integrar innumerables elementos multimedia. ¿Cómo estructurar una audioguía digital?">
-    <meta name="author" content="Nubart">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="twitter:card" content="summary_large_image">
+          content="¿Desplazarse y reproducir en la misma pantalla o hacer clic y salir de la página? El modelo de navegación de una audioguía digital determina la facilidad con la que los visitantes del museo pueden utilizarla. Las interfaces con desplazamiento reducen la carga cognitiva y mejoran la usabilidad."/>
+    <meta name="author" content="Nubart"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:description"
-          content="Las pantallas táctiles y audioguías digitales (apps o PWAs) permiten integrar innumerables elementos multimedia. ¿Cómo estructurar una audioguía digital?">
-    <meta name="twitter:site" content="@nub_art">
-    <meta name="twitter:creator" content="@nub_art">
-    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg">
+          content="Scroll frente a clics: diseño de la navegación en las audioguías digitales"/>
+    <meta name="twitter:site" content="@NubartEN"/>
+    <meta name="twitter:creator" content="@NubartEN"/>
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg"/>
 
     <!-- hreflang -->
-    <link rel="canonical" href="https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html" hreflang="x-default"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html" hreflang="en-gb"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html" hreflang="en"/>
-    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html" hreflang="en-us"/>
-    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html" hreflang="de"/>
-    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html" hreflang="de-ch"/>
-    <link rel="alternate" href="https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html" hreflang="es"/>
-    <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/how-to-structure-content.html" hreflang="ja" />
+    <link rel="canonical" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+          hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+          hreflang="en-gb"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+          hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"
+          hreflang="en-us"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html"
+          hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html"
+          hreflang="de-ch"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html"
+          hreflang="es"/>
+    <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/how-to-structure-content.html" hreflang="ja"/>
+
 
     <!-- OpenGraph for LinkedIn -->
 
-
-    <meta property="og:title" content="Cómo dar una estructura intuitiva al contenido de una audioguía"/>
+    <meta property="og:title"
+          content="Scroll frente a clic: qué tipo de navegación funciona mejor en una audioguía digital"/>
     <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/jpg/cover-structure-audioguide.jpg"/>
     <meta property="og:author" content="Nubart International"/>
     <meta property="og:description"
-          content="Las pantallas táctiles y audioguías digitales (apps o PWAs) permiten integrar innumerables elementos multimedia. ¿Cómo estructurar una audioguía digital?">
+          content="¿Desplazarse y reproducir en la misma pantalla o hacer clic y salir de la página? El modelo de navegación de una audioguía digital determina la facilidad con la que los visitantes del museo pueden utilizarla. Las interfaces con scroll reducen la carga cognitiva y mejoran la usabilidad."/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html">
+    <meta property="og:url" content="https://www.nubart.eu/audio-guides/content-structure-digital-guides.html"/>
 
     <!-- Icons -->
-    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png">
-    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png"/>
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="theme-color" content="#ffffff"/>
     <!-- ./Icons -->
 
-
     <!-- Vendor CSS Files -->
-    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet"/>
 
-    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
 
-    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
 
     <!-- Lazy-load JS -->
     <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
 
     <!-- Template Main CSS File -->
-    <link href="../../assets/css/style.css" rel="stylesheet">
+    <link href="../../assets/css/style.css" rel="stylesheet"/>
 
 
+    <link href="../../assets/css/custom.css" rel="stylesheet"/>
 
-    <link href="../../assets/css/custom.css" rel="stylesheet">
 
-
+    <!-- =======================================================
+    * Template Name: Dewi - v4.6.0
+    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
 </head>
 
 <body>
-
 
 
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
         <div class="container d-flex align-items-center justify-content-between">
-        <a href="../" class="logo"> <img src="../../assets/img/logo.png" alt="logo de Nubart" class="img-fluid"> </a>
-        <nav id="navbar" class="navbar">
-            <ul>
-                <li class="dropdown">
-                    <a href="#"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li>
-                            <a href="../audioguias.html">
-                                <i class="bi bi-headphones product-icon"></i>
-                                <div class="product-text">
-                                    <span class="product-name">NUBART GUIDE</span>
-                                    <span class="product-description">Audioguías multimedia vía código QR (PWA)</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
+            <a href="../" class="logo"> <img src="../../assets/img/logo.png" alt="logo de Nubart" class="img-fluid">
+            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li>
+                                <a href="../audioguias.html">
+                                    <i class="bi bi-headphones product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART GUIDE</span>
+                                        <span class="product-description">Audioguías multimedia vía código QR (PWA)</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                        <li>
-                            <a href="../sistema-guiado-grupos/">
-                                <i class="bi bi-headset product-icon"></i>
-                                <div class="product-text">
-                                    <span class="product-name">NUBART LIVE</span>
-                                    <span class="product-description">Sistema de guiado de grupos con traducción por IA</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <a href="../tours-barcos-buses.html">
-                                <i class="bi bi-bus-front-fill product-icon"></i>
-                                <div class="product-text">
-                                    <span class="product-name">Nubart MOTION</span>
-                                    <span class="product-description">Audioguía automatizada para vehículos turísticos</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <a href="../traduccion-simultanea-ia/">
-                                <i class="bi bi-translate product-icon"></i>
-                                <div class="product-text">
-                                    <span class="product-name">NUBART TRANSLATE</span>
-                                    <span class="product-description">Traducción simultánea por IA para eventos y conferencias</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <a href="../gamificacion-juego-audioguia.html">
-                                <i class="bi bi-controller product-icon"></i>
-                                <div class="product-text">
-                                    <span class="product-name">NUBART GAME</span>
-                                    <span class="product-description">Juego de realidad aumentada y preguntas para audioguía</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a href="../sistema-guiado-grupos/">
+                                    <i class="bi bi-headset product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART LIVE</span>
+                                        <span class="product-description">Sistema de guiado de grupos con traducción por IA</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../tours-barcos-buses.html">
+                                    <i class="bi bi-bus-front-fill product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">Nubart MOTION</span>
+                                        <span class="product-description">Audioguía automatizada para vehículos turísticos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../traduccion-simultanea-ia/">
+                                    <i class="bi bi-translate product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART TRANSLATE</span>
+                                        <span class="product-description">Traducción simultánea por IA para eventos y conferencias</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../gamificacion-juego-audioguia.html">
+                                    <i class="bi bi-controller product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART GAME</span>
+                                        <span class="product-description">Juego de realidad aumentada y preguntas para audioguía</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                        <li>
-                            <a href="https://nubart-sync.com/es/">
-                                <i class="bi bi-person-video3 product-icon"></i>
-                                <div class="product-text">
-                                    <span class="product-name">NUBART SYNC</span>
-                                    <span class="product-description">Sonido multilingüe perfectamente sincronizado vía QR para pantallas de vídeo</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a class="nav-link scrollto" href="../clientes-proyectos.html">Clientes</a></li>
-                <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
-                <li class="dropdown">
-                    <a href="#"><span>Contacto</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../quienes-somos.html">Quiénes somos</a></li>
-                        <li><a href="../contacto.html">Contacto</a></li>
+                            <li>
+                                <a href="https://nubart-sync.com/es/">
+                                    <i class="bi bi-person-video3 product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART SYNC</span>
+                                        <span class="product-description">Sonido multilingüe perfectamente sincronizado vía QR para pantallas de vídeo</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" href="../clientes-proyectos.html">Clientes</a></li>
+                    <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Contacto</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../quienes-somos.html">Quiénes somos</a></li>
+                            <li><a href="../contacto.html">Contacto</a></li>
 
-                    </ul>
-                </li>
-                <li class="d-flex">
-                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login">
-                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
-                </li>
+                        </ul>
+                    </li>
+                    <li class="d-flex">
+                        <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                           href="https://www.nub.art/customer/login">
+                            <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                    </li>
 
-                <li class="dropdown d-none d-md-block">
-                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="../../">English</a></li>
-                        <li><a href="../../de/">Deutsch</a></li>
-                        <li><a href="../../fr/">Français</a></li>
-                        <li><a href="../../pt-br/">Português</a></li>
-                        <li><a href="../../nl/">Nederlands</a></li>
-                        <li><a href="../../it/">Italiano</a></li>
-                        <li><a href="../../pl/">Polski</a></li>
-                        <li><a href="../../bg/">български</a></li>
-                        <li><a href="../../he/">עִברִית</a></li>
-                        <li><a href="../../ja/">日本語</a></li>
-                    </ul>
-                </li>
-            <!-- Mobile-only secondary menu items -->
+                    <li class="dropdown d-none d-md-block">
+                        <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../../">English</a></li>
+                            <li><a href="../../de/">Deutsch</a></li>
+                            <li><a href="../../fr/">Français</a></li>
+                            <li><a href="../../pt-br/">Português</a></li>
+                            <li><a href="../../nl/">Nederlands</a></li>
+                            <li><a href="../../it/">Italiano</a></li>
+                            <li><a href="../../pl/">Polski</a></li>
+                            <li><a href="../../bg/">български</a></li>
+                            <li><a href="../../he/">עִברִית</a></li>
+                            <li><a href="../../ja/">日本語</a></li>
+                        </ul>
+                    </li>
+                    <!-- Mobile-only secondary menu items -->
                     <li class="mobile-secondary-menu-divider d-md-none">
                         <hr>
                     </li>
-                    <li class="mobile-secondary-header d-md-none"  style="color: #028a8c;"><i class="bi bi-headphones product-icon"></i>&nbsp<span>NUBART GUIDE</span></li>
+                    <li class="mobile-secondary-header d-md-none" style="color: #028a8c;"><i
+                            class="bi bi-headphones product-icon"></i>&nbsp<span>NUBART GUIDE</span></li>
                     <li class="dropdown d-md-none">
                         <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
@@ -279,7 +369,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <li><a href="../materiales.html">Qué necesitamos para producir tu audioguía</a></li>
                         </ul>
                     </li>
-
 
 
                     <li class="d-md-none">
@@ -335,130 +424,509 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 </header>
 
+<!-- ======= Breadcrumbs ======= -->
+<div class="d-md-none" style="height: 60px;"></div>
+<section class="breadcrumbs d-none d-md-block">
+    <div class="container">
 
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Scroll versus clic en audioguías digitales</h2>
+            <ol>
+                <li><a href="../">Inicio</a></li>
+                <li><a href="../blog/">Blog</a></li>
+
+
+                <li>Scroll versus clic en audioguías digitales</li>
+            </ol>
+
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
 <main id="main">
-
 
     <!-- ======= Portfolio Details Section ======= -->
     <section class="inner-page services">
-
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div style="align-items:top;">
 
-                        <img src="../../assets/img/team/nubart-profile.webp" class="img-thumbnail rounded-circle d-none d-lg-block"
-                             style="margin-right:30px;" width="45%" alt="Nubart">
+                        <img src="../../assets/img/team/nubart-profile.webp"
+                             class="img-thumbnail rounded-circle d-none d-lg-block" style="margin-right:30px;"
+                             width="45%" alt="Nubart"/>
 
                     </div>
                     <div>
                         <h4 class="fs-5">Equipo de Nubart</h4>
-                        <p class="nubart-blog-author">Desarrollo IT</p>
+                        <p class="nubart-blog-author">Desarrollo informático</p>
 
                     </div>
                 </div>
 
-                <div class="col-md-7 nubart-blog">
 
-                    <h1>Estructura intuitiva en las audioguías digitales</h1>
+                <div class="col-md-8 nubart-blog">
 
-                    <p class="lead">Las audioguías digitales ofrecen más opciones que nunca para presentar los contenidos. En este artículo descubrirás a qué debes prestar atención a la hora de estructurar y organizar tu audioguía para que siga siendo clara y fácil de usar.</p>
+                    <h1>Scroll frente a clic: cómo el diseño de navegación puede impulsar o arruinar una audioguía
+                        digital</h1>
+
+                    <p class="lead">La forma en que los visitantes navegan por una audioguía digital importa mucho más
+                        de lo que la mayoría de los museos imagina. Mientras que los guiones, las voces, las imágenes y
+                        los vídeos suelen acaparar toda la atención, el modelo de navegación queda a menudo en segundo
+                        plano. Sin embargo, esa decisión influye directamente en cuántas pistas escucha el visitante y
+                        en su grado de implicación con la exposición.<br>Este artículo analiza los dos modelos de
+                        navegación predominantes en las audioguías digitales basadas en la web, explica por qué uno de
+                        ellos suele funcionar mejor en el contexto museístico —por motivos respaldados por principios
+                        consolidados de experiencia de usuario (UX)— y ofrece orientación práctica sobre cómo
+                        estructurar el contenido para lograr claridad, personalización y facilidad de uso. Está pensado
+                        como texto de referencia para museos, proveedores de audioguías y profesionales de UX que
+                        trabajan en el sector cultural.</p>
                     <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
-                    <p>Con las audioguías convencionales, no tienes que pensar mucho en la estructura del contenido: Los visitantes suelen teclear el número de una exposición en el teclado del dispositivo y reciben la explicación de audio correspondiente.</p>
-                    <p>La mayoría de las audioguías digitales (ya sean apps o PWA) también ofrecen la posibilidad de introducir un número. Pero además, la pantalla táctil abre posibilidades completamente nuevas y, por tanto, también nuevos desafíos. El objetivo es organizar el contenido multimedia de la audioguía en la pequeña superficie de la pantalla del móvil para que los visitantes disfruten utilizando su audioguía digital.</p>
-                    <br>
-                    <h2>Cómo configurar tu audioguía de forma que tenga buena usabilidad</h2>
-                    <p>Un objetivo de cualquier audioguía debería ser que se utilice lo máximo posible. Por eso la facilidad de uso es un punto importante a la hora de configurar las audioguías; los usuarios deben poder manejar la audioguía de forma intuitiva, sin tener que pensar demasiado. No todos los visitantes de un museo son nativos digitales. Además, la audioguía no es el foco principal de la visita al museo, sino un acompañamiento que no debería restar protagonismo a las piezas de la exposición. Por este motivo, los usuarios no tendrán ni el tiempo ni el interés para dedicarse a ella en detalle.
-                    </p>
-                    <p>Los siguientes puntos proporcinan una buena usabilidad a la estructura de una audioguía digital:</p>
-                    <ul>
-                        <li>Una buena organización del contenido</li>
-                        <li>
-                            <a href="https://blog.nubox.com/software/interfaz-intuitiva-que-es" target="_blank">Una navegación intuitiva</a>
-                        </li>
-                        <li>La personalización de los contenidos</li>
-                    </ul>
-                    <br>
-                    <h2>Buena organización del contenido</h2>
-                    <p>Normalmente, la estructura de una audioguía consiste en una o varias listas de puntos de interés, también llamadas <i>paradas</i> o <i>estaciones</i>). Cada una de estas estaciones contiene una pista de audio y posiblemente otros elementos multimedia, como fotos o vídeos.</p>
-                    <p>La forma en que se organizan estas listas o estaciones es muy importante para la claridad. Para exposiciones grandes y complejas, por ejemplo, o para grupos de museos asociados, <strong>tiene sentido crear una estructura ramificada</strong>, en la que cada rama conste a su vez de una o varias listas de estaciones.</p>
-                    <p>Las listas que estructuran la audioguía deben <strong>aportar claridad al recorrido</strong> y estar en directa relación con éste. Por ejemplo, si los objetos expuestos están repartidos en dos o tres plantas o en dos edificios diferentes, puede ser aconsejable tenerlo en cuenta al organizar la audioguía, ya que esto ayudará a los visitantes a orientarse.
-                    </p>
-                    <p>Sin embargo, hay que tener cuidado con las listas temáticas que no se correspondan con el espacio físico de la exposición. Al diseñar la estructura de una audioguía digital de forma que sea fácil de usar, es importante <strong>tener en cuenta la ruta que probablemente sigan los visitantes</strong>. Si, por ejemplo, la sala con los objetos medievales conecta con la sala de historia moderna, es mejor dar prioridad a la distribución espacial y dejar de lado por el momento la congruencia cronológica o temática.
-                    </p>
-                    <br>
-                    <h2>Sistema modular de Nubart</h2>
-                    <p>Para mejorar la usabilidad de las audioguías, Nubart ha desarrollado un
-                        <a href="../audioguia-multimedia.html#modules" target="_blank">sistema modular</a> que organiza los contenidos en módulos. Este sistema resulta ideal para recintos feriales que tienen varios edificios o salas independientes. Por ejemplo, el <a href="https://www.spain.info/de/parks-freizeit/bergbaupark-riotinto/" target="_blank">Parque Minero de Río Tinto en Huelva</a> consta de un museo, un tren, una mina y una casa, y en su audioguía digital hemos asignado un módulo independiente a cada uno de estos lugares.
-                    </p>
                     <figure class="figure">
-                        <img src="../../assets/img/blog/structure-riotinto.webp" class="figure-img img-fluid rounded" alt="Audioguía Nubart para el Museo Fundación Riotinto de Huelva">
-                        <figcaption class="figure-caption text-center">Audioguía Nubart para el Museo Fundación Riotinto de Huelva
+                        <img src="../../assets/img/blog/jpg/cover-structure-audioguide.jpg"
+                             class="figure-img img-fluid rounded"
+                             alt="Scroll frente a clic: qué tipo de navegación funciona mejor en una audioguía digital"/>
+
+                    </figure>
+                    <!-- Table of Contents -->
+                    <nav aria-label="Índice de contenidos" style="margin-bottom:2em;">
+                        <h2 style="font-size:1.3em; margin-top:1.5em;">Índice</h2>
+                        <ol style="padding-left:1.2em; font-size:1.07em;">
+                            <li><a href="#from-keypad-to-touchscreen">Del teclado a la pantalla táctil: por qué la
+                                estructura importa ahora</a></li>
+                            <li>
+                                <a href="#two-navigation-paradigms">Dos modelos de navegación en las audioguías
+                                    digitales</a>
+                            </li>
+                            <li>
+                                <a href="#why-scroll-and-play-works-better">Por qué el modelo de scroll y reproducción
+                                    en la misma pantalla funciona mejor: cuatro argumentos de UX</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>3.1 <a href="#lower-cognitive-load">Menor carga cognitiva gracias a un contexto
+                                        espacial constante</a></li>
+                                    <li>3.2 <a href="#familiarity-scrolling-universal-skill">Familiaridad: hacer scroll
+                                        es ya una habilidad digital casi universal</a></li>
+                                    <li>3.3 <a href="#incidental-discovery">Descubrimiento casual: el scroll refuerza la
+                                        misión educativa del museo</a></li>
+                                    <li>3.4 <a href="#compatibility-search-direct-access">Compatibilidad con la búsqueda
+                                        y el acceso directo</a></li>
+                                </ol>
+                            </li>
+                            <li>
+                                <a href="#structuring-content">Cómo estructurar el contenido en una audioguía con
+                                    scroll</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>4.1 <a href="#match-structure-physical-space">Adaptar la estructura al espacio
+                                        físico</a></li>
+                                    <li>4.2 <a href="#modules-complex-venues">Usar módulos en recintos complejos o con
+                                        varias sedes</a></li>
+                                </ol>
+                            </li>
+                            <li>
+                                <a href="#personalization">Personalización sin interrumpir el scroll</a>
+                                <ol style="list-style-type: none; padding-left:1.4em;">
+                                    <li>5.1 <a href="#expandable-detail">Detalles ampliables dentro de cada pista</a>
+                                    </li>
+                                    <li>5.2 <a href="#transcriptions-overlay">Transcripciones y textos: superponer, no
+                                        incrustar</a></li>
+                                    <li>5.3 <a href="#tags-filtering">Etiquetas para filtrar contenidos</a></li>
+                                </ol>
+                            </li>
+                            <li><a href="#geolocation-triggered-scrolling">El caso especial del scroll activado por
+                                geolocalización</a></li>
+                            <li><a href="#summary">Resumen</a></li>
+
+                        </ol>
+                    </nav>
+                    <hr/>
+
+                    <h2 id="from-keypad-to-touchscreen">Del teclado a la pantalla táctil: por qué la estructura importa
+                        ahora</h2>
+
+                    <p>Con los dispositivos de audioguía tradicionales, la estructura del contenido apenas planteaba
+                        problemas. Los visitantes tecleaban un número, escuchaban la pista correspondiente y seguían
+                        adelante. El dispositivo no imponía ninguna decisión de navegación más allá de «¿qué número
+                        viene ahora?».</p>
+
+                    <p>Las audioguías digitales —ya sean aplicaciones nativas o aplicaciones web progresivas (PWA)—
+                        cambiaron esto por completo. Una interfaz táctil debe mostrar una lista de pistas disponibles,
+                        ofrecer formas de encontrar contenido específico y, en ocasiones, integrar recursos
+                        complementarios como vídeos, galerías de imágenes o textos. Estas posibilidades son valiosas,
+                        pero también introducen un reto de diseño al que los dispositivos físicos nunca tuvieron que
+                        enfrentarse: <strong>¿cómo deben moverse los visitantes entre las distintas pistas?</strong></p>
+
+                    <p>La respuesta a esa pregunta divide a las audioguías digitales actuales en dos modelos de
+                        navegación fundamentalmente distintos.</p>
+
+                    <h2 id="two-navigation-paradigms">Dos modelos de navegación en las audioguías digitales: «scroll y
+                        reproducción en la misma pantalla» frente a «clic y cambio de pantalla»</h2>
+
+                    <p>Muchas audioguías digitales basadas en la web siguen lo que podríamos llamar el modelo <strong>«clic
+                        y cambio de pantalla»</strong>. El visitante ve una lista de pistas disponibles, a menudo en un
+                        menú con scroll o en una barra de navegación inferior. Al pulsar una pista, esta se abre en una
+                        nueva vista o pantalla. Para elegir otra pista, el visitante debe volver a la lista, desplazarse
+                        hasta encontrar el siguiente elemento y pulsar de nuevo. En muchas implementaciones, cambiar de
+                        pista exige regresar a la lista y abrir un nuevo elemento, lo que supone al menos dos pasos: uno
+                        para salir de la pista actual y otro para entrar en la siguiente.</p>
+
+                    <p>Este patrón es, en esencia, <strong>la lógica de los sitios web de escritorio trasladada a una
+                        pantalla móvil</strong>. En un ordenador de sobremesa, la navegación multipágina funciona bien:
+                        cada página ocupa un monitor grande, los menús permanecen visibles en una barra lateral o en la
+                        cabecera y el botón de retroceso resulta fácil de localizar. Pero en la pantalla de un teléfono
+                        de seis pulgadas, sostenido con una sola mano mientras el visitante permanece de pie frente a
+                        una obra, esta arquitectura pierde la mayor parte de sus ventajas. La pantalla es demasiado
+                        pequeña para mostrar contexto junto al contenido, el botón de retroceso compite con los propios
+                        controles del navegador y cada cambio de pantalla interrumpe la atención del visitante: Una
+                        atención que debería dirigirse a la exposición, no a la interfaz.</p>
+
+                    <p>La alternativa es el modelo <strong>de scroll y reproducción en la misma pantalla</strong>. En
+                        este caso, todas las pistas de una sección se organizan en una única página desplazable de forma
+                        continua. Al pulsar una pista, la reproducción comienza sin salir de la página. El visitante
+                        puede desplazarse hacia arriba o hacia abajo en cualquier momento para ver lo que hay antes o
+                        después, y puede cambiar de pista con un solo toque: sin botón de retroceso, sin cambio de
+                        pantalla y sin necesidad de reorientarse. El resultado es una experiencia fluida: navegar,
+                        elegir y escuchar ocurren dentro de una misma interacción continua, sin las interrupciones
+                        constantes que sacan al visitante de la exposición y lo llevan a la interfaz.</p>
+
+                    <p>Para ser justos, muchas guías del modelo «clic y cambio de pantalla» sí incluyen una vista de
+                        lista desplazable en algún lugar —normalmente en una barra de menú inferior—. Pero la diferencia
+                        crucial es que, al pulsar un elemento de esa lista, el visitante sigue siendo llevado a una
+                        pantalla separada. Para volver a explorar la lista, debe regresar atrás. El scroll y la escucha
+                        tienen lugar en contextos distintos.</p>
+
+                    <p>En una guía de «scroll y reproducción en la misma pantalla», el desplazamiento y la escucha
+                        conviven en el mismo espacio. Esta diferencia puede parecer sutil, pero su impacto en la
+                        usabilidad es considerable, especialmente para un público diverso y a menudo poco familiarizado
+                        con la tecnología, como el que utiliza audioguías en los museos.</p>
+
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/structure-audioguide-clicking.webp"
+                             class="figure-img img-fluid rounded"
+                             alt="Modelo de clic y cambio de pantalla: una audioguía digital que requiere varios toques y transiciones entre pantallas para cambiar de pista"/>
+                        <figcaption class="figure-caption text-center">Modelo «clic y cambio de pantalla»: seleccionar
+                            una pista obliga a salir de la lista, abrir una vista independiente y volver atrás, lo que
+                            añade varios pasos en cada cambio.
                         </figcaption>
                     </figure>
 
-                    <p>Esta estructura modular también es la forma ideal de separar el contenido temática o cronológicamente. El caso más común es el de los museos con muchas exposiciones, tanto permanentes como temporales. En estos casos se le asigna un módulo propio a cada exposición. Por ejemplo, en <a href="https://www.nubart.eu/de/kunden/albertina-audioguide.html">el Museo Albertina de Viena</a>.</p>
                     <figure class="figure">
-                        <img src="../../assets/img/blog/structure-albertina.webp" class="figure-img img-fluid rounded" alt="Audioguía Nubart para el Museo Albertina de Viena">
-                        <figcaption class="figure-caption text-center">Audioguía Nubart para el Museo Albertina de Viena
-                        </figcaption>
-                    </figure>
-                    <br>
-                    <h2>Estructura fácil de usar mediante una navegación intuitiva</h2>
-                    <p>La navegación debe ser intuitiva para los visitantes, por lo que cuanto más sencilla sea, mejor. Además de una estructura lógica y fácil de usar del contenido de la audioguía, orientada a las condiciones del espacio museístico, los elementos del menú deben tener una nomeclatura clara. Además, debe poder accederse a las estaciones o puntos de interés on el menor número de clics posible.
-                    </p>
-                    <p>Nubart organiza el contenido de cada módulo en una sola página en la que el usuario puede desplazarse hasta las distintas estaciones mediante el deslizamiento vertical o scroll. La navegación por la audioguía resulta mucho más complicada si las distintas pistas de audio están en páginas individuales, pues eso obliga a un continuo ir y venir entre la página general y cada pieza de contenido. El desplazamiento por scroll es un método de navegación mucho más intuitivo, sobre todo para las personas mayores que no son nativas digitales.</p>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-audioguide-clicking.webp" class="figure-img img-fluid rounded" alt="Audioguía digital tradicional con demasiados clics">
-                        <figcaption class="figure-caption text-center">Audioguía digital con demasiados clics
-                        </figcaption>
-                    </figure>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-audioguide-scrolling.webp" class="figure-img img-fluid rounded" alt="Audioguía digital con navegación por desplazamiento (scroll)">
-                        <figcaption class="figure-caption text-center">Audioguía digital con navegación por deslizamiento vertical o scroll
+                        <img src="../../assets/img/blog/structure-audioguide-scrolling.webp"
+                             class="figure-img img-fluid rounded"
+                             alt="Modelo de scroll y reproducción en la misma pantalla: una audioguía digital donde la reproducción comienza dentro de la lista desplazable de pistas"/>
+                        <figcaption class="figure-caption text-center">Modelo «scroll y reproducción en la misma
+                            pantalla»: el visitante pulsa para reproducir y puede seguir explorando sin abandonar nunca
+                            la lista de pistas.
                         </figcaption>
                     </figure>
 
-                    <p>Aún más práctico: la función opcional de <a href="../audioguia-multimedia.html#geolocation" target="_blank">desplazamiento por geolocalización (<i>geo-scrolling</i>)</a> desliza automáticamente la pista de audio adecuada a la parte superior de la pantalla del teléfono móvil cuando el usuario se acerca a la estación correspondiente, activándose automáticamente. De este modo ya no hace falta ningún clic.
+                    <h2 id="why-scroll-and-play-works-better">Por qué el modelo de «scroll y reproducción en la misma
+                        pantalla» funciona mejor: cuatro argumentos de UX</h2>
 
-                    </p>
-                    <br>
-                    <h2>Personalización de contenidos</h2>
-                    <p>No todos los visitantes de una exposición están interesados en el mismo tipo de contenido. Algunos vienen a un museo porque está de paso por la ciudad y sólo tienen tiempo para ver lo más destacado. Otros pueden ser grandes especialistas dispuestos a pasarse horas delante de una sola vitrina.</p>
-                    <p>La estructura de una buena audioguía debe poder personalizarse con flexibilidad en función de los intereses de los visitante. A diferencia de los aparatos de audioguías convencionales, la información de las audioguías digitales puede ampliarse con facilidad. Puedes añadir pistas de audio complementarias, pero también vídeos, carruseles de imágenes, imágenes superpuestas, objetos 3D, PDF descargables...</p>
-                    <p>Sin embargo, es importante asegurarse de que las ampliaciones del contenido se presenten sin complicar la estructura de la audioguía y sin abrumar a los visitantes con demasiada información.</p>
-                    <br>
-                    <h2>Botones desplegables</h2>
-                    <p>Por este motivo, Nubart ha desarrollado <a href="../audioguia-multimedia.html#more-info" target="_blank">botones desplegables</a> para "más información". Estos botones permiten añadir una segunda capa de profundidad a las pistas de la audioguía sin obligar a los visitantes a abandonar la página y sin distraerlos del contenido principal. Los usuarios que deseen ampliar la información sobre una exposición concreta pueden hacerlo mientras permanecen en el recorrido. Y si no hay tiempo suficiente durante la visita al museo para consumir todo el contenido que sea de interés, la audioguía puede escucharse fácilmente desde casa escaneando de nuevo el código QR.
-                    </p>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-dornier.webp" class="figure-img img-fluid rounded" alt="Audioguía Nubart para el Museo Dornier de Friedrichshafen">
-                        <figcaption class="figure-caption text-center">Audioguía Nubart para el Museo Dornier de Friedrichshafen
-                        </figcaption>
-                    </figure>
-                    <br>
-                    <h2>Listas de intereses para una estructura personalizada</h2>
-                    <p>Otra solución de Nubart para personalizar la audioguía son las <a href="../audioguia-multimedia.html#tags" target="_blank">etiquetas o <i>tags</i></a> para crear listas de intereses. Son una herramienta ideal si necesitas estructurar un contenido rico y variado y quieres dar a los usuarios la posibilidad de filtrarlo según sus intereses específicos.
+                    <h3 id="lower-cognitive-load">1. Menor carga cognitiva gracias a un contexto espacial constante</h3>
 
-                    </p>
-                    <p>Esta función es especialmente adecuada para museos muy grandes que quieren ayudar a los visitantes a filtrar la gran cantidad de exposiciones disponibles según sus intereses personales. Es el caso de la audioguía del <a href="https://www.nubart.eu/de/kunden/nationalmuseum-slowenien-audioguide.html" target="_blank">departamento arqueológico del Museo Nacional de Eslovenia en Liubliana</a>, que utiliza etiquetas para ofrecer a los visitantes una ruta de 30 minutos con lo más destacado o para seleccionar el contenido por épocas determinadas (Edad Media, Prehistoria...).
-                    </p>
-                    <p>El sistema de etiquetas sirve tanto para limitar como para ampliar el contenido de la audioguía, siempre según las preferencias de cada visitante.</p>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-baden.webp" class="figure-img img-fluid rounded" alt="Audioguía Nubart de la ciudad de Baden, Austria">
-                        <figcaption class="figure-caption text-center">Audioguía Nubart de la ciudad de Baden, Austria
-                        </figcaption>
-                    </figure>
-                    <figure class="figure">
-                        <img src="../../assets/img/blog/structure-aluminium.webp" class="figure-img img-fluid rounded" alt="Audioguía Nubart para una feria comercial">
-                        <figcaption class="figure-caption text-center">Audioguía Nubart para una feria comercial</figcaption>
-                    </figure>
+                    <p>La teoría de la carga cognitiva, desarrollada originalmente por el psicólogo John Sweller y
+                        ampliamente aplicada al diseño de experiencia de usuario, describe el esfuerzo mental necesario
+                        para procesar información y aprender a utilizar una interfaz. Una de las formas más eficaces de
+                        reducir esa carga es minimizar la información que los usuarios deben retener en la memoria de
+                        trabajo.</p>
+
+                    <p>En un modelo de «clic y cambio de pantalla», cada vez que se pulsa una pista se rompe el contexto
+                        espacial del visitante. Este abandona la lista, entra en una nueva pantalla y, al regresar, debe
+                        reorientarse: <em>¿Dónde estaba? ¿Cuál era la siguiente pista? ¿Cuántas quedan?</em> Cada una de
+                        estas microdecisiones aumenta la carga cognitiva, una carga que compite directamente con la
+                        tarea principal del visitante: contemplar la exposición.</p>
+
+                    <p>En un modelo de «scroll y reproducción en la misma pantalla», este problema desaparece en gran
+                        medida. Como todas las pistas permanecen visibles en una única lista numerada y desplazable, los
+                        visitantes siempre saben dónde se encuentran dentro de la estructura general. La pista 4 sigue
+                        visible entre la pista 3 y la pista 5. No hace falta recordar nada, porque la información
+                        permanece siempre en pantalla.</p>
+
+                    <p>Esto encaja directamente con la sexta heurística de usabilidad de Jakob Nielsen: <strong>reconocimiento
+                        antes que recuerdo</strong>. Las interfaces deben hacer visibles los objetos, las acciones y las
+                        opciones para que los usuarios no tengan que recordar información de una parte de la interacción
+                        a otra. Una lista numerada y desplazable de pistas de audio es una aplicación ejemplar de este
+                        principio. Por el contrario, un modelo de «clic y cambio de pantalla» obliga a recordar: el
+                        visitante debe reconstruir mentalmente su posición cada vez que vuelve a la lista.</p>
+
+                    <p>También existe una dimensión práctica. Una lista desplazable ofrece al visitante una idea clara
+                        del conjunto de la audioguía: cuántas pistas hay, cuánto ha avanzado y cuánto queda por
+                        recorrer. Esa orientación espacial ayuda a gestionar el tiempo. Un visitante que ve que está en
+                        la pista 6 de 20 puede decidir saltar secciones o avanzar con más calma según le convenga. En un
+                        modelo de «clic y cambio de pantalla», el volumen total de contenido queda oculto tras la vista
+                        de lista, lo que dificulta mucho más valorar la extensión de la guía o planificar la visita en
+                        función de ella.</p>
+
+                    <h3 id="familiarity-scrolling-universal-skill">2. Familiaridad: hacer scroll se ha convertido en una
+                        habilidad digital casi universal</h3>
+
+                    <p>No todos los visitantes de un museo son nativos digitales. El público de los museos abarca todas
+                        las edades y niveles de soltura tecnológica: desde adolescentes que navegan por las aplicaciones
+                        de forma instintiva hasta personas mayores que quizá solo utilizan unas pocas apps con
+                        regularidad. Diseñar para este amplio espectro implica elegir patrones de interacción que
+                        resulten lo más universales e intuitivos posible.</p>
+
+                    <p>El scroll se ha convertido precisamente en uno de esos patrones. El desplazamiento vertical es el
+                        modelo de interacción dominante de la era móvil: redes sociales (Facebook, Instagram, TikTok),
+                        aplicaciones de mensajería (WhatsApp, Telegram), sitios de noticias y clientes de correo
+                        electrónico se basan en él. Incluso usuarios que se consideran «poco hábiles con la tecnología»
+                        hacen scroll a diario por conversaciones de WhatsApp y cronologías de redes sociales. Es un
+                        gesto habitual que no necesita explicación.</p>
+
+                    <p>La navegación basada en clics, con botones de retroceso y cambios de pantalla, representa en
+                        cambio un patrón más complejo. Requiere entender que al pulsar un elemento se sustituirá la
+                        vista actual, que hace falta una acción independiente (botón de retroceso o icono de menú) para
+                        volver atrás y que el estado de la vista anterior —posición del scroll, contexto o punto exacto
+                        de lectura— puede conservarse o no. Para quienes no están familiarizados con este patrón —o
+                        simplemente no prestan demasiada atención porque están concentrados en las obras—, esto se
+                        convierte en una fuente de fricción.</p>
+
+                    <p>Una audioguía basada en scroll para recorrer las pistas y en un solo toque para reproducir —sin
+                        abandonar nunca la página— aprovecha el modelo de interacción que ya conoce el público más
+                        amplio posible.</p>
+
+                    <p>También existe una dimensión física. Para personas mayores o visitantes con dificultades motoras,
+                        pulsar con precisión pequeños botones de retroceso o iconos de menú puede resultar incómodo y
+                        propenso a errores. El scroll, en cambio, es un gesto de baja precisión: un simple deslizamiento
+                        amplio del pulgar, tolerante con la imprecisión y difícil de ejecutar mal. En el contexto de un
+                        museo, donde una parte relevante del público puede ser de edad avanzada, esta diferencia no es
+                        menor.</p>
+
+                    <p>Conviene añadir una nota sobre accesibilidad. Las interfaces con scroll a veces tienen mala
+                        reputación por los problemas bien documentados del <em>scroll infinito</em> en redes sociales y
+                        comercio electrónico, donde usuarios de teclado o lectores de pantalla pueden quedar atrapados
+                        en páginas interminables sin referencias claras ni estructura predecible. Pero una audioguía no
+                        es un feed infinito. Es una lista finita y numerada de pistas, con principio y final claramente
+                        definidos. Cuando se construye con HTML semántico adecuado —encabezados, regiones identificables
+                        y una jerarquía coherente del contenido—, una audioguía con scroll puede resultar sencilla de
+                        recorrer con tecnologías de apoyo.</p>
+
+                    <p>En la práctica, esto implica usar un encabezado para cada parada, numeración coherente en el
+                        texto visible, regiones claras para el contenido principal y un foco de teclado predecible
+                        cuando la búsqueda o los filtros llevan al usuario a otra pista. Por el contrario, un modelo de
+                        «clic y cambio de pantalla» que abre y cierra constantemente vistas separadas, ventanas modales
+                        o pseudopáginas puede —si no se implementa con gran cuidado— alterar la gestión del foco y
+                        desorientar a usuarios de lectores de pantalla, uno de los problemas de accesibilidad más
+                        frecuentes en aplicaciones web móviles.</p>
+                    <h3 id="incidental-discovery">3. Descubrimiento fortuito: el scroll refuerza la misión educativa del
+                        museo</h3>
+
+                    <p>Una audioguía digital bien diseñada no solo acompaña al visitante en las obras que ya pensaba
+                        ver, sino que también puede llevarle a descubrir piezas o contenidos cuya existencia desconocía.
+                        Esa capacidad de descubrimiento incidental es una de las ventajas más infravaloradas del modelo
+                        de scroll y reproducción en la misma pantalla.</p>
+
+                    <p>En una audioguía con scroll, cada pista suele mostrarse con una imagen en miniatura junto a su
+                        número y título. Mientras el visitante se desplaza para localizar o escuchar una pista concreta,
+                        las miniaturas de las pistas cercanas permanecen visibles en su campo visual periférico. Una
+                        imagen llamativa, un título inesperado o una obra interesante por la que había pasado sin
+                        reparar en ella pueden captar su atención y animarle a explorar una pista que nunca habría
+                        buscado de forma activa.</p>
+
+                    <p>En un modelo de «clic y cambio de pantalla», este tipo de descubrimiento pasivo es mucho menos
+                        probable. Una vez que el visitante pulsa una pista, la pantalla dedicada muestra únicamente el
+                        contenido de esa pista. Las pistas cercanas desaparecen hasta que el usuario regresa a la lista
+                        y vuelve a desplazarse de forma deliberada. En la práctica, aquello que el visitante no pensaba
+                        buscar deja de estar presente.</p>
+
+                    <p>Esto importa porque una de las misiones esenciales de cualquier museo es educar: ampliar
+                        horizontes y despertar curiosidad más allá de aquello que el visitante vino expresamente a ver.
+                        Una interfaz con scroll y miniaturas visuales actúa como un sistema de recomendación pasiva,
+                        exponiendo continuamente al visitante a contenidos que de otro modo podrían pasar
+                        desapercibidos. No necesita personalización algorítmica ni notificaciones push; basta con el
+                        simple gesto de seguir desplazándose. Tanto si el descubrimiento ocurre durante la visita como
+                        después —ya que muchas audioguías web siguen siendo accesibles tras salir del museo—, el
+                        resultado es el mismo: una experiencia más rica, amplia y alineada con la misión educativa de la
+                        institución.</p>
+
+                    <h3 id="compatibility-search-direct-access">4. Compatibilidad con funciones de búsqueda y acceso
+                        directo</h3>
+
+                    <p>Una objeción habitual a las interfaces basadas en scroll es que podrían dificultar funciones de
+                        navegación estructurada, como localizar una pista concreta por número o por palabra clave. En la
+                        práctica sucede lo contrario: las interfaces de «scroll y reproducción en la misma pantalla»
+                        integran estas funciones con naturalidad y, a menudo, de forma más elegante que muchos modelos
+                        basados en clics.</p>
+
+                    <p>Cuando un visitante introduce un número de pista en un teclado o utiliza la búsqueda por texto,
+                        la interfaz simplemente se desplaza hasta la posición correspondiente. El visitante llega a la
+                        pista correcta dentro del contexto continuo de la lista completa, no en una pantalla separada y
+                        aislada del resto del contenido. Después de escucharla, puede seguir explorando las pistas
+                        cercanas desplazándose hacia arriba o hacia abajo, sin pasos adicionales.</p>
+
+                    <p>Esto significa que una audioguía con scroll bien diseñada ofrece lo mejor de ambos modelos de
+                        interacción: la libertad de navegación de una lista continua y la precisión del acceso directo
+                        mediante búsqueda o teclado, todo ello reunido en una única interfaz coherente.</p>
+                    <h2 id="structuring-content">Cómo estructurar el contenido en una audioguía con scroll</h2>
+
+                    <p>Elegir el modelo de scroll y reproducción en la misma pantalla resuelve la cuestión de la
+                        navegación, pero deja abierto un segundo reto igual de importante: cómo organizar el contenido.
+                        Un museo con decenas o incluso cientos de pistas de audio no puede limitarse a volcarlo todo en
+                        una lista interminable. El contenido debe agruparse de forma lógica para ayudar al visitante a
+                        orientarse físicamente dentro del espacio expositivo.</p>
+
+                    <h3 id="match-structure-physical-space">Adaptar la estructura al espacio físico</h3>
+
+                    <p>El principio más importante al diseñar una audioguía es alinear la organización del contenido con
+                        la distribución física del recinto. Si las exposiciones se reparten en tres plantas, la
+                        audioguía debería reflejarlo mediante tres secciones claramente diferenciadas. Si un espacio
+                        patrimonial comprende varios edificios, cada edificio debería corresponder a un bloque de
+                        contenido propio.</p>
+
+                    <p>Puede parecer obvio, pero es un error frecuente en muchas audioguías, especialmente cuando los
+                        comisarios o conservadores prefieren organizar el contenido por temas o por cronología. Una
+                        agrupación temática puede resultar intelectualmente impecable, pero si objetos medievales
+                        comparten sala con piezas de historia moderna, una audioguía que los separe en listas temáticas
+                        distintas confundirá a quienes intenten relacionar lo que oyen con lo que ven. <strong>Cuando
+                            ambas opciones entran en conflicto, la proximidad física debería prevalecer sobre la
+                            coherencia temática.</strong></p>
+
+                    <h3 id="modules-complex-venues">Usar módulos en recintos complejos o con varias sedes</h3>
+
+                    <p>En espacios con áreas claramente diferenciadas —edificios separados, zonas interiores y
+                        exteriores, exposiciones permanentes y temporales— suele funcionar muy bien un enfoque modular.
+                        Cada módulo consiste en una sección con scroll independiente y su propia lista de pistas,
+                        mientras que el visitante puede cambiar de módulo mediante un menú principal claro y
+                        sencillo.</p>
+
+                    <p>Este sistema mantiene una longitud manejable en cada lista individual y, al mismo tiempo, permite
+                        abarcar toda la complejidad del recinto. Por ejemplo, un parque minero con museo, tren
+                        histórico, mina subterránea y casa de época puede presentar cuatro módulos distintos, cada uno
+                        con su propia estructura lógica y numeración, todo ello dentro de una sola audioguía. Del mismo
+                        modo, un museo con colección permanente y exposiciones temporales rotativas puede asignar a cada
+                        muestra su propio módulo, añadiéndolo o retirándolo según cambie la programación.</p>
+
+                    <p>La clave es que, dentro de cada módulo, el modelo de scroll y reproducción en la misma pantalla
+                        permanece intacto. Los módulos organizan la macroestructura; el scroll resuelve la
+                        micronavegación.</p>
+
+                    <h2 id="personalization">Personalización sin interrumpir el scroll</h2>
+
+                    <p>Una de las grandes ventajas de las audioguías digitales frente a los dispositivos tradicionales
+                        es la posibilidad de adaptar el contenido a distintos perfiles de visitantes. No todo el mundo
+                        busca el mismo nivel de detalle: algunas personas prefieren un recorrido breve por las piezas
+                        principales, mientras que otras desean dedicar una hora a una sola vitrina. El reto consiste en
+                        ofrecer esa flexibilidad sin saturar la interfaz ni romper la simplicidad de una estructura
+                        basada en scroll.</p>
+
+                    <h3 id="expandable-detail">Detalles ampliables dentro de cada pista</h3>
+
+                    <p>La solución más eficaz suele ser la divulgación progresiva (<em>progressive disclosure</em>), un
+                        principio clásico de UX que muestra primero la información esencial y revela detalles
+                        adicionales solo cuando el usuario los solicita. En una audioguía, esto significa que cada pista
+                        puede incluir una sección desplegable —por ejemplo, «Más información»— que el visitante abre
+                        únicamente si desea contenido adicional: un segundo comentario de audio, un vídeo, una galería
+                        de imágenes, un PDF descargable o enlaces para seguir leyendo.</p>
+
+                    <p>Lo importante es que, al abrir ese contenido extra, el visitante no abandona la lista de pistas.
+                        La ampliación ocurre dentro de la propia interfaz. Cuando termina, puede cerrar la sección y
+                        seguir desplazándose. La estructura general de la guía permanece visible e intacta en todo
+                        momento.</p>
+
+                    <h3 id="transcriptions-overlay">Transcripciones y textos largos: superponer, no incrustar</h3>
+
+                    <p>El mismo principio se aplica a un detalle en el que muchos proveedores de audioguías fallan:
+                        dónde colocar la transcripción o el texto asociado a cada pista.</p>
+
+                    <p>Un enfoque habitual consiste en mostrar el texto completo justo debajo del botón de reproducción,
+                        dentro de la propia lista. Esto genera dos problemas. En primer lugar, convierte cada pista en
+                        un bloque visualmente largo, empujando las pistas cercanas fuera del campo de visión y
+                        debilitando la orientación espacial que hace eficaces a las guías con scroll. En segundo lugar
+                        —y de forma algo irónica— obliga al visitante a desplazarse extensamente dentro del contenido de
+                        una sola pista, mientras dificulta el desplazamiento entre pistas. El espacio vertical que
+                        debería servir para navegar queda ocupado por texto.</p>
+
+                    <p>Una solución mejor es mostrar las transcripciones y otros contenidos extensos en una ventana
+                        superpuesta o emergente que pueda cerrarse fácilmente. El visitante toca para leer y el texto
+                        aparece sobre la lista de pistas. Al cerrarlo, regresa exactamente al punto en el que estaba,
+                        sin tener que buscar de nuevo ni reorientarse. La lista permanece intacta por debajo y la
+                        estructura general no se rompe.</p>
+
+                    <p>El principio es sencillo: la lista vertical de pistas debe seguir siendo breve, clara y fácil de
+                        escanear. Los textos largos y otros contenidos secundarios deberían mostrarse en capas
+                        superpuestas, no incrustados dentro de la lista. Dicho de otro modo: mantén el scroll limpio y
+                        deja que todo lo demás ocurra encima de él.</p>
+
+                    <h3 id="tags-filtering">Etiquetas para filtrar el contenido</h3>
+
+                    <p>En colecciones muy amplias o en espacios que reciben públicos diversos, un sistema de filtrado
+                        por etiquetas añade una capa extra de personalización. Los visitantes pueden filtrar la lista de
+                        pistas según sus intereses —por ejemplo, «imprescindibles», «para toda la familia»,
+                        «arquitectura» o «arte contemporáneo»— y la lista con scroll se ajusta dinámicamente para
+                        mostrar solo las pistas relevantes.</p>
+
+                    <p>Este enfoque cumple dos objetivos complementarios. Por un lado, reduce el contenido para quienes
+                        buscan una experiencia breve y centrada, como un recorrido de 30 minutos por las obras
+                        principales de un gran museo nacional. Por otro, amplía la experiencia para especialistas o
+                        visitantes especialmente curiosos que desean profundizar en un tema concreto. En ambos casos, el
+                        visitante permanece dentro de la misma interfaz y la lógica espacial de la guía se mantiene
+                        coherente.</p>
+
+                    <h2 id="geolocation-triggered-scrolling">El caso especial del scroll activado por
+                        geolocalización</h2>
+
+                    <p>Una extensión avanzada del modelo de scroll y reproducción en la misma pantalla es el
+                        desplazamiento automático activado por la ubicación del visitante. Mediante geolocalización, la
+                        audioguía puede detectar cuándo una persona se acerca a una obra o punto de interés concreto y
+                        situar automáticamente la pista correspondiente en la parte superior de la pantalla. El
+                        visitante ni siquiera necesita buscar, desplazarse o pulsar: el contenido adecuado aparece en el
+                        momento oportuno.</p>
+
+                    <p>Esto representa una evolución natural del paradigma basado en scroll: una audioguía que apenas
+                        requiere navegación activa por parte del visitante, pero que conserva en todo momento la lista
+                        completa de pistas como referencia visible y navegable. El usuario mantiene el control total
+                        —puede seguir desplazándose manualmente, saltar a otra pista o utilizar la búsqueda—, mientras
+                        que la experiencia predeterminada resulta más fluida. Naturalmente, esta función depende de que
+                        el visitante conceda permisos de ubicación, y la precisión del GPS puede ser limitada en
+                        interiores, por lo que suele funcionar mejor como complemento de la navegación manual, no como
+                        sustituto.</p>
+
+                    <h2 id="summary">Resumen: qué hace que la estructura de una audioguía sea fácil de usar</h2>
+
+                    <div class="summary-block">
+
+                        <p>La estructura de una audioguía digital no es un detalle secundario, sino una decisión de
+                            diseño fundamental que influye directamente en cuántos visitantes utilizan la guía, cuántas
+                            pistas escuchan y cómo recuerdan la experiencia. Los principios clave son los
+                            siguientes:</p>
+
+                        <p><strong>Modelo de navegación:</strong> una interfaz de «scroll y reproducción en la misma
+                            pantalla» reduce la carga cognitiva, aprovecha patrones de interacción ya familiares y se
+                            integra con naturalidad en funciones de búsqueda y acceso directo. En muchos contextos
+                            museísticos resulta más adecuada que un modelo de «clic y cambio de pantalla», especialmente
+                            para públicos poco técnicos.</p>
+
+                        <p><strong>Estructura del contenido:</strong> las agrupaciones de pistas deberían reflejar la
+                            distribución física del recinto. Los espacios complejos o con varias sedes se benefician de
+                            un sistema modular que organiza la macroestructura mientras conserva la micronavegación
+                            mediante scroll dentro de cada módulo.</p>
+
+                        <p><strong>Personalización:</strong> las secciones ampliables y el filtrado por etiquetas
+                            permiten adaptar el nivel de detalle y el enfoque sin abandonar la interfaz ni perder la
+                            orientación espacial.</p>
+
+                        <p><strong>Navegación asistida:</strong> el scroll activado por geolocalización lleva este
+                            modelo a una versión aún más fluida, mostrando automáticamente contenido relevante según la
+                            posición física del visitante, sin dejar de ofrecer acceso a la guía completa en todo
+                            momento.</p>
+
+                        <p>Estos principios no dependen de un producto o plataforma concretos. Reflejan heurísticas de
+                            UX consolidadas —especialmente el principio de reconocimiento antes que recuerdo y la
+                            divulgación progresiva— aplicadas a las necesidades específicas del contexto museístico.
+                            Diversos proveedores, entre ellos <a href="../../es/audioguias.html">Nubart</a>, han
+                            adoptado el modelo de scroll y reproducción en la misma pantalla como opción predeterminada
+                            en sus audioguías web precisamente por su buena adaptación a este entorno y a la diversidad
+                            de visitantes.</p>
+
+                    </div>
+
                 </div>
             </div>
         </div>
+
+
     </section>
 </main><!-- End #main -->
-
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
@@ -474,10 +942,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                             <strong>E-mail:</strong> info@nubart.eu<br>
                         </p>
-                        <div class="social-links mt-3"><a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
-                            <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
-                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i
+                                    class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
 
                         </div>
                     </div>
@@ -488,14 +961,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <ul>
 
                         <li><i class="bi bi-chevron-right"></i> <a href="../contacto.html">Contacto</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../aviso-legal.html" rel="nofollow">Aviso legal</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../aviso-legal.html" rel="nofollow">Aviso
+                            legal</a></li>
                         <li><i class="bi bi-chevron-right"></i>
-                            <a href="../condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de servicio</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../politica-privacidad.html" rel="nofollow">Política de privacidad</a>
-                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de cookies</a></li>
+                            <a href="../condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de
+                                servicio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../politica-privacidad.html" rel="nofollow">Política
+                            de privacidad</a>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de
+                            cookies</a></li>
 
                         <li><i class="bi bi-chevron-right"></i>
-                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a nuestro boletín de noticias</a>
+                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a
+                                nuestro boletín de noticias</a>
                         </li>
 
                     </ul>
@@ -535,3 +1013,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="module" src="/js/cookieconsent-config.js"></script>
 </body>
 </html>
+

@@ -34,6 +34,13 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - NL: nl/algemene-voorwaarden.html
 - JA: ja/terms-conditions.html
 
+## Blog pages path
+
+### Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide
+- EN: audio-guides/content-structure-digital-guides.html
+- DE: de/audioguides/mit-benutzerfreundlicher-struktur.html
+- ES: es/blog/como-estructurar-navegacion-intuitiva-audioguia.html
+
 ## Product Pages Paths
 
 ### Nubart LIVE
