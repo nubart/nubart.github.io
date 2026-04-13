@@ -69,7 +69,6 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - PT-BR: pt-br/audioguia/acessivel.html
 - 
 ### Offline Mode for Museum Audio Guides: A Practical Framework
-
 - EN: audio-guides/offline-mode-best-practices.html
 - DE: de/audioguides/streaming-oder-offline.html
 - ES: es/blog/audioguia-streaming-versus-offline.html
@@ -78,6 +77,15 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - EN: audio-guides/museum-audio-guide-app-adoption-rates.html
 - DE: de/audioguides/download-raten-audioguide-apps-fuer-museen.html
 - ES: es/blog/tasa-adopcion-app-audioguia-para-museos.html
+
+### How to Create a Museum Audioguide: Complete Guide to PWA and QR Code Solutions
+- EN: audio-guides/implementing-pwa-museum-guide.html
+- DE: de/audioguides/als-pwa-oder-web-app-leitfaden.html
+- ES: es/blog/implementacion-pwa-audioguia-museo.html
+- IT: it/blog/implementazione-pwa-web-app-audioguida-museo.html
+- FR: fr/blog/installation-pwa-audioguide-musee.html
+- PL: pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html
+- JA: ja/audio-guides/via-qr-code-pwa-webapp.html
 
 ## Product Pages Paths
 
