@@ -128,26 +128,26 @@
     <script type="application/ld+json">
 
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
                 {
                     "@type": "ListItem",
                     "position": 1,
-                    "@id": "https://www.nubart.eu/",
-                    "name": "Nubart"
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Nubart GUIDE - QR-based PWA audio guides",
-                    "@id": "https://www.nubart.eu/audio-guides/"
+                    "item": "https://www.nubart.eu/audio-guides/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 3,
-                    "@id": "https://www.nubart.eu/audio-guides/multimedia-features.html",
-                    "name": "Multimedia elements for your audio guides"
+                    "name": "Multimedia elements for your audio guides",
+                    "item": "https://www.nubart.eu/audio-guides/multimedia-features.html"
                 }
             ]
         }
@@ -203,6 +203,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:description" content="Enhance Nubart GUIDE with our multimedia audio guide features: 360° views, 3D objects, offline mode, and many interactive elements.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.nubart.eu/audio-guides/multimedia-features.html">
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/hero-bg-multimedia.webp">
 
 
     <title>25+ Interactive Multimedia Audio Guide Features | Nubart GUIDE</title>
@@ -447,14 +448,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 </section><!-- End Breadcrumbs -->
 <main id="main">
-    <section class="inner-page">
+    <section class="inner-page has-sticky-sidebar">
 
         <div class="container">
             <div class="row">
 
                 <div class="col-md-3">
 
-                    <div class="fixed-sidebar d-none d-lg-block" style="width: 250px; margin-top: 120px;">
+                    <div class="fixed-sidebar d-none d-lg-block">
 
                         <nav class="d-none d-md-block">
                             <div class="list-group list-group-flush">
@@ -558,6 +559,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <p>Our offline mode does not just use caching! It would be too unreliable. And thanks to our
                                 service worker, our users can even re-scan the QR code in an area with no internet
                                 coverage at all and access the full audio guide as if they were using a native app.</p>
+
+                            <p><a href="offline-mode-best-practices.html">Not sure which offline approach fits your venue? Read our practical decision guide.</a></p>
 
                             <span class="badge rounded-pill bg-warning  text-dark">One time fee required</span>
 

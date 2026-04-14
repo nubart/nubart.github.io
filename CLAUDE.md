@@ -212,7 +212,18 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - JA: ja/audio-guides/terms-conditions.html
 - NL: nl/audiogidsen/algemene-voorwaarden.html
 - PL: (still pending)
-- 
+
+**Multimedia elements that can be included in Nubart GUIDE:**
+- EN: audio-guides/multimedia-features.html
+- DE: de/audioguides/multimedia.html
+- ES: es/audioguia-multimedia.html
+- FR: fr/multimedia-audioguide.html
+- IT: it/audioguida-multimedia.html
+- PT-BR: pt-br/audioguia/recursos-multimidia.html
+- JA: ja/audio-guides/multimedia.html
+- NL: nl/audiogidsen/multimedia.html
+- PL: pl/audioprzewodnik/funkcje-multimedialne.html
+
 ### Nubart MOTION
 **Main product explainer:**
 - EN: audio-commentary-system/index.html
