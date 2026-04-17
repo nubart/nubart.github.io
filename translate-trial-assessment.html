@@ -244,9 +244,16 @@
       }
     }
 
-    // ─── Prompt ───────────────────────────────────────────────────────────────────
+    // ─── CSV structure (new format, as of April 2026) ────────────────────────────
+    // Col A: Date (customer timezone, e.g. "2026-04-17")
+    // Col B: Time (customer timezone, e.g. "14:29:49")
+    // Col C: Source Language code
+    // Col D: Audio Input Quality Score (0–100)
+    // Col E: Transcription (already deduplicated server-side)
+    // Col F+: Translations (header = language code)
+
     function preprocessCsv(raw) {
-      // Parse CSV into rows, respecting quoted fields
+      // Parse CSV respecting quoted fields
       function parseCSV(text) {
         const rows = [];
         const lines = text.split('\n');
@@ -267,31 +274,20 @@
       }
 
       const rows = parseCSV(raw);
-      if (rows.length < 2) return raw; // nothing to process
+      if (rows.length < 2) return raw;
 
       const header = rows[0];
       const data   = rows.slice(1);
 
-      // Deduplicate: keep only the longer version of each repeated utterance.
-      // Rows with identical Transcription (col 2) at the same timestamp (col 0)
-      // are duplicates — keep the one with the most non-empty translation values.
-      const seen = new Map();
+      // Server-side deduplication is already done — no merging needed.
+      // We only remove any exact duplicate rows that slipped through.
+      const seen = new Set();
+      const deduped = [];
       for (const row of data) {
-        const key = (row[0] || '') + '||' + (row[2] || '');
-        if (!seen.has(key)) {
-          seen.set(key, row);
-        } else {
-          // Keep the row with more translation content
-          const existing   = seen.get(key);
-          const existScore = existing.slice(3).filter(v => v && v.trim()).length;
-          const newScore   = row.slice(3).filter(v => v && v.trim()).length;
-          if (newScore > existScore) seen.set(key, row);
-        }
+        const key = row.join('||');
+        if (!seen.has(key)) { seen.add(key); deduped.push(row); }
       }
 
-      const deduped = Array.from(seen.values());
-
-      // Rebuild as CSV string
       const escape = v => (v && (v.includes(',') || v.includes('"') || v.includes('\n')))
         ? '"' + v.replace(/"/g, '""') + '"'
         : (v || '');
@@ -305,66 +301,70 @@
     }
 
     function buildPrompt(csv) {
-      return `You will receive a CSV file containing the results of a Nubart TRANSLATE trial session. Nubart TRANSLATE is a web-based AI simultaneous interpretation system. Analyze the data and produce a concise sales assessment (20 lines maximum, shorter is better). Write in English regardless of the languages in the CSV.
+      return `You will receive a CSV file containing the results of a Nubart TRANSLATE trial session. Nubart TRANSLATE is a web-based AI simultaneous interpretation system. Analyze the data and produce a concise sales assessment (20 lines maximum, shorter is better).
 
-  ABOUT THE CSV STRUCTURE:
-  - Column A (Timestamp): date and time of each utterance
-  - Column B (Source Language): language code of the speaker
-  - Column C (Transcription): what was spoken
-  - Columns D onward: translations — the header row indicates the target language code
+OUTPUT LANGUAGE RULE:
+Look at column C (Source Language) and count the rows per language code. If the dominant language is Spanish (es), write the entire assessment in Spanish. In all other cases — regardless of what other languages appear in the CSV — write in English.
 
-  Note: Each utterance typically appears twice in the transcription (once as a longer chunk, once as shorter fragments). Treat these as a single utterance — deduplicate mentally.
+ABOUT THE CSV STRUCTURE:
+- Column A (Date): date of each utterance in the customer's local timezone
+- Column B (Time): time of each utterance in the customer's local timezone
+- Column C (Source Language): language code of the speaker
+- Column D (Score): audio input quality score, 0–100. Measures how clearly the speaker's voice reached the transcription AI. Low scores indicate poor audio conditions — wrong language selected, speaker too quiet, background noise, or microphone feedback. Low score = poor transcription = poor translation. The speaker can see this score in real time in the interface.
+- Column E (Transcription): what was spoken — already deduplicated by the system
+- Columns F onward: translations — the header row indicates the target language code
 
-  ---
+---
 
-  KNOWN TRIAL PATTERNS — check for these before writing the assessment:
+KNOWN TRIAL PATTERNS — check for these before writing the assessment:
 
-  Pattern A — No translation output despite speech being captured
-  If transcription is present but translation columns are empty or mostly empty at the start, the likely cause is that both speaker and listener had the same browser language set. The listener device then simply repeats the speaker's words in an AI voice in the same language rather than translating. This is very common in trials and would not happen in a real event with foreign-language listeners. Flag this clearly and explain it to the sales rep.
+Pattern A — No translation output despite speech being captured
+If transcription is present but translation columns are empty or mostly empty at the start, the likely cause is that both speaker and listener had the same browser language set. The listener device then simply repeats the speaker's words in an AI voice in the same language rather than translating. This is very common in trials and would not happen in a real event with foreign-language listeners. Flag this clearly and explain it to the sales rep.
 
-  Pattern B — Repetitions within the same transcription cell
-  If you see phrases or words repeated within a single transcription entry (e.g. "la casa la maison es verde"), this is a strong warning sign that the speaker's microphone was picking up the translated audio output from the listener device, creating a feedback loop. This is especially common when both devices are in the same room without headphones. The audio quality indicator would have shown red. This would not happen in a real event where listeners use headphones or are physically separated.
+Pattern B — Repetitions within the same transcription cell
+If you see phrases or words repeated within a single transcription entry (e.g. "la casa la maison es verde"), this is a strong warning sign that the speaker's microphone was picking up the translated audio output from the listener device, creating a feedback loop. This is especially common when both devices are in the same room without headphones. The audio quality indicator would have shown red. This would not happen in a real event where listeners use headphones or are physically separated.
 
-  Pattern C — Translation makes no sense / poor quality
-  Most likely cause: wrong source language selected on the speaker device (over 50% of cases). Second cause: poor audio input — background noise, weak microphone signal, or the feedback loop in Pattern B.
+Pattern C — Translation makes no sense / poor quality
+Most likely cause: wrong source language selected on the speaker device (over 50% of cases). Second cause: poor audio input — background noise, weak microphone signal, or the feedback loop in Pattern B. Check column D scores for confirmation.
 
-  Pattern D — Translation starts late
-  If the first several minutes have no translations, the listener may not have known to manually select a target language. The system defaults to the listener's browser language; if that matches the speaker's language, no translation appears until the listener manually switches. See Pattern A.
+Pattern D — Translation starts late
+If the first several minutes have no translations, the listener may not have known to manually select a target language. The system defaults to the listener's browser language; if that matches the speaker's language, no translation appears until the listener manually switches. See Pattern A.
 
-  Pattern E — Translation repeats sentences
-  Same root cause as Pattern B — microphone feedback. Speaker's microphone is capturing the audio output of the listener device.
+Pattern E — Translation repeats sentences
+Same root cause as Pattern B — microphone feedback. Speaker's microphone is capturing the audio output of the listener device.
 
-  ---
+---
 
-  PART 1 — Test completed?
-  - If CSV has only a header row and no data rows: "Test completed: NO — False alarm." The prospect registered but did not run a trial. Stop here, no further parts needed.
-  - If CSV has transcription but all translation columns are empty: "Test completed: PARTIAL." Explain what likely happened (check known patterns) so the sales rep can address it in the follow-up.
-  - If CSV has both transcription and at least some translation data: "Test completed: YES."
+PART 1 — Test completed?
+- If CSV has only a header row and no data rows: "Test completed: NO — False alarm." The prospect registered but did not run a trial. Stop here, no further parts needed.
+- If CSV has transcription but all translation columns are empty: "Test completed: PARTIAL." Explain what likely happened (check known patterns) so the sales rep can address it in the follow-up.
+- If CSV has both transcription and at least some translation data: "Test completed: YES."
 
-  PART 2 — Basic info
-  - Date of test
-  - Approximate duration (difference between first and last timestamp, in minutes)
-  - Source language(s)
-  - Translation language(s)
+PART 2 — Basic info
+- Date of test (from column A)
+- Approximate duration: combine columns A and B to reconstruct timestamps. DO NOT subtract first from last — gaps longer than 5 minutes indicate pauses or separate sessions. Sum only active speaking segments. Report as "approx. X minutes of active use" and note number of sessions if more than one.
+- Source language(s) (from column C)
+- Translation language(s) (from column F onward headers)
+- Average audio quality score (mean of column D). Flag if any extended period had scores consistently below 70, as this explains poor transcription or translation quality.
 
-  PART 3 — Prospect reactions and comments
-  This is the most important part. Identify any utterances where the speaker appears to be reacting to or commenting on the product rather than producing content for translation. This includes: usability reactions, voice quality comments, comparisons with competitors or human interpreters, mentions of specific use cases or events, questions about privacy or terms, pricing reactions, latency or accuracy questions, or any other meta-commentary.
-  - Summarize each finding concisely in English
-  - If the meaning of a comment is ambiguous, quote it verbatim in the original language
-  - Group thematically if several (e.g. usability / voice quality / competitor mentions / use case fit)
-  - If nothing found: "No product reactions detected in the transcription."
+PART 3 — Prospect reactions and comments
+This is the most important part. Identify any utterances where the speaker appears to be reacting to or commenting on the product rather than producing content for translation. This includes: usability reactions, voice quality comments, comparisons with competitors or human interpreters, mentions of specific use cases or events, pricing reactions, latency or accuracy questions, or any other meta-commentary.
+- Summarize each finding concisely
+- If the meaning of a comment is ambiguous, quote it verbatim in the original language
+- Group thematically if several (e.g. usability / voice quality / competitor mentions / use case fit)
+- If nothing found: "No product reactions detected in the transcription."
 
-  PART 4 — What did they talk about?
-  2–3 lines. Test phrases? Casual conversation? A text read aloud? A real use case? Identify the topic if possible.
+PART 4 — What did they talk about?
+2–3 lines. Test phrases? Casual conversation? A text read aloud? A real use case? Identify the topic if possible.
 
-  PART 5 — Translation quality
-  One sentence overall impression. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated across multiple utterances — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
+PART 5 — Translation quality
+One sentence overall impression. If the average audio quality score (column D) was below 70 for significant portions of the session, note this as the likely root cause of any quality issues — the score is objective evidence recorded in real time. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
 
-  ---
+---
 
-  HERE IS THE CSV DATA:
+HERE IS THE CSV DATA:
 
-  ${csv}`;
+${csv}`;
     }
 
     // ─── Push to HubSpot ─────────────────────────────────────────────────────────
@@ -424,10 +424,12 @@
 
     function buildNoteBody(assessment) {
       const br = '<br>';
-      const lines = assessment.split('\n').join(br);
+      const html = assessment
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .split('\n').join(br);
       return '<p>'
         + '<strong>--- NUBART: TRANSLATE Trial Assessment (AI) ---</strong>' + br + br
-        + lines + br + br
+        + html + br + br
         + '<em>Generated: ' + new Date().toISOString() + '</em>'
         + '</p>';
     }
@@ -495,6 +497,7 @@
         headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
+      if (res.status === 204) return {};
       const data = await res.json();
       if (res.status !== 200 && res.status !== 201)
         throw new Error(`HubSpot PATCH ${res.status}: ${JSON.stringify(data).substring(0, 300)}`);
