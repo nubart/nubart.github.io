@@ -102,14 +102,12 @@
 
     <!-- End Structured data -->
     <!-- Google Tag Manager -->
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TRW7KZS');
     </script>
-    <!-- End Google Tag Manager -->
     <!-- End Google Tag Manager -->
 
 
@@ -132,7 +130,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="description"
           content="Contenuti per la tua audioguida. 4 livelli di servizio (Rame, Bronzo, Argento, Oro): da voci IA in 1 settimana a produzione premium con casting esclusivo.">
     <meta name="author" content="Nubart">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="Contenuti per la tua audioguida. 4 livelli di servizio (Rame, Bronzo, Argento, Oro): da voci IA in 1 settimana a produzione premium con casting esclusivo.">
     <meta name="twitter:site" content="@nub_art">
@@ -220,20 +217,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: white !important;
         }
 
-        /* Fix sidebar to prevent overlap with footer */
-        .fixed-sidebar {
-            position: fixed;
-            top: 200px;
-            max-height: calc(100vh - 220px);
-            overflow-y: auto;
-        }
 
-        /* Ensure sidebar stops before footer */
-        @media (min-width: 992px) {
-            #main {
-                position: relative;
-            }
-        }
     </style>
 
     <!-- =======================================================
@@ -442,12 +426,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section><!-- End Breadcrumbs -->
 
 <main id="main">
-    <section class="inner-page">
+    <section class="inner-page has-sticky-sidebar">
         <div class="container">
             <div class="row">
 
-                <div class="col-md-2">
-                    <div class="fixed-sidebar d-none d-lg-block" style="width: 230px">
+                <div class="col-md-3">
+                    <div class="fixed-sidebar d-none d-lg-block">
 
                         <h3>Indice</h3><br>
                         <p><a class="index-item2" href="#general">Informazioni generali</a></p>
@@ -461,7 +445,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     </div>
                 </div>
-                <div class="col-md-9 offset-md-1">
+                <div class="col-md-8 offset-md-1">
                     <div class="section-heading">
                         <br><br><br>
                         <h1>Sulla produzione dei contenuti di Nubart</h1><br>
@@ -584,28 +568,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" id="myTab" role="tablist" style="border-bottom: 3px solid #54D3C5;">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="first-tab" data-bs-toggle="tab"
+                                        <button class="nav-link active" id="copper-tab" data-bs-toggle="tab"
                                                 data-bs-target="#copper" type="button"
                                                 role="tab" aria-controls="copper" aria-selected="true">
                                             <strong>Rame</strong>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="home-tab" data-bs-toggle="tab"
+                                        <button class="nav-link" id="bronze-tab" data-bs-toggle="tab"
                                                 data-bs-target="#bronze" type="button" role="tab"
                                                 aria-controls="bronze" aria-selected="false">
                                             <strong>Bronzo</strong>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                        <button class="nav-link" id="silver-tab" data-bs-toggle="tab"
                                                 data-bs-target="#silver" type="button" role="tab"
                                                 aria-controls="silver" aria-selected="false">
                                             <strong>Argento</strong>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="messages-tab" data-bs-toggle="tab"
+                                        <button class="nav-link" id="gold-tab" data-bs-toggle="tab"
                                                 data-bs-target="#gold" type="button" role="tab"
                                                 aria-controls="gold" aria-selected="false">
                                             <strong>Oro</strong>
@@ -634,6 +618,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                             <td><b style="color: #54D3C5; font-size:15px">
                                                                 Registrazioni vocali</b></td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Una settimana.
@@ -675,7 +661,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 </p>
                                                             </td>
                                                         </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                                 <div class="tab-pane" id="bronze" role="tabpanel"
@@ -695,6 +681,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                             <td><b style="color: #54D3C5; font-size:15px">
                                                                 Registrazioni vocali</b></td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Tre settimane. </p></td>
@@ -727,7 +715,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 </p>
                                                             </td>
                                                         </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
 
@@ -749,6 +737,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                             <td><b style="color: #54D3C5; font-size:15px">
                                                                 Registrazioni vocali </b></td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Cinque settimane. </p></td>
@@ -779,7 +769,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                     Ripetizione gratuita delle tracce che il cliente non
                                                                     considera pienamente soddisfacenti. </p>
                                                             </td>
-                                                        </thead>
+                                                        </tr>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                                 <div class="tab-pane" id="gold" role="tabpanel"
@@ -807,6 +798,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 audio </b>
                                                             </td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Dieci settimane. </p></td>
@@ -838,7 +831,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 sfondi musicali. </p>
                                                             </td>
                                                         </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -943,7 +936,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <a href="condizioni-generali-di-servizio.html" rel="nofollow">Condizioni generali di
                                 servizio</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="privacy-web.html" rel="nofollow">Informativa
-                            sulla privacy</a>
+                            sulla privacy</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferenze sui
                             cookie</a></li>
 
@@ -960,7 +953,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong><span>Nubart 2025</span></strong>. Tutti i diritti riservati
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. Tutti i diritti riservati
         </div>
 
     </div>
@@ -984,35 +977,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="text/plain" data-category="analytics" id="hs-script-loader" async
         src="//js.hs-scripts.com/2430134.js"></script>
 
-<!-- Sidebar scroll behavior -->
-<script>
-    window.addEventListener('DOMContentLoaded', function() {
-        const sidebar = document.querySelector('.fixed-sidebar');
-        const footer = document.querySelector('#footer');
 
-        if (sidebar && footer && window.innerWidth >= 992) {
-            function adjustSidebar() {
-                const footerRect = footer.getBoundingClientRect();
-                const sidebarRect = sidebar.getBoundingClientRect();
-                const sidebarBottom = sidebarRect.bottom;
-                const footerTop = footerRect.top;
-
-                // If sidebar would overlap footer, adjust its position
-                if (sidebarBottom > footerTop) {
-                    const offset = sidebarBottom - footerTop + 20; // 20px gap
-                    sidebar.style.top = (200 - offset) + 'px';
-                } else {
-                    sidebar.style.top = '200px';
-                }
-            }
-
-            window.addEventListener('scroll', adjustSidebar);
-            window.addEventListener('resize', adjustSidebar);
-            adjustSidebar(); // Initial call
-        }
-    });
-</script>
-
-<script type="module" src="/js/cookieconsent-config.js"></script>
 </body>
 </html>

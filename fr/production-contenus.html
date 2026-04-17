@@ -102,14 +102,12 @@
 
     <!-- End Structured data -->
     <!-- Google Tag Manager -->
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TRW7KZS');
     </script>
-    <!-- End Google Tag Manager -->
     <!-- End Google Tag Manager -->
 
 
@@ -132,7 +130,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="description"
           content="Contenu pour votre audioguide. 4 niveaux de service (Cuivre, Bronze, Argent, Or) : de voix IA en 1 semaine à production premium avec casting exclusif.">
     <meta name="author" content="Nubart">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="Contenu pour votre audioguide. 4 niveaux de service (Cuivre, Bronze, Argent, Or) : de voix IA en 1 semaine à production premium avec casting exclusif.">
     <meta name="twitter:site" content="@nub_art">
@@ -220,21 +217,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: white !important;
         }
 
-        /* Fix sidebar to prevent overlap with footer */
-        .fixed-sidebar {
-            position: fixed;
-            top: 200px;
-            max-height: calc(100vh - 220px);
-            overflow-y: auto;
-        }
-
-        /* Ensure sidebar stops before footer */
-        @media (min-width: 992px) {
-            #main {
-                position: relative;
-            }
-        }
-    </style>
+</style>
 
     <!-- =======================================================
     * Template Name: Dewi - v4.6.0
@@ -442,12 +425,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section><!-- End Breadcrumbs -->
 
 <main id="main">
-    <section class="inner-page">
+    <section class="inner-page has-sticky-sidebar">
         <div class="container">
             <div class="row">
 
-                <div class="col-md-2">
-                    <div class="fixed-sidebar d-none d-lg-block" style="width: 230px">
+                <div class="col-md-3">
+                    <div class="fixed-sidebar d-none d-lg-block">
 
                         <h3>Index</h3><br>
                         <p><a class="index-item2" href="#general">Information générale</a></p>
@@ -461,7 +444,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     </div>
                 </div>
-                <div class="col-md-9 offset-md-1">
+                <div class="col-md-8 offset-md-1">
                     <div class="section-heading">
                         <br><br><br>
                         <h1>À propos de la production de contenu Nubart</h1><br>
@@ -586,28 +569,28 @@ ons la voix choisie.</li>
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" id="myTab" role="tablist" style="border-bottom: 3px solid #54D3C5;">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="first-tab" data-bs-toggle="tab"
+                                        <button class="nav-link active" id="copper-tab" data-bs-toggle="tab"
                                                 data-bs-target="#copper" type="button"
                                                 role="tab" aria-controls="copper" aria-selected="true">
                                             <strong>Cuivre</strong>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="home-tab" data-bs-toggle="tab"
+                                        <button class="nav-link" id="bronze-tab" data-bs-toggle="tab"
                                                 data-bs-target="#bronze" type="button" role="tab"
                                                 aria-controls="bronze" aria-selected="false">
                                             <strong>Bronze</strong>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                        <button class="nav-link" id="silver-tab" data-bs-toggle="tab"
                                                 data-bs-target="#silver" type="button" role="tab"
                                                 aria-controls="silver" aria-selected="false">
                                             <strong>Argent</strong>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="messages-tab" data-bs-toggle="tab"
+                                        <button class="nav-link" id="gold-tab" data-bs-toggle="tab"
                                                 data-bs-target="#gold" type="button" role="tab"
                                                 aria-controls="gold" aria-selected="false">
                                             <strong>Or</strong>
@@ -636,6 +619,8 @@ ons la voix choisie.</li>
                                                             <td><b style="color: #54D3C5; font-size:15px">
                                                                 Enregistrements vocaux</b></td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Une semaine.
@@ -677,7 +662,7 @@ ons la voix choisie.</li>
                                                                 </p>
                                                             </td>
                                                         </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                                 <div class="tab-pane" id="bronze" role="tabpanel"
@@ -697,6 +682,8 @@ ons la voix choisie.</li>
                                                             <td><b style="color: #54D3C5; font-size:15px">
                                                                 Enregistrements vocaux</b></td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Trois semaines. </p></td>
@@ -729,7 +716,7 @@ ons la voix choisie.</li>
                                                                 </p>
                                                             </td>
                                                         </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
 
@@ -751,6 +738,8 @@ ons la voix choisie.</li>
                                                             <td><b style="color: #54D3C5; font-size:15px">
                                                                 Enregistrements vocaux </b></td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Cinq semaines. </p></td>
@@ -781,7 +770,8 @@ ons la voix choisie.</li>
                                                                     Réenregistrement gratuit des pistes que le client ne
                                                                     considère pas pleinement satisfaisantes. </p>
                                                             </td>
-                                                        </thead>
+                                                        </tr>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                                 <div class="tab-pane" id="gold" role="tabpanel"
@@ -809,6 +799,8 @@ ons la voix choisie.</li>
                                                                 audio </b>
                                                             </td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Dix semaines. </p></td>
@@ -840,7 +832,7 @@ ons la voix choisie.</li>
                                                                 fonds musicaux. </p>
                                                             </td>
                                                         </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -945,7 +937,7 @@ ons la voix choisie.</li>
                             <a href="../fr/conditions-generales-service.html" rel="nofollow">Conditions générales de
                                 service</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="../fr/privacy-policy.html" rel="nofollow">Politique
-                            de confidentialité</a>
+                            de confidentialité</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Préférences de
                             cookies</a></li>
 
@@ -962,7 +954,7 @@ ons la voix choisie.</li>
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong><span>Nubart 2025</span></strong>. Tous droits réservés
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. Tous droits réservés
         </div>
 
     </div>
@@ -986,35 +978,6 @@ ons la voix choisie.</li>
 <script type="text/plain" data-category="analytics" id="hs-script-loader" async
         src="//js.hs-scripts.com/2430134.js"></script>
 
-<!-- Sidebar scroll behavior -->
-<script>
-    window.addEventListener('DOMContentLoaded', function() {
-        const sidebar = document.querySelector('.fixed-sidebar');
-        const footer = document.querySelector('#footer');
 
-        if (sidebar && footer && window.innerWidth >= 992) {
-            function adjustSidebar() {
-                const footerRect = footer.getBoundingClientRect();
-                const sidebarRect = sidebar.getBoundingClientRect();
-                const sidebarBottom = sidebarRect.bottom;
-                const footerTop = footerRect.top;
-
-                // If sidebar would overlap footer, adjust its position
-                if (sidebarBottom > footerTop) {
-                    const offset = sidebarBottom - footerTop + 20; // 20px gap
-                    sidebar.style.top = (200 - offset) + 'px';
-                } else {
-                    sidebar.style.top = '200px';
-                }
-            }
-
-            window.addEventListener('scroll', adjustSidebar);
-            window.addEventListener('resize', adjustSidebar);
-            adjustSidebar(); // Initial call
-        }
-    });
-</script>
-
-<script type="module" src="/js/cookieconsent-config.js"></script>
 </body>
 </html>

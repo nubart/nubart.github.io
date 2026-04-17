@@ -224,6 +224,21 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - NL: nl/audiogidsen/multimedia.html
 - PL: pl/audioprzewodnik/funkcje-multimedialne.html
 
+### Content production for Nubart GUIDE
+**Main servcice explainer:**
+- EN: audio-guides/content-production/index.html
+- DE: de/audioguides/produktion/index.html
+- ES: es/produccion-contenido.html
+- IT: it/produzione-contenuti.html
+- FR: fr/production-contenus.html
+- PL: pl/audioprzewodnik/produkcja-tresci/index.html
+- HE: (still pending)
+- BG: (still pending)
+- PT-BR: (still pending)
+- JA: (still pending)
+- NL: (still pending)
+
+
 ### Nubart MOTION
 **Main product explainer:**
 - EN: audio-commentary-system/index.html

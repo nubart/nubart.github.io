@@ -102,14 +102,12 @@
 
     <!-- End Structured data -->
     <!-- Google Tag Manager -->
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TRW7KZS');
     </script>
-    <!-- End Google Tag Manager -->
     <!-- End Google Tag Manager -->
 
 
@@ -132,7 +130,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="description"
           content="Contenido para tu audioguía. 4 niveles de servicio (Cobre, Bronce, Plata, Oro): desde voces IA en 1 semana hasta producción premium con casting exclusivo.">
     <meta name="author" content="Nubart">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="Contenido para tu audioguía. 4 niveles de servicio (Cobre, Bronce, Plata, Oro): desde voces IA en 1 semana hasta producción premium con casting exclusivo.">
     <meta name="twitter:site" content="@nub_art">
@@ -218,21 +215,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background-color: #028a8c !important;
             border-color: #028a8c !important;
             color: white !important;
-        }
-
-        /* Fix sidebar to prevent overlap with footer */
-        .fixed-sidebar {
-            position: fixed;
-            top: 200px;
-            max-height: calc(100vh - 220px);
-            overflow-y: auto;
-        }
-
-        /* Ensure sidebar stops before footer */
-        @media (min-width: 992px) {
-            #main {
-                position: relative;
-            }
         }
     </style>
 
@@ -442,12 +424,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section><!-- End Breadcrumbs -->
 
 <main id="main">
-    <section class="inner-page">
+    <section class="inner-page has-sticky-sidebar">
         <div class="container">
             <div class="row">
 
-                <div class="col-md-2">
-                    <div class="fixed-sidebar d-none d-lg-block" style="width: 230px">
+                <div class="col-md-3">
+                    <div class="fixed-sidebar d-none d-lg-block">
 
                         <h3>Índice</h3><br>
                         <p><a class="index-item2" href="#general">Información general</a></p>
@@ -461,7 +443,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     </div>
                 </div>
-                <div class="col-md-9 offset-md-1">
+                <div class="col-md-8 offset-md-1">
                     <div class="section-heading">
                         <br><br><br>
                         <h1>Sobre la producción de contenidos de Nubart</h1><br>
@@ -584,28 +566,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" id="myTab" role="tablist" style="border-bottom: 3px solid #54D3C5;">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="first-tab" data-bs-toggle="tab"
+                                        <button class="nav-link active" id="copper-tab" data-bs-toggle="tab"
                                                 data-bs-target="#copper" type="button"
                                                 role="tab" aria-controls="copper" aria-selected="true">
                                             <strong>Cobre</strong>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="home-tab" data-bs-toggle="tab"
+                                        <button class="nav-link" id="bronze-tab" data-bs-toggle="tab"
                                                 data-bs-target="#bronze" type="button" role="tab"
                                                 aria-controls="bronze" aria-selected="false">
                                             <strong>Bronce</strong>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                        <button class="nav-link" id="silver-tab" data-bs-toggle="tab"
                                                 data-bs-target="#silver" type="button" role="tab"
                                                 aria-controls="silver" aria-selected="false">
                                             <strong>Plata</strong>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="messages-tab" data-bs-toggle="tab"
+                                        <button class="nav-link" id="gold-tab" data-bs-toggle="tab"
                                                 data-bs-target="#gold" type="button" role="tab"
                                                 aria-controls="gold" aria-selected="false">
                                             <strong>Oro</strong>
@@ -634,6 +616,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                             <td><b style="color: #54D3C5; font-size:15px">
                                                                 Locuciones</b></td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Una semana.
@@ -675,7 +659,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 </p>
                                                             </td>
                                                         </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                                 <div class="tab-pane" id="bronze" role="tabpanel"
@@ -695,6 +679,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                             <td><b style="color: #54D3C5; font-size:15px">
                                                                 Locuciones</b></td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Tres semanas. </p></td>
@@ -727,7 +713,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 </p>
                                                             </td>
                                                         </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
 
@@ -749,6 +735,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                             <td><b style="color: #54D3C5; font-size:15px">
                                                                 Locuciones </b></td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Cinco semanas. </p></td>
@@ -779,7 +767,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                     Repetición gratuita de las pistas que el cliente no
                                                                     considere plenamente satisfactorias. </p>
                                                             </td>
-                                                        </thead>
+                                                        </tr>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                                 <div class="tab-pane" id="gold" role="tabpanel"
@@ -807,6 +796,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 audio </b>
                                                             </td>
                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
                                                         <tr>
                                                             <td><p style="font-size:13px">
                                                                 Diez semanas. </p></td>
@@ -838,7 +829,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 fondos musicales. </p>
                                                             </td>
                                                         </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -943,7 +934,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <a href="../es/condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de
                                 servicio</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="../es/politica-privacidad.html" rel="nofollow">Política
-                            de privacidad</a>
+                            de privacidad</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de
                             cookies</a></li>
 
@@ -960,7 +951,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong><span>Nubart 2025</span></strong>. Todos los derechos reservados
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. Todos los derechos reservados
         </div>
 
     </div>
@@ -984,35 +975,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="text/plain" data-category="analytics" id="hs-script-loader" async
         src="//js.hs-scripts.com/2430134.js"></script>
 
-<!-- Sidebar scroll behavior -->
-<script>
-    window.addEventListener('DOMContentLoaded', function() {
-        const sidebar = document.querySelector('.fixed-sidebar');
-        const footer = document.querySelector('#footer');
 
-        if (sidebar && footer && window.innerWidth >= 992) {
-            function adjustSidebar() {
-                const footerRect = footer.getBoundingClientRect();
-                const sidebarRect = sidebar.getBoundingClientRect();
-                const sidebarBottom = sidebarRect.bottom;
-                const footerTop = footerRect.top;
-
-                // If sidebar would overlap footer, adjust its position
-                if (sidebarBottom > footerTop) {
-                    const offset = sidebarBottom - footerTop + 20; // 20px gap
-                    sidebar.style.top = (200 - offset) + 'px';
-                } else {
-                    sidebar.style.top = '200px';
-                }
-            }
-
-            window.addEventListener('scroll', adjustSidebar);
-            window.addEventListener('resize', adjustSidebar);
-            adjustSidebar(); // Initial call
-        }
-    });
-</script>
-
-<script type="module" src="/js/cookieconsent-config.js"></script>
 </body>
 </html>
