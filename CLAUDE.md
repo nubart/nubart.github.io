@@ -225,7 +225,7 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - PL: pl/audioprzewodnik/funkcje-multimedialne.html
 
 ### Content production for Nubart GUIDE
-**Main servcice explainer:**
+****Main service explainer:**
 - EN: audio-guides/content-production/index.html
 - DE: de/audioguides/produktion/index.html
 - ES: es/produccion-contenido.html
