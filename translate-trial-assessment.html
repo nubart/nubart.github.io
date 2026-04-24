@@ -112,9 +112,11 @@
 
 <script>
     // ─── State ───────────────────────────────────────────────────────────────────
-    let csvText        = null;
-    let foundContactId = null;
-    let foundDealId    = null;
+    let csvText           = null;
+    let foundContactId    = null;
+    let foundCompanyId    = null;
+    let foundDealId       = null;
+    let foundDealPipeline = null;
 
     // ─── Credentials ─────────────────────────────────────────────────────────────
     const LS_CLAUDE = 'nubart_claude_key';
@@ -181,8 +183,10 @@
 
       setAnalyzing(true);
       document.getElementById('results').style.display = 'none';
-      foundContactId = null;
-      foundDealId    = null;
+      foundContactId    = null;
+      foundCompanyId    = null;
+      foundDealId       = null;
+      foundDealPipeline = null;
 
       try {
         // Step 1: look up contact in HubSpot
@@ -200,8 +204,13 @@
         const contactName = [contact.properties.firstname, contact.properties.lastname].filter(Boolean).join(' ') || email;
         const company     = contact.properties.company || '(company unknown)';
 
-        // Step 2: find associated TRANSLATE deal (optional — we'll attach if found)
-        foundDealId = await findTranslateDeal(getHsToken(), foundContactId);
+        // Step 2: find associated company
+        foundCompanyId = await findAssociatedCompany(getHsToken(), foundContactId);
+
+        // Step 3: find associated deal in TRANSLATE, LIVE or MOTION pipeline
+        const dealResult  = await findNubartDeal(getHsToken(), foundContactId);
+        foundDealId       = dealResult ? dealResult.id       : null;
+        foundDealPipeline = dealResult ? dealResult.pipeline : null;
 
         // Step 3: call Claude
         const prompt   = buildPrompt(csvText);
@@ -230,7 +239,10 @@
 
         // Render
         document.getElementById('contact-status').innerHTML =
-          `<div class="contact-found-box">✓ Contact found: <strong>${contactName}</strong> — ${company} (ID: ${foundContactId})${foundDealId ? ' · TRANSLATE deal found (ID: ' + foundDealId + ')' : ''}</div>`;
+          `<div class="contact-found-box">✓ Contact found: <strong>${contactName}</strong> — ${company} (ID: ${foundContactId})`
+          + (foundCompanyId ? ` · Company ID: ${foundCompanyId}` : '')
+          + (foundDealId    ? ` · ${foundDealPipeline} deal found (ID: ${foundDealId})` : ' · No matching deal found')
+          + `</div>`;
 
         document.getElementById('assessment-text').value = assessment;
         document.getElementById('push-section').style.display = 'block';
@@ -244,17 +256,16 @@
       }
     }
 
-    // ─── CSV structure (new format, as of April 2026) ────────────────────────────
-    // Col A: Date (customer timezone, e.g. "2026-04-17")
-    // Col B: Time (customer timezone, e.g. "14:29:49")
-    // Col C: Source Language code
-    // Col D: Audio Input Quality Score (0–100)
-    // Col E: Email address of the speaker
+    // ─── CSV structure (current format, as of April 2026) ────────────────────────
+    // Col A: Date (customer timezone)
+    // Col B: Time (customer timezone)
+    // Col C: User (email address of the speaker account — ignored for assessment)
+    // Col D: Source Language code
+    // Col E: Audio Input Quality Score (0–100)
     // Col F: Transcription (already deduplicated server-side)
     // Col G+: Translations (header = language code)
 
     function preprocessCsv(raw) {
-      // Parse CSV respecting quoted fields
       function parseCSV(text) {
         const rows = [];
         const lines = text.split('\n');
@@ -280,8 +291,7 @@
       const header = rows[0];
       const data   = rows.slice(1);
 
-      // Server-side deduplication is already done — no merging needed.
-      // We only remove any exact duplicate rows that slipped through.
+      // Server-side deduplication already done — remove only exact duplicate rows
       const seen = new Set();
       const deduped = [];
       for (const row of data) {
@@ -305,15 +315,15 @@
       return `You will receive a CSV file containing the results of a Nubart TRANSLATE trial session. Nubart TRANSLATE is a web-based AI simultaneous interpretation system. Analyze the data and produce a concise sales assessment (20 lines maximum, shorter is better).
 
 OUTPUT LANGUAGE RULE:
-Look at column C (Source Language) and count the rows per language code. If the dominant language is Spanish (es), write the entire assessment in Spanish. In all other cases — regardless of what other languages appear in the CSV — write in English.
+Look at column D (Source Language) and count the rows per language code. If the dominant language is Spanish (es), write the entire assessment in Spanish. In all other cases — regardless of what other languages appear in the CSV — write in English.
 
 ABOUT THE CSV STRUCTURE:
 - Column A (Date): date of each utterance in the customer's local timezone
 - Column B (Time): time of each utterance in the customer's local timezone
-- Column C (Source Language): language code of the speaker
-- Column D (email): email address of the speaker
+- Column C (User): email address of the speaker account — ignore this column entirely
+- Column D (Source Language): language code of the speaker
 - Column E (Score): audio input quality score, 0–100. Measures how clearly the speaker's voice reached the transcription AI. Low scores indicate poor audio conditions — wrong language selected, speaker too quiet, background noise, or microphone feedback. Low score = poor transcription = poor translation. The speaker can see this score in real time in the interface.
-- Column F (Transcription): what was spoken
+- Column F (Transcription): what was spoken — already deduplicated by the system
 - Columns G onward: translations — the header row indicates the target language code
 
 ---
@@ -339,13 +349,13 @@ Same root cause as Pattern B — microphone feedback. Speaker's microphone is ca
 
 PART 1 — Test completed?
 - If CSV has only a header row and no data rows: "Test completed: NO — False alarm." The prospect registered but did not run a trial. Stop here, no further parts needed.
-- If CSV has transcription but all translation columns are empty or contain only headers with no data: "Test completed: PARTIAL.
+- If CSV has transcription but all translation columns (G onward) are empty or contain only headers with no data: "Test completed: PARTIAL." Explain what likely happened (check known patterns) so the sales rep can address it in the follow-up.
 - If CSV has both transcription and at least some translation data: "Test completed: YES."
 
 PART 2 — Basic info
 - Date of test (from column A)
 - Approximate duration: combine columns A and B to reconstruct timestamps. DO NOT subtract first from last — gaps longer than 5 minutes indicate pauses or separate sessions. Sum only active speaking segments. Report as "approx. X minutes of active use" and note number of sessions if more than one.
-- Source language(s) (from column C)
+- Source language(s) (from column D)
 - Translation language(s): list only languages from column G onward that have at least one non-empty cell. If all translation columns are empty, write "None — see Part 1."
 - Average audio quality score (mean of column E). Flag if any extended period had scores consistently below 70, as this explains poor transcription or translation quality.
 
@@ -398,22 +408,30 @@ ${csv}`;
         await hsAssociate(hsToken, 'notes', noteId, 'contacts', foundContactId, 'note_to_contact');
         log('ok', 'Note → Contact associated');
 
+        if (foundCompanyId) {
+          log('info', 'Associating note → company...');
+          await hsAssociate(hsToken, 'notes', noteId, 'companies', foundCompanyId, 'note_to_company');
+          log('ok', 'Note → Company associated');
+        }
+
         if (foundDealId) {
-          log('info', 'Associating note → deal...');
+          log('info', `Associating note → ${foundDealPipeline} deal...`);
           await hsAssociate(hsToken, 'notes', noteId, 'deals', foundDealId, 'note_to_deal');
           log('ok', 'Note → Deal associated');
         }
 
-        // Mark trial_kit_has_been_tried on deal if found
         if (foundDealId) {
           log('info', 'Updating deal: trial kit tried...');
+          const trialProps = foundDealPipeline === 'LIVE'
+            ? { live_has_been_tried:      'Trial kit TRIED' }
+            : { trial_kit_has_been_tried: 'true' }; // TRANSLATE and MOTION
           await hsPatch(hsToken, `https://api.hubapi.com/crm/v3/objects/deals/${foundDealId}`, {
-            properties: { trial_kit_has_been_tried: 'true' }
+            properties: trialProps
           });
           log('ok', 'Deal updated');
         }
 
-        showPushResult(true, `✓ Done! Assessment note pushed to HubSpot${foundDealId ? ' and linked to TRANSLATE deal.' : '.'}`);
+        showPushResult(true, `✓ Done! Assessment note pushed to HubSpot${foundDealId ? ` and linked to ${foundDealPipeline} deal.` : '.'}`);
         document.getElementById('push-btn').disabled = true;
         document.getElementById('push-btn').title    = 'Already pushed — clear to start again';
 
@@ -454,8 +472,24 @@ ${csv}`;
       return data.total > 0 ? data.results[0] : null;
     }
 
-    async function findTranslateDeal(token, contactId) {
-      // Get deals associated with this contact
+    async function findAssociatedCompany(token, contactId) {
+      const url      = `https://api.hubapi.com/crm/v3/objects/contacts/${contactId}/associations/companies`;
+      const proxyUrl = WORKER + '?target=' + encodeURIComponent(url);
+      const res = await fetch(proxyUrl, {
+        method: 'GET',
+        headers: { 'Authorization': 'Bearer ' + token }
+      });
+      const data = await res.json();
+      if (!data.results || data.results.length === 0) return null;
+      return data.results[0].id;
+    }
+
+    async function findNubartDeal(token, contactId) {
+      const PIPELINES = {
+        'TRANSLATE': '774905140',
+        'LIVE':      '30831931',
+        'MOTION':    '782785295',
+      };
       const url      = `https://api.hubapi.com/crm/v3/objects/contacts/${contactId}/associations/deals`;
       const proxyUrl = WORKER + '?target=' + encodeURIComponent(url);
       const res = await fetch(proxyUrl, {
@@ -465,8 +499,6 @@ ${csv}`;
       const data = await res.json();
       if (!data.results || data.results.length === 0) return null;
 
-      // Check each deal for TRANSLATE pipeline
-      const TRANSLATE_PIPELINE = '774905140';
       for (const assoc of data.results) {
         const dealUrl      = `https://api.hubapi.com/crm/v3/objects/deals/${assoc.id}?properties=pipeline`;
         const dealProxyUrl = WORKER + '?target=' + encodeURIComponent(dealUrl);
@@ -475,7 +507,10 @@ ${csv}`;
           headers: { 'Authorization': 'Bearer ' + token }
         });
         const deal = await dealRes.json();
-        if (deal.properties && deal.properties.pipeline === TRANSLATE_PIPELINE) return assoc.id;
+        const pipeline = deal.properties && deal.properties.pipeline;
+        for (const [name, id] of Object.entries(PIPELINES)) {
+          if (pipeline === id) return { id: assoc.id, pipeline: name };
+        }
       }
       return null;
     }
@@ -565,14 +600,14 @@ ${csv}`;
       document.getElementById('push-result').style.display = 'none';
       clearLog();
       showLog(false);
-      csvText = null; foundContactId = null; foundDealId = null;
+      csvText = null; foundContactId = null; foundCompanyId = null; foundDealId = null; foundDealPipeline = null;
       document.getElementById('push-btn').disabled = false;
       document.getElementById('push-btn').title    = '';
     }
 
     function reAnalyze() {
       document.getElementById('results').style.display = 'none';
-      foundContactId = null; foundDealId = null;
+      foundContactId = null; foundCompanyId = null; foundDealId = null; foundDealPipeline = null;
       document.getElementById('push-btn').disabled = false;
       document.getElementById('push-btn').title    = '';
       document.getElementById('prospect-email').focus();
