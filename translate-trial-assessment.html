@@ -249,8 +249,9 @@
     // Col B: Time (customer timezone, e.g. "14:29:49")
     // Col C: Source Language code
     // Col D: Audio Input Quality Score (0–100)
-    // Col E: Transcription (already deduplicated server-side)
-    // Col F+: Translations (header = language code)
+    // Col E: Email address of the speaker
+    // Col F: Transcription (already deduplicated server-side)
+    // Col G+: Translations (header = language code)
 
     function preprocessCsv(raw) {
       // Parse CSV respecting quoted fields
@@ -310,9 +311,10 @@ ABOUT THE CSV STRUCTURE:
 - Column A (Date): date of each utterance in the customer's local timezone
 - Column B (Time): time of each utterance in the customer's local timezone
 - Column C (Source Language): language code of the speaker
-- Column D (Score): audio input quality score, 0–100. Measures how clearly the speaker's voice reached the transcription AI. Low scores indicate poor audio conditions — wrong language selected, speaker too quiet, background noise, or microphone feedback. Low score = poor transcription = poor translation. The speaker can see this score in real time in the interface.
-- Column E (Transcription): what was spoken — already deduplicated by the system
-- Columns F onward: translations — the header row indicates the target language code
+- Column D (email): email address of the speaker
+- Column E (Score): audio input quality score, 0–100. Measures how clearly the speaker's voice reached the transcription AI. Low scores indicate poor audio conditions — wrong language selected, speaker too quiet, background noise, or microphone feedback. Low score = poor transcription = poor translation. The speaker can see this score in real time in the interface.
+- Column F (Transcription): what was spoken
+- Columns G onward: translations — the header row indicates the target language code
 
 ---
 
@@ -325,7 +327,7 @@ Pattern B — Repetitions within the same transcription cell
 If you see phrases or words repeated within a single transcription entry (e.g. "la casa la maison es verde"), this is a strong warning sign that the speaker's microphone was picking up the translated audio output from the listener device, creating a feedback loop. This is especially common when both devices are in the same room without headphones. The audio quality indicator would have shown red. This would not happen in a real event where listeners use headphones or are physically separated.
 
 Pattern C — Translation makes no sense / poor quality
-Most likely cause: wrong source language selected on the speaker device (over 50% of cases). Second cause: poor audio input — background noise, weak microphone signal, or the feedback loop in Pattern B. Check column D scores for confirmation.
+Most likely cause: wrong source language selected on the speaker device (over 50% of cases). Second cause: poor audio input — background noise, weak microphone signal, or the feedback loop in Pattern B. Check column E scores for confirmation.
 
 Pattern D — Translation starts late
 If the first several minutes have no translations, the listener may not have known to manually select a target language. The system defaults to the listener's browser language; if that matches the speaker's language, no translation appears until the listener manually switches. See Pattern A.
@@ -337,15 +339,15 @@ Same root cause as Pattern B — microphone feedback. Speaker's microphone is ca
 
 PART 1 — Test completed?
 - If CSV has only a header row and no data rows: "Test completed: NO — False alarm." The prospect registered but did not run a trial. Stop here, no further parts needed.
-- If CSV has transcription but all translation columns are empty: "Test completed: PARTIAL." Explain what likely happened (check known patterns) so the sales rep can address it in the follow-up.
+- If CSV has transcription but all translation columns are empty or contain only headers with no data: "Test completed: PARTIAL.
 - If CSV has both transcription and at least some translation data: "Test completed: YES."
 
 PART 2 — Basic info
 - Date of test (from column A)
 - Approximate duration: combine columns A and B to reconstruct timestamps. DO NOT subtract first from last — gaps longer than 5 minutes indicate pauses or separate sessions. Sum only active speaking segments. Report as "approx. X minutes of active use" and note number of sessions if more than one.
 - Source language(s) (from column C)
-- Translation language(s) (from column F onward headers)
-- Average audio quality score (mean of column D). Flag if any extended period had scores consistently below 70, as this explains poor transcription or translation quality.
+- Translation language(s): list only languages from column G onward that have at least one non-empty cell. If all translation columns are empty, write "None — see Part 1."
+- Average audio quality score (mean of column E). Flag if any extended period had scores consistently below 70, as this explains poor transcription or translation quality.
 
 PART 3 — Prospect reactions and comments
 This is the most important part. Identify any utterances where the speaker appears to be reacting to or commenting on the product rather than producing content for translation. This includes: usability reactions, voice quality comments, comparisons with competitors or human interpreters, mentions of specific use cases or events, pricing reactions, latency or accuracy questions, or any other meta-commentary.
@@ -356,9 +358,10 @@ This is the most important part. Identify any utterances where the speaker appea
 
 PART 4 — What did they talk about?
 2–3 lines. Test phrases? Casual conversation? A text read aloud? A real use case? Identify the topic if possible.
+If the use case is specific and potentially commercially relevant (a government body, NGO, international organisation, recurring event format), flag this explicitly for the sales rep.
 
 PART 5 — Translation quality
-One sentence overall impression. If the average audio quality score (column D) was below 70 for significant portions of the session, note this as the likely root cause of any quality issues — the score is objective evidence recorded in real time. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
+One sentence overall impression. If the average audio quality score (column E) was below 70 for significant portions of the session, note this as the likely root cause of any quality issues — the score is objective evidence recorded in real time. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
 
 ---
 
