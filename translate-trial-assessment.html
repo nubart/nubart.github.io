@@ -331,7 +331,15 @@ ABOUT THE CSV STRUCTURE:
 KNOWN TRIAL PATTERNS — check for these before writing the assessment:
 
 Pattern A — No translation output despite speech being captured
-If transcription is present but translation columns are empty or mostly empty at the start, the likely cause is that both speaker and listener had the same browser language set. The listener device then simply repeats the speaker's words in an AI voice in the same language rather than translating. This is very common in trials and would not happen in a real event with foreign-language listeners. Flag this clearly and explain it to the sales rep.
+If transcription is present but all translation columns are empty or contain no data, work through the following to identify the most likely cause:
+A1 — Same browser language on both devices (most common in TRANSLATE trials)
+Both speaker and listener had the same browser language set. The listener device repeats the speaker's words in an AI voice in the same language rather than translating. This would not happen in a real event with foreign-language listeners. Signs: no upset comments in the transcription, content seems like a genuine test of the product.
+A2 — Quick technical check by a technician
+The tester was simply verifying audio input quality and spectrometer behaviour, not testing the translation output at all. Signs: session is very short (1–2 minutes), no comments expressing confusion or frustration about missing translation, content is neutral technical phrases.
+A3 — "Babel fish" misunderstanding
+The tester expected translation to appear on the same device used for speaking — they did not understand that a separate listener device with the QR code is required. Signs: frustrated or confused comments ("this is not working", "this is rubbish", "I don't see any translation"), often a very short session as the tester gives up quickly.
+A3b — QR code not shown to listeners
+The speaker activated the system correctly but listeners never scanned the QR code, or the tester did not realise that listeners need a separate device. Signs: similar frustration comments as A3, possibly questions about why listeners are not receiving anything.
 
 Pattern B — Repetitions within the same transcription cell
 If you see phrases or words repeated within a single transcription entry (e.g. "la casa la maison es verde"), this is a strong warning sign that the speaker's microphone was picking up the translated audio output from the listener device, creating a feedback loop. This is especially common when both devices are in the same room without headphones. The audio quality indicator would have shown red. This would not happen in a real event where listeners use headphones or are physically separated.
@@ -344,6 +352,13 @@ If the first several minutes have no translations, the listener may not have kno
 
 Pattern E — Translation repeats sentences
 Same root cause as Pattern B — microphone feedback. Speaker's microphone is capturing the audio output of the listener device.
+
+Pattern F — Nubart LIVE with AI Translation add-on (specific behaviours)
+If the CSV appears to be from a Nubart LIVE tour guide session rather than a TRANSLATE event — signs: content sounds like tour commentary, utterances are short bursts — apply these additional checks:
+F1 — Audio feedback loop in tour conditions
+If translations appear but transcription shows repeated phrases or mixed-language fragments, the guide's microphone was likely picking up translated audio from nearby visitor devices. In a real tour, visitors should use headphones or keep distance from the guide. This is the same mechanism as Pattern B but more likely in enclosed or outdoor spaces where sound carries unpredictably.
+F2 — Outdoor or noisy environment explaining low scores
+If audio quality scores (column E) are consistently low or highly variable throughout the session, the guide may have been in a noisy environment such as a street, factory, or outdoor site. This is expected in real tour conditions and does not indicate a product problem — recommend a headset or external microphone for the actual tour.
 
 ---
 
