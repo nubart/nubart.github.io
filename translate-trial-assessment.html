@@ -65,7 +65,7 @@
             <div class="actions">
                 <button class="btn btn-primary" id="analyze-btn" onclick="analyzeTrial()">
                     <span>Analyze Trial</span>
-                    <div class="spinner" id="analyze-spinner"></div>
+                    <span class="spinner" id="analyze-spinner"></span>
                 </button>
                 <button class="btn btn-ghost" onclick="clearAll()">Clear</button>
             </div>
@@ -96,7 +96,7 @@
                 <div class="actions">
                     <button class="btn btn-push" id="push-btn" onclick="pushToHubSpot()">
                         <span>Push to HubSpot</span>
-                        <div class="spinner" id="push-spinner"></div>
+                        <span class="spinner" id="push-spinner"></span>
                     </button>
                     <button class="btn btn-ghost" onclick="reAnalyze()">Re-analyze</button>
                 </div>
@@ -212,7 +212,7 @@
         foundDealId       = dealResult ? dealResult.id       : null;
         foundDealPipeline = dealResult ? dealResult.pipeline : null;
 
-        // Step 3: call Claude
+        // Step 4: call Claude
         const prompt   = buildPrompt(csvText);
         const response = await fetch('https://api.anthropic.com/v1/messages', {
           method: 'POST',
@@ -262,10 +262,12 @@
     // Col C: User (email address of the speaker account — ignored for assessment)
     // Col D: Source Language code
     // Col E: Audio Input Quality Score (0–100)
-    // Col F: Transcription (already deduplicated server-side)
-    // Col G+: Translations (header = language code)
+    // Col F: Transcription (deduplicated — the main transcription to use)
+    // Col G: Transcription fragment (duplicate fragments — IGNORE ENTIRELY)
+    // Col H+: Translations (header = language code)
 
     function preprocessCsv(raw) {
+      // Parse CSV into rows, respecting quoted fields
       function parseCSV(text) {
         const rows = [];
         const lines = text.split('\n');
@@ -291,23 +293,34 @@
       const header = rows[0];
       const data   = rows.slice(1);
 
-      // Server-side deduplication already done — remove only exact duplicate rows
+      // Col F (index 5) = Transcription (use this)
+      // Col G (index 6) = Transcription fragment (ignore — strip from output)
+      // Col H+ (index 7+) = Translations
+
+      // Remove exact duplicate rows
       const seen = new Set();
       const deduped = [];
       for (const row of data) {
+        // Only keep rows that have a non-empty Transcription (col F)
+        if (!(row[5] && row[5].trim())) continue;
         const key = row.join('||');
         if (!seen.has(key)) { seen.add(key); deduped.push(row); }
       }
+
+      // Strip col G (Transcription fragment) from header and all rows
+      const stripCol = 6;
+      const filteredHeader = header.filter((_, i) => i !== stripCol);
+      const filteredRows   = deduped.map(row => row.filter((_, i) => i !== stripCol));
 
       const escape = v => (v && (v.includes(',') || v.includes('"') || v.includes('\n')))
         ? '"' + v.replace(/"/g, '""') + '"'
         : (v || '');
 
-      const out = [header, ...deduped]
+      const out = [filteredHeader, ...filteredRows]
         .map(row => row.map(escape).join(','))
         .join('\n');
 
-      console.log(`CSV preprocessed: ${data.length} → ${deduped.length} rows`);
+      console.log(`CSV preprocessed: ${data.length} rows → ${deduped.length} after dedup, col G stripped`);
       return out;
     }
 
@@ -325,6 +338,8 @@ ABOUT THE CSV STRUCTURE:
 - Column E (Score): audio input quality score, 0–100. Measures how clearly the speaker's voice reached the transcription AI. Low scores indicate poor audio conditions — wrong language selected, speaker too quiet, background noise, or microphone feedback. Low score = poor transcription = poor translation. The speaker can see this score in real time in the interface.
 - Column F (Transcription): what was spoken — already deduplicated by the system
 - Columns G onward: translations — the header row indicates the target language code
+
+Note: the "Transcription fragment" column has been stripped from the data before reaching you. Column G in this data is the first translation language.
 
 ---
 
