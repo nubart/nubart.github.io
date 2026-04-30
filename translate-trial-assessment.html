@@ -293,24 +293,56 @@
       const header = rows[0];
       const data   = rows.slice(1);
 
-      // Col F (index 5) = Transcription (use this)
-      // Col G (index 6) = Transcription fragment (ignore — strip from output)
+      // Col F (index 5) = Transcription (full sentence — use for text)
+      // Col G (index 6) = Transcription fragment (partial — carries the translations)
       // Col H+ (index 7+) = Translations
+      //
+      // The two rows per utterance are mutually exclusive:
+      // - The col F row has the full transcription but NO translations
+      // - The col G row has the fragment text but HAS the translations
+      // Strategy: group by timestamp, merge col F text with col G row's translations,
+      // then strip col G from the output.
 
-      // Remove exact duplicate rows
-      const seen = new Set();
-      const deduped = [];
+      // Group rows by timestamp (col A + col B)
+      const groups = new Map();
       for (const row of data) {
-        // Only keep rows that have a non-empty Transcription (col F)
-        if (!(row[5] && row[5].trim())) continue;
-        const key = row.join('||');
-        if (!seen.has(key)) { seen.add(key); deduped.push(row); }
+        const key = (row[0] || '') + '|' + (row[1] || '');
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(row);
       }
 
-      // Strip col G (Transcription fragment) from header and all rows
+      const merged = [];
+      for (const [, group] of groups) {
+        // Find the row with a non-empty col F (full transcription)
+        const fullRow = group.find(r => r[5] && r[5].trim());
+        // Find the row with non-empty translations (col H+)
+        const transRow = group.find(r => r.slice(7).some(v => v && v.trim()));
+
+        if (!fullRow && !transRow) continue; // nothing useful
+
+        // Build merged row: use fullRow as base (or transRow if no fullRow)
+        const base = (fullRow || transRow).slice();
+
+        // If translations come from a different row, copy them in
+        if (transRow && transRow !== base) {
+          for (let i = 7; i < transRow.length; i++) {
+            if (transRow[i] && transRow[i].trim()) base[i] = transRow[i];
+          }
+        }
+
+        // If we have no full transcription but have a fragment, use the fragment text
+        if (!base[5] || !base[5].trim()) {
+          const fragRow = group.find(r => r[6] && r[6].trim());
+          if (fragRow) base[5] = fragRow[6];
+        }
+
+        merged.push(base);
+      }
+
+      // Strip col G (index 6 = Transcription fragment) from header and all rows
       const stripCol = 6;
       const filteredHeader = header.filter((_, i) => i !== stripCol);
-      const filteredRows   = deduped.map(row => row.filter((_, i) => i !== stripCol));
+      const filteredRows   = merged.map(row => row.filter((_, i) => i !== stripCol));
 
       const escape = v => (v && (v.includes(',') || v.includes('"') || v.includes('\n')))
         ? '"' + v.replace(/"/g, '""') + '"'
@@ -320,7 +352,7 @@
         .map(row => row.map(escape).join(','))
         .join('\n');
 
-      console.log(`CSV preprocessed: ${data.length} rows → ${deduped.length} after dedup, col G stripped`);
+      console.log(`CSV preprocessed: ${data.length} rows → ${merged.length} merged, col G stripped`);
       return out;
     }
 
