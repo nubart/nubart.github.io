@@ -77,16 +77,15 @@
       overflow: hidden;
     }
 
-    /* 10mm instruction strip — text pinned at 5mm from top of page */
+    /* 10mm instruction strip — text vertically centred (≈ 5mm from top) */
     .sheet-instruction {
       height: 10mm;
       flex-shrink: 0;
-      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .sheet-instruction span {
-      position: absolute;
-      top: 5mm;
-      left: 0; right: 0;
       font-size: 7pt;
       color: #666;
       font-style: italic;
@@ -374,7 +373,7 @@
     const p = PAPER[paper];
     const canvasId = 'qr-' + Math.random().toString(36).slice(2);
 
-    return `<div class="card" style="width:${p.cw}">
+    return `<div class="card" style="width:${p.cw};height:${p.ch}">
       <div class="card-body">
         <div class="card-text">
           <div class="card-headline">${escHtml(t.h1)}\n${escHtml(t.h2)}</div>
