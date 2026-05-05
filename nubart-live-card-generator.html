@@ -77,13 +77,14 @@
       overflow: hidden;
     }
 
-    /* 10mm instruction strip — text vertically centred (≈ 5mm from top) */
+    /* 10mm top margin: instruction text at ~5mm from top of page */
     .sheet-instruction {
       height: 10mm;
       flex-shrink: 0;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: flex-start;
+      padding-top: 5mm;
     }
     .sheet-instruction span {
       font-size: 7pt;
@@ -93,9 +94,10 @@
       text-align: center;
     }
 
-    /* Wrapper that holds left-margin + card-grid + right-margin */
+    /* Fills remaining height after top/bottom margins */
     .sheet-body {
-      flex-shrink: 0;
+      flex: 1;
+      min-height: 0;
       display: flex;
       flex-direction: row;
     }
@@ -105,8 +107,10 @@
       flex-shrink: 0;
     }
 
+    /* Fills the body height and distributes rows evenly */
     .card-grid {
-      flex-shrink: 0;
+      flex: 1;
+      min-height: 0;
       display: flex;
       flex-direction: column;
     }
@@ -117,17 +121,19 @@
       flex-shrink: 0;
     }
 
+    /* Each row takes an equal share of the available height */
     .card-row {
+      flex: 1;
+      min-height: 0;
       display: flex;
       flex-direction: row;
-      flex-shrink: 0;
     }
 
-    /* Zero-height row separator — dashed line between card rows, takes no layout space */
+    /* Takes no layout space; renders only the dashed cut line */
     .row-separator {
+      flex: 0 0 0;
       height: 0;
       border-top: 1px dashed #ccc;
-      flex-shrink: 0;
       margin: 0;
     }
 
@@ -154,7 +160,6 @@
       background: #fff;
       position: relative;
       flex-shrink: 0;
-      /* No explicit height here — height is set on .card-row so cards stretch to fill */
       align-self: stretch;
     }
 
@@ -373,7 +378,7 @@
     const p = PAPER[paper];
     const canvasId = 'qr-' + Math.random().toString(36).slice(2);
 
-    return `<div class="card" style="width:${p.cw};height:${p.ch}">
+    return `<div class="card" style="width:${p.cw}">
       <div class="card-body">
         <div class="card-text">
           <div class="card-headline">${escHtml(t.h1)}\n${escHtml(t.h2)}</div>
@@ -496,7 +501,7 @@
         const left  = chunk[r]     ? buildCard(chunk[r][0],  chunk[r][1],  chunk[r][2],  lang, paper) : `<div class="card card-empty" style="width:${p.cw}"></div>`;
         const right = chunk[r + 1] ? buildCard(chunk[r+1][0],chunk[r+1][1],chunk[r+1][2],lang, paper) : `<div class="card card-empty" style="width:${p.cw}"></div>`;
         const isLastRow = (r + 2 >= chunk.length);
-        cardRowsHtml += `<div class="card-row" style="height:${p.ch}">${left}<div class="card-gap" style="width:${p.gap};flex-shrink:0"></div>${right}</div>${isLastRow ? '' : '<div class="row-separator"></div>'}`;
+        cardRowsHtml += `<div class="card-row">${left}<div class="card-gap" style="width:${p.gap};flex-shrink:0"></div>${right}</div>${isLastRow ? '' : '<div class="row-separator"></div>'}`;
       }
       html += `<div class="sheet" style="width:${p.w};height:${p.h}">
         <div class="sheet-instruction"><span>${escHtml(t.instruction)}</span></div>

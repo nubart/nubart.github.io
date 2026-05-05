@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nubart · TRANSLATE Trial Assessment</title>
+    <title>Nubart · Trial Assessment</title>
     <link rel="stylesheet" href="/assets/css/internal-tools.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <header>
         <div class="logo-mark">N</div>
         <div>
-            <h1>TRANSLATE Trial Assessment</h1>
+            <h1 id="page-title">TRANSLATE Trial Assessment</h1>
             <p>AI-powered trial analysis &amp; HubSpot note · Nubart internal tool</p>
         </div>
         <button class="btn-settings" onclick="showSetup(true)" title="Update API keys">⚙</button>
@@ -43,6 +43,14 @@
         <!-- Inputs -->
         <div class="section">
             <div class="section-label">Trial Data</div>
+
+            <div class="product-selector">
+                <span class="input-label">Product being assessed</span>
+                <div class="product-toggle">
+                    <button class="btn btn-translate-active" id="toggle-translate" onclick="setProduct('TRANSLATE')">TRANSLATE</button>
+                    <button class="btn btn-ghost"            id="toggle-live"      onclick="setProduct('LIVE')">LIVE</button>
+                </div>
+            </div>
 
             <div class="input-grid">
 
@@ -113,6 +121,7 @@
 <script>
     // ─── State ───────────────────────────────────────────────────────────────────
     let csvText           = null;
+    let selectedProduct   = 'TRANSLATE';
     let foundContactId    = null;
     let foundCompanyId    = null;
     let foundDealId       = null;
@@ -142,6 +151,13 @@
         document.getElementById('setup-claude').value = getClaudeKey();
         document.getElementById('setup-hs').value     = getHsToken();
       }
+    }
+
+    function setProduct(p) {
+      selectedProduct = p;
+      document.getElementById('toggle-translate').className = p === 'TRANSLATE' ? 'btn btn-translate-active' : 'btn btn-ghost';
+      document.getElementById('toggle-live').className      = p === 'LIVE'      ? 'btn btn-live-active'      : 'btn btn-ghost';
+      document.getElementById('page-title').textContent     = p + ' Trial Assessment';
     }
 
     if (!getClaudeKey() || !getHsToken()) showSetup(true);
@@ -213,7 +229,7 @@
         foundDealPipeline = dealResult ? dealResult.pipeline : null;
 
         // Step 4: call Claude
-        const prompt   = buildPrompt(csvText);
+        const prompt   = selectedProduct === 'LIVE' ? buildLivePrompt(csvText) : buildTranslatePrompt(csvText);
         const response = await fetch('https://api.anthropic.com/v1/messages', {
           method: 'POST',
           headers: {
@@ -356,7 +372,7 @@
       return out;
     }
 
-    function buildPrompt(csv) {
+    function buildTranslatePrompt(csv) {
       return `You will receive a CSV file containing the results of a Nubart TRANSLATE trial session. Nubart TRANSLATE is a web-based AI simultaneous interpretation system. Analyze the data and produce a concise sales assessment (20 lines maximum, shorter is better).
 
 OUTPUT LANGUAGE RULE:
@@ -400,13 +416,6 @@ If the first several minutes have no translations, the listener may not have kno
 Pattern E — Translation repeats sentences
 Same root cause as Pattern B — microphone feedback. Speaker's microphone is capturing the audio output of the listener device.
 
-Pattern F — Nubart LIVE with AI Translation add-on (specific behaviours)
-If the CSV appears to be from a Nubart LIVE tour guide session rather than a TRANSLATE event — signs: content sounds like tour commentary, utterances are short bursts — apply these additional checks:
-F1 — Audio feedback loop in tour conditions
-If translations appear but transcription shows repeated phrases or mixed-language fragments, the guide's microphone was likely picking up translated audio from nearby visitor devices. In a real tour, visitors should use headphones or keep distance from the guide. This is the same mechanism as Pattern B but more likely in enclosed or outdoor spaces where sound carries unpredictably.
-F2 — Outdoor or noisy environment explaining low scores
-If audio quality scores (column E) are consistently low or highly variable throughout the session, the guide may have been in a noisy environment such as a street, factory, or outdoor site. This is expected in real tour conditions and does not indicate a product problem — recommend a headset or external microphone for the actual tour.
-
 ---
 
 PART 1 — Test completed?
@@ -434,6 +443,98 @@ If the use case is specific and potentially commercially relevant (a government 
 
 PART 5 — Translation quality
 One sentence overall impression. If the average audio quality score (column E) was below 70 for significant portions of the session, note this as the likely root cause of any quality issues — the score is objective evidence recorded in real time. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
+
+---
+
+HERE IS THE CSV DATA:
+
+${csv}`;
+    }
+
+    function buildLivePrompt(csv) {
+      return `You will receive a CSV file containing the results of a Nubart LIVE trial session with the AI Translation add-on activated. Analyze the data and produce a concise sales assessment (20 lines maximum, shorter is better).
+
+OUTPUT LANGUAGE RULE:
+Look at column D (Source Language) and count the rows per language code. If the dominant language is Spanish (es), write the entire assessment in Spanish. In all other cases — regardless of what other languages appear in the CSV — write in English.
+
+ABOUT NUBART LIVE:
+Nubart LIVE is a web-based tour guide system. The guide's voice is streamed live to participant smartphones via WebRTC — participants hear the guide through their own device in real time. The AI Translation add-on is optional; when activated, the guide's speech is also transcribed and translated to each listener's browser language. A CSV exists for this session, which confirms the translation add-on was active.
+
+Key LIVE characteristics to keep in mind:
+- Cards are unique and non-transferable: each participant receives one physical QR card assigned personally to them. The guide scans each card first, then each participant scans their own card with their smartphone to connect.
+- Tours happen while the group is in motion — in museums, outdoors, in factories, on vehicles, on boats. Noisy environments are common and expected.
+- Guide and participants are often physically close, especially during a test. This makes audio feedback more likely than in a seated event scenario.
+- Connectivity gaps are normal in LIVE sessions. WebRTC connections can briefly drop in areas with poor mobile coverage. The guide can tap "Reload" to reconnect the entire group without rescanning cards. A 2–5 minute gap mid-session is likely a reconnection event, not silence.
+- Only one device transmits at a time (the guide device). The guide must be unmuted for voice to be transmitted and for the translation usage timer to count.
+
+ABOUT THE CSV STRUCTURE:
+- Column A (Date): date of each utterance in the guide's local timezone
+- Column B (Time): time of each utterance in the guide's local timezone
+- Column C (User): email address of the guide account — ignore this column entirely
+- Column D (Source Language): language code selected by the guide
+- Column E (Score): audio input quality score, 0–100. Measures how clearly the guide's voice reached the transcription AI. Low scores indicate poor audio conditions — wrong language selected, guide too quiet, background noise, or microphone feedback. Low score = poor transcription = poor translation. The guide can see this score in real time in the interface.
+- Column F (Transcription): what the guide said — already deduplicated by the system
+- Columns G onward: translations — the header row indicates the target language code
+
+Note: the "Transcription fragment" column has been stripped from the data before reaching you. Column G in this data is the first translation language.
+
+---
+
+KNOWN TRIAL PATTERNS — check for these before writing the assessment:
+
+Pattern A — No translation output despite speech being captured
+If transcription is present but all translation columns are empty or contain no data, work through the following to identify the most likely cause:
+A1 — Same browser language on both devices (common in LIVE trials too)
+The guide and the test participant had the same browser language. The participant device repeats the guide's words in an AI voice in the same language rather than translating. This would not happen in a real tour with foreign-language visitors. Signs: no frustrated comments in the transcription, content seems like a genuine test.
+A2 — Quick technical check by a technician
+The tester was simply verifying audio input quality and spectrometer behaviour, not testing translation output at all. Signs: very short session (1–2 minutes), no comments expressing confusion or frustration, content is neutral technical phrases.
+A3 — No listener device connected
+The guide tested with only one device (the guide device) and never connected a second device as a participant. The guide's voice was captured and transcribed but no listener device was present to receive translations. Signs: no confused or frustrated comments, session may be any length, content may be a genuine walkthrough or commentary.
+A4 — "Babel fish" misunderstanding (less common in LIVE)
+The tester expected translation to appear on the guide device rather than on participant devices. In LIVE, the guide interface does not show translations — only the participant interface does. Signs: short session, possibly frustrated comments, quick abandonment.
+
+Pattern B — Repetitions within the same transcription cell
+If you see phrases or words repeated within a single transcription entry (e.g. "la casa la maison es verde"), this is a strong warning sign that the guide's microphone was picking up translated audio output from a nearby participant device, creating a feedback loop. In LIVE tour conditions this is especially common when guide and participant are in the same room during a test, or in enclosed museum spaces with echo, or outdoors where sound carries. In a real tour, visitors should use headphones or keep distance from the guide. The audio quality indicator would have shown red. This is a physical audio issue, not a system malfunction.
+
+Pattern C — Translation makes no sense / poor quality
+Most likely cause: wrong source language selected on the guide device (over 50% of cases). Second cause: poor audio input — background noise, weak microphone signal, or the feedback loop in Pattern B. Check column E scores for confirmation. Note that in outdoor or noisy tour conditions, lower audio scores are expected and do not in themselves indicate a product defect.
+
+Pattern D — Translation starts late
+If the first several minutes have no translations, the participant may not have known to manually select a target language. The system defaults to the listener's browser language; if that matches the guide's language, no translation appears until the participant manually switches. See Pattern A1.
+
+Pattern E — Translation repeats sentences
+Same root cause as Pattern B — microphone feedback. Guide's microphone is capturing the audio output of a nearby participant device.
+
+Pattern G — Mid-session connectivity gap
+If there is a gap of 2–5 minutes with no data in the middle of an otherwise active session, this is likely a WebRTC reconnection event (the guide tapped "Reload" to reconnect the group). This is normal in LIVE tours and does not indicate a product problem. Do not count this gap in the active speaking time calculation.
+
+---
+
+PART 1 — Test completed?
+- If CSV has only a header row and no data rows: "Test completed: NO." The guide opened a session but did not speak with the translation add-on active, or the trial was registered but not run. Stop here, no further parts needed.
+- If CSV has transcription but all translation columns (G onward) are empty or contain only headers with no data: "Test completed: PARTIAL." Explain what likely happened (check known patterns) so the sales rep can address it in the follow-up.
+- If CSV has both transcription and at least some translation data: "Test completed: YES."
+
+PART 2 — Basic info
+- Date of test (from column A)
+- Approximate duration: combine columns A and B to reconstruct timestamps. DO NOT subtract first from last — gaps longer than 5 minutes indicate pauses, reconnections, or separate sessions. Sum only active speaking segments. Report as "approx. X minutes of active use" and note if a mid-session gap suggests a likely reconnection event.
+- Guide's speaking language (from column D)
+- Translation language(s): list only languages from column G onward that have at least one non-empty cell. If all translation columns are empty, write "None — see Part 1."
+- Average audio quality score (mean of column E). Flag if any extended period had scores consistently below 70. Note: some variability in score is expected in outdoor or noisy tour conditions — this does not on its own indicate a product problem.
+
+PART 3 — Prospect reactions and comments
+This is the most important part. Identify any utterances where the guide appears to be reacting to or commenting on the product rather than delivering tour content. This includes: usability reactions, voice quality comments, comments about latency or echo between the guide's live voice and the audio playback on participant devices, comparisons with traditional radio guide systems (Sennheiser, Williams Sound, etc.), mentions of specific tour contexts or venues, pricing reactions, or any other meta-commentary.
+- Summarize each finding concisely
+- If the meaning of a comment is ambiguous, quote it verbatim in the original language
+- Group thematically if several (e.g. audio quality / usability / competitor mentions / use case fit)
+- If nothing found: "No product reactions detected in the transcription."
+
+PART 4 — What kind of tour was simulated?
+2–3 lines. Was the guide conducting a simulated tour walkthrough? Testing in the field? Using an office or indoor space for testing? Identify the apparent venue or sector if possible (museum, factory, outdoor route, vehicle, boat, etc.).
+If the use case is specific and potentially commercially relevant (a heritage site, transport operator, industrial facility, recurring tour format), flag this explicitly for the sales rep.
+
+PART 5 — Translation quality
+One sentence overall impression. If the average audio quality score (column E) was below 70 for significant portions of the session, note this as the likely root cause — but also note whether the session appears to have taken place in a noisy or challenging environment, where some degradation is expected. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
 
 ---
 
@@ -511,7 +612,7 @@ ${csv}`;
         .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
         .split('\n').join(br);
       return '<p>'
-        + '<strong>--- NUBART: TRANSLATE Trial Assessment (AI) ---</strong>' + br + br
+        + '<strong>--- NUBART: ' + selectedProduct + ' Trial Assessment (AI) ---</strong>' + br + br
         + html + br + br
         + '<em>Generated: ' + new Date().toISOString() + '</em>'
         + '</p>';
