@@ -15,7 +15,7 @@
       <h1>Email → HubSpot</h1>
       <p>AI-powered lead extraction &amp; qualification · Nubart internal tool</p>
     </div>
-    <button class="btn-settings" onclick="showSetup(true)" title="Update API keys">⚙</button>
+    <button type="button" class="btn-settings" onclick="showSetup(true)" title="Update API keys">⚙</button>
   </header>
 
   <!-- First-time setup: shown when keys are missing from localStorage -->
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="actions">
-      <button class="btn btn-primary" onclick="saveKeys()">Save &amp; Continue</button>
+      <button type="button" class="btn btn-primary" onclick="saveKeys()">Save &amp; Continue</button>
     </div>
   </div>
 
@@ -46,13 +46,13 @@
         <div class="section-label">Email Content</div>
         <span class="char-count" id="char-count">0 chars</span>
       </div>
-      <textarea id="email-body" placeholder="Paste the full email here, including sender name, email address, company, and message body..."></textarea>
+      <textarea id="email-body" aria-label="Email content" placeholder="Paste the full email here, including sender name, email address, company, and message body..."></textarea>
       <div class="actions">
-        <button class="btn btn-primary" id="analyze-btn" onclick="analyzeEmail()">
+        <button type="button" class="btn btn-primary" id="analyze-btn" onclick="analyzeEmail()">
           <span>Analyze &amp; Extract</span>
           <div class="spinner" id="analyze-spinner"></div>
         </button>
-        <button class="btn btn-ghost" onclick="clearAll()">Clear</button>
+        <button type="button" class="btn btn-ghost" onclick="clearAll()">Clear</button>
       </div>
     </div>
 
@@ -74,7 +74,7 @@
 
         <div class="divider"></div>
         <div class="section-label">Qualification &amp; Assessment</div>
-        <textarea class="qual-box" id="qual-text" rows="10" style="width:100%;resize:vertical;" placeholder="Qualification assessment will appear here..."></textarea>
+        <textarea class="qual-box" id="qual-text" aria-label="Qualification assessment" rows="10" style="width:100%;resize:vertical;" placeholder="Qualification assessment will appear here..."></textarea>
       </div>
 
       <!-- Push to HubSpot -->
@@ -82,11 +82,11 @@
         <div class="section-label">Push to HubSpot</div>
         <p class="push-description">Review the extracted data above. If everything looks correct, push to HubSpot. This will create Company, Contact, Deal (if applicable), and two Notes.</p>
         <div class="push-actions">
-          <button class="btn btn-push" id="push-btn" onclick="pushToHubSpot()">
+          <button type="button" class="btn btn-push" id="push-btn" onclick="pushToHubSpot()">
             <span>Push to HubSpot</span>
             <div class="spinner" id="push-spinner"></div>
           </button>
-          <button class="btn btn-ghost" onclick="reAnalyze()">Re-analyze</button>
+          <button type="button" class="btn btn-ghost" onclick="reAnalyze()">Re-analyze</button>
         </div>
         <div id="status-log"></div>
         <div id="push-result"></div>
