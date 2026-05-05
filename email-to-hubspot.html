@@ -183,8 +183,8 @@
 
   NUBART PRODUCTS:
   - GUIDE: Self-guided audio tours with prerecorded tracks. Visitors scan a QR code and listen at their own pace. For museums, historic sites, walking tours triggered by GPS. Key: prerecorded content, self-guided, no human guide present.
-  - LIVE: Tour guide system. A human guide speaks and a group follows, listening on their phones in real time. Used for group tours, live guided experiences. Key: live human guide, group following simultaneously.
-  - TRANSLATE: AI simultaneous interpretation/translation for events, conferences, seminars, guided tours needing multilingual real-time translation. Key: live event, multiple languages needed simultaneously, conference/seminar context.
+  - LIVE: Tour guide system. A human guide speaks live and a group follows, listening on their phones in real time via WebRTC. The guide's original voice is transmitted to ALL participants (everyone listens to the guide). If the translation add-on is active, foreign-language speakers also receive a real-time AI translation into their language. Typical contexts: group visits to factories, stores, outdoor sites, city tours, any scenario where the group is IN MOTION and/or in a noisy environment where the guide's voice needs to be amplified. Key: live human guide, group moving together, small-to-medium group (up to ~60 people), noisy or mobile environments.
+  - TRANSLATE: AI simultaneous interpretation for STATIONARY audiences at events (conferences, seminars, corporate meetings, ceremonies). The speaker uses a PA/sound system that handles the room — native speakers hear the speaker directly through the PA; TRANSLATE delivers AI-translated audio ONLY to foreign-language listeners via their phones. The speaker's voice is NOT transmitted by TRANSLATE itself. Key: seated/stationary audience, fixed venue with a PA or sound system, large groups possible, no movement, attendees do not follow a guide around a space.
   - SYNC: A QR code that lets visitors hear the audio of a silent on-site video screen, perfectly synced, on their own phone. Used in museums with video exhibits, digital signage, outdoor screens, art installations with video. Key: existing video playing on a screen, visitors need audio. NOT for tours.
   - MOTION: Automated multilingual audio commentary for sightseeing vehicles (boats, buses, trains, trams — any enclosed vehicle with passengers). GPS/remote/timed triggered. Key: vehicle, passengers, automated prerecorded commentary.
 
@@ -194,8 +194,29 @@
   - "Tour guide system", "earpiece", "group guidance" = LIVE
   - "Silent video", "video screen audio", "sync audio to video", "film installation" = SYNC. IMPORTANT: only infer SYNC if the email explicitly mentions a video screen, film, projection, or audio-video synchronisation need. Do NOT suggest SYNC speculatively.
   - "Sightseeing bus/boat/train/tram", "vehicle commentary" = MOTION
-  - "Translation", "interpretation", "multilingual event", "conference" = TRANSLATE
+  - "Conference", "seminar", "auditorium", "seated audience", "simultaneous interpretation booth", "PA system in a room" = TRANSLATE
+  - "Multilingual" alone is NOT enough to infer TRANSLATE — check whether the group is stationary or mobile (see LIVE vs TRANSLATE below)
   - If genuinely ambiguous between two products, set product to "ambiguous" and explain in qualification
+
+  LIVE vs TRANSLATE — CRITICAL DISAMBIGUATION:
+  These two products are frequently confused because both involve real-time multilingual audio. Use these signals to distinguish them:
+
+  → Infer LIVE when you see:
+    - Group visiting places while moving: stores, factories, warehouses, outdoor sites, city streets, museums on a guided tour
+    - Words like "mobile", "on the move", "visiting [locations]", "walking", "following the guide"
+    - Noisy environment (factory floor, retail store, street, construction site)
+    - Small-to-medium group (up to ~60 people) following a single human guide
+    - Need to hear/amplify the guide's voice so the group can follow
+    - Prospect used the TRANSLATE cost calculator but describes a moving-group scenario — OVERRIDE to LIVE
+
+  → Infer TRANSLATE when you see:
+    - Stationary event: conference hall, seminar room, auditorium, ceremony venue
+    - Seated audience; no movement described
+    - Speaker at a podium, stage, or microphone with a PA/sound system already in place
+    - Large audience (100+ people) in a fixed venue
+    - Classic simultaneous interpretation context (UN-style, corporate conference, trade fair keynote)
+
+  → Key conceptual test: Ask yourself "Is the group moving around a space following a guide, or are they sitting in a room listening to a speaker?" Moving = LIVE. Sitting = TRANSLATE.
 
   WHEN PRODUCT IS AMBIGUOUS:
   - Always end the qualification_note's recommended action by explicitly stating that no Deal has been created automatically due to the ambiguous product, and that it should be created manually once the product is clarified.
