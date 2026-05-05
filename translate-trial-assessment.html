@@ -484,8 +484,8 @@ KNOWN TRIAL PATTERNS — check for these before writing the assessment:
 
 Pattern A — No translation output despite speech being captured
 If transcription is present but all translation columns are empty or contain no data, work through the following to identify the most likely cause:
-A1 — Same browser language on both devices (common in LIVE trials too)
-The guide and the test participant had the same browser language. The participant device repeats the guide's words in an AI voice in the same language rather than translating. This would not happen in a real tour with foreign-language visitors. Signs: no frustrated comments in the transcription, content seems like a genuine test.
+A1 — Same language on guide and listener device
+The guide and the test participant selected (or defaulted to) the same language. In this case the listener receives the guide's original voice directly via WebRTC — no translation is triggered and no translated audio plays. The system still generates a transcription internally (required by the translation pipeline) but no participant sees or hears it. This is normal LIVE behaviour, not a failure. Signs: no frustrated comments, content is a genuine test. Flag this to the sales rep so they know translation was simply not exercised — the core product worked as intended.
 A2 — Quick technical check by a technician
 The tester was simply verifying audio input quality and spectrometer behaviour, not testing translation output at all. Signs: very short session (1–2 minutes), no comments expressing confusion or frustration, content is neutral technical phrases.
 A3 — No listener device connected

@@ -87,6 +87,11 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - PL: pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html
 - JA: ja/audio-guides/via-qr-code-pwa-webapp.html
 
+### The truth about AI voices - how good are they really?
+- EN: audio-guides/content-production/ai-voices-for-museums.html
+- DE: de/audioguides/produktion/pros-und-contras-ki-stimmen.html
+- ES: es/blog/voces-artificiales-ia-para-audioguias-pros-y-contras.html
+
 ## Product Pages Paths
 
 ### Nubart LIVE
@@ -136,7 +141,7 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - PT-BR: pt-br/traducao-simultanea-ia/index.html
 - JA: ja/ai-simultaneous-translation/index.html
 
-**Terms and conditions:**
+**Terms and conditions Nubart TRANSLATE:**
 - EN: ai-simultaneous-interpretation/terms-and-conditions.html
 - DE: de/simultan-uebersetzung-ki/agb.html
 - ES: es/traduccion-simultanea-ia/terminos-y-condiciones.html
@@ -206,12 +211,12 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - ES: es/audioguias/condiciones-generales-servicio.html
 - IT: it/audioguida/condizioni-generali-di-servizio.html
 - FR: fr/audioguide/conditions-generales-service.html
-- HE: (still pending)
-- BG: (still pending)
-- PT-BR: (still pending)
 - JA: ja/audio-guides/terms-conditions.html
 - NL: nl/audiogidsen/algemene-voorwaarden.html
 - PL: (still pending)
+- HE: (still pending)
+- BG: (still pending)
+- PT-BR: (still pending)
 
 **Multimedia elements that can be included in Nubart GUIDE:**
 - EN: audio-guides/multimedia-features.html
@@ -224,7 +229,7 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - NL: nl/audiogidsen/multimedia.html
 - PL: pl/audioprzewodnik/funkcje-multimedialne.html
 
-### Content production for Nubart GUIDE
+### Content production
 ****Main service explainer:**
 - EN: audio-guides/content-production/index.html
 - DE: de/audioguides/produktion/index.html
