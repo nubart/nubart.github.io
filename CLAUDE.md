@@ -190,6 +190,18 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - EL: (still pending)
 - JA: ja/ai-simultaneous-translation/nubart-translate-trial.html
 
+**Transcription request:** (unlinked post-event transcript authorization form)
+- EN: ai-simultaneous-interpretation/transcript-processing-request.html
+- DE: de/simultan-uebersetzung-ki/transkript-anfrage.html
+- ES: es/traduccion-simultanea-ia/solicitud-transcripcion.html
+- IT: it/traduzione-simultanea-ia/richiesta-trascrizione.html
+- FR: fr/traduction-simultanee-ia/demande-transcription.html
+- HE: he/ai-simultaneous-interpretation/transcript-processing-request.html
+- BG: (still pending)
+- PT-BR: pt-br/traducao-simultanea-ia/pedido-transcricao.html
+- EL: (still pending)
+- JA: ja/ai-simultaneous-translation/transcript-processing-request.html
+
 ### Nubart GUIDE
 **Main product explainer:**
 - EN: audio-guides/index.html
