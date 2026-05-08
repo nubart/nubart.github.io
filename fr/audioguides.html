@@ -6,82 +6,218 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://www.nubart.eu/audio-guides/#service",
-            "name": "Nubart GUIDE – Audioguides numériques QR (carte, digital, générique)",
-            "provider": {
-                "@id": "https://www.nubart.eu/#organization"
-            },
-            "inLanguage": "fr",
-            "description": "Nubart GUIDE est un système d’audioguide numérique multilingue et de visites multimédias pour musées, sites patrimoniaux et attractions. Livré via des QR codes uniques non transférables brevetés (cartes physiques ou codes numériques via API) ou QR codes génériques ouverts. Nubart permet des visites autonomes, flexibles et monétisables, sans application ni matériel spécifique. Grâce à sa technologie PWA (Progressive Web App), il offre une expérience fluide, y compris hors connexion. Fonctions principales : cartes interactives, géolocalisation, feedback intégré, durabilité (sans déchet électronique), statistiques d’utilisation et accès hors ligne.",
-            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
-            "serviceType": "Système d’audioguide numérique",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": [
-                    "Musées",
-                    "Monuments",
-                    "Organismes de marketing territorial",
-                    "Attractions touristiques",
-                    "Sites patrimoniaux en plein air",
-                    "Aquariums",
-                    "Châteaux"
-                ]
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.nubart.eu/fr/audioguides.html"
-            },
-            "additionalProperty": [
-                {
-                    "@type": "PropertyValue",
-                    "name": "Modes de livraison",
-                    "value": "Cartes physiques avec codes non transférables, QR codes numériques uniques via API, QR codes génériques."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Méthode d’accès",
-                    "value": "Pas besoin d’appli ni de matériel; accès direct par navigateur, utilisation de type PWA, expérience fluide comme une application."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Monétisation",
-                    "value": "Compatible avec la revente ou le partage des revenus pour les établissements."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Intégration",
-                    "value": "API pour intégration à la billetterie et aux boutiques en ligne."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Statistiques",
-                    "value": "Origine, langue et engagement des visiteurs, statistiques en temps réel (anonymisées, RGPD conforme)."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Géolocalisation",
-                    "value": "Cartes interactives, localisation des visiteurs, déclenchement de contenus selon la position (intérieur et extérieur)."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Feedback visiteurs",
-                    "value": "Questionnaires/perceptions intégrés, enquêtes personnalisées, notifications par e-mail."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Fonctionnalité hors-ligne",
-                    "value": "Fonctionnement complet hors connexion après premier chargement – grâce à la technologie PWA."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Durabilité",
-                    "value": "Aucun appareil ou déchet électronique; supports imprimés certifiés FSC, mode tout digital possible."
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.nubart.eu/audio-guides/#service",
+      "name": "Nubart GUIDE – Audioguides QR (Carte, Numérique, Générique)",
+      "provider": {
+        "@id": "https://www.nubart.eu/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "199",
+        "highPrice": "5850",
+        "priceCurrency": "EUR",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Abonnement QR Générique – Niveau 1",
+            "description": "Abonnement mensuel pour les musées et attractions accueillant jusqu'à 20 000 visiteurs par an. Un seul QR code générique pour tous les visiteurs. Non monétisable. Inclut l'accès complet à la plateforme, le tableau de bord d'analytique visiteurs et deux heures par mois de mises à jour de contenu par l'équipe Nubart.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturation mensuelle",
+                "price": "199.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "visiteurs par an"
                 }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturation annuelle",
+                "price": "2189.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "visiteurs par an"
+                }
+              }
             ]
+          },
+          {
+            "@type": "Offer",
+            "name": "Abonnement QR Générique – Niveau 2",
+            "description": "Abonnement mensuel pour les musées et attractions accueillant de 20 001 à 50 000 visiteurs par an. Un seul QR code générique pour tous les visiteurs. Non monétisable. Inclut l'accès complet à la plateforme, le tableau de bord d'analytique visiteurs et deux heures par mois de mises à jour de contenu par l'équipe Nubart.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturation mensuelle",
+                "price": "275.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "visiteurs par an"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturation annuelle",
+                "price": "3025.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "visiteurs par an"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "Abonnement QR Générique – Niveau 3",
+            "description": "Abonnement mensuel pour les musées et attractions accueillant plus de 50 000 visiteurs par an. Un seul QR code générique pour tous les visiteurs. Non monétisable. Inclut l'accès complet à la plateforme, le tableau de bord d'analytique visiteurs et deux heures par mois de mises à jour de contenu par l'équipe Nubart.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturation mensuelle",
+                "price": "349.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "visiteurs par an"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturation annuelle",
+                "price": "3839.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "visiteurs par an"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "Cartes QR Physiques – Paiement à l'usage",
+            "description": "Cartes QR personnalisées, non transférables et réutilisables pour les musées souhaitant monétiser leur audioguide. Commande minimum de 4 000 cartes à 1,00 € par carte (4 000 €), plus des frais uniques de configuration de plateforme de 1 850 €. Investissement minimum total : 5 850 €. Aucun frais récurrent. Les cartes n'expirent pas. Monétisable : les musées peuvent vendre les cartes ou les inclure avec l'entrée. Inclut l'accès complet à la plateforme, le tableau de bord d'analytique visiteurs et deux heures par mois de mises à jour de contenu par l'équipe Nubart.",
+            "price": "5850.00",
+            "priceCurrency": "EUR",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Cartes (commande minimum 4 000 unités)",
+                "price": "4000.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "4000",
+                  "unitText": "cartes"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Frais uniques de configuration de plateforme",
+                "price": "1850.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87"
+              }
+            ]
+          }
+        ]
+      },
+      "inLanguage": "fr",
+      "description": "Nubart GUIDE est un système d’audioguide numérique multilingue et de visites multimédias pour musées, sites patrimoniaux et attractions. Livré via des QR codes uniques non transférables brevetés (cartes physiques ou codes numériques via API) ou QR codes génériques ouverts. Nubart permet des visites autonomes, flexibles et monétisables, sans application ni matériel spécifique. Grâce à sa technologie PWA (Progressive Web App), il offre une expérience fluide, y compris hors connexion. Fonctions principales : cartes interactives, géolocalisation, feedback intégré, durabilité (sans déchet électronique), statistiques d’utilisation et accès hors ligne.",
+      "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+      "serviceType": "Système d’audioguide numérique",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": [
+          "Musées",
+          "Monuments",
+          "Organismes de marketing territorial",
+          "Attractions touristiques",
+          "Sites patrimoniaux en plein air",
+          "Aquariums",
+          "Châteaux"
+        ]
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.nubart.eu/fr/audioguides.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Modes de livraison",
+          "value": "Cartes physiques avec codes non transférables, QR codes numériques uniques via API, QR codes génériques."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Méthode d’accès",
+          "value": "Pas besoin d’appli ni de matériel; accès direct par navigateur, utilisation de type PWA, expérience fluide comme une application."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Monétisation",
+          "value": "Compatible avec la revente ou le partage des revenus pour les établissements."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Intégration",
+          "value": "API pour intégration à la billetterie et aux boutiques en ligne."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Statistiques",
+          "value": "Origine, langue et engagement des visiteurs, statistiques en temps réel (anonymisées, RGPD conforme)."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Géolocalisation",
+          "value": "Cartes interactives, localisation des visiteurs, déclenchement de contenus selon la position (intérieur et extérieur)."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Feedback visiteurs",
+          "value": "Questionnaires/perceptions intégrés, enquêtes personnalisées, notifications par e-mail."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Fonctionnalité hors-ligne",
+          "value": "Fonctionnement complet hors connexion après premier chargement – grâce à la technologie PWA."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Durabilité",
+          "value": "Aucun appareil ou déchet électronique; supports imprimés certifiés FSC, mode tout digital possible."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Support inclus",
+          "value": "Deux heures par mois de mises à jour de contenu par l'équipe Nubart incluses dans tous les forfaits. Mêmes fonctionnalités et même accompagnement par notre équipe quelle que soit la voie tarifaire choisie."
         }
+      ]
+    }
     </script>
 
     <script type="application/ld+json">
@@ -131,10 +267,10 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "Quelles formules commerciales propose Nubart GUIDE ?",
+                    "name": "Combien coûte Nubart GUIDE ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart GUIDE permet différents modèles : accès gratuit, à petit prix ou via sponsoring – adaptables aux objectifs financiers et de public de chaque établissement."
+                        "text": "Le tarif de Nubart GUIDE dépend de la voie de distribution choisie. L'abonnement QR Générique (forfait mensuel, non monétisable) débute à 199 €/mois ou 2 189 €/an pour les établissements jusqu'à 20 000 visiteurs annuels (Niveau 1), et à 275 €/mois pour les établissements de 20 001 à 50 000 visiteurs/an (Niveau 2). La voie Carte Physique (paiement à l'usage, monétisable, sans frais récurrents) requiert une commande minimum de 4 000 cartes. Aucun « abonnement mensuel » standard n'est appliqué à la voie carte. Les deux voies incluent les mêmes fonctionnalités : la même plateforme d'audioguide, deux heures par mois de mises à jour du contenu par l'équipe Nubart, l'accès complet au tableau de bord d'analytique des visiteurs, le support multilingue et le mode hors ligne. Il n'existe pas de palier basique : chaque client Nubart GUIDE bénéficie du même produit et du même accompagnement par notre équipe."
                     }
                 }
             ]
@@ -1442,6 +1578,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <p>Nubart propose des modèles économiques très avantageux</p>
             </div>
+            <p class="lead text-left mb-4">
+                Les deux options incluent la même plateforme complète : audio multilingue, mode hors ligne,
+                tableau de bord d’analyse des visiteurs, outils de feedback intégrés et deux heures par mois
+                de mises à jour de contenu réalisées par notre équipe. Il n’existe pas de version basique.
+                Tous les clients de Nubart GUIDE bénéficient du même produit — et de la même équipe derrière celui-ci.
+            </p>
             <div class="container">
                 <div class="accordion my-4" id="BusModAccordion">
                     <div class="accordion-item border-0 shadow-sm">

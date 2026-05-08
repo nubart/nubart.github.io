@@ -6,84 +6,218 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://www.nubart.eu/audio-guides/#service",
-            "name": "Nubart GUIDE – QRオーディオガイド（カード、デジタル、一般用）",
-            "provider": {
-                "@id": "https://www.nubart.eu/#organization"
-            },
-            "inLanguage": "ja",
-            "description": "Nubart GUIDEは、博物館、文化遺産施設、観光名所向けの多言語対応デジタルオーディオガイド・マルチメディアツアーシステムです。特許取得済みの譲渡不可QRコード（印刷カードまたはAPI連携のユニークデジタルコード）、または汎用QRコードで提供可能。柔軟かつ収益化可能なセルフガイド方式で、アプリや専用端末は不要です。PWA（プログレッシブWebアプリ）対応によりオフライン利用もスムーズ。主な機能：インタラクティブマップ、位置情報、来館者フィードバック、サステナビリティ（端末廃棄ゼロ）、利用分析、オフラインアクセスなど。",
-            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
-            "serviceType": "デジタルオーディオガイドシステム",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": [
-                    "博物館",
-                    "史跡・文化遺産",
-                    "シティマーケティング組織",
-                    "観光名所",
-                    "屋外遺産施設",
-                    "水族館",
-                    "城・お城"
-                ]
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.nubart.eu/ja/audio-guides/"
-            },
-
-
-            "additionalProperty": [
-                {
-                    "@type": "PropertyValue",
-                    "name": "提供方法",
-                    "value": "譲渡不可の物理カード、API経由のユニークデジタルQRコード、一般用QRコード。"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "アクセス方法",
-                    "value": "アプリや専用端末は不要、即時ブラウザアクセス。PWA技術でアプリ的な操作性と利便性も確保。"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "収益化",
-                    "value": "施設による再販売やレベニューシェアに対応。"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "システム連携",
-                    "value": "チケッティングやEC連携のためのAPIあり。"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "分析",
-                    "value": "来館者の出身地・言語・利用状況、利用統計、リアルタイムレポート（匿名化、GDPR準拠）。"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "位置情報",
-                    "value": "インタラクティブマップ、訪問者の位置情報、屋内外の位置連動コンテンツ。"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "来館者フィードバック",
-                    "value": "組み込み型アンケート・フィードバックフォーム、メール通知も可能。"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "オフライン機能",
-                    "value": "初回アクセス後は完全オフラインで利用可能（PWA対応）。"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "サステナビリティ",
-                    "value": "端末不要・電子廃棄ゼロ。FSC認証カード、純デジタルモードも可。"
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.nubart.eu/audio-guides/#service",
+      "name": "Nubart GUIDE – QR音声ガイド（カード、デジタル、汎用）",
+      "provider": {
+        "@id": "https://www.nubart.eu/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "199",
+        "highPrice": "5850",
+        "priceCurrency": "EUR",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "汎用QRサブスクリプション – レベル1",
+            "description": "年間来場者2万人までの美術館や観光施設向けの月額サブスクリプション。すべての来場者用に1つの汎用QRコード。収益化不可。プラットフォームへのフルアクセス、来場者分析ダッシュボード、Nubartチームによる月2時間のコンテンツ更新を含みます。",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "月額請求",
+                "price": "199.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "年間来場者数"
                 }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "年額請求",
+                "price": "2189.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "年間来場者数"
+                }
+              }
             ]
+          },
+          {
+            "@type": "Offer",
+            "name": "汎用QRサブスクリプション – レベル2",
+            "description": "年間来場者2万1人〜5万人の美術館や観光施設向けの月額サブスクリプション。すべての来場者用に1つの汎用QRコード。収益化不可。プラットフォームへのフルアクセス、来場者分析ダッシュボード、Nubartチームによる月2時間のコンテンツ更新を含みます。",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "月額請求",
+                "price": "275.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "年間来場者数"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "年額請求",
+                "price": "3025.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "年間来場者数"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "汎用QRサブスクリプション – レベル3",
+            "description": "年間来場者5万人を超える美術館や観光施設向けの月額サブスクリプション。すべての来場者用に1つの汎用QRコード。収益化不可。プラットフォームへのフルアクセス、来場者分析ダッシュボード、Nubartチームによる月2時間のコンテンツ更新を含みます。",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "月額請求",
+                "price": "349.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "年間来場者数"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "年額請求",
+                "price": "3839.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "年間来場者数"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "物理QRカード – 従量課金",
+            "description": "音声ガイドを収益化したい美術館向けの、譲渡不可で再利用可能なブランドQRカード。1枚あたり1.00ユーロで4,000枚からの最低注文（4,000ユーロ）、加えて1,850ユーロの一回限りのプラットフォーム設定費用が必要です。最低投資額の合計：5,850ユーロ。定期費用なし。カードに有効期限はありません。収益化可能：美術館はカードを単独で販売したり、入場券と組み合わせて販売できます。プラットフォームへのフルアクセス、来場者分析ダッシュボード、Nubartチームによる月2時間のコンテンツ更新を含みます。",
+            "price": "5850.00",
+            "priceCurrency": "EUR",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "カード（最低注文4,000枚）",
+                "price": "4000.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "4000",
+                  "unitText": "カード"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "プラットフォーム設定の一回限りの費用",
+                "price": "1850.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87"
+              }
+            ]
+          }
+        ]
+      },
+      "inLanguage": "ja",
+      "description": "Nubart GUIDEは、博物館、文化遺産施設、観光名所向けの多言語対応デジタルオーディオガイド・マルチメディアツアーシステムです。特許取得済みの譲渡不可QRコード（印刷カードまたはAPI連携のユニークデジタルコード）、または汎用QRコードで提供可能。柔軟かつ収益化可能なセルフガイド方式で、アプリや専用端末は不要です。PWA（プログレッシブWebアプリ）対応によりオフライン利用もスムーズ。主な機能：インタラクティブマップ、位置情報、来館者フィードバック、サステナビリティ（端末廃棄ゼロ）、利用分析、オフラインアクセスなど。",
+      "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+      "serviceType": "デジタルオーディオガイドシステム",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": [
+          "博物館",
+          "史跡・文化遺産",
+          "シティマーケティング組織",
+          "観光名所",
+          "屋外遺産施設",
+          "水族館",
+          "城・お城"
+        ]
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.nubart.eu/ja/audio-guides/"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "提供方法",
+          "value": "譲渡不可の物理カード、API経由のユニークデジタルQRコード、一般用QRコード。"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "アクセス方法",
+          "value": "アプリや専用端末は不要、即時ブラウザアクセス。PWA技術でアプリ的な操作性と利便性も確保。"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "収益化",
+          "value": "施設による再販売やレベニューシェアに対応。"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "システム連携",
+          "value": "チケッティングやEC連携のためのAPIあり。"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "分析",
+          "value": "来館者の出身地・言語・利用状況、利用統計、リアルタイムレポート（匿名化、GDPR準拠）。"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "位置情報",
+          "value": "インタラクティブマップ、訪問者の位置情報、屋内外の位置連動コンテンツ。"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "来館者フィードバック",
+          "value": "組み込み型アンケート・フィードバックフォーム、メール通知も可能。"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "オフライン機能",
+          "value": "初回アクセス後は完全オフラインで利用可能（PWA対応）。"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "サステナビリティ",
+          "value": "端末不要・電子廃棄ゼロ。FSC認証カード、純デジタルモードも可。"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "サポート込み",
+          "value": "Nubartチームによる月2時間のコンテンツ更新がすべてのプランに含まれています。選択する料金プランに関係なく、同じ機能と同じチームサポートをご提供します。"
         }
+      ]
+    }
     </script>
 
     <script type="application/ld+json">
@@ -133,10 +267,10 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "Nubart GUIDEにはどんなビジネスモデルがありますか？",
+                    "name": "Nubart GUIDEの料金はいくらですか？",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart GUIDEは柔軟な提供モデルに対応—無料提供、少額有料、スポンサー導入も可能。施設の目的に合わせて最適化できます。"
+                        "text": "Nubart GUIDEの料金は、選択する提供方式によって異なります。汎用QRサブスクリプション（月額固定料金、収益化不可）は、年間来場者2万人までの施設（レベル1）で月額199ユーロまたは年額2,189ユーロから、年間来場者2万1人〜5万人の施設（レベル2）で月額275ユーロからとなります。物理カード方式（従量課金、収益化可、定期費用なし）は最低4,000枚からの注文が必要です。カード方式に標準的な「月額サブスクリプション」料金はありません。どちらの方式も同じ機能を含みます：同じオーディオガイドプラットフォーム、Nubartチームによる月2時間のコンテンツ更新、来場者分析ダッシュボードへのフルアクセス、多言語対応、オフライン機能。ベーシックプランはなく、すべてのNubart GUIDEのお客様が同じ製品と同じチームサポートを受けられます。"
                     }
                 }
             ]
@@ -914,6 +1048,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <p>Nubartはさまざまなプランをご用意しております。</p>
             </div>
+            <p class="lead text-left mb-4">
+                どちらのプランにも、同じフル機能のプラットフォームが含まれています。多言語音声、オフラインモード、
+                来館者分析ダッシュボード、統合フィードバックツール、さらに当社チームによる月2時間分の
+                コンテンツ更新作業も含まれます。ベーシック版は存在しません。
+                Nubart GUIDE のすべてのお客様に、同じ製品と、それを支える同じチームをご提供しています。
+            </p>
             <div class="row" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-md-4">
                     <div class="icon-box">

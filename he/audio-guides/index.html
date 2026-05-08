@@ -7,86 +7,218 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://www.nubart.eu/audio-guides/#service",
-            "name": "Nubart GUIDE – מדריכי אודיו QR (כרטיס, דיגיטלי, כללי)",
-            "provider": {
-                "@id": "https://www.nubart.eu/#organization"
-            },
-            "inLanguage": "he",
-            "description": "Nubart GUIDE הוא מדריך קולי דיגיטלי ורב-לשוני וסיור מולטימדיה למוזיאונים, אתרי מורשת ואטרקציות. מסופק באמצעות קודי QR מוגנים בפטנט שאינם ניתנים להעברה (כרטיסים מודפסים או קודים ייחודיים דיגיטליים באמצעות API) או קודי QR כלליים פתוחים, Nubart מאפשר סיורים עצמאיים גמישים וניתנים למונטיזציה - ללא צורך באפליקציה או חומרה. התכונות כוללות מפות אינטראקטיביות, מיקום גיאוגרפי, משוב מבקרים משולב, קיימות (ללא פסולת אלקטרונית), ניתוח שימוש וגישה לא מקוונת.",
-            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
-            "serviceType": "מערכת מדריך אודיו דיגיטלי",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": [
-                    "מוזיאונים",
-                    "אנדרטאות",
-                    "גופי תיירות מוניציפליים",
-                    "אטרקציות תיירותיות",
-                    "אתרי מורשת באוויר הפתוח",
-                    "אקווריומים",
-                    "טירות"
-                ]
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.nubart.eu/he/audio-guides/"
-            },
-
-
-
-
-            "additionalProperty": [
-                {
-                    "@type": "PropertyValue",
-                    "name": "שיטות אספקה",
-                    "value": "כרטיסים פיזיים עם קודים שאינם ניתנים להעברה, קודי QR דיגיטליים ייחודיים באמצעות API, קודי QR כלליים."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "שיטת גישה",
-                    "value": "ללא צורך באפליקציה או חומרה, גישה מיידית בדפדפן."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "מונטיזציה",
-                    "value": "תומך במכירה חוזרת או שיתוף בהכנסות עבור מקומות."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "אינטגרציה",
-                    "value": "API לשילוב מערכות כרטוס וחנות מקוונת."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "ניתוחים",
-                    "value": "מקור מבקרים, שפה, מעורבות, סטטיסטיקות שימוש ודיווח בזמן אמת (אנונימי, תואם GDPR)."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "מיקום גיאוגרפי",
-                    "value": "מפות אינטראקטיביות, מיקום מבקרים, תוכן מופעל גיאוגרפית בתוך הבניין ומחוצה לו."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "משוב מבקרים",
-                    "value": "טפסי משוב משולבים וסקרים מותאמים אישית, התראות דוא״ל."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "יכולת לא מקוונת",
-                    "value": "מצב לא מקוון מלא לאחר טעינה ראשונית."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "קיימות",
-                    "value": "ללא מכשירים או פסולת אלקטרונית; רכיבים מודפסים מאושרים FSC, מצב דיגיטלי זמין."
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.nubart.eu/audio-guides/#service",
+      "name": "Nubart GUIDE – אודיו-גיידים בקוד QR (כרטיס, דיגיטלי, גנרי)",
+      "provider": {
+        "@id": "https://www.nubart.eu/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "199",
+        "highPrice": "5850",
+        "priceCurrency": "EUR",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "מנוי QR גנרי – רמה 1",
+            "description": "מנוי חודשי למוזיאונים ולאתרים תיירותיים עם עד 20,000 מבקרים בשנה. קוד QR גנרי אחד לכל המבקרים. לא ניתן למסחר. כולל גישה מלאה לפלטפורמה, לוח אנליטיקה של מבקרים, ושעתיים חודשיות של עדכוני תוכן על ידי צוות Nubart.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "חיוב חודשי",
+                "price": "199.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "מבקרים בשנה"
                 }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "חיוב שנתי",
+                "price": "2189.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "מבקרים בשנה"
+                }
+              }
             ]
+          },
+          {
+            "@type": "Offer",
+            "name": "מנוי QR גנרי – רמה 2",
+            "description": "מנוי חודשי למוזיאונים ולאתרים תיירותיים עם 20,001 עד 50,000 מבקרים בשנה. קוד QR גנרי אחד לכל המבקרים. לא ניתן למסחר. כולל גישה מלאה לפלטפורמה, לוח אנליטיקה של מבקרים, ושעתיים חודשיות של עדכוני תוכן על ידי צוות Nubart.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "חיוב חודשי",
+                "price": "275.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "מבקרים בשנה"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "חיוב שנתי",
+                "price": "3025.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "מבקרים בשנה"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "מנוי QR גנרי – רמה 3",
+            "description": "מנוי חודשי למוזיאונים ולאתרים תיירותיים עם יותר מ-50,000 מבקרים בשנה. קוד QR גנרי אחד לכל המבקרים. לא ניתן למסחר. כולל גישה מלאה לפלטפורמה, לוח אנליטיקה של מבקרים, ושעתיים חודשיות של עדכוני תוכן על ידי צוות Nubart.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "חיוב חודשי",
+                "price": "349.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "מבקרים בשנה"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "חיוב שנתי",
+                "price": "3839.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "מבקרים בשנה"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "כרטיסי QR פיזיים – תשלום לפי שימוש",
+            "description": "כרטיסי QR ממותגים, בלתי ניתנים להעברה ושמישים מחדש למוזיאונים המעוניינים לתמחר את האודיו-גייד שלהם. הזמנה מינימלית של 4,000 כרטיסים במחיר €1.00 לכרטיס (€4,000), בתוספת דמי הקמת פלטפורמה חד-פעמיים של €1,850. השקעה מינימלית כוללת: €5,850. ללא דמי מנוי חוזרים. כרטיסים אינם פגי תוקף. ניתן למסחר: מוזיאונים יכולים למכור כרטיסים או לצרף אותם לכרטיס הכניסה. כולל גישה מלאה לפלטפורמה, לוח אנליטיקה של מבקרים, ושעתיים חודשיות של עדכוני תוכן על ידי צוות Nubart.",
+            "price": "5850.00",
+            "priceCurrency": "EUR",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "כרטיסים (הזמנה מינימלית 4,000 יחידות)",
+                "price": "4000.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "4000",
+                  "unitText": "כרטיסים"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "דמי הקמת פלטפורמה חד-פעמיים",
+                "price": "1850.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87"
+              }
+            ]
+          }
+        ]
+      },
+      "inLanguage": "he",
+      "description": "Nubart GUIDE הוא מדריך קולי דיגיטלי ורב-לשוני וסיור מולטימדיה למוזיאונים, אתרי מורשת ואטרקציות. מסופק באמצעות קודי QR מוגנים בפטנט שאינם ניתנים להעברה (כרטיסים מודפסים או קודים ייחודיים דיגיטליים באמצעות API) או קודי QR כלליים פתוחים, Nubart מאפשר סיורים עצמאיים גמישים וניתנים למונטיזציה - ללא צורך באפליקציה או חומרה. התכונות כוללות מפות אינטראקטיביות, מיקום גיאוגרפי, משוב מבקרים משולב, קיימות (ללא פסולת אלקטרונית), ניתוח שימוש וגישה לא מקוונת.",
+      "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+      "serviceType": "מערכת מדריך אודיו דיגיטלי",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": [
+          "מוזיאונים",
+          "אנדרטאות",
+          "גופי תיירות מוניציפליים",
+          "אטרקציות תיירותיות",
+          "אתרי מורשת באוויר הפתוח",
+          "אקווריומים",
+          "טירות"
+        ]
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.nubart.eu/he/audio-guides/"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "שיטות אספקה",
+          "value": "כרטיסים פיזיים עם קודים שאינם ניתנים להעברה, קודי QR דיגיטליים ייחודיים באמצעות API, קודי QR כלליים."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "שיטת גישה",
+          "value": "ללא צורך באפליקציה או חומרה, גישה מיידית בדפדפן."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "מונטיזציה",
+          "value": "תומך במכירה חוזרת או שיתוף בהכנסות עבור מקומות."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "אינטגרציה",
+          "value": "API לשילוב מערכות כרטוס וחנות מקוונת."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "ניתוחים",
+          "value": "מקור מבקרים, שפה, מעורבות, סטטיסטיקות שימוש ודיווח בזמן אמת (אנונימי, תואם GDPR)."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "מיקום גיאוגרפי",
+          "value": "מפות אינטראקטיביות, מיקום מבקרים, תוכן מופעל גיאוגרפית בתוך הבניין ומחוצה לו."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "משוב מבקרים",
+          "value": "טפסי משוב משולבים וסקרים מותאמים אישית, התראות דוא״ל."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "יכולת לא מקוונת",
+          "value": "מצב לא מקוון מלא לאחר טעינה ראשונית."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "קיימות",
+          "value": "ללא מכשירים או פסולת אלקטרונית; רכיבים מודפסים מאושרים FSC, מצב דיגיטלי זמין."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "תמיכה כלולה",
+          "value": "שעתיים בחודש של עדכוני תוכן על ידי צוות Nubart כלולות בכל התוכניות. אותן יכולות ואותה תמיכת צוות ללא קשר למסלול התמחור שנבחר."
         }
+      ]
+    }
     </script>
 
 
@@ -137,10 +269,10 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "אילו מודלים של תמחור או עסקיים זמינים עבור Nubart GUIDE?",
+                    "name": "כמה עולה Nubart GUIDE?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart GUIDE מציע מודלים עסקיים גמישים. מוזיאונים יכולים לספק אותו בחינם למבקרים, לגבות תשלום קטן או לממן אותו באמצעות חסויות. גמישות זו מאפשרת לכל מוסד להתאים את המטרות הפיננסיות והקהל שלו."
+                        "text": "המחיר של Nubart GUIDE תלוי במסלול ההפצה הנבחר. מנוי QR גנרי (תשלום חודשי קבוע, לא ניתן למסחר) מתחיל ב-199 €/חודש או 2,189 €/שנה עבור מוסדות עם עד 20,000 מבקרים בשנה (רמה 1), וב-275 €/חודש עבור מוסדות עם 20,001–50,000 מבקרים בשנה (רמה 2). מסלול הכרטיס הפיזי (תשלום לפי שימוש, ניתן למסחר, ללא דמי מנוי) דורש הזמנה מינימלית של 4,000 כרטיסים. אין דמי «מנוי חודשי» סטנדרטיים במסלול הכרטיס. שני המסלולים כוללים את אותן יכולות בדיוק: אותה פלטפורמת אודיו-גייד, שעתיים בחודש של עדכוני תוכן על ידי צוות Nubart, גישה מלאה ללוח האנליטיקה של המבקרים, תמיכה רב-לשונית ויכולת עבודה ללא חיבור לאינטרנט. אין רמה בסיסית – כל לקוח של Nubart GUIDE מקבל את אותו מוצר ואת אותה תמיכת צוות."
                     }
                 }
             ]
@@ -1419,6 +1551,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <p>ל-Nubart יש מודלים עסקיים נוחים במיוחד</p>
             </div>
+            <p class="lead text-left mb-4">
+                שני המסלולים כוללים את אותה פלטפורמה מלאה: אודיו רב־לשוני, מצב אופליין,
+                לוח בקרה לניתוח נתוני מבקרים, כלי משוב משולבים ושעתיים בחודש
+                של עדכוני תוכן על ידי הצוות שלנו. אין גרסת בסיס.
+                כל לקוחות Nubart GUIDE מקבלים את אותו המוצר — ואת אותם האנשים שמאחוריו.
+            </p>
             <div class="container">
                 <div class="accordion my-4" id="BusModAccordion">
                     <div class="accordion-item border-0 shadow-sm">

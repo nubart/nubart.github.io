@@ -6,82 +6,218 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://www.nubart.eu/audio-guides/#service",
-            "name": "Nubart GUIDE – Audioguías digitales por QR (tarjeta, digital, genérica)",
-            "provider": {
-                "@id": "https://www.nubart.eu/#organization"
-            },
-            "inLanguage": "es",
-            "description": "Nubart GUIDE es un sistema multilingüe de audioguía digital y visita multimedia para museos, sitios patrimoniales y atracciones turísticas. Se ofrece mediante códigos QR no transferibles patentados (impresos en tarjetas o códigos digitales únicos vía API) o códigos QR genéricos de acceso abierto. Nubart permite visitas autoguiadas, monetizables y flexibles, sin necesidad de app ni dispositivos externos. Entre sus funciones destacan: mapas interactivos, geolocalización, encuestas integradas para visitantes, sostenibilidad (sin residuos electrónicos), analíticas de uso y acceso sin conexión.",
-            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
-            "serviceType": "Sistema de audioguía digital",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": [
-                    "Museos",
-                    "Monumentos",
-                    "Organizaciones de marketing de ciudad",
-                    "Atracciones turísticas",
-                    "Yacimientos y espacios patrimoniales al aire libre",
-                    "Acuarios",
-                    "Castillos"
-                ]
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.nubart.eu/es/audioguias.html"
-            },
-            "additionalProperty": [
-                {
-                    "@type": "PropertyValue",
-                    "name": "Métodos de entrega",
-                    "value": "Tarjetas físicas con códigos no transferibles, códigos QR digitales únicos vía API, códigos QR genéricos."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Método de acceso",
-                    "value": "No requiere app ni dispositivos; acceso instantáneo desde el navegador."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Monetización",
-                    "value": "Compatible con reventa directa o modelos de reparto de ingresos para sedes."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Integración",
-                    "value": "API para integración con sistemas de tickets y comercio electrónico."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Analíticas",
-                    "value": "Datos de procedencia, idioma y uso de visitantes, métricas de participación y estadísticas en tiempo real (anonimizadas y conformes al RGPD)."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Geolocalización",
-                    "value": "Mapas interactivos, localización de usuario, contenidos activados por proximidad en interiores y exteriores."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Feedback del visitante",
-                    "value": "Formularios de opinión integrados y encuestas personalizadas con notificaciones por correo electrónico."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Funcionalidad offline",
-                    "value": "Modo completo sin conexión tras la primera carga."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Sostenibilidad",
-                    "value": "Sin dispositivos ni residuos electrónicos; componentes impresos en cartón con certificación FSC y opción 100% digital."
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.nubart.eu/audio-guides/#service",
+      "name": "Nubart GUIDE – Audioguías QR (tarjeta, digital, genérica)",
+      "provider": {
+        "@id": "https://www.nubart.eu/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "199",
+        "highPrice": "5850",
+        "priceCurrency": "EUR",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Suscripción QR Genérico – Nivel 1",
+            "description": "Suscripción mensual para museos y atracciones con hasta 20.000 visitantes al año. Un único código QR genérico para todos los visitantes. No monetizable. Incluye acceso completo a la plataforma, panel de analítica de visitantes y dos horas mensuales de actualizaciones de contenido por parte del equipo de Nubart.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturación mensual",
+                "price": "199.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "visitantes al año"
                 }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturación anual",
+                "price": "2189.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "visitantes al año"
+                }
+              }
             ]
+          },
+          {
+            "@type": "Offer",
+            "name": "Suscripción QR Genérico – Nivel 2",
+            "description": "Suscripción mensual para museos y atracciones con entre 20.001 y 50.000 visitantes al año. Un único código QR genérico para todos los visitantes. No monetizable. Incluye acceso completo a la plataforma, panel de analítica de visitantes y dos horas mensuales de actualizaciones de contenido por parte del equipo de Nubart.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturación mensual",
+                "price": "275.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "visitantes al año"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturación anual",
+                "price": "3025.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "visitantes al año"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "Suscripción QR Genérico – Nivel 3",
+            "description": "Suscripción mensual para museos y atracciones con más de 50.000 visitantes al año. Un único código QR genérico para todos los visitantes. No monetizable. Incluye acceso completo a la plataforma, panel de analítica de visitantes y dos horas mensuales de actualizaciones de contenido por parte del equipo de Nubart.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturación mensual",
+                "price": "349.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "visitantes al año"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Facturación anual",
+                "price": "3839.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "visitantes al año"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "Tarjetas QR Físicas – Pago por uso",
+            "description": "Tarjetas QR personalizadas, no transferibles y reutilizables para museos que deseen monetizar su audioguía. Pedido mínimo de 4.000 tarjetas a 1,00 € por tarjeta (4.000 €), más una tarifa única de configuración de plataforma de 1.850 €. Inversión mínima total: 5.850 €. Sin cuotas recurrentes. Las tarjetas no caducan. Monetizable: los museos pueden venderlas o incluirlas con la entrada. Incluye acceso completo a la plataforma, panel de analítica de visitantes y dos horas mensuales de actualizaciones de contenido por parte del equipo de Nubart.",
+            "price": "5850.00",
+            "priceCurrency": "EUR",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Tarjetas (pedido mínimo 4.000 unidades)",
+                "price": "4000.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "4000",
+                  "unitText": "tarjetas"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Tarifa única de configuración de plataforma",
+                "price": "1850.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87"
+              }
+            ]
+          }
+        ]
+      },
+      "inLanguage": "es",
+      "description": "Nubart GUIDE es un sistema multilingüe de audioguía digital y visita multimedia para museos, sitios patrimoniales y atracciones turísticas. Se ofrece mediante códigos QR no transferibles patentados (impresos en tarjetas o códigos digitales únicos vía API) o códigos QR genéricos de acceso abierto. Nubart permite visitas autoguiadas, monetizables y flexibles, sin necesidad de app ni dispositivos externos. Entre sus funciones destacan: mapas interactivos, geolocalización, encuestas integradas para visitantes, sostenibilidad (sin residuos electrónicos), analíticas de uso y acceso sin conexión.",
+      "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+      "serviceType": "Sistema de audioguía digital",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": [
+          "Museos",
+          "Monumentos",
+          "Organizaciones de marketing de ciudad",
+          "Atracciones turísticas",
+          "Yacimientos y espacios patrimoniales al aire libre",
+          "Acuarios",
+          "Castillos"
+        ]
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.nubart.eu/es/audioguias.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Métodos de entrega",
+          "value": "Tarjetas físicas con códigos no transferibles, códigos QR digitales únicos vía API, códigos QR genéricos."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Método de acceso",
+          "value": "No requiere app ni dispositivos; acceso instantáneo desde el navegador."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Monetización",
+          "value": "Compatible con reventa directa o modelos de reparto de ingresos para sedes."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Integración",
+          "value": "API para integración con sistemas de tickets y comercio electrónico."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Analíticas",
+          "value": "Datos de procedencia, idioma y uso de visitantes, métricas de participación y estadísticas en tiempo real (anonimizadas y conformes al RGPD)."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Geolocalización",
+          "value": "Mapas interactivos, localización de usuario, contenidos activados por proximidad en interiores y exteriores."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Feedback del visitante",
+          "value": "Formularios de opinión integrados y encuestas personalizadas con notificaciones por correo electrónico."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Funcionalidad offline",
+          "value": "Modo completo sin conexión tras la primera carga."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Sostenibilidad",
+          "value": "Sin dispositivos ni residuos electrónicos; componentes impresos en cartón con certificación FSC y opción 100% digital."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Soporte incluido",
+          "value": "Dos horas mensuales de actualizaciones de contenido por parte del equipo de Nubart incluidas en todos los planes. Mismas funcionalidades y mismo apoyo del equipo independientemente de la vía de precio elegida."
         }
+      ]
+    }
     </script>
 
     <script type="application/ld+json">
@@ -131,10 +267,10 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "¿Qué modelos de negocio ofrece Nubart GUIDE?",
+                    "name": "¿Cuánto cuesta Nubart GUIDE?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart GUIDE ofrece modelos de negocio flexibles. Los museos pueden ofrecerlo gratuitamente a los visitantes, cobrar una tarifa simbólica o financiarlo mediante patrocinios, adaptándolo así a sus objetivos financieros y de público."
+                        "text": "El precio de Nubart GUIDE depende de la vía de distribución elegida. La suscripción QR Genérico (cuota mensual fija, no monetizable) parte de 199 €/mes o 2.189 €/año para centros con hasta 20.000 visitantes anuales (Nivel 1) y de 275 €/mes para centros con 20.001–50.000 visitantes/año (Nivel 2). La vía de Tarjeta Física (pago por uso, monetizable, sin cuota recurrente) requiere un pedido mínimo de 4.000 tarjetas. No existe una «cuota mensual» estándar para la vía de tarjeta. Ambas vías incluyen las mismas funcionalidades: la misma plataforma de audioguía, dos horas mensuales de actualizaciones de contenido por parte del equipo de Nubart, acceso completo al panel de analítica de visitantes, soporte multilingüe y capacidad offline. No hay un nivel básico: todo cliente de Nubart GUIDE recibe el mismo producto y el mismo apoyo del equipo."
                     }
                 }
             ]
@@ -1475,6 +1611,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <p>Nubart tiene modelos de negocio muy convenientes</p>
             </div>
+            <p class="lead text-left mb-4">
+                Ambas opciones incluyen la misma plataforma completa: audio multilingüe, modo offline,
+                panel de analíticas para visitantes, herramientas de feedback integradas y dos horas al mes
+                de actualizaciones de contenidos realizadas por nuestro equipo. No existe una versión básica.
+                Todos los clientes de Nubart GUIDE reciben el mismo producto y cuentan con las mismas personas detrás.
+            </p>
             <div class="container">
                 <div class="accordion my-4" id="BusModAccordion">
                     <div class="accordion-item border-0 shadow-sm">

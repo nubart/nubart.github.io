@@ -7,84 +7,218 @@
 
 
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://www.nubart.eu/audio-guides/#service",
-            "name": "Nubart GUIDE – QR-audiogidsen (kaart, digitaal, generiek)",
-            "provider": {
-                "@id": "https://www.nubart.eu/#organization"
-            },
-            "inLanguage": "nl",
-            "description": "Nubart GUIDE is een meertalige digitale audiogids- en multimediatour-oplossing voor musea, erfgoedlocaties en toeristische attracties. Levering vindt plaats via gepatenteerde, niet-overdraagbare QR-codes (geprinte kaarten of unieke digitale codes via API) of via generieke QR-codes voor open toegang. Nubart maakt flexibele, zelfgeleide en te monetariseren tours mogelijk, zonder app of hardware. Dankzij PWA-technologie (Progressive Web App) kan de gids volledig offline en als app-ervaring gebruikt worden. Functies zijn onder meer interactieve kaarten, geolocatie, geïntegreerde bezoekersfeedback, duurzaamheid (geen e-waste), gebruiksstatistieken en offline toegang.",
-            "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
-            "serviceType": "Digitaal audiogidssysteem",
-            "audience": {
-                "@type": "BusinessAudience",
-                "audienceType": [
-                    "Musea",
-                    "Monumenten",
-                    "Citymarketingorganisaties",
-                    "Toeristische attracties",
-                    "Openlucht erfgoedlocaties",
-                    "Aquaria",
-                    "Kastelen"
-                ]
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.nubart.eu/nl/audiogidsen/"
-            },
-
-
-            "additionalProperty": [
-                {
-                    "@type": "PropertyValue",
-                    "name": "Leveringsmethode",
-                    "value": "Fysieke kaarten met niet-overdraagbare codes, unieke digitale QR-codes via API, generieke QR-codes."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Toegangsmodaliteit",
-                    "value": "Geen app of hardware nodig; directe toegang via browser, PWA-technologie voor app-ervaring."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Monetisatie",
-                    "value": "Ondersteunt wederverkoop of revenue share voor locaties."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Integratie",
-                    "value": "API voor integratie met ticket- en webshopoplossingen."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Analyse",
-                    "value": "Herkomst, taal, betrokkenheid van bezoekers, gebruiksstatistieken en realtime rapportage (geanonimiseerd, AVG-conform)."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Geolocatie",
-                    "value": "Interactieve kaarten, bezoekerslocatie, locatiegestuurde content (binnen/buiten)."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Bezoekersfeedback",
-                    "value": "Ingebouwde feedbackformulieren en enquêtes, meldingen per e-mail."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Offline-functie",
-                    "value": "Volledige offline-ervaring na eerste toegang, mede dankzij PWA."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Duurzaamheid",
-                    "value": "Geen apparatuur of e-waste; FSC-gecertificeerd drukwerk, ook volledig digitaal beschikbaar."
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.nubart.eu/audio-guides/#service",
+      "name": "Nubart GUIDE – QR-audiogidsen (Kaart, Digitaal, Generiek)",
+      "provider": {
+        "@id": "https://www.nubart.eu/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "199",
+        "highPrice": "5850",
+        "priceCurrency": "EUR",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Generiek QR-abonnement – Niveau 1",
+            "description": "Maandelijks abonnement voor musea en attracties met maximaal 20.000 bezoekers per jaar. Eén generieke QR-code voor alle bezoekers. Niet te monetariseren. Inclusief volledige toegang tot het platform, het dashboard met bezoekersanalyses en twee uur per maand aan content-updates door het Nubart-team.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Maandelijkse facturatie",
+                "price": "199.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "bezoekers per jaar"
                 }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Jaarlijkse facturatie",
+                "price": "2189.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "maxValue": "20000",
+                  "unitText": "bezoekers per jaar"
+                }
+              }
             ]
+          },
+          {
+            "@type": "Offer",
+            "name": "Generiek QR-abonnement – Niveau 2",
+            "description": "Maandelijks abonnement voor musea en attracties met 20.001 tot 50.000 bezoekers per jaar. Eén generieke QR-code voor alle bezoekers. Niet te monetariseren. Inclusief volledige toegang tot het platform, het dashboard met bezoekersanalyses en twee uur per maand aan content-updates door het Nubart-team.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Maandelijkse facturatie",
+                "price": "275.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "bezoekers per jaar"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Jaarlijkse facturatie",
+                "price": "3025.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "20001",
+                  "maxValue": "50000",
+                  "unitText": "bezoekers per jaar"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "Generiek QR-abonnement – Niveau 3",
+            "description": "Maandelijks abonnement voor musea en attracties met meer dan 50.000 bezoekers per jaar. Eén generieke QR-code voor alle bezoekers. Niet te monetariseren. Inclusief volledige toegang tot het platform, het dashboard met bezoekersanalyses en twee uur per maand aan content-updates door het Nubart-team.",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Maandelijkse facturatie",
+                "price": "349.00",
+                "priceCurrency": "EUR",
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "bezoekers per jaar"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Jaarlijkse facturatie",
+                "price": "3839.00",
+                "priceCurrency": "EUR",
+                "unitCode": "ANN",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "minValue": "50001",
+                  "unitText": "bezoekers per jaar"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Offer",
+            "name": "Fysieke QR-kaarten – Pay-as-you-go",
+            "description": "Niet-overdraagbare, herbruikbare gebrande QR-kaarten voor musea die hun audiogids willen monetariseren. Minimumbestelling van 4.000 kaarten à €1,00 per kaart (€4.000), plus eenmalige opzetkosten van het platform van €1.850. Totale minimale investering: €5.850. Geen terugkerende kosten. Kaarten hebben geen vervaldatum. Te monetariseren: musea kunnen kaarten los verkopen of bundelen met het entreeticket. Inclusief volledige toegang tot het platform, het dashboard met bezoekersanalyses en twee uur per maand aan content-updates door het Nubart-team.",
+            "price": "5850.00",
+            "priceCurrency": "EUR",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Kaarten (minimumbestelling 4.000 stuks)",
+                "price": "4000.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "4000",
+                  "unitText": "kaarten"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "name": "Eenmalige opzetkosten van het platform",
+                "price": "1850.00",
+                "priceCurrency": "EUR",
+                "unitCode": "H87"
+              }
+            ]
+          }
+        ]
+      },
+      "inLanguage": "nl",
+      "description": "Nubart GUIDE is een meertalige digitale audiogids- en multimediatour-oplossing voor musea, erfgoedlocaties en toeristische attracties. Levering vindt plaats via gepatenteerde, niet-overdraagbare QR-codes (geprinte kaarten of unieke digitale codes via API) of via generieke QR-codes voor open toegang. Nubart maakt flexibele, zelfgeleide en te monetariseren tours mogelijk, zonder app of hardware. Dankzij PWA-technologie (Progressive Web App) kan de gids volledig offline en als app-ervaring gebruikt worden. Functies zijn onder meer interactieve kaarten, geolocatie, geïntegreerde bezoekersfeedback, duurzaamheid (geen e-waste), gebruiksstatistieken en offline toegang.",
+      "image": "https://www.nubart.eu/assets/img/nubart-guide.webp",
+      "serviceType": "Digitaal audiogidssysteem",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": [
+          "Musea",
+          "Monumenten",
+          "Citymarketingorganisaties",
+          "Toeristische attracties",
+          "Openlucht erfgoedlocaties",
+          "Aquaria",
+          "Kastelen"
+        ]
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.nubart.eu/nl/audiogidsen/"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Leveringsmethode",
+          "value": "Fysieke kaarten met niet-overdraagbare codes, unieke digitale QR-codes via API, generieke QR-codes."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Toegangsmodaliteit",
+          "value": "Geen app of hardware nodig; directe toegang via browser, PWA-technologie voor app-ervaring."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Monetisatie",
+          "value": "Ondersteunt wederverkoop of revenue share voor locaties."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Integratie",
+          "value": "API voor integratie met ticket- en webshopoplossingen."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Analyse",
+          "value": "Herkomst, taal, betrokkenheid van bezoekers, gebruiksstatistieken en realtime rapportage (geanonimiseerd, AVG-conform)."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Geolocatie",
+          "value": "Interactieve kaarten, bezoekerslocatie, locatiegestuurde content (binnen/buiten)."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Bezoekersfeedback",
+          "value": "Ingebouwde feedbackformulieren en enquêtes, meldingen per e-mail."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Offline-functie",
+          "value": "Volledige offline-ervaring na eerste toegang, mede dankzij PWA."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Duurzaamheid",
+          "value": "Geen apparatuur of e-waste; FSC-gecertificeerd drukwerk, ook volledig digitaal beschikbaar."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Inbegrepen ondersteuning",
+          "value": "Twee uur per maand aan content-updates door het Nubart-team is in alle plannen inbegrepen. Dezelfde functies en dezelfde teamondersteuning, ongeacht het gekozen prijskanaal."
         }
+      ]
+    }
     </script>
 
     <script type="application/ld+json">
@@ -134,10 +268,10 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "Welke businessmodellen zijn er voor Nubart GUIDE?",
+                    "name": "Wat kost Nubart GUIDE?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nubart GUIDE biedt flexibele modellen: musea kunnen het gratis aanbieden, tegen een kleine vergoeding verkopen of via sponsoring financieren – geheel naar eigen (financiële) doelstellingen."
+                        "text": "De prijs van Nubart GUIDE hangt af van het gekozen distributiekanaal. Het Generieke QR-abonnement (vast maandbedrag, niet te monetariseren) start bij €199/maand of €2.189/jaar voor locaties met maximaal 20.000 bezoekers per jaar (Niveau 1) en bij €275/maand voor locaties met 20.001–50.000 bezoekers per jaar (Niveau 2). Het kanaal Fysieke Kaart (betalen per gebruik, te monetariseren, zonder terugkerend bedrag) vereist een minimumbestelling van 4.000 kaarten. Voor het kaartkanaal geldt geen standaard «maandabonnement». Beide kanalen bevatten dezelfde functies: hetzelfde audiogidsplatform, twee uur per maand aan content-updates door het Nubart-team, volledige toegang tot het dashboard met bezoekersanalyses, meertalige ondersteuning en offline-mogelijkheid. Er is geen basisniveau – elke klant van Nubart GUIDE krijgt hetzelfde product en dezelfde teamondersteuning."
                     }
                 }
             ]
@@ -922,6 +1056,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     
                     <p>Nubart houdt het praktisch voor u</p>
                 </div>
+                <p class="lead text-left mb-4">
+                    Beide opties omvatten hetzelfde volledige platform: meertalige audio, offline modus,
+                    een dashboard voor bezoekersanalyses, geïntegreerde feedbacktools en twee uur per maand
+                    contentupdates door ons team. Er bestaat geen uitgeklede basisversie.
+                    Elke Nubart GUIDE-klant krijgt hetzelfde product — en dezelfde mensen erachter.
+                </p>
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-md-4">
                         <div class="icon-box">
