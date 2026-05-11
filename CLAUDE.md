@@ -72,11 +72,23 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - EN: audio-guides/offline-mode-best-practices.html
 - DE: de/audioguides/streaming-oder-offline.html
 - ES: es/blog/audioguia-streaming-versus-offline.html
+- JA: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
 
 ### Museum Audio Guide Apps: Only 2.47% of Visitors Download Them
 - EN: audio-guides/museum-audio-guide-app-adoption-rates.html
 - DE: de/audioguides/download-raten-audioguide-apps-fuer-museen.html
 - ES: es/blog/tasa-adopcion-app-audioguia-para-museos.html
+- JA: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
 
 ### How to Create a Museum Audioguide: Complete Guide to PWA and QR Code Solutions
 - EN: audio-guides/implementing-pwa-museum-guide.html
@@ -86,11 +98,32 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - FR: fr/blog/installation-pwa-audioguide-musee.html
 - PL: pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html
 - JA: ja/audio-guides/via-qr-code-pwa-webapp.html
+- NL: (still pending)
+- PT-BR: (still pending)
+- 
+### Why web-based audio guides give museums better visitor data than apps or devices
+- EN: audio-guides/pwa-for-visitor-insights.html
+- DE: de/audioguides/zur-datenerfassung-besucherstatistik.html
+- ES: es/blog/como-obtener-datos-visitantes-museo.html
+- IT: it/blog/come-ottenere-dati-statistici-visitatori-museo.html
+- FR: fr/blog/comment-obtenir-donnees-sur-visiteurs-musee.html
+- PL:  (still pending)
+- JA: ja/audio-guides/how-to-collect-visitors-data.html
+- NL:  (still pending)
+- PT-BR:  (still pending)
+
+
 
 ### The truth about AI voices - how good are they really?
 - EN: audio-guides/content-production/ai-voices-for-museums.html
 - DE: de/audioguides/produktion/pros-und-contras-ki-stimmen.html
 - ES: es/blog/voces-artificiales-ia-para-audioguias-pros-y-contras.html
+- JA: ja/audio-guides/ai-voices-pros-and-cons.html
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
 
 ## Product Pages Paths
 
@@ -316,6 +349,18 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - Never use `/index.html` in links - use directory path only (e.g., `/digital-tour-guide-app/`)
 - Exception: when technically necessary
 - All internal links should be relative
+
+## Internal cross-linking standards
+When proposing or applying links between pages (especially cross-links between blog articles in the same cluster), hold every link to two standards. Drop the link if it fails either.
+
+1. **Semantic precision — the two concepts must actually be the same thing.** Surface similarity (shared words, shared directory, adjacent topic) is not enough. Examples that fail this test:
+   - Linking "geotracking" (an analytics/statistical feature) to "geolocation-triggered scrolling" (a playback functionality) — they share GPS as a substrate but answer different questions.
+   - Linking "modular content structure" (a UX choice about organizing tracks) to "modular datasets in analytics" (the consequence that each module gets its own statistics) — same word, different concern.
+   If two concepts share a substrate but answer different questions for the reader, do not link them.
+
+2. **Real reader value at that exact sentence — not formulaic "you may also like".** A link only earns its place if a reader, at that specific moment in the paragraph, would actually benefit from the destination. Generic noun-phrase links near intros or closings ("digital audio guides", "browser-based audio guide" → hub article) feel formulaic and add no genuine continuation. The footer "You may also be interested in" block already covers related-reading suggestions.
+
+When proposing cross-links, write a one-sentence justification for each that names (a) the exact question the reader has at that moment, and (b) how the destination answers it. If the justification feels weak or generic, drop the link rather than proposing it. Prefer fewer high-value links over many borderline ones.
 
 ## Translation Workflow
 - ALWAYS start with English (canonical)
