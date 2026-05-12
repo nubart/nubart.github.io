@@ -112,8 +112,6 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - NL:  (still pending)
 - PT-BR:  (still pending)
 
-
-
 ### The truth about AI voices - how good are they really?
 - EN: audio-guides/content-production/ai-voices-for-museums.html
 - DE: de/audioguides/produktion/pros-und-contras-ki-stimmen.html
