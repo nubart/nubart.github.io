@@ -508,24 +508,61 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <h2 id="wifi-server">What About an Onboard Wi-Fi Server?</h2>
 
-                    <p>A different category of providers takes a hardware-first approach: a dedicated box installed on the vessel creates a local Wi-Fi network, serves audio content from onboard storage, and uses its own GPS receiver to trigger commentary. Passengers connect to the boat's Wi-Fi rather than using mobile data.</p>
+                    <p>A different category of providers takes a hardware-first approach: a dedicated box
+                        installed on the vessel creates a local Wi-Fi network, serves audio content from onboard
+                        storage, and uses its own GPS receiver to trigger commentary. Passengers connect to the
+                        boat's Wi-Fi rather than using mobile data.</p>
 
-                    <p>This approach does solve the GPS problem properly. The GPS runs on operator-controlled hardware, not on passenger phones, which means no permission issues and no dependence on the chipset quality of individual passenger devices. For routes with genuinely zero mobile coverage — a fjord tour, an underground river, an enclosed mountain pass — it is a legitimate solution.</p>
+                    <p>This approach does solve the GPS problem properly. The GPS runs on operator-controlled
+                        hardware, not on passenger phones, which means no permission issues and no dependence on
+                        the chipset quality of individual passenger devices. For routes with genuinely zero mobile
+                        coverage — a fjord tour, an underground river, an enclosed mountain pass — it is a
+                        legitimate solution.</p>
 
-                    <p>But it carries a set of tradeoffs that matter significantly for most urban and harbour operators.</p>
+                    <p>But it carries a set of tradeoffs that matter significantly for most urban and harbour
+                        operators.</p>
 
-                    <p><strong>Every vessel needs its own hardware.</strong> A fleet of ten boats means ten boxes to purchase, install, and maintain. Beyond the box itself, GPS antenna cables, power lines, and any external cellular uplinks all have connectors that vibrate loose on diesel engines, and a dead GPS antenna means no triggering until someone physically traces the fault. Hardware costs in this category typically run in the range of several thousand euros per unit before installation, content setup, and annual support contracts. That is a capex commitment before a single tour runs, and it scales linearly with fleet size.</p>
+                    <p><strong>Every vessel needs its own hardware.</strong> A fleet of ten boats means ten
+                        boxes to purchase, install, and maintain. Beyond the box itself, GPS antenna cables, power
+                        lines, and any external cellular uplinks all have connectors that vibrate loose on diesel
+                        engines — and a dead GPS antenna means no triggering until someone physically traces the
+                        fault. Hardware costs in this category typically run in the range of several thousand euros
+                        per unit before installation, content setup, and annual support contracts. That is a capex
+                        commitment before a single tour runs, and it scales linearly with fleet size.</p>
 
-                    <p><strong>Passengers must leave mobile data behind.</strong> When a smartphone joins a Wi-Fi network, it drops its cellular connection. Unless the onboard box is bridged to an external internet uplink — which adds cost and complexity — passengers lose access to WhatsApp, Google Maps, Instagram, and everything else that requires the internet for the duration of the tour. Many passengers will simply not join the Wi-Fi, or will disconnect halfway through when they want to send a photo.</p>
+                    <p><strong>Passengers must leave mobile data behind.</strong> When a smartphone joins a
+                        Wi-Fi network, it drops its cellular connection. Unless the onboard box is bridged to an
+                        external internet uplink — which adds cost and complexity — passengers lose access to
+                        WhatsApp, Google Maps, Instagram, and everything else that requires the internet for the
+                        duration of the tour. iOS makes this worse: when a phone joins a local network with no
+                        internet access, it displays a warning asking whether to "Use Without Internet" or switch
+                        back. Many passengers tap the wrong option and never successfully connect. Others who do
+                        connect will drop off the Wi-Fi halfway through when they want to send a photo.</p>
 
-                    <p><strong>Captive portal friction is real.</strong> Passengers must actively join the vessel's Wi-Fi network from their phone settings, then get redirected through a captive portal. On iOS, captive portals open in a restricted mini-browser that frequently blocks audio autoplay and background playback, which is precisely the feature the system is meant to deliver.</p>
+                    <p><strong>Joining the network is a manual step with real drop-off.</strong> Even when
+                        these systems avoid the most restrictive form of captive portal by using a simple password
+                        and a QR code that opens directly in the normal browser, passengers still have to manually
+                        switch Wi-Fi networks in their phone settings before anything else can happen. That step
+                        alone — find the network name, tap it, wait for the connection, dismiss the iOS internet
+                        warning — is where a meaningful share of passengers, particularly older visitors and those
+                        navigating an unfamiliar phone interface, give up. </p>
 
-                    <p><strong>Content updates require active management.</strong> Updating audio tracks or routes on a fleet of hardware boxes means either physical access to each unit or purpose-built remote management infrastructure. </p>
+                    <p><strong>Content updates require active management.</strong> Updating audio tracks or
+                        routes on a fleet of hardware boxes means either physical access to each unit or
+                        purpose-built remote management infrastructure. A route change that takes minutes to deploy
+                        on a server-based system can mean a visit to every vessel in the fleet.</p>
 
-                    <p><strong>Marine environments are hard on hardware.</strong> Humidity, salt air, vibration, and temperature variation degrade consumer-grade electronics. A box on a boat is not a box in a server room.</p>
+                    <p><strong>Marine environments are hard on hardware.</strong> Humidity, salt air, vibration,
+                        and temperature variation degrade consumer-grade electronics in ways that are difficult to
+                        predict and expensive to fix mid-season. A box on a boat is not a box in a server room.</p>
 
-                    <p>For the typical urban harbour tour, river cruise, or hop-on hop-off bus operating in areas with at least intermittent mobile coverage, the hardware approach introduces substantial upfront cost and ongoing complexity without delivering advantages that a properly architected software solution cannot also provide. The strongest way to frame the difference: hardware-based systems put the infrastructure on the operator's vessels. Software-based systems put it on the provider's servers. When something breaks or needs updating in a software system, the operator never needs to know.</p>
-
+                    <p>For the typical urban harbour tour, river cruise, or hop-on hop-off bus operating in
+                        areas with at least intermittent mobile coverage, the hardware approach introduces
+                        substantial upfront cost and ongoing complexity without delivering advantages that a
+                        properly architected software solution cannot also provide. The clearest way to frame the
+                        difference: hardware-based systems put the infrastructure on the operator's vessels.
+                        Software-based systems put it on the provider's servers. When something breaks or needs
+                        updating in a software system, the operator never needs to know.</p>
 
                     <h2 id="solution">Moving the GPS Off Passenger Devices Entirely</h2>
 
