@@ -124,6 +124,17 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - NL: (still pending)
 - PT-BR: (still pending)
 
+### Why GPS Audio Commentary for Sightseeing Vehicles Fails: And How to Fix It
+- EN: audio-commentary-system/gps-triggered-commentary-sightseeing-vehicles.html
+- DE: (still pending)
+- ES: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+- JA: (still pending)
+
 ## Product Pages Paths
 
 ### Nubart LIVE
