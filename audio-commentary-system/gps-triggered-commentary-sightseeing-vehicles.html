@@ -490,11 +490,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p>This is where the conversation gets more technically interesting, and where most providers either go quiet or offer explanations that do not fully hold up in practice.</p>
 
-                    <p>Browser-based audio guides can request GPS access through the standard HTML5 Geolocation API. In principle, this allows automatic triggering: the passenger's phone tracks its own position, and when it enters a defined zone near a point of interest, the relevant audio plays automatically. In practice, this approach has several serious failure modes on real vehicles with real passengers.</p>
+                    <p>Browser-based audio guides can request GPS access through the standard Geolocation API. In principle, this allows automatic triggering: the passenger's phone tracks its own position, and when it enters a defined zone near a point of interest, the relevant audio plays automatically. In practice, this approach has several serious failure modes on real vehicles with real passengers.</p>
 
                     <p><strong>iPhone permission layers.</strong> On iOS, location permissions can fail at several different layers: the system settings, the browser-level settings, or the website-level permissions. A passenger who tapped "Allow" once may still have GPS silently blocked at another level they never saw. From the passenger's perspective, these failures are indistinguishable from a working system, which makes them very difficult to diagnose or resolve on a moving boat.</p>
 
-                    <p><strong>Background tab suspension.</strong> When a passenger switches from the browser to their camera app to photograph a landmark, iOS suspends the browser tab. GPS updates stop. Audio triggering stops. The passenger takes their photo, returns to the browser, and has missed the commentary for the exact landmark they just photographed.</p>
+                    <p><strong>Background tab suspension.</strong> When a passenger switches from the browser to their camera app to photograph a landmark, the browser tab is suspended and geolocation updates stop. Audio triggering stops. The passenger takes their photo, returns to the browser, and has missed the commentary for the exact landmark they just photographed.</p>
 
                     <p><strong>Device variation.</strong> A group of 40 passengers boards with 40 different smartphones. Some have recent flagship devices with excellent GPS chipsets. Others have budget phones three or four years old. The triggering performance varies dramatically, and there is no way to control for it.</p>
 
