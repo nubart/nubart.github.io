@@ -224,6 +224,7 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - EN: ai-simultaneous-interpretation/nubart-translate-trial.html
 - DE (only for Austrian leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-oes.html
 - DE (only for German and Swiss leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-dach.html
+- DE (only for Südtirol): de/simultan-uebersetzung-ki/nubart-translate-testkit-suedtirol.html
 - ES: es/traduccion-simultanea-ia/nubart-translate-prueba-gratis.html
 - IT: it/traduzione-simultanea-ia/nubart-translate-prova-gratuita.html
 - FR: fr/traduction-simultanee-ia/nubart-translate-essai-gratuit.html
