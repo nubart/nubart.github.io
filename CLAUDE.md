@@ -57,6 +57,28 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - NL: (still pending)
 - PT-BR: (still pending)
 
+### Enhancing museum visitor experience with QR Codes: A comprehensive guide
+- EN: audio-guides/qr-codes-in-museums-visitor-experience.html
+- DE: (still pending)
+- ES: es/blog/codigos-qr-en-museos-trucos-y-guia.html
+- JA: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+
+### Port Tsuruga - when museums become places of connection
+- EN: audio-guides/tsuruga-museum-hebrew-voiceover.html
+- DE: (still pending)
+- ES: (still pending)
+- JA: ja/audio-guides/tsuruga-port-humanity-museum.html
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+
 ### Accessible Digital Audio Guides for Museums | Nubart GUIDE
 - EN: audio-guides/inclusive-museum-qr-codes.html
 - DE: de/audioguides/barrierefrei.html
@@ -112,6 +134,38 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - NL:  (still pending)
 - PT-BR:  (still pending)
 
+### What to Expect (and What Not to Expect) from AI vs. Human Interpretation
+-EN: ai-simultaneous-interpretation/ai-vs-human-interpretation.html
+- DE: de/simultan-uebersetzung-ki/erwartungen-ki-vs-menschliche-dolmetscher.html
+-ES: es/traduccion-simultanea-ia/expectativas-interpretacion-ia-vs-humana.html
+- IT:  (still pending)
+- FR: (still pending)
+- PL:  (still pending)
+- JA: (still pending)
+- NL:  (still pending)
+- PT-BR:  (still pending)
+
+### Remote-controlled audioguide to alleviate problems with tour guide shortage
+-EN: audio-guides/remote-controlled-guides-solution.html
+- DE: de/audioguides/mit-fernbedienung.html
+  -ES: es/blog/audioguia-web-app-por-control-remoto.html
+- IT:  it/blog/audioguida-telecomandata-visite-guidate.html
+- FR: fr/blog/audioguide-qr-web-app-telecommande.html
+- PL:  (still pending)
+- JA: ja/audio-guides/with-remote-control.html
+- NL:  (still pending)
+- PT-BR:  (still pending)
+
+### Do you sell postcards in your museum store? Consider turning your audio tour into postcards
+-EN: audio-guides/postcard-qr-code-souvenirs.html
+- DE: de/audioguides/als-postkarte-im-museumsshop.html
+  -ES: es/blog/vender-audioguia-como-postal-en-tienda-museo.html
+- IT: it/blog/vendere-audioguide-come-cartoline-nel-negozio-museo.html
+- FR: fr/blog/vendre-audioguides-comme-cartes-postales-boutique-musee.html
+- PL:  (still pending)
+- JA: ja/audio-guides/sold-as-postcards.html
+- NL:  (still pending)
+- PT-BR: (still pending)
 
 ### The truth about AI voices - how good are they really?
 - EN: audio-guides/content-production/ai-voices-for-museums.html
@@ -124,9 +178,42 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - NL: (still pending)
 - PT-BR: (still pending)
 
+### How to create an audio guide for children
+- EN: audio-guides/content-production/writing-scripts-for-children.html
+- DE: de/audioguides/produktion/wie-drehbuch-fuer-kinder-schreiben.html
+- ES: es/blog/como-escribir-audioguias-para-ninos.html
+- JA: ja/audio-guides/script-for-children.html
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+
+### How to write a script for a museum audio guide
+- EN: audio-guides/content-production/writing-museum-guide-scripts.html
+- DE: de/audioguides/produktion/wie-skript-schreiben.html
+- ES: es/blog/como-escribir-guion-audioguia.html
+- JA: ja/audio-guides/how-to-write-the-script.html
+- IT: it/blog/come-scrivere-sceneggiatura-per-audioguida.html
+- FR: fr/blog/comment-rediger-script-audioguide.html
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+
+### How to Translate Audio Guides: Best Practices by Nubart
+- EN: audio-guides/content-production/translation-guidelines-audio-guides.html
+- DE: (still pending)
+- ES: es/blog/guia-para-traduccion-audioguias.html
+- JA: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+- 
 ### Why GPS Audio Commentary for Sightseeing Vehicles Fails: And How to Fix It
 - EN: audio-commentary-system/gps-triggered-commentary-sightseeing-vehicles.html
-- DE: (still pending)
+- DE: de/audioguides/gps-audioguide-schiffstouren-und-busse.html
 - ES: (still pending)
 - IT: (still pending)
 - FR: (still pending)
@@ -386,10 +473,76 @@ When proposing cross-links, write a one-sentence justification for each that nam
 ## Schema.org Structured Data (CRITICAL)
 - Claude Code MUST review and update Schema.org/JSON-LD when page content changes
 - Schema structure must remain consistent across all language versions
-- `@id` tags should stay in ENGLISH when technically advisable
-- Only translate `@id` values when it semantically makes sense
 - Always verify schema matches actual page content after edits
 - For schema type selection and structure: ask Rosa or provide recommendations case-by-case
+
+### Blog article patterns (canonical rules for `isPartOf`, breadcrumbs, and translations)
+
+**`isPartOf`** — every blog-style article (BlogPosting, Article, TechArticle, ScholarlyArticle on a blog topic) in a language that has a Blog hub must declare itself part of its language's Blog entity, by `@id` reference, never inline:
+
+- EN: `"isPartOf": { "@id": "https://www.nubart.eu/x-blog/#blog" }`
+- DE: `"isPartOf": { "@id": "https://www.nubart.eu/de/blog/#blog" }`
+- ES: `"isPartOf": { "@id": "https://www.nubart.eu/es/blog/#blog" }`
+- IT: `"isPartOf": { "@id": "https://www.nubart.eu/it/blog/#blog" }`
+- FR: `"isPartOf": { "@id": "https://www.nubart.eu/fr/blog/#blog" }`
+- JA: `"isPartOf": { "@id": "https://www.nubart.eu/ja/blog/#blog" }`
+
+The Blog entity itself is declared once on each language's blog hub page (`x-blog/index.html`, `de/blog/index.html`, `es/blog/index.html`, `it/blog/index.html`, `fr/blog/index.html`, `ja/blog/index.html`) with that exact `@id`. Do NOT invent per-cluster Blog entities like "Nubart Audio Guide Blog" — there is one Blog per language.
+
+**Languages without a Blog hub** — PL, NL, BG and PT-BR currently have no Blog hub page, so there is no Blog entity to reference. Blog-style articles in those languages **omit `isPartOf` entirely** (do not point at a non-existent Blog). They still get per-language `@id`, `mainEntityOfPage`, breadcrumb, and `translationOfWork` like every other translation. If you later create a Blog hub for one of these languages, add the matching `isPartOf` to every existing article in that language and declare the Blog `@id` on the new hub.
+
+**BreadcrumbList** — use Google's simple form (`name` + `item: URL` string), never `@id` on a ListItem and never the verbose nested `WebPage` form:
+
+```json
+{ "@type": "ListItem", "position": 1, "name": "Nubart", "item": "https://www.nubart.eu/" }
+```
+
+Breadcrumb path should mirror each language's topical cluster (e.g. `Home › Nubart GUIDE › Article`, `Home › Nubart MOTION › Article`, `Home › ... › Content Production › Article`). Use `https://schema.org`, never `http://schema.org`.
+
+### Multilingual translation strategy (per-language `@id` + `translationOfWork` / `workTranslation`)
+
+Each language version of an article is a distinct Schema.org Work, identified by its own URL. They are joined by `translationOfWork` (on translations) and `workTranslation` (on the canonical).
+
+**On a translated article (DE, ES, IT, FR, JA, NL, PL, PT-BR, …):**
+
+```json
+{
+  "@type": "TechArticle",
+  "@id": "https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html#article",
+  "inLanguage": "de",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html"
+  },
+  "isPartOf": { "@id": "https://www.nubart.eu/de/blog/#blog" },
+  "translationOfWork": {
+    "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html#article"
+  }
+}
+```
+
+**On the canonical EN article:**
+
+```json
+{
+  "@type": "TechArticle",
+  "@id": "https://www.nubart.eu/audio-guides/content-structure-digital-guides.html#article",
+  "inLanguage": "en",
+  "isPartOf": { "@id": "https://www.nubart.eu/x-blog/#blog" },
+  "workTranslation": [
+    { "@id": "https://www.nubart.eu/de/audioguides/mit-benutzerfreundlicher-struktur.html#article" },
+    { "@id": "https://www.nubart.eu/es/blog/como-estructurar-navegacion-intuitiva-audioguia.html#article" }
+  ]
+}
+```
+
+Rules:
+- The `@id` of every article must match its own URL with `#article` suffix. Never reuse another language's `@id`.
+- `mainEntityOfPage @id` must match the page's own URL (no `#article`). Never the EN URL on a DE/ES/… page.
+- `inLanguage` must match the actual language of the headline/description, not the language of any FAQs or sections that may still be untranslated.
+- When migrating a new language, add an entry to each affected EN article's `workTranslation` array.
+- For articles using the WebPage > mainEntity: Article nested pattern, place `@id`, `mainEntityOfPage`, `isPartOf`, `translationOfWork` on the inner Article entity (not on the outer WebPage).
+- For articles using `@graph`, place these properties on the Article/TechArticle node within the graph.
 
 ## Contact & Business Information
 - Currently hardcoded in each language file
