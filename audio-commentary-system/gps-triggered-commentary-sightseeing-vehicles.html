@@ -101,57 +101,6 @@
         }
     </script>
 
-    <!-- Structured Data: FAQPage -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "inLanguage": "en",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "Can GPS-triggered audio commentary work on a sightseeing boat without a native app?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes, but not by putting GPS on passenger smartphones. Browser-based GPS triggers on passenger devices fail in practice due to iOS permission complexity, background tab suspension when passengers use their camera, device variation across 40 different handsets, and battery-saving behaviour that disables location services. A more reliable approach centralises GPS positioning on the operator side and synchronises triggering signals across all passenger devices, so passengers simply scan a QR code and listen without needing to grant any permissions."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Why do PA systems and tannoys drive away local passengers on sightseeing boats?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "PA systems impose a single audio experience at a fixed volume on everyone aboard. For local residents who know the area and simply want to enjoy the view, this is intrusive rather than useful. Operators who have switched to opt-in smartphone-based commentary report that locals return to routes they had previously avoided. Opt-in audio also benefits passengers with sensory sensitivities and those who use Bluetooth hearing aids, for whom loudspeaker commentary can make the experience inaccessible."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What is the difference between radius-based GPS triggers and directional trigger lines for boat tours?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Radius-based GPS triggers fire whenever a vehicle enters a circular zone around a point of interest, regardless of direction. This causes problems on return routes, where the same commentary fires again when the boat passes the same landmark heading back to port. Directional trigger lines are virtual lines drawn across the waterway with an assigned direction. They fire only when crossed in the specified direction, allowing different audio to play on outbound and return journeys, or preventing repeated playback entirely."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What happens to the audio guide if the boat enters a tunnel or area with no mobile signal?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Audio content preloads onto passenger devices when they first scan the QR code, so playback continues even when connectivity drops. For triggering in dead zones, a time-based fallback can be configured: the system advances through predefined stops on a timed schedule rather than waiting for a GPS event that may not arrive in areas with poor signal."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Does a sightseeing boat audio guide work on Android and iPhone without an app?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. QR-based browser systems work on any smartphone with a browser, on both Android and iOS, without requiring app downloads, account creation, or location permissions from passengers. The key is that GPS triggering must not rely on passenger devices. When positioning is handled centrally on the operator side, passenger devices require no permissions and no special configuration regardless of manufacturer, operating system version, or browser."
-                    }
-                }
-            ]
-        }
-    </script>
-
     <!-- Structured Data: BreadcrumbList -->
     <script type="application/ld+json">
         {
@@ -410,14 +359,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="d-md-none" style="height: 60px;"></div>
 <section class="breadcrumbs d-none d-md-block">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Why GPS Audio Commentary for Sightseeing Vehicles Fails</h2>
-            <ol>
-                <li><a href="../">Home</a></li>
-                <li><a href="../x-blog/">Nubart Blog</a></li>
-                <li>GPS Commentary for Sightseeing Vehicles</li>
-            </ol>
-        </div>
+        <ol>
+            <li><a href="../">Home</a></li>
+            <li><a href="../x-blog/">Nubart Blog</a></li>
+            <li>GPS Commentary for Sightseeing Vehicles</li>
+        </ol>
     </div>
 </section>
 <!-- End Breadcrumbs -->
