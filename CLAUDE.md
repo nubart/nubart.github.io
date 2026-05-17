@@ -214,8 +214,8 @@ Some of our products/languages have a subdirectory for a specific product, but t
 ### Why GPS Audio Commentary for Sightseeing Vehicles Fails: And How to Fix It
 - EN: audio-commentary-system/gps-triggered-commentary-sightseeing-vehicles.html
 - DE: de/audioguides/gps-audioguide-schiffstouren-und-busse.html
-- ES: (still pending)
-- IT: (still pending)
+- ES: es/blog/comentarios-gps-vehiculos-turisticos.html
+- IT: it/blog/commenti-gps-veicoli-turistici.html
 - FR: (still pending)
 - PL: (still pending)
 - NL: (still pending)
