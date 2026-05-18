@@ -217,17 +217,25 @@ function liveCalcRequestQuote() {
     const s = liveCalcState;
     const total = (document.getElementById('live-calc-result-total') || {}).textContent || '\u2014';
 
-    let details = [];
-    if (s.pkg === 'pyo') details.push('Print-Your-Own: ' + s.pkgQty + ' codici');
-    else if (s.pkg === 'basic') details.push('Basic: ' + s.pkgQty + ' \u00d7 500 schede');
-    else if (s.pkg === 'custom') details.push('Custom: ' + s.pkgQty.toLocaleString('it') + ' schede');
-    if (s.media && s.mediaQty > 0) details.push(s.mediaQty > 1 ? s.mediaQty + ' librerie multimediali' : '1 libreria multimediale');
-    if (s.translate) details.push('Traduzione IA: ' + s.guides + ' guid' + (s.guides > 1 ? 'e' : 'a') + ', ' + s.hours + ' h cad.');
+    let cardLine = '';
+    if (s.pkg === 'pyo') cardLine = 'Print-Your-Own (' + s.pkgQty + ' codici)';
+    else if (s.pkg === 'basic') cardLine = 'Basic (' + s.pkgQty + ' \u00d7 500 schede)';
+    else if (s.pkg === 'custom') cardLine = 'Custom (' + s.pkgQty.toLocaleString('it') + ' schede)';
 
-    const config = details.join(' \u00b7 ');
-    const trial = s.firstTime ? 'Sì (30 min di prova da detrarre)' : 'No';
+    const mediaLine = (s.media && s.mediaQty > 0)
+        ? 'Sì (' + (s.mediaQty > 1 ? s.mediaQty + ' librerie multimediali' : '1 libreria multimediale') + ')'
+        : 'No';
+
+    let translationLine, firstTimeLine = '';
+    if (s.translate) {
+        translationLine = 'Sì (' + s.guides + ' guid' + (s.guides > 1 ? 'e' : 'a') + ' \u00d7 ' + s.hours + ' h cad.)';
+        firstTimeLine = '\n- Primo utilizzo della traduzione IA: ' + (s.firstTime ? 'Sì (30 min di prova da detrarre)' : 'No');
+    } else {
+        translationLine = 'No';
+    }
+
     const subject = 'Richiesta preventivo \u2013 Nubart LIVE (stima ' + total + ')';
-    const body = 'Salve,\n\nHo usato il calcolatore dei costi sul vostro sito e vorrei ricevere un preventivo ufficiale per Nubart LIVE:\n\nConfigurazione: ' + config + '\nPrimo utilizzo: ' + trial + '\nTotale stimato (calcolatore): ' + total + ' IVA esclusa\n\nVi chiedo di inviarmi un preventivo ufficiale intestato alla mia azienda.\n\n[Inserisci qui il tuo nome, il nome dell\'azienda e la partita IVA]\n\nGrazie';
+    const body = 'Salve,\n\nHo usato il calcolatore dei costi sul vostro sito e vorrei ricevere un preventivo ufficiale per Nubart LIVE:\n\n- Pacchetto schede: ' + cardLine + '\n- Libreria multimediale: ' + mediaLine + '\n- Traduzione IA: ' + translationLine + firstTimeLine + '\n- Totale stimato (calcolatore): ' + total + ' IVA esclusa\n\nVi chiedo di inviarmi un preventivo ufficiale intestato alla mia azienda.\n\n[Inserisci qui il tuo nome, il nome dell\'azienda e la partita IVA]\n\nGrazie';
 
     const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 

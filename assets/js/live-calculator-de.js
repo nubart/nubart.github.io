@@ -217,17 +217,25 @@ function liveCalcRequestQuote() {
     const s = liveCalcState;
     const total = (document.getElementById('live-calc-result-total') || {}).textContent || '\u2014';
 
-    let details = [];
-    if (s.pkg === 'pyo') details.push('Print-Your-Own: ' + s.pkgQty + ' Codes');
-    else if (s.pkg === 'basic') details.push('Basic: ' + s.pkgQty + ' \u00d7 500 Karten');
-    else if (s.pkg === 'custom') details.push('Custom: ' + s.pkgQty.toLocaleString('de') + ' Karten');
-    if (s.media && s.mediaQty > 0) details.push(s.mediaQty > 1 ? s.mediaQty + ' Mediatheken' : '1 Mediathek');
-    if (s.translate) details.push('KI-Übersetzung: ' + s.guides + ' Guide' + (s.guides > 1 ? 's' : '') + ', ' + s.hours + ' h je Guide');
+    let cardLine = '';
+    if (s.pkg === 'pyo') cardLine = 'Print-Your-Own (' + s.pkgQty + ' Codes)';
+    else if (s.pkg === 'basic') cardLine = 'Basic (' + s.pkgQty + ' \u00d7 500 Karten)';
+    else if (s.pkg === 'custom') cardLine = 'Custom (' + s.pkgQty.toLocaleString('de') + ' Karten)';
 
-    const config = details.join(' \u00b7 ');
-    const trial = s.firstTime ? 'Ja (30 Min. Test werden abgezogen)' : 'Nein';
+    const mediaLine = (s.media && s.mediaQty > 0)
+        ? 'Ja (' + (s.mediaQty > 1 ? s.mediaQty + ' Mediatheken' : '1 Mediathek') + ')'
+        : 'Nein';
+
+    let translationLine, firstTimeLine = '';
+    if (s.translate) {
+        translationLine = 'Ja (' + s.guides + ' Guide' + (s.guides > 1 ? 's' : '') + ' \u00d7 ' + s.hours + ' h je Guide)';
+        firstTimeLine = '\n- Erstmalige Nutzung der KI-Übersetzung: ' + (s.firstTime ? 'Ja (30 Min. Test werden abgezogen)' : 'Nein');
+    } else {
+        translationLine = 'Nein';
+    }
+
     const subject = 'Angebotsanfrage \u2013 Nubart LIVE (ca. ' + total + ')';
-    const body = 'Sehr geehrte Damen und Herren,\n\nich habe den Kostenkalkulator auf Ihrer Website verwendet und möchte ein offizielles Angebot für Nubart LIVE erhalten:\n\nKonfiguration: ' + config + '\nErstkunde: ' + trial + '\nGeschätzter Gesamtbetrag (Kalkulator): ' + total + ' zzgl. MwSt.\n\nBitte senden Sie mir ein offizielles Angebot auf meinen Firmennamen.\n\n[Bitte Name, Firmenname und USt-IdNr. hier eintragen]\n\nMit freundlichen Grüßen';
+    const body = 'Sehr geehrte Damen und Herren,\n\nich habe den Kostenkalkulator auf Ihrer Website verwendet und möchte ein offizielles Angebot für Nubart LIVE erhalten:\n\n- Kartenpaket: ' + cardLine + '\n- Mediathek: ' + mediaLine + '\n- KI-Übersetzung: ' + translationLine + firstTimeLine + '\n- Geschätzter Gesamtbetrag (Kalkulator): ' + total + ' zzgl. MwSt.\n\nBitte senden Sie mir ein offizielles Angebot auf meinen Firmennamen.\n\n[Bitte Name, Firmenname und USt-IdNr. hier eintragen]\n\nMit freundlichen Grüßen';
 
     const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 

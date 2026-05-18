@@ -217,17 +217,25 @@ function liveCalcRequestQuote() {
     const s = liveCalcState;
     const total = (document.getElementById('live-calc-result-total') || {}).textContent || '\u2014';
 
-    let details = [];
-    if (s.pkg === 'pyo') details.push('Print-Your-Own: ' + s.pkgQty + 'コード');
-    else if (s.pkg === 'basic') details.push('Basic: ' + s.pkgQty + ' \u00d7 500枚');
-    else if (s.pkg === 'custom') details.push('Custom: ' + s.pkgQty.toLocaleString('ja') + '枚');
-    if (s.media && s.mediaQty > 0) details.push('メディアライブラリ ' + s.mediaQty + '点');
-    if (s.translate) details.push('AI翻訳: ガイド' + s.guides + '名, ' + s.hours + 'h/名');
+    let cardLine = '';
+    if (s.pkg === 'pyo') cardLine = 'Print-Your-Own (' + s.pkgQty + 'コード)';
+    else if (s.pkg === 'basic') cardLine = 'Basic (' + s.pkgQty + ' \u00d7 500枚)';
+    else if (s.pkg === 'custom') cardLine = 'Custom (' + s.pkgQty.toLocaleString('ja') + '枚)';
 
-    const config = details.join(' \u00b7 ');
-    const trial = s.firstTime ? 'はい（30分トライアル控除あり）' : 'いいえ';
+    const mediaLine = (s.media && s.mediaQty > 0)
+        ? 'はい（' + s.mediaQty + '点）'
+        : 'いいえ';
+
+    let translationLine, firstTimeLine = '';
+    if (s.translate) {
+        translationLine = 'はい（ガイド' + s.guides + '名 \u00d7 ' + s.hours + '時間/名）';
+        firstTimeLine = '\n・AI翻訳の初回利用：' + (s.firstTime ? 'はい（30分トライアル控除あり）' : 'いいえ');
+    } else {
+        translationLine = 'いいえ';
+    }
+
     const subject = '見積もり依頼 \u2013 Nubart LIVE（推定 ' + total + '）';
-    const body = 'ご担当者様\n\nウェブサイトのコスト計算ツールを使用しました。Nubart LIVEの正式見積もりをお送りいただけますでしょうか。\n\n構成：' + config + '\n初回利用：' + trial + '\n推定合計（計算ツール）：' + total + '（税別）\n\n弊社宛の正式見積書をお送りください。\n\n【お名前、会社名、法人番号をご記入ください】\n\nよろしくお願いいたします。';
+    const body = 'ご担当者様\n\nウェブサイトのコスト計算ツールを使用しました。Nubart LIVEの正式見積もりをお送りいただけますでしょうか。\n\n・カードパッケージ：' + cardLine + '\n・メディアライブラリ：' + mediaLine + '\n・AI翻訳：' + translationLine + firstTimeLine + '\n・推定合計（計算ツール）：' + total + '（税別）\n\n弊社宛の正式見積書をお送りください。\n\n【お名前、会社名、法人番号をご記入ください】\n\nよろしくお願いいたします。';
 
     const mailtoLink = 'mailto:nami.hirota@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 

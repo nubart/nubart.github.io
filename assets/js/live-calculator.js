@@ -217,17 +217,25 @@ function liveCalcRequestQuote() {
     const s = liveCalcState;
     const total = (document.getElementById('live-calc-result-total') || {}).textContent || '\u2014';
 
-    let details = [];
-    if (s.pkg === 'pyo') details.push('Print-Your-Own: ' + s.pkgQty + ' codes');
-    else if (s.pkg === 'basic') details.push('Basic: ' + s.pkgQty + ' \u00d7 500 cards');
-    else if (s.pkg === 'custom') details.push('Custom: ' + s.pkgQty.toLocaleString('en') + ' cards');
-    if (s.media && s.mediaQty > 0) details.push(s.mediaQty + ' media librar' + (s.mediaQty > 1 ? 'ies' : 'y'));
-    if (s.translate) details.push('AI translation: ' + s.guides + ' guide' + (s.guides > 1 ? 's' : '') + ', ' + s.hours + ' h each');
+    let cardLine = '';
+    if (s.pkg === 'pyo') cardLine = 'Print-Your-Own (' + s.pkgQty + ' codes)';
+    else if (s.pkg === 'basic') cardLine = 'Basic (' + s.pkgQty + ' \u00d7 500 cards)';
+    else if (s.pkg === 'custom') cardLine = 'Custom (' + s.pkgQty.toLocaleString('en') + ' cards)';
 
-    const config = details.join(' \u00b7 ');
-    const trial = s.firstTime ? 'Yes (30-min trial to be deducted)' : 'No';
+    const mediaLine = (s.media && s.mediaQty > 0)
+        ? 'Yes (' + s.mediaQty + ' librar' + (s.mediaQty > 1 ? 'ies' : 'y') + ')'
+        : 'No';
+
+    let translationLine, firstTimeLine = '';
+    if (s.translate) {
+        translationLine = 'Yes (' + s.guides + ' guide' + (s.guides > 1 ? 's' : '') + ' \u00d7 ' + s.hours + ' h each)';
+        firstTimeLine = '\n- First-time using AI translation: ' + (s.firstTime ? 'Yes (30-min trial to be deducted)' : 'No');
+    } else {
+        translationLine = 'No';
+    }
+
     const subject = 'Quote request \u2013 Nubart LIVE (est. ' + total + ')';
-    const body = 'Hello,\n\nI used the cost calculator on your website and would like to receive an official quote for Nubart LIVE:\n\nConfiguration: ' + config + '\nFirst-time customer: ' + trial + '\nEstimated total (calculator): ' + total + ' excl. VAT\n\nPlease send me an official quote addressed to my company.\n\n[Please add your name, company name, and VAT number here]\n\nThank you';
+    const body = 'Hello,\n\nI used the cost calculator on your website and would like to receive an official quote for Nubart LIVE:\n\n- Card package: ' + cardLine + '\n- Media library: ' + mediaLine + '\n- AI translation: ' + translationLine + firstTimeLine + '\n- Estimated total (calculator): ' + total + ' excl. VAT\n\nPlease send me an official quote addressed to my company.\n\n[Please add your name, company name, and VAT number here]\n\nThank you';
 
     const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 

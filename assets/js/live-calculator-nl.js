@@ -217,17 +217,25 @@ function liveCalcRequestQuote() {
     const s = liveCalcState;
     const total = (document.getElementById('live-calc-result-total') || {}).textContent || '\u2014';
 
-    let details = [];
-    if (s.pkg === 'pyo') details.push('Print-Your-Own: ' + s.pkgQty + ' codes');
-    else if (s.pkg === 'basic') details.push('Basic: ' + s.pkgQty + ' \u00d7 500 kaarten');
-    else if (s.pkg === 'custom') details.push('Custom: ' + s.pkgQty.toLocaleString('nl') + ' kaarten');
-    if (s.media && s.mediaQty > 0) details.push(s.mediaQty > 1 ? s.mediaQty + ' mediabibliotheken' : '1 mediabibliotheek');
-    if (s.translate) details.push('AI-vertaling: ' + s.guides + ' gids' + (s.guides > 1 ? 'en' : '') + ', ' + s.hours + ' h elk');
+    let cardLine = '';
+    if (s.pkg === 'pyo') cardLine = 'Print-Your-Own (' + s.pkgQty + ' codes)';
+    else if (s.pkg === 'basic') cardLine = 'Basic (' + s.pkgQty + ' \u00d7 500 kaarten)';
+    else if (s.pkg === 'custom') cardLine = 'Custom (' + s.pkgQty.toLocaleString('nl') + ' kaarten)';
 
-    const config = details.join(' \u00b7 ');
-    const trial = s.firstTime ? 'Ja (30 min proef wordt afgetrokken)' : 'Nee';
+    const mediaLine = (s.media && s.mediaQty > 0)
+        ? 'Ja (' + (s.mediaQty > 1 ? s.mediaQty + ' mediabibliotheken' : '1 mediabibliotheek') + ')'
+        : 'Nee';
+
+    let translationLine, firstTimeLine = '';
+    if (s.translate) {
+        translationLine = 'Ja (' + s.guides + ' gids' + (s.guides > 1 ? 'en' : '') + ' \u00d7 ' + s.hours + ' h elk)';
+        firstTimeLine = '\n- Eerste keer AI-vertaling gebruiken: ' + (s.firstTime ? 'Ja (30 min proef wordt afgetrokken)' : 'Nee');
+    } else {
+        translationLine = 'Nee';
+    }
+
     const subject = 'Offerteaanvraag \u2013 Nubart LIVE (ca. ' + total + ')';
-    const body = 'Hallo,\n\nIk heb de kostencalculator op jullie website gebruikt en wil graag een officiële offerte ontvangen voor Nubart LIVE:\n\nConfiguratie: ' + config + '\nEerste keer klant: ' + trial + '\nGeschat totaal (calculator): ' + total + ' excl. btw\n\nKun je me een officiële offerte op naam van mijn bedrijf sturen?\n\n[Voeg hier je naam, bedrijfsnaam en btw-nummer in]\n\nMet vriendelijke groet';
+    const body = 'Hallo,\n\nIk heb de kostencalculator op jullie website gebruikt en wil graag een officiële offerte ontvangen voor Nubart LIVE:\n\n- Kaartenpakket: ' + cardLine + '\n- Mediabibliotheek: ' + mediaLine + '\n- AI-vertaling: ' + translationLine + firstTimeLine + '\n- Geschat totaal (calculator): ' + total + ' excl. btw\n\nKun je me een officiële offerte op naam van mijn bedrijf sturen?\n\n[Voeg hier je naam, bedrijfsnaam en btw-nummer in]\n\nMet vriendelijke groet';
 
     const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 

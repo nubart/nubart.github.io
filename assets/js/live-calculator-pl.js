@@ -217,17 +217,25 @@ function liveCalcRequestQuote() {
     const s = liveCalcState;
     const total = (document.getElementById('live-calc-result-total') || {}).textContent || '\u2014';
 
-    let details = [];
-    if (s.pkg === 'pyo') details.push('Print-Your-Own: ' + s.pkgQty + ' kodów');
-    else if (s.pkg === 'basic') details.push('Basic: ' + s.pkgQty + ' \u00d7 500 kart');
-    else if (s.pkg === 'custom') details.push('Custom: ' + s.pkgQty.toLocaleString('pl') + ' kart');
-    if (s.media && s.mediaQty > 0) details.push(s.mediaQty > 1 ? s.mediaQty + ' biblioteki multimediów' : '1 biblioteka multimediów');
-    if (s.translate) details.push('Tłumaczenie AI: ' + s.guides + ' przewodnik' + (s.guides > 1 ? 'ów' : '') + ', ' + s.hours + ' h/os.');
+    let cardLine = '';
+    if (s.pkg === 'pyo') cardLine = 'Print-Your-Own (' + s.pkgQty + ' kodów)';
+    else if (s.pkg === 'basic') cardLine = 'Basic (' + s.pkgQty + ' \u00d7 500 kart)';
+    else if (s.pkg === 'custom') cardLine = 'Custom (' + s.pkgQty.toLocaleString('pl') + ' kart)';
 
-    const config = details.join(' \u00b7 ');
-    const trial = s.firstTime ? 'Tak (30 min okresu próbnego do odliczenia)' : 'Nie';
+    const mediaLine = (s.media && s.mediaQty > 0)
+        ? 'Tak (' + (s.mediaQty > 1 ? s.mediaQty + ' biblioteki multimediów' : '1 biblioteka multimediów') + ')'
+        : 'Nie';
+
+    let translationLine, firstTimeLine = '';
+    if (s.translate) {
+        translationLine = 'Tak (' + s.guides + ' przewodnik' + (s.guides > 1 ? 'ów' : '') + ' \u00d7 ' + s.hours + ' h/os.)';
+        firstTimeLine = '\n- Pierwsze użycie tłumaczenia AI: ' + (s.firstTime ? 'Tak (30 min okresu próbnego do odliczenia)' : 'Nie');
+    } else {
+        translationLine = 'Nie';
+    }
+
     const subject = 'Zapytanie ofertowe \u2013 Nubart LIVE (szac. ' + total + ')';
-    const body = 'Dzień dobry,\n\nSkorzystałem/am z kalkulatora kosztów na Waszej stronie i chciałbym/chciałabym otrzymać oficjalną ofertę dla Nubart LIVE:\n\nKonfiguracja: ' + config + '\nNowy klient: ' + trial + '\nSzacowany koszt całkowity (kalkulator): ' + total + ' netto\n\nProszę o przesłanie oficjalnej oferty wystawionej na moją firmę.\n\n[Proszę podać imię i nazwisko, nazwę firmy oraz numer NIP]\n\nPozdrawiam';
+    const body = 'Dzień dobry,\n\nSkorzystałem/am z kalkulatora kosztów na Waszej stronie i chciałbym/chciałabym otrzymać oficjalną ofertę dla Nubart LIVE:\n\n- Pakiet kart: ' + cardLine + '\n- Biblioteka multimediów: ' + mediaLine + '\n- Tłumaczenie AI: ' + translationLine + firstTimeLine + '\n- Szacowany koszt całkowity (kalkulator): ' + total + ' netto\n\nProszę o przesłanie oficjalnej oferty wystawionej na moją firmę.\n\n[Proszę podać imię i nazwisko, nazwę firmy oraz numer NIP]\n\nPozdrawiam';
 
     const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 

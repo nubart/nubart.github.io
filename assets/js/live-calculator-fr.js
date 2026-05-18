@@ -217,17 +217,25 @@ function liveCalcRequestQuote() {
     const s = liveCalcState;
     const total = (document.getElementById('live-calc-result-total') || {}).textContent || '\u2014';
 
-    let details = [];
-    if (s.pkg === 'pyo') details.push('Print-Your-Own : ' + s.pkgQty + ' codes');
-    else if (s.pkg === 'basic') details.push('Basic : ' + s.pkgQty + ' \u00d7 500 cartes');
-    else if (s.pkg === 'custom') details.push('Custom : ' + s.pkgQty.toLocaleString('fr') + ' cartes');
-    if (s.media && s.mediaQty > 0) details.push(s.mediaQty > 1 ? s.mediaQty + ' bibliothèques multimédia' : '1 bibliothèque multimédia');
-    if (s.translate) details.push('Traduction IA : ' + s.guides + ' guide' + (s.guides > 1 ? 's' : '') + ', ' + s.hours + ' h chacun');
+    let cardLine = '';
+    if (s.pkg === 'pyo') cardLine = 'Print-Your-Own (' + s.pkgQty + ' codes)';
+    else if (s.pkg === 'basic') cardLine = 'Basic (' + s.pkgQty + ' \u00d7 500 cartes)';
+    else if (s.pkg === 'custom') cardLine = 'Custom (' + s.pkgQty.toLocaleString('fr') + ' cartes)';
 
-    const config = details.join(' \u00b7 ');
-    const trial = s.firstTime ? 'Oui (30 min d\'essai à déduire)' : 'Non';
+    const mediaLine = (s.media && s.mediaQty > 0)
+        ? 'Oui (' + (s.mediaQty > 1 ? s.mediaQty + ' bibliothèques multimédia' : '1 bibliothèque multimédia') + ')'
+        : 'Non';
+
+    let translationLine, firstTimeLine = '';
+    if (s.translate) {
+        translationLine = 'Oui (' + s.guides + ' guide' + (s.guides > 1 ? 's' : '') + ' \u00d7 ' + s.hours + ' h chacun)';
+        firstTimeLine = '\n- Première utilisation de la traduction IA : ' + (s.firstTime ? 'Oui (30 min d\'essai à déduire)' : 'Non');
+    } else {
+        translationLine = 'Non';
+    }
+
     const subject = 'Demande de devis \u2013 Nubart LIVE (est. ' + total + ')';
-    const body = 'Bonjour,\n\nJ\'ai utilisé le calculateur de coûts sur votre site et je souhaite recevoir un devis officiel pour Nubart LIVE :\n\nConfiguration : ' + config + '\nPremier client : ' + trial + '\nTotal estimé (calculateur) : ' + total + ' HT\n\nMerci de m\'envoyer un devis officiel au nom de mon entreprise.\n\n[Ajoutez ici votre nom, le nom de votre entreprise et votre numéro de TVA]\n\nCordialement';
+    const body = 'Bonjour,\n\nJ\'ai utilisé le calculateur de coûts sur votre site et je souhaite recevoir un devis officiel pour Nubart LIVE :\n\n- Forfait de cartes : ' + cardLine + '\n- Bibliothèque multimédia : ' + mediaLine + '\n- Traduction IA : ' + translationLine + firstTimeLine + '\n- Total estimé (calculateur) : ' + total + ' HT\n\nMerci de m\'envoyer un devis officiel au nom de mon entreprise.\n\n[Ajoutez ici votre nom, le nom de votre entreprise et votre numéro de TVA]\n\nCordialement';
 
     const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 
