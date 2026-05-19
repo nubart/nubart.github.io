@@ -44,6 +44,7 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - FR: fr/blog/index.html
 - IT: it/blog/index.html
 - JA: ja/blog/index.html
+- PT-BR: pt-br/blog/index.html
 
 
 ### Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide
@@ -143,7 +144,7 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - PL:  (still pending)
 - JA: (still pending)
 - NL:  (still pending)
-- PT-BR:  (still pending)
+- PT-BR: pt-br/traducao-simultanea-ia/expectativas-interpretacao-ia-versus-humana.html
 
 ### Remote-controlled audioguide to alleviate problems with tour guide shortage
 -EN: audio-guides/remote-controlled-guides-solution.html
@@ -486,10 +487,11 @@ When proposing cross-links, write a one-sentence justification for each that nam
 - IT: `"isPartOf": { "@id": "https://www.nubart.eu/it/blog/#blog" }`
 - FR: `"isPartOf": { "@id": "https://www.nubart.eu/fr/blog/#blog" }`
 - JA: `"isPartOf": { "@id": "https://www.nubart.eu/ja/blog/#blog" }`
+- PT-BR: `"isPartOf": { "@id": "https://www.nubart.eu/pt-br/blog/#blog" }`
 
-The Blog entity itself is declared once on each language's blog hub page (`x-blog/index.html`, `de/blog/index.html`, `es/blog/index.html`, `it/blog/index.html`, `fr/blog/index.html`, `ja/blog/index.html`) with that exact `@id`. Do NOT invent per-cluster Blog entities like "Nubart Audio Guide Blog" — there is one Blog per language.
+The Blog entity itself is declared once on each language's blog hub page (`x-blog/index.html`, `de/blog/index.html`, `es/blog/index.html`, `it/blog/index.html`, `fr/blog/index.html`, `ja/blog/index.html`, `pt-br/blog/index.html`) with that exact `@id`. Do NOT invent per-cluster Blog entities like "Nubart Audio Guide Blog" — there is one Blog per language.
 
-**Languages without a Blog hub** — PL, NL, BG and PT-BR currently have no Blog hub page, so there is no Blog entity to reference. Blog-style articles in those languages **omit `isPartOf` entirely** (do not point at a non-existent Blog). They still get per-language `@id`, `mainEntityOfPage`, breadcrumb, and `translationOfWork` like every other translation. If you later create a Blog hub for one of these languages, add the matching `isPartOf` to every existing article in that language and declare the Blog `@id` on the new hub.
+**Languages without a Blog hub** — PL, NL and BG currently have no Blog hub page, so there is no Blog entity to reference. Blog-style articles in those languages **omit `isPartOf` entirely** (do not point at a non-existent Blog). They still get per-language `@id`, `mainEntityOfPage`, breadcrumb, and `translationOfWork` like every other translation. If you later create a Blog hub for one of these languages, add the matching `isPartOf` to every existing article in that language and declare the Blog `@id` on the new hub.
 
 **BreadcrumbList** — use Google's simple form (`name` + `item: URL` string), never `@id` on a ListItem and never the verbose nested `WebPage` form:
 
