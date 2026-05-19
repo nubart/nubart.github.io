@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Cómo probar el mando a distancia — Demostración de Nubart MOTION, fase 2 | Nubart</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Shared printable stylesheet -->
+    <link href="../assets/css/printable-terms.css" rel="stylesheet" />
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../assets/css/demos-trials.css" rel="stylesheet" />
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Imprimir instrucciones (A4 vertical)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../assets/img/logo.png" alt="Nubart" class="nubart-logo" />
+        <h1>Demostración de Nubart MOTION — Fase 2</h1>
+        <p class="subtitle">Configuración del control remoto — instrucciones paso a paso</p>
+    </div>
+
+    <!-- QR code + Login credentials side by side -->
+    <div class="credentials-row">
+
+
+        <!-- Login box -->
+        <div class="login-box">
+            <h2><i class="bi bi-phone me-2"></i>Inicio de sesión en el smartphone maestro</h2>
+            <p class="login-intro">Tiene que hacer login en el smartphone maestro para acceder al panel de control remoto.</p>
+
+            <p class="login-label">Paso 1 — Solo la primera vez: cree su cuenta</p>
+            <div class="login-link-block" id="invite-link-block">
+                <a id="invite-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Utilice este enlace para establecer su contraseña. Solo la necesitará una vez.
+            </p>
+
+            <hr style="border-color:#ddd; margin: 12px 0;" />
+
+            <p class="login-label">Paso 2 — En todas las demás ocasiones: inicie sesión aquí</p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+               <i class="bi bi-bookmark me-1"></i> 
+                Añada esta dirección a los favoritos del smartphone maestro para acceder rápidamente antes de cada viaje.
+            </p>
+        </div>
+        <!-- QR box (same as Phase 1) -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>Código QR de demostración para pasajeros</h2>
+            <p class="qr-intro">Escanee este código QR con el segundo dispositivo para abrir la audioguía como pasajero.</p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                No se proporciona ninguna URL de demostración. Póngase en contacto con su representante de Nubart.
+            </div>
+            <p id="demo-url-display"></p>
+        </div>
+
+    </div>
+
+    <!-- Phase 2 context -->
+    <div class="situation-box">
+       <strong>Fase 2 de 2 — Validación del control remoto</strong>
+        La fase 1 confirmó que el GPS y la conectividad funcionan a lo largo de su ruta. Ahora vamos a probar la configuración fina con control remoto:
+        Un smartphone maestro dedicado a bordo de su vehículo va a controlar de forma centralizada toda la activación de audio,
+        mientras que los pasajeros solo tienen que escanear un código QR y escuchar el idioma que elijan, sin permisos y
+        sin necesidad de interacción. Este segundo dispositivo le permitirá reproducir la experiencia que tendrán sus pasajeros.
+    </div>
+
+    <img src="../../assets/img/motion/motion-master-smartphone.webp" alt="Diagram showing GPS signal reaching the master smartphone in the cabin, which then relays audio triggers to all passenger smartphones" class="img-fluid w-100 my-3" />
+
+    <!-- Why remote control -->
+    <div class="why-box">
+        <h4><i class="bi bi-info-circle me-2"></i>¿Por qué control remoto en lugar de geolocalización individual por GSP en cada teléfono?</h4>
+        <ul>
+            <li><strong>No se necesitan permisos de los pasajeros.</strong> El GPS de los teléfonos inteligentes requiere
+                permisos de ubicación del navegador. Otorgar esos permisos es complicado, especialmente en los iPhone. Con un
+                smartphone maestro, los pasajeros no necesitan conceder ningún permiso.</li>
+            <li><strong>Funciona incluso cuando los pasajeros cambian de aplicación.</strong> Los pasajeros pueden hacer fotos, consultar
+                mensajes o bloquear brevemente la pantalla. Las pistas se activan correctamente a través del
+                smartphone maestro independientemente de lo que hagan.</li>
+            <li><strong>Mayor precisión del GPS.</strong> Un único dispositivo principal bien situado y con
+                un buen chipset de GPS es mucho más fiable que depender de docenas de teléfonos de pasajeros diferentes.</li>
+        </ul>
+    </div>
+
+    <!-- Two devices required -->
+    <div class="two-device-banner">
+        <i class="bi bi-phone-flip"></i>
+        <div>
+           <strong>Necesitará dos smartphones para esta prueba.</strong><br>
+           <span class="device-label device-master">smartphone maestro</span>
+            El dispositivo que controla la activación. Inicie sesión en él y mantenga abierta la pantalla de control remoto.
+            Utilice un teléfono con un buen chip de GPS (por ejemplo, un Samsung Galaxy S23) y colóquelo en el
+            punto más alto del vehículo, cerca de una ventana. Manténgalo conectado a la corriente y nunca bloquee
+            la pantalla.<br><br>
+           <span class="device-label device-passenger">Dispositivo del pasajero</span>
+            Cualquier otro smartphone. Escanee el código QR de más arriba y seleccione un idioma. Esto le permitirá ver
+            lo que experimentarán sus pasajeros.
+        </div>
+    </div>
+
+    <!-- Recommended equipment -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number"><i class="bi bi-phone" style="font-size:0.8rem;"></i></span>
+            <h3>Equipos y navegadores recomendados</h3>
+        </div>
+        <div class="step-body">
+            <p>La precisión del GPS depende en gran medida del dispositivo utilizado. Para el smartphone maestro, utilice un modelo
+                con un chipset GPS fiable (por ejemplo, un Samsung Galaxy S23 o equivalente). Evite los modelos económicos
+                o los iPhone más antiguos para esta función.</p>
+            <ul>
+                <li><strong>Smartphone maestro (Android):</strong> utilice <strong>Chrome</strong></li>
+                <li><strong>Smartphone maestro (iPhone):</strong> utilice <strong>Safari</strong></li>
+                <li><strong>Dispositivo del pasajero:</strong> cualquier navegador servirá; los pasajeros no
+                    utilizan el GPS</li>
+            </ul>
+            <div class="callout warning">
+               <i class="bi bi-exclamation-triangle me-1"></i> 
+                No utilice Firefox en el smartphone maestro. Firefox no tiene acceso completo a
+                las bases de datos de ubicación de Google o Apple, lo que puede provocar que los rastros se activen demasiado pronto,
+                demasiado tarde o no se activen en absoluto.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Configurar el dispositivo del pasajero</h3>
+        </div>
+        <div class="step-body">
+            <p>En el <span class="device-label device-passenger">dispositivo del pasajero</span>, escanee el código QR
+                que aparece en la parte superior de esta página (o pulse el enlace que hay debajo).</p>
+            <p>Si la demostración está disponible en varios idiomas, seleccione el idioma que prefiera.</p>
+            <p>No es necesario que conceda ningún permiso de ubicación en este dispositivo. Simplemente mantenga el navegador
+                abierto y la pantalla activa.</p>
+            <div class="callout tip">
+               <i class="bi bi-lightbulb me-1"></i> 
+                Ajuste el volumen lo suficiente para escuchar las pistas con claridad durante la prueba.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Inicie sesión en el smartphone maestro</h3>
+        </div>
+        <div class="step-body">
+            <p>En el <span class="device-label device-master">smartphone maestro</span>, abra el enlace de inicio de sesión
+                que aparece en la parte superior de esta página. Si es la primera vez que lo hace, utilice el enlace de registro
+                para establecer primero su contraseña e inicie sesión a continuación.</p>
+            <p>Una vez que haya iniciado sesión:</p>
+            <ol>
+                <li>Pulse en <strong>Control remoto</strong> en el menú.</li>
+                <li>Seleccione su ruta de la lista (en el caso de que tenga varias rutas distintas).</li>
+                <li>Mantenga esta pantalla abierta durante toda la prueba; no salga de ella ni bloquee la pantalla.</li>
+            </ol>
+            <div class="callout tip">
+                <i class="bi bi-map me-1"></i>
+                <strong>Compruebe que el GPS funciona antes de partir.</strong> En el
+                <span class="device-label device-passenger">dispositivo del pasajero</span>,
+                abra el mapa utilizando el botón situado a la derecha de la audioguía.
+
+                Debería ver una figurita azul que indica la posición actual del smartphone principal.
+                Si no aparece ninguna figura azul, el smartphone principal no está compartiendo su ubicación correctamente;
+                vuelva a comprobar los permisos antes de continuar.
+            </div>
+            <div class="callout warning">
+               <i class="bi bi-exclamation-triangle me-1"></i> 
+                La pantalla del mando a distancia debe permanecer abierta y visible en el smartphone maestro durante todo el trayecto.
+                Si la pantalla se bloquea o se cierra el navegador, la activación de las pistas se detendrá.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3a: Manual -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3a</span>
+            <h3>Prueba del control remoto manual</h3>
+        </div>
+        <div class="step-body">
+            <p>Si su demostración está configurada para <strong>el control remoto manual</strong>, usted mismo tendrá que activar cada
+                pista desde el smartphone maestro.</p>
+            <ol>
+                <li>En el <span class="device-label device-master">smartphone maestro</span>, pulse sobre cualquiera
+                    de las pistas en la pantalla de Control remoto.</li>
+                <li>En el <span class="device-label device-passenger">dispositivo del pasajero</span>, esa
+                    pista se reproducirá automáticamente en el idioma seleccionado.</li>
+                <li>Las pistas que ya haya enviado cambiarán de color en la pantalla del smartphone maestro.
+                </li>
+            </ol>
+            <div class="callout tip">
+               <i class="bi bi-lightbulb me-1"></i> 
+                Para repetir la prueba con los colores pre-establecidos, pulse <strong>Reiniciar recorrido</strong> en la parte inferior
+                de la pantalla de control remoto. Esto es opcional: el control remoto funcionará aunque no lo haga, pero hacerlo le permitirá ver de nuevo los colores originales de las pistas.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3b: GPS-triggered -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3b</span>
+            <h3>Prueba del control remoto activado por GPS</h3>
+        </div>
+        <div class="step-body">
+            <p>Si su demostración está configurada para <strong>el control remoto activado por GPS</strong>, no es necesaria ninguna
+                acción manual. El smartphone maestro lee su propia posición GPS y activa las pistas
+                automáticamente cuando el vehículo cruza las líneas predefinidas.</p>
+            <ol>
+                <li>Coloque el <span class="device-label device-master">smartphone maestro</span> en el
+                    punto más alto del vehículo, cerca de una ventana, conectado a la corriente.</li>
+                <li>Mantenga abierta y desbloqueada la pantalla de control remoto.</li>
+                <li>Haga su ruta con normalidad. Las pistas de sonido deberían reproducirse automáticamente en el
+ <span class="device-label device-passenger">dispositivo del pasajero</span> en los momentos adecuados.
+                    En el smartphone maestro, las pistas de sonido cambiarán automáticamente de color una vez que se hayan activado.</li>
+
+            </ol>
+            <div class="callout">
+               <i class="bi bi-info-circle me-1"></i> 
+                Si una pista se reproduce antes o después de lo previsto, anótelo. El equipo de nubart podrá ajustar las líneas de activación después de la prueba.
+            </div>
+            <div class="callout tip">
+               <i class="bi bi-lightbulb me-1"></i> 
+                Para repetir la prueba con los colores restablecidos, pulse <strong>Reiniciar recorrido</strong> en la parte inferior
+                de la pantalla de control remoto.
+            </div>
+        </div>
+    </div>
+
+    <!-- Troubleshooting -->
+    <div class="troubleshooting-title" onclick="toggleTroubleshooting()" id="ts-toggle">
+       <i class="bi bi-tools"></i> 
+        Solución de problemas
+       <i class="bi bi-chevron-down ms-auto" id="ts-chevron"></i> 
+    </div>
+
+    <div class="troubleshooting-body" id="ts-body" style="display:none;">
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-x-circle me-2 text-danger"></i>El dispositivo del pasajero no recibe ningún tipo de audio</strong>
+            <p>Asegúrese de que la pantalla del mando a distancia siga abierta en el smartphone maestro y de que la pantalla no se haya bloqueado. Compruebe que el dispositivo del pasajero tenga el volumen activado y que ninguna aplicación en segundo plano esté captando la salida de audio.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-geo me-2 text-danger"></i>Las pistas activadas por GPS no se reproducen (smartphone maestro)</strong>
+            <p>Compruebe que el smartphone maestro tiene habilitados los permisos de ubicación tanto en los
+                ajustes del sistema como en los del navegador. Asegúrese de que está utilizando Chrome (Android) o Safari
+                (iPhone), no Firefox. Intente acercar el teléfono a una ventana o colocarlo en una
+                posición más elevada dentro del vehículo.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-browser-safari me-2 text-warning"></i>El GPS funciona en Chrome pero no en Safari (smartphone maestro iPhone)</strong>
+            <p>El navegador Safari de los iPhone requiere que la geolocalización esté habilitada en tres niveles:</p>
+            <ol style="font-size:0.88rem;">
+                <li><strong>Sistema:</strong> <em>Ajustes → Privacidad y seguridad → Servicios de localización</em> → ACTIVADO</li>
+                <li><strong>Navegador:</strong> mismo menú → busque <strong>Safari</strong> → configure en <em>«Mientras se utiliza la aplicación»</em></li>
+                <li><strong>Dominio:</strong> <em>Ajustes → Aplicaciones → Safari → Ajustes para sitios web → Ubicación</em> → no «Denegar».
+                    O pulse <strong>AA</strong> en la barra de direcciones de Safari → Ajustes del sitio web → Ubicación → Permitir.</li>
+            </ol>
+            <p>Confirme también que esté activada la <strong>Ubicación precisa</strong> y refresque la página a continuación.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-crosshair me-2 text-warning"></i>La ubicación da saltos continuamente en el smartphone maestro</strong>
+            <p>Asegúrese de tener activada la <em>la ubicación precisa</em>, no solo la ubicación general. Si el problema
+                persistiera en exteriores, es posible que el dispositivo tenga un chipset GPS débil; pruebe con un
+                modelo de smartphone diferente.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-door-open me-2 text-danger"></i>La pantalla de control remoto ha desaparecido / la sesión ha caducado</strong>
+            <p>Vuelva a iniciar sesión en <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">www.nub.art/customer/login</a>, vaya a «Control remoto» y seleccione
+               su ruta de nuevo. Para que no vuelva a suceder, mantenga la pantalla encendida y el navegador abierto en todo momento.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>¿Tiene alguna pregunta? Escríbanos a <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+— <a href="https://www.nubart.eu">
+www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script src="../assets/js/demos-trials.js"></script>
+
+</body>
+</html>
