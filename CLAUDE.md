@@ -387,6 +387,18 @@ Some of our products/languages have a subdirectory for a specific product, but t
 - JA: (still pending)
 - NL: (still pending)
 
+****What we need form our customers for a successful production****
+- EN: audio-guides/content-production/customer-requirements.html
+- DE: de/audioguides/produktion/was-wir-brauchen.html
+- ES: es/materiales.html
+- FR: fr/materiaux.html
+- IT: it/materialie.html
+- NL: nl/audiogidsen/benodigdheden.html
+- PL: pl/audioprzewodnik/produkcja-tresci/materialy-do-przygotowania.html
+- HE: (still pending)
+- BG: (still pending)
+- PT-BR: (still pending)
+- JA: (still pending)
 
 ### Nubart MOTION
 **Main product explainer:**
