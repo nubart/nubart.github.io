@@ -20626,6 +20626,17 @@ async function generate() {
 function buildPrompt(d, effHours) {
   return `You are a senior pricing consultant at Nubart generating a sales proposal for Nubart MOTION + TRANSLATE.
 
+TONE AND STYLE — READ THIS CAREFULLY:
+Write like a knowledgeable European colleague, not an American salesperson.
+- Understated, factual, and direct. Let the numbers make the argument.
+- Never use superlatives: no "world-class", "cutting-edge", "revolutionary", "seamless", "powerful", or "game-changing".
+- Never tell the prospect they've "earned" anything or appeal to their ego.
+- No motivational language. No exclamation points.
+- The ROI argument should feel like a calm colleague doing the arithmetic, not a pitch.
+- Acknowledge tradeoffs honestly where relevant (e.g. internet requirement).
+- Short sentences. Active voice. Avoid nominalizations ("the utilization of" → "using").
+- The proposal should feel like it was written by someone who knows the industry well and respects the reader's intelligence.
+
 PROSPECT:
 - Company: ${d.company}
 - Contact: ${d.contact || 'not specified'}
@@ -20702,13 +20713,13 @@ OUTPUT: JSON only, no markdown fences, no preamble.
     }
   },
   "proposalText": {
-    "introTitle": "string in ${d.lang}",
-    "executiveSummary": "2–3 sentences in ${d.lang}: what Nubart is offering and why it fits",
-    "situationAnalysis": "2–3 sentences in ${d.lang}: their current situation and the opportunity",
-    "solutionDescription": "3–4 sentences in ${d.lang}: what MOTION + TRANSLATE does for their specific case",
-    "roiNarrative": "2–3 sentences in ${d.lang}: the business case from their perspective, referencing ticket price",
+    "introTitle": "string in ${d.lang} — plain and descriptive, no marketing flair",
+    "executiveSummary": "2–3 sentences in ${d.lang}: what Nubart is proposing and why it fits this operator. Factual, no hype.",
+    "situationAnalysis": "2–3 sentences in ${d.lang}: their current setup and the practical problem it creates. Neutral tone — do not dramatise.",
+    "solutionDescription": "3–4 sentences in ${d.lang}: what MOTION + TRANSLATE does in their specific context. Concrete and specific. Mention the internet requirement honestly if relevant.",
+    "roiNarrative": "2–3 sentences in ${d.lang}: a calm arithmetic argument. Reference the ticket price, the monthly fee, and how many additional international passengers per month would cover the cost. No superlatives, no ego appeals.",
     "nextSteps": ["string in ${d.lang}", "string", "string"],
-    "pricingNote": "1 sentence in ${d.lang}: reassuring framing — price is boringly reasonable vs. their revenue"
+    "pricingNote": "1 sentence in ${d.lang}: matter-of-fact framing of the price relative to their revenue. Dry and reassuring, not enthusiastic."
   }
 }`;
 }
