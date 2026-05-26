@@ -21152,9 +21152,8 @@ async function downloadDocx() {
       }]
     });
 
-    const buffer = await Packer.toBuffer(doc);
-    const blob   = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
-    const url    = URL.createObjectURL(blob);
+    const blob = await Packer.toBlob(doc);
+    const url  = URL.createObjectURL(blob);
     const a      = document.createElement('a');
     a.href       = url;
     a.download   = 'Nubart_MOTION_TRANSLATE_' + d.company.replace(/[^a-z0-9]/gi, '_') + '_' + new Date().toISOString().slice(0, 10) + '.docx';
