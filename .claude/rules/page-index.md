@@ -328,6 +328,7 @@
 - HE: he/ai-simultaneous-interpretation/transcript-processing-request.html
 - PT-BR: pt-br/traducao-simultanea-ia/pedido-transcricao.html
 - JA: ja/ai-simultaneous-translation/transcript-processing-request.html
+- PL: 
 - BG: (still pending)
 - EL: (still pending)
 

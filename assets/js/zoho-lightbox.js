@@ -28,7 +28,14 @@ var ZohoLightbox = (function () {
 
         var closeBtn = document.createElement('div');
         closeBtn.setAttribute('class', 'zf-lightbox-close');
+        closeBtn.setAttribute('tabindex', '0');
         closeBtn.addEventListener('click', close);
+        closeBtn.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                close();
+            }
+        });
 
         var container = document.createElement('div');
         container.setAttribute('id', containerId);
@@ -62,7 +69,7 @@ var ZohoLightbox = (function () {
 
         if (!iframe) {
             iframe = document.createElement('iframe');
-            iframe.src = appendUtmParams(formUrl);
+            iframe.src = appendReferrer(appendUtmParams(formUrl));
             iframe.style.border = 'none';
             iframe.style.minWidth = '100%';
             iframe.style.overflow = 'hidden';
@@ -73,12 +80,23 @@ var ZohoLightbox = (function () {
                 var data = event.data;
                 if (data && typeof data === 'string') {
                     var parts = data.split('|');
-                    if (parts.length === 2) {
+                    if (parts.length === 2 || parts.length === 3) {
                         var perma = parts[0];
                         var newHeight = (parseInt(parts[1], 10) + 15) + 'px';
-                        if (iframe.src.indexOf(perma) > 0) {
-                            iframe.style.minHeight = newHeight;
-                            document.getElementById(containerId).style.height = newHeight;
+                        if (iframe.src.indexOf('formperma') > 0 && iframe.src.indexOf(perma) > 0) {
+                            var container = document.getElementById(containerId);
+                            if (iframe.style.minHeight !== newHeight) {
+                                if (parts.length === 3) {
+                                    iframe.scrollIntoView();
+                                    setTimeout(function () {
+                                        iframe.style.minHeight = newHeight;
+                                        container.style.height = newHeight;
+                                    }, 500);
+                                } else {
+                                    iframe.style.minHeight = newHeight;
+                                    container.style.height = newHeight;
+                                }
+                            }
                         }
                     }
                 }
@@ -87,6 +105,13 @@ var ZohoLightbox = (function () {
 
         document.getElementById(overlayId).style.display = 'block';
         document.body.style.overflow = 'hidden';
+
+        // Accessibility: focus the dialog so keyboard / screen-reader users land inside it
+        setTimeout(function () {
+            var container = document.getElementById(containerId);
+            container.setAttribute('tabindex', '-1');
+            container.focus();
+        }, 100);
     }
 
     function close() {
@@ -117,6 +142,27 @@ var ZohoLightbox = (function () {
                         src += (src.indexOf('?') > 0 ? '&' : '?') + param2 + '=' + val2;
                     }
                 }
+            }
+        } catch (e) { }
+        return src;
+    }
+
+    function appendReferrer(src) {
+        if (/[?&]referrername=/.test(src)) return src;
+        try {
+            var rfr = window.location.href;
+            try {
+                rfr = window.self !== window.top
+                    ? window.top.location.href
+                    : (/^https?:\/\/[\w.-]+\.[a-zA-Z]{2,}/i.test(rfr) ? rfr : '');
+            } catch (e) { }
+            if (rfr) {
+                if (rfr.length > 1800) {
+                    var q = rfr.indexOf('?');
+                    if (q > -1) rfr = rfr.substring(0, q);
+                    if (rfr.length > 1800) rfr = rfr.substring(0, 1800);
+                }
+                src += (src.indexOf('?') > 0 ? '&' : '?') + 'referrername=' + encodeURIComponent(rfr);
             }
         } catch (e) { }
         return src;
