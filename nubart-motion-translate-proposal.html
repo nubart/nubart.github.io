@@ -287,11 +287,10 @@
         <div id="pricingPreview"></div>
         <div class="section-heading" style="margin-top:18px;">Proposal preview</div>
         <div class="result-preview" id="proposalPreview"></div>
-        <div style="background:#fff8e1;border:1px solid #f0c040;border-radius:8px;padding:12px 16px;margin-bottom:14px;font-size:13px;line-height:1.6;">
-          <strong style="display:block;margin-bottom:6px;">⚠ Before sending this proposal:</strong>
-          <ol style="margin:0;padding-left:18px;">
+        <div style="background:#fff8e1;color:#1a1a1a;border:1px solid #f0c040;border-radius:8px;padding:12px 16px;margin-bottom:14px;font-size:13px;line-height:1.6;">
+          <strong style="display:block;margin-bottom:6px;color:#8a6d00;">⚠ Before sending this proposal:</strong>
+          <ol style="margin:0;padding-left:18px;color:#1a1a1a;">
             <li>Open the Google Doc and read it carefully — review all figures, wording, and the prospect's name.</li>
-            <li>Delete the internal "negotiation reference" page at the end.</li>
             <li>Export to PDF (File → Download → PDF) and send the PDF to the prospect.</li>
           </ol>
         </div>
@@ -328,6 +327,7 @@ let selectedLang = 'English';
 let currentStep  = 0;
 let generated    = null;
 let photoB64     = null;   // rep photo, loaded from file or localStorage
+let photoMime    = 'image/jpeg';
 
 // ─── Setup / key management ───────────────────────────────────────────────────
 function getKey() { return localStorage.getItem(LS_KEY) || ''; }
@@ -338,13 +338,22 @@ function getRep() {
 function saveSetup() {
   const k = document.getElementById('setup-claude').value.trim();
   if (!k) { alert('Claude API key is required.'); return; }
+  if (!k.startsWith('sk-ant-')) { alert('This does not look like a valid Claude API key (should start with sk-ant-). Please check and try again.'); return; }
+  const name  = document.getElementById('setup-name').value.trim();
+  const email = document.getElementById('setup-email').value.trim();
+  const phone = document.getElementById('setup-phone').value.trim();
+  if (!name || !email || !phone) {
+    alert('Please fill in your name, email, and phone — these appear on every proposal.');
+    return;
+  }
   localStorage.setItem(LS_KEY, k);
   const rep = {
-    name:  document.getElementById('setup-name').value.trim(),
-    email: document.getElementById('setup-email').value.trim(),
-    phone: document.getElementById('setup-phone').value.trim(),
+    name,
+    email,
+    phone,
     title: document.getElementById('setup-title').value.trim(),
-    photo: photoB64 || getRep().photo || null
+    photo: photoB64 || getRep().photo || null,
+    photoMime: photoMime || getRep().photoMime || 'image/jpeg'
   };
   localStorage.setItem(LS_REP, JSON.stringify(rep));
   showSetup(false);
@@ -362,9 +371,11 @@ function showSetup(visible) {
     document.getElementById('setup-title').value = rep.title || '';
     if (rep.photo) {
       const prev = document.getElementById('photo-preview');
-      prev.src = 'data:image/jpeg;base64,' + rep.photo;
+      const mime = rep.photoMime || 'image/jpeg';
+      prev.src = 'data:' + mime + ';base64,' + rep.photo;
       prev.style.display = 'block';
       photoB64 = rep.photo;
+      photoMime = mime;
     }
   }
 }
@@ -373,6 +384,7 @@ function previewPhoto() {
   const file = document.getElementById('setup-photo').files[0];
   if (!file) return;
   if (file.size > 1048576) { alert('Photo must be under 1 MB.'); return; }
+  photoMime = file.type;  // 'image/png' or 'image/jpeg'
   const reader = new FileReader();
   reader.onload = e => {
     const dataUrl = e.target.result;
@@ -385,8 +397,15 @@ function previewPhoto() {
   reader.readAsDataURL(file);
 }
 
-// Show setup if key missing; otherwise go straight to tool
-if (!getKey()) { showSetup(true); } else { showSetup(false); }
+// Force setup if key OR rep contact info missing
+(function() {
+  const rep = getRep();
+  if (!getKey() || !rep.name || !rep.email || !rep.phone) {
+    showSetup(true);
+  } else {
+    showSetup(false);
+  }
+})();
 
 // ─── Language pills ───────────────────────────────────────────────────────────
 function buildLangPills() {
@@ -477,6 +496,9 @@ async function generate() {
   const d = gatherData();
   const billFactor = d.fullguide === 'yes' ? 1 : d.fullguide === 'mostly' ? 0.75 : 0.5;
   const effHours   = parseFloat(d.tourlength) * billFactor;
+  d.fullguidePct   = d.fullguide === 'yes' ? 'guide speaks 100% of the tour'
+                   : d.fullguide === 'mostly' ? 'guide speaks ~75% of the tour'
+                   : 'commentary at specific stops only (~50% of the tour)';
 
   try {
     const resp = await fetch('https://api.anthropic.com/v1/messages', {
@@ -617,9 +639,15 @@ OUTPUT: JSON only, no markdown fences, no preamble.
     "situationAnalysis": "2–3 sentences in ${d.lang}: their current setup and the practical problem it creates. Neutral tone — do not dramatise.",
     "solutionDescription": "3–4 sentences in ${d.lang}: what MOTION + TRANSLATE does in their specific context. Concrete and specific. Mention the internet requirement honestly if relevant.",
     "roiNarrative": "2–3 sentences in ${d.lang}: a calm arithmetic argument. Reference the ticket price, the monthly fee, and how many additional international passengers per month would cover the cost. No superlatives, no ego appeals.",
-    "nextSteps": ["string in ${d.lang}", "string", "string"],
+    "nextSteps": [
+      "Sentence in ${d.lang} explaining: If these numbers are acceptable, our team will help with the user interface layout (logo, branded colours) and train the AI with vocabulary specific to your tours.",
+      "Sentence in ${d.lang} explaining: We give you 10 hours of free usage to test the system in real conditions. This also lets us identify any route segments with unreliable mobile coverage, so we can assess whether mitigation is needed.",
+      "Sentence in ${d.lang} explaining: After the trial we prepare a contract. The first 30 days of the contract count as a paid trial period — you can withdraw at any point during those 30 days if not satisfied, with at least 5 days' notice before the period ends. After the trial period, the contract has a 3-month cancellation term."
+    ],
     "pricingNote": "1 sentence in ${d.lang}: matter-of-fact framing of the price relative to their revenue. Dry and reassuring, not enthusiastic.",
     "breakEvenSentence": "1 short sentence fully in ${d.lang} stating how many extra international bookings per month would cover the monthly fee — e.g. in English: 'Break-even: 4 additional international bookings per month.' Use the actual number from the pricing calculation. Entire sentence in ${d.lang}, no English words.",
+    "val_vehicleType": "Translate the vehicle type '${d.vehicle}' to ${d.lang}, returning a natural, idiomatic phrase (not a literal word-for-word translation). Lowercase unless the language requires otherwise.",
+    "val_fullguidePct": "Sentence fragment in ${d.lang} matching the English meaning: '${d.fullguidePct}'. Concise, natural phrasing.",
 
     "overviewHeading":    "Translate exactly to ${d.lang}: 'Overview'",
     "situationHeading":   "Translate exactly to ${d.lang}: 'Your situation'",
