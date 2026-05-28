@@ -512,8 +512,13 @@ async function generate() {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 2000,
-        messages: [{ role: 'user', content: buildPrompt(d, effHours) }]
+        max_tokens: 4000,
+        messages: [
+          { role: 'user',      content: buildPrompt(d, effHours) },
+          // Prefill the assistant's response with '{' so it can ONLY continue
+          // valid JSON. This is Anthropic's recommended way to force JSON output.
+          { role: 'assistant', content: '{' }
+        ]
       })
     });
     if (!resp.ok) {
@@ -522,7 +527,11 @@ async function generate() {
     }
     const data  = await resp.json();
     const text  = data.content[0].text;
-    const clean = text.replace(/```json\n?|\n?```/g, '').trim();
+    // The prefill '{' is NOT included in the response; we have to prepend it.
+    // Also strip any trailing text after the final '}' (defensive).
+    const reassembled = '{' + text;
+    const lastBrace = reassembled.lastIndexOf('}');
+    const clean = lastBrace !== -1 ? reassembled.slice(0, lastBrace + 1) : reassembled;
     generated = JSON.parse(clean);
     renderResult(d, effHours);
   } catch (err) {
