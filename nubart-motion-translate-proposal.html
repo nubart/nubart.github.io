@@ -301,7 +301,7 @@
             ⬇ Download .docx
           </button>
           <a class="drive-link"
-             href="https://drive.google.com/drive/u/1/folders/10FiSFY1w7KZpprbhWXbdHVl9gLq2atyg"
+             href="https://drive.google.com/drive/folders/10FiSFY1w7KZpprbhWXbdHVl9gLq2atyg"
              target="_blank">→ Upload to Nubart Sales Proposals folder</a>
           <button type="button" class="btn btn-ghost" onclick="goTo(2)" style="margin-top:4px;">← Edit inputs</button>
         </div>
@@ -20448,6 +20448,7 @@ let selectedLang = 'English';
 let currentStep  = 0;
 let generated    = null;
 let photoB64     = null;   // rep photo, loaded from file or localStorage
+let photoMime    = 'image/jpeg'; // MIME type of rep photo
 
 // ─── Setup / key management ───────────────────────────────────────────────────
 function getKey() { return localStorage.getItem(LS_KEY) || ''; }
@@ -20458,13 +20459,15 @@ function getRep() {
 function saveSetup() {
   const k = document.getElementById('setup-claude').value.trim();
   if (!k) { alert('Claude API key is required.'); return; }
+  if (!k.startsWith('sk-ant-')) { alert('This does not look like a valid Claude API key (should start with sk-ant-). Please check and try again.'); return; }
   localStorage.setItem(LS_KEY, k);
   const rep = {
     name:  document.getElementById('setup-name').value.trim(),
     email: document.getElementById('setup-email').value.trim(),
     phone: document.getElementById('setup-phone').value.trim(),
     title: document.getElementById('setup-title').value.trim(),
-    photo: photoB64 || getRep().photo || null
+    photo: photoB64 || getRep().photo || null,
+    photoMime: photoMime || getRep().photoMime || 'image/jpeg'
   };
   localStorage.setItem(LS_REP, JSON.stringify(rep));
   showSetup(false);
@@ -20482,7 +20485,9 @@ function showSetup(visible) {
     document.getElementById('setup-title').value = rep.title || '';
     if (rep.photo) {
       const prev = document.getElementById('photo-preview');
-      prev.src = 'data:image/jpeg;base64,' + rep.photo;
+      const storedMime = rep.photoMime || 'image/jpeg';
+      photoMime = storedMime;
+      prev.src = 'data:' + storedMime + ';base64,' + rep.photo;
       prev.style.display = 'block';
       photoB64 = rep.photo;
     }
@@ -20493,6 +20498,7 @@ function previewPhoto() {
   const file = document.getElementById('setup-photo').files[0];
   if (!file) return;
   if (file.size > 1048576) { alert('Photo must be under 1 MB.'); return; }
+  photoMime = file.type;  // 'image/png' or 'image/jpeg'
   const reader = new FileReader();
   reader.onload = e => {
     const dataUrl = e.target.result;
@@ -20506,7 +20512,8 @@ function previewPhoto() {
 }
 
 // Show setup if key missing; otherwise go straight to tool
-if (!getKey()) { showSetup(true); } else { showSetup(false); }
+const rep0 = getRep();
+if (!getKey() || !rep0.name) { showSetup(true); } else { showSetup(false); }
 
 // ─── Language pills ───────────────────────────────────────────────────────────
 function buildLangPills() {
@@ -20549,6 +20556,7 @@ function goTo(n) {
   if (n === 2) {
     const req = ['f_vehicles','f_tourlength','f_toursperday','f_daysperweek','f_months'];
     if (req.some(id => !fv(id))) { alert('Please fill in all required fields.'); return; }
+    if (req.some(id => Number(fv(id)) <= 0)) { alert('All operational values must be greater than zero.'); return; }
   }
   currentStep = n; updateStepUI(); window.scrollTo(0, 0);
 }
@@ -20728,7 +20736,8 @@ OUTPUT: JSON only, no markdown fences, no preamble.
     "solutionDescription": "3–4 sentences in ${d.lang}: what MOTION + TRANSLATE does in their specific context. Concrete and specific. Mention the internet requirement honestly if relevant.",
     "roiNarrative": "2–3 sentences in ${d.lang}: a calm arithmetic argument. Reference the ticket price, the monthly fee, and how many additional international passengers per month would cover the cost. No superlatives, no ego appeals.",
     "nextSteps": ["string in ${d.lang}", "string", "string"],
-    "pricingNote": "1 sentence in ${d.lang}: matter-of-fact framing of the price relative to their revenue. Dry and reassuring, not enthusiastic."
+    "pricingNote": "1 sentence in ${d.lang}: matter-of-fact framing of the price relative to their revenue. Dry and reassuring, not enthusiastic.",
+    "breakEvenSentence": "1 short sentence fully in ${d.lang} stating how many extra international bookings per month would cover the monthly fee — e.g. in English: 'Break-even: 4 additional international bookings per month.' Use the actual number from the pricing calculation. Entire sentence in ${d.lang}, no English words."
   }
 }`;
 }
@@ -20746,8 +20755,8 @@ function renderResult(d, effHours) {
       <h4>Usage estimate</h4>
       <div class="metric-row"><span class="metric-label">Est. monthly stream hours</span><span class="metric-value">${Math.round(p.totalMonthlyHours)} h</span></div>
       <div class="metric-row"><span class="metric-label">Nubart's monthly cost</span><span class="metric-value">€${Math.round(p.monthlyCost)}</span></div>
-      <div class="metric-row"><span class="metric-label">Cost per passenger</span><span class="metric-value">€${Number(p.costPerPassenger).toFixed(2)}</span></div>
-      <div class="metric-row"><span class="metric-label">Break-even extra bookings/month</span><span class="metric-value">${p.extraBookingsToBreakEven}</span></div>
+      <div class="metric-row"><span class="metric-label">Cost per passenger</span><span class="metric-value">€${p.costPerPassenger ? Number(p.costPerPassenger).toFixed(2) : "—"}</span></div>
+      <div class="metric-row"><span class="metric-label">Break-even extra bookings/month</span><span class="metric-value">${p.extraBookingsToBreakEven ?? "—"}</span></div>
     </div>`;
   if (o1) html += `
     <div class="price-block">
@@ -20847,7 +20856,7 @@ async function downloadDocx() {
     const today = new Date().toLocaleDateString(
       d.lang === 'Deutsch' ? 'de-DE' : d.lang === 'Français' ? 'fr-FR' :
       d.lang === 'Español' ? 'es-ES' : d.lang === 'Italiano' ? 'it-IT' :
-      d.lang === 'Nederlands' ? 'nl-NL' : 'en-GB',
+      d.lang === 'Nederlands' ? 'nl-NL' : d.lang === 'Polski' ? 'pl-PL' : d.lang === 'Português (BR)' ? 'pt-BR' : 'en-GB',
       { year: 'numeric', month: 'long', day: 'numeric' }
     );
 
@@ -20971,7 +20980,7 @@ async function downloadDocx() {
       spacing: { after: 160 }
     }));
 
-    // Motion logo removed — Nubart logo in header is sufficient
+    // Motion logo intentionally removed — Nubart header logo is sufficient
     children.push(new Paragraph({
       children: [new TextRun({ text: t.introTitle, bold: true, size: 40, color: TEAL, font: 'Arial' })],
       spacing: { before: 40, after: 100 }
@@ -21045,8 +21054,7 @@ async function downloadDocx() {
     children.push(sp(40));
     children.push(new Paragraph({
       children: [new TextRun({
-        text: '→ Break-even: ' + p.extraBookingsToBreakEven +
-              ' additional international booking' + (p.extraBookingsToBreakEven > 1 ? 's' : '') + ' per month',
+        text: t.breakEvenSentence || ('Break-even: ' + (p.extraBookingsToBreakEven ?? '—') + ' additional international bookings per month.'),
         size: 23, bold: true, color: TEAL, font: 'Arial'
       })],
       spacing: { before: 60, after: 60 }
