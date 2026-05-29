@@ -80,8 +80,8 @@
       <!-- Push to HubSpot -->
       <div class="section" id="push-section">
         <div class="section-label">Push to HubSpot</div>
-        <p class="push-description">Review the extracted data above. If everything looks correct, push to HubSpot. This will create Company, Contact, Deal (if applicable), and two Notes.</p>
-        <div class="push-actions">
+        <p class="push-description" id="push-description">Review the extracted data above. If everything looks correct, push to HubSpot. This will create Company, Contact, Deal (if applicable), and two Notes.</p>
+        <div class="push-actions" id="push-actions">
           <button type="button" class="btn btn-push" id="push-btn" onclick="pushToHubSpot()">
             <span>Push to HubSpot</span>
             <div class="spinner" id="push-spinner"></div>
@@ -90,6 +90,9 @@
         </div>
         <div id="status-log"></div>
         <div id="push-result"></div>
+        <div class="push-actions" id="push-done-actions" style="display:none;">
+          <button type="button" class="btn btn-primary" onclick="clearAll()">Clear &amp; start new email</button>
+        </div>
       </div>
 
     </div>
@@ -428,10 +431,11 @@
       log('ok', `Qualification task created — ID: ${taskId}`);
 
       showPushResult(true, `✓ All done! Company, Contact${dealId ? ', Deal' : ''}, 1 Note and 1 Task created in HubSpot.`);
-      // Prevent accidental double-push
-      const pushBtn = document.getElementById('push-btn');
-      pushBtn.disabled = true;
-      pushBtn.title = 'Already pushed — clear and start a new email to push again';
+      // Prevent accidental double-push: remove the green button entirely so
+      // there is nothing left to click, and surface a clear next action.
+      document.getElementById('push-description').style.display = 'none';
+      document.getElementById('push-actions').style.display = 'none';
+      document.getElementById('push-done-actions').style.display = 'flex';
 
     } catch (err) {
       log('err', 'FATAL: ' + err.message);
@@ -578,6 +582,9 @@
     const pb = document.getElementById('push-btn');
     pb.disabled = false;
     pb.title = '';
+    document.getElementById('push-description').style.display = '';
+    document.getElementById('push-actions').style.display = '';
+    document.getElementById('push-done-actions').style.display = 'none';
   }
 
   function clearAll() {
