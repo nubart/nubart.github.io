@@ -147,10 +147,10 @@
 
 ### The Security Gap Nobody Talks About in AI Interpretation
 - EN: ai-simultaneous-interpretation/qr-code-security-gap-ai-interpretation.html
-- DE: (still pending)
-- ES: (still pending)
+- DE: de/simultan-uebersetzung-ki/qr-code-sicherheitsluecke-ki-dolmetschen.html
+- ES: es/traduccion-simultanea-ia/brecha-seguridad-qr-traduccion-ia.html
+- FR: fr/traduction-simultanee-ia/faille-securite-qr-traduction-ia.html
 - IT: (still pending)
-- FR: (still pending)
 - PT-BR: (still pending)
 - PL: (still pending)
 - JA: (still pending)
