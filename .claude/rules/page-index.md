@@ -145,6 +145,17 @@
 - JA: (still pending)
 - NL: (still pending)
 
+### The Security Gap Nobody Talks About in AI Interpretation
+- EN: ai-simultaneous-interpretation/qr-code-security-gap-ai-interpretation.html
+- DE: (still pending)
+- ES: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PT-BR: (still pending)
+- PL: (still pending)
+- JA: (still pending)
+- NL: (still pending)
+
 ### Remote-controlled audioguide to alleviate problems with tour guide shortage
 - EN: audio-guides/remote-controlled-guides-solution.html
 - DE: de/audioguides/mit-fernbedienung.html
