@@ -137,7 +137,7 @@
                     "name": "Nubart TRANSLATEはGDPRに準拠していますか？",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "はい。データはリアルタイムで処理され、第三者と共有されることはありません。また外部AIのトレーニングにも使用されません。イベント後にデータ削除をリクエストすることも可能です。"
+                        "text": "最大限のデータセキュリティと厳格なGDPR準拠：イベントのデータを許可なくモデルの学習に利用する多くの標準的なAIツールとは異なり、Nubartではお客様のコンテンツは完全に安全です。お客様のデータはどこで処理されますか？主要言語（日本語、英語、ドイツ語、フランス語、スペイン語など）の処理は、すべて欧州連合（EU）内の保護されたAWSサーバー上で行われます。一部の希少な世界の言語については、AI音声合成に高度に特化したパートナーの技術を追加で利用しています。このコンポーネントは、お客様のイベントで聴講者が該当する言語を選択した場合にのみ作動します。これらの場合も、お客様のデータは保護されたままで、データ転送はEUの標準契約条項（SCCs）に基づいてのみ行われます。当社のセキュリティ保証：AI学習なし — すべてのパートナーは、お客様のデータをAIモデルの学習に決して使用しないよう契約上厳格に義務付けられています。最小化の原則 — 元の音声の録音、メタデータ、個人データが米国に転送されることはなく、音声変換のための翻訳済みテキストのみが転送されます。柔軟でお客様に合わせた削除期限（お客様が決定） — データ転送は常にTLS 1.3で暗号化され、文字起こしと翻訳の保持期間はイベントのご注文時にお客様ご自身で決定いただけます：処理直後の即時削除、記録をエクスポートできるよう30日後に削除、または永続的な保存（この場合もAI学習なしを保証）。"
                     }
                 },
                 {
@@ -178,6 +178,14 @@
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": "合計30分間のAI翻訳を無料で利用できます。複数日に分けて使用でき、実際の利用環境でテスト可能です。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "スマートフォンをロックしたり、別のアプリに切り替えたりすると、音声は途切れますか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "いいえ。Nubart TRANSLATEはWeb標準のScreen Wake Lockを使用しており、セッション中に画面が自動的にロックされるのを防ぎます。すべてのWebアプリと同様に、オペレーティングシステムが理論上は介入する可能性はありますが、これはネイティブアプリにも同様に当てはまります。"
                     }
                 }
             ]
@@ -706,6 +714,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td><i class="bi bi-x-circle-fill text-danger"></i> はい（ブース、ヘッドセット）</td>
                         <td><i class="bi bi-check-circle-fill text-success"></i> なし</td>
                         <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> なし</td>
+                    </tr>
+                    <tr>
+                        <td class="text-start">真のGDPRセキュリティ（AI学習なし）</td>
+                        <td><i class="bi bi-check-circle-fill text-success"></i> ほとんどの場合はい</td>
+                        <td><i class="bi bi-x-circle-fill text-danger"></i> いいえ <span class="text-muted" style="font-size:0.9em;">（データを学習に利用することが多い）</span></td>
+                        <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> 100% GDPR準拠。AI学習なし、厳格な削除プロトコル。</td>
                     </tr>
                     </tbody>
                 </table>
@@ -1421,14 +1435,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </h2>
                             <div id="faq10" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body" style="text-align: justify;">
-                                    Nubart TRANSLATEは、安全なクラウドプロバイダーを利用して、文字起こしと翻訳をリアルタイムで処理します。
-                                    これらのプロバイダーには、お客様のデータを保存したり、
-                                    外部のAIトレーニングやマーケティングに利用したりしないよう指示されています。 データが
-                                    広告目的で販売または共有されることは決してありません。デフォルトでは、
-                                    顧客サービスの向上のために匿名化された記録が一時的に
-                                    保存される場合がありますが、お客様は各イベント終了後に、データの
-                                    完全な削除を要求することができます。すべてのデータ処理プロセスは
-                                    GDPRの規定に従って行われ、お客様のプライバシー権は常に尊重されます。
+                                    <strong>最大限のデータセキュリティと厳格なGDPR準拠:</strong> イベントのデータを許可なくモデルの学習に利用する多くの標準的なAIツールとは異なり、Nubartではお客様のコンテンツは完全に安全です。
+                                    <br><br>
+                                    <strong>お客様のデータはどこで処理されますか？</strong>
+                                    主要言語（日本語、英語、ドイツ語、フランス語、スペイン語など）の処理は、すべて欧州連合（EU）内の保護されたAWSサーバー上で行われます。
+                                    <br><br>
+                                    一部の希少な世界の言語については、AI音声合成に高度に特化したパートナーの技術を追加で利用しています。このコンポーネントは、お客様のイベントで聴講者が該当する言語を選択した場合にのみ作動します。これらの場合も、お客様のデータは保護されたままです。データ転送は、EUの標準契約条項（SCCs）に基づいてのみ行われます。
+                                    <br><br>
+                                    <strong>お客様への当社のセキュリティ保証:</strong>
+                                    <ul class="mt-2">
+                                        <li><strong>AI学習なし:</strong> すべてのパートナーは、お客様のデータをAIモデルの学習に決して使用しないよう契約上厳格に義務付けられています。</li>
+                                        <li><strong>最小化の原則:</strong> 元の音声の録音、メタデータ、個人データが米国に転送されることはありません。音声変換のための翻訳済みテキストのみが転送されます。</li>
+                                        <li class="mt-2"><strong>柔軟でお客様に合わせた削除期限（お客様が決定）:</strong> データ転送は常にTLS 1.3で暗号化されます。文字起こしと翻訳をどのくらいの期間保持するかは、イベントのご注文時にお客様ご自身で決定いただけます:
+                                            <br>
+                                            <span class="text-muted" style="font-size: 0.9em; padding-left: 15px; display: block; margin-top: 5px;">
+                                                • <strong>最大限のセキュリティ:</strong> 処理直後に即時削除。
+                                                <br>
+                                                • <strong>文字起こしの取得:</strong> 30日後に削除。記録をゆっくりエクスポートしていただけます。
+                                                <br>
+                                                • <strong>永続的な保存:</strong> もちろんこの場合も、AI学習なしを保証します。
+                                            </span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

@@ -132,7 +132,7 @@
           "name": "O sistema cumpre a Lei Geral de Proteção de Dados (LGPD)?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "As transcrições e traduções são armazenadas por padrão para melhorar o serviço para cada cliente, mas nunca são compartilhadas com terceiros nem usadas para treinar IAs externas. Os clientes podem solicitar sua exclusão permanente após o evento. Todos os dados são processados em tempo real e em conformidade com a LGPD."
+            "text": "Máxima segurança dos dados e rigorosa conformidade com o GDPR/LGPD: Ao contrário de muitas ferramentas de IA padrão, que usam os dados do evento para treinar seus modelos sem pedir permissão, o seu conteúdo está totalmente seguro com a Nubart. Onde os seus dados são processados? O processamento dos idiomas principais (como português, inglês, alemão, francês, espanhol e muitos outros) ocorre integralmente em servidores AWS protegidos dentro da União Europeia. Para alguns dos idiomas mundiais mais raros, utilizamos adicionalmente a tecnologia de um parceiro altamente especializado em síntese de voz por IA. Este componente é ativado exclusivamente quando um participante do seu evento seleciona um desses idiomas. Também nesses casos os seus dados permanecem protegidos: a transferência de dados ocorre exclusivamente com base nas Cláusulas Contratuais Padrão (SCCs) da UE. Nossas garantias de segurança para você: sem treinamento de IA — todos os parceiros estão rigorosamente obrigados por contrato a nunca usar seus dados para treinar modelos de IA. Princípio da minimização — não são transferidos para os EUA gravações de áudio das vozes originais, metadados ou dados pessoais, apenas o texto traduzido para conversão em áudio. Prazos de exclusão flexíveis e sob medida (você decide) — a transferência de dados é sempre criptografada via TLS 1.3, e você define por quanto tempo mantemos suas transcrições e traduções no momento do pedido do evento: exclusão imediata após o processamento, exclusão após 30 dias para exportar seus registros, ou armazenamento permanente (também garantido sem treinamento de IA)."
           }
         },
         {
@@ -173,6 +173,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Você recebe um total de 30 minutos de tradução por IA, acumulativos e utilizáveis durante vários dias, para que possa testar o sistema em diferentes cenários."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O áudio é interrompido se eu bloquear o smartphone ou alternar para outro aplicativo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. O Nubart TRANSLATE utiliza o padrão web Screen Wake Lock, que impede que a tela seja bloqueada automaticamente durante uma sessão. Como acontece com todos os aplicativos web, o sistema operacional poderia teoricamente intervir, mas o mesmo se aplica aos aplicativos nativos."
           }
         }
       ]
@@ -649,6 +657,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <td><i class="bi bi-x-circle-fill text-danger"></i> Sim (cabines, fones de ouvido)</td>
             <td><i class="bi bi-check-circle-fill text-success"></i> Nenhum</td>
             <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> Nenhum</td>
+          </tr>
+          <tr>
+            <td class="text-start">Segurança GDPR real (sem treinamento de IA)</td>
+            <td><i class="bi bi-check-circle-fill text-success"></i> Quase sempre sim</td>
+            <td><i class="bi bi-x-circle-fill text-danger"></i> Não <span class="text-muted" style="font-size:0.9em;">(costumam usar os dados para treinamento)</span></td>
+            <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> 100% em conformidade com o GDPR. Sem treinamento de IA, protocolo rígido de exclusão.</td>
           </tr>
           </tbody>
         </table>
@@ -1341,7 +1355,28 @@ Qual é a diferença fundamental? Obtém uma qualidade de interpretação profis
               </h2>
               <div id="faq10" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
                 <div class="accordion-body" style="text-align: justify;">
-                  O Nubart TRANSLATE processa transcrições e traduções em tempo real utilizando provedores de nuvem seguros. Estas empresas são orientadas a não reter nem usar seus dados para treinamento de IA externa ou marketing. Os dados nunca são vendidos ou compartilhados para fins publicitários. Por padrão, registros anonimizados podem ser armazenados temporariamente para melhorar o atendimento, mas os clientes podem solicitar a exclusão definitiva após cada evento. Todo o processamento de dados segue os padrões do GDPR/LGPD, e seus direitos de privacidade são respeitados em todas as etapas.
+                  <strong>Máxima segurança dos dados e rigorosa conformidade com o GDPR/LGPD:</strong> Ao contrário de muitas ferramentas de IA padrão, que usam os dados do evento para treinar seus modelos sem pedir permissão, o seu conteúdo está totalmente seguro com a Nubart.
+                  <br><br>
+                  <strong>Onde os seus dados são processados?</strong>
+                  O processamento dos idiomas principais (como português, inglês, alemão, francês, espanhol e muitos outros) ocorre integralmente em servidores AWS protegidos dentro da União Europeia.
+                  <br><br>
+                  Para alguns dos idiomas mundiais mais raros, utilizamos adicionalmente a tecnologia de um parceiro altamente especializado em síntese de voz por IA. Este componente é ativado exclusivamente quando um participante do seu evento seleciona um desses idiomas. Também nesses casos os seus dados permanecem protegidos: a transferência de dados ocorre exclusivamente com base nas Cláusulas Contratuais Padrão (SCCs) da UE.
+                  <br><br>
+                  <strong>Nossas garantias de segurança para você:</strong>
+                  <ul class="mt-2">
+                    <li><strong>Sem treinamento de IA:</strong> Todos os parceiros estão rigorosamente obrigados por contrato a nunca usar seus dados para treinar modelos de IA.</li>
+                    <li><strong>Princípio da minimização:</strong> Não são transferidos para os EUA gravações de áudio das vozes originais, metadados ou dados pessoais, apenas o texto traduzido para conversão em áudio.</li>
+                    <li class="mt-2"><strong>Prazos de exclusão flexíveis e sob medida (você decide):</strong> A transferência de dados é sempre criptografada via TLS 1.3. Você define por quanto tempo mantemos suas transcrições e traduções no momento do pedido do evento:
+                      <br>
+                      <span class="text-muted" style="font-size: 0.9em; padding-left: 15px; display: block; margin-top: 5px;">
+                        • <strong>Segurança máxima:</strong> Exclusão imediata logo após o processamento.
+                        <br>
+                        • <strong>Recuperação de transcrições:</strong> Exclusão após 30 dias, para que você possa exportar seus registros com calma.
+                        <br>
+                        • <strong>Armazenamento permanente:</strong> Naturalmente, também aqui garantido sem treinamento de IA.
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>

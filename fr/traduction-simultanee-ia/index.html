@@ -132,7 +132,7 @@
                     "name": "Est-ce conforme au RGPD ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Les transcriptions et traductions sont stockées par défaut afin d'améliorer le service offert à chaque client, mais elles ne sont jamais partagées avec des tiers ni utilisées pour former des IA externes. Les clients peuvent demander leur suppression définitive après l'événement. Toutes les données sont traitées en temps réel et sont conformes au RGPD."
+                        "text": "Sécurité maximale des données et stricte conformité au RGPD : Contrairement à de nombreux outils d'IA standard qui utilisent les données de l'événement pour entraîner leurs modèles sans le demander, vos contenus sont parfaitement protégés chez Nubart. Où vos données sont-elles traitées ? Le traitement des principales langues (comme le français, l'anglais, l'allemand, l'espagnol et bien d'autres) s'effectue entièrement sur des serveurs AWS sécurisés au sein de l'Union européenne. Pour certaines langues plus rares du monde, nous utilisons en outre la technologie d'un partenaire hautement spécialisé dans la synthèse vocale par IA. Ce composant n'est activé que lorsqu'un participant à votre événement sélectionne l'une de ces langues. Là encore, vos données restent protégées : le transfert de données s'effectue exclusivement sur la base des Clauses Contractuelles Types (CCT) de l'UE. Nos garanties de sécurité pour vous : aucun entraînement de l'IA — tous les partenaires sont strictement tenus par contrat de ne jamais utiliser vos données pour entraîner des modèles d'IA. Principe de minimisation — aucun enregistrement audio des voix originales, aucune métadonnée ni aucune donnée personnelle ne sont transférés vers les États-Unis, uniquement le texte traduit destiné à la conversion en audio. Délais de suppression flexibles et sur mesure (vous décidez) — le transfert des données est toujours chiffré via TLS 1.3, et c'est vous qui déterminez la durée de conservation de vos transcriptions et traductions lors de la commande de votre événement : suppression immédiate après le traitement, suppression après 30 jours pour exporter vos comptes rendus, ou conservation permanente (également garantie sans entraînement de l'IA)."
                     }
                 },
                 {
@@ -173,6 +173,14 @@
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": "Vous bénéficiez de 30 minutes gratuites, cumulables sur plusieurs jours, pour tester le service dans divers contextes réels."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Le son est-il coupé si je verrouille mon smartphone ou si je passe à une autre application ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Non. Nubart TRANSLATE utilise le standard web Screen Wake Lock, qui empêche l'écran de se verrouiller automatiquement pendant une session. Comme pour toutes les applications web, le système d'exploitation pourrait théoriquement intervenir, mais c'est également le cas pour les applications natives."
                     }
                 }
             ]
@@ -743,6 +751,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td><i class="bi bi-x-circle-fill text-danger"></i> Cabines, casques, assistance technique</td>
                         <td><i class="bi bi-check-circle-fill text-success"></i> Aucun</td>
                         <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> Aucun</td>
+                    </tr>
+                    <tr>
+                        <td class="text-start">Véritable sécurité RGPD (pas d'entraînement de l'IA)</td>
+                        <td><i class="bi bi-check-circle-fill text-success"></i> Le plus souvent oui</td>
+                        <td><i class="bi bi-x-circle-fill text-danger"></i> Non <span class="text-muted" style="font-size:0.9em;">(utilisent souvent les données pour l'entraînement)</span></td>
+                        <td style="background: #d1f5f5;"><i class="bi bi-check-circle-fill text-success"></i> 100% conforme au RGPD. Pas d'entraînement de l'IA, protocole de suppression strict.</td>
                     </tr>
                     </tbody>
                 </table>
@@ -1419,7 +1433,28 @@ Quelle est la différence essentielle ? Vous bénéficiez d'une qualité d'inter
                             </h2>
                             <div id="faq10" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body" style="text-align: justify;">
-                                    Nubart TRANSLATE traite les transcriptions et traductions en temps réel via des prestataires cloud sécurisés, explicitement tenus de ne pas conserver ni utiliser vos données pour l'entraînement d'IA externes ou le marketing. Les données ne sont jamais vendues ni partagées à des fins publicitaires. Par défaut, des enregistrements anonymisés peuvent être temporairement conservés pour améliorer notre service client, mais vous pouvez en demander la suppression définitive après chaque événement. L'ensemble de la gestion des données respecte le RGPD et garantit la protection de votre vie privée à chaque étape.
+                                    <strong>Sécurité maximale des données et stricte conformité au RGPD :</strong> Contrairement à de nombreux outils d'IA standard qui utilisent les données de l'événement pour entraîner leurs modèles sans le demander, vos contenus sont parfaitement protégés chez Nubart.
+                                    <br><br>
+                                    <strong>Où vos données sont-elles traitées ?</strong>
+                                    Le traitement des principales langues (comme le français, l'anglais, l'allemand, l'espagnol et bien d'autres) s'effectue entièrement sur des serveurs AWS sécurisés au sein de l'Union européenne.
+                                    <br><br>
+                                    Pour certaines langues plus rares du monde, nous utilisons en outre la technologie d'un partenaire hautement spécialisé dans la synthèse vocale par IA. Ce composant n'est activé que lorsqu'un participant à votre événement sélectionne l'une de ces langues. Là encore, vos données restent protégées : le transfert de données s'effectue exclusivement sur la base des Clauses Contractuelles Types (CCT) de l'UE.
+                                    <br><br>
+                                    <strong>Nos garanties de sécurité pour vous :</strong>
+                                    <ul class="mt-2">
+                                        <li><strong>Aucun entraînement de l'IA :</strong> Tous les partenaires sont strictement tenus par contrat de ne jamais utiliser vos données pour entraîner des modèles d'IA.</li>
+                                        <li><strong>Principe de minimisation :</strong> Aucun enregistrement audio des voix originales, aucune métadonnée ni aucune donnée personnelle ne sont transférés vers les États-Unis, uniquement le texte traduit destiné à la conversion en audio.</li>
+                                        <li class="mt-2"><strong>Délais de suppression flexibles et sur mesure (vous décidez) :</strong> Le transfert des données est toujours chiffré via TLS 1.3. C'est vous qui déterminez la durée de conservation de vos transcriptions et traductions lors de la commande de votre événement :
+                                            <br>
+                                            <span class="text-muted" style="font-size: 0.9em; padding-left: 15px; display: block; margin-top: 5px;">
+                                                • <strong>Sécurité maximale :</strong> Suppression immédiate juste après le traitement.
+                                                <br>
+                                                • <strong>Récupération des transcriptions :</strong> Suppression après 30 jours, pour vous laisser le temps d'exporter vos comptes rendus.
+                                                <br>
+                                                • <strong>Conservation permanente :</strong> Là aussi, garantie sans entraînement de l'IA, bien entendu.
+                                            </span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
