@@ -501,6 +501,7 @@ async function generate() {
                    : d.fullguide === 'mostly' ? 'guide speaks ~75% of the tour'
                    : 'commentary at specific stops only (~50% of the tour)';
 
+  let rawResponse = null;  // captured for error reporting
   try {
     const resp = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -513,11 +514,9 @@ async function generate() {
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 4000,
+        system: 'You output JSON only. No preamble, no explanation, no markdown fences. Your response must begin with { and end with }. Nothing else.',
         messages: [
-          { role: 'user',      content: buildPrompt(d, effHours) },
-          // Prefill the assistant's response with '{' so it can ONLY continue
-          // valid JSON. This is Anthropic's recommended way to force JSON output.
-          { role: 'assistant', content: '{' }
+          { role: 'user', content: buildPrompt(d, effHours) }
         ]
       })
     });
@@ -526,15 +525,25 @@ async function generate() {
       throw new Error(err.error?.message || 'API error ' + resp.status);
     }
     const data  = await resp.json();
-    const text  = data.content[0].text;
-    // The prefill '{' is NOT included in the response; we have to prepend it.
-    // Also strip any trailing text after the final '}' (defensive).
-    const reassembled = '{' + text;
-    const lastBrace = reassembled.lastIndexOf('}');
-    const clean = lastBrace !== -1 ? reassembled.slice(0, lastBrace + 1) : reassembled;
+    rawResponse = data.content[0].text;
+    // Robustly extract the JSON: find the first '{' and the matching last '}',
+    // ignore anything outside. Handles preambles like "Let me work on this..."
+    const firstBrace = rawResponse.indexOf('{');
+    const lastBrace  = rawResponse.lastIndexOf('}');
+    if (firstBrace === -1 || lastBrace === -1 || lastBrace <= firstBrace) {
+      throw new Error('No JSON object found in response.');
+    }
+    const clean = rawResponse.slice(firstBrace, lastBrace + 1);
     generated = JSON.parse(clean);
     renderResult(d, effHours);
   } catch (err) {
+    reportError({
+      context: 'generate (Claude API)',
+      errorMessage: err.message,
+      stack: err.stack || '',
+      rawResponse,
+      formData: d,
+    });
     ga.innerHTML = `<div class="error-msg"></div>
       <div class="actions" style="margin-top:12px;">
         <button class="btn btn-ghost" onclick="goTo(2)">← Back</button>
@@ -542,6 +551,25 @@ async function generate() {
       </div>`;
     ga.querySelector('.error-msg').textContent = 'Generation failed: ' + err.message;
   }
+}
+
+// Send error details to Apps Script for emailing. Fire-and-forget; never throws.
+function reportError(details) {
+  try {
+    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.startsWith('PASTE_')) return;
+    const rep = getRep();
+    const payload = Object.assign({
+      type: 'error',
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      rep: { name: rep.name || '', email: rep.email || '' },
+    }, details);
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+    }).catch(() => {});
+  } catch (_) { /* swallow */ }
 }
 
 function buildPrompt(d, effHours) {
@@ -791,6 +819,12 @@ async function generateDoc() {
     btn.textContent = '✦ Open again';
     btn.disabled    = false;
   } catch (err) {
+    reportError({
+      context: 'generateDoc (Apps Script)',
+      errorMessage: err.message,
+      stack: err.stack || '',
+      formData: typeof d !== 'undefined' ? d : null,
+    });
     btn.textContent = '✦ Open in Google Docs';
     btn.disabled    = false;
     errEl.innerHTML = '<div class="error-msg"></div>';
