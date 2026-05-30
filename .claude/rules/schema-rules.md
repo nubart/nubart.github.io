@@ -73,3 +73,10 @@ Each language version of an article is a distinct Schema.org Work, identified by
 - When adding a new language, add an entry to each affected EN article's `workTranslation` array.
 - For articles using the WebPage > mainEntity: Article nested pattern, place `@id`, `mainEntityOfPage`, `isPartOf`, `translationOfWork` on the inner Article entity (not on the outer WebPage).
 - For articles using `@graph`, place these properties on the Article/TechArticle node within the graph.
+
+## GEO / LLM Optimization
+
+These are conventions for feeding AI answer engines, not Google. (Note: Nubart deliberately adds AI-facing content to JSON-LD with no visible counterpart — that is intentional, not "cloaking" to flag.)
+
+- **FAQPage questions mirror how people ask AI assistants.** Phrase `Question` text in natural language the way a real user would ask an assistant ("Can AI interpret a conference in real time?"), not in branded or marketing phrasing ("Why is Nubart TRANSLATE the best choice?").
+- **Use `additionalProperty` for technical differentiators.** In `Service`/`Product` schema, describe architecture, security features, and access methods as explicit `additionalProperty` entries. RAG systems querying "what tool does X" index these.
