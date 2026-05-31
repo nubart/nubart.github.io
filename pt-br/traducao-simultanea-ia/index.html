@@ -848,7 +848,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="card-body p-4">
                         <h4 class="fw-bold mb-1">Custo do seu evento</h4>
                         <p class="text-muted small mb-3">Calcule em segundos</p>
-                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Passo 1 de 4</p>
+                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Passo 1 de 5</p>
                         <h6 class="fw-bold mb-3">Qual é a duração do seu evento?</h6>
 
                         <div class="row g-3">
@@ -872,7 +872,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <!-- Step 2: Multi-room -->
                 <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
                     <div class="card-body p-4">
-                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 2 de 4</p>
+                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 2 de 5</p>
                         <h5 class="fw-bold mb-1">Trata-se de um evento com várias salas?</h5>
                         <p class="text-muted mb-3" style="font-size: 0.85rem;">Por exemplo: uma conferência com sessões paralelas em diferentes salas, cada uma com o seu próprio orador.</p>
                         <div class="d-flex flex-wrap gap-3 mb-3 align-items-start">
@@ -898,7 +898,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <!-- Step 3: First-time customer? -->
                 <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
                     <div class="card-body p-4">
-                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 3 de 4</p>
+                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 3 de 5</p>
                         <h5 class="fw-bold mb-1">É a primeira vez que utiliza o Nubart TRANSLATE?</h5>
                         <p class="text-muted mb-3" style="font-size: 0.85rem;">Os novos clientes podem deduzir os 30 minutos de teste gratuito do valor final.</p>
                         <div class="d-flex flex-wrap gap-3 mb-2 align-items-start">
@@ -910,15 +910,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                         <div class="text-end mt-3">
                             <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← Voltar</button>
-                            <button class="btn btn-primary px-4" onclick="calcStep3Next()">Calcular →</button>
+                            <button class="btn btn-primary px-4" onclick="calcStep3Next()">Seguinte →</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 4: Result -->
+                <!-- Step 4: Confidentiality / LWAC -->
                 <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
                     <div class="card-body p-4">
-                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 4 de 4</p>
+                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 4 de 5</p>
+                        <h5 class="fw-bold mb-1">O que será discutido neste evento é confidencial?</h5>
+                        <p class="text-muted mb-3" style="font-size: 0.85rem;">Por exemplo: uma reunião estratégica, uma sessão de conselho ou qualquer evento em que informações sensíveis não devam chegar a ouvintes não autorizados.</p>
+
+                        <!-- Context shown up front, before the user chooses -->
+                        <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
+                            <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
+                            O Nubart TRANSLATE oferece <strong>cartões de acesso intransferíveis, vinculados ao dispositivo</strong>, que não podem ser compartilhados nem encaminhados. Isso impede que convidados não autorizados acessem o seu evento porque alguém compartilhou o QR code por engano ou de forma mal-intencionada.
+                            <a href="../../ai-simultaneous-interpretation/qr-code-security-gap-ai-interpretation.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">Saiba mais →</a>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-3 mb-3">
+                            <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">Não, o conteúdo não é sensível</button>
+                            <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">Sim — cartões para imprimir você mesmo</button>
+                            <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">Sim — cartões totalmente personalizados</button>
+                        </div>
+
+                        <!-- Print-Your-Own sub-form -->
+                        <div class="d-none" id="calc-lwac-pyo-form">
+                            <div class="d-flex align-items-center gap-3 mb-3 p-3 rounded" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                <img src="../../assets/img/live/live-print-your-own.png" alt="Cartões para imprimir você mesmo" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                <div>
+                                    <strong>Para imprimir você mesmo</strong><br>
+                                    <small class="text-muted">PDF entregue em menos de 24 horas · corte e use</small><br>
+                                    <small class="text-muted">€79 de configuração + €1,50 por código · mínimo de 50 códigos</small>
+                                </div>
+                            </div>
+                            <label class="form-label fw-semibold" style="font-size: 0.85rem;">Quantos participantes precisarão de um cartão? <small class="text-muted fw-normal">(um cartão por pessoa)</small></label>
+                            <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="ex.: 120" style="max-width: 180px;">
+                            <div class="invalid-feedback">Mínimo de 50 cartões.</div>
+                            <div class="form-text">Para mais de 3.000 participantes, entre em contato conosco para um orçamento personalizado.</div>
+                        </div>
+
+                        <!-- Fully branded note -->
+                        <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="../../assets/img/live/live-custom.png" alt="Cartões totalmente personalizados" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                <div>
+                                    <strong>Cartões totalmente personalizados</strong><br>
+                                    <small class="text-muted">Mais de 3.000 cartões · com o seu logotipo e design</small><br>
+                                    <small class="text-muted">⚠ Devem ser encomendados com 30 dias de antecedência</small><br>
+                                    <small class="text-muted">A partir de €3.500 · nossa equipe entrará em contato para acertar quantidades e design</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
+                            <i class="bi bi-exclamation-circle me-1"></i>Por favor, selecione uma opção para continuar.
+                        </div>
+
+                        <div class="text-end mt-3">
+                            <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(3)">← Voltar</button>
+                            <button class="btn btn-primary px-4" onclick="calcStep4Next()">Seguinte →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Result -->
+                <div class="card shadow-sm border mb-3 d-none" id="calc-step-5">
+                    <div class="card-body p-4">
+                        <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 5 de 5</p>
                         <h5 class="fw-bold mb-3">A sua estimativa</h5>
 
                         <!-- Summary chips -->
@@ -941,7 +1001,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <!-- Notes -->
                         <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
                             <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
-                            <strong>Nota:</strong> Esta é uma estimativa baseada em horas completas. A Nubart fatura ao minuto real — apenas enquanto o microfone do orador está ativo. Pausas, preparação e sessões de perguntas sem fala ativa não são faturadas. O número de ouvintes não influencia o preço. Após o evento, será emitida uma fatura final com base na utilização real.
+                            <strong>Nota:</strong> Esta é uma estimativa baseada em horas completas. A Nubart fatura ao minuto real — apenas enquanto o microfone do orador está ativo. Pausas, preparação e sessões de perguntas sem fala ativa não são faturadas, e o número de ouvintes nunca influencia o preço da interpretação (os cartões de acesso, se escolhidos, são cobrados por cartão — veja acima). Após o evento, será emitida uma fatura final com base na utilização real.
                         </div>
 
                         <div class="d-flex flex-wrap gap-2 align-items-center">
@@ -1016,13 +1076,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         tableHours: 'Horas de utilização ativa por dia',
         trialYes:   'Sim (os 30 minutos de teste serão deduzidos)',
         trialNo:    'Não',
-        body:       (eventDetails, trial, total) =>
+        lwacNo:     'Não (QR code padrão)',
+        lwacPyo:    (qty) => `Cartões intransferíveis para imprimir você mesmo (${qty} códigos)`,
+        lwacCustom: 'Cartões intransferíveis totalmente personalizados (a partir de €3.500, prazo de 30 dias)',
+        body:       (eventDetails, trial, total, accessControl) =>
 `Olá,
 
 utilizei a calculadora de custos no seu site e gostaria de receber um orçamento oficial para o seguinte evento:
 
 Detalhes do evento: ${eventDetails}
 Primeira utilização: ${trial}
+Controle de acesso: ${accessControl}
 Custo estimado (calculadora): ${total} sem IVA
 
 Por favor, envie-me um orçamento oficial em nome da minha empresa.
@@ -1037,7 +1101,12 @@ Obrigado`,
             trialRow:   'Dedução teste gratuito (30 min)',
             chipDays:   (days) => `${days} dia${days>1?'s':''} de evento`,
             chipRoom:   (h)    => `${h} h/dia · 1 sala`,
-            trialChip:  'Teste de 30 min deduzido'
+            trialChip:  'Teste de 30 min deduzido',
+            lwacPyoLabel:   (qty) => `Cartões para imprimir você mesmo (${qty} códigos)`,
+            lwacCustomLabel: 'Cartões totalmente personalizados (a partir de €3.500)',
+            lwacLeadTime:   'Prazo de 30 dias',
+            lwacPyoChip:    (qty) => `${qty} cartões PYO`,
+            lwacCustomChip: 'Cartões personalizados · prazo de 30 dias'
         }
     };
     </script>

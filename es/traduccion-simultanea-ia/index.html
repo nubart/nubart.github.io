@@ -899,7 +899,7 @@ cargos por idioma      </td>
                         <div class="card-body p-4">
                             <h4 class="fw-bold mb-1">Coste de tu evento</h4>
                             <p class="text-muted small mb-3">Calcúlalo en segundos</p>
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Paso 1 de 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Paso 1 de 5</p>
                             <h6 class="fw-bold mb-3">¿Cuánto dura tu evento?</h6>
 
                             <div class="row g-3">
@@ -923,7 +923,7 @@ cargos por idioma      </td>
                     <!-- Step 2: Multi-room -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Paso 2 de 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Paso 2 de 5</p>
                             <h5 class="fw-bold mb-1">¿Es un evento con varias salas?</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">Por ejemplo: una conferencia con sesiones paralelas en distintas salas, cada una con su propio ponente.</p>
                             <div class="d-flex gap-3 mb-3">
@@ -949,7 +949,7 @@ cargos por idioma      </td>
                     <!-- Step 3: First-time customer? -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Paso 3 de 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Paso 3 de 5</p>
                             <h5 class="fw-bold mb-1">¿Es la primera vez que usas Nubart TRANSLATE?</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">Los nuevos clientes pueden descontar los 30 minutos de prueba gratuita del importe final.</p>
                             <div class="d-flex gap-3 mb-2">
@@ -961,15 +961,72 @@ cargos por idioma      </td>
                             </div>
                             <div class="text-end mt-3">
                                 <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← Volver</button>
-                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">Calcular →</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">Siguiente →</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Step 4: Result -->
+                    <!-- Step 4: Confidentiality / LWAC -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Paso 4 de 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Paso 4 de 5</p>
+                            <h5 class="fw-bold mb-1">¿Es confidencial lo que se tratará en este evento?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">Por ejemplo: una reunión estratégica, una sesión del consejo de administración o cualquier evento en el que información sensible no deba llegar a oyentes no deseados.</p>
+
+                            <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
+                                <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
+                                Nubart TRANSLATE ofrece <strong>tarjetas de acceso intransferibles y vinculadas al dispositivo</strong> que no se pueden compartir ni reenviar. Esto evita que invitados no autorizados accedan a tu evento porque alguien haya compartido el código QR por error o de forma malintencionada.
+                                <a href="brecha-seguridad-qr-traduccion-ia.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">Más información →</a>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">No, el contenido no es sensible</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">Sí — Tarjetas para imprimir tú mismo</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">Sí — Tarjetas personalizadas con tu marca</button>
+                            </div>
+
+                            <div class="d-none" id="calc-lwac-pyo-form">
+                                <div class="d-flex align-items-center gap-3 mb-3 p-3 rounded" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                    <img src="../../assets/img/live/live-print-your-own.png" alt="Tarjetas para imprimir tú mismo" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>Imprime tú mismo</strong><br>
+                                        <small class="text-muted">PDF entregado en menos de 24 horas · recortar y usar</small><br>
+                                        <small class="text-muted">€79 de configuración + €1,50 por código · mínimo 50 códigos</small>
+                                    </div>
+                                </div>
+                                <label class="form-label fw-semibold" style="font-size: 0.85rem;">¿Cuántos asistentes necesitarán una tarjeta? <small class="text-muted fw-normal">(una tarjeta por persona)</small></label>
+                                <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="p. ej. 120" style="max-width: 180px;">
+                                <div class="invalid-feedback">Mínimo 50 tarjetas.</div>
+                                <div class="form-text">Para más de 3.000 asistentes, contáctanos para un presupuesto personalizado.</div>
+                            </div>
+
+                            <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="../../assets/img/live/live-custom.png" alt="Tarjetas personalizadas con tu marca" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>Tarjetas personalizadas con tu marca</strong><br>
+                                        <small class="text-muted">Más de 3.000 tarjetas · con tu logotipo y diseño</small><br>
+                                        <small class="text-muted">⚠ Deben solicitarse con 30 días de antelación</small><br>
+                                        <small class="text-muted">Desde €3.500 · nuestro equipo hará seguimiento de cantidades y diseño</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
+                                <i class="bi bi-exclamation-circle me-1"></i>Por favor, selecciona una opción para continuar.
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(3)">← Volver</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep4Next()">Siguiente →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Result -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-5">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Paso 5 de 5</p>
                             <h5 class="fw-bold mb-3">Tu estimación</h5>
 
                             <!-- Summary chips -->
@@ -992,7 +1049,7 @@ cargos por idioma      </td>
                             <!-- Notes -->
                             <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
                                 <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
-                                <strong>Ten en cuenta:</strong> Esta es una estimación basada en horas completas. Nubart factura por minutos reales, únicamente mientras el micrófono del ponente está activo. Las pausas, la preparación y las preguntas sin intervención activa no se facturan. El número de oyentes no influye en el precio. Tras el evento recibirás una factura final basada en el uso real.
+                                <strong>Ten en cuenta:</strong> Esta es una estimación basada en horas completas. Nubart factura por minutos reales, únicamente mientras el micrófono del ponente está activo. Las pausas, la preparación y las preguntas sin intervención activa no se facturan. El número de oyentes no influye en el precio de la interpretación (las tarjetas de acceso, si se eligen, se cobran por tarjeta — ver más arriba). Tras el evento recibirás una factura final basada en el uso real.
                             </div>
 
                             <div class="d-flex flex-wrap gap-2 align-items-center">
@@ -1066,13 +1123,17 @@ cargos por idioma      </td>
             tableHours: 'Horas de uso activo por día',
             trialYes:   'Sí (se descontarán los 30 minutos de prueba)',
             trialNo:    'No',
-            body:       (eventDetails, trial, total) =>
+            lwacNo:     'No (código QR estándar)',
+            lwacPyo:    (qty) => `Tarjetas intransferibles para imprimir tú mismo (${qty} códigos)`,
+            lwacCustom: 'Tarjetas intransferibles personalizadas con tu marca (desde €3.500, 30 días de antelación)',
+            body:       (eventDetails, trial, total, accessControl) =>
 `Hola,
 
 he utilizado la calculadora de costes en vuestra web y me gustaría recibir un presupuesto oficial para el siguiente evento:
 
 Detalles del evento: ${eventDetails}
 Primer uso: ${trial}
+Control de acceso: ${accessControl}
 Coste estimado (calculadora): ${total} sin IVA
 
 Por favor, enviadme un presupuesto oficial a nombre de mi empresa.
@@ -1087,7 +1148,12 @@ Gracias`,
                 trialRow:   'Descuento prueba gratuita (30 min)',
                 chipDays:   (days) => `${days} día${days>1?'s':''} de evento`,
                 chipRoom:   (h)    => `${h} h/día · 1 sala`,
-                trialChip:  'Prueba de 30 min descontada'
+                trialChip:  'Prueba de 30 min descontada',
+                lwacPyoLabel:   (qty) => `Tarjetas para imprimir tú mismo (${qty} códigos)`,
+                lwacCustomLabel: 'Tarjetas personalizadas con tu marca (desde €3.500)',
+                lwacLeadTime:   '30 días de antelación',
+                lwacPyoChip:    (qty) => `${qty} tarjetas PYO`,
+                lwacCustomChip: 'Tarjetas con marca · 30 días de antelación'
             }
         };
         </script>

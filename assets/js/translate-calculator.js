@@ -4,19 +4,39 @@ const CALC_EXTRA = 39;
 const CALC_INCLUDED = 2;    // stream-hours included in base rate per event day
 const CALC_TRIAL = 0.5;     // free trial deduction in hours (30 min)
 
+// LWAC non-transferable access cards (step 4)
+const CALC_PYO_SETUP    = 79;     // Print-Your-Own one-off setup fee
+const CALC_PYO_PER_CODE = 1.50;   // per non-transferable code
+const CALC_CUSTOM_FROM  = 3500;   // fully-branded cards, starting price
+const CALC_PYO_MIN      = 50;     // minimum codes for Print-Your-Own
+
 let calcState = {
     days: 0,
     hoursPerDay: 0,
     multiroom: false,
     rooms: [],              // [{hours}] per room
-    firstTime: null         // true/false, set in step 3
+    firstTime: null,        // true/false, set in step 3
+    lwac: null,             // null | 'no' | 'pyo' | 'custom', set in step 4
+    lwacQty: 0              // number of PYO cards, only when lwac === 'pyo'
 };
 
-function calcGoToStep(n) {
-    [1,2,3,4].forEach(i => {
-        document.getElementById('calc-step-' + i).classList.add('d-none');
+// Format a money amount, showing cents only when the value is fractional
+// (PYO totals can land on a half-euro because of the €1.50 per-code price).
+function calcFmt(n) {
+    return n.toLocaleString('de-DE', {
+        minimumFractionDigits: n % 1 === 0 ? 0 : 2,
+        maximumFractionDigits: 2
     });
-    document.getElementById('calc-step-' + n).classList.remove('d-none');
+}
+
+function calcGoToStep(n) {
+    // Null-safe: legacy pages not yet updated have no step 5.
+    [1,2,3,4,5].forEach(i => {
+        const el = document.getElementById('calc-step-' + i);
+        if (el) el.classList.add('d-none');
+    });
+    const target = document.getElementById('calc-step-' + n);
+    if (target) target.classList.remove('d-none');
 }
 
 function calcStep1Next() {
@@ -97,8 +117,57 @@ function calcStep3Next() {
         return;
     }
     document.getElementById('calc-firsttime-warning').classList.add('d-none');
+    // Updated pages have the confidentiality/LWAC step (step 4) before the result
+    // (step 5). Legacy pages not yet updated jump straight to the result (step 4),
+    // so compute here for them.
+    if (document.getElementById('btn-lwac-no')) {
+        calcGoToStep(4);
+    } else {
+        calcCompute();
+        calcGoToStep(4);
+    }
+}
+
+function calcSetLwac(choice) {
+    calcState.lwac = choice;
+    ['no','pyo','custom'].forEach(c => {
+        const btn = document.getElementById('btn-lwac-' + c);
+        if (btn) {
+            btn.classList.toggle('btn-primary', c === choice);
+            btn.classList.toggle('btn-outline-secondary', c !== choice);
+        }
+    });
+    const pyoForm = document.getElementById('calc-lwac-pyo-form');
+    if (pyoForm) pyoForm.classList.toggle('d-none', choice !== 'pyo');
+    const customNote = document.getElementById('calc-lwac-custom-note');
+    if (customNote) customNote.classList.toggle('d-none', choice !== 'custom');
+    const warn = document.getElementById('calc-lwac-warning');
+    if (warn) warn.classList.add('d-none');
+}
+
+function calcStep4Next() {
+    const choice = calcState.lwac;
+    if (choice === null) {
+        document.getElementById('calc-lwac-warning').classList.remove('d-none');
+        return;
+    }
+    document.getElementById('calc-lwac-warning').classList.add('d-none');
+
+    if (choice === 'pyo') {
+        const el = document.getElementById('calc-lwac-qty');
+        const qty = parseInt(el.value);
+        if (!qty || qty < CALC_PYO_MIN) {
+            el.classList.add('is-invalid');
+            return;
+        }
+        el.classList.remove('is-invalid');
+        calcState.lwacQty = qty;
+    } else {
+        calcState.lwacQty = 0;
+    }
+
     calcCompute();
-    calcGoToStep(4);
+    calcGoToStep(5);
 }
 
 function calcCompute() {
@@ -133,10 +202,22 @@ function calcCompute() {
     const extraHoursAfterTrial = Math.max(0, totalExtraHours - trialDeduction);
 
     const extraFee = extraHoursAfterTrial * CALC_EXTRA;
-    const total = baseFee + extraFee;
+
+    // LWAC non-transferable access cards
+    let lwacCost = 0;
+    let lwacLabel = '';
+    if (calcState.lwac === 'pyo') {
+        lwacCost = CALC_PYO_SETUP + (calcState.lwacQty * CALC_PYO_PER_CODE);
+        lwacLabel = ui.lwacPyoLabel(calcState.lwacQty);
+    } else if (calcState.lwac === 'custom') {
+        lwacCost = CALC_CUSTOM_FROM;
+        lwacLabel = ui.lwacCustomLabel;
+    }
+
+    const total = baseFee + extraFee + lwacCost;
 
     // Render total
-    document.getElementById('calc-result-total').textContent = '€' + total.toLocaleString('de-DE');
+    document.getElementById('calc-result-total').textContent = '€' + calcFmt(total);
 
     // Render breakdown
     const bd = document.getElementById('calc-result-breakdown');
@@ -144,6 +225,12 @@ function calcCompute() {
         <li class="d-flex justify-content-between border-bottom pb-1 mb-1" style="color: #059669;">
             <span>${ui.trialRow}</span>
             <strong>− €${(trialDeduction * CALC_EXTRA).toLocaleString('de-DE')}</strong>
+        </li>` : '';
+
+    const lwacRow = (calcState.lwac === 'pyo' || calcState.lwac === 'custom') ? `
+        <li class="d-flex justify-content-between border-bottom pb-1 mb-1">
+            <span class="text-muted">${lwacLabel}${calcState.lwac === 'custom' ? ' ⚠ ' + ui.lwacLeadTime : ''}</span>
+            <strong>€${calcFmt(lwacCost)}</strong>
         </li>` : '';
 
     bd.innerHTML = `
@@ -156,6 +243,7 @@ function calcCompute() {
             <strong>${totalExtraHours > 0 ? '€'+(totalExtraHours * CALC_EXTRA).toLocaleString('de-DE') : '—'}</strong>
         </li>
         ${trialRow}
+        ${lwacRow}
         <li class="d-flex justify-content-between">
             <span class="text-muted">${ui.totalHours}</span>
             <strong>${totalBillableHours} h</strong>
@@ -170,7 +258,9 @@ function calcCompute() {
             ? `<span style="${chipStyle}">${ui.chipRoom(hoursPerDay)}</span>`
             : rooms.map((r,idx) => `<span style="${chipStyle}">${i18n.roomLabel(idx+1)}: ${r.hours} h/day</span>`).join('')
         }
-        ${firstTime ? `<span style="background:#dcfce7; color:#059669; border:1px solid #059669; border-radius:2rem; padding:0.25rem 0.75rem; font-size:0.78rem; font-weight:600;">${ui.trialChip}</span>` : ''}`;
+        ${firstTime ? `<span style="background:#dcfce7; color:#059669; border:1px solid #059669; border-radius:2rem; padding:0.25rem 0.75rem; font-size:0.78rem; font-weight:600;">${ui.trialChip}</span>` : ''}
+        ${calcState.lwac === 'pyo' ? `<span style="${chipStyle}">${ui.lwacPyoChip(calcState.lwacQty)}</span>` : ''}
+        ${calcState.lwac === 'custom' ? `<span style="background:#fef3c7; color:#92400e; border:1px solid #f59e0b; border-radius:2rem; padding:0.25rem 0.75rem; font-size:0.78rem; font-weight:600;">${ui.lwacCustomChip}</span>` : ''}`;
 }
 
 // Default English strings — override per page via window.CALC_I18N
@@ -183,13 +273,17 @@ const CALC_I18N_DEFAULT = {
     tableHours:   'Hours of active use per day',
     trialYes:     'Yes (30-min trial to be deducted)',
     trialNo:      'No',
-    body:         (eventDetails, trial, total) =>
+    lwacNo:       'No (standard QR code)',
+    lwacPyo:      (qty) => `Print-Your-Own non-transferable cards (${qty} codes)`,
+    lwacCustom:   'Fully branded non-transferable cards (from €3,500, 30-day lead time)',
+    body:         (eventDetails, trial, total, accessControl) =>
 `Hello,
 
 I used the cost calculator on your website and would like to receive an official quote for the following event:
 
 Event details: ${eventDetails}
 First-time customer: ${trial}
+Access control: ${accessControl}
 Estimated total (calculator): ${total} excl. VAT
 
 Please send me an official quote addressed to my company.
@@ -198,13 +292,18 @@ Please send me an official quote addressed to my company.
 
 Thank you`,
     ui: {
-        baseFee:    (days) => `Base fee (${days} day${days>1?'s':''}, incl. 2 h/day)`,
-        extraHours: (h)    => `Extra hours (${h} h × €${CALC_EXTRA})`,
-        totalHours: 'Total stream-hours billed',
-        trialRow:   'Free trial deduction (30 min)',
-        chipDays:   (days) => `${days} event day${days>1?'s':''}`,
-        chipRoom:   (h)    => `${h} h/day · 1 room`,
-        trialChip:  '30-min trial deducted'
+        baseFee:        (days) => `Base fee (${days} day${days>1?'s':''}, incl. 2 h/day)`,
+        extraHours:     (h)    => `Extra hours (${h} h × €${CALC_EXTRA})`,
+        totalHours:     'Total stream-hours billed',
+        trialRow:       'Free trial deduction (30 min)',
+        chipDays:       (days) => `${days} event day${days>1?'s':''}`,
+        chipRoom:       (h)    => `${h} h/day · 1 room`,
+        trialChip:      '30-min trial deducted',
+        lwacPyoLabel:   (qty) => `Print-Your-Own cards (${qty} codes)`,
+        lwacCustomLabel: 'Fully branded cards (from €3,500)',
+        lwacLeadTime:   '30-day lead time',
+        lwacPyoChip:    (qty) => `${qty} PYO cards`,
+        lwacCustomChip: 'Branded cards · 30-day lead time'
     }
 };
 
@@ -225,8 +324,14 @@ function calcRequestQuote() {
 
     const trial = firstTime ? i18n.trialYes : i18n.trialNo;
 
+    const accessControl = calcState.lwac === 'pyo'
+        ? i18n.lwacPyo(calcState.lwacQty)
+        : calcState.lwac === 'custom'
+            ? i18n.lwacCustom
+            : i18n.lwacNo;
+
     const subject = i18n.subject(days, total);
-    const body    = i18n.body(eventDetails, trial, total);
+    const body    = i18n.body(eventDetails, trial, total, accessControl);
 
     const mailtoLink = `mailto:${i18n.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 

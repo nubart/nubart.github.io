@@ -907,7 +907,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <div class="card-body p-4">
                             <h4 class="fw-bold mb-1">イベント費用の見積もり</h4>
                             <p class="text-muted small mb-3">数秒で計算できます</p>
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">ステップ 1 / 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">ステップ 1 / 5</p>
                             <h6 class="fw-bold mb-3">イベントの開催期間を教えてください</h6>
 
                             <div class="row g-3">
@@ -931,7 +931,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <!-- Step 2: Multi-room -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 2 / 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 2 / 5</p>
                             <h5 class="fw-bold mb-1">複数会場での開催ですか？</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">例：複数の会場で同時にセッションが行われるカンファレンスなど、それぞれに登壇者がいる場合。</p>
                             <div class="d-flex gap-3 mb-3">
@@ -957,7 +957,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <!-- Step 3: First-time customer? -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 3 / 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 3 / 5</p>
                             <h5 class="fw-bold mb-1">Nubart TRANSLATE を初めてご利用ですか？</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">初回のお客様は、30分の無料トライアル分を最終請求額から差し引くことができます。</p>
                             <div class="d-flex gap-3 mb-2">
@@ -969,15 +969,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                             <div class="text-end mt-3">
                                 <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← 戻る</button>
-                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">計算する →</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">次へ →</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Step 4: Result -->
+                    <!-- Step 4: Confidentiality / LWAC -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 4 / 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 4 / 5</p>
+                            <h5 class="fw-bold mb-1">このイベントで話される内容は機密ですか？</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">例：戦略会議、取締役会、または機密情報が意図しない聴講者に届いてはならないイベントなど。</p>
+
+                            <!-- Context shown up front, before the user chooses -->
+                            <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
+                                <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
+                                Nubart TRANSLATEは、共有や転送ができない<strong>譲渡不可・デバイス固定型のアクセスカード</strong>を提供します。これにより、QRコードが誤って、あるいは悪意を持って共有された場合でも、招待されていない人がイベントにアクセスすることを防ぎます。
+                                <a href="../../ai-simultaneous-interpretation/qr-code-security-gap-ai-interpretation.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">詳しく見る →</a>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">いいえ、内容は機密ではありません</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">はい — 自分で印刷するカード</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">はい — フルブランドカード</button>
+                            </div>
+
+                            <!-- Print-Your-Own sub-form -->
+                            <div class="d-none" id="calc-lwac-pyo-form">
+                                <div class="d-flex align-items-center gap-3 mb-3 p-3 rounded" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                    <img src="../../assets/img/live/live-print-your-own.png" alt="自分で印刷するカード" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>自分で印刷するカード</strong><br>
+                                        <small class="text-muted">PDFを24時間以内に納品 · 切り取ってそのまま使用</small><br>
+                                        <small class="text-muted">初期費用€79 + コード1枚あたり€1.50 · 最低50枚</small>
+                                    </div>
+                                </div>
+                                <label class="form-label fw-semibold" style="font-size: 0.85rem;">カードが必要な参加者は何名ですか？ <small class="text-muted fw-normal">（1名につき1枚）</small></label>
+                                <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="例：120" style="max-width: 180px;">
+                                <div class="invalid-feedback">最低50枚です。</div>
+                                <div class="form-text">3,000名を超える場合は、個別のお見積もりについてお問い合わせください。</div>
+                            </div>
+
+                            <!-- Fully branded note -->
+                            <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="../../assets/img/live/live-custom.png" alt="フルブランドカード" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>フルブランドカード</strong><br>
+                                        <small class="text-muted">3,000枚以上 · お客様のロゴとデザイン</small><br>
+                                        <small class="text-muted">⚠ 30日前までにご注文が必要です</small><br>
+                                        <small class="text-muted">€3,500から · 数量とデザインについては当社チームがフォローいたします</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
+                                <i class="bi bi-exclamation-circle me-1"></i>続行するには選択してください。
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(3)">← 戻る</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep4Next()">次へ →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Result -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-5">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">ステップ 5 / 5</p>
                             <h5 class="fw-bold mb-3">お見積もり結果</h5>
 
                             <!-- Summary chips -->
@@ -1006,7 +1066,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <!-- Notes -->
                             <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
                                 <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
-                                <strong>ご注意：</strong>本見積もりは1時間単位での概算です。Nubartは実際の使用時間を分単位で計測し、登壇者のマイクが有効な時間のみ課金されます。休憩時間、準備時間、発話のない質疑応答は課金対象外です。また、参加者数は料金に影響しません。イベント終了後、実際の使用量に基づいた最終請求書が発行されます。
+                                <strong>ご注意：</strong>本見積もりは1時間単位での概算です。Nubartは実際の使用時間を分単位で計測し、登壇者のマイクが有効な時間のみ課金されます。休憩時間、準備時間、発話のない質疑応答は課金対象外です。また、聴講者数が通訳料金に影響することはありません（アクセスカードをお選びの場合は、上記のとおりカード1枚ごとの料金となります）。イベント終了後、実際の使用量に基づいた最終請求書が発行されます。
                             </div>
 
                             <div class="d-flex flex-wrap gap-2 align-items-center">
@@ -1081,13 +1141,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             tableHours: '1日あたりのアクティブ利用時間',
             trialYes:   'はい（30分の無料トライアル分を差し引き）',
             trialNo:    'いいえ',
-            body:       (eventDetails, trial, total) =>
+            lwacNo:     'いいえ（標準QRコード）',
+            lwacPyo:    (qty) => `自分で印刷する譲渡不可カード（${qty}コード）`,
+            lwacCustom: 'フルブランドの譲渡不可カード（€3,500から、納期30日）',
+            body:       (eventDetails, trial, total, accessControl) =>
 `こんにちは、
 
 ウェブサイトのコスト計算ツールを利用し、以下のイベントについて正式なお見積もりをお願いしたく存じます。
 
 イベント詳細：${eventDetails}
 初回利用：${trial}
+アクセス制御：${accessControl}
 推定費用（計算結果）：${total}（税別）
 
 会社宛ての正式なお見積もりをお送りください。
@@ -1102,7 +1166,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 trialRow:   '無料トライアル控除（30分）',
                 chipDays:   (days) => `${days}日間のイベント`,
                 chipRoom:   (h)    => `${h}時間/日 · 1会場`,
-                trialChip:  '30分トライアル控除済み'
+                trialChip:  '30分トライアル控除済み',
+                lwacPyoLabel:   (qty) => `自分で印刷するカード（${qty}コード）`,
+                lwacCustomLabel: 'フルブランドカード（€3,500から）',
+                lwacLeadTime:   '納期30日',
+                lwacPyoChip:    (qty) => `自分で印刷するカード${qty}枚`,
+                lwacCustomChip: 'ブランドカード · 納期30日'
             }
         };
         </script>

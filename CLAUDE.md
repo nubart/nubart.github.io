@@ -71,6 +71,10 @@ When proposing cross-links, write a one-sentence justification for each naming (
 - Using Plausible Analytics (not GA4)
 - Respect GDPR requirements
 
+## Git Commits & Pushes
+- The user ALWAYS commits and pushes themselves. Never run `git commit` or `git push` unless explicitly asked in that specific instance.
+- Make and verify the file changes, then stop and let the user handle version control.
+
 ## Before Finalizing Changes
 - Test responsive layout (mobile/tablet/desktop)
 - Verify all internal links work

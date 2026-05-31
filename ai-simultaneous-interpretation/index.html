@@ -956,7 +956,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="card-body p-4">
                                 <h4 class="fw-bold mb-1">Your event cost</h4>
                                 <p class="text-muted small mb-3">Calculate in seconds</p>
-                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Step 1 of 4</p>
+                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Step 1 of 5</p>
                                 <h6 class="fw-bold mb-3">How long is your event?</h6>
 
                                 <div class="row g-3">
@@ -980,7 +980,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <!-- Step 2: Multi-room -->
                         <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
                             <div class="card-body p-4">
-                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 2 of 4</p>
+                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 2 of 5</p>
                                 <h5 class="fw-bold mb-1">Is this a multi-room event?</h5>
                                 <p class="text-muted mb-3" style="font-size: 0.85rem;">For example: a conference with parallel sessions in different rooms, each with its own speaker.</p>
                                 <div class="d-flex gap-3 mb-3">
@@ -1006,7 +1006,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <!-- Step 3: First-time customer? -->
                         <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
                             <div class="card-body p-4">
-                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 3 of 4</p>
+                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 3 of 5</p>
                                 <h5 class="fw-bold mb-1">Is this your first time using Nubart TRANSLATE?</h5>
                                 <p class="text-muted mb-3" style="font-size: 0.85rem;">First-time customers can deduct their free 30-minute trial from the final invoice.</p>
                                 <div class="d-flex gap-3 mb-2">
@@ -1018,15 +1018,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                                 <div class="text-end mt-3">
                                     <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← Back</button>
-                                    <button class="btn btn-primary px-4" onclick="calcStep3Next()">Calculate →</button>
+                                    <button class="btn btn-primary px-4" onclick="calcStep3Next()">Next →</button>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Step 4: Result -->
+                        <!-- Step 4: Confidentiality / LWAC -->
                         <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
                             <div class="card-body p-4">
-                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 4 of 4</p>
+                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 4 of 5</p>
+                                <h5 class="fw-bold mb-1">Is what will be discussed at this event confidential?</h5>
+                                <p class="text-muted mb-3" style="font-size: 0.85rem;">For example: a strategy meeting, board session, or any event where sensitive information should not reach unintended listeners.</p>
+
+                                <!-- Context shown up front, before the user chooses -->
+                                <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
+                                    <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
+                                    Nubart TRANSLATE offers <strong>non-transferable, device-bound access cards</strong> that cannot be shared or forwarded. This prevents uninvited guests from accessing your event because someone shared the QR code by accident or with malicious intent.
+                                    <a href="qr-code-security-gap-ai-interpretation.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">Learn more →</a>
+                                </div>
+
+                                <div class="d-flex flex-wrap gap-3 mb-3">
+                                    <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">No, the content is not sensitive</button>
+                                    <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">Yes — Print-Your-Own cards</button>
+                                    <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">Yes — Fully branded cards</button>
+                                </div>
+
+                                <!-- Print-Your-Own sub-form -->
+                                <div class="d-none" id="calc-lwac-pyo-form">
+                                    <div class="d-flex align-items-center gap-3 mb-3 p-3 rounded" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                        <img src="../assets/img/live/live-print-your-own.png" alt="Print-Your-Own cards" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                        <div>
+                                            <strong>Print-Your-Own</strong><br>
+                                            <small class="text-muted">PDF delivered in under 24 hours · cut &amp; use</small><br>
+                                            <small class="text-muted">€79 setup + €1.50 per code · minimum 50 codes</small>
+                                        </div>
+                                    </div>
+                                    <label class="form-label fw-semibold" style="font-size: 0.85rem;">How many attendees will need a card? <small class="text-muted fw-normal">(one card per person)</small></label>
+                                    <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="e.g. 120" style="max-width: 180px;">
+                                    <div class="invalid-feedback">Minimum 50 cards.</div>
+                                    <div class="form-text">For more than 3,000 attendees, please contact us for a custom quote.</div>
+                                </div>
+
+                                <!-- Fully branded note -->
+                                <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="../assets/img/live/live-custom.png" alt="Custom branded cards" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                        <div>
+                                            <strong>Fully branded cards</strong><br>
+                                            <small class="text-muted">3,000+ cards · your logo and design</small><br>
+                                            <small class="text-muted">⚠ Must be ordered 30 days in advance</small><br>
+                                            <small class="text-muted">From €3,500 · our team will follow up on quantities and design</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
+                                    <i class="bi bi-exclamation-circle me-1"></i>Please select an option to continue.
+                                </div>
+
+                                <div class="text-end mt-3">
+                                    <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(3)">← Back</button>
+                                    <button class="btn btn-primary px-4" onclick="calcStep4Next()">Next →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Result -->
+                        <div class="card shadow-sm border mb-3 d-none" id="calc-step-5">
+                            <div class="card-body p-4">
+                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 5 of 5</p>
                                 <h5 class="fw-bold mb-3">Your estimate</h5>
 
                                 <!-- Summary chips -->
@@ -1049,7 +1109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <!-- Notes -->
                                 <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
                                     <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
-                                    <strong>Please note:</strong> This is an approximation based on full hours. Nubart bills by the actual minute — only while the speaker's microphone is unmuted. Muted time, setup, and Q&A are not charged, and the number of listeners never affects the price. A final invoice with exact usage will be issued after the event.
+                                    <strong>Please note:</strong> This is an approximation based on full hours. Nubart bills by the actual minute — only while the speaker's microphone is unmuted. Muted time, setup, and Q&A are not charged, and the number of listeners never affects the interpretation price (access cards, if chosen, are priced per card — see above). A final invoice with exact usage will be issued after the event.
                                 </div>
 
                                 <div class="d-flex flex-wrap gap-2 align-items-center">
@@ -1122,13 +1182,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         roomSuffix: (n)           => `${n} simultaneous rooms`,
         trialYes:   'Yes (30-min trial to be deducted)',
         trialNo:    'No',
-        body:       (eventDetails, trial, total) =>
+        lwacNo:     'No (standard QR code)',
+        lwacPyo:    (qty) => `Print-Your-Own non-transferable cards (${qty} codes)`,
+        lwacCustom: 'Fully branded non-transferable cards (from €3,500, 30-day lead time)',
+        body:       (eventDetails, trial, total, accessControl) =>
 `Hello,
 
 I used the cost calculator on your website and would like to receive an official quote for the following event:
 
 Event details: ${eventDetails}
 First-time customer: ${trial}
+Access control: ${accessControl}
 Estimated total (calculator): ${total} excl. VAT
 
 Please send me an official quote addressed to my company.
@@ -1137,13 +1201,18 @@ Please send me an official quote addressed to my company.
 
 Thank you`,
         ui: {
-            baseFee:    (days) => `Base fee (${days} day${days>1?'s':''}, incl. 2 h/day)`,
-            extraHours: (h)    => `Extra hours (${h} h × €39)`,
-            totalHours: 'Total stream-hours billed',
-            trialRow:   'Free trial deduction (30 min)',
-            chipDays:   (days) => `${days} event day${days>1?'s':''}`,
-            chipRoom:   (h)    => `${h} h/day · 1 room`,
-            trialChip:  '30-min trial deducted'
+            baseFee:        (days) => `Base fee (${days} day${days>1?'s':''}, incl. 2 h/day)`,
+            extraHours:     (h)    => `Extra hours (${h} h × €39)`,
+            totalHours:     'Total stream-hours billed',
+            trialRow:       'Free trial deduction (30 min)',
+            chipDays:       (days) => `${days} event day${days>1?'s':''}`,
+            chipRoom:       (h)    => `${h} h/day · 1 room`,
+            trialChip:      '30-min trial deducted',
+            lwacPyoLabel:   (qty) => `Print-Your-Own cards (${qty} codes)`,
+            lwacCustomLabel: 'Fully branded cards (from €3,500)',
+            lwacLeadTime:   '30-day lead time',
+            lwacPyoChip:    (qty) => `${qty} PYO cards`,
+            lwacCustomChip: 'Branded cards · 30-day lead time'
         }
     };
     </script>

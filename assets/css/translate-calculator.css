@@ -39,20 +39,26 @@
         height: auto;
     }
 
-    /* Hide wizard steps 1–3 */
-    #calc-step-1, #calc-step-2, #calc-step-3 { display: none !important; }
+    /* Hide every wizard step (inputs + confidentiality step). The result card is
+       then re-shown below by content, not by number — so this works whether the
+       result is step 4 (legacy pages) or step 5 (pages with the confidentiality
+       step). */
+    #calc-step-1, #calc-step-2, #calc-step-3, #calc-step-4, #calc-step-5 { display: none !important; }
 
-    /* Show the result step (overrides Bootstrap's d-none) */
-    #calc-step-4 { display: block !important; }
+    /* Show only the card that actually holds the estimate total. */
+    #pricing [id^="calc-step-"]:has(#calc-result-total) {
+        display: block !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+    #pricing [id^="calc-step-"]:has(#calc-result-total) .card-body { padding: 0 !important; }
 
-    /* Hide the action buttons row and step label */
-    #calc-step-4 .d-flex.gap-2.align-items-center { display: none !important; }
-    #calc-step-4 > .card-body > p:first-child { display: none !important; }
+    /* Hide the action buttons row and step label inside the result card */
+    #pricing [id^="calc-step-"]:has(#calc-result-total) .d-flex.gap-2.align-items-center { display: none !important; }
+    #pricing [id^="calc-step-"]:has(#calc-result-total) > .card-body > p:first-child { display: none !important; }
 
-    #calc-step-4 { box-shadow: none !important; border: none !important; padding: 0 !important; }
-    #calc-step-4 .card-body { padding: 0 !important; }
-
-    #calc-step-4 .p-4.rounded-3 {
+    #pricing [id^="calc-step-"]:has(#calc-result-total) .p-4.rounded-3 {
         border: 1.5pt solid #2ec4b6 !important;
         background: #f0fdfb !important;
         padding: 0.5cm !important;
@@ -61,7 +67,7 @@
         print-color-adjust: exact;
     }
 
-    #calc-step-4 .alert {
+    #pricing [id^="calc-step-"]:has(#calc-result-total) .alert {
         border-left: 3pt solid #f59e0b !important;
         background: #fef3c7 !important;
         -webkit-print-color-adjust: exact;
@@ -70,7 +76,7 @@
         padding: 0.3cm 0.4cm !important;
     }
 
-    #calc-step-4::after {
+    #pricing [id^="calc-step-"]:has(#calc-result-total)::after {
         content: "This estimate is based on full hours. Final invoice will reflect exact usage in minutes. Prices exclude VAT. www.nubart.eu";
         display: block;
         font-size: 8pt;

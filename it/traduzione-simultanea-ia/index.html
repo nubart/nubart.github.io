@@ -971,7 +971,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <div class="card-body p-4">
                             <h4 class="fw-bold mb-1">Costo del tuo evento</h4>
                             <p class="text-muted small mb-3">Calcolalo in pochi secondi</p>
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Passo 1 di 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Passo 1 di 5</p>
                             <h6 class="fw-bold mb-3">Quanto dura il tuo evento?</h6>
 
                             <div class="row g-3">
@@ -995,7 +995,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <!-- Step 2: Multi-room -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 2 di 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 2 di 5</p>
                             <h5 class="fw-bold mb-1">È un evento con più sale?</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">Per esempio: una conferenza con sessioni parallele in diverse sale, ognuna con il proprio relatore.</p>
                             <div class="d-flex gap-3 mb-3">
@@ -1021,7 +1021,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <!-- Step 3: First-time customer? -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 3 di 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 3 di 5</p>
                             <h5 class="fw-bold mb-1">È la prima volta che usi Nubart TRANSLATE?</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">I nuovi clienti possono detrarre i 30 minuti di prova gratuita dal totale finale.</p>
                             <div class="d-flex gap-3 mb-2">
@@ -1033,15 +1033,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                             <div class="text-end mt-3">
                                 <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← Indietro</button>
-                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">Calcola →</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">Avanti →</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Step 4: Result -->
+                    <!-- Step 4: Confidentiality / LWAC -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 4 di 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 4 di 5</p>
+                            <h5 class="fw-bold mb-1">Quello che verrà discusso a questo evento è riservato?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">Per esempio: una riunione strategica, una seduta del consiglio di amministrazione o qualsiasi evento in cui informazioni sensibili non devono raggiungere ascoltatori non autorizzati.</p>
+
+                            <!-- Context shown up front, before the user chooses -->
+                            <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
+                                <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
+                                Nubart TRANSLATE offre <strong>schede di accesso non trasferibili e vincolate al dispositivo</strong> che non possono essere condivise o inoltrate. Questo impedisce a ospiti non invitati di accedere al tuo evento perché qualcuno ha condiviso il codice QR per errore o con intenzioni malevole.
+                                <a href="../../ai-simultaneous-interpretation/qr-code-security-gap-ai-interpretation.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">Scopri di più →</a>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">No, il contenuto non è sensibile</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">Sì — schede da stampare in autonomia</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">Sì — schede completamente personalizzate</button>
+                            </div>
+
+                            <!-- Print-Your-Own sub-form -->
+                            <div class="d-none" id="calc-lwac-pyo-form">
+                                <div class="d-flex align-items-center gap-3 mb-3 p-3 rounded" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                    <img src="../../assets/img/live/live-print-your-own.png" alt="Schede da stampare in autonomia" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>Da stampare in autonomia</strong><br>
+                                        <small class="text-muted">PDF consegnato in meno di 24 ore · ritaglia e usa</small><br>
+                                        <small class="text-muted">€79 di setup + €1,50 per codice · minimo 50 codici</small>
+                                    </div>
+                                </div>
+                                <label class="form-label fw-semibold" style="font-size: 0.85rem;">Quanti partecipanti avranno bisogno di una scheda? <small class="text-muted fw-normal">(una scheda per persona)</small></label>
+                                <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="es. 120" style="max-width: 180px;">
+                                <div class="invalid-feedback">Minimo 50 schede.</div>
+                                <div class="form-text">Per più di 3.000 partecipanti, contattaci per un preventivo personalizzato.</div>
+                            </div>
+
+                            <!-- Fully branded note -->
+                            <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="../../assets/img/live/live-custom.png" alt="Schede personalizzate" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>Schede completamente personalizzate</strong><br>
+                                        <small class="text-muted">Oltre 3.000 schede · con il tuo logo e design</small><br>
+                                        <small class="text-muted">⚠ Devono essere ordinate con 30 giorni di anticipo</small><br>
+                                        <small class="text-muted">A partire da €3.500 · il nostro team ti contatterà per quantità e design</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
+                                <i class="bi bi-exclamation-circle me-1"></i>Seleziona un'opzione per continuare.
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(3)">← Indietro</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep4Next()">Avanti →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Result -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-5">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Passo 5 di 5</p>
                             <h5 class="fw-bold mb-3">La tua stima</h5>
 
                             <!-- Summary chips -->
@@ -1064,7 +1124,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <!-- Notes -->
                             <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
                                 <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
-                                <strong>Nota:</strong> Questa è una stima basata su ore intere. Nubart fattura al minuto reale — solo mentre il microfono del relatore è attivo. Pause, preparazione e sessioni di domande senza intervento attivo non vengono fatturate. Il numero di ascoltatori non influisce sul prezzo. Dopo l'evento riceverai una fattura finale basata sull'utilizzo effettivo.
+                                <strong>Nota:</strong> Questa è una stima basata su ore intere. Nubart fattura al minuto reale — solo mentre il microfono del relatore è attivo. Pause, preparazione e sessioni di domande senza intervento attivo non vengono fatturate, e il numero di ascoltatori non influisce mai sul prezzo dell'interpretazione (le schede di accesso, se scelte, sono tariffate per scheda — vedi sopra). Dopo l'evento riceverai una fattura finale basata sull'utilizzo effettivo.
                             </div>
 
                             <div class="d-flex flex-wrap gap-2 align-items-center">
@@ -1138,13 +1198,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             tableHours: 'Ore di utilizzo attivo al giorno',
             trialYes:   'Sì (i 30 minuti di prova verranno detratti)',
             trialNo:    'No',
-            body:       (eventDetails, trial, total) =>
+            lwacNo:     'No (codice QR standard)',
+            lwacPyo:    (qty) => `Schede non trasferibili da stampare in autonomia (${qty} codici)`,
+            lwacCustom: 'Schede non trasferibili completamente personalizzate (a partire da €3.500, con 30 giorni di anticipo)',
+            body:       (eventDetails, trial, total, accessControl) =>
 `Ciao,
 
 ho utilizzato il calcolatore dei costi sul vostro sito e vorrei ricevere un preventivo ufficiale per il seguente evento:
 
 Dettagli dell'evento: ${eventDetails}
 Primo utilizzo: ${trial}
+Controllo accessi: ${accessControl}
 Costo stimato (calcolatore): ${total} IVA esclusa
 
 Per favore, inviami un preventivo ufficiale intestato alla mia azienda.
@@ -1159,7 +1223,12 @@ Grazie`,
                 trialRow:   'Detrazione prova gratuita (30 min)',
                 chipDays:   (days) => `${days} giorno${days>1?'i':''} di evento`,
                 chipRoom:   (h)    => `${h} h/giorno · 1 sala`,
-                trialChip:  'Prova di 30 min dedotta'
+                trialChip:  'Prova di 30 min dedotta',
+                lwacPyoLabel:   (qty) => `Schede da stampare in autonomia (${qty} codici)`,
+                lwacCustomLabel: 'Schede completamente personalizzate (a partire da €3.500)',
+                lwacLeadTime:   '30 giorni di anticipo',
+                lwacPyoChip:    (qty) => `${qty} schede PYO`,
+                lwacCustomChip: 'Schede personalizzate · 30 giorni di anticipo'
             }
         };
         </script>

@@ -880,7 +880,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <div class="card-body p-4">
                             <h4 class="fw-bold mb-1">עלות האירוע שלך</h4>
                             <p class="text-muted small mb-3">חשב/י בתוך שניות</p>
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">שלב 1 מתוך 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">שלב 1 מתוך 5</p>
                             <h6 class="fw-bold mb-3">כמה זמן נמשך האירוע שלך?</h6>
 
                             <div class="row g-3">
@@ -904,7 +904,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <!-- Step 2: Multi-room -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">שלב 2 מתוך 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">שלב 2 מתוך 5</p>
                             <h5 class="fw-bold mb-1">האם זהו אירוע עם מספר חדרים?</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">לדוגמה: כנס עם מושבים מקבילים בחדרים שונים, כל אחד עם דובר משלו.</p>
                             <div class="d-flex gap-3 mb-3">
@@ -930,7 +930,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <!-- Step 3: First-time customer? -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">שלב 3 מתוך 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">שלב 3 מתוך 5</p>
                             <h5 class="fw-bold mb-1">האם זו הפעם הראשונה שאתה משתמש ב-Nubart TRANSLATE?</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">לקוחות חדשים יכולים לנכות את 30 דקות הניסיון החינמי מהחיוב הסופי.</p>
                             <div class="d-flex gap-3 mb-2">
@@ -942,15 +942,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                             <div class="text-end mt-3">
                                 <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← חזור</button>
-                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">חשב →</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">הבא →</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Step 4: Result -->
+                    <!-- Step 4: Confidentiality / LWAC -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">שלב 4 מתוך 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">שלב 4 מתוך 5</p>
+                            <h5 class="fw-bold mb-1">האם מה שיידון באירוע זה הוא חסוי?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">לדוגמה: ישיבת אסטרטגיה, ישיבת דירקטוריון, או כל אירוע שבו מידע רגיש אינו אמור להגיע למאזינים לא מורשים.</p>
+
+                            <!-- Context shown up front, before the user chooses -->
+                            <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
+                                <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
+                                Nubart TRANSLATE מציעה <strong>כרטיסי גישה בלתי ניתנים להעברה, צמודי-מכשיר</strong> שאי אפשר לשתף או להעביר הלאה. כך נמנעת גישה של אורחים לא מוזמנים לאירוע שלך בעקבות שיתוף קוד ה-QR בטעות או מתוך כוונה זדונית.
+                                <a href="../../ai-simultaneous-interpretation/qr-code-security-gap-ai-interpretation.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">למידע נוסף →</a>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">לא, התוכן אינו רגיש</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">כן — כרטיסים להדפסה עצמית</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">כן — כרטיסים ממותגים במלואם</button>
+                            </div>
+
+                            <!-- Print-Your-Own sub-form -->
+                            <div class="d-none" id="calc-lwac-pyo-form">
+                                <div class="d-flex align-items-center gap-3 mb-3 p-3 rounded" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                    <img src="../../assets/img/live/live-print-your-own.png" alt="כרטיסים להדפסה עצמית" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>הדפסה עצמית</strong><br>
+                                        <small class="text-muted">קובץ PDF נמסר תוך פחות מ-24 שעות · גזרו והשתמשו</small><br>
+                                        <small class="text-muted">€79 התקנה + €1.50 לכל קוד · מינימום 50 קודים</small>
+                                    </div>
+                                </div>
+                                <label class="form-label fw-semibold" style="font-size: 0.85rem;">כמה משתתפים יזדקקו לכרטיס? <small class="text-muted fw-normal">(כרטיס אחד לכל אדם)</small></label>
+                                <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="למשל 120" style="max-width: 180px;">
+                                <div class="invalid-feedback">מינימום 50 כרטיסים.</div>
+                                <div class="form-text">עבור יותר מ-3,000 משתתפים, אנא פנו אלינו לקבלת הצעת מחיר מותאמת.</div>
+                            </div>
+
+                            <!-- Fully branded note -->
+                            <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="../../assets/img/live/live-custom.png" alt="כרטיסים ממותגים בהתאמה אישית" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>כרטיסים ממותגים במלואם</strong><br>
+                                        <small class="text-muted">3,000+ כרטיסים · עם הלוגו והעיצוב שלכם</small><br>
+                                        <small class="text-muted">⚠ יש להזמין 30 יום מראש</small><br>
+                                        <small class="text-muted">החל מ-€3,500 · הצוות שלנו יחזור אליכם בנוגע לכמויות ולעיצוב</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
+                                <i class="bi bi-exclamation-circle me-1"></i>אנא בחר/י אפשרות כדי להמשיך.
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(3)">← חזור</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep4Next()">הבא →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Result -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-5">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">שלב 5 מתוך 5</p>
                             <h5 class="fw-bold mb-3">ההערכה שלך</h5>
 
                             <!-- Summary chips -->
@@ -979,7 +1039,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <!-- Notes -->
                             <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
                                 <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
-                                <strong>שימו לב:</strong> זוהי הערכה המבוססת על שעות מלאות. Nubart מחייבת לפי שימוש בפועל, מדויק לדקה — רק כאשר המיקרופון של הדובר פעיל. הפסקות, הכנה ושאלות ללא דיבור פעיל אינן מחויבות. מספר המאזינים אינו משפיע על המחיר. לאחר האירוע תונפק חשבונית סופית בהתאם לשימוש בפועל.
+                                <strong>שימו לב:</strong> זוהי הערכה המבוססת על שעות מלאות. Nubart מחייבת לפי שימוש בפועל, מדויק לדקה — רק כאשר המיקרופון של הדובר פעיל. הפסקות, הכנה ושאלות ללא דיבור פעיל אינן מחויבות, ומספר המאזינים אינו משפיע על מחיר התרגום (כרטיסי הגישה, אם נבחרו, מתומחרים לפי כרטיס — ראו למעלה). לאחר האירוע תונפק חשבונית סופית בהתאם לשימוש בפועל.
                             </div>
 
                             <div class="d-flex flex-wrap gap-2 align-items-center">
@@ -1055,13 +1115,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         trialNo:    'לא',
         tableRoom:  'חדר',
         tableHours: 'שעות שימוש פעיל ביום',
-        body:       (eventDetails, trial, total) =>
+        lwacNo:     'לא (קוד QR סטנדרטי)',
+        lwacPyo:    (qty) => `כרטיסים בלתי ניתנים להעברה להדפסה עצמית (${qty} קודים)`,
+        lwacCustom: 'כרטיסים ממותגים בלתי ניתנים להעברה (החל מ-€3,500, זמן אספקה 30 יום)',
+        body:       (eventDetails, trial, total, accessControl) =>
 `שלום,
 
 השתמשתי במחשבון העלויות באתר שלכם וברצוני לקבל הצעת מחיר רשמית עבור האירוע הבא:
 
 פרטי האירוע: ${eventDetails}
 שימוש ראשון: ${trial}
+בקרת גישה: ${accessControl}
 עלות משוערת (מחשבון): ${total} ללא מע״מ
 
 אנא שלחו לי הצעת מחיר רשמית על שם החברה שלי.
@@ -1076,7 +1140,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             trialRow:   `ניכוי ניסיון חינם (30 דקות)`,
             chipDays:   (days) => `${days} ימי אירוע`,
             chipRoom:   (h)    => `${h} שעות/יום · חדר אחד`,
-            trialChip:  `ניכוי ניסיון 30 דקות`
+            trialChip:  `ניכוי ניסיון 30 דקות`,
+            lwacPyoLabel:   (qty) => `כרטיסים להדפסה עצמית (${qty} קודים)`,
+            lwacCustomLabel: 'כרטיסים ממותגים במלואם (החל מ-€3,500)',
+            lwacLeadTime:   'זמן אספקה 30 יום',
+            lwacPyoChip:    (qty) => `${qty} כרטיסי הדפסה עצמית`,
+            lwacCustomChip: 'כרטיסים ממותגים · זמן אספקה 30 יום'
         }
     };
     </script>

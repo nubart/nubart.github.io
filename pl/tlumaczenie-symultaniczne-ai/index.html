@@ -928,7 +928,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <div class="card-body p-4">
                             <h4 class="fw-bold mb-1">Koszt Państwa wydarzenia</h4>
                             <p class="text-muted small mb-3">Oblicz w kilka sekund</p>
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Krok 1 z 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Krok 1 z 5</p>
                             <h6 class="fw-bold mb-3">Jak długo trwa Państwa wydarzenie?</h6>
 
                             <div class="row g-3">
@@ -952,7 +952,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <!-- Step 2: Multi-room -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Krok 2 z 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Krok 2 z 5</p>
                             <h5 class="fw-bold mb-1">Czy jest to wydarzenie wielosalowe?</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">Na przykład: konferencja z równoległymi sesjami w różnych salach, każda z własnym prelegentem.</p>
                             <div class="d-flex gap-3 mb-3">
@@ -978,7 +978,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <!-- Step 3: First-time customer? -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Krok 3 z 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Krok 3 z 5</p>
                             <h5 class="fw-bold mb-1">Czy korzystają Państwo z Nubart TRANSLATE po raz pierwszy?</h5>
                             <p class="text-muted mb-3" style="font-size: 0.85rem;">Nowi klienci mogą odliczyć 30 minut bezpłatnego testu od końcowej kwoty.</p>
                             <div class="d-flex gap-3 mb-2">
@@ -990,15 +990,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                             <div class="text-end mt-3">
                                 <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← Wstecz</button>
-                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">Oblicz →</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep3Next()">Dalej →</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Step 4: Result -->
+                    <!-- Step 4: Confidentiality / LWAC -->
                     <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
                         <div class="card-body p-4">
-                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Krok 4 z 4</p>
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Krok 4 z 5</p>
+                            <h5 class="fw-bold mb-1">Czy treść omawiana podczas tego wydarzenia jest poufna?</h5>
+                            <p class="text-muted mb-3" style="font-size: 0.85rem;">Na przykład: spotkanie strategiczne, posiedzenie zarządu lub każde wydarzenie, podczas którego poufne informacje nie powinny dotrzeć do niepowołanych słuchaczy.</p>
+
+                            <!-- Context shown up front, before the user chooses -->
+                            <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
+                                <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
+                                Nubart TRANSLATE oferuje <strong>nieprzenoszalne karty dostępu powiązane z urządzeniem</strong>, których nie można udostępnić ani przekazać dalej. Zapobiega to dostępowi nieproszonych gości do Państwa wydarzenia, gdyby ktoś udostępnił kod QR przez przypadek lub w złych zamiarach.
+                                <a href="../../ai-simultaneous-interpretation/qr-code-security-gap-ai-interpretation.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">Dowiedz się więcej →</a>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-3 mb-3">
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">Nie, treść nie jest poufna</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">Tak — karty do samodzielnego wydruku</button>
+                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">Tak — karty z pełnym brandingiem</button>
+                            </div>
+
+                            <!-- Print-Your-Own sub-form -->
+                            <div class="d-none" id="calc-lwac-pyo-form">
+                                <div class="d-flex align-items-center gap-3 mb-3 p-3 rounded" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                    <img src="../../assets/img/live/live-print-your-own.png" alt="Karty do samodzielnego wydruku" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>Do samodzielnego wydruku</strong><br>
+                                        <small class="text-muted">Plik PDF dostarczany w mniej niż 24 godziny · wytnij i używaj</small><br>
+                                        <small class="text-muted">€79 opłaty początkowej + €1,50 za kod · minimum 50 kodów</small>
+                                    </div>
+                                </div>
+                                <label class="form-label fw-semibold" style="font-size: 0.85rem;">Ilu uczestników będzie potrzebować karty? <small class="text-muted fw-normal">(jedna karta na osobę)</small></label>
+                                <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="np. 120" style="max-width: 180px;">
+                                <div class="invalid-feedback">Minimum 50 kart.</div>
+                                <div class="form-text">W przypadku ponad 3 000 uczestników prosimy o kontakt w celu uzyskania indywidualnej oferty.</div>
+                            </div>
+
+                            <!-- Fully branded note -->
+                            <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="../../assets/img/live/live-custom.png" alt="Karty z pełnym brandingiem" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
+                                    <div>
+                                        <strong>Karty z pełnym brandingiem</strong><br>
+                                        <small class="text-muted">Ponad 3 000 kart · Państwa logo i projekt</small><br>
+                                        <small class="text-muted">⚠ Należy zamówić z 30-dniowym wyprzedzeniem</small><br>
+                                        <small class="text-muted">Od €3 500 · nasz zespół skontaktuje się w sprawie ilości i projektu</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
+                                <i class="bi bi-exclamation-circle me-1"></i>Proszę wybrać opcję, aby kontynuować.
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(3)">← Wstecz</button>
+                                <button class="btn btn-primary px-4" onclick="calcStep4Next()">Dalej →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Result -->
+                    <div class="card shadow-sm border mb-3 d-none" id="calc-step-5">
+                        <div class="card-body p-4">
+                            <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Krok 5 z 5</p>
                             <h5 class="fw-bold mb-3">Szacunkowy koszt</h5>
 
                             <!-- Summary chips -->
@@ -1021,7 +1081,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <!-- Notes -->
                             <div class="alert mb-3 p-3" style="background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-size: 0.82rem;">
                                 <i class="bi bi-info-circle-fill me-1" style="color: #f59e0b;"></i>
-                                <strong>Uwaga:</strong> Jest to szacunkowa kalkulacja oparta na pełnych godzinach. Nubart rozlicza się co do minuty — wyłącznie w czasie, gdy mikrofon prelegenta jest aktywny. Przerwy, przygotowanie oraz sesje pytań bez aktywnego mówienia nie są naliczane. Liczba słuchaczy nie wpływa na cenę. Po wydarzeniu zostanie wystawiona faktura końcowa na podstawie rzeczywistego użycia.
+                                <strong>Uwaga:</strong> Jest to szacunkowa kalkulacja oparta na pełnych godzinach. Nubart rozlicza się co do minuty — wyłącznie w czasie, gdy mikrofon prelegenta jest aktywny. Przerwy, przygotowanie oraz sesje pytań bez aktywnego mówienia nie są naliczane, a liczba słuchaczy nigdy nie wpływa na cenę tłumaczenia (karty dostępu, jeśli zostaną wybrane, są wyceniane za sztukę — patrz wyżej). Po wydarzeniu zostanie wystawiona faktura końcowa na podstawie rzeczywistego użycia.
                             </div>
 
                             <div class="d-flex flex-wrap gap-2 align-items-center">
@@ -1062,13 +1122,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             tableHours: 'Godziny aktywnego użytkowania dziennie',
             trialYes:   'Tak (30 minut testu zostanie odliczone)',
             trialNo:    'Nie',
-            body:       (eventDetails, trial, total) =>
+            lwacNo:     'Nie (standardowy kod QR)',
+            lwacPyo:    (qty) => `Nieprzenoszalne karty do samodzielnego wydruku (${qty} kodów)`,
+            lwacCustom: 'Nieprzenoszalne karty z pełnym brandingiem (od €3 500, 30-dniowy czas realizacji)',
+            body:       (eventDetails, trial, total, accessControl) =>
 `Dzień dobry,
 
 skorzystałem z kalkulatora kosztów na Państwa stronie i chciałbym otrzymać oficjalną ofertę dla następującego wydarzenia:
 
 Szczegóły wydarzenia: ${eventDetails}
 Pierwsze użycie: ${trial}
+Kontrola dostępu: ${accessControl}
 Szacunkowy koszt (kalkulator): ${total} bez VAT
 
 Proszę o przesłanie oficjalnej oferty na moją firmę.
@@ -1083,7 +1147,12 @@ Dziękuję`,
                 trialRow:   'Odliczenie bezpłatnego testu (30 min)',
                 chipDays:   (days) => `${days==1?'1 dzień':days+' dni'} wydarzenia`,
                 chipRoom:   (h)    => `${h} h/dzień · 1 sala`,
-                trialChip:  'Test 30 min odliczony'
+                trialChip:  'Test 30 min odliczony',
+                lwacPyoLabel:   (qty) => `Karty do samodzielnego wydruku (${qty} kodów)`,
+                lwacCustomLabel: 'Karty z pełnym brandingiem (od €3 500)',
+                lwacLeadTime:   '30-dniowy czas realizacji',
+                lwacPyoChip:    (qty) => `${qty} kart do wydruku`,
+                lwacCustomChip: 'Karty z brandingiem · 30-dniowy czas realizacji'
             }
         };
         </script>
