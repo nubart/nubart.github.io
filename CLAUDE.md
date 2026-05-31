@@ -26,6 +26,7 @@ Some products/languages have a subdirectory for a specific product. Reference li
 - Last resort: Custom overrides in `custom.css` only when Bootstrap/template CSS insufficient
 - Avoid inline styles unless absolutely necessary
 - Always place all new dedicated CSS files in assets/css/
+- **Polish exception — do NOT use the `lead` class on Polish pages.** It renders some Polish diacritics incorrectly (certain characters appear bold/broken). On Polish (`/pl/`) pages use inline `style="font-size: 18px;"` instead. Affects Polish only, and only the `lead` class.
 
 ## Images & Media
 - Location: `/assets/img/` (with subdirectories)
@@ -62,6 +63,13 @@ When proposing cross-links, write a one-sentence justification for each naming (
 - Always verify schema matches actual page content after edits
 - For detailed schema rules (isPartOf, BreadcrumbList, translationOfWork patterns): see `.claude/rules/schema-rules.md`
 
+## Updating Dates on Content Changes (CRITICAL)
+- Every time we make a RELEVANT improvement to a page (substantive content, structure, or messaging change — not typo fixes), update its `dateModified` in the Schema.org/JSON-LD to the current date.
+- Do this PROACTIVELY without being asked, as the final step of any meaningful edit.
+- Apply the SAME new `dateModified` across ALL language versions that received the change.
+- Leave `datePublished` untouched — it records the original publication date.
+- Today's date is available in the session context.
+
 ## Contact & Business Information
 - Currently hardcoded in each language file
 - Ask before changing any contact info (addresses, phones, emails)
@@ -82,6 +90,7 @@ When proposing cross-links, write a one-sentence justification for each naming (
 - Validate HTML
 - Confirm accessibility (WCAG)
 - Review and update Schema.org if content changed
+- Update `dateModified` (all language versions) if a relevant improvement was made
 - Update hreflang tags if pages added/modified
 
 ## Page Index & URL Map
