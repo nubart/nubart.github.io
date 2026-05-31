@@ -470,10 +470,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <hr class="hr hr-blurry" style="color:#6ec7ba;" />
 
+                    <h2>What is museum visitor analytics?</h2>
+
+                    <p>Museum visitor analytics is the collection and analysis of data about museum audiences and their behaviour during and around a visit. It helps museums understand who their visitors are, where they come from, which languages they speak, how they engage with exhibitions, and how long they spend in different parts of the museum. The goal of museum visitor analytics is not commercial conversion, but institutional understanding: improving the visitor experience, planning multilingual content, evaluating exhibitions, supporting funding applications, and demonstrating cultural impact.</p>
+
+                    <p>The metrics used in museum visitor analytics generally fall into three categories. <strong>Audience metrics</strong> describe who the visitors are, including their country of origin, language, and visitor type. <strong>Behavioural metrics</strong> describe what they do during the visit, such as which exhibits they engage with and in what sequence. <strong>Engagement metrics</strong> describe the depth of the visit itself, including dwell time, repeat visits, and continued interaction with museum content after the visit has ended.</p>
+
+                    <p>Unlike many forms of digital analytics, museum visitor analytics operates under unusually strict privacy expectations. Museums need meaningful audience intelligence while preserving visitor anonymity — making the balance between data quality and privacy protection a defining constraint of any analytics approach, not an afterthought.</p>
+
                     <h2>The visitor, or the visit, but rarely both</h2>
 
-                    <p>The audio guide landscape today comprises three distinct approaches: hardware devices, native apps, and web-based guides. Each has real strengths. But when it comes to audience intelligence, each also has a structural blind spot, and only one of them covers both dimensions a museum actually needs.</p>
+                    <p>Museums have always gathered some visitor data. Ticketing systems record footfall, peak hours, and — where pricing tiers exist — broad visitor categories such as adults, concessions, or group bookings. Exit surveys and visitor books capture qualitative impressions from the fraction of visitors willing to stop and respond. Both methods have real value. But they share a structural ceiling: ticketing tells you that someone came, and surveys tell you what a self-selected minority thought. Neither reliably tells you who the audience actually is, what happened during the visit, or which parts of the collection held their attention. It is possible to run a museum for decades on ticket counts and occasional survey reports and still know remarkably little about the people walking through the door.</p>
 
+                    <p>Over the past decade, digital visitor technologies have started to close these gaps. Among them, audio guides occupy a particularly unusual position because they accompany visitors throughout the visit itself. Yet not all audio guide technologies capture the same information, or with the same completeness.</p>
+
+                    <p>The audio guide landscape today comprises three distinct approaches: hardware devices, native apps, and web-based guides. Each has real strengths. But when it comes to audience intelligence, each also has a structural blind spot, and only one of them covers both dimensions a museum actually needs.</p>
+                    <div class="my-5 p-4 rounded" style="background-color: #f0fafa; border-left: 4px solid #028a8c;">
+                        <h3 class="text-center mb-4" style="color: #028a8c;">Most audio guide technologies know only half the story</h3>
+                        <div class="row text-center g-3">
+                            <div class="col-md-4">
+                                <div class="p-3">
+                                    <i class="bi bi-device-hdd fs-2" style="color: #028a8c;"></i>
+                                    <h5 class="mt-2 mb-3">Hardware devices</h5>
+                                    <p class="mb-1"><i class="bi bi-check-lg" style="color: #028a8c;"></i> Know the <strong>visit</strong></p>
+                                    <p><i class="bi bi-x-lg text-danger"></i> Know the <strong>visitor</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3">
+                                    <i class="bi bi-phone fs-2" style="color: #028a8c;"></i>
+                                    <h5 class="mt-2 mb-3">Native apps</h5>
+                                    <p class="mb-1"><i class="bi bi-check-lg" style="color: #028a8c;"></i> Know the <strong>visitor</strong></p>
+                                    <p><i class="bi bi-x-lg text-danger"></i> Know the <strong>visit</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 rounded" style="background-color: #028a8c;">
+                                    <i class="bi bi-qr-code fs-2" style="color: white;"></i>
+                                    <h5 class="mt-2 mb-3" style="color: white;">QR-code audio guides</h5>
+                                    <p class="mb-1"><i class="bi bi-check-lg" style="color: #d0f0ee;"></i> <strong style="color: white;">Know the visitor</strong></p>
+                                    <p><i class="bi bi-check-lg" style="color: #d0f0ee;"></i> <strong style="color: white;">Know the visit</strong></p>
+                                    <p class="fw-bold mt-2" style="color: white;">Knows both.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <p><strong>Hardware devices</strong>, the dedicated players handed out at the ticket desk, can tell you something about how the guide was used. Smarter devices log which tracks were played, in what order, and for how long. This is genuinely useful operational data. What a device cannot tell you is anything about the person holding it: where they come from, what language they speak at home, whether they have visited before. The device is anonymous by design. It knows about the visit, but nothing about the visitor.</p>
 
                     <p><strong>Native apps</strong>, those downloaded from the App Store or Google Play, invert the problem. Both Apple's App Store Connect and Google Play Console provide developers with aggregated data about their users: account country, language preference, device type. This tells you something about who downloaded the app. What it cannot reliably tell you is what happened during the visit itself. App store analytics are built for the acquisition funnel, tracking how users discover and install apps. In-visit behaviour (which exhibits were engaged with, how long someone stayed, which audio content they listened to) is not captured by the app store. To measure it, a developer must build and instrument their own analytics layer on top of the app, a significant additional investment that most museum app providers have not made. On iOS, behavioural tracking increasingly depends on explicit user consent through Apple's App Tracking Transparency framework, and many visitors decline. The result is a dataset with gaps precisely where the museum needs it most.</p>
@@ -481,6 +522,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>There is also a structural reason why rich in-app analytics are rare: the <a href="museum-audio-guide-app-adoption-rates.html">economics of native app development</a> work against them. Each museum typically wants its own branded app, with its own listing in the App Store and Google Play, its own review and update cycles. A provider serving fifty museums manages fifty separate app distributions. Building a sophisticated shared analytics backend on top of that operational complexity is a substantial investment that the per-museum native app model rarely supports. This is not a criticism of those providers; it is simply a consequence of their architecture.</p>
 
                     <p><strong>A web-based audio guide</strong>, technically a Progressive Web App, or PWA, accessed by scanning a QR code, is the only approach that covers both dimensions simultaneously. Because the visitor is using their own mobile browser rather than a downloaded app or a borrowed device, the browser itself becomes a passive source of rich, anonymous data about both the person and the visit. No registration. No permissions dialogue. No invasive tracking layer required.</p>
+
 
                     <h2>What the browser already knows</h2>
 
