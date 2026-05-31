@@ -56,6 +56,23 @@
     }
 })();
 
+// ── Registered email from ?email= URL parameter ─────────────
+// Surfaces the email the account was registered with, so a customer
+// who forgot which address they used can recover it from this page.
+(function () {
+    const emailEl = document.getElementById('registered-email');
+    if (!emailEl) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const email  = params.get('email');
+    if (email) {
+        emailEl.textContent = email;
+    } else {
+        const wrap = document.getElementById('registered-email-wrap');
+        if (wrap) wrap.style.display = 'none';
+    }
+})();
+
 // ── Troubleshooting accordion ───────────────────────────────
 function toggleTroubleshooting() {
     const body    = document.getElementById('ts-body');

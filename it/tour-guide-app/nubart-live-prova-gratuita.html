@@ -92,6 +92,11 @@
 
             <p><strong>Link di registrazione</strong> (usalo una volta sola per creare il tuo account):</p>
             <div id="reg-link-display" style="margin-bottom:1rem;"></div>
+            <p id="registered-email-wrap" style="margin-bottom:1rem;">
+                <strong>La tua email di registrazione:</strong>
+                <span id="registered-email" style="font-weight:600;"></span><br>
+                <span style="font-size:0.85rem; color:#888;">È l'indirizzo con cui accedi. Tienilo a portata di mano.</span>
+            </p>
             <p><strong>Link di accesso</strong> (usalo ogni volta in seguito):</p>
             <a class="reg-link" href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
                 https://www.nub.art/customer/login
@@ -429,6 +434,16 @@
             regDisplay.innerHTML =
                 '<span class="reg-missing"><i class="bi bi-exclamation-triangle me-1"></i>' +
                 'No registration link provided. Please contact your Nubart representative.</span>';
+        }
+
+        /* ── Email registrata ──────────────────────────── */
+        const email = params.get('email');
+        const emailEl = document.getElementById('registered-email');
+        if (email && emailEl) {
+            emailEl.textContent = email;
+        } else {
+            const emailWrap = document.getElementById('registered-email-wrap');
+            if (emailWrap) emailWrap.style.display = 'none';
         }
 
         /* ── Extract alphanumeric code from a nub.art URL ─ */

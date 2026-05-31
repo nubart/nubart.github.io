@@ -93,6 +93,11 @@
 
             <p><strong>登録リンク</strong>（アカウント作成時に一度だけご利用ください）：</p>
             <div id="reg-link-display" style="margin-bottom:1rem;"></div>
+            <p id="registered-email-wrap" style="margin-bottom:1rem;">
+                <strong>登録済みのメールアドレス:</strong>
+                <span id="registered-email" style="font-weight:600;"></span><br>
+                <span style="font-size:0.85rem; color:#888;">ログイン時に使用するアドレスです。控えておいてください。</span>
+            </p>
             <p><strong>ログインリンク</strong>（以降はこちらをご利用ください）：</p>
             <a class="reg-link" href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
                 https://www.nub.art/customer/login
@@ -366,6 +371,16 @@
             regDisplay.innerHTML =
                 '<span class="reg-missing"><i class="bi bi-exclamation-triangle me-1"></i>' +
                 '登録リンクが提供されていません。Nubartの担当者までお問い合わせください。</span>';
+        }
+
+        /* ── 登録済みメールアドレス ────────────────────── */
+        const email = params.get('email');
+        const emailEl = document.getElementById('registered-email');
+        if (email && emailEl) {
+            emailEl.textContent = email;
+        } else {
+            const emailWrap = document.getElementById('registered-email-wrap');
+            if (emailWrap) emailWrap.style.display = 'none';
         }
 
         /* ── Extract alphanumeric code from a nub.art URL ─ */
