@@ -276,7 +276,6 @@
 - IT: it/traduzione-simultanea-ia/index.html
 - FR: fr/traduction-simultanee-ia/index.html
 - HE: he/ai-simultaneous-interpretation/index.html
-- BG: bg/ai-simultanen-usten-prevod.html
 - PT-BR: pt-br/traducao-simultanea-ia/index.html
 - JA: ja/ai-simultaneous-translation/index.html
 
@@ -351,7 +350,7 @@
 - IT: it/audioguida.html
 - FR: fr/audioguides.html
 - HE: he/audio-guides/index.html
-- BG: bg/audiogidove.html
+- BG: bg/index.html (also the BG site home; formerly bg/audiogidove.html, now a redirect stub to /bg/)
 - PT-BR: pt-br/audioguia/index.html
 - JA: ja/audio-guides/index.html
 - NL: nl/audiogidsen/index.html
