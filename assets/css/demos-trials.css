@@ -292,6 +292,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 3px;
 }
 
+/* The registered-email block reuses .login-label for its heading, but the
+   email itself must render exactly as received and the explanatory note must
+   follow normal orthography — so only the <strong> heading stays uppercase. */
+#registered-email-wrap span {
+    text-transform: none;
+    letter-spacing: normal;
+}
+
 .login-link-block {
     font-size: 0.88rem;
     margin-top: 10px;
