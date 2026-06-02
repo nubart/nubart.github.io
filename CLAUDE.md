@@ -92,6 +92,7 @@ When proposing cross-links, write a one-sentence justification for each naming (
 - Review and update Schema.org if content changed
 - Update `dateModified` (all language versions) if a relevant improvement was made
 - Update hreflang tags if pages added/modified
+- Add any new indexable page to `sitemap.xml` (plain `<url><loc>…</loc></url>` entry). For new blog articles this also means: add a card on the blog hub, register the page in `.claude/rules/page-index.md`, and add justified contextual cross-links from related pages.
 
 ## Page Index & URL Map
 For all page paths across languages (blog articles, product pages, instructions, trial kits, etc.): see `.claude/rules/page-index.md`
