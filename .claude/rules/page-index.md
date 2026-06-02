@@ -224,7 +224,7 @@
 
 ### When a voice artist doesn't know how to say the artist's name (pronunciation guides)
 - EN: audio-guides/content-production/pronunciation-guides-for-voice-artists.html
-- DE: (still pending)
+- DE: de/audioguides/produktion/aussprachehilfe-fuer-sprecher.html
 - ES: (still pending)
 - JA: (still pending)
 - IT: (still pending)
