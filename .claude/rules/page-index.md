@@ -391,6 +391,19 @@
 - NL: nl/audiogidsen/multimedia.html
 - PL: pl/audioprzewodnik/funkcje-multimedialne.html
 
+**Comparison / Why Nubart (Nubart GUIDE vs devices, apps & generic QR codes):**
+- EN: audio-guides/compare-digital-guide-solutions.html
+- DE: de/audioguides/vorteile-von-qr-karten.html
+- ES: es/por-que-nubart.html
+- IT: it/perche-nubart.html
+- FR: fr/pourquoi-nubart.html
+- NL: nl/audiogidsen/waarom-nubart.html
+- PL: pl/audioprzewodnik/porownanie-systemow.html
+- HE: he/why-nubart.html
+- BG: bg/zashto-nubart.html
+- PT-BR: pt-br/audioguia/comparar-solucoes-audioguia-digital.html
+- JA: (still pending)
+
 ### Content Production
 **Main service explainer:**
 - EN: audio-guides/content-production/index.html

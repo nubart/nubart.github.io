@@ -1091,3 +1091,82 @@ section {
     border-radius: 2px;
 }
 
+/* --------------------------------------------------------------
+   Audio-guide formats comparison table
+   (audio-guides/compare-digital-guide-solutions.html + translations)
+   Scoped to .compare-table so no other table is affected.
+-------------------------------------------------------------- */
+
+/* Intro paragraph: cap line length for easier reading */
+.compare-intro {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Layout: equal columns, narrow first column */
+.compare-table {
+    table-layout: fixed;
+    min-width: 60rem;            /* forces horizontal scroll on small screens via .table-responsive */
+    border-color: #e7ebee;
+}
+.compare-table th,
+.compare-table td {
+    padding: 0.85rem 1rem;
+    border-right: 1px solid #eef1f3;
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+.compare-table th:last-child,
+.compare-table td:last-child {
+    border-right: 0;
+}
+.compare-table thead th:first-child,
+.compare-table th[scope="row"] {
+    width: 11rem;
+}
+
+/* Column headers */
+.compare-table thead th {
+    background-color: #6dc7b9;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    border-color: #ffffff;
+    border-bottom: 0;
+}
+.compare-table thead th h5 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Row-label column */
+.compare-table th[scope="row"] {
+    background-color: #eef7f5;
+    color: #15222b;
+    vertical-align: middle;
+}
+.compare-table th[scope="row"] h5 {
+    color: #15222b;
+    font-size: 1rem;
+}
+
+/* Keep the criterion column visible while scrolling columns on mobile */
+.compare-table thead th:first-child,
+.compare-table th[scope="row"] {
+    position: sticky;
+    inset-inline-start: 0;
+    z-index: 1;
+}
+.compare-table thead th:first-child {
+    background-color: #6dc7b9;
+}
+
+/* Data cells: top-aligned, comfortable line height */
+.compare-table tbody td {
+    vertical-align: top;
+    line-height: 1.45;
+    font-size: 0.95rem;
+}
+

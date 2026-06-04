@@ -10,10 +10,11 @@
             "@context": "https://schema.org",
             "@type": "WebPage",
             "@id": "https://www.nubart.eu/fr/pourquoi-nubart.html",
-            "name": "Comparatif Nubart et autres solutions d’audioguide",
+            "name": "Systèmes d’audioguide pour musées comparés : appareils, applications, PWA et cartes QR",
             "url": "https://www.nubart.eu/fr/pourquoi-nubart.html",
-            "description": "Tableau comparatif : cartes Nubart à codes non transférables, QR générique Nubart et autres solutions du marché pour musées – coût, rentabilité, logistique, utilisation hors ligne, données et retour des visiteurs.",
+            "description": "Une comparaison pratique des quatre grands formats d’audioguide pour musées — appareils matériels, applications natives, codes QR/PWA génériques et cartes QR non transférables — sur le coût, la logistique, l’accès hors ligne, les données visiteurs et le ROI.",
             "inLanguage": "fr",
+            "dateModified": "2026-06-04",
             "provider": {
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization"
@@ -32,29 +33,80 @@
     <script type="application/ld+json">
 
         {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-               
                 {
                     "@type": "ListItem",
                     "position": 1,
-                    "item": {
-                        "@id": "https://www.nubart.eu/fr/",
-                        "name": "Nubart"
-                    }
+                    "item": "https://www.nubart.eu/fr/",
+                    "name": "Nubart"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "item": {
-                        "@id": "https://www.nubart.eu/fr/pourquoi-nubart.html",
-                        "name": "Pourquoi les cartes-audioguide de Nubart (et non une application, un dispositif ou un QR génerique) ?"
-                    }
+                    "item": "https://www.nubart.eu/fr/audioguides.html",
+                    "name": "Nubart GUIDE - Audioguides"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": "https://www.nubart.eu/fr/pourquoi-nubart.html",
+                    "name": "Formats d’audioguide comparés"
                 }
             ]
         }
 
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "fr",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Quels sont les principaux types de systèmes d’audioguide pour musées ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Les musées choisissent actuellement parmi quatre grands formats. Les appareils matériels dédiés sont loués aux visiteurs et restitués à la fin de la visite ; ils fonctionnent hors ligne, mais exigent une logistique et un entretien importants. Les applications mobiles natives sont téléchargées par les visiteurs sur leur propre smartphone ; les taux d’adoption sont faibles (en moyenne 2,47 % des visiteurs) et les coûts de développement élevés. Les codes QR génériques renvoient vers un audioguide basé sur navigateur (PWA) que tout visiteur peut scanner ; ils sont simples à déployer, mais non monétisables et offrent des données visiteurs limitées. Les cartes QR non transférables, comme celles utilisées par Nubart GUIDE, attribuent à chaque visiteur un code unique lié à un guide basé sur navigateur ; elles peuvent être vendues ou incluses dans le billet, prennent en charge le mode hors ligne complet et génèrent des statistiques de visiteurs fiables."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quel taux d’utilisation un musée peut-il attendre d’un audioguide à code QR ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Les taux d’utilisation varient fortement selon le mode de distribution. Lorsqu’une carte QR non transférable est incluse dans le billet, les installations de Nubart GUIDE affichent un taux d’utilisation moyen de 48 %, avec une fourchette de 23 % à 70 % selon les sites. Lorsqu’elle est vendue séparément en option, la moyenne tombe à environ 5 %, oscillant entre moins de 1 % et 26 % selon l’emplacement et la promotion. Les codes QR génériques sur la signalétique donnent des résultats très variables selon leur visibilité et la motivation du visiteur."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Un audioguide de musée peut-il fonctionner sans connexion Internet ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Les appareils matériels fonctionnent hors ligne par conception. Certaines applications natives prennent en charge la lecture hors ligne une fois téléchargées. Les audioguides basés sur navigateur (PWA) varient : la plupart des implémentations de base nécessitent une connexion pour le streaming, mais les implémentations avancées comme Nubart GUIDE peuvent précharger tout le contenu — pistes audio, images, cartes et code de l’application — à l’aide de service workers et d’IndexedDB, de sorte que le guide fonctionne sans aucune connexion, même après la fermeture du navigateur et un nouveau scan du code QR."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Un système d’audioguide pour musées peut-il fournir des statistiques de visiteurs ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La capacité d’analyse dépend fortement du format. Les appareils matériels fournissent des données limitées et ne peuvent déterminer de façon fiable le pays d’origine ou la langue maternelle du visiteur sans inscription. Les applications natives nécessitent un backend coûteux pour produire des analyses significatives. Les guides basés sur navigateur reposant sur des codes QR non transférables, comme Nubart GUIDE, captent le pays d’origine, la langue, le temps passé par œuvre et les habitudes d’utilisation comme sous-produit naturel de chaque visite — sans inscription et dans le respect du RGPD."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Est-il possible de monétiser un audioguide à code QR ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Un code QR générique affiché sur la signalétique ne peut être monétisé, car l’accès est ouvert à tous. Les cartes QR non transférables, où chaque visiteur reçoit un code unique, peuvent être vendues individuellement ou incluses dans le prix du billet, ce qui leur confère une valeur commerciale équivalente à celle d’un billet. Nubart GUIDE propose les deux modèles de distribution, ainsi qu’une option de partage des revenus pour les grands établissements."
+            }
+        }
+    ]
+}
     </script>
 
     <!-- End Structured data -->
@@ -321,10 +373,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Pourquoi Nubart</h2>
+                <h2>Formats d’audioguide comparés</h2>
                 <ol>
                     <li><a href="../fr/">Accueil</a></li>
-                    <li>Pourquoi Nubart</li>
+                    <li><a href="audioguides.html">Nubart GUIDE</a></li>
+                    <li>Formats d’audioguide comparés</li>
                 </ol>
             </div>
 
@@ -334,17 +387,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <section class="py-5">
         <div class="container">
             <header class="text-center mb-5">
-                <h1 class="display-4">Aperçu des cartes Nubart et des autres solutions d’audioguide</h1>
-                <p class="lead">Voici comment les cartes Nubart à codes non transférables, notre QR générique et d’autres alternatives du marché se comparent selon des critères essentiels.</p>
+                <h1 class="display-4">Formats d’audioguide pour musées : un comparatif détaillé</h1>
+                <p class="lead compare-intro">Les quatre principaux formats — appareils dédiés, applications mobiles natives, systèmes QR/PWA génériques et cartes QR non transférables — diffèrent sensiblement en coût, logistique, taux d’utilisation et données visiteurs qu’ils génèrent. Voici comment ils se comparent selon les critères les plus importants pour les musées et les sites culturels.</p>
             </header>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover align-middle">
-                    <thead class="bg-light">
+                <table class="table table-hover compare-table">
+                    <thead>
                     <tr>
                         <th scope="col" class="text-nowrap"></th>
                         <th scope="col" class="text-center"><h5 class="mb-0">Appareils</h5></th>
                         <th scope="col" class="text-center"><h5 class="mb-0">Applications mobiles</h5></th>
-                        <th scope="col" class="text-center"><h5 class="mb-0">QR générique (tiers)</h5></th>
+                        <th scope="col" class="text-center"><h5 class="mb-0">QR générique</h5></th>
                         <th scope="col" class="text-center"><h5 class="mb-0">QR générique Nubart</h5></th>
                         <th scope="col" class="text-center"><h5 class="mb-0">Cartes Nubart</h5></th>
                     </tr>
@@ -352,69 +405,69 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <tbody>
                     <tr>
                         <th scope="row" class="text-nowrap"><h5 class="mb-0">Coût</h5></th>
-                        <td class="table-danger">Appareils coûteux et logistique onéreuse</td>
-                        <td class="table-danger">Développement coûteux d’applications dédiées. Frais de maintenance et de mises à jour</td>
-                        <td class="table-warning">Peu coûteux, mais nécessite des frais de maintenance</td>
-                        <td class="table-warning">Peu coûteux, mais nécessite des frais de maintenance</td>
-                        <td class="table-success">Tarif abordable, paiement unique, sans frais de maintenance. Nubart propose également des options de partage des revenus, sans frais initiaux pour les grands établissements.</td>
+                        <td class="table-danger">Matériel coûteux et logistique onéreuse</td>
+                        <td class="table-danger">Coûteux à développer en tant qu’applications autonomes ; nécessite une maintenance continue et des commissions des stores</td>
+                        <td class="table-warning">Coût d’entrée faible ; des frais récurrents de plateforme ou de maintenance s’appliquent généralement</td>
+                        <td class="table-warning">Coût d’entrée faible ; des frais récurrents de plateforme s’appliquent</td>
+                        <td class="table-success">Paiement unique par tirage d’impression, sans frais de maintenance récurrents. Options de partage des revenus disponibles pour les grands établissements, sans frais initiaux.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-nowrap"><h5 class="mb-0">Revenus (ROI)</h5></th>
                         <td class="table-success">Oui, les appareils peuvent être loués</td>
-                        <td class="table-warning">Rarement. La plupart des applications de musée doivent rester gratuites, les visiteurs étant peu enclins à payer. Les magasins d’apps prélèvent une commission importante</td>
-                        <td class="table-danger">Non. Accès gratuit. Monétisation très difficile</td>
-                        <td class="table-danger">Non. Accès gratuit. Non monétisable</td>
-                        <td class="table-success">Oui. Grâce à leur caractère non transférable, les cartes ont une valeur commerciale et peuvent être vendues</td>
+                        <td class="table-warning">Rarement. Avec un taux d’adoption moyen inférieur à 3 %, les applications payantes sont difficiles à justifier ; les stores prélèvent en outre une commission importante sur les achats.</td>
+                        <td class="table-danger">Non. L’accès est gratuit par définition ; la monétisation n’est structurellement pas possible.</td>
+                        <td class="table-danger">Non. L’accès est gratuit ; non monétisable.</td>
+                        <td class="table-success">Oui. Les codes non transférables ont une valeur commerciale et peuvent être vendus individuellement ou inclus dans le billet.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-nowrap"><h5 class="mb-0">Logistique</h5></th>
-                        <td class="table-danger">Complexe : désinfection, recharge, maintenance, protection, collecte, stockage…</td>
-                        <td class="table-warning">Les apps natives exigent des mises à jour fréquentes pour rester dans les stores</td>
+                        <td class="table-danger">Complexe : les appareils doivent être désinfectés, rechargés, réparés, protégés contre les dommages, collectés et stockés.</td>
+                        <td class="table-warning">Les applications natives nécessitent des mises à jour régulières pour rester dans les stores et sur les versions de système d’exploitation prises en charge.</td>
                         <td class="table-success">Logistique simple</td>
                         <td class="table-success">Logistique simple</td>
-                        <td class="table-success">Simple : distribution lors de la vente du billet ou intégration des codes uniques à la billetterie en ligne</td>
+                        <td class="table-success">Simple : les cartes peuvent être distribuées par le personnel de billetterie ou les codes uniques intégrés à la billetterie en ligne.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-nowrap"><h5 class="mb-0">Taux d’utilisation</h5></th>
-                        <td class="table-warning">Faible : 5-10 % si location ; rarement plus de 30 % si inclus dans le billet</td>
-                        <td class="table-danger">Très faible : 2,47 % *</td>
-                        <td class="table-warning">Moyen : 10-30 %</td>
-                        <td class="table-warning">Moyen : 10-30 %</td>
-                        <td class="table-success">Élevé : 10-20 % si vendu et 45-85 % si inclus dans le billet</td>
+                        <td class="table-warning">En général 5–10 % en location ; plus élevé si inclus dans le billet, mais le matériel partagé crée des frictions qui en limitent l’usage.</td>
+                        <td class="table-danger">Très faible : 2,47 % en moyenne.*</td>
+                        <td class="table-warning">Très variable ; dépend largement de la visibilité avec laquelle le code est affiché et promu. Aucune donnée indépendante disponible publiquement.</td>
+                        <td class="table-warning">Très variable : de moins de 1 % à plus de 40 % selon le site et l’effort de promotion.‡</td>
+                        <td class="table-success">Variable selon le mode de distribution. Inclus dans le billet : moyenne de 48 % (fourchette 23–70 %). Vendu séparément : moyenne de 5 % (fourchette 0,3–26 %).‡</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-nowrap"><h5 class="mb-0">Utilisation sans Internet</h5></th>
                         <td class="table-success">Les appareils fonctionnent sans connexion Internet</td>
                         <td class="table-success">Certaines apps fonctionnent hors ligne après téléchargement</td>
-                        <td class="table-danger">La plupart des PWAs ne marchent qu’en streaming</td>
-                        <td class="table-success">Mode hors ligne complet (exclusif à Nubart)</td>
-                        <td class="table-success">Mode hors ligne complet (exclusif à Nubart)</td>
+                        <td class="table-danger">Nécessite généralement une connexion Internet ; la prise en charge hors ligne dépend du prestataire concerné.</td>
+                        <td class="table-success">Mode hors ligne complet : les pistes audio, les images, la carte et le code de l’application sont préchargés via des service workers, de sorte que le guide fonctionne sans aucune connexion, y compris après la fermeture du navigateur et un nouveau scan du QR.</td>
+                        <td class="table-success">Mode hors ligne complet : même implémentation que ci-dessus.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-wrap"><h5 class="mb-0">Statistiques &amp; données d’usage</h5></th>
-                        <td class="table-warning">Seuls les appareils modernes fournissent des données. Le pays d’origine ne peut être connu</td>
-                        <td class="table-warning">Les apps ne fournissent pas de statistiques sans backend coûteux</td>
-                        <td class="table-danger">La plupart des PWAs n’offrent pas de stats sans backend dédié</td>
-                        <td class="table-warning">Données riches, mais moins fiables que les cartes, car le QR peut être partagé</td>
-                        <td class="table-success">Les codes uniques permettent des données fiables, liées aux visites sur site</td>
+                        <td class="table-warning">Dépend de la génération de l’appareil ; le matériel ancien fournit peu ou pas de données d’usage. Le pays d’origine et la langue maternelle des visiteurs ne peuvent être déterminés sans inscription — des informations structurellement disponibles pour les systèmes basés sur navigateur. <a href="blog/comment-obtenir-donnees-sur-visiteurs-musee.html">Pourquoi c’est important pour les musées</a></td>
+                        <td class="table-warning">Les statistiques dépendent de l’investissement du musée dans un backend ; la plupart des implémentations standard n’offrent guère plus que des décomptes de téléchargements de base.</td>
+                        <td class="table-danger">Les statistiques dépendent du prestataire ; de nombreuses implémentations de base n’offrent guère plus que des données de pages vues.</td>
+                        <td class="table-warning">Données d’usage riches, mais leur fiabilité est limitée par le fait qu’un QR générique peut être partagé au-delà du site.</td>
+                        <td class="table-success">Les codes non transférables produisent des données d’usage fiables et liées à la visite sur site : pays d’origine, langue, temps passé par œuvre et plus — sans inscription et conformes au RGPD.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-nowrap"><h5 class="mb-0">Retour des visiteurs</h5></th>
-                        <td class="table-warning">La plupart des appareils n’incluent pas de formulaire d’avis</td>
-                        <td class="table-warning">La plupart des apps n’offrent pas de feedback sans backend coûteux</td>
-                        <td class="table-warning">La plupart des PWAs n’offrent pas d’avis ou ne peuvent pas limiter les réponses multiples</td>
-                        <td class="table-success">Oui (fonctionnalités : empêche les réponses multiples, questions personnalisées)</td>
-                        <td class="table-success">Oui (fonctionnalités : empêche les réponses multiples, questions personnalisées)</td>
+                        <td class="table-warning">La plupart des appareils n’incluent aucun mécanisme de retour.</td>
+                        <td class="table-warning">Un formulaire d’avis nécessite une infrastructure backend ; la plupart des applications muséales standard n’en proposent pas.</td>
+                        <td class="table-warning">Un formulaire d’avis nécessite une infrastructure backend ; la plupart des implémentations n’en proposent pas.</td>
+                        <td class="table-success">Formulaire d’avis intégré ; questions personnalisées prises en charge. Empêcher les réponses en double n’est pas totalement garanti, car le code peut être partagé.</td>
+                        <td class="table-success">Formulaire d’avis intégré ; questions personnalisées prises en charge. Les codes non transférables permettent de filtrer de façon fiable les réponses en double.</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <p class="mt-2 small">
-                * Basé sur une analyse complète de 175 applications officielles d’audioguide muséales en Europe et aux États-Unis.<br>
-                Pour en savoir plus, consultez notre article  (en Anglais):
-                <a href="../audio-guides/museum-audio-guide-app-adoption-rates.html" target="_blank" rel="noopener">
-                    Applications d’audioguide muséales : seulement 2,47 % des visiteurs les téléchargent
-                </a>
+                * Basé sur une analyse complète de 175 applications officielles d’audioguide muséales en Europe et aux États-Unis.
+                Pour en savoir plus (en anglais) : <a href="../audio-guides/museum-audio-guide-app-adoption-rates.html" target="_blank" rel="noopener">Applications d’audioguide muséales : seulement 2,47 % des visiteurs les téléchargent</a>
+            </p>
+            <p class="mt-1 small">
+                ‡ Basé sur des données agrégées issues d’installations de Nubart GUIDE dans des musées et sites culturels en Europe.
             </p>
         </div>
     </section>
