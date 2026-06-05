@@ -10,9 +10,9 @@
             "@context": "https://schema.org",
             "@type": "TechArticle",
             "@id": "https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html#article",
-            "headline": "Museum audio guide via QR code: what to know before choosing a PWA provider",
-            "alternativeHeadline": "Key factors for museums implementing audio guides as Progressive Web Apps via QR",
-            "description": "Considering a PWA audio guide for your museum? This guide covers everything: CMS options, cookie risks, visitor data, monetization models, and how to avoid costly mistakes when choosing a provider.",
+            "headline": "QR code audio guides for museums: what to get right before signing a contract",
+            "alternativeHeadline": "What museums get wrong when commissioning a QR code audio guide",
+            "description": "The non-obvious decisions museums face when commissioning a QR code audio guide: provider type, CMS, third-party tracking, visitor data, and business models — and where things typically go wrong.",
             "proficiencyLevel": "Intermediate",
             "inLanguage": "en",
             "image": [
@@ -38,7 +38,7 @@
                 }
             },
             "datePublished": "2024-06-04",
-            "dateModified": "2026-05-31",
+            "dateModified": "2026-06-04",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html"
@@ -55,11 +55,11 @@
                 { "@id": "https://www.nubart.eu/pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html#article" }
             ],
             "keywords": [
-                "museum audio guides",
-                "QR-code based audio guides",
-                "progressive web app",
-                "PWA for museums",
-                "digital guide solutions"
+                "QR code audio guide",
+                "museum audio guide",
+                "QR code museum guide",
+                "digital audio guide museum",
+                "PWA audio guide"
             ],
             "about": [
                 {
@@ -69,12 +69,12 @@
                 }
             ],
             "articleSection": [
-                "Definition of PWA",
-                "PWA vs Website",
-                "Benefits of PWA audio guides",
-                "Implementation caveats",
-                "CMS considerations",
-                "Monetization",
+                "Provider type selection",
+                "CMS for audio guides",
+                "CMS access models",
+                "Third-party tracking and GDPR",
+                "Visitor analytics",
+                "Monetisation models",
                 "Business models"
             ]
         }
@@ -88,50 +88,50 @@
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "What is a PWA or progressive web application?",
+                    "name": "What should a museum check before signing a contract for a QR code audio guide?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "A PWA or web application is an interactive app that is accessed by simply scanning a QR code instead of downloading an app from Google Play or the App Store. The PWA or web app opens directly in the smartphone's default browser and requires no installation."
+                        "text": "Before signing, museums should verify the provider type (specialist vs. generalist agency), whether the CMS is built specifically for audio guides, who maintains and updates the guide, whether any external tracking scripts are used that could create GDPR exposure, what visitor analytics are provided, and which business model fits the museum budget. Nubart GUIDE covers all of these areas with an in-house CMS, EU-based data processing, and a purpose-built visitor analytics dashboard."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "How is a PWA different from a simple web page?",
+                    "name": "What type of company should develop a QR audio guide for a museum?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "A web page is static and is used to publish multimedia content with limited functionality. A web application is software that allows you to perform various tasks and communicates with a server in the backend, offering features like offline functionality and interactive elements."
+                        "text": "There are three main options: general software agencies (technically capable but lacking audio guide expertise and CMS), traditional audio guide hardware companies (know the museum context but may not have strong software development), and technology companies specialising in audio guides (often the best balance, but financial stability should be verified). Nubart GUIDE is built by a company in the third category, with an in-house development team and an audio-guide-specific CMS."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Can you build an audio guide with a simple static web page?",
+                    "name": "Does a museum QR audio guide need to comply with GDPR?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Theoretically yes, but it has very limited interactivity, complications with multilingual content, cannot preload content for offline mode, and provides limited usage data. A PWA is much more suitable for audio guides."
+                        "text": "Yes, especially for museums serving European visitors. The key risk is embedding external tracking scripts — such as standard Google Analytics — that transfer visitor data to servers outside the EU, which has been challenged by EU data protection authorities. Museums should ask providers to audit their audio guides for third-party scripts and confirm the legal basis for any external data processing. Nubart GUIDE does not use external tracking scripts and processes all data on EU-based AWS infrastructure."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "What are the benefits of using a PWA as an audio guide?",
+                    "name": "How many museum visitors actually use a QR code audio guide?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "PWAs have virtually all the benefits of both static websites and apps with none of the drawbacks. They allow features like games, remote control, synchronized images, feedback forms, access control, geolocation, interactive maps, and can be updated quickly without app store approval."
+                        "text": "Take-up rates vary significantly by delivery model. Native museum apps reach an average of just 2.47% of visitors (based on Nubart's analysis of 175 museum apps). Non-transferable QR code cards included with admission average 48% take-up in Nubart GUIDE deployments, ranging from 23% to 70% across venues. When sold as a paid add-on, the average is around 5% — still higher than most native apps."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "How can museums monetize a PWA audio guide?",
+                    "name": "What business models are available for museum QR audio guides?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Museums can monetize PWA audio guides through numerical unlock codes (purchased with tickets) or direct access via unique QR codes. The QR method is simpler for users and can use non-transferable codes to preserve commercial value."
+                        "text": "The four main models are: Software as a Service (SaaS) with monthly fees typically between 50 and 500 euros; one-time payment typically between 3,000 and 15,000 euros; payment by tokens where the museum purchases batches of non-transferable QR codes as needed with no expiry; and revenue sharing where the provider absorbs upfront costs and invoices only for codes distributed. Nubart GUIDE operates primarily on the token model and offers revenue sharing under certain conditions."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "What business models do PWA audio guides offer museums?",
+                    "name": "What visitor data can a QR code audio guide provide to a museum?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Common models include Software as a Service (SaaS) with monthly fees of 50-500€, one-time payments of 3,000-15,000€, payment by tokens where museums buy cards as needed, and revenue sharing arrangements where providers invoice only for distributed tokens."
+                        "text": "A well-implemented QR audio guide can provide visitor country of origin, language, listening behaviour by exhibit, dwell time, and movement patterns — all without visitor registration and in compliance with GDPR. This requires a purpose-built analytics system rather than general-purpose tools like Google Analytics, which introduce consent requirements that reduce data coverage. Nubart GUIDE includes a dedicated visitor analytics dashboard as standard for all customers."
                     }
                 }
             ]
@@ -159,7 +159,7 @@
                 {
                     "@type": "ListItem",
                     "position": 3,
-                    "name": "Museum audio guide via QR code: what to know before choosing a PWA provider",
+                    "name": "QR code audio guides for museums: what to get right before signing a contract",
                     "item": "https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html"
                 }
             ]
@@ -192,14 +192,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="module" src="/js/cookieconsent-config.js"></script>
 
 
-    <title>Museum audio guide via QR code: what to know before choosing a PWA provider</title>
-    <meta name="description" content="Considering a PWA audio guide for your museum? This guide covers everything: CMS options, cookie risks, visitor data, monetization models, and how to avoid costly mistakes when choosing a provider." />
+    <title>QR code audio guides for museums: what to get right before signing a contract</title>
+    <meta name="description" content="The non-obvious decisions museums face when commissioning a QR code audio guide: provider type, CMS, third-party tracking, visitor data, and business models — and where things typically go wrong." />
 
     <meta name="author" content="Nubart" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Museum audio guide via QR code: what to know before choosing a PWA provider" />
-    <meta name="twitter:description" content="Considering a PWA audio guide for your museum? This guide covers everything: CMS options, cookie risks, visitor data, monetization models, and how to avoid costly mistakes when choosing a provider." />
+    <meta name="twitter:title" content="QR code audio guides for museums: what to get right before signing a contract" />
+    <meta name="twitter:description" content="The non-obvious decisions museums face when commissioning a QR code audio guide: provider type, CMS, third-party tracking, visitor data, and business models — and where things typically go wrong." />
     <meta name="twitter:site" content="@nubartEN" />
     <meta name="twitter:creator" content="@nubartEN" />
     <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp" />
@@ -222,10 +222,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- OpenGraph for LinkedIn -->
 
-    <meta property="og:title" content="Museum audio guide via QR code: what to know before choosing a PWA provider" />
+    <meta property="og:title" content="QR code audio guides for museums: what to get right before signing a contract" />
     <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp" />
     <meta property="og:author" content="Nubart International" />
-    <meta property="og:description" content="Considering a PWA audio guide for your museum? This guide covers everything: CMS options, cookie risks, visitor data, monetization models, and how to avoid costly mistakes when choosing a provider." />
+    <meta property="og:description" content="The non-obvious decisions museums face when commissioning a QR code audio guide: provider type, CMS, third-party tracking, visitor data, and business models — and where things typically go wrong." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html" />
 
@@ -434,7 +434,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ol>
             <li><a href="../">Home</a></li>
             <li><a href=".">Nubart GUIDE</a></li>
-            <li>Guide to implement PWA audio guides</li>
+            <li>QR code audio guides for museums: what to get right before signing a contract</li>
         </ol>
     
     </div>
@@ -461,269 +461,106 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <div class="col-md-8 nubart-blog">
 
+                    <h1>QR code audio guides for museums: what to get right before signing a contract</h1>
 
-                    <h1>How to Create a Museum Audioguide: Complete Guide to PWA and QR Code Solutions</h1>
+                    <p class="lead">A QR code audio guide looks simple from the outside: visitors scan, content plays. But commissioning one involves a series of decisions that catch many museums off guard — not because they're technically complex, but because the questions to ask aren't obvious until something goes wrong. Nubart GUIDE has been built around exactly these pain points, and over the years we've seen the same avoidable mistakes repeat across institutions of every size. This article lays them out plainly, so you can ask the right questions before signing anything.</p>
 
-                    <p class="lead">Audio guides as web applications or PWAs, which are generally accessed via a QR code, have become very popular in recent years and are overtaking traditional apps. However, there are many things to keep in mind if you are considering implementing this form of audio guide in your museum for the first time. This is the first of a series of articles in which we will help you make the best decision.</p>
                     <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
                     <figure class="figure">
-                        <img src="../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="QR to access a PWA audio guide in a museum - Nubart" />
-                        <figcaption class="figure-caption text-center">PWA audio guides are normally accessed through a QR code visibly displayed in the museum.       </figcaption>
+                        <img src="../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="QR code audio guide in a museum - Nubart GUIDE" />
+                        <figcaption class="figure-caption text-center">Most QR-based audio guides today are built as Progressive Web Apps, opening directly in the visitor's smartphone browser.</figcaption>
                     </figure>
-                    <p class="fs-3">Contents of this article</p>
-                    <ul class="list-unstyled">
-                        <li class="fs-5">
-                            <i class="bi bi-1-circle"></i>
-                            <a href="#reasons">Reasons for the growing popularity of audio guides as PWAs in museums.</a>
-                        </li>
-                        <li class="fs-5">
-                            <i class="bi bi-2-circle"></i>
-                            <a href="#definition-pwa">What is a PWA or progressive web application?</a>
-                        </li>
-                        <li class="fs-5">
-                            <i class="bi bi-3-circle"></i>
-                            <a href="#pwa-vs-website">How is a PWA different from a simple web page?</a>
-                        </li>
-                        <li class="fs-5">
-                            <i class="bi bi-4-circle"></i>
-                            <a href="#audioguide-as-website">Can you build an audio guide with a simple static web page?</a>
-                        </li>
-                        <li class="fs-5">
-                            <i class="bi bi-5-circle"></i>
-                            <a href="#advantages-pwa">What are the benefits of using a PWA as an audio guide?</a>
-                        </li>
 
-                        <li class="fs-5">
-                            <i class="bi bi-6-circle"></i>
-                            <a href="#caveat-pwa-audioguide">Aspects to take into account when implementing an audio guide as a PWA in a museum.</a>
-                            <ul class="ms-4">
-                                <li class="fs-6"><a href="#kind-of-company">What type of company will develop the PWA audio guide?</a></li>
-                                <li class="fs-6"><a href="#cms">Will the audio guide be developed using a CMS?</a></li>
-                                <li class="fs-6"><a href="#access-cms">Access to the audio guide CMS</a></li>
-                                <li class="fs-6"><a href="#third-party-cookies">Will the PWA audio guide use third-party cookies?</a></li>
-                                <li class="fs-6"><a href="#stats">Does the PWA audio guide provide you with good statistical data?</a></li>
-                                <li class="fs-6"><a href="#monetize">How to monetize a PWA audio guide?</a></li>
-                                <li class="fs-6"><a href="#business-model">What are the business models that PWA audio guides offer to museums?</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <p>Most QR-based audio guides today are built as Progressive Web Apps (PWAs) — browser-based applications that open directly on the visitor's smartphone without requiring any download. That technical detail matters less than what it enables: a full multimedia experience, offline caching once content has been loaded under good connectivity, visitor analytics, and content that can be updated instantly. What varies enormously between providers is how well they've actually built around those possibilities — and how much trouble you'll have living with their system two years from now.</p>
 
                     <hr class="hr hr-blurry" style="color:#6ec7ba;" />
-                    <h2 id="reasons">Reasons for the growing popularity of audio guides as PWAs in museums.</h2>
 
-                    <p>QR codes are the main way to access progressive web application or PWAs used as audio guides in museums. <b>Until the Covid pandemic only 31.45% of museum visitors knew how to scan a QR code.</b> But their prolific use in bars and restaurants during the pandemic has increased familiarity with QR codes to 98 % of the population. (At <a href="../" target="_blank">Nubart</a> we have been employing QRs for our audio guides since 2016, so we know this curious statistic first hand). Obviously, this evolution has accelerated the implementation of PWAs.</p>
+                    <h2 id="kind-of-company">What type of company should develop your QR audio guide?</h2>
 
-                    <p>On the other hand, conventional audio guide apps (technically called "native apps"), i.e. those that visitors download from Google Play or the App Store, have lost popularity. Basically for two reasons: because of their high maintenance cost due to the continuous updates imposed by Android and iOS; and because of their very low download rate <a href="museum-audio-guide-app-adoption-rates.html" target="_blank">(an average of 2.47 % of total museum visitors according to Nubart's internal data)</a>.</p>
+                    <p>The market broadly divides into three types of provider, and the choice matters more than most museums realise.</p>
 
-                    <p>Added to this is the fact that in recent years the capabilities of browsers have improved tremendously. Now you can do things in any browser that were unthinkable 10 years ago, during the golden age of apps.</p>
+                    <p><b>General software development agencies</b> can technically build a QR audio guide, but they rarely understand what one needs to do. They won't have a content management system designed for audio guides, which means every future update — adding a track, correcting a translation, retiring an exhibit — becomes a bespoke development job. What appears as a one-time cost at contract stage often turns into an ongoing operational dependency.</p>
 
-                    <p>So more and more museums are considering replacing their traditional audio guide devices or native audio guide apps with PWAs or interactive web applications that open directly in the browser. As a result, more and more software agencies or traditional audio guide providers are offering PWAs to museums.</p>
+                    <p><b>Traditional audio guide companies</b> know the museum world well and speak your language. The risk is the opposite: their roots are in hardware, and software development may not be a core competency. Before committing, ask explicitly whether they will outsource development to a third party, and request working links to PWAs they have built and currently maintain. Explore those examples thoroughly — not just how they look, but how they behave on different devices and in areas with poor connectivity.</p>
 
-                    <p>If you work for a museum that is considering switching to PWA audio guides, this article will tell you everything you need to know. We will try to explain it in an easy way for readers without great technological knowledge.</p>
+                    <p><b>Technology companies specialising in audio guides</b> often combine museum expertise with in-house development capabilities — for many institutions, an attractive balance between domain knowledge and technical depth. The caveat is that many are relatively young companies, some built on external investment that has not yet translated into a sustainable business. A strong client portfolio is not sufficient reassurance — early clients are often pilot projects offered at no cost. Many countries provide public access to company filings or annual accounts; reviewing these records can help you assess whether a provider is financially stable enough to support your guide over the long term. If a provider ceases operations, maintaining or updating the audio guide can become difficult and expensive.</p>
 
-                    <p>Let's start by providing a bit of context. Note that, technically speaking, the boundaries between a "normal" web page, an interactive web app and a progressive web app or PWA are to some extent blurred.</p>
+                    <h2 id="cms">Does the provider have a CMS built for audio guides?</h2>
 
-                    <p>(If you are already familiar with these differences, jump straight to <a href="#caveat-pwa-audioguide">our tips for implementing a PWA audio guide</a>.)</p>
-                    <br />
-                    <h2 id="definition-pwa">What is a PWA or progressive web application?</h2>
+                    <p>A CMS — Content Management System — is the software used to create and update the contents of your audio guide without touching the underlying code. Whether you ever log into it yourself or not, the CMS your provider uses will determine how quickly changes get made, how much they cost, and how dependent you remain on external developers for the life of the guide.</p>
 
-                    <p>Although the technological definition is more complicated, the simple definition would be:</p>
+                    <p>There are three tiers worth knowing about.</p>
 
-                    <p>A PWA or web application is an interactive app that is accessed by simply scanning a QR code instead of downloading an app from Google Play or the App Store. The PWA or web app opens directly in the smartphone's default browser and requires no installation.</p>
+                    <p>An <b>audio guide built entirely from scratch, with no CMS</b>, offers maximum flexibility at the outset and potentially a one-time fee with no recurring costs. In practice, it means that every future change requires a developer. If the agency that built it is no longer available — which is not uncommon — a new agency will essentially have to start over. This model works for very stable, permanent exhibitions that will never need updating. It is poorly suited to almost everything else.</p>
 
-                    <p>The QR code can be scanned using an external app or the smartphone's own camera. Nowadays, almost all smartphones allow the use of the pre-installed camera to scan a QR code, which has also contributed to its use.</p> <br>
+                    <p>A <b>general-purpose CMS</b> such as WordPress, or more complex developer-oriented platforms like Craft or Glue, can host an audio guide but will hit limits quickly. Interactive maps, validity dates for temporary exhibits, augmented reality elements — these are not what those systems were designed for. You will reach the ceiling at the moment you most want to expand.</p>
 
-                    <h2 id="pwa-vs-website">How does a PWA or progressive web application differ from a simple web page?</h2>
+                    <p>A <b>CMS built specifically for audio guides</b> is the most practical choice for most museums. The navigation, audio player, and content structure are designed around how audio guides actually work. Updates are faster, cheaper, and don't require specialist technical staff. Ideally the CMS has been developed in-house by your provider's own team, which means new features can be added over time rather than requiring workarounds.</p>
 
-                    <p>Many people think that anything that opens in a browser is a "web page" and they are unaware that many of the services they use on a regular basis are actually a <i>web application</i>. For example, the Canva design platform, or any accounting software, are not web pages, but complex interactive web applications that allow you to "do things".</p>
+                    <h2 id="access-cms">Will you have access to the CMS yourself — and do you actually want it?</h2>
 
-                    <p>To explain it in an easy way:</p>
-                    <ul>
-                        <li>A web page is static and is used to publish multimedia content. It does not need to communicate with any server and its functionality is very limited.</li>
+                    <p>This is a question museums often don't think to ask, and the answer depends on your team and your exhibition schedule.</p>
 
-                        <li>A web application is software that allows you to perform various tasks and communicates with a server in the so-called "backend".</li>
-                    </ul>
-                    <br />
-                    <h2 id="audioguide-as-website">Can you build an audio guide with a simple static web page?</h2>
+                    <p>Some providers <b>use the CMS internally</b> and handle all updates on your behalf. You pay for their time and expertise rather than for a licence. The advantage is that you don't need to learn the system, and setup typically requires less involvement from your side. The risk is dependency: ask clearly what update requests cost, how quickly they're turned around, and whether there is a permanence clause in the contract that locks you in even if the service deteriorates.</p>
 
-                    <p>Theoretically yes. Some museums offer the audio guide soundtracks directly on their corporate website.</p>
+                    <p>Other providers <b>give you direct access to the CMS</b> so you can make changes yourself. This sounds appealing until you consider the learning curve — especially for a system capable of handling maps, augmented reality, and multilingual content. If your audio guide doesn't change often, the knowledge will fade between uses. When staff turn over, the new person starts from scratch. A realistic setup for a first audio guide typically takes one to two weeks of focused work even with a well-designed CMS.</p>
 
-                    <p>However, this model does not provide satisfactory results:</p>
-                    <ul>
-                        <li>It has very limited interactivity.</li>
+                    <p>Some providers offer both: access to the CMS for museums that want it, with managed updates available as an optional service. That flexibility is worth looking for.</p>
 
-                        <li>The presentation of content in several languages, with its corresponding menu, is complicated to implement.</li>
+                    <p>Whatever the arrangement, ask for a free trial of at least one week before signing, and test the CMS yourself rather than watching a demo. Request a copy of the contract before making any decision, and pay particular attention to exit clauses.</p>
 
-                        <li>It is not possible to preload content in <a href="../audio-guides/offline-mode-best-practices.html">offline mode</a> for listening in areas of the museum with poor connectivity, as a static website only works online.</li>
+                    <h2 id="third-party-cookies">Does the audio guide use third-party tracking?</h2>
 
-                        <li>Reliable and meaningful usage data is difficult to obtain.</li>
-                    </ul>
-                    <br />
-                    <h2 id="advantages-pwa">What are the benefits of using a PWA or web application as an audio guide?</h2>
+                    <p>This matters more than most museums realise, and it is one of the most commonly overlooked questions in procurement.</p>
 
-                    <p>
-                       <b>In reality, a PWA audio guide has virtually all the benefits of both static websites and apps, with none of the drawbacks</b>.          </p>
+                    <p>The concern is not simply about cookies in the technical sense — the browser cookie landscape has shifted considerably in recent years. The real issue is whether your audio guide embeds external scripts that send visitor data to third-party servers, typically those of large technology companies. Google Analytics is the most common example: even in its current form, a standard GA4 deployment involves transferring visitor data to Google's infrastructure, which has been repeatedly challenged by European data protection authorities — including Austria's DSB and France's CNIL — for non-compliance with GDPR. Other common external dependencies include Google Maps for geolocation features and Hotjar for interaction tracking.</p>
 
-                    <p>PWAs, if implemented as a Single Page App (SPA), are designed to be fast and efficient, with a streamlined user interface and smoother interactions, even with multimedia content such as audio or video files.</p>
-                    <p>PWAs can be designed in line with WCAG standards much easilier than native apps, making them compatible with screen readers, subtitles, and adaptable display settings. This is increasingly important for public institutions that must demonstrate digital inclusion. (See our article on <a href="inclusive-museum-qr-codes.html" target="_blank">accessible digital audio guides</a>
-                    for more details.)</p>
+                    <p>For publicly owned museums in particular, embedding technologies that route visitor data outside EU jurisdiction creates both reputational and legal exposure. The practical consequence also affects the visitor experience directly: any external data processing that requires consent under GDPR means a consent banner inside the audio guide. A visitor who declines simply disappears from your analytics — and a consent prompt at the moment someone is trying to listen to an audio track is not a welcome interruption.</p>
 
-                    <p>PWAs allow the implementation of additional interactivity features that make a lot of sense in an audio guide, such as:</p>
-                    <ul>
-                        <li>Games</li>
+                    <p>The simplest way to check is to ask your prospective provider for a working link to one of their existing audio guides and run it through a cookie and script audit. You can do this in Chrome by opening developer tools, reloading the page, and checking the Network tab for external requests — or use one of the specialist audit platforms available online. Ask your provider to explain the legal basis for any external data processing and how consent requirements are handled.</p>
 
-                        <li>Remote control</li>
+                    <p>Nubart GUIDE does not embed external tracking scripts. All visitor data is processed on AWS infrastructure located within the EU, which addresses data residency requirements under GDPR and is relevant for museums that need to demonstrate data sovereignty to their governing bodies.</p>
 
-                        <li>Display an image at a specific time during audio playback</li>
+                    <h2 id="stats">What visitor data will the audio guide give you?</h2>
 
-                        <li>Feedback form</li>
+                    <p>A QR-based audio guide is one of the few tools that gives museums genuine insight into their visitors — anonymously, legitimately, and without intrusive tracking. Which countries are your visitors coming from? Which languages do they use? Which exhibits held their attention and which were skipped? Where in the museum did people spend their time? This kind of data is extremely difficult to obtain through any other means, and many museums commission an audio guide without ever thinking to ask whether it will provide it.</p>
 
-                        <li>Access control</li>
+                    <p>Not all providers make this a priority. General-purpose analytics platforms can provide useful data, but their reporting is often less specific to the museum context than dedicated audio guide systems — and as discussed in the previous section, standard implementations may introduce consent requirements that reduce data coverage significantly. A visitor who declines tracking consent is a visitor you know nothing about.</p>
 
-                        <li>Geolocation</li>
+                    <p>The better option is a purpose-built analytics dashboard developed specifically for audio guide data. Nubart GUIDE includes a <a href="pwa-for-visitor-insights.html" target="_blank">statistics platform that gives museums password-protected access to detailed visitor insights</a> — language, country of origin, listening behaviour by exhibit, and movement patterns — without relying on external tracking services. For museums that take audience development seriously, this is worth asking about explicitly during procurement, not discovering after the contract is signed.</p>
 
-                        <li>Personalization options</li>
+                    <h2 id="monetize">How do you charge visitors for the audio guide — and should you?</h2>
 
-                        <li>Interactive maps</li>
+                    <p>Many museums intend to offer their audio guide free of charge, and that is a legitimate choice. But the cost of producing multilingual audio content is substantial, and the case for charging — or at least for choosing a delivery model that makes charging possible — is stronger than it might appear.</p>
 
-                        <li>Complex search functions</li>
-                    </ul>
+                    <p>The numbers are instructive. Native museum apps reach an average of just 2.47% of visitors, <a href="museum-audio-guide-app-adoption-rates.html" target="_blank">based on Nubart's analysis of 175 museum apps across Europe and the United States</a>. Hardware devices fare somewhat better — typically 5 to 10% when rented — but come with significant logistics costs. QR-based audio guides distributed on non-transferable cards and included with admission show a dramatically different picture: Nubart GUIDE deployments average a 48% take-up rate, with a range of 23% to 70% across venues. When sold as a paid add-on rather than included with admission, the average drops to around 5% — still double what most apps achieve, and with none of the development overhead. For publicly funded institutions, charging a modest fee also avoids placing the full cost of multilingual content production on the taxpayer.</p>
 
-                    <p>They also allow the audio guide content to be updated quickly without having to change the code of the application and without having to submit anything to the Google and Apple app stores for approval.</p>
+                    <p>There are two practical methods for monetising a QR audio guide.</p>
 
-                    <p>You will find <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank">here a detailed technical description of the features of a PWA</a>.    </p>
-                    <br />
-                    <h2 id="caveat-pwa-audioguide">Key considerations for implementing PWA audio guides in museums </h2>
+                    <p>The first uses a <b>numerical unlock code</b>. The visitor accesses the audio guide via a QR code or link, then enters a code received at the ticket desk or during online booking. This approach has a meaningful usability problem: it requires two separate steps, and visitors who are less comfortable with digital interfaces will struggle. Even small amounts of friction at the entrance can significantly reduce uptake rates, and staff time spent helping confused visitors can quickly outweigh the operational simplicity of the system. These codes are usually time-limited to prevent reuse, but that does not prevent multiple visitors from using the same code simultaneously.</p>
 
-                    <p> The quality of the audio guide contributes to the image and reputation of your museum. What's more, even if you outsource both the technological development of the PWA and the production of the content, you'll be faced with a laborious process of review and iteration that you don't want to go through in vain. So before you dive in, consider all of these issues:</p>
-                    <br />
-                    <h3 id="kind-of-company"><i class="bi bi-1-circle-fill"></i> What type of company will develop the PWA audio guide?</h3>
+                    <p>The second method gives each visitor a <b>unique, non-transferable QR code</b> — printed on a card or delivered digitally via API — that opens the audio guide directly when scanned, with no intermediate step. Nubart GUIDE uses this approach, with a patented method that makes each code non-transferable while still allowing the original user to return to the guide long after their visit. The commercial value of the code is preserved without inconveniencing the visitor.</p>
 
-                    <ul>
-                        <li>
-                           <b>Software development agencies.</b> In theory, any generalist software agency can develop your web application or PWA. However, it is not easy for a software agency to understand the specific needs of an audio guide or a museum. Most importantly, a software agency will not have a CMS ('Content Management System') specifically designed for audio guides. You risk getting a digital audio guide that is very expensive and inflexible for future changes.      </li>
+                    <h2 id="business-model">Which business model fits your museum's budget?</h2>
 
-                        <li>
-                            <b> Traditional audio guide companies. </b>These companies are dedicated exclusively to audio guides and related services. They will understand your language and your needs. However, these companies have focused for decades on traditional audio guide devices and software development may not be one of their strengths. Make sure they will not outsource the creation of your audio guide to external developers, and that they have a CMS specifically for audio guides. Ask them to send you some sample links of PWAs they have already made and explore them in depth.      </li>
+                    <p>Providers typically offer one of four arrangements, and the right one depends on your visitor numbers, exhibition stability, and budgeting preferences. For a side-by-side comparison of how these models interact with different delivery formats, see our <a href="compare-digital-guide-solutions.html" target="_blank">comparison of digital audio guide solutions</a>.</p>
 
-                        <li>
-                           <b>Technological companies specialized in audio guides.</b> This is certainly your best option. They will understand your language and will also have the necessary expertise and equipment to carry out your project. However, many of these companies are startups that have been in the market for a short time, or that have grown based on outside investment and are not yet sustainable. Don't be dazzled by their client portfolio alone, which may be free pilot projects, and be sure to check their financials. (If your provider is based in the UK, you can <a href="https://find-and-update.company-information.service.gov.uk/" target="_blank">perform this check easily and for free at the Companies House</a>). Otherwise, you risk losing both your provider and your audio tour in a few years. </li>
-                    </ul>
-                    <br />
-                    <h3 id="cms"><i class="bi bi-2-circle-fill"></i> Will the audio guide be developed using a CMS?</h3>
-
-                    <p> A CMS (<i>Content Management System</i>) is a content management software that allows you to create, manage and modify the contents of a website or web application without having to know how to program. Before hiring your provider, ask them what CMS they plan to use and, even if you do not have a technical background, try to find out what their limitations are. </p>
-
-                    <p> The following options are available here:</p>
-
-                    <ul>
-                        <li>
-                            <b> Audio guide programmed from scratch (no CMS).</b> <br>It offers the advantage that you will be able to configure it entirely according to your wishes, host it wherever you want and possibly pay for it only once, without recurring fees. But it is a very expensive procedure and will require considerable involvement on your part during development.<br>The real problems will arise when you need to make changes in the future, especially if the software agency you had initially chosen is no longer available. The new agency you hire will practically have to start from scratch again.      </li>
-                        <br />
-                        <li>
-                           <b>Audio guide programmed with a CMS not specialized in audio guides.</b><br>Theoretically it is possible to build an audio guide with a CMS initially designed for web pages, such as WordPress.<br>Other software agencies use more complex CMS designed for PWAs, such as Craft or Glue. This procedure allows you to make changes more quickly, although you will still need to use a software agency to implement them, as they are CMSs designed for developers.<br>Problems will arise when you want to implement audio tour features that these CMSs do not support, such as interactive maps, or when assigning a validity date to an exhibit or audio track, or when incorporating augmented reality elements: here you will have reached the limit of what a generalist CMS can offer that has not been designed from the ground up to cover all the issues specific to audio tour PWAs.      </li>
-                        <br />
-                        <li>
-                           <b>Audio guides programmed with a specific CMS for audio guides</b>. <br>This kind of CMS has been conceived by developers who are familiar with the specific case of audio guides: the soundtracks are played in an optimized audio player, the navigation will be appropriate, etc. <br>Whether the company gives you access so that you can make the changes yourself, or the company uses the CMS internally, you will have fast and effective implementation of your audio guide updates and at a very low cost or for free, as the changes will be easy to make and will not require highly qualified technical staff.<br> Ideally, the CMS will have been developed in-house by your provider's IT team, which will facilitate the implementation of new functionalities in the future that will enrich and improve your audio guide.      </li>
-                    </ul>
-                    <br />
-                    <h3 id="access-cms"><i class="bi bi-3-circle-fill"></i> Access to the PWA audio guide CMS</h3>
-
-                    <ul>
-                        <li>
-                           <b>The CMS is used internally by the staff of the audio guide company</b>. <br>In this case, the museum pays for the specialized service provided during the process and for the final result. You save the learning curve and all the time it takes to set up the audio tour. Some companies charge a one-time fee for implementing this model, which may be more in line with a museum's budget.<br>
-
-                            Be sure to ask if the one-time payment includes the implementation of future audio tour upgrades and under what conditions. </li>
-                        <br />
-                        <li>
-                            <b> The museum accesses the CMS and builds the complete audio guide on its own.</b><br> The advantage of this system is that you, as the client, have full control and can make changes to the audio guide quickly and on your own.<br>The disadvantage is that these platforms require a considerable learning curve, especially if the CMS allows the integration of complex elements (maps, augmented reality, games, validity dates...).<br>If you do not have the need to make changes to your audio guide on a regular basis, all this learning will most likely be forgotten.<br>When staff changes occur in the museum, the new manager will have to learn it all over again. And even if he or she masters the CMS, setting up a digital audio guide easily requires a week or two of work.<br>
-                            Make sure you hire a manageable CMS. Ask for at least a one-week free trial from several providers before choosing one, and invest enough time to test them thoroughly.<br>
-
-                            Ask if there is a permanence clause and request a copy of the contract before deciding.         </li>
-                        <br />
-                        <li>
-                            <b> Hybrid model.</b><br>Some companies offer both options: they give you access to the CMS, but also offer as an optional service the digital setup of the audio guide.      </li>
-                    </ul>
-                    <br />
-                    <h3 id="third-party-cookies"><i class="bi bi-4-circle-fill"></i> Will the PWA audio guide use third-party cookies?</h3>
-
-                    <p>Protecting visitor privacy is an extremely important issue, especially for publicly owned museums. Third-party cookies can track users on different websites, collecting data about their browsing habits, preferences and personal information. Museums should respect the privacy of their visitors by avoiding technologies that may result in intrusive tracking and data collection.</p>
-
-                    <p> Make sure that the PWA audio guide offered by your provider does not use third-party cookies. Some of the most common third-party cookies are Google Analytics (to obtain usage data), Google Maps (to geolocate elements in a route) or Hotjar (to control cursor movements in the audio guide), but there are many, many more.</p>
-
-                    <p>The easiest way to check this is to ask your provider for a link to one of the PWAs they have created and submit it to a cookie audit. There are several ways to do this: from the Chrome browser itself, by clicking on "inspect element" on the right mouse button and checking the "network" tab after reloading the page. If you prefer, you will also find on the market platforms specialized in this function.</p>
-
-                    <p>If your potential provider employs third-party cookies, make sure that they at least implement a cookie notice in the audio guide!</p>
-                    <br />
-                    <h3 id="stats"><i class="bi bi-5-circle-fill"></i> Does the PWA audio guide provide you with good statistical data?</h3>
-
-                    <p><a href="pwa-for-visitor-insights.html" target="_blank">A PWA audio guide provides a unique opportunity to get to know your visitors better</a>. When opened in the visitor's browser, it allows you to anonymously, legitimately, and non-invasively track various statistical data of great interest to a museum, such as the visitor's country of origin or primary language. It is also possible to find out which soundtracks were listened to and which were not, or even which areas of the museum visitors moved through. Given the difficulty museums have in obtaining this kind of data for audience analysis, it would be a shame to waste the opportunity offered by audio tour web applications.</p>
-
-                    <p>Tracking and analysing data is a complex process that requires considerable technological knowledge and resources, so not all PWA audio guides you will find on the market provide them. If they do, these are the most common methods:</p>
-
-                    <ul>
-                        <li>
-                           <b>Through third-party services.</b><br>The most common option, because it is free, is to use Google Analytics, generally presenting the data through a free data visualization system such as Looker Studio (also from Google). This method does not allow you to find out some of the most relevant data, such as the visitor's country of origin. And, above all, they raise the problem of using third-party cookies.        </li>
-
-                        <li>
-                           <b>Through an internally developed platform.</b><br>The customer receives password-protected access to a data dashboard specifically designed for audio guides. This is clearly the best option. Again, it is important to find out whether third-party cookies are being used.     </li>
-                    </ul>
-                    <br />
-                    <h3 id="monetize"><i class="bi bi-6-circle-fill"></i> How to monetize a PWA audio guide?</h3>
-
-                    <p>Most museums that opt for an audio guide as a web application intend to offer free access to their visitors.<br>However, developing the content of an audio guide in multiple languages is very costly. Considering that only 10-20% of visitors take advantage of the free audio guide services offered in a museum, charging a small fee for the use of the PWA audio guide allows for a more equitable distribution of this cost and, if the museum is public, avoids having it entirely borne by the taxpayer.      </p>
-
-                    <p> These are the methods we know of to monetize the audio guide PWA:</p>
-
-                    <ul>
-                        <li><b>Unlock the audio guide using a numerical code.</b><br>The visitor has to:   <ul>
-                            <li>Access the audio guide web app first, either via a link or a QR code.</li>
-
-                            <li>Obtain the numeric unlock code. They will usually have received it when purchasing their ticket online, or at the museum reception desk. This code has to be entered into the preloaded digital audio guide.</li>
-                        </ul>
-
-                        This process is relatively complex, as it consists of two separate steps. Users who are not very digitally savvy will have problems, and clearing them can overwhelm museum staff and lead to queues and dissatisfied users.<br>
-
-                            To prevent piracy, these codes are usually time-limited. However, this does not prevent the same code from being used by several visitors at the same time.    </li>
-                        <br />
-                        <li><b>Direct access to a unique QR code.</b><br>Whether online or printed on a card, the visitor receives a non-transferable QR code that, when scanned, allows direct access to the audio guide without any intermediate steps.<br>This is <a href="/audio-guides/" target="_blank">the method used by Nubart in its audio guides</a>, which has patented a method to make the code non-transferable, thus preserving its commercial value. Although the code is not transferable, the owner can still access the audio guide long after the visit.    </li>
-
-                    </ul>
-                    <br />
-                    <h3 id="business-model"><i class="bi bi-7-circle-fill"></i> What are the business models that PWA audio guides offer to museums?</h3>
-
-                    <ul>
-                        <li>
-                           <b><a href="https://en.wikipedia.org/wiki/Software_as_a_service" target="_blank">Software as a Service (SaaS)</a>:</b> The museum pays a monthly fee of between 50 €/$ and 500 €/$. Generally, this recurring fee is justified for one or more of these reasons:        <ul>
-                                <li>The traffic generated</li>
-                                <li>The hosting of the audio guide</li>
-                                <li>The technical support service</li>
-                                <li>Access to the CMS.</li>
-                            </ul>
-                            We advise you to calculate in the long term. If you are going to use the audio guide in a permanent exhibition and you pay 200 €/$ per month, after 5 years the audio guide will have cost you 12,000 €/$. If your museum does not have many visitors, you may be better off with a one-time payment model or a token payment. Also inquire about possible permanence clauses.        </li>
-                    </ul>
-                    <ul>
-                        <li><b>One-time payment:</b> The museum pays a one-time fee upon receipt of the audio guide, which can range from 3,000 €/$ to 15,000 €/$.<br>
-
-                            The fee is usually higher if the audio guide has been designed from scratch and without a CMS.<br>
-                            Keep in mind that a digital audio guide is never 100% finished. Sooner or later it will be necessary to update some function, add or remove content, resolve some incompatibility with browsers, etc. Ask your provider if they will be available for such updates and what their fee is.   </li>
-                        <br />
-                        <li>
-                            <b>Payment by tokens:</b> The museum pays a one-time fee for the audio guide setup and acquires a certain number of unique non-transferable codes, usually printed on a cardboard card that visitors can keep, or provided digitally via an API. The codes do not expire, so the museum can distribute them until they run out.
-
-                            <p>This method works well with a museum’s budget, avoiding fixed regular fees, since card consumption naturally rises or falls according to visitor numbers and admission income. If the museum has leftover budget at the end of the year, it can purchase a new batch of audio-guide codes and store them for later use.</p>
-
-                            <p>While Nubart offers all the models described above, it has particular expertise with this token-based approach.</p>
-                        </li>
-
-
-
-                        <br />
-                        <li>
-                           <b>Revenue share:</b> This business model is very common for physical audio guide devices, but it is rarely found for digital audio guides, whether they are native apps or web-apps.<br>However, revenue sharing or subscription is enabled by the token model used for digital audio guides, since that implements distinctive codes that can be unambiguously traced. In such a revenue sharing, the museum negotiates a contract with the provider and receives the tokens and even the production of content at no upfront cost. The provider invoices the museum on a monthly basis only for the tokens or cards it has distributed and thus amortizes the content production services previously provided. Nubart offers this model under certain conditions.           </li>
-                    </ul>
-                    <p> We hope you found this article useful.  <a href="https://share.hsforms.com/1wMbMX3CMSdCDzitqTHmXiA1g33q" rel="nofollow">Subscribe to our</a> newsletter so you don't miss any of our posts.</p>
-                    <div class="container" data-aos="fade-up">
+                    <p><b>Software as a Service (SaaS)</b> charges a monthly fee, typically between €50 and €500, covering hosting, technical support, and CMS access. This model is easy to budget for in the short term, but worth calculating over the full expected lifespan of the guide. A €200 monthly fee over five years amounts to €12,000 — more than many one-time payment options. If your museum has modest visitor numbers or a stable permanent exhibition, a recurring fee may not be the most economical choice. Also ask about permanence clauses: some SaaS contracts include minimum commitment periods that are easy to miss in the small print.</p>
+
+                    <p>A <b>one-time payment</b>, typically between €3,000 and €15,000, covers development and delivery of the audio guide. The fee tends to be higher when the guide is built from scratch without a CMS. Before signing, establish clearly what is included for future updates — browser compatibility changes, content additions, functional improvements — and what will be charged separately. A digital audio guide is never truly finished; some maintenance cost is inevitable.</p>
+
+                    <p><b>Payment by tokens</b> suits museums that want to avoid fixed recurring costs. The museum purchases a batch of unique, non-transferable codes — printed on cards or delivered digitally — and distributes them to visitors until the batch runs out. Codes don't expire, so surplus stock carries over. This model aligns naturally with museum budgeting cycles: spend rises and falls with visitor numbers, and end-of-year budget can be used to pre-purchase stock for the following season. Note that this model covers software delivery; the cost of producing audio content — recording, translation, voiceover — is a separate line item regardless of which delivery model you choose. Nubart GUIDE works primarily on this model.</p>
+
+                    <p><b>Revenue sharing</b> is rare in the digital audio guide space — it requires a provider willing to absorb upfront production costs against future income. Where it exists, it works through the token model: the museum receives the guide and content production at no upfront cost, and the provider invoices only for codes actually distributed. This can significantly lower the barrier to commissioning a multilingual guide, particularly for museums with limited capital budgets. Nubart offers this arrangement under certain conditions.</p>
+
+                    <p>Commissioning a QR audio guide is not a large procurement by museum standards, but the decisions made at the outset tend to stay with you for a long time. A guide built on the wrong CMS, tied to a provider with shaky finances, or routing visitor data through external servers it shouldn't be near is expensive to unpick — far more so than asking the right questions before signing. Most of the issues covered here don't require technical expertise to evaluate: they require knowing what to ask. If you'd like to discuss any of them in the context of your specific situation, we're easy to reach.</p>
+
+                    <p>We hope you found this article useful. <a href="https://share.hsforms.com/1wMbMX3CMSdCDzitqTHmXiA1g33q" rel="nofollow">Subscribe to our newsletter</a> so you don't miss any of our posts.</p>
+
+
+
+                                        <div class="container" data-aos="fade-up">
                         <h2 class="mb-4">You may also be interested in</h2>
                         <div class="row">
 

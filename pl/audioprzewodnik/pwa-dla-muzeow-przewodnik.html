@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    
+
     <!-- Structured data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "TechArticle",
             "@id": "https://www.nubart.eu/pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html#article",
-            "headline": "Audioprzewodnik muzealny przez kod QR: co warto wiedzieć przed wyborem dostawcy PWA",
-            "alternativeHeadline": "Kluczowe informacje dla muzeów wdrażających audioprzewodniki jako progresywne aplikacje internetowe (PWA) z wykorzystaniem kodów QR",
-            "description": "Planujesz wdrożenie audioprzewodnika PWA w swoim muzeum? Dowiedz się, na co zwrócić uwagę przy wyborze dostawcy: CMS, dane odwiedzających, pliki cookie, modele monetyzacji i najczęstsze błędy.",
+            "headline": "Audioprzewodniki QR dla muzeów: co ustalić przed podpisaniem umowy",
+            "alternativeHeadline": "Najczęstsze błędy muzeów przy zamawianiu audioprzewodnika QR",
+            "description": "Nieoczywiste decyzje, przed którymi stają muzea zamawiające audioprzewodnik QR: typ dostawcy, CMS, śledzenie przez podmioty trzecie, dane odwiedzających i modele biznesowe — oraz gdzie zwykle pojawiają się problemy.",
             "proficiencyLevel": "Intermediate",
             "inLanguage": "pl",
             "image": [
@@ -23,14 +23,23 @@
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization",
                 "name": "Nubart",
-                "url": "https://www.nubart.eu"
+                "url": "https://www.nubart.eu",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
             },
             "publisher": {
                 "@type": "Organization",
-                "@id": "https://www.nubart.eu/#organization"
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
             },
             "datePublished": "2024-06-04",
-            "dateModified": "2026-05-31",
+            "dateModified": "2026-06-05",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html"
@@ -40,16 +49,11 @@
             },
 
             "keywords": [
+                "audioprzewodnik QR",
                 "audioprzewodnik muzealny",
-                "audioprzewodnik kod QR",
-                "progresywna aplikacja internetowa",
-                "PWA dla muzeów",
-                "cyfrowe przewodniki",
-                "audioprzewodnik internetowy",
-                "mobilny przewodnik wycieczek",
-                "CMS audioprzewodników",
-                "monetyzacja muzeów",
-                "cookies stron trzecich"
+                "cyfrowy audioprzewodnik muzeum",
+                "przewodnik muzealny z kodem QR",
+                "audioprzewodnik PWA"
             ],
             "about": [
                 {
@@ -69,13 +73,12 @@
                 }
             ],
             "articleSection": [
-                "Definicja PWA",
-                "PWA kontra zwykła strona internetowa",
-                "Statyczne strony audioprzewodników",
-                "Zalety audioprzewodników PWA",
-                "Wyzwania wdrożenia",
-                "Rozważania dotyczące CMS",
-                "Monetyzacja",
+                "Wybór typu dostawcy",
+                "CMS dla audioprzewodników",
+                "Modele dostępu do CMS",
+                "Śledzenie przez podmioty trzecie a RODO",
+                "Analiza odwiedzających",
+                "Modele monetyzacji",
                 "Modele biznesowe"
             ]
         }
@@ -89,50 +92,50 @@
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "Co to jest PWA (progresywna aplikacja internetowa)?",
+                    "name": "Co muzeum powinno sprawdzić przed podpisaniem umowy na audioprzewodnik z kodem QR?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "PWA to interaktywna aplikacja internetowa, do której dostęp uzyskuje się przez zeskanowanie kodu QR, bez konieczności pobierania aplikacji ze sklepu Google Play czy App Store. PWA otwiera się bezpośrednio w przeglądarce telefonu i nie wymaga instalacji."
+                        "text": "Przed podpisaniem muzea powinny zweryfikować typ dostawcy (specjalista czy agencja ogólna), czy CMS jest stworzony specjalnie dla audioprzewodników, kto zajmuje się utrzymaniem i aktualizacjami przewodnika, czy stosowane są zewnętrzne skrypty śledzące, które mogą rodzić ryzyko związane z RODO, jakie dane o odwiedzających są dostarczane oraz który model biznesowy pasuje do budżetu muzeum. Nubart GUIDE obejmuje wszystkie te obszary dzięki własnemu CMS, przetwarzaniu danych w UE i panelowi analitycznemu stworzonemu specjalnie z myślą o danych o odwiedzających."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Czym PWA różni się od zwykłej statycznej strony internetowej?",
+                    "name": "Jaki rodzaj firmy powinien opracować audioprzewodnik QR dla muzeum?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Strona internetowa jest statyczna i służy głównie do publikowania treści multimedialnych z ograniczoną funkcjonalnością. Aplikacja internetowa (PWA) to oprogramowanie pozwalające na wykonywanie różnych zadań, komunikujące się z serwerem w tle i oferujące funkcje offline oraz interaktywne elementy."
+                        "text": "Są trzy główne opcje: ogólne agencje programistyczne (technicznie zdolne, ale bez doświadczenia w audioprzewodnikach i bez odpowiedniego CMS), tradycyjne firmy produkujące sprzętowe audioprzewodniki (znają kontekst muzealny, ale ich tworzenie oprogramowania może nie być mocne) oraz firmy technologiczne specjalizujące się w audioprzewodnikach (często najlepsza równowaga, choć warto sprawdzić ich stabilność finansową). Nubart GUIDE jest tworzony przez firmę z tej trzeciej kategorii, z własnym zespołem programistycznym i CMS dedykowanym audioprzewodnikom."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Czy można stworzyć audioprzewodnik za pomocą zwykłej statycznej strony internetowej?",
+                    "name": "Czy muzealny audioprzewodnik QR musi być zgodny z RODO?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Teoretycznie tak, ale ma to bardzo ograniczoną interaktywność, problemy z obsługą wielojęzyczności, brak możliwości preładowania treści do trybu offline i ograniczone dane o użytkowaniu. PWA jest znacznie lepszym rozwiązaniem dla audioprzewodników."
+                        "text": "Tak, zwłaszcza w przypadku muzeów obsługujących europejskich odwiedzających. Głównym ryzykiem jest osadzanie zewnętrznych skryptów śledzących — takich jak standardowy Google Analytics — które przesyłają dane odwiedzających na serwery poza UE, co kwestionowały europejskie organy ochrony danych, w tym austriacki DSB i francuski CNIL. Muzea powinny poprosić dostawców o audyt audioprzewodników pod kątem skryptów podmiotów trzecich oraz o potwierdzenie podstawy prawnej każdego zewnętrznego przetwarzania danych. Nubart GUIDE nie korzysta z zewnętrznych skryptów śledzących i przetwarza wszystkie dane na infrastrukturze AWS zlokalizowanej w UE."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Jakie są zalety stosowania PWA jako audioprzewodnika?",
+                    "name": "Ilu odwiedzających muzeum faktycznie korzysta z audioprzewodnika z kodem QR?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "PWA łączy zalety statycznych stron i aplikacji, eliminując ich wady. Umożliwia m.in. gry, zdalne sterowanie, synchronizację obrazów, formularze opinii, kontrolę dostępu, geolokalizację, interaktywne mapy oraz szybkie aktualizacje bez konieczności zatwierdzenia w sklepie aplikacji."
+                        "text": "Wskaźnik wykorzystania znacznie się różni w zależności od modelu dystrybucji. Natywne aplikacje muzealne docierają średnio do zaledwie 2,47% odwiedzających (według analizy Nubart obejmującej 175 aplikacji muzealnych). Niezbywalne karty z kodem QR wliczone w cenę biletu osiągają we wdrożeniach Nubart GUIDE średni wskaźnik wykorzystania na poziomie 48%, w przedziale od 23% do 70% w zależności od obiektu. Sprzedawane jako płatny dodatek osiągają średnio około 5% — i tak więcej niż większość aplikacji natywnych."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "W jaki sposób muzea mogą zarabiać na audioprzewodnikach PWA?",
+                    "name": "Jakie modele biznesowe są dostępne dla muzealnych audioprzewodników QR?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Muzea mogą stosować kody odblokowujące dostęp do treści (kupowane razem z biletem) lub udostępniać bezpośredni dostęp przez unikalne kody QR. Metoda z QR jest prostsza dla użytkownika i może używać kodów niezbywalnych, aby chronić wartość komercyjną."
+                        "text": "Cztery główne modele to: oprogramowanie jako usługa (SaaS) z opłatą miesięczną zwykle od 50 do 500 euro; płatność jednorazowa, zwykle od 3 000 do 15 000 euro; płatność za tokeny, w której muzeum kupuje partie niezbywalnych kodów QR bez daty ważności; oraz podział przychodów, w którym dostawca ponosi koszty początkowe i fakturuje wyłącznie rozprowadzone kody. Nubart GUIDE działa głównie w modelu tokenów i oferuje podział przychodów pod pewnymi warunkami."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Jakie modele biznesowe oferują audioprzewodniki PWA muzeom?",
+                    "name": "Jakie dane o odwiedzających może dostarczyć muzeum audioprzewodnik z kodem QR?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Popularne modele to SaaS z miesięcznymi opłatami 50-500€, jednorazowe płatności 3 000-15 000 zł, opłaty za tokeny kupowane w razie potrzeby oraz umowy o podziale przychodów, gdzie dostawcy fakturują tylko za faktycznie wykorzystane tokeny."
+                        "text": "Dobrze wdrożony audioprzewodnik QR może dostarczyć kraj pochodzenia, język, sposób odsłuchiwania poszczególnych eksponatów, czas zwiedzania oraz trasy ruchu odwiedzających — bez rejestracji i zgodnie z RODO. Wymaga to systemu analitycznego stworzonego na zamówienie, a nie uniwersalnych narzędzi takich jak Google Analytics, które wprowadzają wymogi zgody ograniczające zakres danych. Nubart GUIDE zawiera w standardzie dedykowany panel analityczny dla wszystkich klientów."
                     }
                 }
             ]
@@ -160,7 +163,7 @@
                 {
                     "@type": "ListItem",
                     "position": 3,
-                    "name": "Audioprzewodnik muzealny przez kod QR: co warto wiedzieć przed wyborem dostawcy PWA",
+                    "name": "Audioprzewodniki QR dla muzeów: co ustalić przed podpisaniem umowy",
                     "item": "https://www.nubart.eu/pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html"
                 }
             ]
@@ -169,7 +172,7 @@
 
 
     <!-- End Structured data -->
-    
+
     <!-- Google Tag Manager -->
     <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -192,19 +195,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- 3. Cookie consent config (MOVED HERE) -->
 <script type="module" src="/js/cookieconsent-config.js"></script>
-    
-    
-    <title>Audioprzewodnik muzealny przez kod QR: co warto wiedzieć przed wyborem dostawcy PWA</title>
-    <meta name="description" content="Planujesz wdrożenie audioprzewodnika PWA w swoim muzeum? Dowiedz się, na co zwrócić uwagę przy wyborze dostawcy: CMS, dane odwiedzających, pliki cookie, modele monetyzacji i najczęstsze błędy." />
+
+
+    <title>Audioprzewodniki QR dla muzeów: co ustalić przed podpisaniem umowy</title>
+    <meta name="description" content="Nieoczywiste decyzje, przed którymi stają muzea zamawiające audioprzewodnik QR: typ dostawcy, CMS, śledzenie przez podmioty trzecie, dane odwiedzających i modele biznesowe — oraz gdzie zwykle pojawiają się problemy." />
     <meta name="author" content="Nubart" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Audioprzewodnik muzealny przez kod QR: co warto wiedzieć przed wyborem dostawcy PWA" />
-    <meta name="twitter:description" content="Planujesz wdrożenie audioprzewodnika PWA w swoim muzeum? Dowiedz się, na co zwrócić uwagę przy wyborze dostawcy: CMS, dane odwiedzających, pliki cookie, modele monetyzacji i najczęstsze błędy." />
+    <meta name="twitter:title" content="Audioprzewodniki QR dla muzeów: co ustalić przed podpisaniem umowy" />
+    <meta name="twitter:description" content="Nieoczywiste decyzje, przed którymi stają muzea zamawiające audioprzewodnik QR: typ dostawcy, CMS, śledzenie przez podmioty trzecie, dane odwiedzających i modele biznesowe — oraz gdzie zwykle pojawiają się problemy." />
     <meta name="twitter:site" content="@nubartEN" />
     <meta name="twitter:creator" content="@nubartEN" />
     <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp" />
-    
+
     <!-- hreflang -->
     <link rel="canonical" href="https://www.nubart.eu/pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html" />
     <link rel="alternate" href="https://www.nubart.eu/audio-guides/implementing-pwa-museum-guide.html" hreflang="x-default" />
@@ -221,17 +224,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="alternate" href="https://www.nubart.eu/de/audioguides/als-pwa-oder-web-app-leitfaden.html" hreflang="de-ch" />
     <link rel="alternate" href="https://www.nubart.eu/ja/audio-guides/via-qr-code-pwa-webapp.html" hreflang="ja" />
     <link rel="alternate" href="https://www.nubart.eu/pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html" hreflang="pl" />
-   
-    
+
+
     <!-- OpenGraph for LinkedIn -->
-    
-    <meta property="og:title" content="Audioprzewodnik muzealny przez kod QR: co warto wiedzieć przed wyborem dostawcy PWA" />
+
+    <meta property="og:title" content="Audioprzewodniki QR dla muzeów: co ustalić przed podpisaniem umowy" />
     <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp" />
     <meta property="og:author" content="Nubart International" />
-    <meta property="og:description" content="Planujesz wdrożenie audioprzewodnika PWA w swoim muzeum? Dowiedz się, na co zwrócić uwagę przy wyborze dostawcy: CMS, dane odwiedzających, pliki cookie, modele monetyzacji i najczęstsze błędy." />
+    <meta property="og:description" content="Nieoczywiste decyzje, przed którymi stają muzea zamawiające audioprzewodnik QR: typ dostawcy, CMS, śledzenie przez podmioty trzecie, dane odwiedzających i modele biznesowe — oraz gdzie zwykle pojawiają się problemy." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.nubart.eu/pl/audioprzewodnik/pwa-dla-muzeow-przewodnik.html" />
-    
+
     <!-- Icons -->
     <link rel="shortcut icon" href="https://nubart.eu/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png" />
@@ -240,22 +243,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="theme-color" content="#ffffff" />
     <!-- ./Icons -->
-    
+
     <!-- supplier CSS Files -->
     <link href="../../assets/vendor/aos/aos.css" rel="stylesheet" />
     <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
     <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
     <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    
+
     <!-- Lazy-load JS -->
     <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
-    
+
     <!-- Template Main CSS File -->
     <link href="../../assets/css/style.css" rel="stylesheet" />
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css" />
-    
+
     <link href="../../assets/css/custom.css" rel="stylesheet" />
 
 </head>
@@ -390,271 +393,135 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="d-md-none" style="height: 60px;"></div>
     <section class="breadcrumbs d-none d-md-block">
     <div class="container">
-        
+
         <ol>
             <li><a href="../">Strona główna</a></li>
-            
+
             <li><a href="../audioprzewodnik/">Nubart GUIDE</a></li>
-            
-            <li>Przewodnik po wdrażaniu PWA jako audioprzewodnika w muzeum</li>
+
+            <li>Audioprzewodniki QR dla muzeów</li>
         </ol>
-    
+
     </div>
 </section><!-- End Breadcrumbs -->
 
 <main id="main">
     <!-- ======= Portfolio Details Section ======= -->
     <section class="inner-page services">
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
                     <div style="align-items:top;">
-                        
+
                         <img src="../../assets/img/team/nubart-profile.webp" class="img-thumbnail rounded-circle d-none d-lg-block" style="margin-right:30px;" width="45%" alt="Nubart" />
-                    
+
                     </div>
                     <div>
                         <h4 class="fs-5">Zespół Nubart</h4>
                         <p class="nubart-blog-author">Rozwój biznesu</p>
-                    
+
                     </div>
                 </div>
-                
+
                 <div class="col-md-8 nubart-blog">
-                    
-                    <h1>Jak stworzyć audioprzewodnik dla muzeum: kompletny przewodnik po PWA i kodach QR</h1>
-                    
-                    <p style="font-size: 20px;">Audioprzewodniki jako aplikacje internetowe lub PWA, które są zazwyczaj dostępne za pośrednictwem kodu QR, stały się bardzo popularne w ostatnich latach i wyprzedzają tradycyjne aplikacje. Jest jednak wiele rzeczy, o których należy pamiętać, jeśli rozważają Państwo wdrożenie tej formy audioprzewodnika w swoim muzeum po raz pierwszy. Jest to pierwszy z serii artykułów, w których pomożemy Państwu podjąć najlepszą decyzję.</p>
+
+                    <h1>Audioprzewodniki QR dla muzeów: co ustalić przed podpisaniem umowy</h1>
+
+                    <p style="font-size: 18px;">Z zewnątrz audioprzewodnik z kodem QR wygląda prosto: odwiedzający skanuje, treść się odtwarza. Jednak zamówienie takiego rozwiązania wiąże się z szeregiem decyzji, które zaskakują wiele muzeów — nie dlatego, że są technicznie skomplikowane, lecz dlatego, że właściwe pytania stają się oczywiste dopiero wtedy, gdy coś pójdzie nie tak. Nubart GUIDE został zbudowany właśnie wokół tych newralgicznych punktów, a my od lat obserwujemy, jak te same możliwe do uniknięcia błędy powtarzają się w instytucjach każdej wielkości. Ten artykuł przedstawia je jasno, aby mogli Państwo zadać właściwe pytania, zanim cokolwiek Państwo podpiszą.</p>
+
                     <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
                     <figure class="figure">
-                        <img src="../../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="QR to access a PWA audio guide in a museum - Nubart" />
-                        <figcaption class="figure-caption text-center">Dostęp do audioprzewodników PWA uzyskuje się zwykle za pomocą kodu QR wyświetlanego w widocznym miejscu w muzeum.       </figcaption>
+                        <img src="../../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="Audioprzewodnik z kodem QR w muzeum – Nubart GUIDE" />
+                        <figcaption class="figure-caption text-center">Większość audioprzewodników opartych na kodach QR jest dziś tworzona jako progresywne aplikacje internetowe (PWA) i otwiera się bezpośrednio w przeglądarce smartfona odwiedzającego.</figcaption>
                     </figure>
-                    <p class="fs-3">Treść tego artykułu</p>
-                    <h3 class="fs-5"><i class="bi bi-1-circle"></i> <a href="#reasons">Przyczyny rosnącej popularności audioprzewodników jako PWA w muzeach.</a></h3>
-                    <h3 class="fs-5"><i class="bi bi-2-circle"></i> <a href="#definition-pwa">Czym jest PWA czyli progresywna aplikacja internetowa?</a></h3>
-                    <h3 class="fs-5"><i class="bi bi-3-circle"></i> <a href="#pwa-vs-website">Czym różni się PWA od zwykłej strony internetowej?</a></h3>
-                    <h3 class="fs-5"><i class="bi bi-4-circle"></i> <a href="#audioguide-as-website">Czy można stworzyć audioprzewodnik na prostej, statycznej stronie internetowej?</a></h3>
-                    <h3 class="fs-5"><i class="bi bi-5-circle"></i> <a href="#advantages-pwa">Jakie są korzyści z używania PWA jako audioprzewodnika?</a></h3>
-                    <h3 class="fs-5"><i class="bi bi-6-circle"></i> <a href="#caveat-pwa-audioguide">Aspekty, które należy wziąć pod uwagę przy wdrażaniu audioprzewodnika jako PWA w muzeum.</a></h3>
-                    <ul>
-                        <li class="fs-5"><a href="#kind-of-company"> Jaka firma opracuje audioprzewodnik PWA?</a></li>
-                        <li class="fs-5"><a href="#cms"> Czy audioprzewodnik zostanie opracowany przy użyciu CMS?</a></li>
-                        <li class="fs-5"><a href="#access-cms"> Dostęp do panelu CMS audioprzewodnika</a></li>
-                        <li class="fs-5"><a href="#third-party-cookies"> Czy audioprzewodnik PWA będzie wykorzystywał pliki cookie stron trzecich?</a></li>
-                        <li class="fs-5"><a href="#stats"> Czy audioprzewodnik PWA dostarcza Państwu dobrych danych statystycznych?</a></li>
-                        <li class="fs-5"><a href="#monetize"> Jak zarabiać na audioprzewodniku PWA?</a></li>
-                        <li class="fs-5"><a href="#business-model"> Jakie modele biznesowe oferują muzeom audioprzewodniki PWA?</a></li>
-                    
-                    </ul>
+
+                    <p>Większość audioprzewodników opartych na kodach QR jest dziś tworzona jako progresywne aplikacje internetowe (PWA) — aplikacje, które otwierają się bezpośrednio w przeglądarce smartfona odwiedzającego, bez żadnego pobierania. Sam szczegół techniczny ma mniejsze znaczenie niż to, co umożliwia: pełne doświadczenie multimedialne, buforowanie offline po wcześniejszym wczytaniu treści przy dobrym połączeniu, dane o odwiedzających oraz treści, które można aktualizować w każdej chwili. To, co ogromnie różni się między dostawcami, to rzeczywista jakość wykonania — oraz to, jak wygodnie będzie się z niego korzystać za dwa lata.</p>
+
                     <hr class="hr hr-blurry" style="color:#6ec7ba;" />
-                    <h2 id="reasons">Przyczyny rosnącej popularności audioprzewodników jako PWA w muzeach.</h2>
-                    
-                    <p>Kody QR są głównym sposobem dostępu do interaktywnych aplikacji internetowych lub PWA wykorzystywanych jako audioprzewodniki w muzeach. <b>Do czasu pandemii Covid-19 tylko 31,45% odwiedzających muzea wiedziało, jak zeskanować kod QR.</b> Jednak ich powszechne stosowanie w barach i restauracjach podczas pandemii zwiększyło znajomość kodów QR do 98% populacji. (W <a href="../" target="_blank">Nubart</a> stosujemy QR w naszych audioprzewodnikach od 2016 roku, więc znamy tę interesującą nas statystykę z pierwszej ręki). Oczywiście ewolucja ta przyspieszyła wdrażanie PWA.</p>
-                    
-                    <p>Z drugiej strony, konwencjonalne aplikacje audioprzewodników (technicznie nazywane "aplikacjami natywnymi"), tj. te, które odwiedzający pobierają z Google Play lub App Store, straciły na popularności. Zasadniczo z dwóch powodów: ze względu na wysokie koszty utrzymania, ze względu na ciągłe aktualizacje narzucane przez Androida i iOS; oraz ze względu na bardzo niski wskaźnik pobierania (średnio 3,4% wszystkich odwiedzających muzeum według wewnętrznych danych Nubart).</p>
-                    
-                    <p>Do tego dochodzi fakt, że w ostatnich latach możliwości przeglądarek znacznie się poprawiły. Teraz w każdej przeglądarce można robić rzeczy, które były nie do pomyślenia 10 lat temu, podczas złotej ery aplikacji.</p>
-                    
-                    <p>Dlatego też coraz więcej muzeów rozważa zastąpienie tradycyjnych urządzeń audioprzewodników lub natywnych aplikacji audioprzewodników aplikacjami PWA lub interaktywnymi aplikacjami internetowymi, które otwierają się bezpośrednio w przeglądarce. W rezultacie coraz więcej agencji programistycznych lub tradycyjnych dostawców audioprzewodników oferuje muzeom PWA.</p>
-                    
-                    <p>Jeśli pracują Państwo w muzeum, które rozważa przejście na audioprzewodniki PWA, w tym artykule dowiedzą się Państwo wszystkiego, co trzeba wiedzieć. Postaramy się wyjaśnić to w prosty sposób dla czytelników bez dużej wiedzy technologicznej.</p>
-                    
-                    <p>Zacznijmy od przedstawienia odrobiny kontekstu. Proszę zauważyć, że z technicznego punktu widzenia granice między "normalną" stroną internetową, interaktywną aplikacją internetową i progresywną aplikacją internetową lub PWA są do pewnego stopnia zatarte.</p>
-                    
-                    <p>(Jeśli są już Państwo zaznajomieni z tymi różnicami, proszę od razu przejść do <a href="#caveat-pwa-audioguide">naszych wskazówek dotyczących wdrażania PWA</a>).</p>
-                    <br />
-                    <h2 id="definition-pwa">Czym jest PWA lub progresywna aplikacja internetowa?</h2>
-                    
-                    <p>Chociaż definicja technologiczna jest bardziej skomplikowana, prosta definicja brzmi następująco:</p>
-                    
-                    <p>PWA lub aplikacja internetowa to interaktywna aplikacja, do której dostęp uzyskuje się po prostu skanując kod QR zamiast pobierania aplikacji z Google Play lub App Store. PWA lub aplikacja internetowa otwiera się bezpośrednio w domyślnej przeglądarce smartfona i nie wymaga instalacji.</p>
-                    
-                    <p>Kod QR można zeskanować za pomocą zewnętrznej aplikacji lub własnego aparatu smartfona. Obecnie prawie wszystkie smartfony umożliwiają skanowanie kodu QR za pomocą fabrycznie zainstalowanego aparatu, co również przyczyniło się do jego wykorzystania.</p> <br />
-                    
-                    <h2 id="pwa-vs-website">Czym PWA lub progresywna aplikacja internetowa różni się od zwykłej strony internetowej?</h2>
-                    
-                    <p>Wiele osób uważa, że wszystko, co otwiera się w przeglądarce, jest "stroną internetową" i nie zdaje sobie sprawy, że wiele usług, z których regularnie korzystają, jest w rzeczywistości <i>aplikacjami internetowymi</i>. Na przykład platforma projektowa Canva lub dowolne oprogramowanie księgowe nie są stronami internetowymi, ale złożonymi interaktywnymi aplikacjami internetowymi, które umożliwiają "robienie rzeczy".</p>
-                    
-                    <p>Aby wyjaśnić to w prosty sposób:</p>
-                    <ul>
-                        <li>Strona internetowa jest statyczna i służy do publikowania treści multimedialnych. Nie musi komunikować się z żadnym serwerem, a jej funkcjonalność jest bardzo ograniczona.</li>
-                        
-                        <li>Aplikacja internetowa to oprogramowanie, które umożliwia wykonywanie różnych zadań i komunikuje się z serwerem w tak zwanym "zapleczu".</li>
-                    </ul>
-                    <br />
-                    <h2 id="audioguide-as-website">Czy można stworzyć audioprzewodnik na prostej, statycznej stronie internetowej?</h2>
-                    
-                    <p>Teoretycznie tak. Niektóre muzea oferują ścieżki dźwiękowe audioprzewodników bezpośrednio na swojej stronie internetowej.</p>
-                    
-                    <p>Model ten nie zapewnia jednak zadowalających wyników:</p>
-                    <ul>
-                        <li>Ma bardzo ograniczoną interaktywność.</li>
-                        
-                        <li>Prezentacja treści w kilku językach, wraz z odpowiednim menu, jest skomplikowana do wdrożenia.</li>
-                        
-                        <li>Nie jest możliwe wstępne załadowanie treści do słuchania w trybie offline w obszarach muzeum o słabej łączności, ponieważ statyczna strona internetowa działa tylko w trybie online.</li>
-                        
-                        <li>Trudno jest uzyskać wiarygodne i znaczące dane dotyczące użytkowania.</li>
-                    </ul>
-                    <br />
-                    <h2 id="advantages-pwa">Jakie są korzyści z używania PWA lub aplikacji internetowej jako audioprzewodnika?</h2>
-                    
-                    <p>
-                        W rzeczywistości audioprzewodnik PWA ma praktycznie wszystkie zalety zarówno statycznych stron internetowych, jak i aplikacji, bez żadnych wad.          </p>
-                    
-                    <p>PWA, jeśli są zaimplementowane jako aplikacje jednostronicowe (SPA), są zaprojektowane tak, aby były szybkie i wydajne, z usprawnionym interfejsem użytkownika i płynniejszymi interakcjami, nawet z treściami multimedialnymi, takimi jak pliki audio lub wideo.</p>
-                    
-                    <p>PWA umożliwiają wdrożenie dodatkowych funkcji interaktywnych, które mają duży sens w audioprzewodniku, takich jak:</p>
-                    <ul>
-                        <li>Gry</li>
-                        
-                        <li>Zdalne sterowanie</li>
-                        
-                        <li>Wyświetlanie obrazu w określonym czasie podczas odtwarzania dźwięku</li>
-                        
-                        <li>Formularz ankiety</li>
-                        
-                        <li>Kontrola dostępu</li>
-                        
-                        <li>Geolokalizacja</li>
-                        
-                        <li>Opcje personalizacji</li>
-                        
-                        <li>Interaktywne mapy</li>
-                        
-                        <li>Złożone funkcje wyszukiwania</li>
-                    </ul>
-                    
-                    <p>Pozwalają one również na szybką aktualizację treści audioprzewodnika bez konieczności zmiany kodu aplikacji i bez konieczności przesyłania czegokolwiek do sklepów z aplikacjami Google i Apple w celu zatwierdzenia.</p>
-                    
-                    <p><a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank">Tutaj</a> znajdą Państwo <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank">szczegółowy opis techniczny funkcji PWA</a>.    </p>
-                    <br />
-                    <h2 id="caveat-pwa-audioguide">Aspekty, które należy wziąć pod uwagę przy wdrażaniu audioprzewodnika jako aplikacji internetowej (PWA) w muzeum. </h2>
-                    
-                    <p> Jakość audioprzewodnika wpływa na wizerunek i reputację Państwa muzeum. Co więcej, nawet jeśli zlecą Państwo firmie zewnętrznej zarówno rozwój technologiczny PWA, jak i produkcję treści, czeka Państwa żmudny proces przeglądu i iteracji, którego nie chcą Państwo przechodzić na próżno. Zanim więc się Państwo za to zabiorą, proszę rozważyć wszystkie te kwestie:</p>
-                    <br />
-                    <h3 id="kind-of-company"><i class="bi bi-1-circle-fill"></i> Jaka firma opracuje audioprzewodnik PWA?</h3>
-                    
-                    <ul>
-                        <li>
-                            <b>Firmy programistyczne.</b> Teoretycznie każda firma tworząca oprogramowanie może opracować dla Państwa aplikację internetową lub PWA. Jednak takiej firmie nie jest łatwo zrozumieć specyficzne potrzeby audioprzewodnika lub muzeum. Co najważniejsze, firma programistyczna nie będzie miała systemu zarządzania treścią (CMS) zaprojektowanego specjalnie dla audioprzewodników. Ryzykują Państwo otrzymanie cyfrowego audioprzewodnika, który jest bardzo drogi i nieelastyczny pod kątem przyszłych zmian.      </li>
-                        
-                        <li>
-                            <b> Tradycyjne firmy produkujące audioprzewodniki. </b>Firmy te zajmują się wyłącznie audioprzewodnikami i powiązanymi usługami. Rozumieją one Państwa język i potrzeby. Jednak firmy te od dziesięcioleci koncentrują się na tradycyjnych urządzeniach audioprzewodników, a rozwój oprogramowania może nie być jedną z ich mocnych stron. Proszę upewnić się, że nie zlecą oni stworzenia audioprzewodnika zewnętrznym programistom i że posiadają system CMS przeznaczony specjalnie dla audioprzewodników. Proszę poprosić ich o przesłanie przykładowych linków do PWA, które już stworzyli i dogłębnie je zbadać.      </li>
-                        
-                        <li>
-                            <b>Firmy technologiczne specjalizujące się w audioprzewodnikach.</b> Jest to z pewnością najlepsza opcja. Będą one rozumieć Państwa język, a także posiadać niezbędną wiedzę i sprzęt do realizacji Państwa projektu. Jednak wiele z tych firm to startupy, które istnieją na rynku od niedawna lub które rozwinęły się w oparciu o inwestycje zewnętrzne i nie są jeszcze stabilne. Proszę nie kierować się wyłącznie portfolio ich klientów, które mogą stanowić bezpłatne projekty pilotażowe, i koniecznie sprawdzić ich dane finansowe. (Jeśli Państwa dostawca ma siedzibę w Wielkiej Brytanii, mogą Państwo <a href="https://find-and-update.company-information.service.gov.uk/" target="_blank">przeprowadzić tę kontrolę łatwo i bezpłatnie w Companies House</a>). W przeciwnym razie ryzykują Państwo utratę zarówno dostawcy, jak i wycieczki audio w ciągu kilku lat. </li>
-                    </ul>
-                    <br />
-                    <h3 id="cms"><i class="bi bi-2-circle-fill"></i> Czy audioprzewodnik zostanie opracowany przy użyciu CMS?</h3>
-                    
-                    <p> CMS<i>(Content Management System</i>) to oprogramowanie do zarządzania treścią, które umożliwia tworzenie, zarządzanie i modyfikowanie zawartości strony internetowej lub aplikacji internetowej bez konieczności znajomości programowania. Przed zatrudnieniem dostawcy proszę zapytać go, z jakiego systemu CMS zamierza korzystać, a nawet jeśli nie mają Państwo wykształcenia technicznego, proszę spróbować dowiedzieć się, jakie są jego ograniczenia. </p>
-                    
-                    <p> Dostępne są następujące opcje:</p>
-                    
-                    <ul>
-                        <li>
-                            <b> Audioprzewodnik zaprogramowany od podstaw (bez CMS).</b> <br>Ma to tę zaletę, że będą Państwo mogli skonfigurować go całkowicie zgodnie z własnymi życzeniami, wybrać dowolny hosting i ewentualnie zapłacić za niego tylko raz, bez powtarzających się opłat. Jest to jednak bardzo kosztowna procedura i będzie wymagać znacznego zaangażowania z Państwa strony podczas rozwoju.<br>Prawdziwe problemy pojawią się, gdy będą Państwo musieli wprowadzić zmiany w przyszłości, zwłaszcza jeśli początkowo wybrana firma programistyczna nie będzie już dostępna. Nowa firma, którą Państwo zatrudnią, będzie musiała praktycznie zaczynać od zera.      </li>
-                        <br />
-                        <li>
-                            <b>Audioprzewodnik zaprogramowany za pomocą CMS, który nie jest dedykowany dla audioprzewodników.</b><br>Teoretycznie możliwe jest zbudowanie audioprzewodnika za pomocą systemu CMS zaprojektowanego pierwotnie dla stron internetowych, takiego jak Wordpress.<br>Inne firmy programistyczne używają bardziej złożonych CMS zaprojektowanych dla PWA, takich jak Craft lub Glue. Procedura ta pozwala na szybsze wprowadzanie zmian, chociaż nadal będą Państwo musieli skorzystać z usług firmy programistycznej, aby je wdrożyć, ponieważ są to systemy CMS przeznaczone dla programistów.<br>Problemy pojawią się, gdy będą Państwo chcieli wdrożyć funkcje audiowycieczki, których te CMS-y nie obsługują, takie jak interaktywne mapy, przypisanie daty ważności do eksponatu lub ścieżki dźwiękowej lub włączenie elementów rzeczywistości rozszerzonej: w tym przypadku osiągną Państwo limit tego, co może zaoferować ogólny CMS, który nie został zaprojektowany od podstaw, aby objąć wszystkie kwestie specyficzne dla PWA audiowycieczek.      </li>
-                        <br />
-                        <li>
-                            <b>Audioprzewodniki zaprogramowane za pomocą specjalnego systemu CMS dedykowanego dla audioprzewodników</b>. <br>Ten rodzaj CMS został opracowany przez programistów, którzy znają specyficzny przypadek audioprzewodników: ścieżki dźwiękowe są odtwarzane w zoptymalizowanym odtwarzaczu audio, nawigacja jest odpowiednia itp. <br>Niezależnie od tego, czy firma zapewni Państwu dostęp, aby mogli Państwo samodzielnie wprowadzać zmiany, czy też firma korzysta z CMS wewnętrznie, będą Państwo mogli szybko i skutecznie wdrożyć aktualizacje audioprzewodnika przy bardzo niskich kosztach lub za darmo, ponieważ zmiany będą łatwe do wprowadzenia i nie będą wymagały wysoko wykwalifikowanego personelu technicznego.<br> Idealnie byłoby, gdyby CMS został opracowany wewnętrznie przez zespół IT Państwa dostawcy, co ułatwi wdrożenie nowych funkcji w przyszłości, które wzbogacą i ulepszą Państwa audioprzewodnik.      </li>
-                    </ul>
-                    <br />
-                    <h3 id="access-cms"><i class="bi bi-3-circle-fill"></i> Dostęp do audioprzewodnika PWA CMS</h3>
-                    
-                    <ul>
-                        <li>
-                            <b>CMS jest wykorzystywany wewnętrznie przez pracowników firmy tworzącej audioprzewodniki</b>. <br>W tym przypadku muzeum płaci za specjalistyczną usługę świadczoną w trakcie procesu i za efekt końcowy. Oszczędzają Państwo krzywą uczenia się i cały czas potrzebny na skonfigurowanie audioprzewodnika. Niektóre firmy pobierają jednorazową opłatę za wdrożenie tego modelu, co może być bardziej zgodne z budżetem muzeum.<br>
-                                                                                                                         
-                                                                                                                         Proszę zapytać, czy jednorazowa opłata obejmuje wdrożenie przyszłych aktualizacji audiowycieczek i na jakich warunkach. </li>
-                        <br />
-                        <li>
-                            <b> Muzeum uzyskuje dostęp do CMS i samodzielnie tworzy kompletny audioprzewodnik.</b><br> Zaletą tego systemu jest to, że jako klient mają Państwo pełną kontrolę i mogą szybko i samodzielnie wprowadzać zmiany w audioprzewodniku.<br>Wadą jest to, że platformy te wymagają znacznej krzywej uczenia się, zwłaszcza jeśli CMS pozwala na integrację złożonych elementów (mapy, rzeczywistość rozszerzona, gry, daty ważności...).<br>Jeśli nie mają Państwo potrzeby regularnego wprowadzania zmian w audioprzewodniku, cała ta nauka najprawdopodobniej pójdzie w zapomnienie.<br>Gdy w muzeum dojdzie do zmiany personelu, nowy kierownik będzie musiał uczyć się wszystkiego od nowa. A nawet jeśli opanuje on CMS, konfiguracja cyfrowego audioprzewodnika z łatwością wymaga tygodnia lub dwóch pracy.<br>
-                                                                                                                       Proszę upewnić się, że wynajmują Państwo łatwy w obsłudze CMS. Proszę poprosić o co najmniej tygodniowy bezpłatny okres próbny od kilku dostawców przed wyborem jednego i zainwestować wystarczająco dużo czasu, aby dokładnie je przetestować.<br>
-                                                                                                                       
-                                                                                                                       Przed podjęciem decyzji proszę zapytać, czy istnieje klauzula lojalnościowa i poprosić o kopię umowy.         </li>
-                        <br />
-                        <li>
-                            <b> Model hybrydowy.</b><br>Niektóre firmy oferują obie opcje: dają Państwu dostęp do CMS, ale także oferują jako opcjonalną usługę cyfrową konfigurację audioprzewodnika.      </li>
-                    </ul>
-                    <br />
-                    <h3 id="third-party-cookies"><i class="bi bi-4-circle-fill"></i> Czy audioprzewodnik PWA będzie wykorzystywał pliki cookie stron trzecich?</h3>
-                    
-                    <p>Ochrona prywatności odwiedzających jest niezwykle ważną kwestią, szczególnie w przypadku muzeów publicznych. Pliki cookie stron trzecich mogą śledzić użytkowników na różnych stronach internetowych, gromadząc dane o ich nawykach przeglądania, preferencjach i danych osobowych. Muzea powinny szanować prywatność odwiedzających, unikając technologii, które mogą prowadzić do inwazyjnego śledzenia i gromadzenia danych.</p>
-                    
-                    <p> Proszę upewnić się, że audioprzewodnik PWA oferowany przez Państwa dostawcę nie korzysta z plików cookie stron trzecich. Niektóre z najpopularniejszych plików cookie stron trzecich to Google Analytics (do uzyskiwania danych o użytkowaniu), Google Maps (do geolokalizacji elementów na trasie) lub Hotjar (do kontrolowania ruchów kursora w audioprzewodniku), ale jest ich o wiele więcej.</p>
-                    
-                    <p>Najłatwiejszym sposobem sprawdzenia tego jest poproszenie dostawcy o link do jednego z utworzonych przez niego PWA i przesłanie go do audytu plików cookie. Można to zrobić na kilka sposobów: z poziomu samej przeglądarki Chrome, klikając "inspect element" prawym przyciskiem myszy i sprawdzając zakładkę "network" po przeładowaniu strony. Jeśli Państwo wolą, na rynku znajdą Państwo również platformy specjalizujące się w tej funkcji.</p>
-                    
-                    <p>Jeśli Państwa potencjalny dostawca korzysta z plików cookie stron trzecich, proszę upewnić się, że przynajmniej umieścił informację o plikach cookie w audioprzewodniku!</p>
-                    <br />
-                    <h3 id="stats"><i class="bi bi-5-circle-fill"></i> Czy audioprzewodnik PWA dostarcza Państwu dobrych danych statystycznych?</h3>
-                    
-                    <p>Audioprzewodnik PWA zapewnia wyjątkową możliwość lepszego poznania Państwa gości. Po otwarciu w przeglądarce odwiedzającego pozwala on anonimowo, legalnie i nieinwazyjnie śledzić różne dane statystyczne, które są bardzo interesujące dla muzeum, takie jak kraj pochodzenia odwiedzającego lub jego podstawowy język. Można również dowiedzieć się, które ścieżki dźwiękowe były słuchane, a które nie, a nawet przez które obszary muzeum przechodzili odwiedzający. Biorąc pod uwagę trudności, jakie muzea mają z uzyskaniem tego rodzaju danych do analizy publiczności, szkoda byłoby zmarnować szansę, jaką dają aplikacje internetowe do audiowycieczek.</p>
-                    
-                    <p>Śledzenie i analizowanie danych jest złożonym procesem, który wymaga znacznej wiedzy technologicznej i zasobów, więc nie wszystkie audioprzewodniki PWA, które znajdą Państwo na rynku, je zapewniają. Jeśli tak, to są to najczęściej stosowane metody:</p>
-                    
-                    <ul>
-                        <li>
-                            <b>Za pośrednictwem usług innych firm.</b><br>Najpopularniejszą opcją, ponieważ jest bezpłatna, jest korzystanie z Google Analytics, zazwyczaj prezentującego dane za pośrednictwem bezpłatnego systemu wizualizacji danych, takiego jak Looker Studio (również od Google). Ta metoda nie pozwala na poznanie niektórych z najbardziej istotnych danych, takich jak kraj pochodzenia odwiedzającego. A przede wszystkim wiąże się z problemem wykorzystywania plików cookie stron trzecich.        </li>
-                        
-                        <li>
-                            <b>Za pośrednictwem wewnętrznie opracowanej platformy.</b><br>Klient otrzymuje chroniony hasłem dostęp do panelu danych zaprojektowanego specjalnie dla audioprzewodników. Jest to zdecydowanie najlepsza opcja. Ponownie, ważne jest, aby dowiedzieć się, czy używane są pliki cookie stron trzecich.     </li>
-                    </ul>
-                    <br />
-                    <h3 id="monetize"><i class="bi bi-6-circle-fill"></i> Jak zarabiać na audioprzewodniku PWA?</h3>
-                    
-                    <p>Większość muzeów, które decydują się na audioprzewodnik jako aplikację internetową, zamierza oferować bezpłatny dostęp swoim gościom.<br>Jednak opracowanie treści audioprzewodnika w wielu językach jest bardzo kosztowne. Biorąc pod uwagę, że tylko 10-20% odwiedzających korzysta z bezpłatnych usług audioprzewodnika oferowanych w muzeum, pobieranie niewielkiej opłaty za korzystanie z audioprzewodnika PWA pozwala na bardziej sprawiedliwy podział tych kosztów, a jeśli muzeum jest publiczne, pozwala uniknąć całkowitego ponoszenia tychże kosztów przez podatników.      </p>
-                    
-                    <p> Są to znane nam metody monetyzacji audioprzewodnika PWA:</p>
-                    
-                    <ul>
-                        <li><b>Odblokowanie audioprzewodnika za pomocą kodu numerycznego.</b><br>Odwiedzający musi:   <ul>
-                            <li>Uzyskać dostęp do aplikacji internetowej audioprzewodnika za pośrednictwem łącza lub kodu QR.</li>
-                            
-                            <li>Uzyskać numeryczny kod odblokowujący. Zwykle otrzyma go przy zakupie biletu online lub w recepcji muzeum. Kod ten należy wprowadzić do wstępnie załadowanego cyfrowego audioprzewodnika.</li>
-                        </ul>
-                                                                                                 
-                                                                                                 Proces ten jest stosunkowo złożony, ponieważ składa się z dwóch oddzielnych kroków. Użytkownicy, którzy nie są zbyt obeznani z technologią cyfrową, będą mieli problemy, a ich usunięcie może przytłoczyć personel muzeum i prowadzić do kolejek i niezadowolonych użytkowników.<br>
-                                                                                                 
-                                                                                                 Aby zapobiec piractwu, kody te są zazwyczaj ograniczone czasowo. Nie zapobiega to jednak używaniu tego samego kodu przez kilku odwiedzających w tym samym czasie.    </li>
-                        <br />
-                        <li><b>Bezpośredni dostęp do unikalnego kodu QR.</b><br>Niezależnie od tego, czy jest on dostępny online, czy wydrukowany na karcie, odwiedzający otrzymuje nieprzechodni kod QR, który po zeskanowaniu umożliwia bezpośredni dostęp do audioprzewodnika bez żadnych kroków pośrednich.<br>Jest to <a href="." target="_blank">metoda stosowana przez firmę Nubart w jej audioprzewodnikach</a>, która opatentowała metodę uniemożliwiającą przenoszenie kodu, zachowując w ten sposób jego wartość handlową. Chociaż kodu nie można przenieść, właściciel może uzyskać dostęp do audioprzewodnika jeszcze długo po wizycie.    </li>
-                    
-                    </ul>
-                    <br />
-                    <h3 id="business-model"><i class="bi bi-7-circle-fill"></i> Jakie modele biznesowe oferują muzeom audioprzewodniki PWA?</h3>
-                    
-                    <ul>
-                        <li>
-                            <b><a href="https://en.wikipedia.org/wiki/Software_as_a_service" target="_blank">Oprogramowanie jako usługa (SaaS)</a>:</b> Muzeum uiszcza miesięczną opłatę w wysokości od 50 €/$ do 500 €/$. Ogólnie rzecz biorąc, ta cykliczna opłata jest uzasadniona z jednego lub kilku następujących powodów:        <ul>
-                            <li>Wygenerowany ruch</li>
-                            <li>Hosting audioprzewodnika</li>
-                            <li>Usługa wsparcia technicznego</li>
-                            <li>Dostęp do CMS.</li>
-                        </ul>
-                                                                                                                                                        Radzimy Państwu kalkulować w perspektywie długoterminowej. Jeśli zamierzają Państwo korzystać z audioprzewodnika na wystawie stałej i płacą Państwo 200 €/$ miesięcznie, po 5 latach audioprzewodnik będzie kosztował 12 000 €/$. Jeśli Państwa muzeum nie ma wielu odwiedzających, lepszym rozwiązaniem może być model płatności jednorazowej lub symbolicznej. Proszę również zapytać o ewentualne klauzule lojalnościowe.        </li>
-                    </ul>
-                    <ul>
-                        <li><b>Jednorazowa opłata:</b> Muzeum uiszcza jednorazową opłatę przy odbiorze audioprzewodnika, która może wynosić od 3.000 €/$ do 15.000 €/$.<br>
-                                                       
-                                                       Opłata jest zazwyczaj wyższa, jeśli audioprzewodnik został zaprojektowany od podstaw i bez systemu CMS.<br>
-                                                       Proszę pamiętać, że cyfrowy audioprzewodnik nigdy nie jest w 100% ukończony. Prędzej czy później konieczne będzie zaktualizowanie niektórych funkcji, dodanie lub usunięcie treści, usunięcie niektórych niezgodności z przeglądarkami itp. Proszę zapytać swojego dostawcę, czy będzie dostępny w przypadku takich aktualizacji i jaka jest ich opłata.   </li>
-                        <br />
-                        <li>
-                            <b>Płatność za pomocą tokenów:</b> Jest to metoda stosowana przez Nubart. Muzeum płaci jednorazową opłatę za konfigurację audioprzewodnika i nabywa pewną liczbę unikalnych, nieprzechodnich kodów, zwykle drukowanych na kartonowej karcie, którą zwiedzający może zatrzymać. Karty nie tracą ważności, więc muzeum może je dystrybuować aż do ich wyczerpania.<br>
-                                                               
-                                                               Metoda ta jest dobrze dostosowana do bieżącego budżetu muzeum, unikając stałych opłat regularnych, ponieważ zużycie kart wzrasta lub maleje w zależności od liczby odwiedzających i dochodów uzyskanych ze wstępu. Jeśli pod koniec roku muzeum będzie dysponować pozostałościami budżetowymi, które będzie musiało wydać, może zakupić nową partię nowych kart audioprzewodników i przechowywać je do czasu, gdy będą potrzebne.     </li>
-                        <br />
-                        <li>
-                            <b>Udział w przychodach:</b> Ten model biznesowy jest bardzo powszechny w przypadku fizycznych urządzeń audioprzewodników, ale rzadko występuje w przypadku cyfrowych audioprzewodników, niezależnie od tego, czy są to aplikacje natywne, czy aplikacje internetowe.<br>Podział przychodów lub subskrypcja są jednak możliwe dzięki modelowi tokenów stosowanemu w cyfrowych audioprzewodnikach, ponieważ implementuje on charakterystyczne kody, których użycie można śledzić na bieżąco. W takim modelu podziału przychodów muzeum negocjuje umowę z dostawcą i otrzymuje tokeny, a nawet produkcję treści bez żadnych kosztów początkowych. Dostawca fakturuje muzeum co miesiąc tylko za tokeny lub karty, które rozprowadził, a tym samym amortyzuje wcześniej świadczone usługi produkcji treści. Nubart oferuje ten model pod pewnymi warunkami.           </li>
-                    </ul>
-                    <p> Mamy nadzieję, że uznali Państwo ten artykuł za przydatny. Wkrótce pojawi się drugi artykuł na temat użyteczności (UX) i elementów dostępności, które powinien posiadać audioprzewodnik PWA dla muzeum oraz jak je zidentyfikować. Prosimy zapisać się <a href="https://share.hsforms.com/1wMbMX3CMSdCDzitqTHmXiA1g33q" rel="nofollow">do naszego</a> newslettera, aby nie przegapić żadnego z naszych postów.</p>
+
+                    <h2 id="kind-of-company">Jaka firma powinna opracować Państwa audioprzewodnik QR?</h2>
+
+                    <p>Rynek dzieli się z grubsza na trzy typy dostawców, a wybór ma większe konsekwencje, niż przypuszcza większość muzeów.</p>
+
+                    <p><b>Ogólne agencje programistyczne</b> są technicznie zdolne do stworzenia audioprzewodnika QR, ale rzadko rozumieją, co taki audioprzewodnik powinien robić. Nie dysponują systemem zarządzania treścią zaprojektowanym z myślą o audioprzewodnikach, co oznacza, że każda przyszła zmiana — dodanie ścieżki, poprawienie tłumaczenia, wycofanie eksponatu — staje się odrębnym zadaniem programistycznym. To, co na etapie umowy wygląda jak koszt jednorazowy, często zamienia się w stałą zależność operacyjną.</p>
+
+                    <p><b>Tradycyjne firmy produkujące audioprzewodniki</b> dobrze znają świat muzeów i mówią Państwa językiem. Ryzyko jest odwrotne: ich korzenie tkwią w sprzęcie, a tworzenie oprogramowania nie musi być ich kluczową kompetencją. Przed podjęciem decyzji proszę wprost zapytać, czy zlecą rozwój podmiotowi zewnętrznemu, i poprosić o działające linki do PWA, które stworzyli i które obecnie utrzymują. Proszę dokładnie je przeanalizować — nie tylko jak wyglądają, ale jak działają na różnych urządzeniach i w miejscach o słabym zasięgu.</p>
+
+                    <p><b>Firmy technologiczne specjalizujące się w audioprzewodnikach</b> często łączą znajomość świata muzeów z własnym zapleczem programistycznym — dla wielu instytucji to atrakcyjna równowaga między wiedzą branżową a kompetencjami technicznymi. Zastrzeżenie jest takie, że wiele z nich to stosunkowo młode firmy, część rozwinięta dzięki inwestycjom zewnętrznym, które nie przełożyły się jeszcze na stabilny biznes. Imponujące portfolio klientów nie jest wystarczającą gwarancją — pierwsi klienci to często bezpłatne projekty pilotażowe. W wielu krajach sprawozdania finansowe lub dane rejestrowe spółek są publicznie dostępne; ich sprawdzenie może pomóc Państwu ocenić, czy dostawca jest finansowo na tyle stabilny, by wspierać Państwa audioprzewodnik w dłuższej perspektywie. Jeśli dostawca zakończy działalność, utrzymanie lub aktualizacja audioprzewodnika może stać się trudne i kosztowne.</p>
+
+                    <h2 id="cms">Czy dostawca posiada CMS stworzony z myślą o audioprzewodnikach?</h2>
+
+                    <p>CMS — <i>Content Management System</i>, czyli system zarządzania treścią — to oprogramowanie służące do tworzenia i aktualizowania treści Państwa audioprzewodnika bez ingerencji w kod. Niezależnie od tego, czy kiedykolwiek będą się Państwo do niego logować, CMS używany przez dostawcę zadecyduje o tym, jak szybko wprowadzane są zmiany, ile kosztują i jak bardzo pozostaną Państwo zależni od zewnętrznych programistów przez cały okres życia audioprzewodnika.</p>
+
+                    <p>Warto znać trzy poziomy.</p>
+
+                    <p><b>Audioprzewodnik zbudowany całkowicie od podstaw, bez CMS</b>, daje na początku maksymalną elastyczność i potencjalnie jednorazową opłatę bez kosztów cyklicznych. W praktyce oznacza to, że każda przyszła zmiana wymaga programisty. Jeśli agencja, która go stworzyła, nie jest już dostępna — co nie jest rzadkością — nowa agencja będzie musiała praktycznie zaczynać od zera. Ten model sprawdza się przy bardzo stabilnych wystawach stałych, które nigdy nie będą wymagały aktualizacji. Do niemal wszystkiego innego jest słabo dopasowany.</p>
+
+                    <p><b>Uniwersalny CMS</b>, taki jak WordPress, lub bardziej złożone platformy zorientowane na programistów, jak Craft czy Glue, może hostować audioprzewodnik, ale szybko napotka ograniczenia. Interaktywne mapy, daty ważności dla wystaw czasowych, elementy rzeczywistości rozszerzonej — te systemy nie zostały do tego stworzone. Osiągną Państwo ich granice dokładnie w momencie, gdy najbardziej będą chcieli się rozwijać.</p>
+
+                    <p><b>CMS stworzony specjalnie dla audioprzewodników</b> to najbardziej praktyczny wybór dla większości muzeów. Nawigacja, odtwarzacz audio i struktura treści są zaprojektowane wokół tego, jak audioprzewodniki faktycznie działają. Aktualizacje są szybsze, tańsze i nie wymagają wyspecjalizowanego personelu technicznego. Najlepiej, jeśli CMS został opracowany wewnętrznie przez zespół dostawcy, co pozwala dodawać nowe funkcje z czasem, zamiast uciekać się do prowizorycznych rozwiązań.</p>
+
+                    <h2 id="access-cms">Czy będą Państwo mieć bezpośredni dostęp do CMS — i czy rzeczywiście jest on potrzebny?</h2>
+
+                    <p>To pytanie, którego muzea często nie myślą zadać, a odpowiedź zależy od Państwa zespołu i kalendarza wystaw.</p>
+
+                    <p>Niektórzy dostawcy <b>korzystają z CMS wewnętrznie</b> i zajmują się wszystkimi aktualizacjami w Państwa imieniu. Płacą Państwo za ich czas i wiedzę, a nie za licencję. Zaletą jest to, że nie muszą Państwo uczyć się systemu, a wdrożenie zwykle wymaga mniejszego zaangażowania z Państwa strony. Ryzykiem jest zależność: proszę jasno ustalić, ile kosztują zlecenia zmian, jak szybko są realizowane i czy umowa zawiera minimalny okres związania umową, która wiąże Państwa nawet wtedy, gdy jakość usługi się pogarsza.</p>
+
+                    <p>Inni dostawcy <b>dają Państwu bezpośredni dostęp do CMS</b>, aby mogli Państwo samodzielnie wprowadzać zmiany. Brzmi to atrakcyjnie, dopóki nie weźmie się pod uwagę krzywej uczenia się — zwłaszcza w przypadku systemu obsługującego mapy, rzeczywistość rozszerzoną i treści wielojęzyczne. Jeśli Państwa audioprzewodnik zmienia się rzadko, ta wiedza zaciera się między kolejnymi użyciami. Przy rotacji personelu nowa osoba zaczyna od zera. Realistyczne przygotowanie pierwszego audioprzewodnika zajmuje zwykle tydzień lub dwa skupionej pracy, nawet przy dobrze zaprojektowanym CMS.</p>
+
+                    <p>Niektórzy dostawcy oferują obie możliwości: dostęp do CMS dla muzeów, które tego chcą, oraz zarządzane aktualizacje jako usługę opcjonalną. Taka elastyczność może być ważnym kryterium przy wyborze rozwiązania.</p>
+
+                    <p>Niezależnie od ustaleń, proszę poprosić o bezpłatny okres próbny trwający co najmniej tydzień przed podpisaniem umowy i samodzielnie przetestować CMS, zamiast oglądać prezentację. Proszę poprosić o kopię umowy przed podjęciem jakiejkolwiek decyzji i zwrócić szczególną uwagę na klauzule dotyczące wypowiedzenia.</p>
+
+                    <h2 id="third-party-cookies">Czy audioprzewodnik korzysta ze śledzenia przez podmioty trzecie?</h2>
+
+                    <p>Ma to większe znaczenie, niż przypuszcza większość muzeów, i jest jednym z najczęściej pomijanych pytań przy zakupie.</p>
+
+                    <p>Sprawa nie dotyczy wyłącznie plików cookie w sensie technicznym — krajobraz plików cookie w przeglądarkach znacznie się zmienił w ostatnich latach. Prawdziwy problem polega na tym, czy Państwa audioprzewodnik osadza zewnętrzne skrypty, które wysyłają dane odwiedzających na serwery podmiotów trzecich, zwykle dużych firm technologicznych. Google Analytics to najczęstszy przykład: nawet w obecnej formie standardowe wdrożenie GA4 wiąże się z przesyłaniem danych odwiedzających do infrastruktury Google, co europejskie organy ochrony danych — w tym austriacki DSB i francuski CNIL — wielokrotnie kwestionowały jako niezgodne z RODO. Inne częste zależności zewnętrzne to Google Maps dla funkcji geolokalizacji oraz Hotjar do śledzenia interakcji.</p>
+
+                    <p>Zwłaszcza dla muzeów publicznych osadzanie technologii kierujących dane odwiedzających poza jurysdykcję UE rodzi ryzyko zarówno prawne, jak i wizerunkowe. Praktyczna konsekwencja dotyka też bezpośrednio doświadczenia odwiedzającego: każde zewnętrzne przetwarzanie danych wymagające zgody na mocy RODO oznacza baner zgody wewnątrz audioprzewodnika. Odwiedzający, który odmówi, po prostu znika z Państwa statystyk — a prośba o zgodę w momencie, gdy ktoś próbuje odsłuchać ścieżkę audio, nie jest mile widzianą przeszkodą.</p>
+
+                    <p>Najprostszy sposób weryfikacji to poproszenie potencjalnego dostawcy o działający link do jednego z istniejących audioprzewodników i poddanie go audytowi plików cookie i skryptów. Można to zrobić w przeglądarce Chrome, otwierając narzędzia programistyczne, przeładowując stronę i sprawdzając w zakładce Sieć zapytania zewnętrzne — albo skorzystać z jednej z wyspecjalizowanych platform audytowych dostępnych online. Proszę poprosić dostawcę o wyjaśnienie podstawy prawnej każdego zewnętrznego przetwarzania danych oraz tego, jak obsługiwane są wymogi dotyczące zgody.</p>
+
+                    <p>Nubart GUIDE nie osadza zewnętrznych skryptów śledzących. Wszystkie dane odwiedzających są przetwarzane na infrastrukturze AWS zlokalizowanej w UE, co spełnia wymogi dotyczące miejsca przechowywania danych wynikające z RODO i ma znaczenie dla muzeów, które muszą wykazać suwerenność danych wobec swoich organów nadzorujących.</p>
+
+                    <h2 id="stats">Jakie dane o odwiedzających dostarczy Państwu audioprzewodnik?</h2>
+
+                    <p>Audioprzewodnik oparty na kodzie QR to jedno z niewielu narzędzi, które daje muzeom prawdziwą wiedzę o odwiedzających — anonimowo, legalnie i bez inwazyjnego śledzenia. Z jakich krajów pochodzą Państwa odwiedzający? Jakich języków używają? Które eksponaty przykuły ich uwagę, a które zostały pominięte? W których częściach muzeum spędzili czas? Tego rodzaju dane są niezwykle trudne do uzyskania w inny sposób, a wiele muzeów zamawia audioprzewodnik, nie pomyślawszy nawet, by zapytać, czy je dostarczy.</p>
+
+                    <p>Nie wszyscy dostawcy traktują to priorytetowo. Uniwersalne platformy analityczne mogą dostarczać przydatnych danych, ale ich raporty są często mniej dopasowane do kontekstu muzealnego niż systemy dedykowane audioprzewodnikom — a jak wspomniano w poprzedniej sekcji, standardowe wdrożenia mogą wprowadzać wymogi zgody, które znacząco ograniczają zakres zbieranych danych. Odwiedzający, który odmówi zgody na śledzenie, to odwiedzający, o którym nie wiedzą Państwo nic.</p>
+
+                    <p>Lepszym rozwiązaniem jest dedykowany dashboard analityczny stworzony specjalnie dla danych z audioprzewodników. Nubart GUIDE udostępnia platformę statystyczną, która zapewnia muzeom chroniony hasłem dostęp do szczegółowych informacji o odwiedzających — język, kraj pochodzenia, sposób odsłuchiwania poszczególnych eksponatów oraz trasy zwiedzania — bez polegania na zewnętrznych usługach śledzących. Muzea, które poważnie traktują rozwój publiczności, powinny pytać o to wprost na etapie zakupu, a nie odkrywać po podpisaniu umowy.</p>
+
+                    <h2 id="monetize">Jak pobierać od odwiedzających opłatę za audioprzewodnik — i czy w ogóle warto?</h2>
+
+                    <p>Wiele muzeów zamierza udostępniać audioprzewodnik bezpłatnie i jest to uzasadniony wybór. Jednak koszt produkcji wielojęzycznych treści audio jest znaczny, a argumenty za pobieraniem opłaty — albo przynajmniej za wyborem modelu dystrybucji, który ją umożliwia — są mocniejsze, niż mogłoby się wydawać.</p>
+
+                    <p>Liczby są wymowne. Natywne aplikacje muzealne docierają średnio do zaledwie 2,47% odwiedzających, według analizy Nubart obejmującej 175 aplikacji muzealnych w Europie i Stanach Zjednoczonych. Urządzenia sprzętowe wypadają nieco lepiej — zwykle 5–10% przy wypożyczaniu — ale wiążą się ze znacznymi kosztami logistycznymi. Audioprzewodniki QR rozprowadzane na niezbywalnych kartach i wliczone w cenę biletu rysują zupełnie inny obraz: wdrożenia Nubart GUIDE osiągają średni wskaźnik wykorzystania na poziomie 48%, w przedziale od 23% do 70% w zależności od obiektu. Sprzedawane jako płatny dodatek, a nie wliczone w bilet, osiągają średnio około 5% — i tak więcej niż większość aplikacji, a do tego bez kosztów rozwoju. Dla instytucji finansowanych ze środków publicznych pobranie niewielkiej opłaty pozwala też uniknąć przerzucenia całego kosztu produkcji wielojęzycznej na podatnika.</p>
+
+                    <p>Istnieją dwie praktyczne metody monetyzacji audioprzewodnika QR.</p>
+
+                    <p>Pierwsza wykorzystuje <b>numeryczny kod odblokowujący</b>. Odwiedzający uzyskuje dostęp do audioprzewodnika przez kod QR lub link, a następnie wpisuje kod otrzymany w kasie lub podczas rezerwacji online. To podejście ma istotny problem z użytecznością: wymaga dwóch oddzielnych kroków, a odwiedzający mniej obeznani z interfejsami cyfrowymi będą mieli trudności. Nawet drobne tarcia przy wejściu mogą znacząco obniżyć wskaźnik wykorzystania, a czas personelu poświęcony na pomoc zdezorientowanym odwiedzającym szybko przewyższa pozorną prostotę operacyjną tego systemu. Kody te są zwykle ograniczone czasowo, aby zapobiec ponownemu użyciu, co jednak nie powstrzymuje kilku odwiedzających przed jednoczesnym korzystaniem z tego samego kodu.</p>
+
+                    <p>Druga metoda przydziela każdemu odwiedzającemu <b>unikalny, niezbywalny kod QR</b> — wydrukowany na karcie lub dostarczony cyfrowo przez API — który po zeskanowaniu otwiera audioprzewodnik bezpośrednio, bez etapów pośrednich. Nubart GUIDE stosuje to podejście, korzystając z opatentowanej metody, która sprawia, że każdy kod jest niezbywalny, a jednocześnie pozwala pierwotnemu użytkownikowi wracać do audioprzewodnika długo po wizycie. Wartość handlowa kodu zostaje zachowana bez utrudniania życia odwiedzającemu.</p>
+
+                    <h2 id="business-model">Który model biznesowy pasuje do budżetu Państwa muzeum?</h2>
+
+                    <p>Dostawcy oferują zwykle jeden z czterech wariantów, a właściwy zależy od liczby odwiedzających, stabilności Państwa wystawy i preferencji budżetowych. Bezpośrednie porównanie tego, jak te modele współgrają z różnymi formatami dystrybucji, znajdą Państwo w naszym <a href="porownanie-systemow.html" target="_blank">porównaniu cyfrowych rozwiązań audioprzewodnikowych</a>.</p>
+
+                    <p><b>Oprogramowanie jako usługa (SaaS)</b> wiąże się z opłatą miesięczną, zwykle od 50 € do 500 €, obejmującą hosting, wsparcie techniczne i dostęp do CMS. Łatwo to zaplanować w krótkim okresie, ale warto policzyć koszt w całym przewidywanym okresie życia audioprzewodnika. Opłata 200 € miesięcznie przez pięć lat to 12 000 € — więcej niż wiele opcji płatności jednorazowej. Jeśli Państwa muzeum ma niewielką liczbę odwiedzających lub stabilną wystawę stałą, opłata cykliczna może nie być najbardziej ekonomicznym wyborem. Proszę też pytać o klauzule lojalnościowe: niektóre umowy SaaS zawierają minimalne okresy zobowiązania, które łatwo przeoczyć w drobnym druku.</p>
+
+                    <p><b>Płatność jednorazowa</b>, zwykle od 3 000 € do 15 000 €, pokrywa opracowanie i dostarczenie audioprzewodnika. Opłata bywa wyższa, gdy audioprzewodnik jest budowany od podstaw bez CMS. Przed podpisaniem proszę jasno ustalić, co obejmuje w zakresie przyszłych aktualizacji — dostosowania do zgodności z przeglądarkami, dodawanie treści, ulepszenia funkcjonalne — a co będzie rozliczane osobno. Cyfrowy audioprzewodnik nigdy nie jest naprawdę ukończony; pewien koszt utrzymania jest nieunikniony.</p>
+
+                    <p><b>Płatność za tokeny</b> pasuje do muzeów, które chcą uniknąć stałych kosztów cyklicznych. Muzeum kupuje partię unikalnych, niezbywalnych kodów — wydrukowanych na kartach lub dostarczonych cyfrowo — i rozprowadza je wśród odwiedzających aż do wyczerpania. Kody nie tracą ważności, więc niewykorzystany zapas przechodzi na później. Ten model naturalnie wpisuje się w cykle budżetowe muzeów: wydatki rosną i maleją wraz z liczbą odwiedzających, a niewykorzystany budżet na koniec roku można przeznaczyć na zakup zapasu na kolejny sezon. Proszę zwrócić uwagę, że ten model obejmuje dostarczenie oprogramowania; koszt produkcji treści audio — nagrania, tłumaczenia, lektora — to osobna pozycja, niezależnie od wybranego modelu dystrybucji. Nubart GUIDE działa głównie w tym modelu.</p>
+
+                    <p><b>Podział przychodów</b> jest rzadkością w świecie cyfrowych audioprzewodników — wymaga dostawcy gotowego ponieść początkowe koszty produkcji w zamian za przyszłe przychody. Tam, gdzie istnieje, działa w oparciu o model tokenów: muzeum otrzymuje audioprzewodnik i produkcję treści bez kosztów początkowych, a dostawca fakturuje wyłącznie faktycznie rozprowadzone kody. Może to znacząco obniżyć barierę wejścia przy zamawianiu wielojęzycznego audioprzewodnika, zwłaszcza dla muzeów o ograniczonych budżetach inwestycyjnych. Nubart oferuje ten wariant pod pewnymi warunkami.</p>
+
+                    <p>Zamówienie audioprzewodnika QR nie jest dużym zakupem jak na standardy muzealne, ale decyzje podjęte na początku zwykle zostają z Państwem na długo. Audioprzewodnik zbudowany na niewłaściwym CMS, związany z dostawcą o niepewnej kondycji finansowej lub przekazujący dane odwiedzających podmiotom trzecim bez wyraźnej potrzeby, jest kosztowny do rozplątania — o wiele bardziej niż zadanie właściwych pytań przed podpisaniem umowy. Większość poruszonych tu kwestii nie wymaga wiedzy technicznej do oceny: wymaga wiedzy o tym, o co pytać. Jeśli zechcą Państwo omówić którąkolwiek z nich w kontekście swojej konkretnej sytuacji, łatwo się z nami skontaktować.</p>
+
+                    <p>Mamy nadzieję, że ten artykuł okazał się przydatny. <a href="https://share.hsforms.com/1wMbMX3CMSdCDzitqTHmXiA1g33q" rel="nofollow">Proszę zapisać się do naszego newslettera</a>, aby nie przegapić żadnego z naszych artykułów.</p>
                 </div>
             </div>
         </div>
@@ -666,55 +533,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                
-                
+
+
                 <div class="col-lg-6 col-md-12">
                     <div class="footer-info">
                         <p class="fs-3">Nubart</p>
                         <p>
                             Barcelona - Berlin<br>
-                            
-                            
+
+
                             <strong>E-mail:</strong> info@nubart.eu<br>
                         </p>
                         <div class="social-links mt-3">
                             <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a> <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a> <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a> <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
-                        
-                        
+
+
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="col-lg-4 col-md-6 footer-links">
                     <p class="fs-4">Przydatne linki</p>
                     <ul>
-                        
-                        
+
+
                         <li><i class="bi bi-chevron-right"></i> <a href="../kontakt.html">Kontakt</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="../nota-prawna.html" rel="nofollow">Nota prawna</a>     </li>
-                        
-                        
+
+
                         <li><i class="bi bi-chevron-right"></i> <a href="../polityka-prywatnosci.html" rel="nofollow">Strona internetowa z polityką prywatności</a>           </li>
                         <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencje dotyczące plików cookie</a>     </li>
-                    
-                    
-                    
-                    
+
+
+
+
                     </ul>
                 </div>
-            
-            
+
+
             </div>
         </div>
     </div>
-    
-    
+
+
     <div class="container">
         <div class="copyright">
             &copy; Copyright <strong><span>Nubart 2026</span></strong>. Wszelkie prawa zastrzeżone        </div>
-    
-    
+
+
     </div>
 </footer><!-- End Footer -->
 

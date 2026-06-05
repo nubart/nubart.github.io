@@ -11,9 +11,9 @@
             "@context": "https://schema.org",
             "@type": "TechArticle",
             "@id": "https://www.nubart.eu/fr/blog/installation-pwa-audioguide-musee.html#article",
-            "headline": "Audioguide de musée par QR code : les points à vérifier avant de choisir un prestataire PWA",
-            "alternativeHeadline": "Facteurs importants pour les musées lors de la mise en œuvre d'audioguides comme Progressive Web Apps",
-            "description": "Vous envisagez un audioguide PWA pour votre musée ? Découvrez les critères essentiels pour choisir votre fournisseur : CMS, données visiteurs, cookies, modèles de monétisation et pièges à éviter.",
+            "headline": "Audioguides QR pour musées : ce qu'il faut vérifier avant de signer un contrat",
+            "alternativeHeadline": "Ce que les musées négligent souvent en commandant un audioguide QR",
+            "description": "Les décisions moins évidentes qui attendent les musées au moment de commander un audioguide QR : type de prestataire, CMS, traceurs tiers, données visiteurs et modèles économiques — et là où les choses dérapent souvent.",
             "proficiencyLevel": "Intermediate",
             "inLanguage": "fr",
             "image": [
@@ -31,10 +31,15 @@
             },
             "publisher": {
                 "@type": "Organization",
-                "@id": "https://www.nubart.eu/#organization"
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
             },
             "datePublished": "2024-05-29",
-            "dateModified": "2026-05-31",
+            "dateModified": "2026-06-05",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/fr/blog/installation-pwa-audioguide-musee.html"
@@ -47,17 +52,11 @@
             },
 
             "keywords": [
-                "Audioguides musée",
-                "Audioguides basés sur code QR",
-                "Progressive Web App",
-                "PWA pour musées",
-                "solutions de guidage numérique",
-                "audioguides basés sur le web",
-                "guides mobiles de musée",
-                "PWA vs site web",
-                "CMS audioguide",
-                "monétisation musée",
-                "cookies tiers"
+                "audioguide QR",
+                "audioguide de musée",
+                "audioguide numérique musée",
+                "guide de musée par QR code",
+                "audioguide PWA"
             ],
             "about": [
                 {
@@ -77,14 +76,13 @@
                 }
             ],
             "articleSection": [
-                "Définition de PWA",
-                "PWA vs site web",
-                "Audioguides de sites web statiques",
-                "Avantages des audioguides PWA",
-                "Aspects de mise en œuvre",
-                "Considérations CMS",
-                "Monétisation",
-                "Modèles d'affaires"
+                "Choix du type de prestataire",
+                "CMS pour audioguides",
+                "Modèles d'accès au CMS",
+                "Traceurs tiers et RGPD",
+                "Analyse des visiteurs",
+                "Modèles de monétisation",
+                "Modèles économiques"
             ]
         }
     </script>
@@ -98,50 +96,50 @@
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "Qu'est-ce qu'une PWA ou application web progressive ?",
+                    "name": "Que doit vérifier un musée avant de signer un contrat pour un audioguide par QR code ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Une PWA ou application web est une application interactive à laquelle on accède simplement en scannant un code QR, au lieu de télécharger une application depuis Google Play ou l'App Store. La PWA ou application web s'ouvre directement dans le navigateur standard du smartphone et ne nécessite aucune installation."
+                        "text": "Avant de signer, les musées devraient vérifier le type de prestataire (spécialiste ou agence généraliste), si le CMS est conçu spécifiquement pour les audioguides, qui assure la maintenance et les mises à jour, si des scripts de suivi externes susceptibles de créer un risque RGPD sont utilisés, quelles données sur les visiteurs sont fournies, et quel modèle économique correspond au budget du musée. Nubart GUIDE couvre tous ces aspects : CMS développé en interne, traitement des données dans l'UE et tableau de bord d'analyse des visiteurs conçu sur mesure."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Comment une PWA diffère-t-elle d'un simple site web ?",
+                    "name": "Quel type d'entreprise devrait développer un audioguide QR pour un musée ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Un site web est statique et utilisé pour publier du contenu multimédia avec des fonctionnalités limitées. Une application web est un logiciel qui permet d'effectuer différentes tâches et de communiquer avec un serveur en arrière-plan."
+                        "text": "Il existe trois grandes options : les agences logicielles généralistes (techniquement compétentes mais sans expertise des audioguides ni CMS adapté), les entreprises traditionnelles d'audioguides matériels (qui connaissent le contexte muséal mais dont le développement logiciel n'est pas toujours solide) et les entreprises technologiques spécialisées dans les audioguides (souvent le meilleur équilibre, à condition de vérifier leur solidité financière). Nubart GUIDE est développé par une entreprise de cette troisième catégorie, avec une équipe de développement interne et un CMS spécifique aux audioguides."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Peut-on créer un audioguide avec un simple site web statique ?",
+                    "name": "Un audioguide QR de musée doit-il être conforme au RGPD ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Théoriquement oui, mais il a une interactivité très limitée, des complications avec le contenu multilingue, ne peut pas précharger le contenu pour le mode hors ligne et offre des données d'utilisation limitées. Une PWA est beaucoup mieux adaptée aux audioguides."
+                        "text": "Oui, en particulier pour les musées qui accueillent des visiteurs européens. Le principal risque tient à l'intégration de scripts de suivi externes — comme Google Analytics dans sa configuration standard — qui transfèrent des données de visiteurs vers des serveurs situés hors de l'UE, ce que des autorités européennes de protection des données, dont la DSB autrichienne et la CNIL française, ont contesté. Les musées devraient demander à leurs prestataires d'auditer leurs audioguides à la recherche de scripts tiers et de confirmer la base légale de tout traitement de données externe. Nubart GUIDE n'utilise aucun script de suivi externe et traite toutes les données sur une infrastructure AWS située dans l'UE."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Quels sont les avantages d'une PWA comme audioguide ?",
+                    "name": "Combien de visiteurs de musée utilisent réellement un audioguide par QR code ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Les PWA ont pratiquement tous les avantages des sites web statiques et des applications, sans leurs inconvénients. Elles permettent des fonctionnalités comme les jeux, la télécommande, les images synchronisées, les formulaires de feedback, le contrôle d'accès, la géolocalisation et les cartes interactives."
+                        "text": "Le taux d'utilisation varie fortement selon le mode de distribution. Les applications natives de musée n'atteignent en moyenne que 2,47 % des visiteurs (d'après l'analyse par Nubart de 175 applications de musées). Les cartes QR non transférables incluses dans le billet d'entrée atteignent un taux d'utilisation moyen de 48 % dans les déploiements de Nubart GUIDE, avec une fourchette de 23 % à 70 % selon les sites. Vendues en complément payant, la moyenne tourne autour de 5 % — soit encore plus que la plupart des applications natives."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Comment les musées peuvent-ils monétiser un audioguide PWA ?",
+                    "name": "Quels modèles économiques existe-t-il pour les audioguides QR de musée ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Les musées peuvent monétiser les audioguides PWA grâce à des codes de déverrouillage numériques (achetés lors de l'achat du billet) ou un accès direct via des codes QR uniques. La méthode QR est plus simple pour les utilisateurs et peut utiliser des codes non transférables."
+                        "text": "Les quatre principaux modèles sont : le logiciel en tant que service (SaaS) avec un abonnement mensuel généralement compris entre 50 et 500 euros ; le paiement unique, généralement compris entre 3 000 et 15 000 euros ; le paiement par jetons, où le musée achète des lots de codes QR non transférables sans date d'expiration ; et le partage de revenus, où le prestataire absorbe les coûts initiaux et ne facture que les codes distribués. Nubart GUIDE fonctionne principalement selon le modèle des jetons et propose le partage de revenus sous certaines conditions."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Quels modèles d'affaires offrent les audioguides PWA pour les musées ?",
+                    "name": "Quelles données sur les visiteurs un audioguide par QR code peut-il fournir à un musée ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Les modèles courants sont Software as a Service (SaaS) avec des frais mensuels de 50-500€, des paiements uniques de 3.000-15.000€, le paiement par jeton où les musées achètent des cartes selon leurs besoins, et des accords de partage de revenus."
+                        "text": "Un audioguide QR bien conçu peut fournir le pays d'origine, la langue, le comportement d'écoute par œuvre, le temps de présence et les parcours de visite — sans inscription des visiteurs et dans le respect du RGPD. Cela nécessite un système d'analyse conçu sur mesure plutôt que des outils généralistes comme Google Analytics, qui introduisent des exigences de consentement réduisant la couverture des données. Nubart GUIDE inclut de série un tableau de bord d'analyse des visiteurs dédié pour tous ses clients."
                     }
                 }
             ]
@@ -169,13 +167,13 @@
                 {
                     "@type": "ListItem",
                     "position": 3,
-                    "name": "Audioguide de musée par QR code : les points à vérifier avant de choisir un prestataire PWA",
+                    "name": "Audioguides QR pour musées : ce qu'il faut vérifier avant de signer un contrat",
                     "item": "https://www.nubart.eu/fr/blog/installation-pwa-audioguide-musee.html"
                 }
             ]
         }
     </script>
-    
+
     <!-- End Structured data -->
 
     <!-- End Structured data -->
@@ -203,13 +201,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="module" src="/js/cookieconsent-config.js"></script>
 
 
-    <title>Audioguide de musée par QR code : les points à vérifier avant de choisir un prestataire PWA</title>
-    <meta name="description" content="Vous envisagez un audioguide PWA pour votre musée ? Découvrez les critères essentiels pour choisir votre fournisseur : CMS, données visiteurs, cookies, modèles de monétisation et pièges à éviter." />
+    <title>Audioguides QR pour musées : ce qu'il faut vérifier avant de signer un contrat</title>
+    <meta name="description" content="Les décisions moins évidentes qui attendent les musées au moment de commander un audioguide QR : type de prestataire, CMS, traceurs tiers, données visiteurs et modèles économiques — et là où les choses dérapent souvent." />
     <meta name="author" content="Nubart" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Audioguide de musée par QR code : les points à vérifier avant de choisir un prestataire PWA" />
-    <meta name="twitter:description" content="Vous envisagez un audioguide PWA pour votre musée ? Découvrez les critères essentiels pour choisir votre fournisseur : CMS, données visiteurs, cookies, modèles de monétisation et pièges à éviter." />
+    <meta name="twitter:title" content="Audioguides QR pour musées : ce qu'il faut vérifier avant de signer un contrat" />
+    <meta name="twitter:description" content="Les décisions moins évidentes qui attendent les musées au moment de commander un audioguide QR : type de prestataire, CMS, traceurs tiers, données visiteurs et modèles économiques — et là où les choses dérapent souvent." />
     <meta name="twitter:site" content="@nubartEN" />
     <meta name="twitter:creator" content="@nubartEN" />
     <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp" />
@@ -232,10 +230,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- OpenGraph for LinkedIn -->
 
-    <meta property="og:title" content="Audioguide de musée par QR code : les points à vérifier avant de choisir un prestataire PWA"/>
+    <meta property="og:title" content="Audioguides QR pour musées : ce qu'il faut vérifier avant de signer un contrat"/>
     <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-pwa-museum.webp"/>
     <meta property="og:author" content="Nubart International"/>
-    <meta property="og:description" content="Vous envisagez un audioguide PWA pour votre musée ? Découvrez les critères essentiels pour choisir votre fournisseur : CMS, données visiteurs, cookies, modèles de monétisation et pièges à éviter.">
+    <meta property="og:description" content="Les décisions moins évidentes qui attendent les musées au moment de commander un audioguide QR : type de prestataire, CMS, traceurs tiers, données visiteurs et modèles économiques — et là où les choses dérapent souvent.">
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="https://www.nubart.eu/fr/blog/installation-pwa-audioguide-musee.html">
 
@@ -451,7 +449,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ol>
             <li><a href="../">Accueil</a></li>
             <li><a href="../blog">Le blog de Nubart</a></li>
-            <li>Guide de mise en œuvre des guides audio PWA</li>
+            <li>Audioguides QR pour musées</li>
         </ol>
 
     </div>
@@ -475,244 +473,102 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
 
                 <div class="col-md-7 nubart-blog">
-                    <h1>Comment créer un audioguide pour musée : guide complet sur les PWA et les codes QR</h1>
+                    <h1>Audioguides QR pour musées : ce qu'il faut vérifier avant de signer un contrat</h1>
 
-                    <p class="lead">Les audioguides sous forme d'applications web ou PWA, auxquels on accède généralement par un code QR, sont devenus très populaires ces dernières années et sont en train de supplanter les applications traditionnelles. Cependant, il y a de nombreux éléments à prendre en compte si vous envisagez de mettre en place ce type d'audioguide dans votre musée pour la première fois. Cet article est le premier d'une série dans laquelle nous vous aiderons à prendre la meilleure décision.</p>
+                    <p class="lead">Vu de l'extérieur, un audioguide par QR code paraît simple : le visiteur scanne, le contenu se lance. Mais en commander un suppose toute une série de décisions qui prennent de nombreux musées au dépourvu — non pas parce qu'elles sont techniquement complexes, mais parce que les bonnes questions ne deviennent évidentes qu'une fois qu'un incident s'est produit. Nubart GUIDE a été conçu précisément autour de ces points sensibles, et nous observons depuis des années les mêmes erreurs évitables se répéter dans des institutions de toutes tailles. Cet article les expose clairement, pour que vous puissiez poser les bonnes questions avant de signer quoi que ce soit.</p>
+
                     <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
                     <figure class="figure">
-                        <img src="../../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="QR pour accéder à un audioguide PWA dans un musée - Nubart" />
-                        <figcaption class="figure-caption text-center">Les audioguides PWA sont normalement accessibles via un code QR affiché visiblement dans le musée.       </figcaption>
+                        <img src="../../assets/img/blog/cover-pwa-museum.webp" class="figure-img img-fluid rounded" alt="Audioguide par QR code dans un musée – Nubart GUIDE" />
+                        <figcaption class="figure-caption text-center">La plupart des audioguides par QR code sont aujourd'hui développés sous forme de Progressive Web Apps et s'ouvrent directement dans le navigateur du smartphone du visiteur.</figcaption>
                     </figure>
-                    <h2>Les raisons de la popularité croissante des audioguides en tant qu'assistant personnel dans les musées.</h2>
 
-                    <p>Les codes QR sont le principal moyen d'accéder aux applications web interactives ou aux PWA utilisés comme audioguides dans les musées. <b>Avant la pandémie de Covid, seuls 31,45 % des visiteurs de musées savaient comment scanner un code QR</b>. Cependant, leur utilisation prolifique dans les bars et les restaurants pendant la pandémie a accru la familiarité avec les codes QR jusqu'à atteindre 98 % de la population (chez <a href="../" target="_blank">Nubart</a>, nous utilisons les QR pour nos audioguides depuis 2016, nous connaissons donc cette curieuse statistique de première main). Il est évident que cette évolution a accéléré la mise en œuvre des PWA.</p>
+                    <p>La plupart des audioguides par QR code sont aujourd'hui développés sous forme de Progressive Web Apps (PWA) — des applications qui s'ouvrent directement dans le navigateur du smartphone du visiteur, sans aucun téléchargement. Le détail technique importe moins que ce qu'il rend possible : une expérience multimédia complète, une mise en cache hors ligne une fois les contenus chargés dans de bonnes conditions de connexion, des données sur les visiteurs et des contenus modifiables à tout moment. Ce qui varie énormément d'un prestataire à l'autre, c'est la qualité réelle de la mise en œuvre — et la facilité, ou la difficulté, avec laquelle vous vivrez avec le système choisi dans deux ans.</p>
 
-                    <p>D'autre part, les applications d'audioguides conventionnelles (techniquement appelées "applications natives"), c'est-à-dire celles que les visiteurs téléchargent depuis Google Play ou l'App Store, ont perdu en popularité. Ceci s'explique principalement par deux raisons : leur coût de maintenance élevé, dû aux mises à jour continuelles imposées par Android et iOS, et leur taux de téléchargement très bas (en moyenne 3,4 % de tous les visiteurs, selon les données internes de Nubart).</p>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
 
-                    <p>De plus, ces dernières années, les capacités des navigateurs se sont considérablement améliorées. Désormais, vous pouvez réaliser dans n'importe quel navigateur des actions qui étaient impensables il y a dix ans, à l'époque de l'âge d'or des applications.
-                    </p>
+                    <h2 id="kind-of-company">Quel type d'entreprise devrait développer votre audioguide QR ?</h2>
 
-                    <p>C'est pourquoi de plus en plus de musées envisagent de remplacer leurs appareils d'audioguidage traditionnels ou leurs applications d'audioguidage natives par des PWA ou applications web interactives qui s'ouvrent directement dans le navigateur. Par conséquent, de plus en plus d'agences de logiciels ou de fournisseurs d'audioguides traditionnels proposent des PWA aux musées.</p>
+                    <p>Le marché se divise globalement en trois types de prestataires, et ce choix a davantage de conséquences que la plupart des musées ne l'imaginent.</p>
 
-                    <p>Si vous travaillez pour un musée envisageant de passer aux visites audio via PWA, cet article vous fournira toutes les informations nécessaires. Nous nous efforcerons de les expliquer de manière accessible même aux lecteurs non familiers avec la technologie.
-                    </p>
+                    <p><b>Les agences de développement logiciel généralistes</b> sont techniquement capables de créer un audioguide QR, mais elles comprennent rarement ce qu'un tel outil doit faire. Elles ne disposent pas d'un système de gestion de contenu conçu pour les audioguides, ce qui signifie que chaque évolution future — ajouter une piste, corriger une traduction, retirer une œuvre — se transforme en développement sur mesure. Ce qui ressemble à un coût unique au moment du contrat devient souvent une dépendance opérationnelle permanente.</p>
 
-                    <p>Commençons par définir le contexte. Il convient de noter que, techniquement parlant, les frontières entre une page web "classique", une application web interactive et une application web progressive (Progressive Web App ou PWA) sont quelque peu floues.
-                    </p>
-                    <p>(Si vous connaissez déjà ces différences, passez directement à <a href="#advice">nos conseils pour la mise en œuvre d'un audio guide PWA</a>).</p><br>
-                    <h2>Qu'est-ce qu'une PWA ou application web progressive ?</h2>
+                    <p><b>Les entreprises traditionnelles d'audioguides</b> connaissent bien le monde muséal et parlent votre langage. Le risque est inverse : leurs racines sont dans le matériel, et le développement logiciel n'est pas forcément l'une de leurs compétences clés. Avant de vous engager, demandez explicitement si elles sous-traiteront le développement à un tiers, et réclamez des liens fonctionnels vers des PWA qu'elles ont conçues et qu'elles maintiennent actuellement. Explorez ces exemples en profondeur — pas seulement leur apparence, mais leur comportement sur différents appareils et dans des zones à faible connectivité.</p>
 
-                    <p>Bien que la définition technologique soit plus compliquée, la définition simple est la suivante :</p>
+                    <p><b>Les entreprises technologiques spécialisées dans les audioguides</b> associent souvent l'expertise muséale à des capacités de développement internes — pour beaucoup d'institutions, un équilibre attractif entre connaissance du secteur et expertise technique. La réserve, c'est que beaucoup sont des entreprises relativement jeunes, parfois développées grâce à des investissements externes qui ne se sont pas encore traduits en activité pérenne. Un solide portefeuille de clients ne suffit pas à rassurer — les premiers clients sont souvent des projets pilotes proposés gratuitement. De nombreux pays donnent un accès public aux comptes annuels ou aux informations légales des sociétés ; consulter ces données peut vous aider à évaluer si un prestataire est financièrement assez solide pour accompagner votre audioguide sur le long terme. Si un prestataire cesse son activité, maintenir ou mettre à jour l'audioguide peut devenir difficile et coûteux.</p>
 
-                    <p>Une PWA ou application web est une application interactive accessible simplement en scannant un code QR, plutôt que de télécharger une application depuis Google Play ou l'App Store. La PWA ou l'application web s'ouvre directement dans le navigateur par défaut du smartphone et ne nécessite aucune installation.
-                    </p>
+                    <h2 id="cms">Le prestataire dispose-t-il d'un CMS conçu pour les audioguides ?</h2>
 
-                    <p>Les codes QR peuvent être scannés à l'aide d'une application externe ou de l'appareil photo d'un téléphone portable. Aujourd'hui, pratiquement tous les smartphones permettent d'utiliser leur appareil photo préinstallé pour scanner un code QR, ce qui a également contribué à leur utilisation généralisée.
-                    </p>
+                    <p>Un CMS — <i>Content Management System</i>, ou système de gestion de contenu — est le logiciel qui permet de créer et de mettre à jour les contenus de votre audioguide sans toucher au code. Que vous vous y connectiez vous-même ou non, le CMS utilisé par votre prestataire déterminera la rapidité avec laquelle les modifications sont faites, leur coût, et votre degré de dépendance vis-à-vis de développeurs externes pendant toute la vie de l'audioguide.</p>
 
-                    <h2>En quoi une PWA (progressive web application) diffère-t-elle d'une simple page web ?</h2>
+                    <p>Il existe trois niveaux qu'il vaut la peine de connaître.</p>
 
-                    <p>Beaucoup de gens pensent que tout ce qui s'ouvre dans un navigateur est une "page web" et ignorent que de nombreux services qu'ils utilisent régulièrement sont en fait des <i>applications web</i>. Par exemple, la plateforme de conception Canva ou tout logiciel de comptabilité ne sont pas des pages web, mais des applications web interactives complexes qui vous permettent de "faire des choses".</p>
+                    <p>Un <b>audioguide développé entièrement sur mesure, sans CMS</b>, offre une flexibilité maximale au départ et, éventuellement, un paiement unique sans frais récurrents. En pratique, cela signifie que chaque modification future nécessite un développeur. Si l'agence qui l'a conçu n'est plus disponible — ce qui n'est pas rare — une nouvelle agence devra repartir pratiquement de zéro. Ce modèle convient aux expositions permanentes très stables, qui n'auront jamais besoin d'être mises à jour. Il est mal adapté à presque tout le reste.</p>
 
-                    <p>Pour l'expliquer de manière simple :</p>
-                    <ul>
-                        <li>Un site web est statique et sert à la publication de contenu multimédia. Il n'a pas besoin de communiquer avec un serveur et ses fonctionnalités sont très limitées.</li>
+                    <p>Un <b>CMS généraliste</b> comme WordPress, ou des plateformes plus complexes orientées développeurs comme Craft ou Glue, peut héberger un audioguide mais atteindra vite ses limites. Cartes interactives, dates de validité pour des expositions temporaires, éléments de réalité augmentée — ces systèmes n'ont pas été conçus pour cela. Vous atteindrez le plafond au moment précis où vous voudrez le plus vous développer.</p>
 
-                        <li>Une application web est un logiciel qui permet d'exécuter diverses tâches et de communiquer avec un serveur dans ce que l'on appelle le "backend".</li>
-                    </ul>
-                    <br />
-                    <h2>Est-il possible de créer un audioguide à partir d'une simple page web statique ?</h2>
+                    <p>Un <b>CMS conçu spécifiquement pour les audioguides</b> est l'option la plus pratique pour la plupart des musées. La navigation, le lecteur audio et la structure des contenus sont pensés en fonction du fonctionnement réel d'un audioguide. Les mises à jour sont plus rapides, moins coûteuses et ne requièrent pas de personnel technique spécialisé. Idéalement, le CMS a été développé en interne par l'équipe de votre prestataire, ce qui permet d'ajouter de nouvelles fonctionnalités au fil du temps plutôt que de recourir à des solutions de contournement.</p>
 
-                    <p>En théorie, oui. Certains musées proposent les bandes sonores des audioguides directement sur leur site web.</p>
+                    <h2 id="access-cms">Aurez-vous un accès direct au CMS — et en avez-vous réellement besoin ?</h2>
 
-                    <p>Cependant, ce modèle ne donne pas de résultats satisfaisants :</p>
-                    <ul>
-                        <li>L'interactivité est très limitée.</li>
+                    <p>C'est une question que les musées pensent rarement à poser, et la réponse dépend de votre équipe et de votre calendrier d'expositions.</p>
 
-                        <li>La présentation du contenu en plusieurs langues, avec un menu correspondant, est compliquée à mettre en œuvre.</li>
+                    <p>Certains prestataires <b>utilisent le CMS en interne</b> et prennent en charge toutes les mises à jour pour vous. Vous payez leur temps et leur expertise plutôt qu'une licence. L'avantage : vous n'avez pas à apprendre le système, et la mise en place demande généralement moins d'implication de votre part. Le risque, c'est la dépendance : demandez clairement le coût des demandes de modification, leur délai de traitement, et si le contrat comporte une clause de permanence qui vous engage même si la qualité du service se dégrade.</p>
 
-                        <li>Il n'est pas possible de précharger le contenu en mode hors ligne pour l'écouter dans les zones du musée où la connectivité est faible, car un site web statique ne fonctionne qu'en ligne.</li>
+                    <p>D'autres prestataires <b>vous donnent un accès direct au CMS</b> pour que vous puissiez faire les modifications vous-même. Cela paraît séduisant jusqu'à ce que l'on songe à la courbe d'apprentissage — surtout pour un système capable de gérer cartes, réalité augmentée et contenus multilingues. Si votre audioguide change peu souvent, ces connaissances s'estompent entre deux usages. En cas de rotation du personnel, la nouvelle personne repart de zéro. La mise en place réaliste d'un premier audioguide demande généralement une à deux semaines de travail concentré, même avec un CMS bien conçu.</p>
 
-                        <li>Il est difficile d'obtenir des données d'utilisation fiables et significatives.</li>
-                    </ul>
-                    <br />
-                    <h2>Quels sont les avantages de l'utilisation d'une PWA ou d'une application web comme audioguide ?</h2>
+                    <p>Certains prestataires proposent les deux : un accès au CMS pour les musées qui le souhaitent, et des mises à jour gérées en option. Il est utile de privilégier ce type de flexibilité lors de votre choix.</p>
 
-                    <p>
-                        <b>En réalité, un audioguide PWA présente pratiquement tous les avantages des sites web statiques et des applications, sans aucun de leurs inconvénients</b>.               </p>
+                    <p>Quelle que soit la formule, demandez un essai gratuit d'au moins une semaine avant de signer, et testez le CMS vous-même plutôt que d'assister à une démonstration. Réclamez une copie du contrat avant toute décision, et prêtez une attention particulière aux clauses de sortie.</p>
 
-                    <p>Les PWA, lorsqu'elles sont mises en œuvre sous la forme d'une application à page unique (SPA), sont conçues pour être rapides et efficaces, avec une interface utilisateur rationalisée et des interactions plus fluides, même avec des contenus multimédias tels que des fichiers audio ou vidéo.
-                    </p>
-                    <p>Les PWA peuvent être conçues conformément aux normes WCAG beaucoup plus facilement que les applications natives, ce qui les rend compatibles avec les lecteurs d'écran, les sous-titres et les paramètres d'affichage adaptables. Cela revêt une importance croissante pour les institutions publiques qui doivent démontrer leur engagement en faveur de l'inclusion numérique. (Pour plus de détails, veuillez consulter notre article sur <a href="audioguides-numeriques-accessibles-musees.html" target="_blank">les audioguides numériques accessibles</a>.)</p>
-                    <p>Les PWA permettent d'implémenter des fonctionnalités interactives supplémentaires qui sont très pertinentes dans un audioguide :
-                    </p>
-                    <ul>
-                        <li>Jeux</li>
+                    <h2 id="third-party-cookies">L'audioguide utilise-t-il des traceurs tiers ?</h2>
 
-                        <li>Télécommande</li>
+                    <p>Ce point compte davantage que la plupart des musées ne le pensent, et c'est l'une des questions les plus souvent négligées lors de la passation de marché.</p>
 
-                        <li>Affichez une image à un moment précis de la lecture audio.</li>
+                    <p>L'enjeu ne se limite pas aux cookies au sens technique — le paysage des cookies dans les navigateurs a beaucoup évolué ces dernières années. La vraie question est de savoir si votre audioguide intègre des scripts externes qui envoient les données des visiteurs vers des serveurs tiers, généralement ceux de grandes entreprises technologiques. Google Analytics en est l'exemple le plus courant : même dans sa version actuelle, un déploiement standard de GA4 transfère des données de visiteurs vers l'infrastructure de Google, ce que des autorités européennes de protection des données — dont la DSB autrichienne et la CNIL française — ont reproché à plusieurs reprises au regard du RGPD. Parmi les autres dépendances externes fréquentes figurent Google Maps pour les fonctions de géolocalisation et Hotjar pour le suivi des interactions.</p>
 
-                        <li>Formulaire de retour d'information</li>
+                    <p>Pour les musées publics en particulier, intégrer des technologies qui acheminent les données des visiteurs hors de la juridiction de l'UE crée un risque à la fois juridique et réputationnel. La conséquence pratique touche aussi directement l'expérience du visiteur : tout traitement de données externe soumis au consentement au titre du RGPD implique une bannière de consentement à l'intérieur de l'audioguide. Un visiteur qui refuse disparaît purement et simplement de vos statistiques — et une demande de consentement au moment où quelqu'un cherche à écouter une piste audio n'est pas une interruption bienvenue.</p>
 
-                        <li>Contrôle d'accès</li>
+                    <p>Le moyen le plus simple de vérifier consiste à demander à votre prestataire potentiel un lien fonctionnel vers l'un de ses audioguides existants et à le soumettre à un audit des cookies et des scripts. Vous pouvez le faire dans Chrome en ouvrant les outils de développement, en rechargeant la page et en examinant l'onglet Réseau à la recherche de requêtes externes — ou utiliser l'une des plateformes d'audit spécialisées disponibles en ligne. Demandez à votre prestataire d'expliquer la base légale de tout traitement de données externe et la manière dont les exigences de consentement sont gérées.</p>
 
-                        <li>Géolocalisation</li>
+                    <p>Nubart GUIDE n'intègre aucun script de suivi externe. Toutes les données des visiteurs sont traitées sur une infrastructure AWS située dans l'UE, ce qui répond aux exigences de localisation des données prévues par le RGPD et s'avère pertinent pour les musées qui doivent démontrer leur souveraineté des données auprès de leurs autorités de tutelle.</p>
 
-                        <li>Étiquettes de la liste d'intérêt</li>
+                    <h2 id="stats">Quelles données sur les visiteurs l'audioguide vous fournira-t-il ?</h2>
 
-                        <li>Cartes interactives</li>
+                    <p>Un audioguide par QR code est l'un des rares outils qui offre aux musées une véritable connaissance de leurs visiteurs — de manière anonyme, légitime et sans suivi intrusif. De quels pays viennent vos visiteurs ? Quelles langues utilisent-ils ? Quelles œuvres ont retenu leur attention et lesquelles ont été ignorées ? Dans quelles zones du musée ont-ils passé du temps ? Ce type de données est extrêmement difficile à obtenir par d'autres moyens, et beaucoup de musées commandent un audioguide sans jamais penser à demander s'il les fournira.</p>
 
-                        <li>Fonctions de recherche complexes</li>
-                    </ul>
+                    <p>Tous les prestataires n'en font pas une priorité. Les plateformes d'analyse généralistes peuvent fournir des données utiles, mais leurs rapports sont souvent moins adaptés au contexte muséal que les systèmes dédiés aux audioguides — et, comme évoqué dans la section précédente, les implémentations standard peuvent introduire des exigences de consentement qui réduisent fortement la couverture des données. Un visiteur qui refuse le consentement au suivi est un visiteur dont vous ne savez rien.</p>
 
-                    <p>Elles permettent également de mettre à jour rapidement le contenu de l'audioguide sans avoir à modifier le code de l'application et sans avoir à soumettre quoi que ce soit à l'approbation des magasins d'applications de Google et d'Apple.</p>
+                    <p>La meilleure option est un tableau de bord d'analyse conçu spécifiquement pour les données d'audioguides. Nubart GUIDE intègre une <a href="comment-obtenir-donnees-sur-visiteurs-musee.html" target="_blank">plateforme d'analyse qui offre aux musées un accès protégé par mot de passe à des informations détaillées sur les visiteurs</a> — langue, pays d'origine, comportement d'écoute par œuvre et parcours de visite — sans dépendre de services de suivi externes. Pour les musées qui prennent au sérieux le développement des publics, cela mérite d'être demandé explicitement lors de la passation de marché, et non découvert après la signature du contrat.</p>
 
-                    <p><a href="https://developer.mozilla.org/fr/docs/Web/Progressive_web_apps" target="_blank">Une description technique détaillée des caractéristiques d'une PWA est disponible ici</a>.    </p>
-                    <br />
-                    <h2>Éléments à considérer lors de la mise en place d'un audioguide en tant qu'application web progressive (PWA) dans un musée.
-                    </h2>
+                    <h2 id="monetize">Comment faire payer l'audioguide aux visiteurs — et faut-il le faire ?</h2>
 
-                    <p> La qualité de l'audioguide contribue à l'image et à la réputation de votre musée. De plus, même si vous externalisez à la fois le développement technologique du PWA et la production du contenu, vous serez confronté à un processus laborieux de révision et d'itération que vous ne voudrez pas voir se dérouler en vain. Pensez donc à tous ces aspects avant de vous lancer :</p>
-                    <br />
-                    <h3 id="advice"><i class="bi bi-1-circle-fill"></i> Quel type d'entreprise va développer l'audioguide PWA ?</h3>
+                    <p>Beaucoup de musées comptent proposer leur audioguide gratuitement, et c'est un choix légitime. Mais le coût de production d'un contenu audio multilingue est important, et les arguments en faveur d'une tarification — ou du moins du choix d'un mode de distribution qui la rende possible — sont plus solides qu'il n'y paraît.</p>
 
-                    <ul>
-                        <li>
-                            <b>Les agences de développement de logiciels.</b> En théorie, n'importe quelle agence de logiciels généraliste peut concevoir votre application web ou votre PWA. Cependant, il est difficile pour une agence de logiciels de comprendre les besoins spécifiques d'un audioguide ou d'un musée. De plus, une agence de logiciels ne disposera probablement pas d'un système de gestion de contenu (CMS) adapté aux audioguides. Vous pourriez donc vous retrouver avec un audioguide numérique très coûteux et peu adaptable aux changements futurs.
+                    <p>Les chiffres sont éloquents. Les applications natives de musée n'atteignent en moyenne que 2,47 % des visiteurs, d'après l'analyse par Nubart de 175 applications de musées en Europe et aux États-Unis. Les dispositifs matériels s'en sortent un peu mieux — généralement 5 à 10 % en location — mais s'accompagnent de coûts logistiques importants. Les audioguides par QR code distribués sur des cartes non transférables et inclus dans le billet d'entrée dessinent un tout autre tableau : les déploiements de Nubart GUIDE affichent un taux d'utilisation moyen de 48 %, avec une fourchette de 23 % à 70 % selon les sites. Vendus en complément payant plutôt qu'inclus dans l'entrée, la moyenne retombe autour de 5 % — soit encore le double de ce qu'obtiennent la plupart des applications, et sans aucun coût de développement. Pour les institutions financées par des fonds publics, demander une contribution modeste évite aussi de faire peser l'intégralité du coût de production multilingue sur le contribuable.</p>
 
-                        </li>
+                    <p>Il existe deux méthodes pratiques pour monétiser un audioguide QR.</p>
 
-                        <li>
-                            <b> Les sociétés traditionnelles de guides audio. </b>Ces sociétés se consacrent exclusivement aux guides audio et aux services connexes. Elles comprennent votre langue et vos besoins. Toutefois, ces sociétés se concentrent sur les dispositifs d'audioguidage traditionnels depuis des décennies et le développement de logiciels n'est pas forcément l'un de leurs points forts. Assurez-vous qu'elles ne confieront pas la création de votre audioguide à des développeurs externes et qu'elles disposent d'un système de gestion de contenu spécialement conçu pour les audioguides. Demandez-leur de vous envoyer des liens vers des exemples de PWA qu'ils ont déjà créés et explorez-les en profondeur.           </li>
-
-                        <li>
-                            <b>Des entreprises technologiques spécialisées dans les audioguides.</b> Il s'agit certainement de votre meilleure option. Elles comprendront votre langue et disposeront de l'expertise et de l'équipement nécessaires pour mener à bien votre projet. Cependant, beaucoup de ces entreprises sont des start-ups qui ne sont sur le marché que depuis peu de temps, ou qui se sont développées grâce à des investissements extérieurs et ne sont pas encore viables. Ne vous laissez pas éblouir par leur seul portefeuille de clients, qui peuvent être des projets pilotes gratuits, et vérifiez bien leurs finances. Sinon, vous risquez d'être à court de fournisseurs et d'audioguides dans quelques années.        </li>
-                    </ul>
-                    <br />
-                    <h3><i class="bi bi-2-circle-fill"></i> L'audioguide sera-t-il développé à l'aide d'un CMS ?</h3>
-
-                    <p> Un CMS <i>(Content Management System</i>) est un logiciel de gestion de contenu qui vous permet de créer, de gérer et de modifier le contenu d'un site web ou d'une application web sans avoir besoin de compétences en programmation. Avant de passer un contrat avec votre fournisseur, demandez-lui quel CMS il prévoit d'utiliser et, même si vous n'avez pas de connaissances technologiques, essayez d'en connaître les limites.        </p>
-
-                    <p> Les options suivantes sont disponibles ici :</p>
-
-                    <ul>
-                        <li>
-                            <b> Audioguide programmé à partir de zéro (pas de CMS)</b>. <br>Cela présente l'avantage de pouvoir le configurer entièrement selon vos souhaits, de l'héberger où vous le souhaitez et éventuellement de ne le payer qu'une seule fois, sans frais récurrents. Mais il s'agit d'une procédure très coûteuse qui nécessitera une implication considérable de votre part au cours du développement.<br>Les véritables problèmes se poseront lorsque vous devrez apporter des modifications à l'avenir, surtout si l'agence de logiciels que vous avez choisie initialement n'est plus disponible. La nouvelle agence que vous engagerez devra pratiquement repartir de zéro.      </li>
-                        <br />
-                        <li>
-                            <b>Audioguide programmé avec un CMS non spécialisé dans les audioguides.</b><br>Théoriquement, il est possible de construire un audioguide avec un CMS initialement conçu pour les sites web, comme Wordpress.<br>D'autres agences de développement de logiciels utilisent des CMS plus complexes conçus spécifiquement pour les PWA, tels que Craft ou Glue. Cette approche vous permet d'apporter des modifications plus rapidement, bien que vous deviez toujours faire appel à une agence de développement pour les mettre en œuvre, étant donné qu'il s'agit de CMS conçus pour les développeurs.
-                            <br>Des problèmes peuvent survenir lorsque vous souhaitez implémenter des fonctionnalités d'audioguide que ces CMS ne prennent pas en charge, telles que les cartes interactives, l'assignation d'une date de validité à une exposition ou à une piste audio, ou encore l'intégration d'éléments de réalité augmentée. Vous atteindrez alors les limites de ce qu'un CMS généraliste peut offrir, n'ayant pas été initialement conçu pour répondre à toutes les problématiques spécifiques des audioguides PWA.
-                        </li>
-                        <br />
-                        <li>
-                            <b>Audioguides programmés avec un CMS spécifique pour les audioguides</b>. <br>Ce type de CMS a été conçu par des développeurs qui maîtrisent les spécificités des audioguides : les pistes audio sont diffusées dans un lecteur audio optimisé, la navigation est intuitive, etc.
-                            <br>L'entreprise vous offre la possibilité de faire les changements vous-même grâce à un accès dédié, ou utilise son propre système de gestion de contenu (CMS) en interne. Ainsi, vous bénéficierez d'une mise en œuvre rapide et efficace des mises à jour de votre audioguide à un coût très faible, voire nul, puisque les modifications sont simples à effectuer et ne requièrent pas de personnel technique hautement qualifié.
-                        </li>
-                    </ul>
-                    <br />
-                    <h3><i class="bi bi-3-circle-fill"></i> Accès à l'audioguide PWA CMS</h3>
-
-                    <ul>
-                        <li>
-                            <b>Le CMS est utilisé en interne par le personnel de la société d'audioguidage</b>. <br>Dans ce cas, le musée paie pour le service spécialisé fourni pendant le processus et pour le résultat final. Vous économisez la courbe d'apprentissage et tout le temps nécessaire à la mise en place de l'audioguide. Certaines sociétés demandent un paiement unique pour la mise en œuvre de ce modèle, ce qui peut correspondre davantage aux possibilités budgétaires d'un musée.<br>
-
-                            Veillez à demander si le paiement unique inclut la mise en œuvre de futures mises à niveau de l'audioguide et dans quelles conditions.           </li>
-                        <br />
-                        <li>
-                            <b> Le musée accède au CMS et construit lui-même l'audioguide complet.</b><br> L'avantage de ce système est que vous, en tant que client, avez un contrôle total et pouvez apporter des modifications à l'audioguide rapidement et de manière autonome.
-                            <br>L'inconvénient est que ces plateformes nécessitent une courbe d'apprentissage considérable, surtout si le CMS permet l'intégration d'éléments complexes (cartes, réalité augmentée, jeux, dates de validité...).<br>Si vous n'avez pas besoin d'apporter régulièrement des modifications à votre audioguide, tout cet apprentissage risque d'être oublié.<br>En cas de changement de personnel dans le musée, le nouveau responsable devra tout réapprendre. Et même si vous maîtrisez le CMS, la mise en place d'un audioguide numérique nécessite facilement une ou deux semaines de travail.<br>
-
-                            Assurez-vous d'engager un système de gestion de contenu facile à gérer. Demandez au moins une semaine d'essai gratuit à plusieurs fournisseurs avant de vous décider, et investissez suffisamment de temps pour les tester en profondeur.<br>
-
-                            Demandez s'il existe une clause de permanence et demandez une copie du contrat avant de prendre une décision.          </li>
-                        <br />
-                        <li>
-                            <b> Modèle hybride.</b><br>Certaines entreprises proposent les deux options : elles vous donnent accès au CMS, mais offrent également en option l'assemblage numérique de l'audioguide.             </li>
-                    </ul>
-                    <br />
-                    <h3><i class="bi bi-4-circle-fill"></i> L'audioguide PWA utilise-t-il des cookies de tiers ?</h3>
-
-                    <p>La protection de la vie privée des visiteurs est une question extrêmement importante, en particulier pour les musées publics. Les cookies tiers peuvent suivre les utilisateurs sur différents sites web et collecter des données sur leurs habitudes de navigation, leurs préférences et leurs informations personnelles. Les musées doivent respecter la vie privée de leurs visiteurs en évitant les technologies susceptibles d'entraîner un suivi intrusif et la collecte de données.</p>
-
-                    <p> Assurez-vous que l'audioguide PWA proposé par votre fournisseur n'utilise pas de cookies tiers. Parmi les cookies tiers les plus courants, citons Google Analytics (pour obtenir des données d'utilisation), Google Maps (pour géolocaliser des éléments d'un itinéraire) ou Hotjar (pour contrôler les mouvements du curseur dans l'audioguide), mais il en existe bien d'autres.</p>
-
-                    <p>Pour le vérifier facilement, demandez à votre fournisseur de vous fournir le lien vers l'une des PWA qu'il a créées et soumettez-la à un audit des cookies. Il y a plusieurs façons de le faire : depuis le navigateur Chrome lui-même, en cliquant sur "inspecter l'élément" avec le bouton droit de la souris et en vérifiant l'onglet "réseau" après avoir rechargé la page. Si vous préférez, il existe également sur le marché des plateformes spécialisées dans cette fonction.</p>
-
-                    <p>Si votre fournisseur potentiel utilise des cookies tiers, assurez-vous qu'il intègre au moins une notice sur les cookies dans l'audioguide afin que votre musée soit conforme à la législation européenne sur la protection des données.
-                    </p>
-                    <br />
-                    <h3><i class="bi bi-5-circle-fill"></i> L'audioguide PWA vous fournit-il de bonnes données statistiques ?</h3>
-
-                    <p><a href="../blog/comment-obtenir-donnees-sur-visiteurs-musee.html" target="_blank">Un audioguide PWA offre une occasion unique de mieux connaître vos visiteurs</a>. Lorsqu'il est ouvert dans le navigateur du visiteur, il peut suivre de manière anonyme, légitime et non invasive diverses données statistiques très intéressantes pour un musée, telles que le pays d'origine ou la langue principale du visiteur. Il est également possible de savoir quelles bandes sonores ont été écoutées et lesquelles ne l'ont pas été, ou encore quelles zones du musée les visiteurs ont traversées. Compte tenu de la difficulté pour les musées d'obtenir ce type de données pour l'évaluation des publics, il serait dommage de gâcher l'opportunité qu'offrent les applications web d'audioguides.</p>
-
-                    <p>Le suivi et l'analyse des données est un processus complexe qui nécessite des connaissances et des ressources technologiques considérables, c'est pourquoi tous les audioguides PWA que vous trouverez sur le marché ne le proposent pas. S'ils le font, voici les méthodes les plus courantes :</p>
-
-                    <ul>
-                        <li>
-                            <b>Utilisation de services tiers.</b><br>L'option la plus courante, car gratuite, consiste à utiliser Google Analytics, qui présente généralement les données via un système gratuit de visualisation des données tel que Looker Studio (également de Google). Cependant, cette méthode ne permet pas d'accéder à certaines données pertinentes, telles que le pays d'origine du visiteur. De plus, elle pose le problème de l'utilisation de cookies tiers.
-                        </li>
-
-                        <li>
-                            <b>Via une plateforme développée en interne.</b><br>Le client reçoit un accès protégé par mot de passe à un tableau de bord de données spécialement conçu pour les audioguides. Il s'agit clairement de la meilleure option. Ici aussi, il est important de savoir si des cookies de tiers sont utilisés.          </li>
-                    </ul>
-                    <br />
-                    <h3><i class="bi bi-6-circle-fill"></i> Comment monétiser un audioguide PWA ?</h3>
-
-                    <p> La plupart des musées qui optent pour un audioguide en tant qu'application web ont l'intention d'offrir un accès gratuit.<br>Cependant, le développement d'un contenu multilingue pour l'audioguide est très coûteux. Sachant que seuls 10 à 20 % des visiteurs utilisent les services gratuits d'audioguidage proposés dans un musée, demander une petite redevance pour l'utilisation de l'audioguide PWA permet de répartir plus équitablement ce coût et, si le musée est public, d'éviter qu'il ne soit entièrement supporté par le contribuable.             </p>
-
-                    <p> Voici les méthodes que nous connaissons pour monétiser la PWA des audioguides :</p>
-
-                    <ul>
-                        <li><b>Déverrouillez l'audioguide à l'aide d'un code numérique.</b><br>Le visiteur doit    <ul>
-                            <li>Accéder d'abord à l'audioguide, soit par un lien, soit par un code QR.</li>
-
-                            <li>Obtenir le code numérique de déverrouillage. Vous l'avez généralement reçu lors de l'achat de votre billet en ligne ou à la réception du musée. Ce code doit être introduit dans l'audioguide numérique préchargé.</li>
-                        </ul>
-
-                            Ce processus est relativement complexe, car il se compose de deux étapes distinctes. Les utilisateurs peu familiers avec l'informatique peuvent rencontrer des difficultés, et résoudre celles-ci peut submerger le personnel du musée et entraîner des files d'attente ainsi que le mécontentement des utilisateurs.
-                            <br>
-                            Pour éviter le piratage, ces codes sont généralement limités dans le temps. Cela n'empêche pas que le même code puisse être utilisé par plusieurs visiteurs en même temps.     </li>
-                        <br />
-                        <li><b>Accès direct à un code QR unique.</b><br>Qu'il soit en ligne ou imprimé sur une carte, le visiteur reçoit un code QR incessible qui, lorsqu'il est scanné, permet d'accéder directement à l'audioguide, sans aucune étape intermédiaire.<br>C'est <a href="../audioguides.html" target="_blank">la méthode utilisée par Nubart pour ses audioguides</a>, qui a breveté une méthode permettant de rendre le code incessible et de maintenir ainsi sa valeur commerciale. Bien que le code soit incessible, le propriétaire pourra toujours accéder à l'audioguide longtemps après la visite.       </li>
-
-                    </ul>
-                    <br />
-                    <h3><i class="bi bi-7-circle-fill"></i> Quels sont les modèles commerciaux que les audioguides PWA proposent aux musées ?</h3>
-
-                    <ul>
-                        <li>
-                            <b><a href="https://fr.wikipedia.org/wiki/Software_as_a_service" target="_blank">Logiciel en tant que service (SaaS)</a>:</b> le musée paie une redevance mensuelle comprise entre 50 et 500 euros. Cette redevance récurrente se justifie généralement pour une ou plusieurs des raisons suivantes : <ul>
-                            <li>Le trafic généré</li>
-                            <li>L'hébergement de l'audioguide</li>
-                            <li>Le service de support technique</li>
-                            <li>L'accès au CMS.</li>
-                        </ul>
-                            Nous vous recommandons de prendre en compte les coûts à long terme. Si vous utilisez un audioguide dans une exposition permanente et que vous payez 200 euros par mois, cela représentera un coût total de 12 000 euros sur 5 ans. Si votre musée ne reçoit pas beaucoup de visiteurs, il peut être plus avantageux d'opter pour un modèle de paiement unique ou un paiement par jetons. Assurez-vous également de vérifier les clauses de permanence éventuelles.
-
-
-                        </li>
-                    </ul>
-                    <ul>
-                        <li><b>Paiement unique :</b> le musée paie un montant unique à la réception de l'audioguide, qui peut aller de 3 000 à 15 000 euros.<br>
-
-                            Le tarif est généralement plus élevé si l'audioguide a été conçu à partir de zéro et sans CMS.<br>
-                            Veuillez noter qu'un audioguide numérique n'est jamais terminé à 100 %. Tôt ou tard, il sera nécessaire de mettre à jour certaines fonctions, d'ajouter ou de supprimer du contenu, de résoudre certaines incompatibilités avec les navigateurs, etc. Demandez à votre fournisseur s'il sera disponible pour de telles mises à jour et quel sera son tarif.      </li>
-                        <br />
-                        <li>
-                            <b>Paiement par tokens :</b> Le musée paie un montant unique pour la mise en place du guide audio et acquiert un certain nombre de codes uniques et non transférables, généralement imprimés sur une carte en carton que les visiteurs peuvent conserver, ou fournis numériquement via une API. Les codes n’expirent pas, ce qui permet au musée de les distribuer jusqu’à épuisement.
-
-                            <p>Cette méthode s’adapte bien au budget du musée, évitant les frais fixes récurrents, car la consommation des cartes augmente ou diminue naturellement selon le nombre de visiteurs et les recettes d’entrée. Si le musée dispose d’un reste de budget en fin d’année, il peut acheter un nouveau lot de codes pour guide audio et les conserver pour une utilisation future.</p>
-
-                            <p>Bien que Nubart propose tous les modèles décrits ci-dessus, il possède une expertise particulière dans cette approche basée sur les tokens.</p>
-                        </li>
-
-
-                        <br />
-                        <li>
-                            <b>Participation aux bénéfices :</b> Ce modèle économique est très courant pour les audioguides physiques, mais il est pratiquement inexistant pour les audioguides numériques, qu'il s'agisse d'applications natives ou d'applications web.<br>Cependant, le modèle des jetons permet la mise en œuvre d'un modèle de partage des bénéfices ou d'abonnement, car il s'agit de codes distinctifs dont l'utilisation peut être tracée sans ambiguïté. Dans ce type d'accord de partage des bénéfices, le musée négocie un contrat avec le fournisseur et reçoit les jetons, voire la production de contenu, gratuitement. Le fournisseur ne facture au musée, sur une base mensuelle, que les jetons ou les cartes qu'il a distribués et amortit ainsi les services de production de contenu fournis précédemment. Nubart propose ce modèle sous certaines conditions.           </li>
-                    </ul>
-                    <p> Nous espérons que cet article vous a été utile. Un deuxième article sur les éléments d'utilisabilité (UX) et d'accessibilité qu'un audioguide PWA pour un musée devrait avoir, et comment les identifier, suivra bientôt. </p>
+                    <p>La première repose sur un <b>code de déverrouillage numérique</b>. Le visiteur accède à l'audioguide via un QR code ou un lien, puis saisit un code reçu à la billetterie ou lors de la réservation en ligne. Cette approche pose un réel problème d'ergonomie : elle exige deux étapes distinctes, et les visiteurs les moins à l'aise avec les interfaces numériques peineront. La moindre friction à l'entrée peut réduire sensiblement le taux d'utilisation, et le temps que le personnel consacre à aider les visiteurs déroutés dépasse vite la simplicité opérationnelle apparente du système. Ces codes sont généralement limités dans le temps pour empêcher leur réutilisation, mais cela n'empêche pas plusieurs visiteurs d'utiliser le même code simultanément.</p>
+
+                    <p>La seconde méthode attribue à chaque visiteur un <b>QR code unique et non transférable</b> — imprimé sur une carte ou fourni numériquement via une API — qui ouvre directement l'audioguide au scan, sans étape intermédiaire. Nubart GUIDE retient cette approche, grâce à une méthode brevetée qui rend chaque code non transférable tout en permettant à l'utilisateur initial de revenir à l'audioguide longtemps après sa visite. La valeur commerciale du code est préservée sans gêner le visiteur.</p>
+
+                    <h2 id="business-model">Quel modèle économique correspond au budget de votre musée ?</h2>
+
+                    <p>Les prestataires proposent généralement l'une de ces quatre formules, et la bonne dépend de votre fréquentation, de la stabilité de votre exposition et de vos préférences budgétaires. Pour une comparaison détaillée de la manière dont ces modèles s'articulent avec les différents formats de distribution, consultez notre <a href="../pourquoi-nubart.html" target="_blank">comparatif des solutions d'audioguide numérique</a>.</p>
+
+                    <p>Le <b>logiciel en tant que service (SaaS)</b> facture un abonnement mensuel, généralement entre 50 € et 500 €, couvrant l'hébergement, le support technique et l'accès au CMS. Ce modèle est facile à budgéter à court terme, mais mérite d'être calculé sur toute la durée de vie prévue de l'audioguide. Un abonnement de 200 € par mois sur cinq ans représente 12 000 € — plus que bien des formules de paiement unique. Si votre musée a une fréquentation modeste ou une exposition permanente stable, un abonnement n'est pas forcément l'option la plus économique. Renseignez-vous aussi sur les clauses de permanence : certains contrats SaaS comportent des durées d'engagement minimales faciles à manquer dans les petites lignes.</p>
+
+                    <p>Le <b>paiement unique</b>, généralement entre 3 000 € et 15 000 €, couvre le développement et la livraison de l'audioguide. Le tarif est souvent plus élevé lorsque l'audioguide est conçu sur mesure, sans CMS. Avant de signer, établissez clairement ce qui est inclus pour les évolutions futures — adaptations à la compatibilité des navigateurs, ajouts de contenu, améliorations fonctionnelles — et ce qui sera facturé à part. Un audioguide numérique n'est jamais vraiment terminé ; un certain coût de maintenance est inévitable.</p>
+
+                    <p>Le <b>paiement par jetons</b> convient aux musées qui veulent éviter les coûts récurrents fixes. Le musée achète un lot de codes uniques et non transférables — imprimés sur des cartes ou fournis numériquement — et les distribue aux visiteurs jusqu'à épuisement. Les codes n'expirent pas, le stock restant est donc reporté. Ce modèle s'accorde naturellement avec les cycles budgétaires des musées : la dépense augmente ou diminue avec la fréquentation, et un reliquat de budget en fin d'année peut servir à acheter par avance du stock pour la saison suivante. À noter : ce modèle couvre la fourniture du logiciel ; le coût de production du contenu audio — enregistrement, traduction, voix — constitue un poste distinct, quel que soit le mode de distribution choisi. Nubart GUIDE fonctionne principalement selon ce modèle.</p>
+
+                    <p>Le <b>partage de revenus</b> est rare dans l'univers des audioguides numériques — il suppose un prestataire prêt à absorber les coûts de production initiaux en échange de revenus futurs. Là où il existe, il s'appuie sur le modèle des jetons : le musée reçoit l'audioguide et la production de contenu sans frais initiaux, et le prestataire ne facture que les codes réellement distribués. Cela peut nettement abaisser la barrière à l'entrée pour commander un audioguide multilingue, en particulier pour les musées disposant de budgets d'investissement limités. Nubart propose cette formule sous certaines conditions.</p>
+
+                    <p>Commander un audioguide QR n'est généralement pas l'investissement le plus important d'un musée, mais les décisions prises au départ vous accompagnent souvent longtemps. Un audioguide bâti sur le mauvais CMS, lié à un prestataire à la santé financière fragile, ou qui transmet inutilement les données des visiteurs à des services externes, est coûteux à démêler — bien plus que de poser les bonnes questions avant de signer. La plupart des points abordés ici ne demandent pas d'expertise technique pour être évalués : ils demandent de savoir quoi demander. Si vous souhaitez en discuter au regard de votre situation précise, nous sommes faciles à joindre.</p>
+
+                    <p>Nous espérons que cet article vous a été utile. <a href="https://share.hsforms.com/12gx6CSXPQzWecc32RwyQww1g33q" rel="nofollow">Abonnez-vous à notre newsletter</a> pour ne manquer aucun de nos articles.</p>
                 </div>
             </div>
         </div>
@@ -796,4 +652,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="module" src="/js/cookieconsent-config.js"></script>
 </body>
 </html>
-
