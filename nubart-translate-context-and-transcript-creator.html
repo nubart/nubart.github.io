@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+============================================================
+SCRIPT:  nubart-ai-tools
+VERSION: v1 — draft
+DATE:    2026-06-05
+TYPE:    Web tool (Type B)
+STATUS:  In progress
+NOTES:   Two-tab internal tool: Transcript generator + Context
+         prep. Calls Anthropic API directly (no proxy needed).
+         API key stored in localStorage — never in this file.
+         Host on Nubart site with noindex. DO NOT commit API keys.
+============================================================
+-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <title>Nubart AI Tools — Internal</title>
+
+  <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
+
+  <!-- mammoth.js for .docx parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.11.0/mammoth.browser.min.js"></script>
+
+  <style>
+    /* ── Design tokens ── */
+    :root {
+      --teal:       #00a7b5;
+      --teal-dark:  #007f8a;
+      --teal-light: #e6f7f8;
+      --teal-mid:   #b3e8ec;
+      --ink:        #1a2328;
+      --ink-soft:   #4a5a62;
+      --border:     #d0dfe2;
+      --bg:         #f4f8f9;
+      --white:      #ffffff;
+      --warn:       #e07b2a;
+      --warn-bg:    #fff4ec;
+      --error:      #c0392b;
+      --error-bg:   #fdf0ee;
+      --success:    #1e8a5e;
+      --success-bg: #edf7f3;
+      --radius:     8px;
+      --shadow:     0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 3px solid var(--teal);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow);
+    }
+    .site-header img { height: 36px; }
+    .site-header .badge {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--teal-mid);
+      text-transform: uppercase;
+    }
+
+    /* ── API Key bar ── */
+    .key-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+    .key-bar label { color: var(--ink-soft); white-space: nowrap; }
+    .key-bar input {
+      flex: 1;
+      max-width: 420px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--ink);
+    }
+    .key-bar input:focus { outline: 2px solid var(--teal); border-color: transparent; }
+    .key-status {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .key-status.ok  { background: var(--success-bg); color: var(--success); }
+    .key-status.missing { background: var(--error-bg); color: var(--error); }
+
+    /* ── Tab nav ── */
+    .tab-nav {
+      display: flex;
+      gap: 0;
+      padding: 24px 32px 0;
+      border-bottom: 2px solid var(--border);
+      background: var(--bg);
+    }
+    .tab-btn {
+      padding: 12px 28px;
+      border: 2px solid transparent;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      background: var(--white);
+      color: var(--ink-soft);
+      font-family: 'Georgia', serif;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: -2px;
+      transition: all 0.15s;
+    }
+    .tab-btn:hover { color: var(--teal); }
+    .tab-btn.active {
+      border-color: var(--border);
+      border-bottom-color: var(--white);
+      color: var(--teal-dark);
+      font-weight: bold;
+      background: var(--white);
+    }
+
+    /* ── Tab panels ── */
+    .tab-panel { display: none; padding: 32px; }
+    .tab-panel.active { display: block; }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal-dark);
+      margin-bottom: 16px;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ── Form elements ── */
+    .field { margin-bottom: 16px; }
+    .field label {
+      display: block;
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+    .field input[type="text"],
+    .field input[type="date"],
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'Georgia', serif;
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--white);
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: 2px solid var(--teal);
+      border-color: transparent;
+    }
+    .field textarea { resize: vertical; min-height: 100px; }
+
+    /* ── File drop zone ── */
+    .drop-zone {
+      border: 2px dashed var(--teal-mid);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: var(--teal-light);
+      position: relative;
+    }
+    .drop-zone:hover, .drop-zone.drag-over {
+      border-color: var(--teal);
+      background: #d4f0f3;
+    }
+    .drop-zone input[type="file"] {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    }
+    .drop-zone .drop-icon { font-size: 32px; margin-bottom: 8px; }
+    .drop-zone .drop-text { color: var(--teal-dark); font-size: 14px; }
+    .drop-zone .drop-hint { color: var(--ink-soft); font-size: 12px; margin-top: 4px; }
+    .drop-zone .file-name {
+      margin-top: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--ink);
+      background: var(--white);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    /* ── Date chips ── */
+    .date-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .date-chip {
+      background: var(--teal-light);
+      border: 1px solid var(--teal-mid);
+      border-radius: 20px;
+      padding: 4px 12px 4px 10px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .date-chip button {
+      background: none; border: none; cursor: pointer;
+      color: var(--teal-dark); font-size: 14px; line-height: 1;
+      padding: 0;
+    }
+    .date-chip button:hover { color: var(--error); }
+
+    /* ── Alerts ── */
+    .alert {
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .alert-warn { background: var(--warn-bg); border-left: 4px solid var(--warn); color: #7a4010; }
+    .alert-error { background: var(--error-bg); border-left: 4px solid var(--error); color: var(--error); }
+    .alert-info { background: var(--teal-light); border-left: 4px solid var(--teal); color: var(--teal-dark); }
+
+    /* ── Buttons ── */
+    .btn {
+      padding: 11px 24px;
+      border-radius: var(--radius);
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-primary:disabled {
+      background: var(--teal-mid);
+      cursor: not-allowed;
+    }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--teal-dark);
+      border: 1px solid var(--teal-mid);
+    }
+    .btn-secondary:hover { background: var(--teal-light); }
+
+    /* ── Progress ── */
+    .progress-wrap { margin: 16px 0; }
+    .progress-bar-outer {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      background: var(--teal);
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+    .progress-label {
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-top: 6px;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ── Output area ── */
+    .output-area {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-top: 24px;
+    }
+    .output-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .output-toolbar span {
+      font-size: 12px;
+      color: var(--ink-soft);
+      font-family: 'Courier New', monospace;
+    }
+    .output-content {
+      padding: 24px;
+      font-size: 14px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      max-height: 600px;
+      overflow-y: auto;
+      color: var(--ink);
+    }
+
+    /* ── Format options ── */
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .format-option {
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .format-option:hover { border-color: var(--teal-mid); background: var(--teal-light); }
+    .format-option.selected {
+      border-color: var(--teal);
+      background: var(--teal-light);
+    }
+    .format-option input[type="radio"] { display: none; }
+    .format-option .fmt-name {
+      font-weight: bold;
+      font-size: 14px;
+      color: var(--teal-dark);
+      margin-bottom: 4px;
+    }
+    .format-option .fmt-desc {
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.4;
+    }
+
+    /* ── Spinner ── */
+    .spinner {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Two-col layout ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ── Lang selector ── */
+    .lang-grid {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .lang-pill {
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      cursor: pointer;
+      background: var(--white);
+      transition: all 0.15s;
+    }
+    .lang-pill:hover, .lang-pill.selected {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <img src="https://nubart.eu/assets/img/logos/logo-nubart-translate-teal.svg"
+       alt="Nubart TRANSLATE"
+       onerror="this.style.display='none'">
+  <div>
+    <strong style="font-size:17px; color:var(--teal-dark);">AI Tools</strong>
+    <div style="font-size:12px; color:var(--ink-soft);">Internal use only</div>
+  </div>
+  <span class="badge">🔒 Not for distribution</span>
+</header>
+
+<!-- ── API Key bar ── -->
+<div class="key-bar">
+  <label for="apiKey">Anthropic API Key:</label>
+  <input type="password" id="apiKey" placeholder="sk-ant-…" autocomplete="off">
+  <span id="keyStatus" class="key-status missing">No key</span>
+</div>
+
+<!-- ── Tabs ── -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('context')">🧠 Context Prep</button>
+  <button class="tab-btn" onclick="switchTab('transcript')">📄 Transcript</button>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     TAB 2 — TRANSCRIPT
+═══════════════════════════════════════════ -->
+<div id="tab-transcript" class="tab-panel">
+
+  <!-- Step 1: Upload CSV -->
+  <div class="card">
+    <h3>Step 1 — Upload CSV</h3>
+    <div class="drop-zone" id="csvDropZone">
+      <input type="file" id="csvFile" accept=".csv">
+      <div class="drop-icon">📊</div>
+      <div class="drop-text">Drop your Nubart TRANSLATE CSV here, or click to browse</div>
+      <div class="drop-hint">Accepts .csv files only</div>
+      <div class="file-name" id="csvFileName" style="display:none"></div>
+    </div>
+    <div id="csvAlert" style="margin-top:12px;"></div>
+  </div>
+
+  <!-- Step 2: Output format -->
+  <div class="card">
+    <h3>Step 2 — Select output format</h3>
+    <div class="format-grid">
+      <label class="format-option selected">
+        <input type="radio" name="transcriptFormat" value="qc" checked>
+        <div class="fmt-name">🔬 Internal QC</div>
+        <div class="fmt-desc">Audio scores shown. Flags quality issues. Not for customers.</div>
+      </label>
+      <label class="format-option">
+        <input type="radio" name="transcriptFormat" value="source">
+        <div class="fmt-name">📝 Source language only</div>
+        <div class="fmt-desc">Clean transcript of what was spoken. No translations.</div>
+      </label>
+      <label class="format-option">
+        <input type="radio" name="transcriptFormat" value="multilingual">
+        <div class="fmt-name">🌐 With translations</div>
+        <div class="fmt-desc">Source utterances + all available translations.</div>
+      </label>
+      <label class="format-option">
+        <input type="radio" name="transcriptFormat" value="srt">
+        <div class="fmt-name">🎬 SRT subtitles</div>
+        <div class="fmt-desc">Standard .srt file for video publishing (YouTube etc.)</div>
+      </label>
+    </div>
+
+    <!-- SRT language selector (shown only for SRT) -->
+    <div id="srtLangWrap" style="display:none; margin-top:16px;">
+      <div class="field">
+        <label>Which language for the subtitles?</label>
+        <div class="lang-grid" id="srtLangGrid">
+          <div style="color:var(--ink-soft); font-size:13px;">Upload a CSV first to see available languages.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Event dates -->
+  <div class="card">
+    <h3>Step 3 — Confirm event date(s)</h3>
+    <p style="font-size:13px; color:var(--ink-soft); margin-bottom:14px;">
+      Sessions from these dates appear in the main transcript. All other sessions appear only in the Session Log.
+    </p>
+    <div class="two-col">
+      <div class="field">
+        <label>Add a date</label>
+        <input type="date" id="eventDateInput">
+      </div>
+      <div style="display:flex; align-items:flex-end; padding-bottom:1px;">
+        <button class="btn btn-secondary" onclick="addEventDate()">+ Add date</button>
+      </div>
+    </div>
+    <div class="date-chips" id="dateChips"></div>
+    <div id="dateAlert" style="margin-top:8px;"></div>
+  </div>
+
+  <!-- Generate -->
+  <div style="display:flex; gap:12px; align-items:center; margin-bottom:20px;">
+    <button class="btn btn-primary" id="generateTranscriptBtn" onclick="generateTranscript()">
+      Generate transcript
+    </button>
+    <div id="transcriptProgress" style="display:none; flex:1;">
+      <div class="progress-wrap">
+        <div class="progress-bar-outer">
+          <div class="progress-bar-inner" id="transcriptProgressBar" style="width:0%"></div>
+        </div>
+        <div class="progress-label" id="transcriptProgressLabel">Sending to Claude…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Output -->
+  <div id="transcriptOutput" style="display:none;" class="output-area">
+    <div class="output-toolbar">
+      <span id="transcriptOutputLabel">Transcript</span>
+      <div style="display:flex; gap:8px;">
+        <button class="btn btn-secondary" onclick="copyOutput('transcriptContent')">📋 Copy</button>
+        <button class="btn btn-secondary" id="downloadTranscriptBtn" onclick="downloadTranscript()">⬇ Download</button>
+      </div>
+    </div>
+    <div class="output-content" id="transcriptContent"></div>
+  </div>
+
+</div><!-- /tab-transcript -->
+
+
+<!-- ══════════════════════════════════════════
+     TAB 1 — CONTEXT PREP
+═══════════════════════════════════════════ -->
+<div id="tab-context" class="tab-panel active">
+
+  <div class="alert alert-info">
+    <span>ℹ️</span>
+    <div>This tool extracts a clean context file for the DeepL context parameter in Nubart TRANSLATE. Output is plain text, max 5,000 characters. Evelyn pastes the result into the CMS.</div>
+  </div>
+
+  <!-- Step 1: Source input -->
+  <div class="card">
+    <h3>Step 1 — Provide source material</h3>
+
+    <div style="display:flex; gap:12px; margin-bottom:16px;">
+      <button class="btn btn-secondary" id="modeFileBtn" onclick="setContextMode('file')"
+              style="border-color:var(--teal); background:var(--teal-light); color:var(--teal-dark);">
+        📁 Upload file
+      </button>
+      <button class="btn btn-secondary" id="modePasteBtn" onclick="setContextMode('paste')">
+        📋 Paste text
+      </button>
+    </div>
+
+    <!-- File upload mode -->
+    <div id="contextFileMode">
+      <div class="drop-zone" id="contextDropZone">
+        <input type="file" id="contextFile" accept=".pdf,.docx,.doc,.txt,.md,.html">
+        <div class="drop-icon">📄</div>
+        <div class="drop-text">Drop file here, or click to browse</div>
+        <div class="drop-hint">Accepts PDF, Word (.docx), TXT, HTML, Markdown<br>
+          <strong>PowerPoint (.pptx)?</strong> Please export to PDF first (File → Export → PDF).</div>
+        <div class="file-name" id="contextFileName" style="display:none"></div>
+      </div>
+      <div id="contextFileAlert" style="margin-top:12px;"></div>
+    </div>
+
+    <!-- Paste mode -->
+    <div id="contextPasteMode" style="display:none;">
+      <div class="field">
+        <label>Paste your text here</label>
+        <textarea id="contextPasteText" rows="8" placeholder="Paste program text, agenda, website content, speaker bios…"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Speaker language(s) -->
+  <div class="card">
+    <h3>Step 2 — Speaker language(s)</h3>
+    <p style="font-size:13px; color:var(--ink-soft); margin-bottom:14px;">
+      Select all languages spoken at the event. Content in these languages is kept; paragraphs in other languages are removed. Proper nouns are always kept regardless of language.
+    </p>
+    <div class="lang-grid" id="contextLangGrid">
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="English">English</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Spanish">Spanish</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="French">French</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="German">German</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Italian">Italian</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Portuguese">Portuguese</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Japanese">Japanese</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Chinese (Simplified)">Chinese (Simplified)</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Chinese (Traditional)">Chinese (Traditional)</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Korean">Korean</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Arabic">Arabic</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Dutch">Dutch</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Polish">Polish</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Russian">Russian</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Swedish">Swedish</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Danish">Danish</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Finnish">Finnish</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Norwegian">Norwegian</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Czech">Czech</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Romanian">Romanian</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Hungarian">Hungarian</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Turkish">Turkish</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Greek">Greek</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Hebrew">Hebrew</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Ukrainian">Ukrainian</span>
+      <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Catalan">Catalan</span>
+    </div>
+    <div id="contextLangAlert" style="margin-top:10px;"></div>
+  </div>
+
+  <!-- Generate -->
+  <div style="display:flex; gap:12px; align-items:center; margin-bottom:20px;">
+    <button class="btn btn-primary" id="generateContextBtn" onclick="generateContext()">
+      Generate context file
+    </button>
+    <div id="contextProgress" style="display:none; flex:1;">
+      <div class="progress-wrap">
+        <div class="progress-bar-outer">
+          <div class="progress-bar-inner" id="contextProgressBar" style="width:0%"></div>
+        </div>
+        <div class="progress-label" id="contextProgressLabel">Sending to Claude…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Output -->
+  <div id="contextOutput" style="display:none;" class="output-area">
+    <div class="output-toolbar">
+      <span id="contextOutputLabel">Context file</span>
+      <div style="display:flex; gap:8px;">
+        <button class="btn btn-secondary" onclick="copyOutput('contextContent')">📋 Copy</button>
+      </div>
+    </div>
+    <div class="output-content" id="contextContent"></div>
+    <div id="charCount" style="padding:8px 24px; font-size:12px; color:var(--ink-soft);
+         border-top:1px solid var(--border); font-family:'Courier New',monospace;"></div>
+  </div>
+
+</div><!-- /tab-context -->
+
+
+<footer>
+  Nubart TRANSLATE — Internal AI Tools &nbsp;|&nbsp; Not for external distribution &nbsp;|&nbsp; API calls go to Anthropic. Data is not used for AI training.
+</footer>
+
+
+<script>
+/* ════════════════════════════════════════════
+   GLOBAL STATE & INIT
+════════════════════════════════════════════ */
+let csvRawText = null;
+let csvDetectedDates = [];
+let csvDetectedLangs = [];
+let contextFileData = null;   // { type, content } where type = 'text'|'pdf_b64'
+let contextMode = 'file';
+let eventDates = [];
+let selectedSrtLang = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Restore API key
+  const saved = localStorage.getItem('nubart_api_key');
+  if (saved) {
+    document.getElementById('apiKey').value = saved;
+    updateKeyStatus(saved);
+  }
+
+  // API key change
+  document.getElementById('apiKey').addEventListener('input', e => {
+    const v = e.target.value.trim();
+    localStorage.setItem('nubart_api_key', v);
+    updateKeyStatus(v);
+  });
+
+  // Format radio changes
+  document.querySelectorAll('input[name="transcriptFormat"]').forEach(r => {
+    r.addEventListener('change', () => {
+      document.querySelectorAll('.format-option').forEach(o => o.classList.remove('selected'));
+      r.closest('.format-option').classList.add('selected');
+      document.getElementById('srtLangWrap').style.display = r.value === 'srt' ? 'block' : 'none';
+    });
+  });
+
+  // CSV file input
+  setupDropZone('csvDropZone', 'csvFile', handleCsvFile);
+
+  // Context file input
+  setupDropZone('contextDropZone', 'contextFile', handleContextFile);
+});
+
+/* ── Key status ── */
+function updateKeyStatus(key) {
+  const el = document.getElementById('keyStatus');
+  if (key && key.startsWith('sk-ant')) {
+    el.textContent = '✓ Key saved';
+    el.className = 'key-status ok';
+  } else if (key) {
+    el.textContent = '⚠ Unrecognised format';
+    el.className = 'key-status missing';
+  } else {
+    el.textContent = 'No key';
+    el.className = 'key-status missing';
+  }
+}
+
+/* ── Tab switching ── */
+function switchTab(tab) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+/* ════════════════════════════════════════════
+   DROP ZONE SETUP
+════════════════════════════════════════════ */
+function setupDropZone(zoneId, inputId, handler) {
+  const zone = document.getElementById(zoneId);
+  const input = document.getElementById(inputId);
+  input.addEventListener('change', () => { if (input.files[0]) handler(input.files[0]); });
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault(); zone.classList.remove('drag-over');
+    if (e.dataTransfer.files[0]) handler(e.dataTransfer.files[0]);
+  });
+}
+
+/* ════════════════════════════════════════════
+   CSV HANDLING
+════════════════════════════════════════════ */
+function handleCsvFile(file) {
+  const alertEl = document.getElementById('csvAlert');
+  if (!file.name.endsWith('.csv')) {
+    alertEl.innerHTML = alert('error', 'Please upload a .csv file.');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = e => {
+    csvRawText = e.target.result;
+    document.getElementById('csvFileName').textContent = '📊 ' + file.name;
+    document.getElementById('csvFileName').style.display = 'inline-block';
+    alertEl.innerHTML = '';
+
+    // Parse dates and languages from CSV
+    parseCSVMeta(csvRawText);
+  };
+  reader.readAsText(file, 'UTF-8');
+}
+
+function parseCSVMeta(csv) {
+  try {
+    const lines = csv.split('\n').filter(l => l.trim());
+    if (lines.length < 2) return;
+
+    const header = parseCSVLine(lines[0]);
+    const dateCol = 0;  // Column A
+
+    const dates = new Set();
+    // Columns H onward = translations; header cells are lang codes
+    const langCols = [];
+    for (let i = 7; i < header.length; i++) {
+      if (header[i] && header[i].trim()) langCols.push({ idx: i, lang: header[i].trim() });
+    }
+
+    // Count non-empty cells per translation language
+    const langCounts = {};
+    langCols.forEach(l => langCounts[l.lang] = 0);
+
+    for (let i = 1; i < lines.length; i++) {
+      const cols = parseCSVLine(lines[i]);
+      if (cols[dateCol]) dates.add(cols[dateCol].trim().split(' ')[0]); // date part only
+      langCols.forEach(l => { if (cols[l.idx] && cols[l.idx].trim()) langCounts[l.lang]++; });
+    }
+
+    csvDetectedDates = [...dates].sort();
+    csvDetectedLangs = langCols
+      .filter(l => langCounts[l.lang] >= 20)
+      .map(l => l.lang);
+
+    // Populate SRT lang selector
+    const grid = document.getElementById('srtLangGrid');
+    if (csvDetectedLangs.length > 0) {
+      grid.innerHTML = '';
+      // Also add source lang option
+      grid.innerHTML += `<span class="lang-pill selected" data-lang="SOURCE"
+        onclick="selectSrtLang(this,'SOURCE')">Source language</span>`;
+      selectedSrtLang = 'SOURCE';
+      csvDetectedLangs.forEach(lang => {
+        grid.innerHTML += `<span class="lang-pill" data-lang="${lang}"
+          onclick="selectSrtLang(this,'${lang}')">${lang}</span>`;
+      });
+    } else {
+      grid.innerHTML = '<div style="color:var(--ink-soft);font-size:13px;">No translation languages with sufficient coverage detected.</div>';
+    }
+
+  } catch(e) {
+    console.warn('CSV meta parse error', e);
+  }
+}
+
+function selectSrtLang(el, lang) {
+  document.querySelectorAll('#srtLangGrid .lang-pill').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedSrtLang = lang;
+}
+
+function parseCSVLine(line) {
+  // Handles quoted fields
+  const result = [];
+  let inQuote = false, cur = '';
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') { inQuote = !inQuote; }
+    else if (c === ',' && !inQuote) { result.push(cur); cur = ''; }
+    else { cur += c; }
+  }
+  result.push(cur);
+  return result;
+}
+
+/* ════════════════════════════════════════════
+   EVENT DATES
+════════════════════════════════════════════ */
+function addEventDate() {
+  const input = document.getElementById('eventDateInput');
+  const val = input.value;
+  if (!val) return;
+  if (eventDates.includes(val)) {
+    document.getElementById('dateAlert').innerHTML = alert('warn', 'That date is already added.');
+    return;
+  }
+  eventDates.push(val);
+  renderDateChips();
+  input.value = '';
+  document.getElementById('dateAlert').innerHTML = '';
+}
+
+function removeDate(date) {
+  eventDates = eventDates.filter(d => d !== date);
+  renderDateChips();
+}
+
+function renderDateChips() {
+  const wrap = document.getElementById('dateChips');
+  wrap.innerHTML = eventDates.map(d =>
+    `<span class="date-chip">${d}<button onclick="removeDate('${d}')">×</button></span>`
+  ).join('');
+}
+
+/* ════════════════════════════════════════════
+   TRANSCRIPT GENERATION
+════════════════════════════════════════════ */
+async function generateTranscript() {
+  const apiKey = document.getElementById('apiKey').value.trim();
+  const format = document.querySelector('input[name="transcriptFormat"]:checked').value;
+
+  if (!apiKey) return showError('transcriptOutput', 'Please enter your Anthropic API key.');
+  if (!csvRawText) return showError('transcriptOutput', 'Please upload a CSV file first.');
+  if (eventDates.length === 0) return showError('transcriptOutput', 'Please add at least one event date.');
+  if (format === 'srt' && !selectedSrtLang) return showError('transcriptOutput', 'Please select a subtitle language.');
+
+  const btn = document.getElementById('generateTranscriptBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Processing…';
+  showProgress('transcript', 10, 'Preparing CSV data…');
+
+  // Preprocess CSV: deduplicate rows by merging pairs
+  const mergedData = preprocessCSV(csvRawText);
+  showProgress('transcript', 25, 'Sending to Claude…');
+
+  const prompt = buildTranscriptPrompt(format, mergedData);
+
+  try {
+    const result = await callClaude(apiKey, prompt, 8192);
+    showProgress('transcript', 90, 'Rendering output…');
+
+    // Detect possible truncation
+    const truncated = result.trim().endsWith('…') || result.trim().endsWith('...');
+
+    const outputEl = document.getElementById('transcriptContent');
+    outputEl.textContent = result;
+    document.getElementById('transcriptOutput').style.display = 'block';
+
+    const formatLabel = format === 'srt' ? `SRT — ${selectedSrtLang}` :
+      format === 'qc' ? 'Internal QC transcript' :
+      format === 'source' ? 'Transcript (source language)' : 'Multilingual transcript';
+    document.getElementById('transcriptOutputLabel').textContent = formatLabel;
+
+    // SRT timing notice
+    if (format === 'srt') {
+      const notice = document.createElement('div');
+      notice.className = 'alert alert-info';
+      notice.style.margin = '12px 0 0';
+      notice.innerHTML = `<span>ℹ️</span><div><strong>About SRT timing:</strong> Subtitle timestamps are derived from the CSV's recorded utterance start times. Each subtitle's end time = the next utterance's start time. This reflects the actual live session timing, which may include pauses or overlaps. You can adjust timings in any subtitle editor before publishing.</div>`;
+      document.getElementById('transcriptOutput').insertAdjacentElement('afterend', notice);
+    }
+
+    // Truncation warning
+    if (truncated) {
+      const warn = document.createElement('div');
+      warn.className = 'alert alert-warn';
+      warn.style.margin = '8px 0 0';
+      warn.innerHTML = `<span>⚠️</span><div><strong>Output may be truncated.</strong> This event's transcript is very long. The output limit has been reached. Consider splitting the CSV by date and processing each date separately, then combining the results.</div>`;
+      document.getElementById('transcriptOutput').insertAdjacentElement('afterend', warn);
+    }
+
+    // Set download extension
+    document.getElementById('downloadTranscriptBtn').dataset.ext = format === 'srt' ? 'srt' : 'txt';
+
+    showProgress('transcript', 100, 'Done.');
+    setTimeout(() => { document.getElementById('transcriptProgress').style.display = 'none'; }, 1500);
+  } catch(e) {
+    showProgress('transcript', 0, '');
+    document.getElementById('transcriptProgress').style.display = 'none';
+    showError('transcriptOutput', 'Error: ' + e.message);
+    document.getElementById('transcriptOutput').style.display = 'block';
+    document.getElementById('transcriptContent').textContent = 'Error: ' + e.message;
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'Generate transcript';
+}
+
+/* ── CSV preprocessor: merge utterance pairs by timestamp ── */
+function preprocessCSV(csv) {
+  const lines = csv.split('\n').filter(l => l.trim());
+  if (lines.length < 2) return csv;
+
+  const header = parseCSVLine(lines[0]);
+  const rows = lines.slice(1).map(l => parseCSVLine(l));
+
+  // Group by timestamp (cols A+B)
+  const groups = {};
+  const order = [];
+  rows.forEach(row => {
+    const ts = (row[0] || '') + '|' + (row[1] || '');
+    if (!groups[ts]) { groups[ts] = []; order.push(ts); }
+    groups[ts].push(row);
+  });
+
+  // Merge each group
+  const merged = [header.join(',')];
+  order.forEach(ts => {
+    const g = groups[ts];
+    const base = g[0].slice();
+    // Find transcription (col F = index 5)
+    const withTranscription = g.find(r => r[5] && r[5].trim());
+    if (withTranscription) base[5] = withTranscription[5];
+    else if (g.find(r => r[6] && r[6].trim())) base[5] = g.find(r => r[6]).trim ? (g.find(r => r[6])[6] || '') : '';
+    // Find translations (cols H+ = index 7+)
+    const withTranslations = g.find(r => r.slice(7).some(c => c && c.trim()));
+    if (withTranslations) {
+      for (let i = 7; i < withTranslations.length; i++) base[i] = withTranslations[i] || '';
+    }
+    // Col G always cleared
+    base[6] = '';
+    merged.push(base.map(c => `"${(c||'').replace(/"/g,'""')}"`).join(','));
+  });
+
+  return merged.join('\n');
+}
+
+/* ── Build transcript prompt ── */
+function buildTranscriptPrompt(format, csvData) {
+  const datesStr = eventDates.join(', ');
+  const isInternal = format === 'qc';
+  const isSrt = format === 'srt';
+  const isSource = format === 'source';
+
+  const purposeInstruction = isInternal
+    ? 'This transcript is for INTERNAL QUALITY CONTROL (Nubart use only, not for customers). Show the audio quality score (column E) next to every utterance as [Score: X]. Flag any score below 70 with a brief note explaining likely impact on transcription/translation quality.'
+    : isSrt
+    ? `This transcript is for SUBTITLE GENERATION in SRT format. Output ONLY valid SRT content (numbered blocks, timestamp line, text line, blank line). The subtitle language is: ${selectedSrtLang === 'SOURCE' ? 'the source language (column F transcription)' : selectedSrtLang + ' (use the translation column for this language)'}. Use absolute clock times from the CSV. Keep each subtitle under 42 characters per line, 2 lines max. No header, no session log, no scores — just clean SRT.`
+    : isSource
+    ? 'This transcript is for CUSTOMER DELIVERY — SOURCE LANGUAGE ONLY. Include only the transcribed source text (column F). Do not include any translations. Only flag audio scores below 50 with a brief inline note.'
+    : 'This transcript is for CUSTOMER DELIVERY — MULTILINGUAL. Include source text and all available translations with sufficient coverage. Only flag audio scores below 50 with a brief inline note.';
+
+  return `You will receive a preprocessed CSV from a Nubart TRANSLATE live AI interpretation session. Each row is one merged utterance (duplicates already removed). Your task is to convert it into a clean, readable transcript.
+
+THE USER HAS ALREADY CONFIRMED:
+- Event date(s): ${datesStr}
+- Output format: ${format.toUpperCase()}
+
+${purposeInstruction}
+
+CSV STRUCTURE (preprocessed):
+- Column A (Date): utterance date, customer's local timezone
+- Column B (Time): utterance time, customer's local timezone
+- Column C (User): speaker email address
+- Column D (Source Language): language code of the speaker
+- Column E (Score): audio quality score 0–100
+- Column F (Transcription): full transcription — the main text
+- Column G: IGNORE (cleared, always empty in this preprocessed version)
+- Columns H onward: translations — header row contains target language codes
+
+PROCESSING INSTRUCTIONS:
+
+1. SESSION GROUPING: A new session begins after a gap of more than 10 minutes between consecutive timestamps.
+
+2. SESSION CLASSIFICATION:
+   - Sessions shorter than 5 minutes = Test
+   - Sessions of 5 minutes or longer = Event
+   - Sessions NOT on the confirmed event date(s) = Test (regardless of duration)
+
+3. LANGUAGE COVERAGE: Only include translation languages with at least 20 non-empty translation cells across the whole CSV.
+
+4. SPEAKER LABELS: If only one unique email in column C, omit speaker labels entirely. If two or more, show the speaker email only when the speaker changes.
+
+${isSrt ? `SRT FORMAT RULES:
+- Number blocks sequentially from 1
+- Timestamp format: HH:MM:SS,mmm --> HH:MM:SS,mmm
+- Use absolute clock times from the CSV (assume each utterance lasts until the next one, max 5 seconds for final utterance)
+- Max 2 lines, ~42 chars per line
+- No headers, no session log
+- Output ONLY the raw SRT content` : `
+DOCUMENT STRUCTURE:
+
+HEADER (include at top):
+Event Transcript — AI Simultaneous Interpretation
+Generated by Nubart TRANSLATE
+${isInternal ? '— INTERNAL QUALITY CONTROL — NOT FOR DISTRIBUTION' : ''}
+[Standard disclaimer about live AI interpretation nature]
+Date(s): ${datesStr}
+Source language(s): [list]
+Translation language(s): [list — omit for source-only format]
+Speaker accounts: [list all unique emails — omit if single speaker]
+
+MAIN TRANSCRIPT:
+For each Event session: open with session header (date, start time, approx duration).
+For each utterance:
+  [Speaker: email] (only when speaker changes; omit if single speaker)
+  ${isInternal ? '[MM:SS] [Score: X]' : '[MM:SS]'} — relative time from session start
+  [LANG CODE]  transcribed text
+  ${isSource ? '' : '→ [TARGET LANG]  translated text\n  (skip if same language as source)'}
+  ${isInternal ? '(score below 70: add brief quality impact note)' : '(score below 50: flag as low audio quality — score: X)'}
+
+SESSION LOG (final section, all sessions across all dates):
+Table: Session | Date | Start | End | Duration | Avg. Quality | Speaker(s) | Type
+Precede with note: "This session log covers all activity recorded under this account, including test sessions and pre-event trials. Test session content is not included in the transcript above. All times are in the customer's local timezone."
+`}
+
+CRITICAL RULES:
+- Do NOT correct transcription errors or spelling mistakes — reproduce faithfully
+- Do NOT paraphrase, summarise, or improve any sentence
+- Do NOT omit utterances from Event sessions
+- Do NOT show a same-language translation (e.g. if source is EN, skip the EN translation column)
+
+HERE IS THE CSV DATA:
+${csvData}`;
+}
+
+/* ════════════════════════════════════════════
+   CONTEXT PREP
+════════════════════════════════════════════ */
+function setContextMode(mode) {
+  contextMode = mode;
+  document.getElementById('contextFileMode').style.display = mode === 'file' ? 'block' : 'none';
+  document.getElementById('contextPasteMode').style.display = mode === 'paste' ? 'block' : 'none';
+  document.getElementById('modeFileBtn').style.cssText = mode === 'file'
+    ? 'border-color:var(--teal);background:var(--teal-light);color:var(--teal-dark);'
+    : '';
+  document.getElementById('modePasteBtn').style.cssText = mode === 'paste'
+    ? 'border-color:var(--teal);background:var(--teal-light);color:var(--teal-dark);'
+    : '';
+}
+
+async function handleContextFile(file) {
+  const alertEl = document.getElementById('contextFileAlert');
+  const ext = file.name.split('.').pop().toLowerCase();
+
+  // Block PowerPoint
+  if (ext === 'pptx' || ext === 'ppt') {
+    alertEl.innerHTML = alert('warn',
+      '⚠ PowerPoint files cannot be processed directly. Please export your presentation to PDF first: File → Export → PDF (or Save As PDF). Then upload the PDF here.');
+    contextFileData = null;
+    document.getElementById('contextFileName').style.display = 'none';
+    return;
+  }
+
+  alertEl.innerHTML = '';
+  document.getElementById('contextFileName').textContent = '📄 ' + file.name;
+  document.getElementById('contextFileName').style.display = 'inline-block';
+
+  if (ext === 'pdf') {
+    // Read as base64 for Claude's native PDF support
+    const reader = new FileReader();
+    reader.onload = e => {
+      const b64 = e.target.result.split(',')[1];
+      contextFileData = { type: 'pdf_b64', content: b64 };
+    };
+    reader.readAsDataURL(file);
+  } else if (ext === 'docx' || ext === 'doc') {
+    // Use mammoth.js to extract text
+    const reader = new FileReader();
+    reader.onload = async e => {
+      try {
+        const result = await mammoth.extractRawText({ arrayBuffer: e.target.result });
+        contextFileData = { type: 'text', content: result.value };
+        if (result.messages && result.messages.length > 0) {
+          alertEl.innerHTML = alert('warn', 'Word document processed. Some formatting may have been lost — please check the output.');
+        }
+      } catch(err) {
+        alertEl.innerHTML = alert('error', 'Could not read Word document: ' + err.message);
+        contextFileData = null;
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  } else {
+    // Plain text, HTML, markdown
+    const reader = new FileReader();
+    reader.onload = e => {
+      contextFileData = { type: 'text', content: e.target.result };
+    };
+    reader.readAsText(file, 'UTF-8');
+  }
+}
+
+async function generateContext() {
+  const apiKey = document.getElementById('apiKey').value.trim();
+  const selectedLangs = [...document.querySelectorAll('#contextLangGrid .lang-pill.selected')]
+    .map(el => el.dataset.lang);
+
+  if (!apiKey) return;
+
+  // Get source content
+  let sourceText = '';
+  let sourcePdfB64 = null;
+  if (contextMode === 'paste') {
+    sourceText = document.getElementById('contextPasteText').value.trim();
+    if (!sourceText) { window.alert('Please paste some text first.'); return; }
+  } else {
+    if (!contextFileData) {
+      document.getElementById('contextFileAlert').innerHTML = alert('error', 'Please upload a file first.');
+      return;
+    }
+    if (contextFileData.type === 'pdf_b64') sourcePdfB64 = contextFileData.content;
+    else sourceText = contextFileData.content;
+  }
+
+  if (selectedLangs.length === 0) {
+    document.getElementById('contextLangAlert').innerHTML = alert('warn', 'Please select at least one speaker language.');
+    return;
+  }
+  document.getElementById('contextLangAlert').innerHTML = '';
+
+  const btn = document.getElementById('generateContextBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Processing…';
+  showProgress('context', 20, 'Sending to Claude…');
+
+  const systemPrompt = buildContextSystemPrompt(selectedLangs);
+
+  try {
+    let result;
+    if (sourcePdfB64) {
+      result = await callClaudeWithPdf(apiKey, systemPrompt, sourcePdfB64);
+    } else {
+      result = await callClaudeWithSystem(apiKey, systemPrompt,
+        'Here is the source material:\n\n' + sourceText, 2000);
+    }
+    showProgress('context', 90, 'Rendering…');
+
+    const outputEl = document.getElementById('contextContent');
+    outputEl.textContent = result;
+    document.getElementById('contextOutput').style.display = 'block';
+
+    const charCount = result.length;
+    const charEl = document.getElementById('charCount');
+    if (charCount > 5000) {
+      charEl.innerHTML = `⚠ ${charCount.toLocaleString()} characters — <strong>exceeds 5,000 limit.</strong> Ask Claude to reduce further, or manually trim before pasting into CMS.`;
+      charEl.style.color = 'var(--warn)';
+    } else {
+      charEl.textContent = `${charCount.toLocaleString()} / 5,000 characters`;
+      charEl.style.color = 'var(--success)';
+    }
+
+    showProgress('context', 100, 'Done.');
+    setTimeout(() => { document.getElementById('contextProgress').style.display = 'none'; }, 1500);
+  } catch(e) {
+    showProgress('context', 0, '');
+    document.getElementById('contextProgress').style.display = 'none';
+    document.getElementById('contextContent').textContent = 'Error: ' + e.message;
+    document.getElementById('contextOutput').style.display = 'block';
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'Generate context file';
+}
+
+function buildContextSystemPrompt(langs) {
+  const langList = langs.join(', ');
+  const langRule = langs.length === 1
+    ? `The output must be in ${langs[0]}.
+Proper nouns and short foreign expressions embedded inside the main language must always be kept.
+If entire paragraphs or sections appear in a different language than ${langs[0]}, remove them completely. Only keep foreign text if it consists of short embedded expressions or proper nouns within ${langs[0]} sentences.`
+    : `The event has multiple speaker languages: ${langList}.
+The output must contain only content in these languages. Do not translate anything.
+Proper nouns and short foreign expressions are always kept regardless of language.
+If entire paragraphs or sections appear in a language NOT in this list, remove them completely.
+If the same factual content appears duplicated across multiple languages from the list, keep only one version — whichever is most complete — and remove the duplicate.`;
+
+  return `You are an Expert Text Curator for an AI-powered real-time translation system. Your sole task is to take the provided raw text and extract only the essential, factual context needed to help a live human translator or a machine translation engine understand the proper nouns, technical terms, and subject matter of a live event. This output is for the DeepL translation API context parameter.
+
+Speaker language(s): ${langList}
+
+Your task is to produce a clean context file for Nubart TRANSLATE, following these rules:
+
+0. OUTPUT FORMAT
+Return only the final text. Plain text with paragraph breaks only — no other formatting. NO titles. NO introductions. NO labels. NO quotes. Do not include any headers, footers, conversational framing (e.g. "Here is the cleaned file..."), numbering, bullet points, or any commentary before or after the resulting text.
+
+1. LANGUAGE
+${langRule}
+
+2. CLEANING
+Remove all HTML, CSS, JavaScript, SVG, code, formatting, and URLs.
+Remove cookie notices, banners, footers, repeated menus, navigation items, and all technical or non-content elements.
+Remove boilerplate text, legal disclaimers, contact information, social media links, and automatically generated tables of contents.
+Preserve paragraph breaks; return plain text only.
+If the input is a PDF or Word dump, linearise the text naturally.
+
+3. CONTENT RULES
+Do not invent information.
+If information appears in alt-text or URLs and is clearly reliable (e.g. an event date), you may keep it.
+Retain all unique proper nouns, technical terms, facts, dates, and event-specific details. Do not remove unique context.
+Rewrite complex sentences and long run-on sentences into two or more simpler, declarative sentences for live translation engine digestibility. Do not add new information or infer beyond what is explicitly stated.
+Convert lists and structured data (speaker rosters, schedules, etc.) into natural sentences rather than preserving list formatting.
+
+4. LENGTH CONSTRAINT (MAXIMUM 5,000 CHARACTERS)
+If the text is over 5,000 characters, apply the following reduction steps in order, stopping the moment the text is below 5,000 characters:
+Step A — Redundancy Reduction: Remove or merge highly repetitive phrases, sentences, or paragraphs that do not introduce a new fact or name. This is the primary method.
+Step B — Non-Essential Detail Removal: Remove opinion/emotion adjectives (wonderful, amazing, prestigious) but keep factual descriptive adjectives (medieval, Italian, cardiac, digital).
+STRICTLY PROHIBITED: Do not omit any proper nouns, technical terms, unique dates, or event-specific facts. Do not summarise the core factual content.`;
+}
+
+/* ════════════════════════════════════════════
+   CLAUDE API CALLS
+════════════════════════════════════════════ */
+// General text call (user message only)
+async function callClaude(apiKey, userContent, maxTokens = 8192) {
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: maxTokens,
+      messages: [{ role: 'user', content: userContent }]
+    })
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err.error?.message || `API error ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.content.map(b => b.text || '').join('');
+}
+
+// System + user message call (context prep text mode)
+async function callClaudeWithSystem(apiKey, systemPrompt, userContent, maxTokens = 2000) {
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: maxTokens,
+      system: systemPrompt,
+      messages: [{ role: 'user', content: userContent }]
+    })
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err.error?.message || `API error ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.content.map(b => b.text || '').join('');
+}
+
+// PDF call: system prompt as text block alongside document
+async function callClaudeWithPdf(apiKey, systemPrompt, pdfB64) {
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 2000,
+      system: systemPrompt,
+      messages: [{
+        role: 'user',
+        content: [
+          {
+            type: 'document',
+            source: { type: 'base64', media_type: 'application/pdf', data: pdfB64 }
+          },
+          { type: 'text', text: 'Please process the document above according to your instructions.' }
+        ]
+      }]
+    })
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err.error?.message || `API error ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.content.map(b => b.text || '').join('');
+}
+
+/* ════════════════════════════════════════════
+   UI HELPERS
+════════════════════════════════════════════ */
+function toggleContextLang(el) {
+  el.classList.toggle('selected');
+}
+
+function alert(type, msg) {
+  const icons = { error: '🚫', warn: '⚠️', info: 'ℹ️' };
+  return `<div class="alert alert-${type === 'error' ? 'error' : type === 'warn' ? 'warn' : 'info'}">
+    <span>${icons[type]}</span><div>${msg}</div></div>`;
+}
+
+function showError(outputId, msg) {
+  document.getElementById(outputId).style.display = 'block';
+  const contentId = outputId.replace('Output', 'Content');
+  if (document.getElementById(contentId)) {
+    document.getElementById(contentId).textContent = msg;
+  }
+}
+
+function showProgress(scope, pct, label) {
+  const wrap = document.getElementById(scope + 'Progress');
+  const bar = document.getElementById(scope + 'ProgressBar');
+  const lbl = document.getElementById(scope + 'ProgressLabel');
+  wrap.style.display = 'block';
+  bar.style.width = pct + '%';
+  if (label) lbl.textContent = label;
+}
+
+function copyOutput(contentId) {
+  const text = document.getElementById(contentId).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    // Brief visual confirmation
+    const btn = event.currentTarget;
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = orig, 1800);
+  });
+}
+
+function downloadTranscript() {
+  const text = document.getElementById('transcriptContent').textContent;
+  const ext = document.getElementById('downloadTranscriptBtn').dataset.ext || 'txt';
+  const format = document.querySelector('input[name="transcriptFormat"]:checked').value;
+  const filename = `nubart-transcript-${format}-${eventDates[0] || 'event'}.${ext}`;
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename; a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
