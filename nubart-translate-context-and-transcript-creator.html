@@ -3,7 +3,7 @@
 <head>
 <!--
 ============================================================
-SCRIPT:  nubart-ai-tools
+SCRIPT:  nubart-translate-context-and-transcript-creator
 VERSION: v1 — draft
 DATE:    2026-06-05
 TYPE:    Web tool (Type B)
@@ -25,394 +25,7 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
   <!-- mammoth.js for .docx parsing -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.11.0/mammoth.browser.min.js"></script>
 
-  <style>
-    /* ── Design tokens ── */
-    :root {
-      --teal:       #00a7b5;
-      --teal-dark:  #007f8a;
-      --teal-light: #e6f7f8;
-      --teal-mid:   #b3e8ec;
-      --ink:        #1a2328;
-      --ink-soft:   #4a5a62;
-      --border:     #d0dfe2;
-      --bg:         #f4f8f9;
-      --white:      #ffffff;
-      --warn:       #e07b2a;
-      --warn-bg:    #fff4ec;
-      --error:      #c0392b;
-      --error-bg:   #fdf0ee;
-      --success:    #1e8a5e;
-      --success-bg: #edf7f3;
-      --radius:     8px;
-      --shadow:     0 2px 12px rgba(0,0,0,0.08);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      background: var(--bg);
-      color: var(--ink);
-      min-height: 100vh;
-    }
-
-    /* ── Header ── */
-    .site-header {
-      background: var(--white);
-      border-bottom: 3px solid var(--teal);
-      padding: 16px 32px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      box-shadow: var(--shadow);
-    }
-    .site-header img { height: 36px; }
-    .site-header .badge {
-      background: var(--teal-light);
-      color: var(--teal-dark);
-      font-family: 'Courier New', monospace;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 0.08em;
-      padding: 3px 10px;
-      border-radius: 20px;
-      border: 1px solid var(--teal-mid);
-      text-transform: uppercase;
-    }
-
-    /* ── API Key bar ── */
-    .key-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 32px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: 'Courier New', monospace;
-      font-size: 13px;
-    }
-    .key-bar label { color: var(--ink-soft); white-space: nowrap; }
-    .key-bar input {
-      flex: 1;
-      max-width: 420px;
-      padding: 6px 10px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-family: 'Courier New', monospace;
-      font-size: 13px;
-      color: var(--ink);
-    }
-    .key-bar input:focus { outline: 2px solid var(--teal); border-color: transparent; }
-    .key-status {
-      font-size: 12px;
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
-    .key-status.ok  { background: var(--success-bg); color: var(--success); }
-    .key-status.missing { background: var(--error-bg); color: var(--error); }
-
-    /* ── Tab nav ── */
-    .tab-nav {
-      display: flex;
-      gap: 0;
-      padding: 24px 32px 0;
-      border-bottom: 2px solid var(--border);
-      background: var(--bg);
-    }
-    .tab-btn {
-      padding: 12px 28px;
-      border: 2px solid transparent;
-      border-bottom: none;
-      border-radius: 8px 8px 0 0;
-      background: var(--white);
-      color: var(--ink-soft);
-      font-family: 'Georgia', serif;
-      font-size: 15px;
-      cursor: pointer;
-      margin-bottom: -2px;
-      transition: all 0.15s;
-    }
-    .tab-btn:hover { color: var(--teal); }
-    .tab-btn.active {
-      border-color: var(--border);
-      border-bottom-color: var(--white);
-      color: var(--teal-dark);
-      font-weight: bold;
-      background: var(--white);
-    }
-
-    /* ── Tab panels ── */
-    .tab-panel { display: none; padding: 32px; }
-    .tab-panel.active { display: block; }
-
-    /* ── Cards ── */
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: var(--shadow);
-    }
-    .card h3 {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--teal-dark);
-      margin-bottom: 16px;
-      font-family: 'Courier New', monospace;
-    }
-
-    /* ── Form elements ── */
-    .field { margin-bottom: 16px; }
-    .field label {
-      display: block;
-      font-size: 13px;
-      color: var(--ink-soft);
-      margin-bottom: 6px;
-    }
-    .field input[type="text"],
-    .field input[type="date"],
-    .field select,
-    .field textarea {
-      width: 100%;
-      padding: 9px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-family: 'Georgia', serif;
-      font-size: 14px;
-      color: var(--ink);
-      background: var(--white);
-    }
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      outline: 2px solid var(--teal);
-      border-color: transparent;
-    }
-    .field textarea { resize: vertical; min-height: 100px; }
-
-    /* ── File drop zone ── */
-    .drop-zone {
-      border: 2px dashed var(--teal-mid);
-      border-radius: var(--radius);
-      padding: 32px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      background: var(--teal-light);
-      position: relative;
-    }
-    .drop-zone:hover, .drop-zone.drag-over {
-      border-color: var(--teal);
-      background: #d4f0f3;
-    }
-    .drop-zone input[type="file"] {
-      position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
-    }
-    .drop-zone .drop-icon { font-size: 32px; margin-bottom: 8px; }
-    .drop-zone .drop-text { color: var(--teal-dark); font-size: 14px; }
-    .drop-zone .drop-hint { color: var(--ink-soft); font-size: 12px; margin-top: 4px; }
-    .drop-zone .file-name {
-      margin-top: 10px;
-      font-family: 'Courier New', monospace;
-      font-size: 13px;
-      color: var(--ink);
-      background: var(--white);
-      padding: 4px 10px;
-      border-radius: 4px;
-      display: inline-block;
-    }
-
-    /* ── Date chips ── */
-    .date-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-    .date-chip {
-      background: var(--teal-light);
-      border: 1px solid var(--teal-mid);
-      border-radius: 20px;
-      padding: 4px 12px 4px 10px;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .date-chip button {
-      background: none; border: none; cursor: pointer;
-      color: var(--teal-dark); font-size: 14px; line-height: 1;
-      padding: 0;
-    }
-    .date-chip button:hover { color: var(--error); }
-
-    /* ── Alerts ── */
-    .alert {
-      padding: 12px 16px;
-      border-radius: var(--radius);
-      font-size: 13px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .alert-warn { background: var(--warn-bg); border-left: 4px solid var(--warn); color: #7a4010; }
-    .alert-error { background: var(--error-bg); border-left: 4px solid var(--error); color: var(--error); }
-    .alert-info { background: var(--teal-light); border-left: 4px solid var(--teal); color: var(--teal-dark); }
-
-    /* ── Buttons ── */
-    .btn {
-      padding: 11px 24px;
-      border-radius: var(--radius);
-      border: none;
-      font-family: 'Georgia', serif;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.15s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary {
-      background: var(--teal);
-      color: var(--white);
-    }
-    .btn-primary:hover { background: var(--teal-dark); }
-    .btn-primary:disabled {
-      background: var(--teal-mid);
-      cursor: not-allowed;
-    }
-    .btn-secondary {
-      background: var(--white);
-      color: var(--teal-dark);
-      border: 1px solid var(--teal-mid);
-    }
-    .btn-secondary:hover { background: var(--teal-light); }
-
-    /* ── Progress ── */
-    .progress-wrap { margin: 16px 0; }
-    .progress-bar-outer {
-      height: 6px;
-      background: var(--border);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    .progress-bar-inner {
-      height: 100%;
-      background: var(--teal);
-      border-radius: 3px;
-      transition: width 0.3s;
-    }
-    .progress-label {
-      font-size: 12px;
-      color: var(--ink-soft);
-      margin-top: 6px;
-      font-family: 'Courier New', monospace;
-    }
-
-    /* ── Output area ── */
-    .output-area {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-top: 24px;
-    }
-    .output-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-      border-radius: var(--radius) var(--radius) 0 0;
-    }
-    .output-toolbar span {
-      font-size: 12px;
-      color: var(--ink-soft);
-      font-family: 'Courier New', monospace;
-    }
-    .output-content {
-      padding: 24px;
-      font-size: 14px;
-      line-height: 1.7;
-      white-space: pre-wrap;
-      font-family: 'Courier New', monospace;
-      max-height: 600px;
-      overflow-y: auto;
-      color: var(--ink);
-    }
-
-    /* ── Format options ── */
-    .format-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px;
-    }
-    .format-option {
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .format-option:hover { border-color: var(--teal-mid); background: var(--teal-light); }
-    .format-option.selected {
-      border-color: var(--teal);
-      background: var(--teal-light);
-    }
-    .format-option input[type="radio"] { display: none; }
-    .format-option .fmt-name {
-      font-weight: bold;
-      font-size: 14px;
-      color: var(--teal-dark);
-      margin-bottom: 4px;
-    }
-    .format-option .fmt-desc {
-      font-size: 12px;
-      color: var(--ink-soft);
-      line-height: 1.4;
-    }
-
-    /* ── Spinner ── */
-    .spinner {
-      display: inline-block;
-      width: 16px; height: 16px;
-      border: 2px solid rgba(255,255,255,0.4);
-      border-top-color: white;
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ── Two-col layout ── */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
-
-    /* ── Lang selector ── */
-    .lang-grid {
-      display: flex; flex-wrap: wrap; gap: 8px;
-    }
-    .lang-pill {
-      padding: 5px 14px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      font-size: 13px;
-      cursor: pointer;
-      background: var(--white);
-      transition: all 0.15s;
-    }
-    .lang-pill:hover, .lang-pill.selected {
-      background: var(--teal);
-      color: white;
-      border-color: var(--teal);
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: 12px;
-      color: var(--ink-soft);
-      border-top: 1px solid var(--border);
-      margin-top: 32px;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/internal-tools.css">
 </head>
 <body>
 
@@ -552,32 +165,38 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
 
   <div class="alert alert-info">
     <span>ℹ️</span>
-    <div>This tool extracts a clean context file for the DeepL context parameter in Nubart TRANSLATE. Output is plain text, max 5,000 characters. Evelyn pastes the result into the CMS.</div>
+    <div>This tool extracts a clean context file for the DeepL context parameter in Nubart TRANSLATE. Output is plain text, max 5,000 characters. Paste the result into the CMS under the relevant speaker language(s).</div>
   </div>
 
-  <!-- Step 1: Source input -->
+  <!-- Step 1: Source material -->
   <div class="card">
     <h3>Step 1 — Provide source material</h3>
+    <p style="font-size:13px; color:var(--ink-soft); margin-bottom:14px;">
+      Upload one or more files, paste text, or combine both. All content is merged before processing.
+    </p>
 
     <div style="display:flex; gap:12px; margin-bottom:16px;">
       <button class="btn btn-secondary" id="modeFileBtn" onclick="setContextMode('file')"
               style="border-color:var(--teal); background:var(--teal-light); color:var(--teal-dark);">
-        📁 Upload file
+        📁 Upload file(s)
       </button>
       <button class="btn btn-secondary" id="modePasteBtn" onclick="setContextMode('paste')">
         📋 Paste text
+      </button>
+      <button class="btn btn-secondary" id="modeBothBtn" onclick="setContextMode('both')">
+        📁 + 📋 Both
       </button>
     </div>
 
     <!-- File upload mode -->
     <div id="contextFileMode">
       <div class="drop-zone" id="contextDropZone">
-        <input type="file" id="contextFile" accept=".pdf,.docx,.doc,.txt,.md,.html">
+        <input type="file" id="contextFile" accept=".pdf,.docx,.doc,.txt,.md,.html" multiple>
         <div class="drop-icon">📄</div>
-        <div class="drop-text">Drop file here, or click to browse</div>
-        <div class="drop-hint">Accepts PDF, Word (.docx), TXT, HTML, Markdown<br>
+        <div class="drop-text">Drop files here, or click to browse</div>
+        <div class="drop-hint">Accepts PDF, Word (.docx), TXT, HTML, Markdown — multiple files allowed<br>
           <strong>PowerPoint (.pptx)?</strong> Please export to PDF first (File → Export → PDF).</div>
-        <div class="file-name" id="contextFileName" style="display:none"></div>
+        <div id="contextFileList" style="margin-top:10px;"></div>
       </div>
       <div id="contextFileAlert" style="margin-top:12px;"></div>
     </div>
@@ -588,6 +207,27 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
         <label>Paste your text here</label>
         <textarea id="contextPasteText" rows="8" placeholder="Paste program text, agenda, website content, speaker bios…"></textarea>
       </div>
+    </div>
+
+    <!-- Both mode: file + paste -->
+    <div id="contextBothMode" style="display:none;">
+      <div class="drop-zone" id="contextDropZoneBoth">
+        <input type="file" id="contextFileBoth" accept=".pdf,.docx,.doc,.txt,.md,.html" multiple>
+        <div class="drop-icon">📄</div>
+        <div class="drop-text">Drop files here, or click to browse</div>
+        <div class="drop-hint">Multiple files allowed. PowerPoint → export to PDF first.</div>
+        <div id="contextFileListBoth" style="margin-top:10px;"></div>
+      </div>
+      <div id="contextFileAlertBoth" style="margin-top:8px;"></div>
+      <div class="field" style="margin-top:16px;">
+        <label>Additional text (paste here)</label>
+        <textarea id="contextPasteTextBoth" rows="5" placeholder="Paste any additional text…"></textarea>
+      </div>
+    </div>
+
+    <div class="alert alert-warn" style="margin-top:16px;">
+      <span>⚠️</span>
+      <div>If you need to add files that arrive later (e.g. last-minute slides), simply run this tool again with the new files and paste the updated output into the CMS, replacing the previous version.</div>
     </div>
   </div>
 
@@ -626,6 +266,44 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
       <span class="lang-pill" onclick="toggleContextLang(this)" data-lang="Catalan">Catalan</span>
     </div>
     <div id="contextLangAlert" style="margin-top:10px;"></div>
+  </div>
+
+  <!-- Step 3: Institution / venue names (mandatory) -->
+  <div class="card">
+    <h3>Step 3 — Institution / venue name(s) <span style="color:var(--error);">*</span></h3>
+    <p style="font-size:13px; color:var(--ink-soft); margin-bottom:14px;">
+      Enter the name of the customer or hosting institution, plus any alternative names, venue names, or building names that may be mentioned during the event. One name per line.<br>
+      <em style="font-size:12px;">Example: a museum might be known by its official name, a popular nickname, and the historic building it occupies — list all three.</em>
+    </p>
+    <div class="field">
+      <textarea id="contextInstitution" rows="4"
+        placeholder="Röntgen-Museum Remscheid&#10;Röntgen Museum&#10;Deutsches Röntgen-Museum&#10;Leonhard-Tietz-Haus"></textarea>
+    </div>
+    <div id="contextInstitutionAlert"></div>
+  </div>
+
+  <!-- Step 4: Speaker names (optional) -->
+  <div class="card">
+    <h3>Step 4 — Speaker names <span style="color:var(--ink-soft); font-size:11px; font-weight:normal; text-transform:none; letter-spacing:0;">(optional)</span></h3>
+    <p style="font-size:13px; color:var(--ink-soft); margin-bottom:14px;">
+      Enter the full names of all speakers, one per line. These will be included in the context file to ensure correct transcription and translation of names.
+    </p>
+    <div class="field">
+      <textarea id="contextSpeakers" rows="4"
+        placeholder="Joaquín Almunia&#10;Dr. Priya Mehta&#10;Thomas Bergmann"></textarea>
+    </div>
+  </div>
+
+  <!-- Step 5: Room label (optional) -->
+  <div class="card">
+    <h3>Step 5 — Room / session label <span style="color:var(--ink-soft); font-size:11px; font-weight:normal; text-transform:none; letter-spacing:0;">(optional)</span></h3>
+    <p style="font-size:13px; color:var(--ink-soft); margin-bottom:14px;">
+      For multi-room events, add a label so you can identify which context file is which. It will appear as the first line of the output.
+    </p>
+    <div class="field">
+      <input type="text" id="contextRoomLabel"
+        placeholder="e.g. Room A — Cardiology Track">
+    </div>
   </div>
 
   <!-- Generate -->
@@ -671,7 +349,7 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
 let csvRawText = null;
 let csvDetectedDates = [];
 let csvDetectedLangs = [];
-let contextFileData = null;   // { type, content } where type = 'text'|'pdf_b64'
+let contextFilesData = [];  // array of {type, content, name}
 let contextMode = 'file';
 let eventDates = [];
 let selectedSrtLang = null;
@@ -702,9 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // CSV file input
   setupDropZone('csvDropZone', 'csvFile', handleCsvFile);
-
-  // Context file input
-  setupDropZone('contextDropZone', 'contextFile', handleContextFile);
 });
 
 /* ── Key status ── */
@@ -751,7 +426,7 @@ function setupDropZone(zoneId, inputId, handler) {
 function handleCsvFile(file) {
   const alertEl = document.getElementById('csvAlert');
   if (!file.name.endsWith('.csv')) {
-    alertEl.innerHTML = alert('error', 'Please upload a .csv file.');
+    alertEl.innerHTML = renderAlert('error', 'Please upload a .csv file.');
     return;
   }
   const reader = new FileReader();
@@ -846,7 +521,7 @@ function addEventDate() {
   const val = input.value;
   if (!val) return;
   if (eventDates.includes(val)) {
-    document.getElementById('dateAlert').innerHTML = alert('warn', 'That date is already added.');
+    document.getElementById('dateAlert').innerHTML = renderAlert('warn', 'That date is already added.');
     return;
   }
   eventDates.push(val);
@@ -881,7 +556,7 @@ async function generateTranscript() {
 
   const btn = document.getElementById('generateTranscriptBtn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Processing…';
+  btn.innerHTML = '<span class="spinner" style="display:inline-block"></span> Processing…';
   showProgress('transcript', 10, 'Preparing CSV data…');
 
   // Preprocess CSV: deduplicate rows by merging pairs
@@ -1074,120 +749,243 @@ ${csvData}`;
 ════════════════════════════════════════════ */
 function setContextMode(mode) {
   contextMode = mode;
-  document.getElementById('contextFileMode').style.display = mode === 'file' ? 'block' : 'none';
+
+  // Reset any previously selected files so a stale upload from another mode
+  // can't leak into generateContext(). Also clear the file-list badges,
+  // file-input values, and any per-zone alerts.
+  contextFilesData = [];
+  ['contextFile', 'contextFileBoth'].forEach(id => {
+    const input = document.getElementById(id);
+    if (input) input.value = '';
+  });
+  ['contextFileList', 'contextFileListBoth', 'contextFileAlert', 'contextFileAlertBoth']
+    .forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = '';
+    });
+
+  document.getElementById('contextFileMode').style.display  = (mode === 'file' || mode === 'both') ? (mode === 'file' ? 'block' : 'none') : 'none';
   document.getElementById('contextPasteMode').style.display = mode === 'paste' ? 'block' : 'none';
-  document.getElementById('modeFileBtn').style.cssText = mode === 'file'
-    ? 'border-color:var(--teal);background:var(--teal-light);color:var(--teal-dark);'
-    : '';
-  document.getElementById('modePasteBtn').style.cssText = mode === 'paste'
-    ? 'border-color:var(--teal);background:var(--teal-light);color:var(--teal-dark);'
-    : '';
+  document.getElementById('contextBothMode').style.display  = mode === 'both'  ? 'block' : 'none';
+  document.getElementById('contextFileMode').style.display  = mode === 'file'  ? 'block' : 'none';
+
+  ['modeFileBtn','modePasteBtn','modeBothBtn'].forEach(id => {
+    document.getElementById(id).style.cssText = '';
+  });
+  const activeId = mode === 'file' ? 'modeFileBtn' : mode === 'paste' ? 'modePasteBtn' : 'modeBothBtn';
+  document.getElementById(activeId).style.cssText =
+    'border-color:var(--teal);background:var(--teal-light);color:var(--teal-dark);';
 }
 
-async function handleContextFile(file) {
-  const alertEl = document.getElementById('contextFileAlert');
-  const ext = file.name.split('.').pop().toLowerCase();
+async function processContextFiles(files, alertElId, fileListElId) {
+  const alertEl = document.getElementById(alertElId);
+  const listEl  = document.getElementById(fileListElId);
+  listEl.innerHTML = '';
+  const results = [];
+  const warnings = [];
 
-  // Block PowerPoint
-  if (ext === 'pptx' || ext === 'ppt') {
-    alertEl.innerHTML = alert('warn',
-      '⚠ PowerPoint files cannot be processed directly. Please export your presentation to PDF first: File → Export → PDF (or Save As PDF). Then upload the PDF here.');
-    contextFileData = null;
-    document.getElementById('contextFileName').style.display = 'none';
-    return;
-  }
+  for (const file of files) {
+    const ext = file.name.split('.').pop().toLowerCase();
 
-  alertEl.innerHTML = '';
-  document.getElementById('contextFileName').textContent = '📄 ' + file.name;
-  document.getElementById('contextFileName').style.display = 'inline-block';
+    if (ext === 'pptx' || ext === 'ppt') {
+      warnings.push(`<strong>${file.name}</strong> — PowerPoint cannot be processed directly. Please export to PDF first (File → Export → PDF).`);
+      continue;
+    }
 
-  if (ext === 'pdf') {
-    // Read as base64 for Claude's native PDF support
-    const reader = new FileReader();
-    reader.onload = e => {
-      const b64 = e.target.result.split(',')[1];
-      contextFileData = { type: 'pdf_b64', content: b64 };
-    };
-    reader.readAsDataURL(file);
-  } else if (ext === 'docx' || ext === 'doc') {
-    // Use mammoth.js to extract text
-    const reader = new FileReader();
-    reader.onload = async e => {
-      try {
-        const result = await mammoth.extractRawText({ arrayBuffer: e.target.result });
-        contextFileData = { type: 'text', content: result.value };
-        if (result.messages && result.messages.length > 0) {
-          alertEl.innerHTML = alert('warn', 'Word document processed. Some formatting may have been lost — please check the output.');
-        }
-      } catch(err) {
-        alertEl.innerHTML = alert('error', 'Could not read Word document: ' + err.message);
-        contextFileData = null;
+    try {
+      if (ext === 'pdf') {
+        const b64 = await new Promise((res, rej) => {
+          const r = new FileReader();
+          r.onload = e => res(e.target.result.split(',')[1]);
+          r.onerror = () => rej(new Error('Read failed'));
+          r.readAsDataURL(file);
+        });
+        results.push({ type: 'pdf_b64', content: b64, name: file.name });
+      } else if (ext === 'docx' || ext === 'doc') {
+        const buf = await new Promise((res, rej) => {
+          const r = new FileReader();
+          r.onload = e => res(e.target.result);
+          r.onerror = () => rej(new Error('Read failed'));
+          r.readAsArrayBuffer(file);
+        });
+        const parsed = await mammoth.extractRawText({ arrayBuffer: buf });
+        results.push({ type: 'text', content: parsed.value, name: file.name });
+      } else {
+        const text = await new Promise((res, rej) => {
+          const r = new FileReader();
+          r.onload = e => res(e.target.result);
+          r.onerror = () => rej(new Error('Read failed'));
+          r.readAsText(file, 'UTF-8');
+        });
+        results.push({ type: 'text', content: text, name: file.name });
       }
-    };
-    reader.readAsArrayBuffer(file);
-  } else {
-    // Plain text, HTML, markdown
-    const reader = new FileReader();
-    reader.onload = e => {
-      contextFileData = { type: 'text', content: e.target.result };
-    };
-    reader.readAsText(file, 'UTF-8');
+
+      // Show filename badge
+      const badge = document.createElement('span');
+      badge.className = 'file-name';
+      badge.style.display = 'inline-block';
+      badge.style.marginRight = '6px';
+      badge.textContent = '📄 ' + file.name;
+      listEl.appendChild(badge);
+
+    } catch(err) {
+      warnings.push(`<strong>${file.name}</strong> — could not be read: ${err.message}`);
+    }
   }
+
+  if (warnings.length > 0) {
+    alertEl.innerHTML = renderAlert('warn', warnings.join('<br>'));
+  } else {
+    alertEl.innerHTML = '';
+  }
+
+  return results;
 }
+
+// Multi-file drop zone: wires both browse (input change) and drag-and-drop,
+// reading every selected/dropped file (setupDropZone only handles one file).
+function setupMultiFileDropZone(zoneId, inputId, alertId, listId) {
+  const zone  = document.getElementById(zoneId);
+  const input = document.getElementById(inputId);
+  if (!zone || !input) return;
+
+  input.addEventListener('change', async () => {
+    contextFilesData = await processContextFiles(Array.from(input.files), alertId, listId);
+  });
+  zone.addEventListener('dragover',  e => { e.preventDefault(); zone.classList.add('drag-over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+  zone.addEventListener('drop', async e => {
+    e.preventDefault();
+    zone.classList.remove('drag-over');
+    const dropped = Array.from(e.dataTransfer.files);
+    if (dropped.length) {
+      contextFilesData = await processContextFiles(dropped, alertId, listId);
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupMultiFileDropZone('contextDropZone',     'contextFile',     'contextFileAlert',     'contextFileList');
+  setupMultiFileDropZone('contextDropZoneBoth', 'contextFileBoth', 'contextFileAlertBoth', 'contextFileListBoth');
+});
 
 async function generateContext() {
-  const apiKey = document.getElementById('apiKey').value.trim();
+  const apiKey      = document.getElementById('apiKey').value.trim();
   const selectedLangs = [...document.querySelectorAll('#contextLangGrid .lang-pill.selected')]
     .map(el => el.dataset.lang);
+  const institution = document.getElementById('contextInstitution').value.trim();
+  const speakers    = document.getElementById('contextSpeakers').value.trim();
+  const roomLabel   = document.getElementById('contextRoomLabel').value.trim();
 
   if (!apiKey) return;
 
-  // Get source content
-  let sourceText = '';
-  let sourcePdfB64 = null;
-  if (contextMode === 'paste') {
-    sourceText = document.getElementById('contextPasteText').value.trim();
-    if (!sourceText) { window.alert('Please paste some text first.'); return; }
-  } else {
-    if (!contextFileData) {
-      document.getElementById('contextFileAlert').innerHTML = alert('error', 'Please upload a file first.');
-      return;
-    }
-    if (contextFileData.type === 'pdf_b64') sourcePdfB64 = contextFileData.content;
-    else sourceText = contextFileData.content;
+  // Validate mandatory institution field
+  if (!institution) {
+    document.getElementById('contextInstitutionAlert').innerHTML =
+      renderAlert('error', 'Institution / venue name is required. Please fill in this field before generating.');
+    document.getElementById('contextInstitution').focus();
+    return;
+  }
+  document.getElementById('contextInstitutionAlert').innerHTML = '';
+
+  // Collect all source content
+  // Determine which paste textarea to use based on mode
+  const pasteText = contextMode === 'paste'
+    ? document.getElementById('contextPasteText').value.trim()
+    : contextMode === 'both'
+    ? document.getElementById('contextPasteTextBoth').value.trim()
+    : '';
+
+  // Determine which file set to use
+  const activeFiles = contextMode === 'both'
+    ? contextFilesData  // filled by bothInput handler
+    : contextMode === 'file'
+    ? contextFilesData
+    : [];
+
+  // Must have at least one source (files or paste)
+  const hasPaste = pasteText.length > 0;
+  const hasFiles = activeFiles.length > 0;
+  if (!hasPaste && !hasFiles) {
+    const alertId = contextMode === 'file' ? 'contextFileAlert'
+      : contextMode === 'both' ? 'contextFileAlertBoth' : 'contextFileAlert';
+    document.getElementById(alertId).innerHTML =
+      renderAlert('error', 'Please upload at least one file or paste some text.');
+    return;
   }
 
   if (selectedLangs.length === 0) {
-    document.getElementById('contextLangAlert').innerHTML = alert('warn', 'Please select at least one speaker language.');
+    document.getElementById('contextLangAlert').innerHTML =
+      renderAlert('warn', 'Please select at least one speaker language.');
     return;
   }
   document.getElementById('contextLangAlert').innerHTML = '';
 
   const btn = document.getElementById('generateContextBtn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Processing…';
-  showProgress('context', 20, 'Sending to Claude…');
+  btn.innerHTML = '<span class="spinner" style="display:inline-block"></span> Processing…';
+  showProgress('context', 15, 'Preparing content…');
 
-  const systemPrompt = buildContextSystemPrompt(selectedLangs);
+  // Separate PDFs from text files
+  const pdfFiles  = activeFiles.filter(f => f.type === 'pdf_b64');
+  const textFiles = activeFiles.filter(f => f.type === 'text');
+
+  // Combine all plain text sources
+  const combinedText = [
+    ...textFiles.map(f => `[Source: ${f.name}]\n${f.content}`),
+    pasteText ? `[Pasted text]\n${pasteText}` : ''
+  ].filter(Boolean).join('\n\n---\n\n');
+
+  const systemPrompt = buildContextSystemPrompt(selectedLangs, institution, speakers, roomLabel);
 
   try {
-    let result;
-    if (sourcePdfB64) {
-      result = await callClaudeWithPdf(apiKey, systemPrompt, sourcePdfB64);
-    } else {
-      result = await callClaudeWithSystem(apiKey, systemPrompt,
-        'Here is the source material:\n\n' + sourceText, 2000);
+    let results = [];
+    showProgress('context', 30, 'Sending to Claude…');
+
+    // Process text content (one call covers all text sources combined)
+    if (combinedText.trim()) {
+      const textResult = await callClaudeWithSystem(
+        apiKey, systemPrompt,
+        'Here is the source material:\n\n' + combinedText, 2000);
+      results.push(textResult);
     }
-    showProgress('context', 90, 'Rendering…');
+
+    // Process each PDF separately (Claude reads them natively)
+    for (let i = 0; i < pdfFiles.length; i++) {
+      showProgress('context', 30 + Math.round((i / pdfFiles.length) * 50),
+        `Processing PDF ${i + 1} of ${pdfFiles.length}…`);
+      const pdfResult = await callClaudeWithPdf(apiKey, systemPrompt, pdfFiles[i].content);
+      results.push(pdfResult);
+    }
+
+    showProgress('context', 85, 'Finalising…');
+
+    // If multiple results, do a final merge pass to deduplicate and enforce 5000 char limit
+    let finalResult;
+    if (results.length === 1) {
+      finalResult = results[0];
+    } else {
+      // Merge: ask Claude to deduplicate and reduce combined output
+      const mergePrompt = `You previously generated multiple context file sections from different source documents. 
+Merge the following sections into a single coherent context file. 
+Apply the same rules as before: plain text, no formatting, max 5,000 characters, no duplication, all proper nouns preserved.
+Keep the room/session label line if present at the start of any section.
+
+SECTIONS TO MERGE:
+${results.map((r,i) => `--- Section ${i+1} ---\n${r}`).join('\n\n')}`;
+      finalResult = await callClaudeWithSystem(apiKey, systemPrompt, mergePrompt, 2000);
+    }
+
+    showProgress('context', 95, 'Rendering…');
 
     const outputEl = document.getElementById('contextContent');
-    outputEl.textContent = result;
+    outputEl.textContent = finalResult;
     document.getElementById('contextOutput').style.display = 'block';
 
-    const charCount = result.length;
+    const charCount = finalResult.length;
     const charEl = document.getElementById('charCount');
     if (charCount > 5000) {
-      charEl.innerHTML = `⚠ ${charCount.toLocaleString()} characters — <strong>exceeds 5,000 limit.</strong> Ask Claude to reduce further, or manually trim before pasting into CMS.`;
+      charEl.innerHTML = `⚠ ${charCount.toLocaleString()} characters — <strong>exceeds 5,000 limit.</strong> Trim manually before pasting into CMS, or remove some source files and re-run.`;
       charEl.style.color = 'var(--warn)';
     } else {
       charEl.textContent = `${charCount.toLocaleString()} / 5,000 characters`;
@@ -1207,7 +1005,7 @@ async function generateContext() {
   btn.innerHTML = 'Generate context file';
 }
 
-function buildContextSystemPrompt(langs) {
+function buildContextSystemPrompt(langs, institution, speakers, roomLabel) {
   const langList = langs.join(', ');
   const langRule = langs.length === 1
     ? `The output must be in ${langs[0]}.
@@ -1219,6 +1017,23 @@ Proper nouns and short foreign expressions are always kept regardless of languag
 If entire paragraphs or sections appear in a language NOT in this list, remove them completely.
 If the same factual content appears duplicated across multiple languages from the list, keep only one version — whichever is most complete — and remove the duplicate.`;
 
+  // Build the names block for injection at top of output
+  const institutionLines = institution.split('\n').map(s => s.trim()).filter(Boolean);
+  const speakerLines     = speakers ? speakers.split('\n').map(s => s.trim()).filter(Boolean) : [];
+
+  const institutionSentence = institutionLines.length === 1
+    ? `The hosting institution is ${institutionLines[0]}.`
+    : `The hosting institution is known by several names: ${institutionLines.join(', ')}.`;
+
+  const speakerSentence = speakerLines.length === 0 ? ''
+    : speakerLines.length === 1
+    ? `The speaker is ${speakerLines[0]}.`
+    : `The speakers are ${speakerLines.slice(0, -1).join(', ')} and ${speakerLines[speakerLines.length - 1]}.`;
+
+  const roomLine = roomLabel ? `CONTEXT FILE — ${roomLabel}\n\n` : '';
+
+  const namesBlock = [institutionSentence, speakerSentence].filter(Boolean).join(' ');
+
   return `You are an Expert Text Curator for an AI-powered real-time translation system. Your sole task is to take the provided raw text and extract only the essential, factual context needed to help a live human translator or a machine translation engine understand the proper nouns, technical terms, and subject matter of a live event. This output is for the DeepL translation API context parameter.
 
 Speaker language(s): ${langList}
@@ -1226,7 +1041,11 @@ Speaker language(s): ${langList}
 Your task is to produce a clean context file for Nubart TRANSLATE, following these rules:
 
 0. OUTPUT FORMAT
-Return only the final text. Plain text with paragraph breaks only — no other formatting. NO titles. NO introductions. NO labels. NO quotes. Do not include any headers, footers, conversational framing (e.g. "Here is the cleaned file..."), numbering, bullet points, or any commentary before or after the resulting text.
+Return only the final text. Plain text with paragraph breaks only — no other formatting. NO titles. NO introductions. NO labels. NO quotes. Do not include any headers, footers, conversational framing, numbering, bullet points, or commentary before or after the text.
+${roomLabel ? `EXCEPTION: The very first line of your output must be exactly: CONTEXT FILE — ${roomLabel}\nFollowed by a blank line, then the names block, then the rest of the content.` : `Begin your output with the following names block exactly as written, then continue with the document-derived content:`}
+
+MANDATORY FIRST PARAGRAPH — copy this exactly, then continue:
+${roomLine}${namesBlock}
 
 1. LANGUAGE
 ${langRule}
@@ -1243,13 +1062,16 @@ Do not invent information.
 If information appears in alt-text or URLs and is clearly reliable (e.g. an event date), you may keep it.
 Retain all unique proper nouns, technical terms, facts, dates, and event-specific details. Do not remove unique context.
 Rewrite complex sentences and long run-on sentences into two or more simpler, declarative sentences for live translation engine digestibility. Do not add new information or infer beyond what is explicitly stated.
-Convert lists and structured data (speaker rosters, schedules, etc.) into natural sentences rather than preserving list formatting.
+Convert lists and structured data (speaker rosters, schedules, etc.) into natural sentences.
+PROTECTED NAMES — these must NEVER be removed or altered during any reduction step:
+  Institution/venue: ${institutionLines.join(', ')}
+  ${speakerLines.length > 0 ? 'Speakers: ' + speakerLines.join(', ') : ''}
 
 4. LENGTH CONSTRAINT (MAXIMUM 5,000 CHARACTERS)
 If the text is over 5,000 characters, apply the following reduction steps in order, stopping the moment the text is below 5,000 characters:
-Step A — Redundancy Reduction: Remove or merge highly repetitive phrases, sentences, or paragraphs that do not introduce a new fact or name. This is the primary method.
+Step A — Redundancy Reduction: Remove or merge highly repetitive phrases, sentences, or paragraphs that do not introduce a new fact or name.
 Step B — Non-Essential Detail Removal: Remove opinion/emotion adjectives (wonderful, amazing, prestigious) but keep factual descriptive adjectives (medieval, Italian, cardiac, digital).
-STRICTLY PROHIBITED: Do not omit any proper nouns, technical terms, unique dates, or event-specific facts. Do not summarise the core factual content.`;
+STRICTLY PROHIBITED: Do not omit any proper nouns, technical terms, unique dates, or event-specific facts. Do not summarise the core factual content. Never remove the protected names listed above.`;
 }
 
 /* ════════════════════════════════════════════
@@ -1351,7 +1173,7 @@ function toggleContextLang(el) {
   el.classList.toggle('selected');
 }
 
-function alert(type, msg) {
+function renderAlert(type, msg) {
   const icons = { error: '🚫', warn: '⚠️', info: 'ℹ️' };
   return `<div class="alert alert-${type === 'error' ? 'error' : type === 'warn' ? 'warn' : 'info'}">
     <span>${icons[type]}</span><div>${msg}</div></div>`;
