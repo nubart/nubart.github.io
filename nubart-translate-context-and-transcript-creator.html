@@ -77,12 +77,7 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
     <h3>Step 2 — Select output format</h3>
     <div class="format-grid">
       <label class="format-option selected">
-        <input type="radio" name="transcriptFormat" value="qc" checked>
-        <div class="fmt-name">🔬 Internal QC</div>
-        <div class="fmt-desc">Audio scores shown. Flags quality issues. Not for customers.</div>
-      </label>
-      <label class="format-option">
-        <input type="radio" name="transcriptFormat" value="source">
+        <input type="radio" name="transcriptFormat" value="source" checked>
         <div class="fmt-name">📝 Source language only</div>
         <div class="fmt-desc">Clean transcript of what was spoken. No translations.</div>
       </label>
@@ -95,6 +90,11 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
         <input type="radio" name="transcriptFormat" value="srt">
         <div class="fmt-name">🎬 SRT subtitles</div>
         <div class="fmt-desc">Standard .srt file for video publishing (YouTube etc.)</div>
+      </label>
+      <label class="format-option" style="border:2px solid #c0392b;">
+        <input type="radio" name="transcriptFormat" value="qc">
+        <div class="fmt-name">🔬 Internal QC</div>
+        <div class="fmt-desc">Audio scores shown. Flags quality issues. <strong style="color:#c0392b;">Not for customers.</strong></div>
       </label>
     </div>
 
