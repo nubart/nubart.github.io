@@ -358,7 +358,9 @@ let selectedSrtLang = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   // Restore API key
-  const saved = localStorage.getItem('nubart_api_keyclaude document.getElementById('apiKey').value = saved;
+  const saved = localStorage.getItem('nubart_api_key');
+  if (saved) {
+    document.getElementById('apiKey').value = saved;
     updateKeyStatus(saved);
   }
 
