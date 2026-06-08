@@ -358,9 +358,7 @@ let selectedSrtLang = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   // Restore API key
-  const saved = localStorage.getItem('nubart_api_key');
-  if (saved) {
-    document.getElementById('apiKey').value = saved;
+  const saved = localStorage.getItem('nubart_api_keyclaude document.getElementById('apiKey').value = saved;
     updateKeyStatus(saved);
   }
 
@@ -968,9 +966,10 @@ async function generateContext() {
       finalResult = results[0];
     } else {
       // Merge: ask Claude to deduplicate and reduce combined output
-      const mergePrompt = `You previously generated multiple context file sections from different source documents. 
-Merge the following sections into a single coherent context file. 
-Apply the same rules as before: plain text, no formatting, max 5,000 characters, no duplication, all proper nouns preserved.
+      const mergePrompt = `You previously generated multiple context file sections from different source documents.
+Merge the following sections into a single coherent context file.
+Apply the same rules as before: plain text, no formatting, no duplication, all proper nouns preserved.
+HARD LENGTH LIMIT: the merged output MUST be at or below 5,000 characters (including spaces and line breaks). This is an absolute ceiling, not a target — aim for 4,800 or fewer. If the combined sections exceed this, apply reduction Steps A, B and C from the rules (redundancy reduction, non-essential detail removal, compression) until you are at or below 4,800. Before returning, count the characters; if over 5,000, keep reducing. Never return text above 5,000 characters.
 Keep the room/session label line if present at the start of any section.
 
 SECTIONS TO MERGE:
@@ -1069,11 +1068,15 @@ PROTECTED NAMES — these must NEVER be removed or altered during any reduction 
   Institution/venue: ${institutionLines.join(', ')}
   ${speakerLines.length > 0 ? 'Speakers: ' + speakerLines.join(', ') : ''}
 
-4. LENGTH CONSTRAINT (MAXIMUM 5,000 CHARACTERS)
-If the text is over 5,000 characters, apply the following reduction steps in order, stopping the moment the text is below 5,000 characters:
+4. LENGTH CONSTRAINT (HARD LIMIT: 5,000 CHARACTERS — NON-NEGOTIABLE)
+The final output MUST be at or below 5,000 characters, including the names block, spaces, and line breaks. This is an absolute ceiling, not a target. To stay safely inside it, aim for 4,800 characters or fewer.
+If the draft exceeds this, apply the following reduction steps in order, and DO NOT STOP reducing until the text is at or below 4,800 characters:
 Step A — Redundancy Reduction: Remove or merge highly repetitive phrases, sentences, or paragraphs that do not introduce a new fact or name.
 Step B — Non-Essential Detail Removal: Remove opinion/emotion adjectives (wonderful, amazing, prestigious) but keep factual descriptive adjectives (medieval, Italian, cardiac, digital).
-STRICTLY PROHIBITED: Do not omit any proper nouns, technical terms, unique dates, or event-specific facts. Do not summarise the core factual content. Never remove the protected names listed above.`;
+Step C — Compression: Tighten phrasing into the shortest possible declarative sentences. Drop background, narrative, and contextual prose that is not a proper noun, technical term, date, or event-specific fact. When many facts compete for limited space, prioritise proper nouns and terminology that a translation engine could mishandle over general descriptive content.
+STRICTLY PROHIBITED: Do not omit any proper nouns, technical terms, unique dates, or event-specific facts. Do not summarise away the core factual content. Never remove the protected names listed above.
+
+FINAL SELF-CHECK (MANDATORY): Before returning, count the characters of your full output. If it is over 5,000, you have NOT finished — continue applying Step C until it is at or below 4,800. Never return text above 5,000 characters under any circumstances.`;
 }
 
 /* ════════════════════════════════════════════
