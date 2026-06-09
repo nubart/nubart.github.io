@@ -570,11 +570,15 @@ async function generateTranscript() {
   const prompt = buildTranscriptPrompt(format, mergedData);
 
   try {
-    const result = await callClaude(apiKey, prompt, 8192);
+    // 16000 keeps a non-streaming request safely under HTTP timeouts while giving
+    // long events far more room than the old 8192 cap (which cut multi-hour events
+    // off mid-document). claude-sonnet-4-6 supports up to 64K, but that needs streaming.
+    const { text: result, stopReason } = await callClaude(apiKey, prompt, 16000);
     showProgress('transcript', 90, 'Rendering output…');
 
-    // Detect possible truncation
-    const truncated = result.trim().endsWith('…') || result.trim().endsWith('...');
+    // Authoritative truncation signal: the API sets stop_reason 'max_tokens' when the
+    // output hit the cap mid-generation (the old end-with-ellipsis guess missed this).
+    const truncated = stopReason === 'max_tokens';
 
     const outputEl = document.getElementById('transcriptContent');
     outputEl.textContent = result;
@@ -1111,7 +1115,10 @@ async function callClaude(apiKey, userContent, maxTokens = 8192) {
   }
 
   const data = await response.json();
-  return data.content.map(b => b.text || '').join('');
+  return {
+    text: data.content.map(b => b.text || '').join(''),
+    stopReason: data.stop_reason   // 'end_turn' (complete) | 'max_tokens' (truncated) | …
+  };
 }
 
 // System + user message call (context prep text mode)
