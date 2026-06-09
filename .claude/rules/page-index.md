@@ -123,6 +123,17 @@
 - NL: (still pending)
 - PT-BR: (still pending)
 
+### How museums monetise a QR-code audio guide
+- EN: audio-guides/monetise-museum-audio-guide.html
+- DE: (still pending)
+- ES: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- JA: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+
 ### Why web-based audio guides give museums better visitor data than apps or devices
 - EN: audio-guides/pwa-for-visitor-insights.html
 - DE: de/audioguides/zur-datenerfassung-besucherstatistik.html

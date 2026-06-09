@@ -704,7 +704,7 @@ PROCESSING INSTRUCTIONS:
 
 3. LANGUAGE COVERAGE: Only include translation languages with at least 20 non-empty translation cells across the whole CSV.
 
-4. SPEAKER LABELS: If only one unique email in column C, omit speaker labels entirely. If two or more, show the speaker email only when the speaker changes.
+4. SPEAKER EMAIL (does NOT apply to SRT output): The speaker's email address (column C) must always appear in the transcript, as its own standalone line, exactly ONCE at the very beginning of the main transcript — even when there is only one speaker for the entire event. Then reprint it, once, ONLY at the exact point where the active speaker account changes from one utterance to the next. Keep every utterance in strict chronological order — NEVER reorder utterances to group a speaker's lines together. If the account later changes back to one used earlier, print that email again at that switch point. Never repeat the email on every utterance.
 
 ${isSrt ? `SRT FORMAT RULES:
 - Number blocks sequentially from 1
@@ -723,16 +723,17 @@ ${isInternal ? '— INTERNAL QUALITY CONTROL — NOT FOR DISTRIBUTION' : ''}
 Date(s): ${datesStr}
 Source language(s): [list]
 Translation language(s): [list — omit for source-only format]
-Speaker accounts: [list all unique emails — omit if single speaker]
+Speaker accounts: [list all unique emails in column C]
 
 MAIN TRANSCRIPT:
+Open the main transcript with a standalone line — Speaker: [email of the first speaker] — per rule 4.
 For each Event session: open with session header (date, start time, approx duration).
 For each utterance:
-  [Speaker: email] (only when speaker changes; omit if single speaker)
   ${isInternal ? '[MM:SS] [Score: X]' : '[MM:SS]'} — relative time from session start
   [LANG CODE]  transcribed text
   ${isSource ? '' : '→ [TARGET LANG]  translated text\n  (skip if same language as source)'}
   ${isInternal ? '(score below 70: add brief quality impact note)' : '(score below 50: flag as low audio quality — score: X)'}
+When the speaker account (column C) changes between two consecutive utterances, insert a standalone line — Speaker: [new email] — immediately before the first utterance of the new account (rule 4). Do not repeat the email otherwise.
 
 SESSION LOG (final section, all sessions across all dates):
 Table: Session | Date | Start | End | Duration | Avg. Quality | Speaker(s) | Type
@@ -1246,6 +1247,38 @@ async function downloadTranscript() {
   const { Document, Packer, Paragraph, TextRun, HeadingLevel } = docx;
   const title = document.getElementById('transcriptOutputLabel').textContent || 'Transcript';
 
+  // Convert inline markdown (**bold**, *italic*, `code`) within a line into styled TextRuns,
+  // so the markers themselves never appear literally in the Word document.
+  const inlineRuns = (str) => {
+    const runs = [];
+    const re = /\*\*\*([^*]+)\*\*\*|\*\*([^*]+)\*\*|\*([^*]+)\*|__([^_]+)__|_([^_]+)_|`([^`]+)`/g;
+    let last = 0, m;
+    while ((m = re.exec(str)) !== null) {
+      if (m.index > last) runs.push(new TextRun(str.slice(last, m.index)));
+      if (m[1] !== undefined)      runs.push(new TextRun({ text: m[1], bold: true, italics: true }));
+      else if (m[2] !== undefined) runs.push(new TextRun({ text: m[2], bold: true }));
+      else if (m[3] !== undefined) runs.push(new TextRun({ text: m[3], italics: true }));
+      else if (m[4] !== undefined) runs.push(new TextRun({ text: m[4], bold: true }));
+      else if (m[5] !== undefined) runs.push(new TextRun({ text: m[5], italics: true }));
+      else if (m[6] !== undefined) runs.push(new TextRun({ text: m[6], font: 'Consolas' }));
+      last = re.lastIndex;
+    }
+    if (last < str.length) runs.push(new TextRun(str.slice(last)));
+    return runs.length ? runs : [ new TextRun(str) ];
+  };
+
+  // Convert a single line into a Paragraph, honouring markdown block syntax (headings, bullets, rules).
+  const headingLevels = [HeadingLevel.HEADING_2, HeadingLevel.HEADING_3, HeadingLevel.HEADING_4,
+                         HeadingLevel.HEADING_5, HeadingLevel.HEADING_6, HeadingLevel.HEADING_6];
+  const lineToParagraph = (line) => {
+    if (/^\s*([-*_])\1{2,}\s*$/.test(line)) return new Paragraph({ text: '' });      // horizontal rule
+    const h = line.match(/^\s*(#{1,6})\s+(.*)$/);                                     // # heading
+    if (h) return new Paragraph({ heading: headingLevels[h[1].length - 1], children: inlineRuns(h[2]) });
+    const b = line.match(/^\s*[-*+]\s+(.*)$/);                                        // - bullet
+    if (b) return new Paragraph({ bullet: { level: 0 }, children: inlineRuns(b[1]) });
+    return new Paragraph({ children: inlineRuns(line) });
+  };
+
   const children = [
     new Paragraph({ text: title, heading: HeadingLevel.HEADING_1 }),
     new Paragraph({ children: [ new TextRun({ text: `Event date(s): ${eventDates.join(', ')}`, italics: true, color: '666666' }) ] }),
@@ -1253,7 +1286,7 @@ async function downloadTranscript() {
   ];
   // Preserve the transcript's line structure: one paragraph per line, blanks kept as spacing.
   text.split('\n').forEach(line => {
-    children.push(new Paragraph({ children: [ new TextRun(line) ] }));
+    children.push(lineToParagraph(line));
   });
 
   const doc = new Document({
