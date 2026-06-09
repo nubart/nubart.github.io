@@ -26,6 +26,8 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
 
   <!-- mammoth.js for .docx parsing -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.11.0/mammoth.browser.min.js"></script>
+  <!-- docx.js (vendored locally) for generating editable Word transcripts -->
+  <script src="/assets/js/docx-9.7.1.umd.js"></script>
 
   <link rel="stylesheet" href="/assets/css/internal-tools.css">
 </head>
@@ -583,6 +585,10 @@ async function generateTranscript() {
       format === 'source' ? 'Transcript (source language)' : 'Multilingual transcript';
     document.getElementById('transcriptOutputLabel').textContent = formatLabel;
 
+    // Reflect the download artifact in the button label
+    document.getElementById('downloadTranscriptBtn').innerHTML =
+      format === 'srt' ? '⬇ Download .srt' : '⬇ Download Word (.docx)';
+
     // SRT timing notice
     if (format === 'srt') {
       const notice = document.createElement('div');
@@ -600,9 +606,6 @@ async function generateTranscript() {
       warn.innerHTML = `<span>⚠️</span><div><strong>Output may be truncated.</strong> This event's transcript is very long. The output limit has been reached. Consider splitting the CSV by date and processing each date separately, then combining the results.</div>`;
       document.getElementById('transcriptOutput').insertAdjacentElement('afterend', warn);
     }
-
-    // Set download extension
-    document.getElementById('downloadTranscriptBtn').dataset.ext = format === 'srt' ? 'srt' : 'txt';
 
     showProgress('transcript', 100, 'Done.');
     setTimeout(() => { document.getElementById('transcriptProgress').style.display = 'none'; }, 1500);
@@ -1214,16 +1217,52 @@ function copyOutput(contentId) {
   });
 }
 
-function downloadTranscript() {
-  const text = document.getElementById('transcriptContent').textContent;
-  const ext = document.getElementById('downloadTranscriptBtn').dataset.ext || 'txt';
-  const format = document.querySelector('input[name="transcriptFormat"]:checked').value;
-  const filename = `nubart-transcript-${format}-${eventDates[0] || 'event'}.${ext}`;
-  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+function triggerDownload(blob, filename) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url; a.download = filename; a.click();
   URL.revokeObjectURL(url);
+}
+
+async function downloadTranscript() {
+  const text = document.getElementById('transcriptContent').textContent;
+  const format = document.querySelector('input[name="transcriptFormat"]:checked').value;
+  const dateLabel = eventDates[0] || 'event';
+  const base = `nubart-transcript-${format}-${dateLabel}`;
+
+  // Subtitles stay a plain .srt file — that's the correct artifact for SRT.
+  if (format === 'srt') {
+    triggerDownload(new Blob([text], { type: 'text/plain;charset=utf-8' }), `${base}.srt`);
+    return;
+  }
+
+  // All other transcript formats download as an editable Word document.
+  // Fall back to .txt if the docx library failed to load (e.g. offline).
+  if (typeof docx === 'undefined') {
+    triggerDownload(new Blob([text], { type: 'text/plain;charset=utf-8' }), `${base}.txt`);
+    return;
+  }
+
+  const { Document, Packer, Paragraph, TextRun, HeadingLevel } = docx;
+  const title = document.getElementById('transcriptOutputLabel').textContent || 'Transcript';
+
+  const children = [
+    new Paragraph({ text: title, heading: HeadingLevel.HEADING_1 }),
+    new Paragraph({ children: [ new TextRun({ text: `Event date(s): ${eventDates.join(', ')}`, italics: true, color: '666666' }) ] }),
+    new Paragraph({ text: '' })
+  ];
+  // Preserve the transcript's line structure: one paragraph per line, blanks kept as spacing.
+  text.split('\n').forEach(line => {
+    children.push(new Paragraph({ children: [ new TextRun(line) ] }));
+  });
+
+  const doc = new Document({
+    styles: { default: { document: { run: { font: 'Calibri', size: 22 } } } }, // 22 half-points = 11pt
+    sections: [{ children }]
+  });
+
+  const blob = await Packer.toBlob(doc);
+  triggerDownload(blob, `${base}.docx`);
 }
 </script>
 </body>

@@ -734,6 +734,70 @@ section {
     color: #026e6d;
 }
 
+/* Buttons inside blog articles must keep their own Bootstrap colours,
+   not inherit the blog link colour (which made text unreadable). */
+.nubart-blog a.btn {
+    color: var(--bs-btn-color);
+}
+
+.nubart-blog a.btn:hover,
+.nubart-blog a.btn:focus {
+    color: var(--bs-btn-hover-color);
+}
+
+/* Take-up comparison tables — rounded card, prominent figures */
+.nubart-blog .takeup-table {
+    border: 1px solid #d8e6e3;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(1, 106, 108, .06), 0 8px 24px rgba(1, 106, 108, .08);
+}
+
+.nubart-blog .takeup-table table {
+    margin-bottom: 0;
+}
+
+.nubart-blog .takeup-table thead th {
+    border: none;
+    padding: 14px 18px;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.nubart-blog .takeup-table td {
+    padding: 14px 18px;
+    vertical-align: middle;
+}
+
+.nubart-blog .takeup-table .tu-label {
+    font-weight: 600;
+    color: #0f2e2e;
+}
+
+.nubart-blog .takeup-table .tu-sub {
+    display: block;
+    font-size: 0.82em;
+    color: #6c757d;
+    margin-top: 2px;
+}
+
+.nubart-blog .takeup-table .tu-value {
+    font-weight: 700;
+    font-size: 1.7rem;
+    line-height: 1;
+    color: #028a8c;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.nubart-blog .takeup-table .tu-win td {
+    background-color: #e8fbf5;
+}
+
+.nubart-blog .takeup-table .tu-win .tu-value {
+    color: #016a6c;
+}
+
 /*--------------------------------------------------------------
 # Make secondary navigation bar in the upper menu sticky with primary navigation bar
 --------------------------------------------------------------*/
