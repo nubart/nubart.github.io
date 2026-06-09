@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <!-- Structured Data: Article -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "@id": "https://www.nubart.eu/es/audioguias/cobrar-audioguia-codigo-qr.html#article",
+            "headline": "Cómo monetizan los museos una audioguía con código QR",
+            "description": "No todos los sistemas de audioguía por QR pueden venderse. Descubra qué necesita un museo para cobrar por una audioguía móvil, qué precios funcionan mejor y qué porcentaje de visitantes suele adquirirla.",
+            "proficiencyLevel": "Intermediate",
+            "inLanguage": "es",
+            "image": [
+                "https://www.nubart.eu/assets/img/blog/cover-nubart-museum-monetisation.webp"
+            ],
+            "author": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
+            },
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
+            },
+            "datePublished": "2026-06-09",
+            "dateModified": "2026-06-09",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/es/audioguias/cobrar-audioguia-codigo-qr.html"
+            },
+            "isPartOf": {
+                "@id": "https://www.nubart.eu/es/blog/#blog"
+            },
+            "translationOfWork": {
+                "@id": "https://www.nubart.eu/audio-guides/monetise-museum-audio-guide.html#article"
+            },
+            "keywords": [
+                "monetizar audioguía de museo",
+                "cobrar por audioguía",
+                "ingresos audioguía con código QR",
+                "código QR no transferible",
+                "LWAC",
+                "tasa de adopción audioguía"
+            ],
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Aplicación web progresiva",
+                    "sameAs": "https://es.wikipedia.org/wiki/Aplicaci%C3%B3n_web_progresiva"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Monetización de museos"
+                }
+            ],
+            "articleSection": [
+                "Por qué no se puede vender detrás de un código QR público",
+                "Lightweight Web Access Control (LWAC)",
+                "Modelos de negocio",
+                "Tasas de adopción",
+                "Precios y umbral de rentabilidad",
+                "Análisis de visitantes"
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Puedo cobrar a los visitantes por un código QR colocado en una pared o un cartel?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No de forma fiable. Un código QR público puede fotografiarse y compartirse, por lo que cualquiera puede usarlo gratis. Para vender una audioguía con código QR necesita un mecanismo de control de acceso, por ejemplo una tarjeta no transferible, de modo que el enlace solo funcione para el visitante que ha pagado."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Cómo puede un museo monetizar una audioguía digital?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Los modelos habituales son: vender las tarjetas por separado (comprar a 1 euro, fijar su propio precio y quedarse con el margen); incluir una tarjeta con cada entrada y recuperar el coste en el precio del billete; o un reparto de ingresos facturado mensualmente. Vender la guía directamente requiere un acceso no transferible."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Se puede hacer que un código QR sea no transferible?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sí. El Lightweight Web Access Control (LWAC) de Nubart, patentado en la UE, España y EE. UU., hace que el código QR de una tarjeta sea utilizable por su titular pero inservible si se reenvía, sin necesidad de aplicación, inicio de sesión ni registro personal."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Qué porcentaje de visitantes paga por una audioguía?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Con una guía de pago, un dispositivo de alquiler tradicional alcanza alrededor del 3 % de los visitantes, mientras que las tarjetas vendidas por separado de Nubart promedian alrededor del 5,6 %. Cuando la guía es gratuita e incluida con la entrada, una tarjeta de Nubart alcanza aproximadamente al 12 % de los visitantes, frente a cerca del 2,5 % de una aplicación nativa."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Cuál es un buen precio para una tarjeta de audioguía de museo?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Los museos fijan su propio precio, lo más habitual entre 2 y 3 euros. En las instalaciones de Nubart la adopción se mantiene bien entre 1 y 3 euros y cae notablemente a 5 euros."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Es justo que un museo financiado con fondos públicos cobre por una audioguía digital?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Un pequeño cargo opcional permite que los visitantes que utilizan la guía contribuyan a financiarla, en lugar de que todo el coste recaiga sobre los contribuyentes que quizá nunca la visiten. Muchos museos financiados con fondos públicos lo utilizan para recuperar costes, no para obtener beneficios."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Necesitan los visitantes descargar una aplicación?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Nubart GUIDE funciona como una aplicación web progresiva en el navegador del teléfono. Los visitantes escanean la tarjeta y escuchan, sin descargas y sin cuenta."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: HowTo -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "Cómo monetizar una audioguía de museo",
+            "step": [
+                { "@type": "HowToStep", "name": "Elija un modelo", "text": "Decida si vender las tarjetas por separado o incluirlas con la entrada." },
+                { "@type": "HowToStep", "name": "Cree el contenido", "text": "Proporcione el contenido de audio y multimedia de su guía." },
+                { "@type": "HowToStep", "name": "Reciba las tarjetas", "text": "Nubart entrega tarjetas QR no transferibles y reutilizables (LWAC)." },
+                { "@type": "HowToStep", "name": "Entréguelas a los visitantes", "text": "Venda las tarjetas en el mostrador o entregue una a cada visitante de pago." },
+                { "@type": "HowToStep", "name": "Analice el uso", "text": "Haga seguimiento de la adopción y el comportamiento de los visitantes mediante análisis conformes al RGPD." }
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: Breadcrumbs -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/es/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Nubart GUIDE - audioguías PWA con código QR",
+                    "item": "https://www.nubart.eu/es/audioguias.html"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Cómo monetizan los museos una audioguía con código QR",
+                    "item": "https://www.nubart.eu/es/audioguias/cobrar-audioguia-codigo-qr.html"
+                }
+            ]
+        }
+    </script>
+
+    <!-- End Structured data -->
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+    </script>
+
+    <!-- 2. Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css"/>
+
+    <!-- 3. Cookie consent config (MOVED HERE) -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+
+    <title>¿Se puede cobrar por una audioguía con código QR?</title>
+    <meta name="description"
+          content="No todos los sistemas de audioguía por QR pueden venderse. Descubra qué necesita un museo para cobrar por una audioguía móvil, qué precios funcionan mejor y qué porcentaje de visitantes suele adquirirla."/>
+    <meta name="author" content="Nubart"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="¿Se puede cobrar por una audioguía con código QR?"/>
+    <meta name="twitter:description"
+          content="No todos los sistemas de audioguía por QR pueden venderse. Descubra qué necesita un museo para cobrar por una audioguía móvil, qué precios funcionan mejor y qué porcentaje de visitantes suele adquirirla."/>
+    <meta name="twitter:site" content="@NubartEN"/>
+    <meta name="twitter:creator" content="@NubartEN"/>
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-nubart-museum-monetisation.webp"/>
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/es/audioguias/cobrar-audioguia-codigo-qr.html"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/monetise-museum-audio-guide.html"
+          hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/monetise-museum-audio-guide.html"
+          hreflang="en-gb"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/monetise-museum-audio-guide.html"
+          hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/monetise-museum-audio-guide.html"
+          hreflang="en-us"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/qr-code-audioguide-kostenpflichtig-anbieten.html"
+          hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/qr-code-audioguide-kostenpflichtig-anbieten.html"
+          hreflang="de-ch"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/audioguias/cobrar-audioguia-codigo-qr.html"
+          hreflang="es"/>
+
+
+    <!-- OpenGraph for LinkedIn -->
+
+    <meta property="og:title"
+          content="¿Se puede cobrar por una audioguía con código QR?"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-nubart-museum-monetisation.webp"/>
+    <meta property="og:author" content="Nubart International"/>
+    <meta property="og:description"
+          content="No todos los sistemas de audioguía por QR pueden venderse. Descubra qué necesita un museo para cobrar por una audioguía móvil, qué precios funcionan mejor y qué porcentaje de visitantes suele adquirirla."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://www.nubart.eu/es/audioguias/cobrar-audioguia-codigo-qr.html"/>
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png"/>
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <!-- ./Icons -->
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet"/>
+
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet"/>
+
+
+    <link href="../../assets/css/custom.css" rel="stylesheet"/>
+    <link href="../../assets/css/zoho-lightbox.css" rel="stylesheet">
+    <link href="../../assets/css/breakeven-calculator-nubart-guide.css" rel="stylesheet">
+
+
+    <!-- =======================================================
+    * Template Name: Dewi - v4.6.0
+    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="../" class="logo"> <img src="../../assets/img/logo.png" alt="logo de Nubart" class="img-fluid">
+            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li>
+                                <a href="../audioguias.html">
+                                    <i class="bi bi-headphones product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART GUIDE</span>
+                                        <span class="product-description">Audioguías multimedia vía código QR (PWA)</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a href="../sistema-guiado-grupos/">
+                                    <i class="bi bi-headset product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART LIVE</span>
+                                        <span class="product-description">Sistema de guiado de grupos con traducción por IA</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../tours-barcos-buses.html">
+                                    <i class="bi bi-bus-front-fill product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">Nubart MOTION</span>
+                                        <span class="product-description">Audioguía automatizada para vehículos turísticos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../traduccion-simultanea-ia/">
+                                    <i class="bi bi-translate product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART TRANSLATE</span>
+                                        <span class="product-description">Traducción simultánea por IA para eventos y conferencias</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../gamificacion-juego-audioguia.html">
+                                    <i class="bi bi-controller product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART GAME</span>
+                                        <span class="product-description">Juego de realidad aumentada y preguntas para audioguía</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a href="https://nubart-sync.com/es/">
+                                    <i class="bi bi-person-video3 product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART SYNC</span>
+                                        <span class="product-description">Sonido multilingüe perfectamente sincronizado vía QR para pantallas de vídeo</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" href="../clientes-proyectos.html">Clientes</a></li>
+                    <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Contacto</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../quienes-somos.html">Quiénes somos</a></li>
+                            <li><a href="../contacto.html">Contacto</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="d-flex">
+                        <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                           href="https://www.nub.art/customer/login">
+                            <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                    </li>
+
+                    <li class="dropdown d-none d-md-block">
+                        <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../../">English</a></li>
+                            <li><a href="../../de/">Deutsch</a></li>
+                            <li><a href="../../fr/">Français</a></li>
+                            <li><a href="../../pt-br/">Português</a></li>
+                            <li><a href="../../nl/">Nederlands</a></li>
+                            <li><a href="../../it/">Italiano</a></li>
+                            <li><a href="../../pl/">Polski</a></li>
+                            <li><a href="../../bg/">български</a></li>
+                            <li><a href="../../he/">עִברִית</a></li>
+                            <li><a href="../../ja/">日本語</a></li>
+                        </ul>
+                    </li>
+                    <!-- Mobile-only secondary menu items -->
+                    <li class="mobile-secondary-menu-divider d-md-none">
+                        <hr>
+                    </li>
+                    <li class="mobile-secondary-header d-md-none" style="color: #028a8c;"><i
+                            class="bi bi-headphones product-icon"></i>&nbsp<span>NUBART GUIDE</span></li>
+                    <li class="dropdown d-md-none">
+                        <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../produccion-contenido.html">Nuestro proceso de producción</a></li>
+                            <li><a href="../materiales.html">Qué necesitamos para producir tu audioguía</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="d-md-none">
+                        <a href="#" onclick="ZohoLightbox.open(); return false;"
+                           class="scrollto">Solicita una muestra</a>
+                    </li>
+
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </div>
+</header><!-- End Header -->
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <i class="bi bi-headphones"></i>&nbsp;&nbsp;
+                    <b>NUBART GUIDE:</b>
+                </div>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Casos de uso</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../audioguias.html">Museos</a></li>
+                            <li><a href="../audioguia-zoos.html">Zoos</a></li>
+
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;"><a href="../audioguia-multimedia.html">Elementos multimedia</a></li>
+                    <li style="margin-right: 22px;" class="dropdown">
+                        <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../produccion-contenido.html">Nuestro proceso de producción</a></li>
+                            <li><a href="../materiales.html">Qué necesitamos para producir tu audioguía</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li style="margin-right: 30px;"><a class="getstarted scrollto"
+                                                       href="#" onclick="ZohoLightbox.open(); return false;">Solicita
+                        un presupuesto</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="d-md-none" style="height: 60px;"></div>
+<section class="breadcrumbs d-none d-md-block">
+    <div class="container">
+        <ol>
+            <li><a href="../">Inicio</a></li>
+            <li><a href="../audioguias.html">Nubart GUIDE</a></li>
+            <li>Cómo monetizan los museos una audioguía con código QR</li>
+        </ol>
+    </div>
+</section><!-- End Breadcrumbs -->
+<main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div style="align-items:top;">
+
+                        <img src="../../assets/img/team/nubart-profile.webp" class="img-thumbnail rounded-circle d-none d-lg-block"
+                             style="margin-right:30px;" width="45%" alt="Nubart">
+
+                    </div>
+                    <div>
+                        <h4 class="fs-5">Equipo de Nubart</h4>
+                        <p class="nubart-blog-author">Desarrollo de negocio</p>
+
+                    </div>
+                </div>
+                <div class="col-md-8 nubart-blog">
+
+    <h1>Cómo monetizan los museos una audioguía con código QR</h1>
+    <figure class="figure">
+        <img src="../../assets/img/blog/cover-nubart-museum-monetisation.webp" class="figure-img img-fluid rounded" alt="Tarjetas QR de Nubart GUIDE que un museo puede vender o incluir en el precio de la entrada" />
+
+        <figcaption class="figure-caption text-center">Una tarjeta QR no transferible funciona como una entrada: el museo puede venderla por separado o incluirla en el precio de la entrada.</figcaption>
+    </figure>
+    <p class="lead">Existen varias formas en que un museo puede obtener ingresos a partir de una audioguía digital; sin embargo, para <em>vender</em> directamente una audioguía con código QR, hay un requisito innegociable: el acceso debe ser <strong>intransferible</strong>. Un código QR público puede compartirse infinitamente, por lo que no puede venderse. Nubart GUIDE utiliza un método patentado, <strong>Lightweight Web Access Control (LWAC)</strong>, que hace que el código QR de cada tarjeta sea intransferible, pero reutilizable por su legítimo propietario; de este modo, la guía puede venderse por visitante o incluirse en el precio de la entrada, como una entrada.</p>
+
+    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+
+
+    <nav aria-label="Índice">
+        <h2>Índice</h2>
+        <ul class="list-unstyled mb-0">
+            <li><a href="#options">¿Cuáles son los modelos de negocio?</a></li>
+
+            <li><a href="#why-public-qr">Por qué no se puede vender detrás de un código QR público</a></li>
+            <li><a href="#lwac">Cómo LWAC hace que la guía sea intransferible y vendible</a></li>
+            <li><a href="#two-models">Dos modelos de negocio para la guía</a></li>
+
+            <li><a href="#take-up">¿Qué nivel de aceptación puede esperar?</a></li>
+            <li><a href="#pricing">¿Cuánto cobrar por una tarjeta de audioguía?</a></li>
+            <li><a href="#free-admission">Para museos financiados con fondos públicos y de entrada gratuita</a></li>
+
+            <li><a href="#beyond-revenue">Los ingresos son solo una parte del valor</a></li>
+            <li><a href="#how-nubart-supports">Cómo Nubart da soporte a ambos modelos</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="options">¿Qué modelos de negocio existen para las audioguías de pago para smartphone?</h2>
+    <p>Antes de elegir un proveedor, resulta útil conocer los distintos modelos de negocio que los museos utilizan realmente para cobrar por una audioguía para smartphone, ya sea que funcione en el navegador o como una aplicación. Cada uno tiene sus ventajas e inconvenientes.</p>
+    <p><strong>1 · Aplicación nativa con compras dentro de la aplicación.</strong> El museo publica una aplicación y los visitantes pagan desde ella. Puede ofrecer numerosas funciones, pero la mayoría de los visitantes nunca descargan la aplicación —la tasa de adopción suele rondar el 2-3 %— y una aplicación implica un desarrollo continuo, aprobaciones de la tienda de aplicaciones y actualizaciones.</p>
+    <p><strong>2 · Código de acceso impreso en la entrada.</strong> Un código en la entrada permite desbloquear la guía. Vincula el acceso a una entrada de pago, pero los visitantes tienen que introducir el código, y un código impreso puede ser fotografiado y reutilizado a menos que sea de un solo uso y se realice un seguimiento.</p>
+    <p><strong>3 · Código QR público más un código de desbloqueo de pago.</strong> Un código QR en un cartel dirige a los visitantes a la guía, que a continuación solicita un código adquirido en el mostrador. No hay aplicación, pero se acumulan las dificultades —una segunda cola, un código que introducir, errores tipográficos, barreras lingüísticas— y el propio código QR público sigue pudiendo compartirse.</p>
+    <p><strong>4 · Tarjetas QR intransferibles.</strong> Cada visitante recibe una tarjeta cuyo código QR solo funciona para su titular: no hay que introducir ningún código ni se necesita ninguna aplicación. Funciona como una entrada: se puede vender, su propietario puede reutilizarla y es lo más sencillo de entregar en el mostrador. Este es el modelo que utiliza Nubart GUIDE, a través de LWAC.</p>
+    <p>Para <em>vender</em> la guía, los métodos que se basan en un enlace público suponen una pérdida de ingresos. Cuanto más se parezca el acceso a una entrada, más fiable será el cobro. El resto de esta guía se centra en ese modelo, pero los puntos de referencia de adopción que se indican más adelante son útiles para estimar los ingresos, independientemente del proveedor o método que elija.</p>
+
+    <h2 id="why-public-qr">Por qué no se puede vender una guía detrás de un código QR público</h2>
+    <p>La mayoría de las audioguías con código QR son simplemente un enlace. Cualquiera puede hacer una captura de pantalla del enlace, reenviarlo y reutilizarlo en cualquier lugar, por lo que no hay nada que vender. Para cobrar por ello, es necesario controlar quién tiene acceso.</p>
+    <p>Piénselo de esta manera: un código QR público se comporta como un <strong>folleto</strong>: una vez que alguien tiene el enlace, puede copiarse infinitamente. Una tarjeta QR no transferible se comporta como una <strong>entrada</strong>: solo funciona para la persona que la tiene en su poder.</p>
+    <p>Algunos proveedores recurren a una solución rudimentaria: tras escanear el código QR, el visitante debe introducir un código de desbloqueo de pago obtenido en la taquilla. Técnicamente funciona, pero añade complicaciones precisamente en el momento menos oportuno —una segunda cola, un código que introducir, errores tipográficos, barreras lingüísticas— y causa una mala primera impresión de la visita.</p>
+    <p>Nubart opta por un enfoque diferente: <strong>la propia tarjeta es la clave.</strong> El visitante la escanea y escucha: sin códigos que introducir, sin aplicaciones que instalar, sin necesidad de registrarse. El acceso es intransferible, pero el propietario legítimo puede reutilizarla sin límite.</p>
+
+    <h2 id="lwac">Cómo LWAC hace que la guía sea intransferible y vendible</h2>
+    <p>Lightweight Web Access Control es el método patentado de Nubart para hacer que un enlace web se comporte como un ticket: utilizable por su titular, sin valor para cualquiera a quien se reenvíe. Funciona como una aplicación web progresiva en el propio teléfono del visitante: sin descargas, sin registrarse, sin necesidad de datos personales. </p>
+    <p><span class="badge bg-success fs-6">Patentado en la UE, España y EE. UU. — concedido</span></p>
+
+    <h2 id="two-models">Dos modelos de negocio para la guía</h2>
+    <p>Estos son los dos modelos de negocio que los museos utilizan con mayor frecuencia para monetizar una audioguía digital.</p>
+    <h3>1 · Vender las tarjetas por separado</h3>
+    <p>Ofrecer las tarjetas a la venta en el mostrador o en la tienda. Nubart suministra las tarjetas a <strong>1 € cada una</strong>, tras una cuota única de configuración y un pedido inicial; el museo fija su propio precio de venta —normalmente entre 2 y 3 €— y se queda con el margen. No hay suscripción: se repone a medida que se vende. Si prefiere no comprar las tarjetas por adelantado, las guías vendidas por separado también pueden funcionar mediante un reparto de ingresos, facturado mensualmente.</p>
+    <p class="text-muted"><em>Desde el punto de vista financiero: usted compra a 1 € y vende al precio que desee, quedándose con la diferencia —normalmente un margen de 1 a 2 € por tarjeta.</em></p>
+    <h3>2 · Inclúyalo con la entrada</h3>
+    <p>A cada visitante que paga se le ofrece una tarjeta, y su coste se recupera dentro del precio de la entrada. Esto proporciona el mayor alcance y el mayor compromiso, y funciona mediante una sencilla suscripción con reabastecimiento automático de tarjetas.</p>
+    <p class="text-muted"><em>Desde el punto de vista financiero: el coste de la tarjeta está incluido en el precio de la entrada, por lo que se recupera con cada entrada en lugar de venderse una por una.</em></p>
+
+    <h2 id="take-up">¿Qué nivel de aceptación puede esperar?</h2>
+    <p>La forma más honesta de comparar los formatos de audioguía es diferenciarlos según quién paga, ya que una guía gratuita y una de pago atraen a un número de usuarios muy diferente.</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-12 col-lg-10">
+            <div class="table-responsive takeup-table">
+                <table class="table mb-0">
+                    <thead>
+
+                    <tr>
+                        <th scope="col"><span class="d-inline-flex align-items-center gap-2"><i class="bi bi-gift-fill" style="color:#c9301e; font-size:1.6rem;"></i> Gratuita para el visitante</span></th>
+
+                        <th scope="col" class="text-end">Porcentaje de todos los visitantes<br>que utilizan la guía</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><span class="tu-label">Aplicación nativa del museo</span><span class="tu-sub">los visitantes deben buscarla y descargarla</span></td>
+                        <td class="text-end"><span class="tu-value">2,47 %</span></td>
+
+                    </tr>
+                    <tr>
+                        <td><span class="tu-label">Nubart QR (señalización)</span><span class="tu-sub">escaneado desde un cartel o póster</span></td>
+                        <td class="text-end"><span class="tu-value">≈10 %</span></td>
+
+                    </tr>
+                    <tr class="tu-win">
+                        <td><span class="tu-label">Tarjeta Nubart, incluida</span><span class="tu-sub">entregada al visitante para que la conserve</span></td>
+                        <td class="text-end"><span class="tu-value">≈12 %</span></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p>De los visitantes a los que se les ofrece una tarjeta junto con su entrada, aproximadamente una cuarta parte la acepta, y casi <strong>el 48 % de ellos la escucha activamente</strong>, lo que supone un alcance aproximado del 12 % entre todos los visitantes. Una tarjeta que se tiene en la mano y se lleva consigo tiene, sencillamente, más probabilidades de ser utilizada que una aplicación que la mayoría de los visitantes nunca descargan —un patrón confirmado por nuestro análisis, que muestra que <a href="../blog/tasa-adopcion-app-audioguia-para-museos.html">solo el 2,47 % de los visitantes descarga la aplicación nativa de un museo</a>— o un cartel por el que se pasa de largo una sola vez.</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-12 col-lg-10">
+
+            <div class="table-responsive takeup-table">
+                <table class="table mb-0">
+                    <thead>
+                    <tr>
+                        <th scope="col"><span class="d-inline-flex align-items-center gap-2"><i class="bi bi-cash-coin" style="color:#c9301e; font-size:1.6rem;"></i> Pagado por el visitante</span></th>
+                        <th scope="col" class="text-end">Porcentaje de todos los visitantes<br>que compran la guía</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td><span class="tu-label">Dispositivo de alquiler tradicional</span><span class="tu-sub">Museo Británico / estándar del sector</span></td>
+                        <td class="text-end"><span class="tu-value">≈3 %</span></td>
+                    </tr>
+                    <tr class="tu-win">
+
+                        <td><span class="tu-label">Tarjeta QR de Nubart, vendida por separado</span><span class="tu-sub">media entre los recintos</span></td>
+                        <td class="text-end"><span class="tu-value">5,61 %</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p>Un <a href="https://mw2015.museumsandtheweb.com/paper/an-audio-state-of-mind-understanding-behviour-around-audio-guides-and-visitor-media/index.html" target="_blank" rel="noopener">estudio «Museums and the Web» de 2015, realizado por el personal del Museo Británico</a>, reveló que alrededor del 3 % de los visitantes se lleva la guía de la colección permanente, y que ese 3 % es la media del sector.
+        Las tarjetas QR de Nubart registran una media del 5,61 % —casi el doble— y, a diferencia de los dispositivos de alquiler, <strong>el 6,84 % de los usuarios de las tarjetas vuelven a consultar la guía al menos 12 horas después de su visita</strong>, lo que amplía el alcance educativo del museo más allá de sus instalaciones.</p>
+
+    <div class="summary-block">
+        <strong>Acerca de las cifras:</strong> estas cifras proceden de instalaciones de Nubart en museos europeos e internacionales y son deliberadamente conservadoras. Los recuentos de visitantes comunicados suelen incluir a quienes solo visitan la cafetería y a los niños con entrada gratuita que nunca se llevarían una guía, por lo que el alcance real es, en todo caso, ligeramente superior.
+    </div>
+
+    <h2 id="pricing">¿Cuánto debería cobrar por una tarjeta de audioguía?</h2>
+    <p>Usted fija el precio, y el precio determina el número de visitantes que la compran. En nuestras instalaciones, la aceptación se mantiene bien entre 1 y 3 €, y según nuestra experiencia, cae drásticamente a partir de los 5 €, cuando la tarjeta empieza a parecer cara para ser un complemento. La calculadora que aparece a continuación estima la aceptación para el precio que elija, basándose en los datos de nuestras instalaciones (que actualizamos una vez al año), para que pueda ver cómo se relacionan entre sí el precio, la aceptación y los ingresos.</p>
+    <p><strong>Ejemplo práctico.</strong> Un museo con 80 000 visitantes al año, que vende tarjetas a 3 €, puede esperar vender aproximadamente 11 000 tarjetas y obtener unos ingresos brutos de unos 33 000 € al año. La inversión inicial de instalación y el pedido de lanzamiento (alrededor de 5850 €) suelen recuperarse en los primeros meses, tras lo cual la guía genera un superávit anual continuo.</p>
+
+    <div class="breakeven-calc">
+        <div class="bc-top">
+            <h3>Calculadora del umbral de rentabilidad</h3>
+            <p class="bc-sub">Para tarjetas vendidas por separado, además de la entrada. La estimación de la demanda varía en función del precio de venta que introduzca: el precio es uno de los factores que influye en el número de visitantes que compran, por lo que las cifras varían a medida que lo ajusta. </p>
+        </div>
+        <div class="bc-grid">
+            <div class="bc-in">
+                <div class="bc-field"><label for="visitors">Visitantes de pago al año</label><div class="bc-inp" ><input type="number" id="visitors" value="80000" min="0" step="1000"></div></div>
+                <div class="bc-field"><label for="price">Precio de venta por tarjeta <span class="bc-hint">— usted lo establece; determina la estimación de ventas</span></label><div class="bc-inp"><span class="bc-pre">€</span><input class="bc-pad" type="number" id="price" value="3.00" min="0" step="0.10"></div></div>
+                <div class="bc-field"><label for="content">Coste de su propio contenido <span class="bc-hint">— grabación, traducción, texto; déjelo en 0 si ya dispone de contenido</span></label><div class="bc-inp"><span class="bc-pre">€</span><input class="bc-pad" type="number" id="content" value="0" min="0" step="100"></div></div>
+
+            </div>
+            <div class="bc-out">
+                <div class="bc-hero"><div class="bc-l">Excedente del año 2 (por año)</div><div class="bc-b" id="r-ongoing">—</div></div>
+
+                <div class="bc-row"><span>Estimación de ventas a este precio</span><span class="bc-v" id="r-tu">—</span></div>
+                <div class="bc-row"><span>Tarjetas vendidas / año</span><span class="bc-v" id="r-cards">—</span></div>
+
+                <div class="bc-row"><span>Ingresos / año</span><span class="bc-v" id="r-rev">—</span></div>
+                <div class="bc-row"><span>Inversión inicial (única)</span><span class="bc-v" id="r-upfront">—</span></div>
+                <div class="bc-row"><span>Margen por tarjeta</span><span class="bc-v" id="r-margin">—</span></div>
+
+                <div class="bc-box" id="r-be">—</div>
+                <p class="bc-foot">La aceptación se estima a partir de las instalaciones de Nubart <em>para el precio que elija</em> y se actualiza una vez al año; la aceptación real también depende de su público y del entorno. La inversión única cubre la cuota de instalación y su pedido inicial de tarjetas.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <h2 id="free-admission">Para museos financiados con fondos públicos y de entrada gratuita</h2>
+    <p>Monetizar la guía no se trata solo de obtener beneficios, sino de garantizar la sostenibilidad y la equidad. Una pequeña tarjeta opcional permite que las personas que realmente utilizan la guía contribuyan a sufragarla, en lugar de que todo el coste recaiga sobre los contribuyentes que quizá nunca crucen la puerta del museo. Si se hace bien, la guía sigue siendo gratuita en el marco de su misión, al tiempo que se vuelve autosuficiente.</p>
+
+    <h2 id="beyond-revenue">Los ingresos son solo una parte del valor</h2>
+    <ul>
+        <li><strong>Análisis de visitantes</strong> — idiomas, tiempo de permanencia y patrones de comportamiento, conforme al RGPD y sin necesidad de registro personal. Vea <a href="../blog/como-obtener-datos-visitantes-museo.html">por qué una guía basada en la web proporciona a los museos mejores datos sobre los visitantes que las aplicaciones o los dispositivos</a>.</li>
+        <li><strong>Donaciones</strong> — la guía puede solicitar apoyo en el momento adecuado.</li>
+
+        <li><strong>Un recuerdo que sigue funcionando</strong> — la tarjeta es un recuerdo, y su uso posterior prolonga la relación educativa mucho después de la visita. Algunos museos incluso <a href="../blog/vender-audioguia-como-postal-en-tienda-museo.html">venden la audioguía en forma de postal en la tienda del museo</a>.</li>
+    </ul>
+
+    <h2 id="how-nubart-supports">Cómo Nubart da soporte a ambos modelos</h2>
+    <p>La venta de tarjetas por separado es de pago por uso: una cuota única de configuración, un pedido inicial de tarjetas y, a continuación, reponer a medida que se venden; o, si lo prefiere, un reparto de ingresos facturado mensualmente sin compra previa.
+        El modelo incluido funciona mediante una suscripción con reabastecimiento automático (sin necesidad de reponer). Nubart GUIDE es utilizado por unas 200 instituciones en los cinco continentes, desde bibliotecas nacionales y museos municipales hasta castillos, bodegas, cuevas y centros de ciencia.</p>
+
+    <div class="text-center my-5">
+        <p class="fs-5">Descúbralo para su museo: solicite un presupuesto o pida una tarjeta de muestra gratuita para probar la experiencia usted mismo.</p>
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+
+            <a class="btn btn-primary btn-lg text-white" href="#" onclick="ZohoLightbox.open(); return false;">Solicite un presupuesto</a>
+            <a class="btn btn-primary btn-lg text-white" href="./#samples">Solicite una muestra</a>
+        </div>
+    </div>
+
+    <p class="text-muted"><small>Fuente de la cifra de dispositivos alquilados: Mannion, Sabiescu y Robinson, «An audio state of mind», Museums and the Web 2015. Cifras de adopción de la aplicación y de Nubart: análisis interno de Nubart; las cifras de adopción son deliberadamente conservadoras.</small></p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlín<br>
+
+                            <strong>E-mail:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i
+                                    class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Enlaces útiles</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contacto.html">Contacto</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../aviso-legal.html" rel="nofollow">Aviso
+                            legal</a></li>
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="../condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de
+                                servicio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../politica-privacidad.html" rel="nofollow">Política
+                            de privacidad</a>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de
+                            cookies</a></li>
+
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a
+                                nuestro boletín de noticias</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. Todos los derechos reservados
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Critical JS Files -->
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+
+<!-- Non-Critical JS Files - Still deferred but loaded directly -->
+<script src="../../assets/vendor/aos/aos.js" defer></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../../assets/js/main-min.js" defer></script>
+
+<!-- Hubspot Analytics scripts with proper async loading -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async
+        src="//js.hs-scripts.com/2430134.js"></script>
+
+<!-- Break-even calculator -->
+<script src="../../assets/js/breakeven-calculator-nubart-guide-es.js" defer></script>
+
+<script type="module" src="/js/cookieconsent-config.js"></script>
+<!-- Zoho Forms Lightbox -->
+<script src="../../assets/js/zoho-lightbox.js" defer></script>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        ZohoLightbox.init("https://forms.zohopublic.eu/rosasala/form/NubartGUIDEQuotedeliverysystemNewform/formperma/jenSf-2G-aVy2Py21XbzZ5gRmLK_WcmRGz4DgxHZR9U?zf_lang=es");
+    });
+</script>
+</body>
+</html>
+
