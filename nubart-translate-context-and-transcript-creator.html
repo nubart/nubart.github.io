@@ -570,19 +570,24 @@ async function generateTranscript() {
   const prompt = buildTranscriptPrompt(format, mergedData);
 
   try {
-    // 16000 keeps a non-streaming request safely under HTTP timeouts while giving
-    // long events far more room than the old 8192 cap (which cut multi-hour events
-    // off mid-document). claude-sonnet-4-6 supports up to 64K, but that needs streaming.
-    const { text: result, stopReason } = await callClaude(apiKey, prompt, 16000);
+    // Show the output area and stream into it live. generateLongOutput uses 64K-token
+    // responses and auto-continues across the cap, so the transcript is delivered in
+    // full no matter how long the event is (no silent truncation at ~40 min anymore).
+    const outputEl = document.getElementById('transcriptContent');
+    outputEl.textContent = '';
+    document.getElementById('transcriptOutput').style.display = 'block';
+
+    const { text: result, stopReason } = await generateLongOutput(
+      apiKey, prompt, 64000,
+      (soFar) => { outputEl.textContent = soFar; },
+      (part) => showProgress('transcript', Math.min(40 + part * 4, 88),
+        part > 1 ? `Streaming transcript (continuation ${part})…` : 'Streaming transcript from Claude…')
+    );
     showProgress('transcript', 90, 'Rendering output…');
 
-    // Authoritative truncation signal: the API sets stop_reason 'max_tokens' when the
-    // output hit the cap mid-generation (the old end-with-ellipsis guess missed this).
+    // After auto-continuation, this is only true if we hit the safety backstop — i.e.
+    // an extraordinarily long event. The output is otherwise guaranteed complete.
     const truncated = stopReason === 'max_tokens';
-
-    const outputEl = document.getElementById('transcriptContent');
-    outputEl.textContent = result;
-    document.getElementById('transcriptOutput').style.display = 'block';
 
     const formatLabel = format === 'srt' ? `SRT — ${selectedSrtLang}` :
       format === 'qc' ? 'Internal QC transcript' :
@@ -602,12 +607,13 @@ async function generateTranscript() {
       document.getElementById('transcriptOutput').insertAdjacentElement('afterend', notice);
     }
 
-    // Truncation warning
+    // Truncation warning — only reachable if the auto-continuation safety backstop was
+    // hit, which means an exceptionally long event. The transcript is otherwise complete.
     if (truncated) {
       const warn = document.createElement('div');
       warn.className = 'alert alert-warn';
       warn.style.margin = '8px 0 0';
-      warn.innerHTML = `<span>⚠️</span><div><strong>Output may be truncated.</strong> This event's transcript is very long. The output limit has been reached. Consider splitting the CSV by date and processing each date separately, then combining the results.</div>`;
+      warn.innerHTML = `<span>⚠️</span><div><strong>This transcript may be incomplete.</strong> The event is exceptionally long and reached the generation safety limit. Do NOT deliver this to the customer as-is — split the CSV by date, process each date separately, and combine the results, or contact the dev team.</div>`;
       document.getElementById('transcriptOutput').insertAdjacentElement('afterend', warn);
     }
 
@@ -1092,8 +1098,10 @@ FINAL SELF-CHECK (MANDATORY): Before returning, count the characters of your ful
 /* ════════════════════════════════════════════
    CLAUDE API CALLS
 ════════════════════════════════════════════ */
-// General text call (user message only)
-async function callClaude(apiKey, userContent, maxTokens = 8192) {
+// Streaming message call. Streams the response (avoids HTTP idle timeouts on long
+// generations) and returns the full text of THIS response plus its stop_reason.
+// onText(delta) fires for each text chunk so callers can render progressively.
+async function callClaudeStream(apiKey, messages, maxTokens, onText) {
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -1105,7 +1113,8 @@ async function callClaude(apiKey, userContent, maxTokens = 8192) {
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
       max_tokens: maxTokens,
-      messages: [{ role: 'user', content: userContent }]
+      stream: true,
+      messages
     })
   });
 
@@ -1114,11 +1123,67 @@ async function callClaude(apiKey, userContent, maxTokens = 8192) {
     throw new Error(err.error?.message || `API error ${response.status}`);
   }
 
-  const data = await response.json();
-  return {
-    text: data.content.map(b => b.text || '').join(''),
-    stopReason: data.stop_reason   // 'end_turn' (complete) | 'max_tokens' (truncated) | …
-  };
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '', text = '', stopReason = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    let nl;
+    while ((nl = buffer.indexOf('\n')) >= 0) {
+      const line = buffer.slice(0, nl).trim();
+      buffer = buffer.slice(nl + 1);
+      if (!line.startsWith('data:')) continue;
+      const payload = line.slice(5).trim();
+      if (!payload || payload === '[DONE]') continue;
+      let evt;
+      try { evt = JSON.parse(payload); } catch { continue; }
+      if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
+        text += evt.delta.text;
+        if (onText) onText(evt.delta.text);
+      } else if (evt.type === 'message_delta' && evt.delta?.stop_reason) {
+        stopReason = evt.delta.stop_reason;
+      } else if (evt.type === 'error') {
+        throw new Error(evt.error?.message || 'Streaming error');
+      }
+    }
+  }
+  return { text, stopReason };
+}
+
+// Generate a complete output of UNBOUNDED length. Streams one response; if the API
+// stops at the max_tokens cap mid-document, it continues from exactly where it left
+// off and loops until the model finishes naturally (end_turn). This guarantees a
+// full transcript even for multi-hour events that exceed a single response's limit.
+async function generateLongOutput(apiKey, prompt, maxTokens, onText, onPart) {
+  const messages = [{ role: 'user', content: prompt }];
+  let full = '', stopReason = null, part = 0;
+  const MAX_PARTS = 30;   // safety backstop (~30 × 64K tokens ≈ many hours of transcript)
+
+  do {
+    part++;
+    if (onPart) onPart(part);
+    const { text, stopReason: sr } = await callClaudeStream(
+      apiKey, messages, maxTokens,
+      (delta) => { full += delta; if (onText) onText(full); }
+    );
+    stopReason = sr;
+    if (sr !== 'max_tokens') break;
+
+    // Resume: provide the cut-off response as a completed assistant turn, then ask
+    // (on a USER turn — not a prefill) to continue exactly from the last characters.
+    const tail = full.slice(-300);
+    messages.push({ role: 'assistant', content: text });
+    messages.push({ role: 'user', content:
+      `Your previous response was cut off by the output length limit before the transcript was complete. ` +
+      `Continue the transcript EXACTLY where you stopped. Do NOT repeat any content you already produced, ` +
+      `do NOT restart the header or session log, and do NOT add any commentary or apology. ` +
+      `Resume immediately after this text, which is the very end of what you produced so far:\n\n"""${tail}"""` });
+  } while (part < MAX_PARTS);
+
+  return { text: full, stopReason, parts: part };
 }
 
 // System + user message call (context prep text mode)
