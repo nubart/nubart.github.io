@@ -670,6 +670,68 @@ function preprocessCSV(csv) {
   return merged.join('\n');
 }
 
+/* ── Compute an authoritative session map (deterministic, from raw timestamps) ──
+   Claude is unreliable at timestamp arithmetic over many rows, so we compute the
+   session boundaries, start/end clock times, durations, utterance counts and average
+   quality here and feed them to the model as values it must copy verbatim. Returns
+   null if timestamps can't be parsed, in which case the model falls back to its own. */
+function computeSessionMap(csvData) {
+  const lines = csvData.split('\n').filter(l => l.trim());
+  if (lines.length < 2) return null;
+  const rows = lines.slice(1).map(parseCSVLine);
+
+  const toSec = (t) => {
+    const p = (t || '').trim().split(':').map(Number);
+    if (p.length < 2 || p.slice(0, 2).some(isNaN)) return null;
+    return p[0] * 3600 + p[1] * 60 + (p[2] || 0);
+  };
+
+  const sessions = [];
+  let cur = null, prevSec = null, prevDate = null, parsed = 0;
+
+  for (const r of rows) {
+    const date = (r[0] || '').trim();
+    const clock = (r[1] || '').trim();
+    const sec  = toSec(clock);
+    if (sec === null) continue;
+    parsed++;
+    const email = (r[2] || '').trim();
+    const lang  = (r[3] || '').trim();
+    const score = parseFloat(r[4]);
+    // New session on a date change or a gap > 10 minutes (matches the grouping rule).
+    const isNew = !cur || date !== prevDate || (sec - prevSec) > 600;
+    if (isNew) {
+      cur = { date, startSec: sec, start: clock, endSec: sec, end: clock,
+              count: 0, scores: [], emails: new Set(), langs: new Set() };
+      sessions.push(cur);
+    }
+    cur.endSec = sec; cur.end = clock; cur.count++;
+    if (!isNaN(score)) cur.scores.push(score);
+    if (email) cur.emails.add(email);
+    if (lang)  cur.langs.add(lang);
+    prevSec = sec; prevDate = date;
+  }
+
+  if (parsed === 0 || sessions.length === 0) return null;
+
+  const fmtDur = (s) => {
+    const m = Math.floor(s / 60), sec = s % 60;
+    return m === 0 ? `${sec} s` : (sec ? `${m} min ${sec} s` : `${m} min`);
+  };
+
+  return sessions.map((s, i) => ({
+    idx: i + 1,
+    date: s.date,
+    start: s.start,
+    end: s.end,
+    duration: fmtDur(Math.max(0, s.endSec - s.startSec)),
+    count: s.count,
+    avg: s.scores.length ? Math.round(s.scores.reduce((a, b) => a + b, 0) / s.scores.length) : 'n/a',
+    emails: [...s.emails],
+    langs: [...s.langs]
+  }));
+}
+
 /* ── Build transcript prompt ── */
 function buildTranscriptPrompt(format, csvData) {
   const datesStr = eventDates.join(', ');
@@ -684,6 +746,14 @@ function buildTranscriptPrompt(format, csvData) {
     : isSource
     ? 'This transcript is for CUSTOMER DELIVERY — SOURCE LANGUAGE ONLY. Include only the transcribed source text (column F). Do not include any translations. Only flag audio scores below 50 with a brief inline note.'
     : 'This transcript is for CUSTOMER DELIVERY — MULTILINGUAL. Include source text and all available translations with sufficient coverage. Only flag audio scores below 50 with a brief inline note.';
+
+  // Deterministic session boundaries / durations (SRT has no headers or session log).
+  const sessionMap = isSrt ? null : computeSessionMap(csvData);
+  const sessionMapBlock = sessionMap ? `
+SESSION MAP (AUTHORITATIVE — computed directly from the raw timestamps; use these values EXACTLY and do NOT recompute or estimate session boundaries, start/end times, durations, or average quality):
+${sessionMap.map(s => `Session ${s.idx} — Date: ${s.date} | Start: ${s.start} | End: ${s.end} | Duration: ${s.duration} | Utterances: ${s.count} | Avg. quality: ${s.avg} | Speaker(s): ${s.emails.join(', ') || 'n/a'} | Source lang(s): ${s.langs.join(', ') || 'n/a'}`).join('\n')}
+Group the transcript into EXACTLY these ${sessionMap.length} session(s), in this order. In every session header and in the final SESSION LOG table, copy the Start, End and Duration from this map verbatim — never estimate them. Still classify each session as Test or Event using the rules below.
+` : '';
 
   return `You will receive a preprocessed CSV from a Nubart TRANSLATE live AI interpretation session. Each row is one merged utterance (duplicates already removed). Your task is to convert it into a clean, readable transcript.
 
@@ -722,7 +792,7 @@ ${isSrt ? `SRT FORMAT RULES:
 - Use absolute clock times from the CSV (assume each utterance lasts until the next one, max 5 seconds for final utterance)
 - Max 2 lines, ~42 chars per line
 - No headers, no session log
-- Output ONLY the raw SRT content` : `
+- Output ONLY the raw SRT content` : `${sessionMapBlock}
 DOCUMENT STRUCTURE:
 
 HEADER (include at top):
@@ -737,7 +807,7 @@ Speaker accounts: [list all unique emails in column C]
 
 MAIN TRANSCRIPT:
 Open the main transcript with a standalone line — Speaker: [email of the first speaker] — per rule 4.
-For each Event session: open with session header (date, start time, approx duration).
+For each Event session: open with a session header showing Date, Start and Duration copied verbatim from the SESSION MAP (exact values — never an estimate).
 For each utterance:
   ${isInternal ? '[MM:SS] [Score: X]' : '[MM:SS]'} — relative time from session start
   [LANG CODE]  transcribed text
@@ -747,6 +817,7 @@ When the speaker account (column C) changes between two consecutive utterances, 
 
 SESSION LOG (final section, all sessions across all dates):
 Table: Session | Date | Start | End | Duration | Avg. Quality | Speaker(s) | Type
+Copy Date, Start, End, Duration and Avg. Quality for every session verbatim from the SESSION MAP — do not recompute them. Only the Type column is yours to classify.
 Precede with note: "This session log covers all activity recorded under this account, including test sessions and pre-event trials. Test session content is not included in the transcript above. All times are in the customer's local timezone."
 `}
 
