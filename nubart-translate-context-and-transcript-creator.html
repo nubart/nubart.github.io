@@ -864,10 +864,8 @@ function setContextMode(mode) {
     'border-color:var(--teal);background:var(--teal-light);color:var(--teal-dark);';
 }
 
-async function processContextFiles(files, alertElId, fileListElId) {
+async function processContextFiles(files, alertElId) {
   const alertEl = document.getElementById(alertElId);
-  const listEl  = document.getElementById(fileListElId);
-  listEl.innerHTML = '';
   const results = [];
   const warnings = [];
 
@@ -906,15 +904,6 @@ async function processContextFiles(files, alertElId, fileListElId) {
         });
         results.push({ type: 'text', content: text, name: file.name });
       }
-
-      // Show filename badge
-      const badge = document.createElement('span');
-      badge.className = 'file-name';
-      badge.style.display = 'inline-block';
-      badge.style.marginRight = '6px';
-      badge.textContent = '📄 ' + file.name;
-      listEl.appendChild(badge);
-
     } catch(err) {
       warnings.push(`<strong>${file.name}</strong> — could not be read: ${err.message}`);
     }
@@ -929,25 +918,56 @@ async function processContextFiles(files, alertElId, fileListElId) {
   return results;
 }
 
-// Multi-file drop zone: wires both browse (input change) and drag-and-drop,
-// reading every selected/dropped file (setupDropZone only handles one file).
+// Multi-file drop zone: wires both browse (input change) and drag-and-drop, reading
+// every selected/dropped file (setupDropZone only handles one file). New files are
+// APPENDED to contextFilesData (so adding files in several batches accumulates), and
+// each file gets a removable badge. Duplicate filenames are skipped.
 function setupMultiFileDropZone(zoneId, inputId, alertId, listId) {
   const zone  = document.getElementById(zoneId);
   const input = document.getElementById(inputId);
   if (!zone || !input) return;
 
-  input.addEventListener('change', async () => {
-    contextFilesData = await processContextFiles(Array.from(input.files), alertId, listId);
-  });
+  const addFiles = async (files) => {
+    const parsed = await processContextFiles(files, alertId);
+    const existing = new Set(contextFilesData.map(f => f.name));
+    for (const item of parsed) {
+      if (!existing.has(item.name)) { contextFilesData.push(item); existing.add(item.name); }
+    }
+    renderContextFileList(listId);
+    input.value = '';   // clear so the same file can be re-added after removal
+  };
+
+  input.addEventListener('change', () => addFiles(Array.from(input.files)));
   zone.addEventListener('dragover',  e => { e.preventDefault(); zone.classList.add('drag-over'); });
   zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
-  zone.addEventListener('drop', async e => {
+  zone.addEventListener('drop', e => {
     e.preventDefault();
     zone.classList.remove('drag-over');
     const dropped = Array.from(e.dataTransfer.files);
-    if (dropped.length) {
-      contextFilesData = await processContextFiles(dropped, alertId, listId);
-    }
+    if (dropped.length) addFiles(dropped);
+  });
+}
+
+// Render contextFilesData as removable badges in the given list element.
+function renderContextFileList(listId) {
+  const listEl = document.getElementById(listId);
+  if (!listEl) return;
+  listEl.innerHTML = '';
+  contextFilesData.forEach((f, i) => {
+    const badge = document.createElement('span');
+    badge.className = 'file-name';
+    badge.style.cssText = 'display:inline-flex;align-items:center;gap:6px;margin:0 6px 6px 0;';
+    const label = document.createElement('span');
+    label.textContent = '📄 ' + f.name;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = '×';
+    btn.title = 'Remove ' + f.name;
+    btn.style.cssText = 'border:none;background:none;cursor:pointer;font-size:16px;line-height:1;color:inherit;padding:0;';
+    btn.addEventListener('click', () => { contextFilesData.splice(i, 1); renderContextFileList(listId); });
+    badge.appendChild(label);
+    badge.appendChild(btn);
+    listEl.appendChild(badge);
   });
 }
 
@@ -1047,21 +1067,21 @@ async function generateContext() {
 
     showProgress('context', 85, 'Finalising…');
 
-    // If multiple results, do a final merge pass to deduplicate and enforce 5000 char limit
+    // If multiple results, do a final merge pass that represents ALL documents.
     let finalResult;
     if (results.length === 1) {
       finalResult = results[0];
     } else {
-      // Merge: ask Claude to deduplicate and reduce combined output
-      const mergePrompt = `You previously generated multiple context file sections from different source documents.
-Merge the following sections into a single coherent context file.
-Apply the same rules as before: plain text, no formatting, no duplication, all proper nouns preserved.
-HARD LENGTH LIMIT: the merged output MUST be at or below 5,000 characters (including spaces and line breaks). This is an absolute ceiling, not a target — aim for 4,800 or fewer. If the combined sections exceed this, apply reduction Steps A, B and C from the rules (redundancy reduction, non-essential detail removal, compression) until you are at or below 4,800. Before returning, count the characters; if over 5,000, keep reducing. Never return text above 5,000 characters.
-Keep the room/session label line if present at the start of any section.
+      showProgress('context', 85, `Merging ${results.length} sections…`);
+      // Merge under a dedicated system prompt with NO hard length cap (see opts.merge),
+      // so every source document is represented. Higher max_tokens (non-streaming) gives
+      // room for the combined output; the app warns afterwards if it exceeds 5,000 chars.
+      const mergeSystemPrompt = buildContextSystemPrompt(selectedLangs, institution, speakers, roomLabel, { merge: true });
+      const mergePrompt = `Below are ${results.length} context-file sections, each extracted from a different source document for the same event. Merge them into ONE context file that represents EVERY section. Do not drop or under-represent any section; remove only verbatim-duplicate sentences. Keep the room/session label line if present.
 
 SECTIONS TO MERGE:
-${results.map((r,i) => `--- Section ${i+1} ---\n${r}`).join('\n\n')}`;
-      finalResult = await callClaudeWithSystem(apiKey, systemPrompt, mergePrompt, 2000);
+${results.map((r,i) => `--- Section ${i+1} of ${results.length} ---\n${r}`).join('\n\n')}`;
+      finalResult = await callClaudeWithSystem(apiKey, mergeSystemPrompt, mergePrompt, 16000);
     }
 
     showProgress('context', 95, 'Rendering…');
@@ -1073,7 +1093,7 @@ ${results.map((r,i) => `--- Section ${i+1} ---\n${r}`).join('\n\n')}`;
     const charCount = finalResult.length;
     const charEl = document.getElementById('charCount');
     if (charCount > 5000) {
-      charEl.innerHTML = `⚠ ${charCount.toLocaleString()} characters — <strong>exceeds 5,000 limit.</strong> Trim manually before pasting into CMS, or remove some source files and re-run.`;
+      charEl.innerHTML = `⚠ ${charCount.toLocaleString()} characters — <strong>over the 5,000-character DeepL context limit.</strong> This output covers all source documents. Decide whether to paste it as-is (DeepL may truncate), trim it manually, or drop some source files and re-run.`;
       charEl.style.color = 'var(--warn)';
     } else {
       charEl.textContent = `${charCount.toLocaleString()} / 5,000 characters`;
@@ -1093,7 +1113,8 @@ ${results.map((r,i) => `--- Section ${i+1} ---\n${r}`).join('\n\n')}`;
   btn.innerHTML = 'Generate context file';
 }
 
-function buildContextSystemPrompt(langs, institution, speakers, roomLabel) {
+function buildContextSystemPrompt(langs, institution, speakers, roomLabel, opts = {}) {
+  const merge = opts.merge === true;   // merge pass: combine multiple sections, no hard length cap
   const langList = langs.join(', ');
   const langRule = langs.length === 1
     ? `The output must be in ${langs[0]}.
@@ -1122,7 +1143,9 @@ If the same factual content appears duplicated across multiple languages from th
 
   const namesBlock = [institutionSentence, speakerSentence].filter(Boolean).join(' ');
 
-  return `You are an Expert Text Curator for an AI-powered real-time translation system. Your sole task is to take the provided raw text and extract only the essential, factual context needed to help a live human translator or a machine translation engine understand the proper nouns, technical terms, and subject matter of a live event. This output is for the DeepL translation API context parameter.
+  return `You are an Expert Text Curator for an AI-powered real-time translation system. ${merge
+    ? `You will receive several context-file SECTIONS that were already extracted from different source documents for the SAME live event. Your task is to merge them into ONE coherent context file.`
+    : `Your sole task is to take the provided raw text and extract only the essential, factual context needed to help a live human translator or a machine translation engine understand the proper nouns, technical terms, and subject matter of a live event.`} This output is for the DeepL translation API context parameter.
 
 Speaker language(s): ${langList}
 
@@ -1154,8 +1177,11 @@ Convert lists and structured data (speaker rosters, schedules, etc.) into natura
 PROTECTED NAMES — these must NEVER be removed or altered during any reduction step:
   Institution/venue: ${institutionLines.join(', ')}
   ${speakerLines.length > 0 ? 'Speakers: ' + speakerLines.join(', ') : ''}
+${merge ? `EVERY source section/document MUST be represented in the merged output — never drop an entire document or leave one unrepresented. Remove ONLY verbatim-duplicate sentences that repeat across sections; keep every unique proper noun, technical term, fact, date and event-specific detail from ALL sections. Emit the names block above exactly once, at the very top.` : ''}
 
-4. LENGTH CONSTRAINT (HARD LIMIT: 5,000 CHARACTERS — NON-NEGOTIABLE)
+${merge ? `4. LENGTH
+There is NO fixed character limit on this merge. Produce the most complete, useful context that fully represents ALL source documents. Be factual and de-duplicated, but do NOT sacrifice coverage of any document to hit a length target. Still avoid padding, filler, opinion/emotion adjectives, and repetition.
+STRICTLY PROHIBITED: Do not omit any proper nouns, technical terms, unique dates, or event-specific facts. Do not drop or under-represent any source document. Never remove the protected names listed above.` : `4. LENGTH CONSTRAINT (HARD LIMIT: 5,000 CHARACTERS — NON-NEGOTIABLE)
 The final output MUST be at or below 5,000 characters, including the names block, spaces, and line breaks. This is an absolute ceiling, not a target. To stay safely inside it, aim for 4,800 characters or fewer.
 If the draft exceeds this, apply the following reduction steps in order, and DO NOT STOP reducing until the text is at or below 4,800 characters:
 Step A — Redundancy Reduction: Remove or merge highly repetitive phrases, sentences, or paragraphs that do not introduce a new fact or name.
@@ -1163,7 +1189,7 @@ Step B — Non-Essential Detail Removal: Remove opinion/emotion adjectives (wond
 Step C — Compression: Tighten phrasing into the shortest possible declarative sentences. Drop background, narrative, and contextual prose that is not a proper noun, technical term, date, or event-specific fact. When many facts compete for limited space, prioritise proper nouns and terminology that a translation engine could mishandle over general descriptive content.
 STRICTLY PROHIBITED: Do not omit any proper nouns, technical terms, unique dates, or event-specific facts. Do not summarise away the core factual content. Never remove the protected names listed above.
 
-FINAL SELF-CHECK (MANDATORY): Before returning, count the characters of your full output. If it is over 5,000, you have NOT finished — continue applying Step C until it is at or below 4,800. Never return text above 5,000 characters under any circumstances.`;
+FINAL SELF-CHECK (MANDATORY): Before returning, count the characters of your full output. If it is over 5,000, you have NOT finished — continue applying Step C until it is at or below 4,800. Never return text above 5,000 characters under any circumstances.`}`;
 }
 
 /* ════════════════════════════════════════════
