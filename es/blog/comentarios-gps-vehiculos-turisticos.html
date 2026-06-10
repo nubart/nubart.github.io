@@ -27,7 +27,7 @@
                 "@id": "https://www.nubart.eu/#organization"
             },
             "datePublished": "2026-05-14",
-            "dateModified": "2026-05-16",
+            "dateModified": "2026-06-10",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/es/blog/comentarios-gps-vehiculos-turisticos.html"
@@ -97,6 +97,56 @@
                 "@type": "SpeakableSpecification",
                 "cssSelector": [".lead", "h1", "h2"]
             }
+        }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Por qué falla el GPS basado en el navegador en barcos turísticos y autobuses de visita?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Cuando el GPS funciona en el smartphone de cada pasajero a través de la API de Geolocalización del navegador, se producen simultáneamente varios fallos: en iOS, los permisos de ubicación pueden estar bloqueados en varios niveles sin que el pasajero lo sepa; cambiar a la aplicación de cámara suspende la pestaña del navegador y detiene las actualizaciones de GPS; los dispositivos antiguos o de gama baja tienen chips GPS de baja calidad; y muchos pasajeros desactivan el GPS o activan el modo de ahorro de batería antes de embarcar. Estos fallos son impredecibles e imposibles de diagnosticar en un vehículo en movimiento."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Cuál es la diferencia entre la activación por radio y la activación por línea en las audioguías para vehículos?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La activación por radio define un círculo alrededor de un punto de interés: el audio se reproduce cuando el vehículo entra en el círculo. Esto funciona para rutas a pie, donde la dirección de aproximación es desconocida, pero en rutas fijas es impreciso y puede provocar activaciones fallidas o repetidas si el radio es demasiado pequeño o demasiado grande. La activación por línea usa una línea virtual direccional trazada a lo ancho de la ruta. El comentario solo se activa cuando el vehículo cruza la línea en una dirección definida, lo que la hace mucho más precisa para barcos y autobuses. Además, permite asignar audios distintos al cruce en sentido de ida y al de vuelta en el mismo punto."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Necesitan los pasajeros conceder permisos de ubicación en su teléfono para usar Nubart MOTION?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Nubart MOTION utiliza un enfoque GPS centralizado: un único dispositivo controlado por el operador a bordo gestiona todo el posicionamiento y sincroniza las activaciones en todos los dispositivos de los pasajeros conectados. Los pasajeros no necesitan conceder permisos de ubicación, mantener ninguna aplicación abierta ni realizar ninguna acción para que el comentario suene en el momento preciso. Escanean un código QR, seleccionan su idioma, y el audio se activa automáticamente."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Qué ocurre cuando el barco pasa por un túnel o una zona sin señal GPS?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart MOTION utiliza un sistema de activación híbrido. En la mayor parte de la ruta, el comentario se activa por GPS. Para las zonas muertas conocidas —túneles, cañones urbanos, puentes, zonas portuarias cerradas— el sistema cambia a activación por tiempo: el operador define de antemano qué tramos son problemáticos y el sistema avanza por esas paradas según un horario predefinido, sin esperar una señal GPS. El contenido de audio se precarga en los dispositivos de los pasajeros cuando escanean el código QR, por lo que la reproducción continúa sin interrupciones aunque la conectividad se pierda durante el trayecto."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Funciona Nubart MOTION sin conexión a internet a bordo?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sí. El contenido de audio se precarga en los dispositivos de los pasajeros en el momento en que escanean el código QR y acceden a la guía, antes de que el vehículo llegue a zonas con mala cobertura o sin ella. Nubart también admite una cobertura offline parcial dirigida específicamente a los tramos de ruta afectados, de modo que los operadores no necesitan almacenar en caché toda la biblioteca de contenidos, sino únicamente las pistas correspondientes a los tramos con señal poco fiable."
+                    }
+                }
+            ]
         }
     </script>
 
@@ -519,6 +569,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>Un pasajero que experimentó este sistema durante una visita portuaria en Bilbao lo describió con cinco palabras que probablemente constituyen la mejor reseña de producto que hemos recibido jamás: <em>“No sé cómo funciona. Pero funciona.”</em></p>
 
                     <p>Y precisamente esa invisibilidad es el objetivo. Toda la complejidad queda oculta en el lado del operador, donde puede controlarse. Para el pasajero, la experiencia resulta completamente fluida.</p>
+                    <div class="alert" style="background-color:#e8f7f6; border-left: 4px solid #6ec7ba; padding: 1.2rem 1.5rem; margin: 2rem 0;">
+                        <p class="mb-1"><strong>En qué se diferencia Nubart MOTION de otros sistemas de comentarios GPS:</strong></p>
+                        <ol class="mb-0">
+                            <li>El GPS funciona en un único dispositivo controlado por el operador a bordo, no en los smartphones de los pasajeros.</li>
+                            <li>Las zonas de activación son líneas direccionales, no círculos de radio, lo que elimina las activaciones fallidas y repetidas en rutas fijas.</li>
+                            <li>Un sistema de respaldo basado en el tiempo cubre automáticamente túneles, puentes y otras zonas sin señal GPS.</li>
+                        </ol>
+                    </div>
 
                     <p>Además, hay una dimensión social interesante. Como la activación automática está centralizada, todos los pasajeros escuchan el comentario sobre la antigua catedral exactamente al mismo tiempo. Todo el mundo mira hacia la izquierda simultáneamente. Esa pequeña sincronización crea una experiencia compartida que los sistemas de megafonía consiguen mediante imposición y que los sistemas basados en GPS individual de cada smartphone, donde cada teléfono activa el audio con ligeras diferencias temporales, difícilmente logran reproducir.</p>
 

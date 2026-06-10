@@ -28,7 +28,7 @@
                 "@id": "https://www.nubart.eu/#organization"
             },
             "datePublished": "2026-05-14",
-            "dateModified": "2026-05-14",
+            "dateModified": "2026-06-10",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/de/audioguides/gps-audioguide-schiffstouren-und-busse.html"
@@ -98,6 +98,56 @@
                 "@type": "SpeakableSpecification",
                 "cssSelector": [".lead", "h1", "h2"]
             }
+        }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Warum versagt browserbasiertes GPS auf Ausflugsbooten und Reisebussen?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Wenn GPS über die Browser-Geolocation-API auf jedem Smartphone der Fahrgäste läuft, treten gleichzeitig mehrere Fehlerquellen auf: Standortberechtigungen auf iOS können auf mehreren Ebenen stillschweigend blockiert sein, ohne dass der Fahrgast es bemerkt; der Wechsel zur Kamera-App unterbricht den Browser-Tab und stoppt GPS-Updates; ältere oder günstigere Geräte haben schlechte GPS-Chips; und viele Fahrgäste deaktivieren GPS oder aktivieren den Energiesparmodus noch vor dem Einsteigen. Diese Ausfälle sind unvorhersehbar und auf einem fahrenden Schiff oder Bus kaum zu diagnostizieren."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Was ist der Unterschied zwischen radiusbasierter und linienbasierter GPS-Auslösung bei Audio-Guides für Fahrzeuge?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Bei der radiusbasierten Auslösung wird ein Kreis um einen Interessenpunkt definiert: Der Audio-Kommentar spielt, sobald das Fahrzeug den Kreis betritt. Das funktioniert bei Stadtführungen zu Fuß, wo die Annäherungsrichtung unbekannt ist, aber auf festen Routen ist es ungenau und kann zu verpassten oder wiederholten Auslösungen führen, wenn der Radius zu klein oder zu groß gewählt ist. Die linienbasierte Auslösung verwendet eine gerichtete virtuelle Linie quer über die Route. Der Kommentar wird nur ausgelöst, wenn das Fahrzeug die Linie in einer festgelegten Richtung kreuzt – wesentlich präziser für Boote und Busse. Außerdem lässt sich für die Hin- und Rückfahrt an derselben Stelle jeweils ein anderer Audiotrack zuweisen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Müssen Fahrgäste bei Nubart MOTION Standortberechtigungen auf ihrem Smartphone erteilen?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nein. Nubart MOTION verwendet einen zentralisierten GPS-Ansatz: Ein einziges, vom Betreiber kontrolliertes Gerät an Bord übernimmt die gesamte Positionsbestimmung und synchronisiert die Auslösesignale auf allen verbundenen Fahrgastgeräten. Fahrgäste müssen keine Standortberechtigungen erteilen, keine bestimmte App geöffnet halten oder irgendeine Aktion ausführen, damit der Kommentar zum richtigen Zeitpunkt abgespielt wird. Sie scannen einen QR-Code, wählen ihre Sprache – und der Audio-Guide startet automatisch."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Was passiert, wenn ein Ausflugsboot durch einen Tunnel oder ein GPS-totes Gebiet fährt?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart MOTION verwendet einen hybriden Auslöseansatz. Auf dem größten Teil der Strecke wird der Kommentar per GPS ausgelöst. Für bekannte Totbereiche – Tunnel, Häuserschluchten, Brücken, überdachte Hafenbereiche – wechselt das System auf zeitbasierte Auslösung: Der Betreiber legt im Voraus fest, welche Streckenabschnitte problematisch sind, und das System arbeitet diese Haltepunkte nach einem Zeitplan ab, ohne auf ein GPS-Signal zu warten. Der Audioinhalt wird auf die Smartphones der Fahrgäste vorgeladen, sobald diese den QR-Code scannen, sodass die Wiedergabe auch bei Verbindungsabbruch unterwegs reibungslos weiterläuft."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Funktioniert Nubart MOTION auch ohne Internetverbindung an Bord?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja. Der Audioinhalt wird auf die Geräte der Fahrgäste vorgeladen, sobald diese den QR-Code scannen und den Guide aufrufen – noch bevor das Schiff Bereiche mit schlechter oder fehlender Verbindung erreicht. Nubart unterstützt außerdem eine partielle Offline-Abdeckung, die gezielt auf die betroffenen Streckenabschnitte ausgerichtet ist. Betreiber müssen also nicht die gesamte Inhaltsbibliothek zwischenspeichern, sondern nur die Tracks, die für Abschnitte mit unzuverlässigem Signal relevant sind."
+                    }
+                }
+            ]
         }
     </script>
 
@@ -506,6 +556,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>Ein Fahrgast, der dieses System bei einer Hafenrundfahrt in Bilbao erlebt hat, beschrieb es mit einem Satz – vermutlich das beste Produktfeedback, das wir je erhalten haben: <em>„Ich habe keine Ahnung, wie es funktioniert. Aber es funktioniert einfach.“</em></p>
 
                     <p>Genau diese Unsichtbarkeit ist der eigentliche Punkt. Die technische Komplexität bleibt vollständig auf Betreiberseite, wo sie kontrolliert werden kann. Für die Fahrgäste hingegen fühlt sich das Erlebnis vollkommen mühelos an.</p>
+                    <div class="alert" style="background-color:#e8f7f6; border-left: 4px solid #6ec7ba; padding: 1.2rem 1.5rem; margin: 2rem 0;">
+                        <p class="mb-1"><strong>So unterscheidet sich Nubart MOTION von anderen GPS-Kommentarsystemen:</strong></p>
+                        <ol class="mb-0">
+                            <li>Das GPS läuft auf einem einzigen, vom Betreiber kontrollierten Gerät an Bord – nicht auf den Smartphones der Fahrgäste.</li>
+                            <li>Auslösezonen sind gerichtete Linien, keine Radiuskreise – das verhindert verpasste oder wiederholte Auslösungen auf festen Routen.</li>
+                            <li>Ein zeitbasierter Fallback deckt Tunnel, Brücken und andere GPS-Totzonen automatisch ab.</li>
+                        </ol>
+                    </div>
 
                     <p>Hinzu kommt ein interessanter sozialer Effekt: Dadurch, dass das Triggering zentral gesteuert wird, hören alle Fahrgäste den Kommentar zur alten Kathedrale exakt im selben Moment. Alle schauen gleichzeitig nach links. Diese Synchronisierung schafft ein gemeinsames Erlebnis – etwas, das Lautsprecheranlagen zwar durch Zwang erzeugen, GPS-Systeme auf einzelnen Smartphones jedoch kaum zuverlässig hinbekommen, da jedes Gerät leicht zeitversetzt reagiert.</p>
 

@@ -28,7 +28,7 @@
                 "@id": "https://www.nubart.eu/#organization"
             },
             "datePublished": "2026-05-14",
-            "dateModified": "2026-05-14",
+            "dateModified": "2026-06-10",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/audio-commentary-system/gps-triggered-commentary-sightseeing-vehicles.html"
@@ -100,6 +100,56 @@
                 "@type": "SpeakableSpecification",
                 "cssSelector": [".lead", "h1", "h2"]
             }
+        }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Why does browser-based GPS fail on sightseeing boats and buses?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "When GPS runs on each passenger's smartphone via the browser Geolocation API, several failure modes occur simultaneously: iOS location permissions can be blocked at multiple layers without the passenger realising it; switching to the camera app suspends the browser tab and stops GPS updates; older or budget devices have poor GPS chipsets; and many passengers disable GPS or activate battery-saving mode before boarding. These failures are unpredictable and impossible to diagnose on a moving vessel."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is the difference between radius-based and line-based GPS triggering for vehicle audio guides?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Radius-based triggering defines a circle around a point of interest: audio plays when the vehicle enters the circle. This works for walking tours where the direction of approach is unknown, but on fixed routes it is imprecise and can cause missed or repeated triggers if the radius is too small or too large. Line-based triggering uses a directional virtual line drawn across the route. Audio fires only when the vehicle crosses the line in a defined direction, making it far more precise for boats and buses. It also allows different audio to be assigned to outbound and return crossings of the same point."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does Nubart MOTION require passengers to grant location permissions on their phone?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Nubart MOTION uses a centralised GPS approach: a single operator-controlled device on the vessel handles all positioning and synchronises triggers across all connected passenger devices. Passengers do not need to grant location permissions, keep a specific app open, or take any action for commentary to play at the right moment. They scan a QR code, select their language, and audio triggers automatically."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What happens when a sightseeing vessel passes through a tunnel or area with no GPS signal?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nubart MOTION uses a hybrid triggering approach. For most of the route, commentary is triggered by GPS. For known dead zones — tunnels, urban canyons, bridges, enclosed harbour areas — the system switches to time-based triggering: the operator pre-defines which segments are problematic and the system advances through those stops on a timed schedule rather than waiting for a GPS event. Audio content is preloaded onto passenger devices when they scan the QR code, so playback continues smoothly even if connectivity drops mid-route."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does Nubart MOTION work without an internet connection on board?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Audio content is preloaded onto passenger devices at the moment they scan the QR code and access the guide, before the vessel reaches areas with poor or no connectivity. Nubart also supports partial offline coverage targeted specifically at the affected route segments, so operators do not need to cache the entire content library — only the tracks relevant to stretches with unreliable signal."
+                    }
+                }
+            ]
         }
     </script>
 
@@ -530,7 +580,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>One passenger who experienced this system on a harbour tour in Bilbao described it in five words that are probably the best product review we have ever received: <em>"I don't know how it works. But it really does."</em></p>
 
                     <p>That invisibility is the point. The complexity is entirely on the operator's side, where it can be controlled. The passenger experience is effortless.</p>
-
+                    <div class="alert" style="background-color:#e8f7f6; border-left: 4px solid #6ec7ba; padding: 1.2rem 1.5rem; margin: 2rem 0;">
+                        <p class="mb-1"><strong>How Nubart MOTION is different from other GPS commentary systems:</strong></p>
+                        <ol class="mb-0">
+                            <li>GPS runs on a single operator-controlled device on the vessel — not on passenger smartphones.</li>
+                            <li>Trigger zones are directional lines, not radius circles, eliminating missed and repeated triggers on fixed routes.</li>
+                            <li>A time-based fallback covers tunnels, bridges, and other GPS dead zones automatically.</li>
+                        </ol>
+                    </div>
                     <p>There is also a social dimension worth noting. Because triggering is centralised, all passengers hear the commentary about the old cathedral at exactly the same moment. Everyone looks left together. That small synchronisation creates a shared experience that a PA system achieves through force and that passenger-GPS systems, where each phone triggers independently at a slightly different time, cannot reliably achieve at all.</p>
 
                     <p>Content delivery is handled separately from triggering. Audio preloads onto passenger devices when they first scan the QR code, so playback continues smoothly even if the vessel passes under a bridge, enters a tunnel, or crosses a stretch of river with no mobile coverage. By the time connectivity drops, the content is already there. Nubart's <a href="../audio-guides/offline-mode-best-practices.html">approach to offline mode</a> is designed precisely for environments like these, where connectivity is intermittent rather than absent.</p>

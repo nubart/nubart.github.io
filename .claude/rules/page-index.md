@@ -125,8 +125,8 @@
 
 ### How museums monetise a QR-code audio guide
 - EN: audio-guides/monetise-museum-audio-guide.html
-- DE: (still pending)
-- ES: (still pending)
+- DE: de/audioguides/qr-code-audioguide-kostenpflichtig-anbieten.html
+- ES: es/audioguias/cobrar-audioguia-codigo-qr.html
 - IT: (still pending)
 - FR: (still pending)
 - JA: (still pending)
