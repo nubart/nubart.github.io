@@ -242,7 +242,7 @@
             'anthropic-dangerous-direct-browser-access': 'true'
           },
           body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514',
+            model: 'claude-sonnet-4-6',
             max_tokens: 2000,
             messages: [{ role: 'user', content: prompt }]
           })
@@ -431,7 +431,7 @@ PART 2 — Basic info
 - Approximate duration: combine columns A and B to reconstruct timestamps. DO NOT subtract first from last — gaps longer than 5 minutes indicate pauses or separate sessions. Sum only active speaking segments. Report as "approx. X minutes of active use" and note number of sessions if more than one.
 - Source language(s) (from column D)
 - Translation language(s): list only languages from column G onward that have at least one non-empty cell. If all translation columns are empty, write "None — see Part 1."
-- Average audio quality score (mean of column E). Flag if any extended period had scores consistently below 70, as this explains poor transcription or translation quality.
+- Average audio quality score (mean of column E). When calculating the average, exclude entries in the final 1–3 rows of the session that consist of very short fragments (1–3 words), as these reflect natural session tail-off rather than sustained audio quality. Flag only if scores below 70 were sustained across multiple consecutive substantive utterances (complete sentences or longer phrases) during the main body of the session.
 
 PART 3 — Prospect reactions and comments
 This is the most important part. Identify any utterances where the speaker appears to be reacting to or commenting on the product rather than producing content for translation. This includes: usability reactions, voice quality comments, comparisons with competitors or human interpreters, mentions of specific use cases or events, pricing reactions, latency or accuracy questions, or any other meta-commentary.
@@ -445,7 +445,7 @@ PART 4 — What did they talk about?
 If the use case is specific and potentially commercially relevant (a government body, NGO, international organisation, recurring event format), flag this explicitly for the sales rep.
 
 PART 5 — Translation quality
-One sentence overall impression. If the average audio quality score (column E) was below 70 for significant portions of the session, note this as the likely root cause of any quality issues — the score is objective evidence recorded in real time. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
+One sentence overall impression. If scores below 70 were sustained across multiple consecutive substantive utterances during the main body of the session, note this as the likely root cause of any quality issues — the score is objective evidence recorded in real time. Do not flag low scores that appear only in the final 1–3 entries of the session on very short fragments (1–3 words) — this is normal session tail-off and not a quality concern. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
 
 ---
 
@@ -523,7 +523,7 @@ PART 2 — Basic info
 - Approximate duration: combine columns A and B to reconstruct timestamps. DO NOT subtract first from last — gaps longer than 5 minutes indicate pauses, reconnections, or separate sessions. Sum only active speaking segments. Report as "approx. X minutes of active use" and note if a mid-session gap suggests a likely reconnection event.
 - Guide's speaking language (from column D)
 - Translation language(s): list only languages from column G onward that have at least one non-empty cell. If all translation columns are empty, write "None — see Part 1."
-- Average audio quality score (mean of column E). Flag if any extended period had scores consistently below 70. Note: some variability in score is expected in outdoor or noisy tour conditions — this does not on its own indicate a product problem.
+- Average audio quality score (mean of column E). When calculating the average, exclude entries in the final 1–3 rows of the session that consist of very short fragments (1–3 words), as these reflect natural session tail-off rather than sustained audio quality. Flag only if scores below 70 were sustained across multiple consecutive substantive utterances (complete sentences or longer phrases) during the main body of the session. Note: some variability in score is expected in outdoor or noisy tour conditions — this does not on its own indicate a product problem.
 
 PART 3 — Prospect reactions and comments
 This is the most important part. Identify any utterances where the guide appears to be reacting to or commenting on the product rather than delivering tour content. This includes: usability reactions, voice quality comments, comments about latency or echo between the guide's live voice and the audio playback on participant devices, comparisons with traditional radio guide systems (Sennheiser, Williams Sound, etc.), mentions of specific tour contexts or venues, pricing reactions, or any other meta-commentary.
@@ -537,7 +537,7 @@ PART 4 — What kind of tour was simulated?
 If the use case is specific and potentially commercially relevant (a heritage site, transport operator, industrial facility, recurring tour format), flag this explicitly for the sales rep.
 
 PART 5 — Translation quality
-One sentence overall impression. If the average audio quality score (column E) was below 70 for significant portions of the session, note this as the likely root cause — but also note whether the session appears to have taken place in a noisy or challenging environment, where some degradation is expected. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
+One sentence overall impression. If scores below 70 were sustained across multiple consecutive substantive utterances during the main body of the session, note this as the likely root cause — but also note whether the session appears to have taken place in a noisy or challenging environment, where some degradation is expected. Do not flag low scores that appear only in the final 1–3 entries of the session on very short fragments (1–3 words) — this is normal session tail-off and not a quality concern. Add a second sentence only if the same word, name, or expression was systematically mistranscribed or mistranslated — note it briefly and suggest a likely cause. Do not list individual errors. Frame any issues as context, not failure.
 
 ---
 
