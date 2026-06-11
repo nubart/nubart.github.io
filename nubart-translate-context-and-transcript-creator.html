@@ -177,7 +177,7 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
 
   <div class="alert alert-info">
     <span>ℹ️</span>
-    <div>This tool extracts a clean context file for the DeepL context parameter in Nubart TRANSLATE. Output is plain text, max 5,000 characters. Paste the result into the CMS under the relevant speaker language(s).</div>
+    <div>This tool produces two outputs from the same source material: a <strong>full terminology document</strong> (no length limit — for the technical team to train transcription AI) and a <strong>DeepL context file</strong> (max 5,000 characters — paste into CMS under the relevant speaker language). For multi-room events, run the tool once per room using the room label field.</div>
   </div>
 
   <!-- Step 1: Source material -->
@@ -321,7 +321,7 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
   <!-- Generate -->
   <div style="display:flex; gap:12px; align-items:center; margin-bottom:20px;">
     <button class="btn btn-primary" id="generateContextBtn" onclick="generateContext()">
-      Generate context file
+      Generate context files
     </button>
     <div id="contextProgress" style="display:none; flex:1;">
       <div class="progress-wrap">
@@ -333,10 +333,23 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
     </div>
   </div>
 
-  <!-- Output -->
-  <div id="contextOutput" style="display:none;" class="output-area">
+  <!-- Output A: Full terminology document (for CTO / Amazon Transcribe) -->
+  <div id="contextOutputFull" style="display:none;" class="output-area">
     <div class="output-toolbar">
-      <span id="contextOutputLabel">Context file</span>
+      <span>📋 Full terminology document <span style="font-size:11px; color:var(--ink-soft);">(all proper nouns, terms, abbreviations — for CTO use)</span></span>
+      <div style="display:flex; gap:8px;">
+        <button class="btn btn-secondary" onclick="copyOutput('contextContentFull')">📋 Copy</button>
+      </div>
+    </div>
+    <div class="output-content" id="contextContentFull"></div>
+    <div id="charCountFull" style="padding:8px 24px; font-size:12px; color:var(--ink-soft);
+         border-top:1px solid var(--border); font-family:'Courier New',monospace;"></div>
+  </div>
+
+  <!-- Output B: DeepL context file (max 5,000 chars, per room) -->
+  <div id="contextOutput" style="display:none; margin-top:16px;" class="output-area">
+    <div class="output-toolbar">
+      <span>🌐 DeepL context file <span style="font-size:11px; color:var(--ink-soft);">(max 5,000 characters — paste into CMS)</span></span>
       <div style="display:flex; gap:8px;">
         <button class="btn btn-secondary" onclick="copyOutput('contextContent')">📋 Copy</button>
       </div>
@@ -1021,26 +1034,18 @@ async function generateContext() {
   document.getElementById('contextInstitutionAlert').innerHTML = '';
 
   // Collect all source content
-  // Determine which paste textarea to use based on mode
   const pasteText = contextMode === 'paste'
     ? document.getElementById('contextPasteText').value.trim()
     : contextMode === 'both'
     ? document.getElementById('contextPasteTextBoth').value.trim()
     : '';
 
-  // Determine which file set to use
-  const activeFiles = contextMode === 'both'
-    ? contextFilesData  // filled by bothInput handler
-    : contextMode === 'file'
-    ? contextFilesData
-    : [];
+  const activeFiles = (contextMode === 'file' || contextMode === 'both') ? contextFilesData : [];
 
-  // Must have at least one source (files or paste)
   const hasPaste = pasteText.length > 0;
   const hasFiles = activeFiles.length > 0;
   if (!hasPaste && !hasFiles) {
-    const alertId = contextMode === 'file' ? 'contextFileAlert'
-      : contextMode === 'both' ? 'contextFileAlertBoth' : 'contextFileAlert';
+    const alertId = contextMode === 'both' ? 'contextFileAlertBoth' : 'contextFileAlert';
     document.getElementById(alertId).innerHTML =
       renderAlert('error', 'Please upload at least one file or paste some text.');
     return;
@@ -1056,75 +1061,96 @@ async function generateContext() {
   const btn = document.getElementById('generateContextBtn');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner" style="display:inline-block"></span> Processing…';
-  showProgress('context', 15, 'Preparing content…');
+  showProgress('context', 10, 'Preparing content…');
 
-  // PDFs are now text-extracted in the browser; each is kept as its own document so
-  // the merge represents every one of them. Other text files + paste share one call.
+  // Clear any output from a previous run so the merge's streaming append starts clean.
+  document.getElementById('contextContentFull').textContent = '';
+  document.getElementById('contextContent').textContent = '';
+
   const pdfDocs   = activeFiles.filter(f => f.type === 'pdf_text');
   const textFiles = activeFiles.filter(f => f.type === 'text');
 
-  // Combine all plain text sources
   const combinedText = [
     ...textFiles.map(f => `[Source: ${f.name}]\n${f.content}`),
     pasteText ? `[Pasted text]\n${pasteText}` : ''
   ].filter(Boolean).join('\n\n---\n\n');
 
-  const systemPrompt = buildContextSystemPrompt(selectedLangs, institution, speakers, roomLabel);
+  const fullSystemPrompt  = buildFullTerminologyPrompt(selectedLangs, institution, speakers);
+  const deepLSystemPrompt = buildDeepLContextPrompt(selectedLangs, institution, speakers, roomLabel);
 
   try {
-    let results = [];
-    showProgress('context', 30, 'Sending to Claude…');
+    // ── STEP 1: Extract terminology from each source ──
+    let sectionResults = [];
+    showProgress('context', 15, 'Sending to Claude…');
 
-    // Process text content (one call covers all text sources combined)
     if (combinedText.trim()) {
-      const textResult = await callClaudeWithSystem(
-        apiKey, systemPrompt,
-        'Here is the source material:\n\n' + combinedText, 2000);
-      results.push(textResult);
+      const r = await callClaudeWithSystem(
+        apiKey, fullSystemPrompt,
+        'Here is the source material:\n\n' + combinedText, 4000);
+      sectionResults.push(r);
     }
 
-    // Process each PDF's extracted text separately, so every document is represented.
     for (let i = 0; i < pdfDocs.length; i++) {
-      showProgress('context', 30 + Math.round((i / pdfDocs.length) * 50),
-        `Processing PDF ${i + 1} of ${pdfDocs.length}…`);
-      const pdfResult = await callClaudeWithSystem(
-        apiKey, systemPrompt,
-        `Here is the source material:\n\n[Source: ${pdfDocs[i].name}]\n${pdfDocs[i].content}`, 2000);
-      results.push(pdfResult);
+      showProgress('context', 15 + Math.round((i / Math.max(pdfDocs.length, 1)) * 40),
+        `Processing document ${i + 1} of ${pdfDocs.length}…`);
+      const r = await callClaudeWithSystem(
+        apiKey, fullSystemPrompt,
+        `Here is the source material:\n\n[Source: ${pdfDocs[i].name}]\n${pdfDocs[i].content}`, 4000);
+      sectionResults.push(r);
     }
 
-    showProgress('context', 85, 'Finalising…');
-
-    // If multiple results, do a final merge pass that represents ALL documents.
-    let finalResult;
-    if (results.length === 1) {
-      finalResult = results[0];
+    // ── STEP 2: Merge all sections into the full terminology document ──
+    showProgress('context', 60, 'Merging all documents…');
+    let fullDoc;
+    if (sectionResults.length === 1) {
+      fullDoc = sectionResults[0];
     } else {
-      showProgress('context', 85, `Merging ${results.length} sections…`);
-      // Merge under a dedicated system prompt with NO hard length cap (see opts.merge),
-      // so every source document is represented. STREAMED — a 16K-token non-streaming
-      // merge holds the connection idle long enough to trigger NetworkError/timeouts;
-      // streaming keeps bytes flowing. The app warns afterwards if it exceeds 5,000 chars.
-      const mergeSystemPrompt = buildContextSystemPrompt(selectedLangs, institution, speakers, roomLabel, { merge: true });
-      const mergePrompt = `Below are ${results.length} context-file sections, each extracted from a different source document for the same event. Merge them into ONE context file that represents EVERY section. Do not drop or under-represent any section; remove only verbatim-duplicate sentences. Keep the room/session label line if present.
+      const mergePrompt = `Below are ${sectionResults.length} terminology sections, each extracted from a different source document for the same event. Merge them into ONE complete terminology document that represents EVERY section. Remove only verbatim-duplicate sentences. Keep all unique proper nouns, technical terms, abbreviations, speaker names, and event-specific facts from every section.
 
 SECTIONS TO MERGE:
-${results.map((r,i) => `--- Section ${i+1} of ${results.length} ---\n${r}`).join('\n\n')}`;
-      const merged = await callClaudeStream(
-        apiKey, [{ role: 'user', content: mergePrompt }], 16000, null, mergeSystemPrompt);
-      finalResult = merged.text;
+${sectionResults.map((r,i) => `--- Section ${i+1} of ${sectionResults.length} ---\n${r}`).join('\n\n')}`;
+      // Stream + auto-continue across the 16K-token cap so the full terminology
+      // document is never silently truncated, no matter how many documents.
+      document.getElementById('contextOutputFull').style.display = 'block';
+      const merged = await generateLongOutput(
+        apiKey,
+        mergePrompt,
+        16000,
+        full => { document.getElementById('contextContentFull').textContent = full; },
+        part => { if (part > 1) showProgress('context', 60, `Merging documents (continuation ${part})…`); },
+        fullSystemPrompt
+      );
+      fullDoc = merged.text;
     }
 
-    showProgress('context', 95, 'Rendering…');
+    // Show full terminology output
+    showProgress('context', 78, 'Rendering full document…');
+    const fullEl = document.getElementById('contextContentFull');
+    fullEl.textContent = fullDoc;
+    document.getElementById('contextOutputFull').style.display = 'block';
+    const fullChars = fullDoc.length;
+    document.getElementById('charCountFull').textContent =
+      `${fullChars.toLocaleString()} characters — full terminology document`;
 
-    const outputEl = document.getElementById('contextContent');
-    outputEl.textContent = finalResult;
+    // ── STEP 3: Derive the DeepL context file from the full document ──
+    showProgress('context', 82, 'Generating DeepL context file…');
+    const deepLPrompt = `Below is a full terminology document for a live event. Your task is to derive a SHORT DeepL context file from it, following the rules in your instructions exactly. The DeepL context file must be at or below 5,000 characters and must prioritise the institution name, speaker names, and the most translation-critical proper nouns and technical terms.
+
+FULL TERMINOLOGY DOCUMENT:
+${fullDoc}`;
+
+    const deepLResult = await callClaudeWithSystem(apiKey, deepLSystemPrompt, deepLPrompt, 2000);
+
+    // Show DeepL output
+    showProgress('context', 95, 'Rendering DeepL context file…');
+    const deepLEl = document.getElementById('contextContent');
+    deepLEl.textContent = deepLResult;
     document.getElementById('contextOutput').style.display = 'block';
 
-    const charCount = finalResult.length;
+    const charCount = deepLResult.length;
     const charEl = document.getElementById('charCount');
     if (charCount > 5000) {
-      charEl.innerHTML = `⚠ ${charCount.toLocaleString()} characters — <strong>over the 5,000-character DeepL context limit.</strong> This output covers all source documents. Decide whether to paste it as-is (DeepL may truncate), trim it manually, or drop some source files and re-run.`;
+      charEl.innerHTML = `⚠ ${charCount.toLocaleString()} characters — <strong>over the 5,000-character DeepL limit.</strong> Please trim manually before pasting into CMS.`;
       charEl.style.color = 'var(--warn)';
     } else {
       charEl.textContent = `${charCount.toLocaleString()} / 5,000 characters`;
@@ -1133,31 +1159,69 @@ ${results.map((r,i) => `--- Section ${i+1} of ${results.length} ---\n${r}`).join
 
     showProgress('context', 100, 'Done.');
     setTimeout(() => { document.getElementById('contextProgress').style.display = 'none'; }, 1500);
+
   } catch(e) {
     showProgress('context', 0, '');
     document.getElementById('contextProgress').style.display = 'none';
-    document.getElementById('contextContent').textContent = 'Error: ' + e.message;
-    document.getElementById('contextOutput').style.display = 'block';
+    const msg = 'Error: ' + e.message;
+    document.getElementById('contextContentFull').textContent = msg;
+    document.getElementById('contextOutputFull').style.display = 'block';
   }
 
   btn.disabled = false;
-  btn.innerHTML = 'Generate context file';
+  btn.innerHTML = 'Generate context files';
 }
 
-function buildContextSystemPrompt(langs, institution, speakers, roomLabel, opts = {}) {
-  const merge = opts.merge === true;   // merge pass: combine multiple sections, no hard length cap
+/* ── Prompt A: Full terminology document (no length limit, for CTO) ── */
+function buildFullTerminologyPrompt(langs, institution, speakers) {
   const langList = langs.join(', ');
-  const langRule = langs.length === 1
-    ? `The output must be in ${langs[0]}.
-Proper nouns and short foreign expressions embedded inside the main language must always be kept.
-If entire paragraphs or sections appear in a different language than ${langs[0]}, remove them completely. Only keep foreign text if it consists of short embedded expressions or proper nouns within ${langs[0]} sentences.`
-    : `The event has multiple speaker languages: ${langList}.
-The output must contain only content in these languages. Do not translate anything.
-Proper nouns and short foreign expressions are always kept regardless of language.
-If entire paragraphs or sections appear in a language NOT in this list, remove them completely.
-If the same factual content appears duplicated across multiple languages from the list, keep only one version — whichever is most complete — and remove the duplicate.`;
+  const institutionLines = institution.split('\n').map(s => s.trim()).filter(Boolean);
+  const speakerLines     = speakers ? speakers.split('\n').map(s => s.trim()).filter(Boolean) : [];
 
-  // Build the names block for injection at top of output
+  const langRule = langs.length === 1
+    ? `The output must be in ${langs[0]}. Keep proper nouns and short foreign expressions. Remove entire paragraphs in other languages.`
+    : `The event has speakers in: ${langList}. Keep content in any of these languages. Remove paragraphs in other languages entirely. Remove verbatim duplicates across languages, keeping the most complete version.`;
+
+  return `You are a terminology extraction specialist for a live AI simultaneous interpretation service. Your task is to extract ALL translation-critical content from the provided source material for a live event.
+
+This document will be used by the technical team to train transcription AI and prepare interpretation systems. It must be comprehensive — do not omit anything a translation engine or transcription system might struggle with.
+
+Speaker language(s): ${langList}
+Hosting institution: ${institutionLines.join(', ')}
+${speakerLines.length > 0 ? 'Speakers: ' + speakerLines.join(', ') : ''}
+
+OUTPUT FORMAT
+Plain text with paragraph breaks only. No titles, no bullet points, no headers, no introductions. Start directly with content. Write in natural sentences, not lists.
+
+LANGUAGE RULE
+${langRule}
+
+CONTENT TO EXTRACT — include ALL of the following:
+- Full names of all speakers, moderators, panellists, and any person mentioned
+- All organisation names, institution names, venue names, and any alternative names or abbreviations for them
+- All project names, programme names, product names, brand names
+- All technical terms, domain-specific vocabulary, acronyms, and abbreviations — spell them out in full the first time
+- All place names, country names, region names relevant to the content
+- All proper nouns that a translation engine could misidentify or mistranslate
+- Any words that have multiple meanings depending on context (e.g. a term that means one thing in the event domain and another in everyday language)
+- Event-specific dates, editions, version numbers, or identifiers
+
+WRITING RULES
+- Write in natural declarative sentences. Do not use lists or bullet points.
+- When introducing a term or name, provide enough context for it to be unambiguous (e.g. "CRISPR is a gene-editing technology" rather than just "CRISPR")
+- Convert abbreviations and acronyms: write both the abbreviation and its full form
+- No length limit — cover everything completely. Do not summarise or compress.
+- Do not invent information. Do not add context not present in the source.
+- Remove all HTML, CSS, navigation, boilerplate, legal text, and cookie notices.
+
+PROTECTED NAMES — always include, never omit:
+Institution/venue: ${institutionLines.join(', ')}
+${speakerLines.length > 0 ? 'Speakers: ' + speakerLines.join(', ') : ''}`;
+}
+
+/* ── Prompt B: DeepL context file (strict 5,000-char limit, per room) ── */
+function buildDeepLContextPrompt(langs, institution, speakers, roomLabel) {
+  const langList = langs.join(', ');
   const institutionLines = institution.split('\n').map(s => s.trim()).filter(Boolean);
   const speakerLines     = speakers ? speakers.split('\n').map(s => s.trim()).filter(Boolean) : [];
 
@@ -1170,57 +1234,43 @@ If the same factual content appears duplicated across multiple languages from th
     ? `The speaker is ${speakerLines[0]}.`
     : `The speakers are ${speakerLines.slice(0, -1).join(', ')} and ${speakerLines[speakerLines.length - 1]}.`;
 
-  const roomLine = roomLabel ? `CONTEXT FILE — ${roomLabel}\n\n` : '';
-
+  const roomLine  = roomLabel ? `CONTEXT FILE — ${roomLabel}\n\n` : '';
   const namesBlock = [institutionSentence, speakerSentence].filter(Boolean).join(' ');
 
-  return `You are an Expert Text Curator for an AI-powered real-time translation system. ${merge
-    ? `You will receive several context-file SECTIONS that were already extracted from different source documents for the SAME live event. Your task is to merge them into ONE coherent context file.`
-    : `Your sole task is to take the provided raw text and extract only the essential, factual context needed to help a live human translator or a machine translation engine understand the proper nouns, technical terms, and subject matter of a live event.`} This output is for the DeepL translation API context parameter.
+  return `You are preparing a context file for the DeepL translation API. This short text is loaded by DeepL every time it translates a live utterance. Its purpose is to help DeepL disambiguate words that have multiple meanings and recognise proper nouns correctly.
 
 Speaker language(s): ${langList}
 
-Your task is to produce a clean context file for Nubart TRANSLATE, following these rules:
+OUTPUT FORMAT
+Plain text with paragraph breaks only. No titles, no bullet points, no headers, no commentary.
+${roomLabel
+  ? `EXCEPTION: The very first line must be exactly: CONTEXT FILE — ${roomLabel}\nThen a blank line, then the mandatory names block, then the rest.`
+  : `Begin with the mandatory names block below, then continue.`}
 
-0. OUTPUT FORMAT
-Return only the final text. Plain text with paragraph breaks only — no other formatting. NO titles. NO introductions. NO labels. NO quotes. Do not include any headers, footers, conversational framing, numbering, bullet points, or commentary before or after the text.
-${roomLabel ? `EXCEPTION: The very first line of your output must be exactly: CONTEXT FILE — ${roomLabel}\nFollowed by a blank line, then the names block, then the rest of the content.` : `Begin your output with the following names block exactly as written, then continue with the document-derived content:`}
-
-MANDATORY FIRST PARAGRAPH — copy this exactly, then continue:
+MANDATORY OPENING — reproduce this exactly, then continue:
 ${roomLine}${namesBlock}
 
-1. LANGUAGE
-${langRule}
+CONTENT PRIORITIES (in order)
+1. Institution name(s) and venue name(s) — already in the opening block
+2. Speaker names — already in the opening block
+3. The most translation-critical proper nouns: project names, organisation names, product names, place names specific to this event
+4. Technical terms and domain vocabulary that DeepL could misidentify — especially words with multiple possible meanings in different contexts
+5. Key abbreviations and acronyms with their full forms
 
-2. CLEANING
-Remove all HTML, CSS, JavaScript, SVG, code, formatting, and URLs.
-Remove cookie notices, banners, footers, repeated menus, navigation items, and all technical or non-content elements.
-Remove boilerplate text, legal disclaimers, contact information, social media links, and automatically generated tables of contents.
-Preserve paragraph breaks; return plain text only.
-If the input is a PDF or Word dump, linearise the text naturally.
+WRITING RULES
+- Natural declarative sentences. Not lists.
+- Be concise: one sentence per concept where possible
+- Prioritise terms a translation engine is most likely to mishandle over general background prose
+- Do not include biographical narrative, general descriptions, or any content that does not help DeepL recognise a word correctly
 
-3. CONTENT RULES
-Do not invent information.
-If information appears in alt-text or URLs and is clearly reliable (e.g. an event date), you may keep it.
-Retain all unique proper nouns, technical terms, facts, dates, and event-specific details. Do not remove unique context.
-Rewrite complex sentences and long run-on sentences into two or more simpler, declarative sentences for live translation engine digestibility. Do not add new information or infer beyond what is explicitly stated.
-Convert lists and structured data (speaker rosters, schedules, etc.) into natural sentences.
-PROTECTED NAMES — these must NEVER be removed or altered during any reduction step:
-  Institution/venue: ${institutionLines.join(', ')}
-  ${speakerLines.length > 0 ? 'Speakers: ' + speakerLines.join(', ') : ''}
-${merge ? `EVERY source section/document MUST be represented in the merged output — never drop an entire document or leave one unrepresented. Remove ONLY verbatim-duplicate sentences that repeat across sections; keep every unique proper noun, technical term, fact, date and event-specific detail from ALL sections. Emit the names block above exactly once, at the very top.` : ''}
-
-${merge ? `4. LENGTH
-There is NO fixed character limit on this merge. Produce the most complete, useful context that fully represents ALL source documents. Be factual and de-duplicated, but do NOT sacrifice coverage of any document to hit a length target. Still avoid padding, filler, opinion/emotion adjectives, and repetition.
-STRICTLY PROHIBITED: Do not omit any proper nouns, technical terms, unique dates, or event-specific facts. Do not drop or under-represent any source document. Never remove the protected names listed above.` : `4. LENGTH CONSTRAINT (HARD LIMIT: 5,000 CHARACTERS — NON-NEGOTIABLE)
-The final output MUST be at or below 5,000 characters, including the names block, spaces, and line breaks. This is an absolute ceiling, not a target. To stay safely inside it, aim for 4,800 characters or fewer.
-If the draft exceeds this, apply the following reduction steps in order, and DO NOT STOP reducing until the text is at or below 4,800 characters:
-Step A — Redundancy Reduction: Remove or merge highly repetitive phrases, sentences, or paragraphs that do not introduce a new fact or name.
-Step B — Non-Essential Detail Removal: Remove opinion/emotion adjectives (wonderful, amazing, prestigious) but keep factual descriptive adjectives (medieval, Italian, cardiac, digital).
-Step C — Compression: Tighten phrasing into the shortest possible declarative sentences. Drop background, narrative, and contextual prose that is not a proper noun, technical term, date, or event-specific fact. When many facts compete for limited space, prioritise proper nouns and terminology that a translation engine could mishandle over general descriptive content.
-STRICTLY PROHIBITED: Do not omit any proper nouns, technical terms, unique dates, or event-specific facts. Do not summarise away the core factual content. Never remove the protected names listed above.
-
-FINAL SELF-CHECK (MANDATORY): Before returning, count the characters of your full output. If it is over 5,000, you have NOT finished — continue applying Step C until it is at or below 4,800. Never return text above 5,000 characters under any circumstances.`}`;
+LENGTH CONSTRAINT — ABSOLUTE HARD LIMIT: 5,000 CHARACTERS
+The complete output, including the opening block, spaces, and line breaks, must be at or below 5,000 characters. Aim for 4,800 or fewer to stay safely inside.
+If your draft exceeds this, cut in this order:
+1. Remove general descriptive sentences that contain no proper nouns or technical terms
+2. Remove opinion/emotion adjectives (wonderful, leading, prestigious)
+3. Compress sentences — make them shorter without removing proper nouns or technical terms
+NEVER remove the institution name, venue names, or speaker names.
+FINAL CHECK: count characters before returning. If over 5,000, keep cutting.`;
 }
 
 /* ════════════════════════════════════════════
@@ -1293,17 +1343,18 @@ async function callClaudeStream(apiKey, messages, maxTokens, onText, systemPromp
 // stops at the max_tokens cap mid-document, it continues from exactly where it left
 // off and loops until the model finishes naturally (end_turn). This guarantees a
 // full transcript even for multi-hour events that exceed a single response's limit.
-async function generateLongOutput(apiKey, prompt, maxTokens, onText, onPart) {
+async function generateLongOutput(apiKey, prompt, maxTokens, onText, onPart, systemPrompt) {
   const messages = [{ role: 'user', content: prompt }];
   let full = '', stopReason = null, part = 0;
-  const MAX_PARTS = 30;   // safety backstop (~30 × 64K tokens ≈ many hours of transcript)
+  const MAX_PARTS = 30;   // safety backstop (~30 × 64K tokens ≈ many hours of output)
 
   do {
     part++;
     if (onPart) onPart(part);
     const { text, stopReason: sr } = await callClaudeStream(
       apiKey, messages, maxTokens,
-      (delta) => { full += delta; if (onText) onText(full); }
+      (delta) => { full += delta; if (onText) onText(full); },
+      systemPrompt
     );
     stopReason = sr;
     if (sr !== 'max_tokens') break;
@@ -1313,9 +1364,9 @@ async function generateLongOutput(apiKey, prompt, maxTokens, onText, onPart) {
     const tail = full.slice(-300);
     messages.push({ role: 'assistant', content: text });
     messages.push({ role: 'user', content:
-      `Your previous response was cut off by the output length limit before the transcript was complete. ` +
-      `Continue the transcript EXACTLY where you stopped. Do NOT repeat any content you already produced, ` +
-      `do NOT restart the header or session log, and do NOT add any commentary or apology. ` +
+      `Your previous response was cut off by the output length limit before it was complete. ` +
+      `Continue EXACTLY where you stopped. Do NOT repeat any content you already produced, ` +
+      `do NOT restart from the beginning, and do NOT add any commentary or apology. ` +
       `Resume immediately after this text, which is the very end of what you produced so far:\n\n"""${tail}"""` });
   } while (part < MAX_PARTS);
 
