@@ -28,6 +28,14 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.11.0/mammoth.browser.min.js"></script>
   <!-- docx.js (vendored locally) for generating editable Word transcripts -->
   <script src="/assets/js/docx-9.7.1.umd.js"></script>
+  <!-- pdf.js (vendored locally) for extracting text from PDFs in the browser,
+       so we send small text instead of large PDF binaries (32 MB request limit) -->
+  <script src="/assets/js/pdf-3.11.174.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = '/assets/js/pdf-3.11.174.worker.min.js';
+    }
+  </script>
 
   <link rel="stylesheet" href="/assets/css/internal-tools.css">
 </head>
@@ -879,13 +887,30 @@ async function processContextFiles(files, alertElId) {
 
     try {
       if (ext === 'pdf') {
-        const b64 = await new Promise((res, rej) => {
+        // Extract text in the browser and send that (a few KB) instead of the whole
+        // PDF binary — avoids the API's 32 MB request limit that broke multi-PDF runs.
+        if (typeof pdfjsLib === 'undefined') {
+          throw new Error('PDF reader failed to load — refresh the page and try again.');
+        }
+        const buf = await new Promise((res, rej) => {
           const r = new FileReader();
-          r.onload = e => res(e.target.result.split(',')[1]);
+          r.onload = e => res(e.target.result);
           r.onerror = () => rej(new Error('Read failed'));
-          r.readAsDataURL(file);
+          r.readAsArrayBuffer(file);
         });
-        results.push({ type: 'pdf_b64', content: b64, name: file.name });
+        const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+        let text = '';
+        for (let p = 1; p <= pdf.numPages; p++) {
+          const page = await pdf.getPage(p);
+          const content = await page.getTextContent();
+          text += content.items.map(it => it.str).join(' ') + '\n';
+        }
+        // Scanned / image-only PDFs yield almost no extractable text — warn and skip.
+        if (text.replace(/\s+/g, '').length < pdf.numPages * 20) {
+          warnings.push(`<strong>${file.name}</strong> — this PDF appears to be scanned (image-only), so no text could be extracted. Please export a text-based version (or run OCR) and re-upload it.`);
+          continue;
+        }
+        results.push({ type: 'pdf_text', content: text, name: file.name });
       } else if (ext === 'docx' || ext === 'doc') {
         const buf = await new Promise((res, rej) => {
           const r = new FileReader();
@@ -1033,8 +1058,9 @@ async function generateContext() {
   btn.innerHTML = '<span class="spinner" style="display:inline-block"></span> Processing…';
   showProgress('context', 15, 'Preparing content…');
 
-  // Separate PDFs from text files
-  const pdfFiles  = activeFiles.filter(f => f.type === 'pdf_b64');
+  // PDFs are now text-extracted in the browser; each is kept as its own document so
+  // the merge represents every one of them. Other text files + paste share one call.
+  const pdfDocs   = activeFiles.filter(f => f.type === 'pdf_text');
   const textFiles = activeFiles.filter(f => f.type === 'text');
 
   // Combine all plain text sources
@@ -1057,11 +1083,13 @@ async function generateContext() {
       results.push(textResult);
     }
 
-    // Process each PDF separately (Claude reads them natively)
-    for (let i = 0; i < pdfFiles.length; i++) {
-      showProgress('context', 30 + Math.round((i / pdfFiles.length) * 50),
-        `Processing PDF ${i + 1} of ${pdfFiles.length}…`);
-      const pdfResult = await callClaudeWithPdf(apiKey, systemPrompt, pdfFiles[i].content);
+    // Process each PDF's extracted text separately, so every document is represented.
+    for (let i = 0; i < pdfDocs.length; i++) {
+      showProgress('context', 30 + Math.round((i / pdfDocs.length) * 50),
+        `Processing PDF ${i + 1} of ${pdfDocs.length}…`);
+      const pdfResult = await callClaudeWithSystem(
+        apiKey, systemPrompt,
+        `Here is the source material:\n\n[Source: ${pdfDocs[i].name}]\n${pdfDocs[i].content}`, 2000);
       results.push(pdfResult);
     }
 
@@ -1074,14 +1102,17 @@ async function generateContext() {
     } else {
       showProgress('context', 85, `Merging ${results.length} sections…`);
       // Merge under a dedicated system prompt with NO hard length cap (see opts.merge),
-      // so every source document is represented. Higher max_tokens (non-streaming) gives
-      // room for the combined output; the app warns afterwards if it exceeds 5,000 chars.
+      // so every source document is represented. STREAMED — a 16K-token non-streaming
+      // merge holds the connection idle long enough to trigger NetworkError/timeouts;
+      // streaming keeps bytes flowing. The app warns afterwards if it exceeds 5,000 chars.
       const mergeSystemPrompt = buildContextSystemPrompt(selectedLangs, institution, speakers, roomLabel, { merge: true });
       const mergePrompt = `Below are ${results.length} context-file sections, each extracted from a different source document for the same event. Merge them into ONE context file that represents EVERY section. Do not drop or under-represent any section; remove only verbatim-duplicate sentences. Keep the room/session label line if present.
 
 SECTIONS TO MERGE:
 ${results.map((r,i) => `--- Section ${i+1} of ${results.length} ---\n${r}`).join('\n\n')}`;
-      finalResult = await callClaudeWithSystem(apiKey, mergeSystemPrompt, mergePrompt, 16000);
+      const merged = await callClaudeStream(
+        apiKey, [{ role: 'user', content: mergePrompt }], 16000, null, mergeSystemPrompt);
+      finalResult = merged.text;
     }
 
     showProgress('context', 95, 'Rendering…');
@@ -1198,7 +1229,14 @@ FINAL SELF-CHECK (MANDATORY): Before returning, count the characters of your ful
 // Streaming message call. Streams the response (avoids HTTP idle timeouts on long
 // generations) and returns the full text of THIS response plus its stop_reason.
 // onText(delta) fires for each text chunk so callers can render progressively.
-async function callClaudeStream(apiKey, messages, maxTokens, onText) {
+async function callClaudeStream(apiKey, messages, maxTokens, onText, systemPrompt) {
+  const body = {
+    model: 'claude-sonnet-4-6',
+    max_tokens: maxTokens,
+    stream: true,
+    messages
+  };
+  if (systemPrompt) body.system = systemPrompt;
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -1207,12 +1245,7 @@ async function callClaudeStream(apiKey, messages, maxTokens, onText) {
       'anthropic-version': '2023-06-01',
       'anthropic-dangerous-direct-browser-access': 'true'
     },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: maxTokens,
-      stream: true,
-      messages
-    })
+    body: JSON.stringify(body)
   });
 
   if (!response.ok) {
@@ -1283,67 +1316,13 @@ async function generateLongOutput(apiKey, prompt, maxTokens, onText, onPart) {
   return { text: full, stopReason, parts: part };
 }
 
-// System + user message call (context prep text mode)
+// System + user message call (context prep text mode). Streamed — a non-streaming
+// request holds the connection idle until the whole reply is ready, which on slow
+// or large inputs gets dropped as a NetworkError; streaming keeps bytes flowing.
 async function callClaudeWithSystem(apiKey, systemPrompt, userContent, maxTokens = 2000) {
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: maxTokens,
-      system: systemPrompt,
-      messages: [{ role: 'user', content: userContent }]
-    })
-  });
-
-  if (!response.ok) {
-    const err = await response.json().catch(() => ({}));
-    throw new Error(err.error?.message || `API error ${response.status}`);
-  }
-
-  const data = await response.json();
-  return data.content.map(b => b.text || '').join('');
-}
-
-// PDF call: system prompt as text block alongside document
-async function callClaudeWithPdf(apiKey, systemPrompt, pdfB64) {
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 2000,
-      system: systemPrompt,
-      messages: [{
-        role: 'user',
-        content: [
-          {
-            type: 'document',
-            source: { type: 'base64', media_type: 'application/pdf', data: pdfB64 }
-          },
-          { type: 'text', text: 'Please process the document above according to your instructions.' }
-        ]
-      }]
-    })
-  });
-
-  if (!response.ok) {
-    const err = await response.json().catch(() => ({}));
-    throw new Error(err.error?.message || `API error ${response.status}`);
-  }
-
-  const data = await response.json();
-  return data.content.map(b => b.text || '').join('');
+  const { text } = await callClaudeStream(
+    apiKey, [{ role: 'user', content: userContent }], maxTokens, null, systemPrompt);
+  return text;
 }
 
 /* ════════════════════════════════════════════
