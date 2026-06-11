@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Structured Data: BlogPosting -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "@id": "https://www.nubart.eu/audio-commentary-system/gps-trigger-lines-vs-radius-circles.html#article",
+            "headline": "GPS Trigger Lines vs. Radius Circles: Why Fixed-Route Vehicles Need Directional Triggering",
+            "alternativeHeadline": "Why Radius-Based GPS Triggers Fail on Sightseeing Boats and Buses — and How Directional Lines Fix Them",
+            "inLanguage": "en",
+            "description": "Radius-based GPS triggers work for walking tours. On boats and buses following a fixed route, they cause missed triggers, double playback, and return-route problems. Directional trigger lines solve all three. Here is how they work and when each approach is appropriate.",
+            "image": "https://www.nubart.eu/assets/img/motion/trigger-lines.webp",
+            "author": {
+                "@type": "Person",
+                "name": "Rosa Sala",
+                "jobTitle": "CEO of Nubart",
+                "url": "https://www.nubart.eu/about.html"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "datePublished": "2026-06-10",
+            "dateModified": "2026-06-10",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/audio-commentary-system/gps-trigger-lines-vs-radius-circles.html"
+            },
+            "keywords": [
+                "GPS audio guide triggering",
+                "directional trigger line",
+                "radius trigger GPS",
+                "gps triggered audio tour",
+                "audio guide GPS triggering",
+                "GPS audio commentary boats",
+                "commentary system sightseeing vehicle",
+                "geofence audio guide",
+                "sightseeing boat audio commentary",
+                "Nubart MOTION",
+                "fixed-route audio guide",
+                "GPS geolocation triggering"
+            ],
+            "articleSection": [
+                "Audio Commentary Systems",
+                "GPS Triggering",
+                "Sightseeing Technology"
+            ],
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Directional GPS trigger lines",
+                    "description": "Virtual lines drawn across a waterway or road that fire audio commentary only when crossed in a specified direction, used in fixed-route sightseeing vehicle audio guide systems"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Radius-based GPS triggers",
+                    "description": "Circular geofence zones around a point of interest that fire audio commentary when a device enters the zone, regardless of direction of travel"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Geolocation API",
+                    "sameAs": "https://en.wikipedia.org/wiki/W3C_Geolocation_API"
+                }
+            ],
+            "mentions": [
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Nubart MOTION",
+                    "url": "https://www.nubart.eu/audio-commentary-system/",
+                    "applicationCategory": "Audio Commentary System",
+                    "operatingSystem": "Web browser"
+                }
+            ],
+            "isPartOf": {
+                "@type": "Blog",
+                "name": "Nubart Blog",
+                "url": "https://www.nubart.eu/x-blog/"
+            },
+            "wordCount": 1450,
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [".lead", "h1", "h2"]
+            }
+        }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "inLanguage": "en",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is a directional trigger line in a GPS audio guide?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A directional trigger line is a virtual line drawn across a waterway or road at a specific point along a fixed route. When the vehicle crosses the line, audio commentary triggers automatically. Because the line has a defined direction, the system knows which way the vehicle is crossing it — outbound or return — and can assign different audio to each crossing, or suppress playback on one direction entirely. This is distinct from radius-based triggers, which fire whenever a device enters a circular zone around a point of interest, regardless of which direction it approaches from."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Why do radius-based GPS triggers cause problems on return routes for boats?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A radius-based GPS trigger fires whenever a device enters the defined circular zone, regardless of direction of travel. On a sightseeing boat that passes a landmark on the outbound journey and again on the return, the same commentary track plays twice — once heading out and once heading back. Operators can avoid this by setting small radius zones, but small zones introduce their own problem: if the vessel passes through quickly or at a slight angle, the device may cross the zone too briefly to register the trigger at all. Directional trigger lines avoid this entirely by assigning direction to the trigger, so the system can fire different audio — or nothing — on the return crossing."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does a GPS audio guide for boats require passengers to grant location permissions?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "It depends on the architecture of the system. If triggering relies on GPS running on each passenger's own smartphone, then yes — passengers must grant location permissions, which on iPhones requires several separate settings to be correctly configured. A more reliable approach centralises GPS positioning on an operator-controlled master device on the vehicle. In that case, passengers need no permissions at all: they scan a QR code, select a language, and audio plays automatically. The location work happens entirely on the operator's side."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "When should radius-based GPS triggers be used instead of directional lines?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Radius-based triggers are appropriate for walking tours and free-roaming audio guides where the visitor's direction of approach to a point of interest is unpredictable. If a visitor might approach the same building from the north, the south, or diagonally, a circle is the correct shape: it fires regardless of approach direction. Directional lines are the better choice for vehicles following a fixed route — boats, buses, trains — where direction of travel is known and consistent."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What happens if a sightseeing boat moves too fast for a GPS trigger to register?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "With radius-based triggers, high vessel speed is a genuine problem. If the radius is set small enough to avoid overlapping with adjacent zones, the vessel may pass through the zone in fewer GPS polling cycles than the system needs to register entry. The trigger is missed entirely. Directional lines reduce this risk because the trigger fires on the moment of crossing rather than on sustained presence within a zone. For routes with high-speed sections or areas with intermittent GPS signal, a time-based fallback can supplement GPS triggering to ensure commentary plays regardless."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": "https://www.nubart.eu/",
+                    "name": "Nubart"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": "https://www.nubart.eu/audio-commentary-system/",
+                    "name": "Nubart MOTION"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": "https://www.nubart.eu/audio-commentary-system/gps-trigger-lines-vs-radius-circles.html",
+                    "name": "GPS Trigger Lines vs. Radius Circles"
+                }
+            ]
+        }
+    </script>
+
+    <!-- End Structured Data -->
+
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+    </script>
+
+    <!-- Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+
+    <!-- Cookie consent config -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+    <title>GPS Trigger Lines vs. Radius Circles: Why Fixed-Route Vehicles Need Directional Triggering</title>
+    <meta name="description" content="Radius-based GPS triggers work for walking tours. On boats and buses following a fixed route, they cause missed triggers, double playback, and return-route problems. Directional trigger lines solve all three." />
+
+    <meta name="author" content="Nubart" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Radius-based GPS triggers fail on fixed-route vehicles. Directional trigger lines solve missed triggers, double playback, and return-route problems. Here is how." />
+    <meta name="twitter:site" content="@nubartEN" />
+    <meta name="twitter:creator" content="@nubartEN" />
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/motion/trigger-lines.webp" />
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/audio-commentary-system/gps-trigger-lines-vs-radius-circles.html" />
+    <link rel="alternate" href="https://www.nubart.eu/audio-commentary-system/gps-trigger-lines-vs-radius-circles.html" hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-commentary-system/gps-trigger-lines-vs-radius-circles.html" hreflang="en-gb"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-commentary-system/gps-trigger-lines-vs-radius-circles.html" hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-commentary-system/gps-trigger-lines-vs-radius-circles.html" hreflang="en-us"/>
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="GPS Trigger Lines vs. Radius Circles: Why Fixed-Route Vehicles Need Directional Triggering" />
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/motion/trigger-lines.webp" />
+    <meta property="og:author" content="Nubart International" />
+    <meta property="og:description" content="Radius-based GPS triggers fail on fixed-route vehicles. Directional trigger lines solve missed triggers, double playback, and return-route problems." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.nubart.eu/audio-commentary-system/gps-trigger-lines-vs-radius-circles.html" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png">
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Lazy-load JS -->
+    <script src="../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<!-- First Navbar -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="../" class="logo"> <img src="../assets/img/logo.png" alt="Nubart's logo" class="img-fluid"> </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a href="../audio-guides/">
+                                <i class="bi bi-headphones product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GUIDE</span>
+                                    <span class="product-description">Self-guided QR-based audio tours (PWA)</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a href="../digital-tour-guide-app/">
+                                <i class="bi bi-headset product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART LIVE</span>
+                                    <span class="product-description">Tour guide system with live AI translation</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a href="../audio-commentary-system/">
+                                <i class="bi bi-bus-front-fill product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART MOTION</span>
+                                    <span class="product-description">Triggered commentary system for boats, buses &amp; other vehicles</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a href="../ai-simultaneous-interpretation/">
+                                <i class="bi bi-translate product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART TRANSLATE</span>
+                                    <span class="product-description">Simultaneous AI-translation in real-time for your events</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a href="../audio-guides/ar-game-quiz.html">
+                                <i class="bi bi-controller product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GAME</span>
+                                    <span class="product-description">Interactive AR game and quiz to integrate in your audio guide.</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a href="https://nubart-sync.com/">
+                                <i class="bi bi-person-video3 product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART SYNC</span>
+                                    <span class="product-description">A QR-code to stream the multilingual audio of your on-site videos in perfect sync.</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="../portfolio/">Customers</a></li>
+                <li><a class="nav-link scrollto" href="../x-blog/">Blog</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../about.html">About us</a></li>
+                        <li><a href="../contact.html">Contact Nubart</a></li>
+                    </ul>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                       href="https://www.nub.art/customer/login"> <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
+                <li class="dropdown d-none d-md-block">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../es/">Español</a></li>
+                        <li><a href="../de/">Deutsch</a></li>
+                        <li><a href="../fr/">Français</a></li>
+                        <li><a href="../pt-br/">Português</a></li>
+                        <li><a href="../nl/">Nederlands</a></li>
+                        <li><a href="../it/">Italiano</a></li>
+                        <li><a href="../pl/">Polski</a></li>
+                        <li><a href="../bg/">български</a></li>
+                        <li><a href="../he/">עִברִית</a></li>
+                        <li><a href="../ja/">日本語</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-secondary-menu-divider d-md-none"><hr></li>
+                <li class="mobile-secondary-header d-md-none" style="color: #028a8c;"><i class="bi bi-bus-front-fill product-icon"></i>&nbsp;<span>NUBART MOTION</span></li>
+                <li class="d-md-none"><a href="../audio-commentary-system/#samples">Request a Custom Demo</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header><!-- End Header -->
+
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #333333">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <a href="../audio-commentary-system/" style="font-size: 20px;">
+                        <i class="bi bi-bus-front-fill product-icon"></i>&nbsp;&nbsp;
+                        <b>Nubart MOTION</b>
+                    </a>
+                </div>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+                    <li style="margin-right: 22px;"><a href="../audio-commentary-system/#pricing-context">Pricing</a></li>
+                    <li style="margin-right: 22px;"><a href="../audio-commentary-system/#faq">FAQ</a></li>
+                    <li style="margin-right: 22px;">
+                        <a class="getstarted scrollto" href="../audio-commentary-system/#samples">Request a Custom Demo</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Breadcrumbs -->
+<div class="d-md-none" style="height: 60px;"></div>
+<section class="breadcrumbs d-none d-md-block">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>GPS Trigger Lines vs. Radius Circles</h2>
+            <ol>
+                <li><a href="../">Home</a></li>
+                <li><a href="../x-blog/">Nubart Blog</a></li>
+                <li>GPS Trigger Lines vs. Radius Circles</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<main id="main">
+    <section class="inner-page services">
+        <div class="container">
+            <div class="row">
+
+                <!-- Author column -->
+                <div class="col-md-3">
+                    <div style="align-items:top;">
+                        <img src="../assets/img/team/rosa.webp"
+                             class="img-thumbnail rounded-circle d-none d-lg-block"
+                             style="margin-right:30px;"
+                             width="45%"
+                             alt="Rosa Sala - Nubart">
+                    </div>
+                    <div>
+                        <h4 class="fs-5">Rosa Sala</h4>
+                        <p class="nubart-blog-author">CEO of Nubart</p>
+                    </div>
+                </div>
+
+                <!-- Article body -->
+                <div class="col-md-7 nubart-blog">
+
+                    <h1>GPS Trigger Lines vs. Radius Circles: Why Fixed-Route Vehicles Need Directional Triggering</h1>
+
+                    <figure class="figure">
+                        <img src="../assets/img/motion/trigger-lines.webp"
+                             class="img-fluid"
+                             alt="Map showing directional trigger lines drawn across a harbour waterway, used to activate audio commentary automatically as a vessel crosses each line"/>
+                    </figure>
+                    <br>
+
+                    <p class="lead">When an operator first configures a GPS-triggered audio guide, the choice of trigger zone type rarely receives much attention. A circle around each point of interest seems the natural shape: draw a radius, set a distance, and audio plays when the device enters the zone. For walking tours, this is perfectly adequate. For sightseeing boats, buses, and tourist trains following a fixed route, it produces a specific set of problems that only become visible once the system is running in practice.</p>
+
+                    <p class="lead">This article explains what those problems are, how directional trigger lines address them, and — equally important — when radius-based triggers remain the better choice.</p>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
+
+                    <h2 id="how-radius-works">How Radius-Based Triggers Work</h2>
+
+                    <p>A radius-based GPS trigger defines a circular geofence around a point of interest. When the GPS device — whether a passenger's smartphone or a dedicated operator device — enters that circle, the audio track assigned to that point plays. The mechanism is simple and, for many use cases, sufficient.</p>
+
+                    <p>The configuration choice that shapes real-world performance is the radius size. Set it too large, and adjacent trigger zones begin to overlap on routes where points of interest are closely spaced. A boat approaching a medieval bridge may trigger commentary for the palace behind it while the bridge is still several hundred metres ahead. Set the radius too small to avoid this, and a different problem emerges: a vessel moving at normal operating speed may pass through the entire zone in fewer GPS polling cycles than the system needs to register entry, and the trigger is missed entirely. The passenger hears nothing.</p>
+
+                    <p>Both failure modes are common in practice. Operators who discover missed triggers often respond by enlarging the zones, which then causes early and overlapping playback. There is no radius value that cleanly solves all three constraints simultaneously on a route with closely spaced stops.</p>
+
+                    <h2 id="return-route">The Return Route Problem</h2>
+
+                    <p>On fixed-route vehicles — and particularly on harbour and river boats that complete a round trip — the radius trigger has a further structural problem: it fires in both directions.</p>
+
+                    <p>Consider a harbour tour where the vessel leaves the dock, passes a lighthouse, completes a circuit of the bay, and returns past the same lighthouse before berthing again. A radius zone around the lighthouse triggers when the vessel enters it, regardless of which direction the vessel is heading. On the outbound leg, the commentary plays correctly. On the return, the same track plays again — over the same passengers, who heard it an hour earlier.</p>
+
+                    <p>Operators typically handle this by either accepting the repeated playback, disabling commentary on the return leg entirely, or configuring shorter tracks for the return that feel less intrusive. None of these is a satisfying solution, and all require ongoing manual management. A route with eight points of interest and a return leg means sixteen potential trigger events to manage, rather than eight.</p>
+
+                    <h2 id="trigger-lines">How Directional Trigger Lines Solve This</h2>
+
+                    <p>A directional trigger line is a virtual line drawn across the waterway or road at a specific point on the route. Audio fires when the vehicle crosses the line — and because the line has an assigned direction, the system knows which way the crossing occurred.</p>
+
+                    <figure class="figure">
+                        <img src="../assets/img/motion/trigger-lines.webp"
+                             class="figure-img img-fluid rounded"
+                             alt="Map showing directional trigger lines drawn across a harbour waterway, used to activate audio commentary automatically as a vessel crosses each line"/>
+                    </figure>
+
+                    <p>The practical consequences of this difference are significant. Speed sensitivity is reduced: the trigger fires at the moment of line crossing rather than on sustained presence within a zone, so a vessel moving quickly through a narrow strait is no more likely to miss a trigger than one proceeding slowly through open water. Overlap between adjacent triggers is eliminated by geometry rather than by radius calibration: two parallel lines will never overlap regardless of how close the corresponding points of interest are.</p>
+
+                    <p>The return route problem disappears entirely. A trigger line can be configured to fire only in the outbound direction, so the same track does not play again when the vessel returns past the same point. Or — and this is where the approach becomes genuinely useful — the line can be set to fire in both directions independently, with different audio assigned to each crossing. The outbound track describes the lighthouse as it approaches. The inbound track, heard on the return, offers something different: the history of the dock the vessel is heading back towards, or simply silence. The operator decides; the system enforces it reliably.</p>
+
+                    <h2 id="concrete-example">A Concrete Example: A Harbour Tour</h2>
+
+                    <p>Take a vessel that departs from a central quay, passes a castle on the headland, crosses a harbour mouth, rounds a small island, and returns via the same route. Five points of interest, each passed twice.</p>
+
+                    <p>With radius-based triggers, the operator faces a matrix of decisions: how large to set each zone without overlapping neighbours, whether to suppress return-leg playback and if so how, and what to do about the harbour mouth — a narrow passage where the vessel will be moving at speed and where a small zone is likely to produce missed triggers. Each configuration choice is a compromise, and any change to the vessel's operating speed or route requires recalibration.</p>
+
+                    <p>With directional trigger lines, each point of interest gets two lines: one facing the outbound direction, one facing inbound. Five points of interest produce ten line definitions. Each line fires once per crossing, in the correct direction, at the correct moment. Outbound and return tracks are managed independently. Vessel speed has no effect. No zone calibration is needed.</p>
+
+                    <p>The configuration takes slightly longer to set up initially. Once in place, it requires no ongoing adjustment unless the route itself changes.</p>
+
+                    <h2 id="comparison">Radius Circles vs. Trigger Lines: A Summary</h2>
+
+                    <div class="table-responsive my-4">
+                        <table class="table table-bordered align-middle">
+                            <thead style="background-color: #028a8c; color: #fff;">
+                                <tr>
+                                    <th scope="col">Property</th>
+                                    <th scope="col" class="text-center">Radius circles</th>
+                                    <th scope="col" class="text-center">Directional lines</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Trigger precision</td>
+                                    <td class="text-center">Depends on radius size and vessel speed</td>
+                                    <td class="text-center">Fires at the moment of crossing, speed-independent</td>
+                                </tr>
+                                <tr>
+                                    <td>Return route handling</td>
+                                    <td class="text-center">Fires again on return unless suppressed manually</td>
+                                    <td class="text-center">Direction-aware; different audio or silence assignable per direction</td>
+                                </tr>
+                                <tr>
+                                    <td>Overlap between adjacent stops</td>
+                                    <td class="text-center">Risk increases on closely spaced routes</td>
+                                    <td class="text-center">No overlap by geometry</td>
+                                </tr>
+                                <tr>
+                                    <td>Speed sensitivity</td>
+                                    <td class="text-center">High-speed passage through small zones may miss trigger</td>
+                                    <td class="text-center">Minimal; crossing event registered on entry</td>
+                                </tr>
+                                <tr>
+                                    <td>Configuration complexity</td>
+                                    <td class="text-center">Simple initial setup; ongoing calibration often needed</td>
+                                    <td class="text-center">More initial definition; stable once configured</td>
+                                </tr>
+                                <tr>
+                                    <td>Best suited for</td>
+                                    <td class="text-center">Walking tours, free-roaming guides</td>
+                                    <td class="text-center">Boats, buses, trains on fixed routes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="when-radius-is-right">When Radius-Based Triggers Remain the Right Choice</h2>
+
+                    <p>It would be misleading to suggest that directional lines are always superior. They are not: they are the right choice for vehicles on fixed routes, and the wrong choice for contexts where direction of approach is unpredictable.</p>
+
+                    <p>A walking audio guide through a historic city centre is the clearest counterexample. A visitor approaching a cathedral might come from the north, the east, or diagonally across a square. A directional line would work only for visitors crossing it from a specific angle; a visitor approaching from the opposite side would hear nothing. A radius zone fires regardless of approach direction, which is exactly the correct behaviour for a free-roaming visitor.</p>
+
+                    <p>This is why Nubart uses radius-based triggers for its static audio guide product, where visitors explore at their own pace and in their own sequence. The two approaches serve different contexts, and the distinction matters when evaluating any GPS audio commentary system for a specific operation.</p>
+
+                    <h2 id="fallback">What Happens When GPS Signal Drops</h2>
+
+                    <p>Neither trigger line nor radius circle can fire when there is no GPS signal. Routes that pass through tunnels, under low bridges, or along river sections with poor satellite coverage will experience trigger failures regardless of zone type. This is an inherent limitation of GPS-based positioning.</p>
+
+                    <p>The practical solution for fixed-route vehicles is hybrid triggering: GPS-based firing for the majority of the route, with time-triggered sequences as a fallback for defined dead zones. The operator marks which segments of the route have unreliable positioning; the system advances through the corresponding tracks on a timed schedule rather than waiting for a GPS event that may not arrive. Combined with content preloading — so audio tracks are already on passenger devices before the vessel enters an area with no connectivity — this approach produces consistent playback even on routes where signal conditions are imperfect.</p>
+
+                    <p>For a more detailed treatment of the broader GPS triggering challenges on sightseeing vehicles, including the question of whether to position GPS on passenger devices or on a dedicated operator-controlled device, see our earlier article: <a href="gps-triggered-commentary-sightseeing-vehicles.html">Why GPS Audio Commentary for Sightseeing Vehicles Fails: And How to Fix It</a>.</p>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
+
+                    <p><a href="../audio-commentary-system/">Nubart MOTION</a> uses directional trigger lines for all fixed-route vehicle deployments, combined with GPS positioning on a dedicated operator-controlled master device and time-based fallback for areas with poor signal. If you are evaluating a GPS-triggered audio commentary system for a boat, bus, or tourist train, we are happy to discuss your specific route and configure a custom demo on your actual itinerary before any commitment. <a href="../audio-commentary-system/#samples">Get in touch here.</a></p>
+
+                </div><!-- /.col-md-7 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlin<br>
+                            <strong>Email:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Useful Links</p>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contact.html">Contact</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../legal-notice.html" rel="nofollow">Legal notice</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../terms-conditions.html" rel="nofollow">Terms and Conditions</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../privacy-policy.html" rel="nofollow">Privacy policy website</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Cookie Preferences</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. All Rights Reserved
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Critical JS Files -->
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+
+<!-- Non-Critical JS Files -->
+<script src="../assets/vendor/aos/aos.js" defer></script>
+<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../assets/js/main-min.js" defer></script>
+
+<!-- Hubspot Analytics -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async
+        src="//js.hs-scripts.com/2430134.js"></script>
+
+<!-- Scroll to hash -->
+<script>
+    function getElementTopOffset(element) {
+        if (!element.getClientRects().length){ return 0; }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.scrollY;
+    }
+    window.addEventListener('load', event => {
+        if (window.location.hash.length > 0) {
+            window.setTimeout(() => {
+                const target = document.getElementById(window.location.hash.substring(1));
+                if(target) { window.scrollTo(0, getElementTopOffset(target)); }
+            }, 1000);
+        }
+    });
+</script>
+
+<script type="module" src="/js/cookieconsent-config.js"></script>
+</body>
+</html>
