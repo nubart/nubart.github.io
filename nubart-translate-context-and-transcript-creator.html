@@ -1280,6 +1280,12 @@ async function callClaudeStream(apiKey, messages, maxTokens, onText, systemPromp
       }
     }
   }
+  // A completed response always carries a stop_reason (via message_delta). If the
+  // stream closed without one, the connection was cut mid-response — surface it
+  // rather than silently returning a half-finished document.
+  if (stopReason === null) {
+    throw new Error('The response was cut off before it finished — the connection closed early. Please try again.');
+  }
   return { text, stopReason };
 }
 
