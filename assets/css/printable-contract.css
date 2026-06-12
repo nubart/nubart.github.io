@@ -1,0 +1,384 @@
+/* ============================================================
+   Nubart printable contracts — shared styling
+   ------------------------------------------------------------
+   Used by the fill-in-and-print contract HTML files in
+   not-to-be-committed-nor-pushed/contracts/.
+
+   Layout is selected with a body class:
+     <body class="contract">                → two-column bilingual (default)
+     <body class="contract single-column">  → single-column (one language)
+
+   The two columns are styled structurally (first child / last child),
+   so the markup may use any language classes (.de/.es/.fr/.en …) or
+   none at all — only the DOM order matters: first child = binding /
+   primary language, last child = translation / secondary language.
+
+   Authoring convention: give every numbered (sub-)clause its own
+   .clause block. Page breaks then fall between clauses and pages fill
+   top-to-bottom, with no large blank areas (which would be legally
+   undesirable — blank space invites post-signature tampering).
+   ============================================================ */
+
+/* ── Screen layout ── */
+body.contract {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #222;
+}
+/* single-language contracts read better in a narrower measure */
+body.contract.single-column { max-width: 900px; }
+
+/* Letterhead */
+.letterhead {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Title block */
+.title-block {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #00a7b5;
+    padding-bottom: 1rem;
+}
+.title-block h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    color: #111;
+}
+/* secondary (translation) title line = any <h1> after the first */
+.title-block h1 + h1 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: 0.15rem;
+}
+
+/* ── Two-column bilingual grids (default) ── */
+.parties,
+.section-heading,
+.clause {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2.5rem;
+}
+.parties > div:first-child,
+.section-heading > div:first-child,
+.clause > div:first-child {
+    border-right: 1px solid #e0e0e0;
+    padding-right: 1.5rem;
+}
+.parties > div:last-child,
+.section-heading > div:last-child,
+.clause > div:last-child {
+    padding-left: 0.5rem;
+}
+/* secondary (translation) column: lighter body text + italic heading */
+.clause > div:last-child { color: #333; }
+.section-heading > div:last-child h2 {
+    font-weight: 500;
+    font-style: italic;
+    color: #444;
+}
+
+/* ── Single-column override ── */
+.single-column .parties,
+.single-column .section-heading,
+.single-column .clause {
+    display: block;
+}
+.single-column .parties > div:first-child,
+.single-column .section-heading > div:first-child,
+.single-column .clause > div:first-child {
+    border-right: none;
+    padding-right: 0;
+}
+.single-column .parties > div:last-child,
+.single-column .section-heading > div:last-child,
+.single-column .clause > div:last-child {
+    padding-left: 0;
+}
+
+/* Parties block */
+.parties {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+}
+.parties p { margin: 0 0 0.3rem 0; }
+.parties .nubart,
+.parties .nubart-block { margin-bottom: 0.75rem; }
+.parties .label { font-weight: 600; color: #00a7b5; display: block; margin-bottom: 0.3rem; }
+.parties .and-line { margin: 0.75rem 0; font-weight: 600; }
+.parties .client-line,
+.client-line {
+    border-bottom: 1px solid #999;   /* grey writing line */
+    min-height: 1.4em;
+    margin-bottom: 0.3rem;
+    width: 100%;
+    display: block;
+    color: #111;                     /* typed input stays black */
+}
+
+/* Section headings */
+.section-heading {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    border-top: 2px solid #00a7b5;
+    padding-top: 0.6rem;
+}
+.section-heading h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #111;
+}
+
+/* Annex headings */
+.annex-heading {
+    margin-top: 3rem;
+    margin-bottom: 0.75rem;
+    border-top: 3px solid #00a7b5;
+    padding-top: 0.75rem;
+}
+.annex-heading h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.15rem 0;
+    color: #00a7b5;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.annex-heading p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #444;
+    font-style: italic;
+}
+
+/* Clause paragraphs */
+.clause { margin-bottom: 0.5rem; }
+.clause p { margin: 0 0 0.4rem 0; }
+
+/* Definitions list */
+.def-list { margin: 0.25rem 0 0.5rem 0; }
+.def-list dt { font-weight: 600; margin-top: 0.4rem; }
+.def-list dd { margin-left: 1.5rem; margin-bottom: 0.1rem; }
+
+/* Inline fillable fields */
+.fill {
+    display: inline-block;
+    border-bottom: 1px solid #999;
+    min-width: 8rem;
+    color: #c00;
+}
+
+/* Checkbox rows */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.25rem 0;
+}
+.checkbox-row input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* Signature block (always two signers side by side) */
+.signature-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #00a7b5;
+}
+.sig-party { font-size: 0.875rem; }
+.sig-party .sig-label { font-weight: 600; margin-bottom: 1.5rem; color: #111; }
+.sig-line {
+    border-bottom: 1px solid #555;
+    margin-bottom: 0.3rem;
+    height: 2rem;
+}
+.sig-caption { font-size: 0.8rem; color: #666; }
+
+/* Language / binding-version note */
+.lang-note {
+    margin-top: 2rem;
+    padding: 0.75rem 1rem;
+    background: #fff8e1;
+    border-left: 3px solid #ffc107;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* ── Fill-in panel (screen only) ── */
+.fill-panel {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f0f9fa;
+    border: 2px solid #00a7b5;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,167,181,0.15);
+}
+.fill-panel-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #00a7b5;
+    margin: 0 0 0.25rem 0;
+}
+.fill-panel-hint {
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0 0 1rem 0;
+}
+/* auto-fit adapts to however many sections a contract declares (3, 4, …) */
+.fill-panel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem 2rem;
+}
+.fill-panel-section h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #00a7b5;
+    margin: 0 0 0.5rem 0;
+}
+.fill-panel-section label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.78rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+    gap: 0.2rem;
+}
+.fill-panel-section input[type="text"],
+.fill-panel-section textarea {
+    border: 1px solid #b2dde0;
+    border-radius: 4px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: #333;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+.fill-panel-section textarea { resize: vertical; }
+.fill-panel-radio {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+.fill-panel-radio label {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    margin: 0;
+}
+.fill-panel-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+.fill-panel-actions button {
+    background: #00a7b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.45rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.fill-panel-actions button:hover { background: #007f8a; }
+.fill-panel-actions .btn-reset {
+    background: transparent;
+    color: #00a7b5;
+    border: 1px solid #00a7b5;
+}
+.fill-panel-actions .btn-reset:hover { background: #e6f7f9; }
+
+@media (max-width: 600px) {
+    .fill-panel { position: relative; }
+}
+
+/* ── Print styles ── */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    @page {
+        size: A4 portrait;
+        margin: 1.5cm;
+    }
+    body.contract,
+    body.contract.single-column {
+        font-size: 9pt;
+        padding: 0;
+        max-width: 100%;
+    }
+    .letterhead { font-size: 7pt; }
+    .title-block h1 { font-size: 11pt; }
+    .title-block h1 + h1 { font-size: 10pt; }
+    .section-heading h2 { font-size: 9pt; }
+    .annex-heading h2 { font-size: 10pt; }
+    .clause p { font-size: 9pt; margin-bottom: 0.3rem; orphans: 3; widows: 3; }
+    .parties { font-size: 8pt; }
+    .sig-caption { font-size: 7.5pt; }
+    .lang-note { font-size: 7.5pt; }
+
+    /* tighten the two-column gutter for print */
+    .parties, .section-heading, .clause, .signature-block { gap: 0 1.5rem; }
+    .parties > div:first-child,
+    .section-heading > div:first-child,
+    .clause > div:first-child { padding-right: 0.75rem; }
+    .parties > div:last-child,
+    .section-heading > div:last-child,
+    .clause > div:last-child { padding-left: 0.25rem; }
+    .single-column .parties > div:first-child,
+    .single-column .section-heading > div:first-child,
+    .single-column .clause > div:first-child { padding-right: 0; }
+    .single-column .parties > div:last-child,
+    .single-column .section-heading > div:last-child,
+    .single-column .clause > div:last-child { padding-left: 0; }
+
+    .no-print { display: none !important; }
+
+    /* keep each heading attached to the text that follows */
+    .section-heading,
+    .annex-heading { page-break-after: avoid; }
+
+    /* Two-column clauses are short → keep each one intact.
+       Single-column clauses may be long → let them flow across pages so
+       every page fills up and no large blank gaps remain. */
+    .clause { page-break-inside: avoid; }
+    .single-column .clause { page-break-inside: auto; }
+
+    .signature-block { page-break-inside: avoid; }
+}
