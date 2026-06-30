@@ -107,6 +107,7 @@
 <script>
   // ─── State ───────────────────────────────────────────────────────────────────
   let extractedData = null;
+  let analyzedEmailBody = ''; // exact email text that was submitted for analysis
 
   // ─── Credentials (localStorage) ──────────────────────────────────────────────
   const LS_CLAUDE = 'nubart_claude_key';
@@ -145,6 +146,7 @@
     const emailBody = document.getElementById('email-body').value.trim();
 
     if (!emailBody) { alert('Please paste an email to analyze.'); return; }
+    analyzedEmailBody = emailBody;
 
     setAnalyzing(true);
     document.getElementById('results').style.display = 'none';
@@ -160,8 +162,8 @@
           'anthropic-dangerous-direct-browser-access': 'true'
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 2000,
+          model: 'claude-sonnet-4-6',
+          max_tokens: 4000,
           messages: [{ role: 'user', content: prompt }]
         })
       });
@@ -370,7 +372,8 @@
       } catch (e) {
         if (e.message.includes('409')) {
           const m = e.message.match(/Existing ID:\s*(\d+)/);
-          contactId = m ? m[1] : null;
+          if (!m) throw new Error('Contact already exists but its ID could not be parsed from the HubSpot response. Aborting to avoid creating orphaned records. Original error: ' + e.message);
+          contactId = m[1];
           log('ok', `Contact already exists — ID: ${contactId}`);
         } else throw e;
       }
@@ -415,7 +418,25 @@
       if (dealId) await hsAssociate(hsToken, 'notes', dataNoteId, 'deals', dealId, 'note_to_deal');
       log('ok', `Data note created — ID: ${dataNoteId}`);
 
-      // 6. Qualification task (assigned to Evelyn)
+      // 6. Log the original email (HubSpot Email engagement)
+      log('info', 'Logging original email...');
+      const emailSubject = `Email from ${[d.first_name, d.last_name].filter(Boolean).join(' ') || d.company || 'lead'}`;
+      const emailRes = await hsPost(hsToken, 'https://api.hubapi.com/crm/v3/objects/emails', {
+        properties: {
+          hs_timestamp:       Date.now().toString(),
+          hs_email_direction: 'INCOMING_EMAIL',
+          hs_email_status:    'SENT',
+          hs_email_subject:   emailSubject,
+          hs_email_text:      analyzedEmailBody
+        }
+      });
+      const emailId = emailRes.id;
+      await hsAssociate(hsToken, 'emails', emailId, 'contacts', contactId, 'email_to_contact');
+      await hsAssociate(hsToken, 'emails', emailId, 'companies', companyId, 'email_to_company');
+      if (dealId) await hsAssociate(hsToken, 'emails', emailId, 'deals', dealId, 'email_to_deal');
+      log('ok', `Email logged — ID: ${emailId}`);
+
+      // 7. Qualification task (owner routed by country)
       log('info', 'Creating qualification task...');
       const taskRes = await hsPost(hsToken, 'https://api.hubapi.com/crm/v3/objects/tasks', {
         properties: {
@@ -433,7 +454,7 @@
       if (dealId) await hsAssociate(hsToken, 'tasks', taskId, 'deals', dealId, 'task_to_deal');
       log('ok', `Qualification task created — ID: ${taskId}`);
 
-      showPushResult(true, `✓ All done! Company, Contact${dealId ? ', Deal' : ''}, 1 Note and 1 Task created in HubSpot.`);
+      showPushResult(true, `✓ All done! Company, Contact${dealId ? ', Deal' : ''}, 1 Note, 1 logged Email and 1 Task created in HubSpot.`);
       // Prevent accidental double-push: remove the green button entirely so
       // there is nothing left to click, and surface a clear next action.
       document.getElementById('push-description').style.display = 'none';
@@ -533,10 +554,14 @@
   async function hsAssociate(token, fromType, fromId, toType, toId, assocType) {
     const url = `https://api.hubapi.com/crm/v3/objects/${fromType}/${fromId}/associations/${toType}/${toId}/${assocType}`;
     const proxyUrl = WORKER + '?target=' + encodeURIComponent(url);
-    await fetch(proxyUrl, {
+    const res = await fetch(proxyUrl, {
       method: 'PUT',
       headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' }
     });
+    if (res.status !== 200 && res.status !== 201) {
+      const body = await res.text();
+      throw new Error(`HubSpot association ${res.status} (${fromType} ${fromId} → ${toType} ${toId}): ${body.substring(0, 300)}`);
+    }
   }
 
   // ─── UI helpers ───────────────────────────────────────────────────────────────
