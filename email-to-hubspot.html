@@ -259,6 +259,7 @@
     "company": "",
     "country": "",
     "city": "",
+    "email_date": "",
     "product": "GUIDE|LIVE|TRANSLATE|SYNC|MOTION|ambiguous",
     "disqualified": false,
     "disqualify_reason": "",
@@ -279,6 +280,7 @@
   - job_title: infer the sender's job title or role from the email content (signature, self-description, etc.). Leave empty string if cannot be inferred.
   - country: infer the country from the email content (sender's domain, address, language, location mentions). Always write the country name in English (e.g. "Germany" not "Deutschland", "Italy" not "Italia"). Leave empty string if cannot be inferred with reasonable confidence.
   - city: infer the city from the email content if mentioned or strongly implied. Leave empty string if cannot be inferred.
+  - email_date: extract the date (and time, if present) the email was sent, from the email content — e.g. a header line such as "Date:", "Sent:", "Enviado:", "Gesendet:", or a clearly stated send date. Output in ISO 8601 format with timezone if available (e.g. "2026-05-12T14:23:00+02:00"), or at minimum the date alone (e.g. "2026-05-12"). Leave empty string if no send date can be determined from the email.
 
   EMAIL TO ANALYZE:
   ${emailText}`;
@@ -421,13 +423,29 @@
       // 6. Log the original email (HubSpot Email engagement)
       log('info', 'Logging original email...');
       const emailSubject = `Email from ${[d.first_name, d.last_name].filter(Boolean).join(' ') || d.company || 'lead'}`;
+      // Timestamp the logged email with the date extracted from the email itself;
+      // fall back to now if Claude couldn't determine a send date.
+      const parsedEmailDate = d.email_date ? new Date(d.email_date) : null;
+      const emailTimestamp = (parsedEmailDate && !isNaN(parsedEmailDate.getTime()))
+        ? parsedEmailDate.getTime()
+        : Date.now();
+      // Headers tell HubSpot who the email is from/to. Setting `from` to the
+      // prospect's address matches it to the contact record we just created.
+      const emailHeaders = JSON.stringify({
+        from: { email: d.email || '', firstName: d.first_name || '', lastName: d.last_name || '' },
+        to:   [{ email: NUBART_INBOX }],
+        cc:   [],
+        bcc:  []
+      });
       const emailRes = await hsPost(hsToken, 'https://api.hubapi.com/crm/v3/objects/emails', {
         properties: {
-          hs_timestamp:       Date.now().toString(),
+          hs_timestamp:       emailTimestamp.toString(),
           hs_email_direction: 'INCOMING_EMAIL',
           hs_email_status:    'SENT',
           hs_email_subject:   emailSubject,
-          hs_email_text:      analyzedEmailBody
+          hs_email_text:      analyzedEmailBody,
+          hs_email_html:      escapeHtml(analyzedEmailBody).replace(/\n/g, '<br>'),
+          hs_email_headers:   emailHeaders
         }
       });
       const emailId = emailRes.id;
@@ -469,6 +487,10 @@
     }
   }
 
+  function escapeHtml(s) {
+    return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
   function buildDataNote(d) {
     const br = '<br>';
     return '<p>'
@@ -498,6 +520,7 @@
 
   // ─── HubSpot helpers ──────────────────────────────────────────────────────────
   const WORKER           = 'https://nubart-hubspot-proxy.jolly-cake-8724.workers.dev';
+  const NUBART_INBOX     = 'info@nubart.eu'; // shown as the "To" address on logged inbound emails
   function getOwnerForLead(country) {
     const c = (country || '').trim().toLowerCase();
     if (c === 'spain')                                          return '17988823'; // Jordi
