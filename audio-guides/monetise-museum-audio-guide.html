@@ -39,7 +39,7 @@
                 }
             },
             "datePublished": "2026-06-08",
-            "dateModified": "2026-06-08",
+            "dateModified": "2026-07-01",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/audio-guides/monetise-museum-audio-guide.html"
@@ -508,7 +508,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p><strong>1 · Native app with in-app purchase.</strong> The museum publishes an app and visitors pay inside it. It can be feature-rich, but most visitors never download an app — take-up is typically around 2–3% — and an app means ongoing development, app-store approvals and updates.</p>
                     <p><strong>2 · Access code printed on the ticket.</strong> A code on the admission ticket unlocks the guide. It ties access to a paid ticket, but visitors have to type the code, and a printed code can be photographed and reused unless it is single-use and tracked.</p>
                     <p><strong>3 · Public QR plus a paid unlock code.</strong> A QR on a sign sends visitors to the guide, which then asks for a code bought at the desk. There's no app, but it stacks friction: a second queue, a code to type, typos, language barriers...</p>
-                    <p><strong>4 · Non-transferable QR cards.</strong> Each visitor receives a card whose QR works only for its holder — no code to type, no app. It behaves like a ticket: sellable, reusable by its owner, and the simplest thing to hand over at the desk. Using it is as easy as using any other "normal" QR code. This is the model Nubart GUIDE uses, via LWAC.</p>
+                    <p><strong>4 · Non-transferable QR cards.</strong> Each visitor receives a card whose QR works only for its holder — no code to type, no app. It behaves like a ticket: sellable, reusable by its owner, and the simplest thing to hand over at the desk. Using it is as easy as using any other "normal" QR code. This is the model Nubart GUIDE uses, via LWAC. The same non-transferable code can also be issued digitally through an API, for museums that sell access online before the visit.</p>
                     <p>For <em>selling</em> the guide, the methods that lean on a public link leak revenue. The more access behaves like a ticket, the more reliably you can charge. The rest of this guide focuses on that model — but the take-up benchmarks further down are useful for estimating revenue whatever provider or method you choose.</p>
 
                     <h2 id="why-public-qr">Why you can't sell a guide behind a public QR code</h2>
@@ -530,6 +530,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>Every paying visitor is offered a card, and its cost is recovered within the ticket price. This delivers the widest reach and the strongest engagement, and runs on a simple subscription with automatic card resupply.</p>
                     <p class="text-muted"><em>Financially: the card's cost is built into the ticket price, so it's recovered on every admission rather than sold one by one.</em></p>
                     <p class="text-muted"><em>Note: the per-card cost for included guides depends on annual volume. If a museum chooses to include the cards with admission, Nubart offers a reduced per-card price.</em></p>
+                    <h3>3 · Sell access online, before the visit</h3>
+                    <p>For museums selling tickets through their own online shop, the same non-transferable code can be issued digitally via API instead of printed on a card. The museum's e-shop requests a code the moment a visitor buys their ticket, then displays it as both a link and a QR code, so the visitor can open it on whichever device they use, at home or at the museum entrance.</p>
+                    <p class="text-muted"><em>Financially: codes are supplied in smaller minimum orders than printed cards, since nothing needs to be manufactured. The museum sets its own selling price and keeps the margin, the same principle as selling cards separately.</em></p>
 
                     <h2 id="take-up">What take-up can you expect?</h2>
                     <p>The honest way to compare audio-guide formats is to separate them by who pays — because a free guide and a paid guide attract very different numbers.</p>
