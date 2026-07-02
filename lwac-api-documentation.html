@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+  <title>Nubart LWAC API &ndash; Technical Reference</title>
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
+
+  <!-- CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="assets/css/printable-terms.css" rel="stylesheet"/>
+
+  <style>
+    /* Page-specific overrides: monospace code blocks and inline code for API reference content.
+       printable-terms.css does not define these, so they're scoped locally to this page. */
+    .content-area code {
+      font-family: "Courier New", Courier, monospace;
+      background-color: #f0f0f0;
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      font-size: 0.9em;
+      word-break: break-all;
+    }
+    .content-area pre {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 1rem 1.25rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.85em;
+      line-height: 1.5;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .content-area pre code {
+      background-color: transparent;
+      padding: 0;
+      color: inherit;
+      word-break: normal;
+    }
+    .method-badge {
+      display: inline-block;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: bold;
+      font-size: 0.8em;
+      padding: 0.15em 0.55em;
+      border-radius: 3px;
+      background-color: #016a6c;
+      color: #ffffff;
+      margin-right: 0.5em;
+      vertical-align: middle;
+    }
+    .content-area table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .content-area table th,
+    .content-area table td {
+      border: 1px solid #dee2e6;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.95em;
+    }
+    .content-area table th {
+      background-color: #f0f0f0;
+    }
+
+    @media print {
+      @page { size: A4 portrait; margin: 2cm; }
+      .content-area pre { white-space: pre-wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="terms-container">
+  <div class="row justify-content-center">
+   <div class="col-lg-8">
+    <div class="content-area">
+
+    <div class="d-flex justify-content-between align-items-start mb-4">
+      <button onclick="window.print()" class="btn btn-primary no-print">
+        🖨️ Print this document
+      </button>
+      <img src="assets/img/logos/logo-nubart-guide-teal.svg" alt="Nubart GUIDE" style="width: 260px;">
+    </div>
+
+    <h1>NUBART LWAC API</h1>
+    <p><strong>Service:</strong> Nubart GUIDE &mdash; LWAC Access Code API</p>
+    <p><strong>Document version:</strong> 2.0.1</p>
+    <p><strong>Author:</strong> Simon Effing</p>
+    <p><strong>Date:</strong> 29 July 2025</p>
+
+    <div class="alert alert-warning my-4">
+      <p class="mb-0"><strong>Internal / partner reference document.</strong> This page is not indexed and not linked from public navigation. It documents access-key based API integration and is intended solely for authorized technical contacts. Do not share this URL outside of vetted integration partners.</p>
+    </div>
+
+    <h2>1. INTRODUCTION</h2>
+
+    <p>Nubart provides access codes to its audio guides that are unique and non-transferable thanks to a proprietary system.</p>
+
+    <p>The API is a REST-oriented HTTP web service and uses built-in HTTP features like HTTP verbs and HTTP error codes for error handling, which makes it easily accessible for off-the-shelf HTTP clients.</p>
+
+    <p>All payload data is transmitted in valid JSON format.</p>
+
+    <h2>2. AUTHENTICATION</h2>
+
+    <p>Every call to the API has to be made over a secure HTTPS connection and needs the authentication of the client. You can create an access key in your customer area which serves as client identifier and authentication to the API. The key is passed in the HTTP <code>Authorization</code> header as Bearer authentication:</p>
+
+    <pre><code>Authorization: Bearer &lt;your_access_key&gt;</code></pre>
+
+    <div class="bg-light p-4 my-3 border-start border-4 border-primary">
+      <p class="mb-0"><strong>IMPORTANT:</strong> The access key has to be kept in a safe place and never be transmitted to third parties or over an insecure connection. We recommend replacing the key regularly or every time the key might have been exposed.</p>
+    </div>
+
+    <h2>3. HTTP RESPONSE CODES</h2>
+
+    <p>HTTP defines a range of meaningful status codes, some of which will be returned from the API:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 20%;">Code</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>200 OK</code></td><td>Response to a successful request</td></tr>
+        <tr><td><code>400 Bad Request</code></td><td>The request is malformed, e.g. if the body does not parse</td></tr>
+        <tr><td><code>401 Unauthorized</code></td><td>When no or invalid authentication details are provided</td></tr>
+        <tr><td><code>403 Forbidden</code></td><td>When authentication succeeded but the authenticated user doesn't have access to the resource</td></tr>
+        <tr><td><code>404 Not Found</code></td><td>When a non-existent resource is requested</td></tr>
+        <tr><td><code>405 Method Not Allowed</code></td><td>When an HTTP method is being requested that isn't allowed for the authenticated user</td></tr>
+        <tr><td><code>410 Gone</code></td><td>Indicates that the resource at this endpoint is no longer available</td></tr>
+        <tr><td><code>415 Unsupported Media Type</code></td><td>If an incorrect content type was provided as part of the request</td></tr>
+        <tr><td><code>422 Unprocessable Entity</code></td><td>Used for validation errors</td></tr>
+        <tr><td><code>429 Too Many Requests</code></td><td>When a request is rejected due to rate limiting</td></tr>
+      </tbody>
+    </table>
+
+    <p>Error responses can have the following JSON body:</p>
+
+    <pre><code>{
+  "error": "invalid request",
+  "details": "&lt;error description&gt;"
+}</code></pre>
+
+    <h2>4. ENDPOINTS</h2>
+
+    <p>The API's root URL is:</p>
+
+    <pre><code>https://www.nub.art/customer/api/lwac/v2</code></pre>
+
+    <h3>4.1 Retrieve the next token</h3>
+
+    <p>Retrieves the next token along with its series information.</p>
+
+    <p><span class="method-badge">POST</span><code>/module/&lt;module ID&gt;/nexttoken</code></p>
+
+    <p>The "module ID" is an ID string of the module for which you want to get the next available token and will be provided by Nubart.</p>
+
+    <p>The retrieved token is pending and not usable until the "activate" endpoint is called (see section 4.2 below).</p>
+
+    <p>This endpoint will never return the same token twice.</p>
+
+    <p><strong>Response</strong></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 15%;">Name</th>
+          <th style="width: 15%;">Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>id</code></td><td>string</td><td>The ID of the retrieved token</td></tr>
+        <tr><td><code>token</code></td><td>string</td><td>The secure token</td></tr>
+        <tr><td><code>url</code></td><td>string</td><td>The URL that should be used to generate the QR code for the end-user</td></tr>
+        <tr><td><code>serialno</code></td><td>string</td><td>The serial number with the format <code>&lt;number of the token&gt;/&lt;size of the series&gt;-&lt;number of the series&gt;</code>. This is just additional information and corresponds to the serial number on our printed cards.</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Example</strong></p>
+
+    <pre><code>{
+  "id": "66d87e2ca85b3d6753ae515c",
+  "token": "880ba6849f557a",
+  "url": "https://www.nub.art/qr/880ba6849f557a",
+  "serialno": "18/1000-5"
+}</code></pre>
+
+    <p>If no token is available, the endpoint returns <code>404 Not Found</code> along with the following body:</p>
+
+    <pre><code>{
+  "error": "invalid request",
+  "details": "no token available"
+}</code></pre>
+
+    <h3>4.2 Activate token</h3>
+
+    <p>Activates a token that was previously retrieved via <code>nexttoken</code>.</p>
+
+    <p><span class="method-badge">POST</span><code>/module/&lt;module ID&gt;/activatetoken/&lt;ID&gt;</code></p>
+
+    <p>The <code>ID</code> is the string that was returned by <code>nexttoken</code> in the <code>id</code> field.</p>
+
+    <p>This endpoint is idempotent and can be retried in case of failures.</p>
+
+    <p>The response is an empty JSON object; the call can be considered successful if the returned status code is HTTP 200.</p>
+
+    <h2>5. REQUEST LIMITS</h2>
+
+    <p>The call rate per access key is limited by a token bucket with a default size of 100 and a rate of 1/s.</p>
+
+    <p>If this limit is exceeded, the endpoints will return an HTTP 429 response.</p>
+
+    <div class="bg-light p-4 my-3 border-start border-4 border-primary">
+      <h3 class="mt-0">Open questions flagged for review with Simon Effing</h3>
+      <p>The following points are unclear from the source document as provided and are noted here for discussion, not resolved or altered in this reference:</p>
+      <ol class="mb-0">
+        <li>Section 4 (Endpoints) moves directly from the root URL to the first endpoint with no general note on versioning or base path conventions beyond the <code>/v2</code> segment already in the root URL.</li>
+        <li>No stated behavior for a token that is retrieved via <code>nexttoken</code> but never activated: does it expire, return to the pool, or remain reserved indefinitely?</li>
+        <li>Section 3 lists <code>429 Too Many Requests</code> among the general HTTP codes, but unlike <code>400</code> and <code>404</code> it has no example JSON error body shown anywhere in the document.</li>
+        <li>Module ID acquisition is described as "will be provided by Nubart" with no mention of whether an endpoint exists to list or discover module IDs programmatically, or whether this is strictly manual/out-of-band.</li>
+      </ol>
+    </div>
+
+    <footer class="mt-5 pt-3 border-top text-center text-muted small">
+      <p>Nubart LWAC API &mdash; Technical Reference v2.0.1<br>
+      Nubart GmbH, Berlin, Germany &nbsp;|&nbsp; Digital Tangible SL, Barcelona, Spain<br>
+      Internal / partner reference document. Not for public distribution.</p>
+    </footer>
+
+    </div>
+   </div>
+  </div>
+</div>
+
+</body>
+</html>
