@@ -941,3 +941,189 @@ footer {
   position: relative;
   z-index: 1;
 }
+
+/* ============================================================
+   ADDITIONS to internal-tools.css — for the Knowledge Q&A tool
+   (nubart-knowledge-qa.html)
+   Append this whole block to assets/css/internal-tools.css.
+   New here: two product colors (GAME, CONTENT), <select> styling,
+   and chat components. Everything else is inherited.
+   ============================================================ */
+
+:root {
+  --game:    #06b6d4;  /* cyan — distinct from all existing product colors */
+  --content: #84cc16;  /* lime — "Content production for audio guides"     */
+}
+
+/* Product badges for the two new dropdown entries */
+.badge-game    { background: rgba(6,182,212,0.15);  color: #22d3ee; border: 1px solid rgba(6,182,212,0.3); }
+.badge-content { background: rgba(132,204,22,0.15); color: #a3e635; border: 1px solid rgba(132,204,22,0.3); }
+
+/* ── <select> (not previously covered by shared input rules) ─────────────── */
+
+select {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 14px;
+  padding: 10px 14px;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c8cdd6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+select:focus { border-color: var(--accent); }
+
+/* ── Chat components (Knowledge Q&A tool) ────────────────────────────────── */
+
+.chat-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 120px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 4px 2px;
+  margin-bottom: 14px;
+}
+
+.msg {
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 88%;
+  word-break: break-word;
+}
+
+.msg-user {
+  align-self: flex-end;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-glow);
+  color: var(--text);
+}
+
+.msg-assistant {
+  align-self: flex-start;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+/* Small role/source line above each message */
+.msg-role {
+  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+/* Minimal markdown rendering inside assistant messages */
+.msg-assistant code {
+  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 13px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+.msg-assistant ul { margin: 6px 0 6px 20px; }
+.msg-assistant li { margin: 2px 0; }
+.msg-assistant p  { margin: 6px 0; }
+.msg-assistant p:first-child { margin-top: 0; }
+.msg-assistant p:last-child  { margin-bottom: 0; }
+
+/* Typing indicator */
+.typing {
+  align-self: flex-start;
+  display: flex;
+  gap: 5px;
+  padding: 14px 18px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.typing span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--text-muted);
+  animation: typing-blink 1.2s infinite;
+}
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typing-blink { 0%, 60%, 100% { opacity: 0.25; } 30% { opacity: 1; } }
+
+/* Input bar under the thread */
+.chat-input-bar {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+.chat-input-bar textarea {
+  min-height: 52px;
+  max-height: 180px;
+}
+
+/* Pack status line (entry count, build date) */
+.pack-status {
+  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pack-status .dot-ok  { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.pack-status .dot-err { width: 6px; height: 6px; border-radius: 50%; background: var(--danger); flex-shrink: 0; }
+
+/* ── Customer-ready copy blocks (Knowledge Q&A tool) ─────────────────────── */
+
+.copy-block {
+  border: 1px solid var(--accent-glow);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent-dim);
+  margin: 10px 0;
+  overflow: hidden;
+}
+.copy-block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--accent-glow);
+  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+.copy-btn {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.copy-btn:hover { background: #00e5ad; }
+.copy-block-body {
+  padding: 12px 14px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+}

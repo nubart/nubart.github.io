@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     SCRIPT:  Nubart Knowledge Q&A tool
+     VERSION: v1 — draft
+     DATE:    2026-07-06
+     TYPE:    Web tool (Type B — published to nubart.github.io, noindex)
+     STATUS:  In progress
+     NOTES:   Chat interface for sales reps. Loads a compiled knowledge
+              pack per product from the Knowledge Compiler's Apps Script
+              web app endpoint, injects it as compiled context into the
+              system prompt (no RAG), and answers questions via the
+              Anthropic API with the four-tier authority model
+              (contractual → canonical → internal-guidance → marketing).
+
+              Features: customer-ready answer fragments rendered as
+              highlighted blocks with one-click Copy (built only from
+              contractual/canonical/marketing tiers); documentation-gap
+              detection via GAP:: marker lines, accumulated per session
+              and reported to CONFIG.GAP_EMAIL via an editable mailto:
+              compose card. Only TRANSLATE is active in v1; other
+              products are greyed out until the Compiler produces
+              their packs.
+
+              Credentials (localStorage, never committed):
+                nubart_qa_api_key    — Anthropic API key
+                nubart_qa_pack_token — shared pack token (Compiler web app)
+              The Compiler web app URL is hardcoded in CONFIG below
+              (not secret; changes only if the Compiler is redeployed
+              as a NEW deployment, which our workspace rules forbid —
+              redeploys are always new VERSIONS, so the URL is stable).
+
+              Requires the "Knowledge Q&A" addition block in
+              assets/css/internal-tools.css (see
+              internal-tools-css-additions_v1.css).
+     ============================================================ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Nubart — Knowledge Q&amp;A</title>
+  <link rel="stylesheet" href="assets/css/internal-tools.css">
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo-mark">N</div>
+    <div>
+      <h1>Knowledge Q&amp;A</h1>
+      <p>Ask anything about a Nubart product — answers come only from the compiled knowledge packs</p>
+    </div>
+    <button class="btn-settings" id="btn-settings" title="Credentials">&#9881;</button>
+  </header>
+
+  <!-- ── Credentials ─────────────────────────────────────────── -->
+  <div class="section" id="setup-section">
+    <div class="section-label">Credentials</div>
+    <p class="setup-note">
+      Both values are stored only in this browser (localStorage) and are never sent
+      anywhere except to the Anthropic API and the Nubart pack endpoint.
+    </p>
+    <div class="setup-fields">
+      <div class="setup-field">
+        <label class="setup-label" for="api-key">Anthropic API key</label>
+        <div class="key-row">
+          <input type="password" id="api-key" placeholder="sk-ant-...">
+          <span class="key-status missing" id="api-key-status">missing</span>
+        </div>
+      </div>
+      <div class="setup-field">
+        <label class="setup-label" for="pack-token">Knowledge pack token</label>
+        <div class="key-row">
+          <input type="password" id="pack-token" placeholder="shared token from Rosa">
+          <span class="key-status missing" id="pack-token-status">missing</span>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" id="btn-save-creds">Save</button>
+    </div>
+  </div>
+
+  <!-- ── Product selection ────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">Product</div>
+    <select id="product-select">
+      <option value="" selected disabled>Select a product…</option>
+      <!-- To activate a product: remove `disabled` + the suffix here,
+           AND set available: true in PRODUCTS below. Requires the
+           Compiler to have that product's pack configured first. -->
+      <option value="translate">Nubart TRANSLATE</option>
+      <option value="live" disabled>Nubart LIVE — not yet available</option>
+      <option value="motion" disabled>Nubart MOTION — not yet available</option>
+      <option value="game" disabled>Nubart GAME — not yet available</option>
+      <option value="guide" disabled>Nubart GUIDE — not yet available</option>
+      <option value="content" disabled>Content production for audio guides — not yet available</option>
+      <option value="sync" disabled>Nubart SYNC — not yet available</option>
+    </select>
+    <div class="pack-status" id="pack-status" style="display:none;"></div>
+    <div class="alert alert-info" id="lang-note" style="margin-top:14px; margin-bottom:0; display:none;">
+      <span>&#127760;</span>
+      <span><strong>You can ask in any language</strong> — German, Spanish, French, English… The answer
+      will follow the language of your question. Note: contractual wording (T&amp;Cs, DPA) is legally
+      binding in the language of the document the customer signed.</span>
+    </div>
+  </div>
+
+  <!-- ── Chat ─────────────────────────────────────────────────── -->
+  <div class="section" id="chat-section" style="display:none;">
+    <div class="row-header">
+      <div class="section-label" id="chat-label">Questions</div>
+      <button class="btn btn-ghost" id="btn-new-chat">New conversation</button>
+    </div>
+    <div class="chat-thread" id="chat-thread"></div>
+    <div id="chat-error"></div>
+
+    <!-- Documentation gap reporting -->
+    <div class="warn-box" id="gap-bar" style="display:none; align-items:center;">
+      <span>&#9998;</span>
+      <span id="gap-bar-text" style="flex:1;"></span>
+      <button class="btn btn-ghost" id="btn-draft-gap-email" style="flex-shrink:0;">Report gaps</button>
+    </div>
+    <div class="card" id="gap-compose" style="display:none;">
+      <h3>Report documentation gap</h3>
+      <p class="push-description">This email helps keep the knowledge base up to date. Edit it if needed, then open it in your email client and send.</p>
+      <div class="field">
+        <label for="gap-subject">Subject</label>
+        <input type="text" id="gap-subject">
+      </div>
+      <div class="field">
+        <label for="gap-body">Message</label>
+        <textarea id="gap-body"></textarea>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" id="btn-send-gap-email">Open in email client</button>
+        <button class="btn btn-ghost" id="btn-close-gap-compose">Close</button>
+      </div>
+    </div>
+
+    <div class="chat-input-bar">
+      <textarea id="question-input" placeholder="Type your question… (Enter to send, Shift+Enter for a new line)"></textarea>
+      <button class="btn btn-primary" id="btn-send">
+        <span class="spinner" id="send-spinner"></span>
+        <span id="send-label">Send</span>
+      </button>
+    </div>
+  </div>
+
+  <footer>Nubart internal tool — answers are generated from the nightly-compiled knowledge packs and are for internal use only.</footer>
+
+</div>
+
+<script>
+'use strict';
+
+// ============================================================
+// CONFIG
+// ============================================================
+const CONFIG = {
+  // Compiler web app endpoint ("exec" URL of the deployed Apps Script).
+  // Hardcoded by design (decision Q3): reps only enter API key + token.
+  // >>> CLAUDE CODE: paste the real /exec URL here before publishing. <<<
+  WEB_APP_URL: 'https://script.google.com/macros/s/AKfycby5DPgesMnK1hem4kygJUhMGX0K4ClTaz3_Z7Yxfba6E7yQtC5ZijOdhHNllK0njAsW/exec',
+
+  ANTHROPIC_URL: 'https://api.anthropic.com/v1/messages',
+  MODEL: 'claude-sonnet-4-6',   // verified current 2026-07-06; do NOT use date-suffixed IDs
+  MAX_TOKENS: 4096,   // headroom for an answer + a customer-ready email fragment + GAP lines
+
+  // Recipient of documentation-gap reports (knowledge base owner).
+  GAP_EMAIL: 'rosa.sala@nubart.eu',
+
+  // localStorage keys
+  LS_API_KEY: 'nubart_qa_api_key',
+  LS_PACK_TOKEN: 'nubart_qa_pack_token'
+};
+
+// Dropdown value → pack key (must match the Compiler's PRODUCTS config)
+// and display metadata. badgeClass maps to internal-tools.css badges.
+// available: false = greyed out in the dropdown until the Compiler
+// produces a pack for it (flip both here and in the <option> markup).
+const PRODUCTS = {
+  translate: { label: 'Nubart TRANSLATE',                    badge: 'badge-translate', available: true  },
+  live:      { label: 'Nubart LIVE',                         badge: 'badge-live',      available: false },
+  motion:    { label: 'Nubart MOTION',                       badge: 'badge-motion',    available: false },
+  game:      { label: 'Nubart GAME',                         badge: 'badge-game',      available: false },
+  guide:     { label: 'Nubart GUIDE',                        badge: 'badge-guide',     available: false },
+  content:   { label: 'Content production for audio guides', badge: 'badge-content',   available: false },
+  sync:      { label: 'Nubart SYNC',                         badge: 'badge-sync',      available: false }
+};
+
+// ============================================================
+// STATE
+// ============================================================
+let currentProduct = null;   // key into PRODUCTS
+let currentPack = null;      // raw pack object from the Compiler
+let systemBlocks = null;     // prebuilt system prompt blocks (with cache_control)
+let history = [];            // [{role:'user'|'assistant', content:'...'}]
+let pending = false;
+
+// ============================================================
+// DOM helpers
+// ============================================================
+const $ = (id) => document.getElementById(id);
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// Minimal markdown → HTML for assistant messages.
+// Supports: **bold**, `inline code`, bullet lists (- / •), paragraphs.
+// Everything is HTML-escaped first; no raw HTML can pass through.
+function renderMarkdown(text) {
+  const esc = escapeHtml(text);
+  const lines = esc.split('\n');
+  let html = '';
+  let inList = false;
+  let para = [];
+
+  const flushPara = () => {
+    if (para.length) { html += '<p>' + para.join('<br>') + '</p>'; para = []; }
+  };
+
+  for (const line of lines) {
+    const bullet = line.match(/^\s*(?:[-*\u2022])\s+(.*)$/);
+    if (bullet) {
+      flushPara();
+      if (!inList) { html += '<ul>'; inList = true; }
+      html += '<li>' + bullet[1] + '</li>';
+    } else {
+      if (inList) { html += '</ul>'; inList = false; }
+      if (line.trim() === '') { flushPara(); } else { para.push(line); }
+    }
+  }
+  if (inList) html += '</ul>';
+  flushPara();
+
+  return html
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+// NOTE: never name a function alert() — shadows window.alert().
+function renderError(msg) {
+  $('chat-error').innerHTML =
+    '<div class="error-box"><span>&#9888;</span><span>' + escapeHtml(msg) + '</span></div>';
+}
+function clearError() { $('chat-error').innerHTML = ''; }
+
+// ============================================================
+// CREDENTIALS
+// ============================================================
+function getApiKey()    { return localStorage.getItem(CONFIG.LS_API_KEY)    || ''; }
+function getPackToken() { return localStorage.getItem(CONFIG.LS_PACK_TOKEN) || ''; }
+
+function refreshCredStatus() {
+  const apiOk = !!getApiKey();
+  const tokOk = !!getPackToken();
+  $('api-key-status').textContent = apiOk ? 'saved' : 'missing';
+  $('api-key-status').className = 'key-status ' + (apiOk ? 'ok' : 'missing');
+  $('pack-token-status').textContent = tokOk ? 'saved' : 'missing';
+  $('pack-token-status').className = 'key-status ' + (tokOk ? 'ok' : 'missing');
+  // Auto-collapse the credentials section once both are set
+  $('setup-section').style.display = (apiOk && tokOk) ? 'none' : 'block';
+  return apiOk && tokOk;
+}
+
+function saveCreds() {
+  const key = $('api-key').value.trim();
+  const tok = $('pack-token').value.trim();
+  if (key) localStorage.setItem(CONFIG.LS_API_KEY, key);
+  if (tok) localStorage.setItem(CONFIG.LS_PACK_TOKEN, tok);
+  $('api-key').value = '';
+  $('pack-token').value = '';
+  refreshCredStatus();
+}
+
+// ============================================================
+// PACK LOADING (fresh fetch on every product selection — no cache)
+// ============================================================
+async function loadPack(productKey) {
+  const url = CONFIG.WEB_APP_URL
+    + '?product=' + encodeURIComponent(productKey)
+    + '&token='   + encodeURIComponent(getPackToken());
+
+  const status = $('pack-status');
+  status.style.display = 'flex';
+  status.innerHTML = '<span class="dot-ok"></span> Loading knowledge pack…';
+
+  let res;
+  try {
+    res = await fetch(url, { method: 'GET', redirect: 'follow' });
+  } catch (e) {
+    throw new Error('Could not reach the pack endpoint. Check your internet connection. (' + e.message + ')');
+  }
+  if (!res.ok) {
+    throw new Error('Pack endpoint returned HTTP ' + res.status + '. If this persists, tell Rosa.');
+  }
+
+  let pack;
+  try {
+    pack = await res.json();
+  } catch (e) {
+    throw new Error('Pack endpoint did not return valid JSON. The token may be wrong, or the pack for this product does not exist yet.');
+  }
+
+  // Tolerate an explicit error shape from the Compiler, e.g. {error: "..."}
+  if (pack && pack.error) {
+    throw new Error('Pack endpoint error: ' + pack.error);
+  }
+  const entries = Array.isArray(pack.entries) ? pack.entries
+                 : Array.isArray(pack)         ? pack
+                 : null;
+  if (!entries || entries.length === 0) {
+    throw new Error('The knowledge pack for this product is empty or not compiled yet. Tell Rosa which product you selected.');
+  }
+  return { pack, entries };
+}
+
+// ============================================================
+// SYSTEM PROMPT (compiled context injection — the whole pack, no RAG)
+// ============================================================
+function tierOf(entry) {
+  // Tolerant field access; Claude Code verifies exact field names
+  // against the Compiler's pack output.
+  return (entry.authority || entry.tier || entry.scope || 'unknown').toString();
+}
+
+function serializeEntry(entry, idx) {
+  const title  = entry.title || entry.name || ('Entry ' + (idx + 1));
+  const source = entry.source || entry.url || 'internal';
+  const lang   = entry.lang || entry.language || '';
+  const body   = entry.content || entry.text || entry.body || JSON.stringify(entry);
+  return '=== [' + tierOf(entry).toUpperCase() + '] ' + title
+    + ' (source: ' + source + (lang ? (', lang: ' + lang) : '') + ') ===\n'
+    + body;
+}
+
+function buildSystemBlocks(pack, entries, productLabel) {
+  const instructions =
+`You are Nubart's internal product Q&A assistant for the sales team. The product in scope for this entire conversation is: ${productLabel}.
+
+STRICT KNOWLEDGE BOUNDARY
+- Answer ONLY from the knowledge pack provided below. It is the complete, current, authoritative source.
+- If the pack does not contain the answer, say so plainly and suggest the rep check with the team — never guess, extrapolate, or use general knowledge about audio guides or interpretation systems.
+- Never answer about other Nubart products unless the pack itself references them.
+
+AUTHORITY TIERS (highest to lowest precedence)
+Each entry is tagged with a tier. When entries conflict, the higher tier wins — and you must FLAG the conflict explicitly to the rep:
+1. CONTRACTUAL — T&Cs, DPA. Legally binding. Contractual wording is binding in the language of the signed document; if the rep asks in another language, answer in their language but note which language version is legally decisive.
+2. CANONICAL — the public website. Official product truth.
+3. INTERNAL-GUIDANCE — sales playbook, capability indexes from production. For the rep's understanding. Capability entries tell you WHAT the product can do, never HOW it is implemented — do not speculate about implementation.
+4. MARKETING — promotional copy. May be reused in customer-facing wording.
+
+ANSWERING RULES
+- Answer in the language of the question.
+- Be concise and sales-practical: what the rep can say to the customer, what to watch out for.
+- When your answer relies on a specific entry, name it briefly (e.g. "per the T&Cs" or "per the sales playbook") so the rep knows the authority level.
+- If asked about pricing, use only the pricing entries in the pack; if a scenario isn't covered, say so.
+
+CUSTOMER-READY FRAGMENTS
+- Reps mostly answer prospects by email. Whenever your answer contains wording the rep could send to a prospect as-is, wrap exactly that fragment between a line containing only <<<COPY and a line containing only >>>.
+- Build these fragments ONLY from CONTRACTUAL, CANONICAL and MARKETING content — never from INTERNAL-GUIDANCE.
+- Write them as polished, ready-to-paste email prose in the language of the question. No meta-commentary inside the markers.
+- Internal caveats, warnings and rep-only guidance always go OUTSIDE the markers.
+- Not every answer needs a fragment; only include one when there is genuinely customer-suitable wording.
+
+KNOWLEDGE GAP REPORTING
+- If the pack does not cover the question, or covers it only partially, answer what you can (or say plainly that it is not documented), then add at the VERY END of your response one line per missing item, each starting exactly with "GAP:: " followed by a one-sentence English description of what is missing from the documentation.
+- Use GAP:: lines for nothing else. If the pack fully answers the question, do not emit any GAP:: line.`;
+
+  const header = 'KNOWLEDGE PACK — ' + productLabel
+    + (pack.builtAt || pack.compiledAt ? (' (compiled: ' + (pack.builtAt || pack.compiledAt) + ')') : '')
+    + '\nEntries: ' + entries.length + '\n\n';
+
+  const packText = header + entries.map(serializeEntry).join('\n\n');
+
+  return [
+    { type: 'text', text: instructions },
+    // cache_control on the last static block → instructions + pack are
+    // cached as a prefix; follow-up turns in the same session pay only
+    // for the new messages. Packs are 100–300KB, so this matters.
+    { type: 'text', text: packText, cache_control: { type: 'ephemeral' } }
+  ];
+}
+
+// ============================================================
+// CHAT
+// ============================================================
+
+// Raw customer-ready fragments, referenced by index from Copy buttons
+// (avoids HTML-escaping issues when writing to the clipboard).
+const copyFragments = [];
+
+// Renders an assistant answer: text outside <<<COPY ... >>> markers goes
+// through the markdown renderer; text inside becomes a highlighted
+// "customer-ready" block with a one-click Copy button.
+function renderAssistant(text) {
+  // Tolerant: markers should be on their own lines per the prompt, but
+  // this also catches inline usage.
+  const parts = text.split(/<<<COPY([\s\S]*?)>>>/);
+  let html = '';
+  for (let i = 0; i < parts.length; i++) {
+    if (i % 2 === 0) {
+      if (parts[i].trim()) html += renderMarkdown(parts[i].trim());
+    } else {
+      const frag = parts[i].trim();
+      const idx = copyFragments.push(frag) - 1;
+      html += '<div class="copy-block">'
+        + '<div class="copy-block-head"><span>Customer-ready — paste into your email</span>'
+        + '<button class="copy-btn" data-copy-idx="' + idx + '">Copy</button></div>'
+        + '<div class="copy-block-body">' + escapeHtml(frag).replace(/\n/g, '<br>') + '</div>'
+        + '</div>';
+    }
+  }
+  return html;
+}
+
+// Splits trailing/embedded "GAP:: ..." marker lines out of an answer.
+function extractGaps(text) {
+  const gaps = [];
+  const visible = text.split('\n').filter((line) => {
+    const m = line.match(/^\s*GAP::\s*(.+)$/);
+    if (m) { gaps.push(m[1].trim()); return false; }
+    return true;
+  }).join('\n').trim();
+  return { visible, gaps };
+}
+
+function appendMessage(role, text) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + (role === 'user' ? 'msg-user' : 'msg-assistant');
+  div.innerHTML = '<div class="msg-role">' + (role === 'user' ? 'You' : 'Nubart Q&A') + '</div>'
+    + (role === 'user' ? escapeHtml(text).replace(/\n/g, '<br>') : renderAssistant(text));
+  $('chat-thread').appendChild(div);
+  $('chat-thread').scrollTop = $('chat-thread').scrollHeight;
+}
+
+function showTyping(on) {
+  const existing = $('typing-indicator');
+  if (on && !existing) {
+    const t = document.createElement('div');
+    t.className = 'typing';
+    t.id = 'typing-indicator';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    $('chat-thread').appendChild(t);
+    $('chat-thread').scrollTop = $('chat-thread').scrollHeight;
+  } else if (!on && existing) {
+    existing.remove();
+  }
+}
+
+function setPending(on) {
+  pending = on;
+  $('btn-send').disabled = on;
+  $('question-input').disabled = on;
+  $('send-spinner').style.display = on ? 'inline-block' : 'none';
+  $('send-label').textContent = on ? 'Thinking…' : 'Send';
+  showTyping(on);
+}
+
+async function callAnthropic() {
+  const res = await fetch(CONFIG.ANTHROPIC_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': getApiKey(),
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: CONFIG.MODEL,
+      max_tokens: CONFIG.MAX_TOKENS,
+      system: systemBlocks,
+      messages: history
+    })
+  });
+
+  const data = await res.json();
+  if (!res.ok) {
+    const msg = (data && data.error && data.error.message) ? data.error.message : ('HTTP ' + res.status);
+    throw new Error('Anthropic API error: ' + msg);
+  }
+  const text = (data.content || [])
+    .filter(b => b.type === 'text')
+    .map(b => b.text)
+    .join('\n')
+    .trim();
+  return { text, stopReason: data.stop_reason || '' };
+}
+
+async function sendQuestion() {
+  if (pending) return;
+  const q = $('question-input').value.trim();
+  if (!q) return;
+  if (!currentProduct || !systemBlocks) {
+    renderError('Select a product first — the knowledge pack has to be loaded before you can ask.');
+    return;
+  }
+  clearError();
+
+  $('question-input').value = '';
+  appendMessage('user', q);
+  history.push({ role: 'user', content: q });
+  setPending(true);
+
+  try {
+    const { text: answer, stopReason } = await callAnthropic();
+    if (!answer) {
+      throw new Error(stopReason === 'refusal'
+        ? 'The assistant declined to answer that request.'
+        : 'The assistant returned an empty response.');
+    }
+    // History keeps the RAW answer (markers + GAP lines included) so the
+    // model stays consistent with its own conventions across turns.
+    history.push({ role: 'assistant', content: answer });
+    setPending(false);
+    const { visible, gaps } = extractGaps(answer);
+    let display = visible || answer;
+    if (stopReason === 'max_tokens') {
+      display += '\n\n(Answer was cut off before it finished — ask a narrower question to get the full response.)';
+    }
+    appendMessage('assistant', display);
+    if (gaps.length) registerGaps(q, gaps);
+  } catch (e) {
+    setPending(false);
+    // Remove the failed user turn so the rep can retry cleanly
+    history.pop();
+    // Also remove the orphaned user bubble from the DOM (history and the
+    // thread must stay in sync, or a retry shows the question twice).
+    const lastBubble = $('chat-thread').lastElementChild;
+    if (lastBubble && lastBubble.classList.contains('msg-user')) lastBubble.remove();
+    renderError(e.message + ' — your question was not lost, just paste it again.');
+    $('question-input').value = q;
+  }
+}
+
+function newConversation() {
+  history = [];
+  $('chat-thread').innerHTML = '';
+  clearError();
+  $('question-input').focus();
+}
+
+// ============================================================
+// DOCUMENTATION GAP REPORTING
+// ============================================================
+// Gaps accumulate per session (survive "New conversation" on purpose —
+// the rep reports once at the end). Switching product clears them.
+let sessionGaps = [];   // [{question, gaps: [..]}]
+
+function registerGaps(question, gaps) {
+  sessionGaps.push({ question, gaps });
+  const total = sessionGaps.reduce((n, g) => n + g.gaps.length, 0);
+  $('gap-bar-text').textContent = total + ' documentation gap' + (total === 1 ? '' : 's')
+    + ' noted this session — help keep the knowledge base complete.';
+  $('gap-bar').style.display = 'flex';
+}
+
+function clearGaps() {
+  sessionGaps = [];
+  $('gap-bar').style.display = 'none';
+  $('gap-compose').style.display = 'none';
+}
+
+function openGapCompose() {
+  const label = currentProduct ? PRODUCTS[currentProduct].label : 'Nubart';
+  $('gap-subject').value = 'Knowledge Q&A — undocumented: ' + label;
+
+  const lines = ['Hello,', '', 'the Knowledge Q&A tool could not fully answer the following (' + label + '):', ''];
+  sessionGaps.forEach((g, i) => {
+    lines.push((i + 1) + ') Question asked: "' + g.question + '"');
+    g.gaps.forEach((gap) => lines.push('   Missing: ' + gap));
+    lines.push('');
+  });
+  lines.push('(sent from the Knowledge Q&A tool)');
+
+  $('gap-body').value = lines.join('\n');
+  $('gap-compose').style.display = 'block';
+  $('gap-compose').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function sendGapEmail() {
+  // mailto: keeps this infrastructure-free; the rep's own mail client
+  // opens prefilled and they press send there. Some clients truncate
+  // bodies around ~1,800 characters — the prefilled text is kept terse.
+  const subject = encodeURIComponent($('gap-subject').value);
+  const body = encodeURIComponent($('gap-body').value);
+  window.location.href = 'mailto:' + CONFIG.GAP_EMAIL + '?subject=' + subject + '&body=' + body;
+}
+
+// ============================================================
+// PRODUCT SWITCHING
+// ============================================================
+async function selectProduct(key) {
+  const meta = PRODUCTS[key];
+  if (!meta || !meta.available) return;   // belt + braces: options are also `disabled`
+
+  if (history.length > 0) {
+    const ok = window.confirm('Switching product starts a new conversation. Continue?');
+    if (!ok) { $('product-select').value = currentProduct; return; }
+  }
+
+  newConversation();
+  clearGaps();
+  currentProduct = null;
+  currentPack = null;
+  systemBlocks = null;
+  $('chat-section').style.display = 'none';
+  $('lang-note').style.display = 'flex';
+  clearError();
+
+  try {
+    const { pack, entries } = await loadPack(key);
+    currentProduct = key;
+    currentPack = pack;
+    systemBlocks = buildSystemBlocks(pack, entries, meta.label);
+
+    const built = pack.builtAt || pack.compiledAt || 'unknown build date';
+    $('pack-status').innerHTML =
+      '<span class="dot-ok"></span> Pack loaded — ' + entries.length + ' entries'
+      + ' · compiled: ' + escapeHtml(String(built))
+      + ' · <span class="product-badge ' + meta.badge + '"><span class="badge-dot"></span>'
+      + escapeHtml(meta.label) + '</span>';
+
+    $('chat-section').style.display = 'block';
+    $('question-input').focus();
+  } catch (e) {
+    $('pack-status').innerHTML = '<span class="dot-err"></span> ' + escapeHtml(e.message);
+    $('product-select').value = '';
+  }
+}
+
+// ============================================================
+// WIRING
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  refreshCredStatus();
+
+  $('btn-save-creds').addEventListener('click', saveCreds);
+  $('btn-settings').addEventListener('click', () => {
+    const s = $('setup-section');
+    s.style.display = (s.style.display === 'none') ? 'block' : 'none';
+  });
+
+  $('product-select').addEventListener('change', (e) => {
+    if (!refreshCredStatus()) {
+      // Show the message under the dropdown — #chat-error lives inside the
+      // still-hidden chat section, so renderError() would be invisible here.
+      const status = $('pack-status');
+      status.style.display = 'flex';
+      status.innerHTML = '<span class="dot-err"></span> Enter your API key and pack token first (gear icon, top right).';
+      $('setup-section').style.display = 'block';
+      e.target.value = '';
+      return;
+    }
+    selectProduct(e.target.value);
+  });
+
+  $('btn-send').addEventListener('click', sendQuestion);
+  $('btn-new-chat').addEventListener('click', newConversation);
+
+  // Gap reporting
+  $('btn-draft-gap-email').addEventListener('click', openGapCompose);
+  $('btn-send-gap-email').addEventListener('click', sendGapEmail);
+  $('btn-close-gap-compose').addEventListener('click', () => {
+    $('gap-compose').style.display = 'none';
+  });
+
+  // Copy buttons on customer-ready blocks (event delegation — blocks are
+  // created dynamically)
+  $('chat-thread').addEventListener('click', (e) => {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+    const frag = copyFragments[Number(btn.dataset.copyIdx)];
+    if (frag === undefined) return;
+    navigator.clipboard.writeText(frag).then(() => {
+      const prev = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = prev; }, 1500);
+    }).catch(() => {
+      // Clipboard API blocked (rare, e.g. file:// in some browsers):
+      // select the block text as a fallback so the rep can Ctrl+C.
+      const body = btn.closest('.copy-block').querySelector('.copy-block-body');
+      const range = document.createRange();
+      range.selectNodeContents(body);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    });
+  });
+
+  $('question-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendQuestion();
+    }
+  });
+});
+</script>
+</body>
+</html>
