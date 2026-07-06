@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <!-- ============================================================
      SCRIPT:  Nubart Knowledge Q&A tool
-     VERSION: v1 — draft
+     VERSION: v2 — draft
      DATE:    2026-07-06
      TYPE:    Web tool (Type B — published to nubart.github.io, noindex)
      STATUS:  In progress
-     NOTES:   Chat interface for sales reps. Loads a compiled knowledge
+     NOTES:   v2 fixes after first live test (Rosa, 2026-07-06):
+              customer-ready fragments forced to the question's language;
+              new answers scroll to their top, not the thread bottom;
+              contractual tier corrected to clickwrap (T&Cs are accepted,
+              not signed) — misleading legal-language note removed from
+              UI and system prompt.
+              Base version includes Claude Code's runtime fixes
+              (real exec URL, MAX_TOKENS 4096, stop_reason handling,
+              DOM/history desync fix, credentials error placement).
+
+              Chat interface for sales reps. Loads a compiled knowledge
               pack per product from the Knowledge Compiler's Apps Script
               web app endpoint, injects it as compiled context into the
               system prompt (no RAG), and answers questions via the
@@ -101,8 +111,7 @@
     <div class="alert alert-info" id="lang-note" style="margin-top:14px; margin-bottom:0; display:none;">
       <span>&#127760;</span>
       <span><strong>You can ask in any language</strong> — German, Spanish, French, English… The answer
-      will follow the language of your question. Note: contractual wording (T&amp;Cs, DPA) is legally
-      binding in the language of the document the customer signed.</span>
+      will follow the language of your question.</span>
     </div>
   </div>
 
@@ -349,13 +358,13 @@ STRICT KNOWLEDGE BOUNDARY
 
 AUTHORITY TIERS (highest to lowest precedence)
 Each entry is tagged with a tier. When entries conflict, the higher tier wins — and you must FLAG the conflict explicitly to the rep:
-1. CONTRACTUAL — T&Cs, DPA. Legally binding. Contractual wording is binding in the language of the signed document; if the rep asks in another language, answer in their language but note which language version is legally decisive.
+1. CONTRACTUAL — T&Cs, DPA. Legally binding (customers accept the T&Cs by clicking "I accept" — nothing is physically signed). If the contractual entries themselves specify a prevailing language version, mention it when relevant; otherwise make no claims about which language version is legally decisive.
 2. CANONICAL — the public website. Official product truth.
 3. INTERNAL-GUIDANCE — sales playbook, capability indexes from production. For the rep's understanding. Capability entries tell you WHAT the product can do, never HOW it is implemented — do not speculate about implementation.
 4. MARKETING — promotional copy. May be reused in customer-facing wording.
 
 ANSWERING RULES
-- Answer in the language of the question.
+- Answer in the language of the question — the ENTIRE response: explanation, headings, AND customer-ready fragments.
 - Be concise and sales-practical: what the rep can say to the customer, what to watch out for.
 - When your answer relies on a specific entry, name it briefly (e.g. "per the T&Cs" or "per the sales playbook") so the rep knows the authority level.
 - If asked about pricing, use only the pricing entries in the pack; if a scenario isn't covered, say so.
@@ -363,7 +372,7 @@ ANSWERING RULES
 CUSTOMER-READY FRAGMENTS
 - Reps mostly answer prospects by email. Whenever your answer contains wording the rep could send to a prospect as-is, wrap exactly that fragment between a line containing only <<<COPY and a line containing only >>>.
 - Build these fragments ONLY from CONTRACTUAL, CANONICAL and MARKETING content — never from INTERNAL-GUIDANCE.
-- Write them as polished, ready-to-paste email prose in the language of the question. No meta-commentary inside the markers.
+- Write them as polished, ready-to-paste email prose. LANGUAGE RULE: the fragment MUST be in the same language as the rep's question — never default to English just because it is business correspondence or because the knowledge pack is mostly in English. Use a different language ONLY if the rep explicitly asks for it (e.g. "auf Englisch für den Kunden"). No meta-commentary inside the markers.
 - Internal caveats, warnings and rep-only guidance always go OUTSIDE the markers.
 - Not every answer needs a fragment; only include one when there is genuinely customer-suitable wording.
 
@@ -430,12 +439,20 @@ function extractGaps(text) {
 }
 
 function appendMessage(role, text) {
+  const thread = $('chat-thread');
   const div = document.createElement('div');
   div.className = 'msg ' + (role === 'user' ? 'msg-user' : 'msg-assistant');
   div.innerHTML = '<div class="msg-role">' + (role === 'user' ? 'You' : 'Nubart Q&A') + '</div>'
     + (role === 'user' ? escapeHtml(text).replace(/\n/g, '<br>') : renderAssistant(text));
-  $('chat-thread').appendChild(div);
-  $('chat-thread').scrollTop = $('chat-thread').scrollHeight;
+  thread.appendChild(div);
+  if (role === 'user') {
+    thread.scrollTop = thread.scrollHeight;
+  } else {
+    // Scroll to the TOP of the new answer, not the bottom of the thread.
+    // Landing at the bottom made long answers look like they started at
+    // the visible part (real-world feedback, 2026-07-06).
+    thread.scrollTop += div.getBoundingClientRect().top - thread.getBoundingClientRect().top - 8;
+  }
 }
 
 function showTyping(on) {
