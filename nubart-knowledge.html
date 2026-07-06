@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <!-- ============================================================
      SCRIPT:  Nubart Knowledge Q&A tool
-     VERSION: v2 — draft
+     VERSION: v3 — draft
      DATE:    2026-07-06
      TYPE:    Web tool (Type B — published to nubart.github.io, noindex)
      STATUS:  In progress
-     NOTES:   v2 fixes after first live test (Rosa, 2026-07-06):
+     NOTES:   v3 fixes after second live test (Rosa, 2026-07-06):
+              gap emails are now COPIED, never sent via mailto: (mailto
+              hijacked the tab for webmail users and lost the chat);
+              compose card auto-opens on the first gap of a session,
+              with edit protection against auto-refresh; friendlier
+              email template addressed to the knowledge base owner;
+              the model must never route reps to named colleagues —
+              undocumented questions go through the Report gaps button.
+              v2 fixes:
               customer-ready fragments forced to the question's language;
               new answers scroll to their top, not the thread bottom;
               contractual tier corrected to clickwrap (T&Cs are accepted,
@@ -26,8 +34,8 @@
               highlighted blocks with one-click Copy (built only from
               contractual/canonical/marketing tiers); documentation-gap
               detection via GAP:: marker lines, accumulated per session
-              and reported to CONFIG.GAP_EMAIL via an editable mailto:
-              compose card. Only TRANSLATE is active in v1; other
+              and reported to CONFIG.GAP_EMAIL via a copy-and-paste
+              compose card. Only TRANSLATE is active; other
               products are greyed out until the Compiler produces
               their packs.
 
@@ -132,7 +140,11 @@
     </div>
     <div class="card" id="gap-compose" style="display:none;">
       <h3>Report documentation gap</h3>
-      <p class="push-description">This email helps keep the knowledge base up to date. Edit it if needed, then open it in your email client and send.</p>
+      <p class="push-description">This email helps keep the knowledge base up to date. Edit it if you like, then copy it and paste it into your webmail — nothing is sent automatically.</p>
+      <div class="field">
+        <label for="gap-to">To</label>
+        <input type="text" id="gap-to" readonly>
+      </div>
       <div class="field">
         <label for="gap-subject">Subject</label>
         <input type="text" id="gap-subject">
@@ -142,7 +154,7 @@
         <textarea id="gap-body"></textarea>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" id="btn-send-gap-email">Open in email client</button>
+        <button class="btn btn-primary" id="btn-copy-gap-email">Copy email</button>
         <button class="btn btn-ghost" id="btn-close-gap-compose">Close</button>
       </div>
     </div>
@@ -378,7 +390,8 @@ CUSTOMER-READY FRAGMENTS
 
 KNOWLEDGE GAP REPORTING
 - If the pack does not cover the question, or covers it only partially, answer what you can (or say plainly that it is not documented), then add at the VERY END of your response one line per missing item, each starting exactly with "GAP:: " followed by a one-sentence English description of what is missing from the documentation.
-- Use GAP:: lines for nothing else. If the pack fully answers the question, do not emit any GAP:: line.`;
+- Use GAP:: lines for nothing else. If the pack fully answers the question, do not emit any GAP:: line.
+- Never advise the rep to contact a specific person by name — even if the knowledge pack mentions names or individual roles — and never draft messages addressed to colleagues. When something is not documented, tell the rep in the language of their question that they can report it with the "Report gaps" button below the chat, so the documentation gets updated for everyone.`;
 
   const header = 'KNOWLEDGE PACK — ' + productLabel
     + (pack.builtAt || pack.compiledAt ? (' (compiled: ' + (pack.builtAt || pack.compiledAt) + ')') : '')
@@ -566,7 +579,12 @@ function newConversation() {
 // ============================================================
 // Gaps accumulate per session (survive "New conversation" on purpose —
 // the rep reports once at the end). Switching product clears them.
-let sessionGaps = [];   // [{question, gaps: [..]}]
+// The compose card auto-opens on the FIRST gap of a session so reporting
+// needs zero initiative; the email is copied into the rep's own webmail
+// (no mailto: — it hijacked the tab in webmail setups and lost the chat).
+let sessionGaps = [];        // [{question, gaps: [..]}]
+let gapBodyDirty = false;    // rep edited the draft → stop auto-refreshing it
+let gapAutoOpened = false;   // auto-open only once per session
 
 function registerGaps(question, gaps) {
   sessionGaps.push({ question, gaps });
@@ -574,38 +592,69 @@ function registerGaps(question, gaps) {
   $('gap-bar-text').textContent = total + ' documentation gap' + (total === 1 ? '' : 's')
     + ' noted this session — help keep the knowledge base complete.';
   $('gap-bar').style.display = 'flex';
+
+  if ($('gap-compose').style.display === 'block') {
+    if (!gapBodyDirty) fillGapCompose();   // refresh open, untouched draft
+  } else if (!gapAutoOpened) {
+    gapAutoOpened = true;
+    openGapCompose(false);                 // auto-open, but don't scroll away from the answer
+  }
 }
 
 function clearGaps() {
   sessionGaps = [];
+  gapBodyDirty = false;
+  gapAutoOpened = false;
   $('gap-bar').style.display = 'none';
   $('gap-compose').style.display = 'none';
 }
 
-function openGapCompose() {
+function fillGapCompose() {
   const label = currentProduct ? PRODUCTS[currentProduct].label : 'Nubart';
-  $('gap-subject').value = 'Knowledge Q&A — undocumented: ' + label;
+  $('gap-to').value = CONFIG.GAP_EMAIL;
+  $('gap-subject').value = 'Knowledge Q&A — gap found: ' + label;
 
-  const lines = ['Hello,', '', 'the Knowledge Q&A tool could not fully answer the following (' + label + '):', ''];
+  const lines = [
+    'Hi Rosa,',
+    '',
+    'I found a gap in our knowledge tool. Can you take a look when you have some time?',
+    '',
+    'Product: ' + label,
+    ''
+  ];
   sessionGaps.forEach((g, i) => {
     lines.push((i + 1) + ') Question asked: "' + g.question + '"');
     g.gaps.forEach((gap) => lines.push('   Missing: ' + gap));
     lines.push('');
   });
-  lines.push('(sent from the Knowledge Q&A tool)');
+  lines.push('Thanks!');
 
   $('gap-body').value = lines.join('\n');
-  $('gap-compose').style.display = 'block';
-  $('gap-compose').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  gapBodyDirty = false;
 }
 
-function sendGapEmail() {
-  // mailto: keeps this infrastructure-free; the rep's own mail client
-  // opens prefilled and they press send there. Some clients truncate
-  // bodies around ~1,800 characters — the prefilled text is kept terse.
-  const subject = encodeURIComponent($('gap-subject').value);
-  const body = encodeURIComponent($('gap-body').value);
-  window.location.href = 'mailto:' + CONFIG.GAP_EMAIL + '?subject=' + subject + '&body=' + body;
+function openGapCompose(scroll) {
+  if (!gapBodyDirty) fillGapCompose();
+  $('gap-compose').style.display = 'block';
+  if (scroll) {
+    $('gap-compose').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function copyGapEmail() {
+  const full = 'To: ' + $('gap-to').value
+    + '\nSubject: ' + $('gap-subject').value
+    + '\n\n' + $('gap-body').value;
+  const btn = $('btn-copy-gap-email');
+  navigator.clipboard.writeText(full).then(() => {
+    const prev = btn.textContent;
+    btn.textContent = 'Copied — paste it into your webmail';
+    setTimeout(() => { btn.textContent = prev; }, 2500);
+  }).catch(() => {
+    // Clipboard API blocked: select the body so the rep can Ctrl+C.
+    $('gap-body').focus();
+    $('gap-body').select();
+  });
 }
 
 // ============================================================
@@ -680,11 +729,14 @@ document.addEventListener('DOMContentLoaded', () => {
   $('btn-new-chat').addEventListener('click', newConversation);
 
   // Gap reporting
-  $('btn-draft-gap-email').addEventListener('click', openGapCompose);
-  $('btn-send-gap-email').addEventListener('click', sendGapEmail);
+  $('btn-draft-gap-email').addEventListener('click', () => openGapCompose(true));
+  $('btn-copy-gap-email').addEventListener('click', copyGapEmail);
   $('btn-close-gap-compose').addEventListener('click', () => {
     $('gap-compose').style.display = 'none';
   });
+  // Once the rep edits the draft, stop auto-refreshing it on new gaps
+  $('gap-body').addEventListener('input', () => { gapBodyDirty = true; });
+  $('gap-subject').addEventListener('input', () => { gapBodyDirty = true; });
 
   // Copy buttons on customer-ready blocks (event delegation — blocks are
   // created dynamically)
