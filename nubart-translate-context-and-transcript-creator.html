@@ -123,20 +123,27 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
 
   <!-- Step 3: Event dates -->
   <div class="card">
-    <h3>Step 3 — Confirm event date(s)</h3>
+    <h3>Step 3 — Select event date(s)</h3>
     <p style="font-size:13px; color:var(--ink-soft); margin-bottom:14px;">
-      Sessions from these dates appear in the main transcript. All other sessions appear only in the Session Log.
+      Pick the date(s) of the actual event below. Sessions from the selected dates appear in the main transcript; all other sessions appear only in the Session Log.
     </p>
-    <div class="two-col">
-      <div class="field">
-        <label>Add a date</label>
-        <input type="date" id="eventDateInput">
-      </div>
-      <div style="display:flex; align-items:flex-end; padding-bottom:1px;">
-        <button class="btn btn-secondary" onclick="addEventDate()">+ Add date</button>
-      </div>
+    <div class="lang-grid" id="eventDateGrid">
+      <div style="color:var(--ink-soft); font-size:13px;">Upload a CSV first to see the dates found in it.</div>
     </div>
-    <div class="date-chips" id="dateChips"></div>
+
+    <!-- Manual fallback: shown only when no dates could be read from the CSV -->
+    <div id="manualDateWrap" style="display:none; margin-top:16px;">
+      <div class="two-col">
+        <div class="field">
+          <label>Add a date manually</label>
+          <input type="date" id="eventDateInput">
+        </div>
+        <div style="display:flex; align-items:flex-end; padding-bottom:1px;">
+          <button class="btn btn-secondary" onclick="addEventDate()">+ Add date</button>
+        </div>
+      </div>
+      <div class="date-chips" id="dateChips"></div>
+    </div>
     <div id="dateAlert" style="margin-top:8px;"></div>
   </div>
 
@@ -497,6 +504,11 @@ function parseCSVMeta(csv) {
       .filter(l => langCounts[l.lang] >= 20)
       .map(l => l.lang);
 
+    // Reset any previous selection and offer the dates found in column A as
+    // selectable chips (user picks one or several — see renderEventDatePills).
+    eventDates = [];
+    renderEventDatePills();
+
     // Populate SRT lang selector
     const grid = document.getElementById('srtLangGrid');
     if (csvDetectedLangs.length > 0) {
@@ -541,6 +553,38 @@ function parseCSVLine(line) {
 /* ════════════════════════════════════════════
    EVENT DATES
 ════════════════════════════════════════════ */
+
+/* Render the dates found in column A as selectable chips. If none could be
+   parsed, fall back to the manual date picker. */
+function renderEventDatePills() {
+  const grid = document.getElementById('eventDateGrid');
+  const manualWrap = document.getElementById('manualDateWrap');
+  if (!grid) return;
+
+  if (csvDetectedDates.length > 0) {
+    grid.innerHTML = csvDetectedDates.map(d =>
+      `<span class="lang-pill${eventDates.includes(d) ? ' selected' : ''}" data-date="${d}"
+         onclick="toggleEventDate(this,'${d}')">${d}</span>`
+    ).join('');
+    manualWrap.style.display = 'none';
+  } else {
+    grid.innerHTML = '<div style="color:var(--ink-soft); font-size:13px;">No dates could be read from the CSV. Add the event date(s) manually below.</div>';
+    manualWrap.style.display = 'block';
+  }
+  renderDateChips();
+}
+
+function toggleEventDate(el, date) {
+  if (eventDates.includes(date)) {
+    eventDates = eventDates.filter(d => d !== date);
+    el.classList.remove('selected');
+  } else {
+    eventDates.push(date);
+    el.classList.add('selected');
+  }
+  document.getElementById('dateAlert').innerHTML = '';
+}
+
 function addEventDate() {
   const input = document.getElementById('eventDateInput');
   const val = input.value;
@@ -576,7 +620,7 @@ async function generateTranscript() {
 
   if (!apiKey) return showError('transcriptOutput', 'Please enter your Anthropic API key.');
   if (!csvRawText) return showError('transcriptOutput', 'Please upload a CSV file first.');
-  if (eventDates.length === 0) return showError('transcriptOutput', 'Please add at least one event date.');
+  if (eventDates.length === 0) return showError('transcriptOutput', 'Please select at least one event date.');
   if (format === 'srt' && !selectedSrtLang) return showError('transcriptOutput', 'Please select a subtitle language.');
 
   const btn = document.getElementById('generateTranscriptBtn');
