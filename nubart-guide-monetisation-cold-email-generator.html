@@ -4,7 +4,7 @@ SCRIPT:  Museum Monetisation Cold Email Generator
 VERSION: v1 — draft
 DATE:    2026-07-02
 TYPE:    Web tool
-STATUS:  In progress (untested — needs Claude Code verification)
+STATUS:  Live — field testing with the sales team
 NOTES:   Drafts a non-salesy cold email offering Nubart GUIDE as a
          monetisation layer for museums, including but not limited to
          those on free platforms like Bloomberg Connects — the prompt
@@ -226,24 +226,6 @@ NOTES:   Drafts a non-salesy cold email offering Nubart GUIDE as a
     en: 'https://www.nubart.eu/audio-guides/monetise-museum-audio-guide.html'
   };
 
-  const STYLE_EXAMPLE =
-`Hi Mercè,
-We just wrote an article on our blog that I'd like to share with you, even if it's just looking ahead: Bloomberg Connect is free, but it doesn't generate any revenue for the Foundation. With Nubart, the digital guide becomes a source of recurring revenue, with no initial cost or risk on your part.
-We propose a starting point very similar to what you already have: zero upfront cost.
-* We migrate all current content to our platform, at no cost.
-* We print 50,000 personalized cards that we provide to the Foundation on consignment, at no cost.
-* We only charge monthly for the cards that are actually used (revenue sharing to be agreed upon).
-To give you an idea of the scale, with the Foundation's 450,000 annual visitors and a nominal entry fee (e.g., $3), our current facility data estimates:
-Expected adoption: 13.75%
-Cards used per year: 61,875
-Annual gross revenue for the Foundation: €185,625
-Margin per card: €2 (after deducting the card cost)
-In other words, a very significant potential for annual revenue that is not being generated today, with zero initial investment and zero risk for the Foundation.
-Additionally, unlike native apps like Bloomberg's, our guide works as a PWA: you just scan a QR code to access it directly from your browser, with no download or registration required, which largely eliminates technical entry friction.
-If you'd like to explore this at any point, even in parallel with Bloomberg or for the next contract, we would be happy to prepare a custom simulation with your actual figures.
-We look forward to collaborating in the future.
-Best regards,`;
-
   // ─── Claude calls ──────────────────────────────────────────────────────────
   async function callClaude(prompt, maxTokens) {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -308,34 +290,58 @@ PRE-COMPUTED FIGURES — use these exact values, do not recalculate, do not inve
 - Estimated annual gross revenue for the site: ${ctx.grossRevenue}
 - Margin per card (after card cost): ${ctx.marginPerCard}
 
-PAIN-POINT ANALYSIS (internal sales research — reference only, do not quote it, do not list it):
+PAIN-POINT ANALYSIS (internal sales research — reference only, do not quote it, do not list it, do not summarise it in the email). Its main use for you is: (a) to identify whether a specific existing digital platform is named (for STRUCTURE step 6 below), and (b) to give you background on the site. It is NOT content for the email body:
 """
 ${ctx.painPoints}
 """
 
-STYLE REFERENCE — match this structure, offer, and tone. This is a template for tone and structure only, not for verbatim reuse of its specific numbers or wording:
-"""
-${ctx.styleExample}
-"""
+GENERAL RULES
 
-INSTRUCTIONS
 - Write the entire email in ${ctx.language}.
-- Tone: professional, collaborative, factual, low-pressure. NOT salesy, NOT pushy. NOT adversarial or dismissive toward any existing free platform the site may already use.
-- LENGTH: aim for roughly 25% shorter than the style reference. Prioritize exactly three beats and cut anything that doesn't serve them: (1) acknowledge what the museum already has, (2) there's a zero-upfront revenue opportunity, (3) a rough sense of how much. Museum directors often decide whether to keep reading within the first 20 seconds — don't pad it into a proposal document.
-- NO JARGON: avoid words like "frictionless", "seamless", "leverage", "unlock", or similar marketing buzzwords. Describe things concretely instead (e.g. "visitors scan a QR code and open the guide in their browser — no app download, account creation, or registration required").
-- PLATFORM MENTIONS: only name a specific platform (e.g. "Bloomberg Connects") if that exact platform is explicitly named in the pain-point analysis above. If no specific platform is named there, do NOT invent or assume one — refer generically instead (e.g. "any digital companion you may already offer" / "alongside anything you currently have in place"), or omit platform framing entirely if it doesn't fit. If a platform IS named, acknowledge its value FIRST (e.g. "a great resource for visitors" / "an excellent way to provide digital content") before pivoting — and frame the pivot as the platform simply not being designed/intended for generating revenue (a different job), never as something it "doesn't do" or gets wrong. Do NOT call Nubart an "alternative" to the named platform — use complement-oriented language ("add something different" / "complement what you already have"), since the email later says they can coexist and "alternative" undercuts that. Near the close, explicitly state that there's no need to replace the existing platform — many museums use Nubart purely as their paid guide layer while keeping other free resources in place. The style reference below happens to mention Bloomberg, but that is just this one example, not a fixed feature of every email — this script is used for museums on many different platforms, or none at all.
-- OPENING: do not open with a generic "I wanted to share an article with you" line — the recipient doesn't know us, and a bare link with no context is a weak, confusing hook. Instead, open with something grounded and specific to this museum: a brief, genuine, factual observation about the site (its existing digital guide if the pain points name one, or its scale/reputation otherwise) that naturally leads into the idea that the guide could be earning revenue instead of just being a cost.
-- Present the offer as three short bullets, plain "*" style: migrate existing content, print personalised cards on consignment, bill monthly only for cards used on an agreed revenue share. State "at no cost" / "zero upfront" ONCE across the three bullets, not repeated in each — repeating it starts to read like marketing copy. Immediately after the bullets (or worked naturally into them), add one plain sentence addressing card-sharing: our patented technology (LWAC) makes each card non-transferable — it's tied to the visitor who first activates it, so it can't be shared or reused by someone else. Use the word "patented" (it's a real, fully granted patent in the EU, USA, and Spain) but do not describe the underlying mechanism (cookies, device fingerprinting, etc.) — keep it at this plain, confident level only.
-- Only make claims you can actually stand behind. Do not claim visitors "currently walk past" an existing guide or speculate about why adoption might be low today — you don't have evidence for that. Instead, state the objectively true fact: because there's nothing to download or an account to create, the barrier to trying the guide is low.
-- FIGURES — presentation matters here: the estimated annual gross revenue is the headline number. State it plainly first in one sentence, anchored to the input figures (e.g. "Based on [museum]'s reported annual attendance of around [visitors], and assuming a guide price of [price], we estimate this could generate approximately [gross revenue] in annual gross revenue"). Add this exact phrase of data provenance so the estimate reads as evidence rather than optimism: "based on data from Nubart's network of 200+ museum customers" (adapt grammatically to fit the sentence and language, but keep the "200+ museum customers" figure — do not invent a different number or a more specific source). THEN give the supporting breakdown as a short bulleted list using the same plain "*" style as the offer list above — one line each for adoption % and cards/year. For margin per card, phrase it plainly as "margin per card: approximately [X] after the cost of the card" — do NOT add explanatory asides like "for context on unit economics" or similar jargon.
-- Refer to the illustrative price plainly, e.g. "assuming a guide price of ${ctx.priceFormatted}" — never call it a "nominal entry fee" or similar, since it's the price of the digital guide, not museum admission.
-- Present all figures as illustrative estimates, not a firm quote. Close this section on something like "these are illustrative estimates, not a firm projection, but they show the potential scale of an additional revenue stream" — do NOT say things like "revenue that isn't being generated today", which reads as slightly accusatory.
-- Mention the PWA/QR advantage concretely (see NO JARGON above): scan a QR code, open in the browser, no app download or registration required.
-- ONLY if the pain-point analysis contains a clear, relevant, experience-related issue (e.g. lack of interpretation, language barriers, low engagement, idle/waiting time, poor didactics) that a digital guide could plausibly help with, you may reference it briefly and factually as motivation. Do not force this in if nothing relevant is present. Never phrase it as a criticism of the institution or its staff.
-- CLOSE: keep the ask light — offer to prepare a projection using the museum's own figures, framed as helpful and no-obligation, rather than "if this is something you'd like to explore." Include the "no need to replace what you have" idea described under PLATFORM MENTIONS above — it directly lowers the biggest objection a museum director will have.
-- ARTICLE LINK: place it near the very end, after the offer and figures, introduced softly (e.g. "if you're interested, we've also written a short article about how museums approach this") — not as homework, and not earlier in the email.
-- Do not use markdown formatting (no **, no headers — plain line breaks and the plain "*" bullets described above only, matching the style reference).
-- SIGN-OFF: end with a warm closing phrase appropriate to ${ctx.language} (equivalent to "Best regards," / "Un saludo," / "Mit freundlichen Grüßen,") followed by nothing else. Do NOT sign with "The Nubart Team", a company name, or any generic team signature — the individual sales rep signs personally after copying the draft out.
+- Tone: professional, factual, low-pressure. Write like a person who has looked at this specific museum and thinks a proposal makes sense. Do NOT sound salesy. Do NOT sound like AI-generated cold outreach.
+- NO EM-DASHES OR EN-DASHES anywhere in the email. Never use "—" or "–". Use commas, parentheses, or full stops instead. This is non-negotiable: em-dashes are now strongly associated with AI-generated text.
+- AVOID LLM TELLS: do not paraphrase back what the recipient already knows (e.g. "Aberdeen Maritime Museum already offers..."). Do not use tidy contrast structures ("X is designed to Y, not Z" / "What Nubart does is..."). Do not use parallel-construction rhythms. Do not repeat the same idea twice for emphasis (e.g. "no account to create, and no registration required" is two ways of saying the same thing, which reads as salesy). Write in the varied, slightly uneven rhythm of a real human email.
+- NO MARKETING JARGON: avoid "frictionless", "seamless", "leverage", "unlock", "empower", "solution", "journey" and similar. Describe things plainly.
+- LENGTH: aim for a medium-length email of roughly 200 to 280 words in English (adjust proportionally for other languages). Long enough that it feels considered, not so short it reads like automated outreach. Every sentence must earn its place.
+- Do not use markdown formatting (no **, no headers). Plain line breaks and plain "*" bullets only, as specified in the structure below.
+
+STRUCTURE — follow this order EXACTLY. Do not add extra paragraphs, do not reorder.
+
+1) SALUTATION: "Hi ${ctx.recipientName}," and then a line break. (The rep will personalise it later if needed. Do not add anything else on the salutation line.)
+
+2) SELF-INTRODUCTION — TWO SENTENCES, in this order and substance, translated naturally into ${ctx.language} (do not translate word-for-word, but keep the meaning and the two-sentence shape):
+   Sentence A: "I'm writing from Nubart. We provide paid digital audio guides for museums and cultural sites, currently used by more than 200 institutions across Europe and the US."
+   Sentence B: "For this we use a patented technology (LWAC, granted in the EU, US, and Spain) that makes each card non-transferable, so it can't be passed on or reused by someone else."
+   Then a blank line. Do NOT add any framing or context sentence before these. Do NOT talk about the recipient's museum yet.
+
+3) THE HEADLINE NUMBERS — bridge straight in. One short sentence like: "The reason I'm writing: we've run a quick projection for ${ctx.museumName}." Then the headline sentence:
+   "Based on your reported annual attendance of around ${ctx.visitors} visitors and assuming a guide price of ${ctx.priceFormatted}, we estimate this could generate approximately ${ctx.grossRevenue} in annual gross revenue, based on data from our network of 200+ museum customers."
+   Then a short bulleted list (plain "*") of the supporting figures:
+   * Expected adoption: ${ctx.adoptionPct}
+   * Cards used per year: ${ctx.cardsPerYear}
+   * Margin per card: approximately ${ctx.marginPerCard} after the cost of the card
+   Then one sentence: "These are illustrative estimates, not a firm projection."
+
+4) HOW THE OFFER WORKS — introduce with one plain sentence such as "In practical terms:" or similar (do NOT use the word "offer", which sounds like a sales pitch and invites suspicion). Then three short bullets (plain "*"), stating "at no upfront cost" or equivalent ONCE across the bullets, not repeated in each:
+   * We migrate any existing content to our platform
+   * We print personalised cards and supply them on consignment, at no upfront cost
+   * We bill monthly only for the cards actually used, on a revenue share we agree together
+
+5) PRIVACY / PRACTICAL POINT — one short sentence. Visitors scan the QR code on the card and open the guide in their browser. Frame the no-download aspect around VISITOR PRIVACY and anonymity, not as two separate features (do not write "no account AND no registration"). Something like: "Visitors scan the QR code on the card and open the guide directly in their browser. The system is anonymous by design, which also means it respects your visitors' privacy."
+
+6) COEXISTENCE — ONE sentence, ONLY IF a specific platform (e.g. "Bloomberg Connects", "Smartify", "Cuseum", or any other named platform) is explicitly mentioned in the pain-point analysis above. Use the exact platform name as it appears there. Mention it lightly and neutrally, without praising it, without explaining what it's designed for, without any defensive framing. Example: "This can sit alongside [name of platform] if that's still in place; many museums keep their existing free digital resources and use Nubart purely as their paid guide layer." If NO specific platform is named in the pain-point analysis, SKIP this step entirely and go straight from step 5 to step 7. Do not invent a platform. Do not fall back to generic language like "any digital companion you may already offer".
+
+7) CLOSE — soft. Offer to prepare a projection using their own figures, no obligation. Then link to the article softly as background reading. Two sentences maximum. Article link: ${ctx.articleLink}
+
+8) SIGN-OFF — a warm closing phrase appropriate to ${ctx.language} ("Best regards," / "Un saludo," / "Mit freundlichen Grüßen,") followed by nothing else. NO "The Nubart Team". NO company signature. The rep signs personally.
+
+WHAT TO OMIT
+
+- Do NOT insert a separate paragraph about the museum's visitor experience issues, layout, interpretation gaps, or anything drawn from the pain-point analysis beyond what STRUCTURE step 6 allows. The pain-point analysis is background context for YOU, not content for the email. Do not lecture the museum about its own visitors. The email's job is to present a specific financial proposal, not to demonstrate that we've read reviews of the site.
+- Do NOT praise the recipient's existing platform (Bloomberg Connects or otherwise). Do NOT explain what it's "designed for" or its "purpose". Do NOT defend against objections the recipient has not raised.
+- Do NOT use the phrase "revenue that isn't being generated today" or similar, which sounds accusatory.
+- Do NOT use the word "offer" as a noun when introducing the bullets.
+- Do NOT paraphrase back what the museum already offers to visitors.
 
 Respond with ONLY a JSON object, no preamble, no markdown fences:
 {"subject": "short subject line in ${ctx.language}", "body": "full email body in ${ctx.language}, using \\n for line breaks, ending with the closing phrase and nothing after it", "internal_notes": "short note in English for the sales rep: which pain point (if any) was referenced and why, whether a specific platform was named and where that came from, currency/language/museum name detected, anything worth double-checking before sending"}`;
@@ -386,8 +392,7 @@ Respond with ONLY a JSON object, no preamble, no markdown fences:
         cardsPerYear: nums.cardsPerYear,
         grossRevenue: nums.grossRevenue,
         marginPerCard: nums.marginPerCard,
-        painPoints: painPoints,
-        styleExample: STYLE_EXAMPLE
+        painPoints: painPoints
       }), 2000);
 
       renderResults(computed, draft);
