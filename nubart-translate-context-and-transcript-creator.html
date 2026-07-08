@@ -162,6 +162,9 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
     </div>
   </div>
 
+  <!-- Recovery: restore-a-saved-draft banner (populated on load if a draft exists) -->
+  <div id="transcriptRestoreBanner" style="display:none; margin-bottom:16px;"></div>
+
   <!-- Output -->
   <div id="transcriptOutput" style="display:none;" class="output-area">
     <div class="output-toolbar">
@@ -173,6 +176,9 @@ NOTES:   Two-tab internal tool: Transcript generator + Context
     </div>
     <div class="output-content" id="transcriptContent"></div>
   </div>
+
+  <!-- Recovery: resume-after-interruption panel (shown when the stream is cut off) -->
+  <div id="transcriptRecoveryPanel" style="display:none; margin-top:16px;"></div>
 
 </div><!-- /tab-transcript -->
 
@@ -386,6 +392,15 @@ let contextMode = 'file';
 let eventDates = [];
 let selectedSrtLang = null;
 
+/* ── Transcript autosave / recovery state ──
+   Absolute start time (seconds-of-day) of the transcript's first session. Computed
+   from the raw CSV when a transcript run starts, and used as the anchor for converting
+   a relative [MM:SS] recovery point back to an approximate absolute CSV time on resume. */
+let sessionStartSec = null;
+let draftSaveTimer = null;     // throttle handle for localStorage writes during streaming
+let draftPending = null;       // latest {text, format} awaiting a throttled write
+const TRANSCRIPT_DRAFT_KEY = 'nubart_transcript_draft';
+
 document.addEventListener('DOMContentLoaded', () => {
   // Restore API key
   const saved = localStorage.getItem('nubart_api_key');
@@ -412,6 +427,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // CSV file input
   setupDropZone('csvDropZone', 'csvFile', handleCsvFile);
+
+  // Offer to restore a partial transcript left behind by an interrupted run.
+  checkForSavedTranscriptDraft();
 });
 
 /* ── Key status ── */
@@ -628,6 +646,16 @@ async function generateTranscript() {
   btn.innerHTML = '<span class="spinner" style="display:inline-block"></span> Processing…';
   showProgress('transcript', 10, 'Preparing CSV data…');
 
+  // A fresh run supersedes any earlier recovery state: hide the restore banner and the
+  // resume panel, and start a clean draft (the last run wins, single key).
+  document.getElementById('transcriptRestoreBanner').style.display = 'none';
+  document.getElementById('transcriptRecoveryPanel').style.display = 'none';
+  clearTranscriptDraft();
+
+  // Anchor for resume: absolute start time of the transcript's first session, read from
+  // the RAW CSV (resume slices csvRawText, so the anchor must match the raw timeline).
+  sessionStartSec = computeSessionStart(csvRawText);
+
   // Preprocess CSV: deduplicate rows by merging pairs
   const mergedData = preprocessCSV(csvRawText);
   showProgress('transcript', 25, 'Sending to Claude…');
@@ -644,7 +672,7 @@ async function generateTranscript() {
 
     const { text: result, stopReason } = await generateLongOutput(
       apiKey, prompt, 64000,
-      (soFar) => { outputEl.textContent = soFar; },
+      (soFar) => { outputEl.textContent = soFar; scheduleDraftSave(soFar, format); },
       (part) => showProgress('transcript', Math.min(40 + part * 4, 88),
         part > 1 ? `Streaming transcript (continuation ${part})…` : 'Streaming transcript from Claude…')
     );
@@ -653,6 +681,10 @@ async function generateTranscript() {
     // After auto-continuation, this is only true if we hit the safety backstop — i.e.
     // an extraordinarily long event. The output is otherwise guaranteed complete.
     const truncated = stopReason === 'max_tokens';
+
+    // Completed naturally → no recovery needed, drop the saved draft. (If truncated at
+    // the safety backstop, the draft is kept so the user can still recover the partial.)
+    if (!truncated) clearTranscriptDraft();
 
     const formatLabel = format === 'srt' ? `SRT — ${selectedSrtLang}` :
       format === 'qc' ? 'Internal QC transcript' :
@@ -687,9 +719,305 @@ async function generateTranscript() {
   } catch(e) {
     showProgress('transcript', 0, '');
     document.getElementById('transcriptProgress').style.display = 'none';
-    showError('transcriptOutput', 'Error: ' + e.message);
-    document.getElementById('transcriptOutput').style.display = 'block';
-    document.getElementById('transcriptContent').textContent = 'Error: ' + e.message;
+
+    // Connection-closed-early during streaming, with partial text already on screen →
+    // keep the partial and offer to resume from the last timestamp, instead of wiping
+    // the output with an error message.
+    const partial = document.getElementById('transcriptContent').textContent;
+    const connLost = /connection closed early|cut off before it finished/i.test(e.message || '');
+    if (connLost && partial.trim()) {
+      showTranscriptRecoveryPanel(format);
+    } else {
+      showError('transcriptOutput', 'Error: ' + e.message);
+      document.getElementById('transcriptOutput').style.display = 'block';
+      document.getElementById('transcriptContent').textContent = 'Error: ' + e.message;
+    }
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'Generate transcript';
+}
+
+/* ════════════════════════════════════════════
+   TRANSCRIPT AUTOSAVE & CONNECTION RECOVERY
+════════════════════════════════════════════ */
+
+/* Parse a clock string ("HH:MM" or "HH:MM:SS") into seconds-of-day; null if unparseable. */
+function clockToSec(t) {
+  const p = (t || '').trim().split(':').map(Number);
+  if (p.length < 2 || p.slice(0, 2).some(isNaN)) return null;
+  return p[0] * 3600 + p[1] * 60 + (p[2] || 0);
+}
+
+/* Absolute start time (seconds-of-day) of the transcript's first session, read from the
+   RAW CSV. Prefers the earliest utterance on a selected event date; falls back to the
+   earliest utterance overall if none match. Returns null if no time can be parsed. */
+function computeSessionStart(rawCsv) {
+  const lines = (rawCsv || '').split('\n').filter(l => l.trim());
+  if (lines.length < 2) return null;
+  const rows = lines.slice(1).map(parseCSVLine);
+  const wantDates = eventDates.length ? new Set(eventDates) : null;
+
+  const earliest = (onlyEventDates) => {
+    let best = null;
+    for (const r of rows) {
+      if (onlyEventDates && wantDates) {
+        const d = (r[0] || '').trim().split(' ')[0];
+        if (!wantDates.has(d)) continue;
+      }
+      const sec = clockToSec(r[1]);
+      if (sec === null) continue;
+      if (best === null || sec < best) best = sec;
+    }
+    return best;
+  };
+
+  const onEvent = earliest(true);
+  return onEvent !== null ? onEvent : earliest(false);
+}
+
+/* Extract the last [MM:SS] relative timestamp from streamed transcript text. Matches
+   1–4 digit minutes (multi-hour events) followed by two-digit seconds; ignores SRT-style
+   HH:MM:SS,mmm (no brackets) and QC [Score: X] tags. Returns "MM:SS" or null. */
+function lastRelativeTimestamp(text) {
+  const m = (text || '').match(/\[(\d{1,4}:\d{2})\]/g);
+  return m ? m[m.length - 1].replace(/[\[\]]/g, '') : null;
+}
+
+/* Write the current transcript draft to localStorage (single key, last run wins). */
+function writeTranscriptDraft(text, format) {
+  try {
+    localStorage.setItem(TRANSCRIPT_DRAFT_KEY, JSON.stringify({
+      savedAt: new Date().toISOString(),
+      format,
+      eventDates,
+      lastTimestamp: lastRelativeTimestamp(text),
+      text
+    }));
+  } catch (e) {
+    console.warn('Transcript draft save failed', e);
+  }
+}
+
+/* Throttled autosave — coalesces writes to at most one per ~500ms to avoid thrashing
+   localStorage on every streamed chunk. */
+function scheduleDraftSave(text, format) {
+  draftPending = { text, format };
+  if (draftSaveTimer) return;
+  draftSaveTimer = setTimeout(() => {
+    draftSaveTimer = null;
+    if (draftPending) writeTranscriptDraft(draftPending.text, draftPending.format);
+  }, 500);
+}
+
+/* Cancel any pending save and remove the draft entirely (successful completion / new run). */
+function clearTranscriptDraft() {
+  if (draftSaveTimer) { clearTimeout(draftSaveTimer); draftSaveTimer = null; }
+  draftPending = null;
+  try { localStorage.removeItem(TRANSCRIPT_DRAFT_KEY); } catch (e) {}
+}
+
+function readTranscriptDraft() {
+  try {
+    const raw = localStorage.getItem(TRANSCRIPT_DRAFT_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) { return null; }
+}
+
+/* On page load: if a partial transcript is saved, show a dismissible restore banner. */
+function checkForSavedTranscriptDraft() {
+  const draft = readTranscriptDraft();
+  if (!draft || !draft.text) return;
+
+  const banner = document.getElementById('transcriptRestoreBanner');
+  let when = 'an earlier session';
+  if (draft.savedAt) {
+    const d = new Date(draft.savedAt);
+    if (!isNaN(d)) when = d.toLocaleString();
+  }
+  const fmt = draft.format || 'unknown format';
+  const upTo = draft.lastTimestamp ? `up to ${draft.lastTimestamp}` : 'partial';
+
+  banner.innerHTML = `<div class="alert alert-info" style="margin:0;">
+    <span>💾</span>
+    <div>
+      A partial transcript was saved on <strong>${when}</strong> (${fmt}, ${upTo}). Restore it or discard it.
+      <div style="margin-top:10px; display:flex; gap:8px;">
+        <button class="btn btn-primary" onclick="restoreTranscriptDraft()">Restore</button>
+        <button class="btn btn-secondary" onclick="discardTranscriptDraft()">Discard</button>
+      </div>
+    </div>
+  </div>`;
+  banner.style.display = 'block';
+}
+
+/* Restore: repopulate the output area with the saved text and reveal the output panel.
+   Note: after a page reload csvRawText is gone, so this is display-only — the in-session
+   Resume flow (below) is what performs a continuation call. */
+function restoreTranscriptDraft() {
+  const draft = readTranscriptDraft();
+  if (!draft) return;
+
+  const outputEl = document.getElementById('transcriptContent');
+  outputEl.textContent = draft.text || '';
+  document.getElementById('transcriptOutput').style.display = 'block';
+
+  if (Array.isArray(draft.eventDates)) eventDates = draft.eventDates;
+
+  // Restore the format selection so Copy/Download produce the right artifact.
+  if (draft.format) {
+    const radio = document.querySelector(`input[name="transcriptFormat"][value="${draft.format}"]`);
+    if (radio && !radio.checked) { radio.checked = true; radio.dispatchEvent(new Event('change')); }
+    document.getElementById('transcriptOutputLabel').textContent =
+      draft.format === 'srt' ? 'SRT subtitles' :
+      draft.format === 'qc' ? 'Internal QC transcript' :
+      draft.format === 'source' ? 'Transcript (source language)' : 'Multilingual transcript';
+    document.getElementById('downloadTranscriptBtn').innerHTML =
+      draft.format === 'srt' ? '⬇ Download .srt' : '⬇ Download Word (.docx)';
+  }
+
+  document.getElementById('transcriptRestoreBanner').style.display = 'none';
+}
+
+function discardTranscriptDraft() {
+  clearTranscriptDraft();
+  document.getElementById('transcriptRestoreBanner').style.display = 'none';
+}
+
+/* Build and show the resume-after-interruption panel below the output. The partial text
+   is already on screen from streaming; flush it to the draft so "X characters saved" is
+   accurate even if the last throttled save hadn't fired yet. */
+function showTranscriptRecoveryPanel(format, opts) {
+  opts = opts || {};
+  const canResume = opts.canResume !== false;    // default: offer Resume
+  const note = opts.note ? `<div style="margin-bottom:8px;">${opts.note}</div>` : '';
+
+  const text = document.getElementById('transcriptContent').textContent;
+  if (canResume) writeTranscriptDraft(text, format);   // flush pending state to disk
+  const draft = readTranscriptDraft();
+  const lastTs = draft && draft.lastTimestamp ? draft.lastTimestamp : null;
+
+  const where = lastTs ? `at approximately ${lastTs}` : 'partway through';
+  const resumeBtn = canResume
+    ? `<button class="btn btn-primary" onclick="resumeTranscript()">Resume transcript</button>` : '';
+  const panel = document.getElementById('transcriptRecoveryPanel');
+  panel.innerHTML = `<div class="alert alert-warn" style="margin:0;">
+    <span>⚠️</span>
+    <div>
+      ${note}
+      <strong>Connection lost ${where}.</strong>
+      ${text.length.toLocaleString()} characters received and saved.${canResume ? ' Resume from this point?' : ''}
+      <div style="margin-top:10px; display:flex; gap:8px;">
+        ${resumeBtn}
+        <button class="btn btn-secondary" onclick="dismissTranscriptRecoveryPanel()">Keep partial</button>
+      </div>
+    </div>
+  </div>`;
+  panel.style.display = 'block';
+}
+
+/* Keep partial: dismiss the panel, leave the saved draft untouched. */
+function dismissTranscriptRecoveryPanel() {
+  document.getElementById('transcriptRecoveryPanel').style.display = 'none';
+}
+
+/* Slice the RAW CSV for a continuation: keep the header + every row from (the last row at
+   or before the recovery point, minus 3 rows of overlap) onward. */
+function sliceCsvForResume(rawCsv, recoverySec) {
+  const all = rawCsv.split('\n');
+  const header = all[0];
+  const body = all.slice(1).filter(l => l.trim());
+
+  let cut = -1;
+  for (let i = 0; i < body.length; i++) {
+    const sec = clockToSec(parseCSVLine(body[i])[1]);
+    if (sec === null) continue;
+    if (sec <= recoverySec) cut = i;   // last row at or before the recovery point
+  }
+  if (cut === -1) cut = 0;                        // recovery point precedes all rows → resend from start
+  const startIdx = Math.max(0, cut - 3);          // 3 rows of overlap
+  return [header, ...body.slice(startIdx)].join('\n');
+}
+
+/* Continuation call: re-run generation over the CSV tail after the recovery point and
+   append the new content to what is already on screen. */
+async function resumeTranscript() {
+  const apiKey = document.getElementById('apiKey').value.trim();
+  const draft = readTranscriptDraft();
+  if (!draft) return dismissTranscriptRecoveryPanel();
+
+  const format = draft.format;
+  const lastTimestamp = draft.lastTimestamp;
+  const relSec = lastTimestamp ? clockToSec(lastTimestamp) : null;
+
+  // Guard failures keep the partial text on screen (never wipe it) and re-offer options.
+  if (!apiKey) {
+    return showTranscriptRecoveryPanel(format,
+      { note: '🚫 Enter your Anthropic API key above, then click Resume.' });
+  }
+  if (!csvRawText) {
+    return showTranscriptRecoveryPanel(format, { canResume: false,
+      note: '🚫 The original CSV is no longer loaded (the page was reloaded). Re-upload the CSV and generate again to continue.' });
+  }
+  if (relSec === null || sessionStartSec === null) {
+    return showTranscriptRecoveryPanel(format, { canResume: false,
+      note: '🚫 Could not determine an automatic resume point. Please re-generate the transcript from the start.' });
+  }
+
+  const btn = document.getElementById('generateTranscriptBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner" style="display:inline-block"></span> Resuming…';
+  document.getElementById('transcriptRecoveryPanel').style.display = 'none';
+  showProgress('transcript', 15, 'Preparing continuation…');
+
+  // Recovery point on the absolute timeline, then slice + preprocess the CSV tail.
+  const recoverySec = sessionStartSec + relSec;
+  const slicedRaw = sliceCsvForResume(csvRawText, recoverySec);
+  const mergedSlice = preprocessCSV(slicedRaw);
+
+  const continuationInstruction =
+    `This is a CONTINUATION. The transcript already covers events up to approximately ${lastTimestamp}. ` +
+    `Begin output from the next utterance after this point. Do not repeat any content already transcribed. ` +
+    `Do not include a document header — start directly with content.\n\n`;
+  const prompt = continuationInstruction + buildTranscriptPrompt(format, mergedSlice);
+
+  const outputEl = document.getElementById('transcriptContent');
+  const existing = outputEl.textContent;
+  // Plain-text output area (textContent) → the marker stays plain text, no HTML/CSS styling.
+  const joinMarker = `\n\n--- resumed at ${lastTimestamp} ---\n\n`;
+
+  try {
+    showProgress('transcript', 25, 'Sending continuation to Claude…');
+    const { text: contText, stopReason } = await generateLongOutput(
+      apiKey, prompt, 64000,
+      (soFar) => {
+        const combined = existing + joinMarker + soFar;
+        outputEl.textContent = combined;
+        scheduleDraftSave(combined, format);
+      },
+      (part) => showProgress('transcript', Math.min(40 + part * 4, 88),
+        part > 1 ? `Streaming continuation (part ${part})…` : 'Streaming continuation from Claude…')
+    );
+
+    if (stopReason !== 'max_tokens') {
+      clearTranscriptDraft();                    // continuation finished naturally
+      showProgress('transcript', 100, 'Done.');
+      setTimeout(() => { document.getElementById('transcriptProgress').style.display = 'none'; }, 1500);
+    } else {
+      // Hit the safety backstop again — keep the (now larger) draft and re-offer resume.
+      showProgress('transcript', 90, 'Still very long — you can resume again.');
+      showTranscriptRecoveryPanel(format);
+      setTimeout(() => { document.getElementById('transcriptProgress').style.display = 'none'; }, 1500);
+    }
+  } catch (e) {
+    showProgress('transcript', 0, '');
+    document.getElementById('transcriptProgress').style.display = 'none';
+    const connLost = /connection closed early|cut off before it finished/i.test(e.message || '');
+    if (connLost && outputEl.textContent.trim()) {
+      showTranscriptRecoveryPanel(format);       // interrupted again → offer another resume
+    } else {
+      showError('transcriptOutput', 'Error resuming: ' + e.message);
+    }
   }
 
   btn.disabled = false;
