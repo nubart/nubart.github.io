@@ -1659,20 +1659,40 @@ async function callClaudeStream(apiKey, messages, maxTokens, onText, systemPromp
     messages
   };
   if (systemPrompt) body.system = systemPrompt;
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify(body)
-  });
 
-  if (!response.ok) {
+  // Automatic retry on transient server errors (HTTP 500 / 529): wait 5s and retry up to
+  // 3 times before giving up. Configuration errors (400/401/403) are NOT transient, so we
+  // fail fast on those. Only the initial request/status is retried — once the stream has
+  // started, a mid-stream cut is surfaced to the caller (see the stop_reason check below).
+  const RETRY_STATUSES = [500, 529];
+  const MAX_RETRIES = 3;
+  const RETRY_DELAY_MS = 5000;
+
+  let response;
+  for (let attempt = 0; ; attempt++) {
+    response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (response.ok) break;
+
     const err = await response.json().catch(() => ({}));
-    throw new Error(err.error?.message || `API error ${response.status}`);
+    const status = response.status;
+
+    if (RETRY_STATUSES.includes(status) && attempt < MAX_RETRIES) {
+      console.warn(`Claude API returned ${status} — retrying in ${RETRY_DELAY_MS / 1000}s ` +
+        `(attempt ${attempt + 1} of ${MAX_RETRIES})`);
+      await new Promise(r => setTimeout(r, RETRY_DELAY_MS));
+      continue;
+    }
+    throw new Error(err.error?.message || `API error ${status}`);
   }
 
   const reader = response.body.getReader();
