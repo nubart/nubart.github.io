@@ -123,6 +123,17 @@
 - NL: (still pending)
 - PT-BR: (still pending)
 
+### How does Nubart compare? Verifiable facts about pricing, features and data
+- EN: audio-guides/audio-guide-facts-comparisons.html
+- DE: (still pending)
+- ES: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- JA: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+
 ### How museums monetise a QR-code audio guide
 - EN: audio-guides/monetise-museum-audio-guide.html
 - DE: de/audioguides/qr-code-audioguide-kostenpflichtig-anbieten.html
