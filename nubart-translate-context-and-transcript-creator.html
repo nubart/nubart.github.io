@@ -1133,7 +1133,7 @@ function buildTranscriptPrompt(format, csvData) {
   const isSource = format === 'source';
 
   const purposeInstruction = isInternal
-    ? 'This transcript is for INTERNAL QUALITY CONTROL (Nubart use only, not for customers). Show the audio quality score (column E) next to every utterance as [Score: X]. Flag any score below 70 with a brief note explaining likely impact on transcription/translation quality.'
+    ? 'This transcript is for INTERNAL QUALITY CONTROL (Nubart use only, not for customers). This is a verbatim record — reproduce the transcription from column F with absolute fidelity, including all filler words, hesitations, repetitions, false starts, and disfluencies (e.g. "uhm", "eem", "uh", "er") exactly as they appear. Do NOT clean, improve, or omit anything. Show the audio quality score (column E) next to every utterance as [Score: X]. Flag any score below 70 with a brief note explaining likely impact on transcription/translation quality.'
     : isSrt
     ? `This transcript is for SUBTITLE GENERATION in SRT format. Output ONLY valid SRT content (numbered blocks, timestamp line, text line, blank line). The subtitle language is: ${selectedSrtLang === 'SOURCE' ? 'the source language (column F transcription)' : selectedSrtLang + ' (use the translation column for this language)'}. Use absolute clock times from the CSV. Keep each subtitle under 42 characters per line, 2 lines max. No header, no session log, no scores — just clean SRT.`
     : isSource
@@ -1202,7 +1202,7 @@ MAIN TRANSCRIPT:
 Open the main transcript with a standalone line — Speaker: [email of the first speaker] — per rule 4.
 For each Event session: open with a session header showing Date, Start and Duration copied verbatim from the SESSION MAP (exact values — never an estimate).
 For each utterance:
-  ${isInternal ? '[MM:SS] [Score: X]' : '[MM:SS]'} — relative time from session start
+  ${isInternal ? '[MM:SS] ⚠️ [Score: X] (if score < 70)  OR  [MM:SS] [Score: X] (if score ≥ 70)' : '[MM:SS]'} — relative time from session start
   [LANG CODE]  transcribed text
   ${isSource ? '' : '→ [TARGET LANG]  translated text\n  (skip if same language as source)'}
   ${isInternal ? '(score below 70: add brief quality impact note)' : '(score below 50: flag as low audio quality — score: X)'}
@@ -1216,6 +1216,8 @@ Precede with note: "This session log covers all activity recorded under this acc
 
 CRITICAL RULES:
 - Do NOT correct transcription errors or spelling mistakes — reproduce faithfully
+- For QC format: ALWAYS include ⚠️ immediately before [Score: X] when the score is below 70, on the same line — this visual marker is mandatory and must never be omitted
+- For QC format: the ⚠️ marker and score are required on EVERY utterance without exception — never skip them even if the utterance seems clear or the score is high
 - Do NOT paraphrase, summarise, or improve any sentence
 - Do NOT omit utterances from Event sessions
 - Do NOT show a same-language translation (e.g. if source is EN, skip the EN translation column)
