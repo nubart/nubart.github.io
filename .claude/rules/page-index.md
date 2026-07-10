@@ -275,7 +275,7 @@
 - FR: fr/systeme-audio-visite-guidee/index.html
 - ES: es/sistema-guiado-grupos/index.html
 - IT: it/tour-guide-app/index.html
-- JA: ja/digital-tour-guide-app/index.html
+- JA: (removed — Nubart LIVE discontinued in JA; ja/digital-tour-guide-app/* are redirect stubs to /ja/, no longer in hreflang/sitemap)
 - PL: pl/tour-guide-system/index.html
 - NL: nl/digital-rondleidingsysteem/index.html
 
@@ -285,7 +285,7 @@
 - FR: fr/systeme-audio-visite-guidee/instruccions-nubart-live.html
 - ES: es/sistema-guiado-grupos/instrucciones-nubart-live.html
 - IT: it/tour-guide-app/istruzioni-nubart-live.html
-- JA: ja/digital-tour-guide-app/instructions-nubart-live.html
+- JA: (removed — redirect stub to /ja/)
 - PT-BR: pt-br/sistema-comunicacao-visitas-guiadas/instrucoes-nubart-live.html
 - PL: (still pending)
 - NL: (still pending)
@@ -296,7 +296,7 @@
 - FR: fr/systeme-audio-visite-guidee/nubart-live-essai-gratuit.html
 - ES: es/sistema-guiado-grupos/nubart-live-prueba-gratuita.html
 - IT: it/tour-guide-app/nubart-live-prova-gratuita.html
-- JA: ja/digital-tour-guide-app/nubart-live-free-trial.html
+- JA: (removed — redirect stub to /ja/)
 - PT-BR: (still pending)
 - PL: (still pending)
 - NL: (still pending)
