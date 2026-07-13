@@ -426,6 +426,17 @@
 - PT-BR: pt-br/audioguia/comparar-solucoes-audioguia-digital.html
 - JA: (still pending)
 
+**Selling guide access through your online shop — API implementation guide (customer-only, noindex, unlinked):**
+- EN: audio-guides/selling-guide-access-online-api.html
+- ES: es/audioguias/vender-accesos-audioguia-online-api.html
+- DE: de/audioguides/audioguide-zugang-online-api.html
+- IT: (still pending)
+- FR: (still pending)
+- PT-BR: (still pending)
+- JA: (still pending)
+- NL: (still pending)
+- PL: (still pending)
+
 ### Content Production
 **Main service explainer:**
 - EN: audio-guides/content-production/index.html

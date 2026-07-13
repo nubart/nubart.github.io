@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- This page must not be indexed -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+    </script>
+
+    <!-- 2. Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+
+    <!-- 3. Cookie consent config (MOVED HERE) -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+
+    <title>Cómo vender acceso a Nubart GUIDE a través de tu tienda online: guía de implementación</title>
+    <meta name="description"
+          content="Guía de implementación para museos y webmasters que venden acceso a Nubart GUIDE a través de su propia tienda de entradas online mediante la API de Nubart.">
+    <meta name="author" content="Nubart">
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png">
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- ./Icons -->
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet">
+
+
+    <link href="../../assets/css/custom.css" rel="stylesheet">
+    <link href="../../assets/css/zoho-lightbox.css" rel="stylesheet">
+
+    <style>
+        /* Page-specific: lightweight process-flow diagram for the API integration overview.
+           Scoped locally since this pattern isn't part of custom.css yet. */
+        .nubart-flow-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0;
+        }
+        .nubart-flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 110px;
+            padding: 0.75rem 0.5rem;
+        }
+        .nubart-flow-step i {
+            font-size: 1.8rem;
+            color: #028a8c;
+            margin-bottom: 0.4rem;
+        }
+        .nubart-flow-step span {
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+        .nubart-flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6ec7ba;
+            font-size: 1.3rem;
+            width: 22px;
+        }
+        /* On desktop the diagram breaks out symmetrically beyond the narrow
+           text column so all five steps sit on one line without overflowing. */
+        @media (min-width: 768px) {
+            .nubart-flow-diagram {
+                width: calc(100% + 240px);
+                margin-left: -120px;
+                margin-right: -120px;
+            }
+        }
+        @media (max-width: 767px) {
+            .nubart-flow-diagram { flex-direction: column; }
+            .nubart-flow-step { width: 100%; }
+            .nubart-flow-arrow { transform: rotate(90deg); width: 100%; height: 20px; }
+        }
+    </style>
+
+
+    <!-- =======================================================
+    * Template Name: Dewi - v4.6.0
+    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="../" class="logo"> <img src="../../assets/img/logo.png" alt="logo de Nubart" class="img-fluid"> </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <a href="#"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a href="../audioguias.html">
+                                <i class="bi bi-headphones product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GUIDE</span>
+                                    <span class="product-description">Audioguías multimedia vía código QR (PWA)</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a href="../sistema-guiado-grupos/">
+                                <i class="bi bi-headset product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART LIVE</span>
+                                    <span class="product-description">Sistema de guiado de grupos con traducción por IA</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="../tours-barcos-buses.html">
+                                <i class="bi bi-bus-front-fill product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">Nubart MOTION</span>
+                                    <span class="product-description">Audioguía automatizada para vehículos turísticos</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="../traduccion-simultanea-ia/">
+                                <i class="bi bi-translate product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART TRANSLATE</span>
+                                    <span class="product-description">Traducción simultánea por IA para eventos y conferencias</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="../gamificacion-juego-audioguia.html">
+                                <i class="bi bi-controller product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GAME</span>
+                                    <span class="product-description">Juego de realidad aumentada y preguntas para audioguía</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a href="https://nubart-sync.com/es/">
+                                <i class="bi bi-person-video3 product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART SYNC</span>
+                                    <span class="product-description">Sonido multilingüe perfectamente sincronizado vía QR para pantallas de vídeo</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="../clientes-proyectos.html">Clientes</a></li>
+                <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Contacto</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../quienes-somos.html">Quiénes somos</a></li>
+                        <li><a href="../contacto.html">Contacto</a></li>
+                    </ul>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                       href="https://www.nub.art/customer/login"> <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
+
+                <li class="dropdown d-none d-md-block">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../../">English</a></li>
+                        <li><a href="../../de/">Deutsch</a></li>
+                        <li><a href="../../fr/">Français</a></li>
+                        <li><a href="../../pt-br/">Português</a></li>
+                        <li><a href="../../nl/">Nederlands</a></li>
+                        <li><a href="../../it/">Italiano</a></li>
+                        <li><a href="../../pl/">Polski</a></li>
+                        <li><a href="../../bg/">български</a></li>
+                        <li><a href="../../he/">עִברִית</a></li>
+                        <li><a href="../../ja/">日本語</a></li>
+                    </ul>
+                </li>
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none">
+                    <hr>
+                </li>
+                <li class="mobile-secondary-header d-md-none" style="color: #028a8c;"><i
+                        class="bi bi-headphones product-icon"></i>&nbsp<span>NUBART GUIDE</span></li>
+                <li class="dropdown d-md-none">
+                    <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../produccion-contenido.html">Nuestro proceso de producción</a></li>
+                        <li><a href="../materiales.html">Qué necesitamos para producir tu audioguía</a></li>
+                    </ul>
+                </li>
+
+                <li class="d-md-none"><a
+                        href="#" onclick="ZohoLightbox.open(); return false;">Solicita
+                    un presupuesto</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header><!-- End Header -->
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <i class="bi bi-headphones"></i>&nbsp;&nbsp;
+                    <b>NUBART GUIDE:</b>
+                </div>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Casos de uso</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../audioguias.html">Museos</a></li>
+                            <li><a href="../audioguia-zoos.html">Zoos</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;"><a href="../audioguia-multimedia.html">Elementos multimedia</a></li>
+                    <li style="margin-right: 22px;" class="dropdown">
+                        <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../produccion-contenido.html">Nuestro proceso de producción</a></li>
+                            <li><a href="../materiales.html">Qué necesitamos para producir tu audioguía</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li style="margin-right: 30px;"><a class="getstarted scrollto"
+                                                       href="#" onclick="ZohoLightbox.open(); return false;">Solicita
+                        un presupuesto</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="d-md-none" style="height: 60px;"></div>
+<section class="breadcrumbs d-none d-md-block">
+    <div class="container">
+        <ol>
+            <li><a href="../">Inicio</a></li>
+            <li><a href="../audioguias.html">Nubart GUIDE</a></li>
+            <li>Vender acceso a Nubart GUIDE a través de tu tienda online</li>
+        </ol>
+    </div>
+</section><!-- End Breadcrumbs -->
+<main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div style="align-items:top;">
+
+                        <img src="../../assets/img/team/nubart-profile.webp"
+                             class="img-thumbnail rounded-circle d-none d-lg-block" style="margin-right:30px;"
+                             width="45%" alt="Nubart"/>
+
+                    </div>
+                    <div>
+                        <h4 class="fs-5">Equipo de Nubart</h4>
+                        <p class="nubart-blog-author">Desarrollo informático</p>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-8 nubart-blog">
+
+                    <h1>Cómo vender acceso a Nubart GUIDE a través de tu tienda online: guía de implementación</h1>
+
+                    <p class="lead">En esta página te explicamos lo que tu museo debe saber antes de pedirle a tu desarrollador web
+                        o a tu proveedor de venta de entradas que conecte tu tienda online a Nubart GUIDE. Te contamos cómo
+                        funciona la integración, qué necesitará tu desarrollador, cómo compartir tus credenciales de API de forma segura,
+                        y un detalle de implementación que ayuda a los visitantes a evitar problemas más adelante.</p>
+
+                    <div class="alert alert-info">
+                        <strong>Para tu desarrollador:</strong> los detalles técnicos completos (autenticación, puntos de conexión,
+                        formato de solicitud y respuesta) se encuentran en la documentación de la API de Nubart LWAC. Comparte ese enlace
+                        directamente con quien vaya a implementar la integración.
+                        <div class="mt-3">
+                            <a href="../../lwac-api-documentation.html" class="btn btn-primary text-white">
+                                <i class="bi bi-file-earmark-code"></i>&nbsp; Abrir la documentación de la API de Nubart LWAC
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-light border" style="border-left: 4px solid #028a8c !important;">
+                        <h3 class="h5 mt-0 mb-2">Antes de empezar</h3>
+                        <p class="mb-2">Antes de pedirle a tu desarrollador que implemente la API, asegúrate de tener:</p>
+                        <ul class="list-unstyled mb-0">
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Una cuenta de administrador
+                                en el portal de clientes de Nubart</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Identificado qué
+                                módulo se va a vender online</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Decidiste quién va a
+                                obtener la clave API (mira más abajo)</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; El enlace a la
+                                documentación técnica de arriba, listo para compartir con tu desarrollador</li>
+                        </ul>
+                    </div>
+
+                    <div class="nubart-flow-diagram my-4">
+                        <div class="nubart-flow-step"><i class="bi bi-ticket-perforated"></i><span>El visitante compra una entrada</span></div>
+                        <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="nubart-flow-step"><i class="bi bi-cloud-arrow-up"></i><span>La tienda online solicita un código de acceso</span></div>
+                        <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="nubart-flow-step"><i class="bi bi-cloud-arrow-down"></i><span>La API de Nubart devuelve el código</span></div>
+                        <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="nubart-flow-step"><i class="bi bi-qr-code"></i><span>La entrada incluye un código QR y un enlace directo</span></div>
+                        <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="nubart-flow-step"><i class="bi bi-headphones"></i><span>El visitante abre la guía</span></div>
+                    </div>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
+
+                    <h2>Lo que realmente ofrece la API</h2>
+
+                    <p>La API no crea una versión diferente de Nubart GUIDE. Simplemente te da el mismo
+                        código de acceso seguro de forma digital, en lugar de imprimirlo en una tarjeta física. En lugar de entregar
+                        una tarjeta al visitante en el mostrador, tu tienda online solicita un código a Nubart en el momento de la
+                        compra y se lo envía al visitante junto con su entrada.</p>
+
+                    <p>Todo lo que hace que la versión en tarjeta funcione —no transferible, sin necesidad de iniciar sesión, sin app— se traslada
+                        tal cual a la versión digital.</p>
+
+                    <h2>Cómo conseguir tu clave API</h2>
+
+                    <p>Para implementar esto en tu tienda online, tu administrador web necesitará tu clave API. Por motivos de seguridad
+                        , los empleados de Nubart no tenemos acceso a esa clave. <strong>Solo los usuarios con el
+                        rol de «Admin» pueden recuperar tu clave API.</strong> En la práctica, esto significa que hacer que llegue a manos de
+                        tu administrador web requiere un paso adicional antes de que pueda comenzar la implementación.</p>
+                    <figure class="figure">
+                        <img src="../../assets/img/api-how-to-get-key.png"
+                             class="figure-img img-fluid rounded" alt="Menú desplegable del portal de clientes que muestra dónde los usuarios «Admin» pueden obtener la clave API">
+                        <figcaption class="figure-caption">Los usuarios «Admin» pueden obtener la clave API desde este menú en el
+                            portal de clientes de Nubart.</figcaption>
+                    </figure>
+
+                    <h3>Opción 1: dale a tu administrador web acceso de administrador temporal</h3>
+
+                    <p>La forma más sencilla es invitar a tu administrador web a tu
+                        portal de clientes de Nubart, donde podrá recuperar la clave él mismo. Puedes hacerlo en la pestaña «Empleados». La contrapartida es que esto conlleva
+                        derechos de administrador completos, no solo la clave: tu administrador web también podría ver cosas como tus
+                        estadísticas de uso de la audioguía. Si no quieres dejar esto abierto indefinidamente, puedes volver a la pestaña «Empleados» y bloquearle el acceso en cuanto termine la implementación.</p>
+
+                    <h3>Opción 2: un administrador recupera la clave y la transmite de forma segura</h3>
+
+                    <p>Si prefieres no ampliar el acceso al portal en absoluto, uno de los usuarios con rol de «Administrador» de tu cuenta puede iniciar sesión,
+                        copiar la clave y enviársela al administrador web a través de un canal seguro.</p>
+
+
+                    <p>Algunas formas de pasársela, más o menos de la más fácil a la más complicada:</p>
+
+                    <ul>
+                        <li>Añádela como entrada compartida en el gestor de contraseñas de tu equipo y dale al administrador del sitio web acceso a
+                            esa entrada.</li>
+                        <li>Divide la clave en dos y envía cada mitad por un canal diferente: la primera mitad por
+                            correo electrónico y la segunda por mensajería instantánea, por ejemplo.</li>
+                        <li>Lee la clave en voz alta durante una llamada y haz que el administrador de la web la escriba directamente en las
+                            variables de entorno de la tienda, para que no quede registrada por escrito en ningún momento durante el proceso.</li>
+                    </ul>
+
+                    <p>Sea cual sea el método que utilices, el objetivo es el mismo: evitar enviar la clave completa como texto sin cifrar en un
+                        único correo electrónico o mensaje de chat. Dividirla entre distintos canales o en el tiempo es lo que realmente
+                        la mantiene a salvo.</p>
+
+                    <h2>El único detalle de implementación que importa: muestra siempre tanto el enlace como el código QR</h2>
+
+                    <p>Cuando un visitante compra una entrada por internet, no puedes saber de antemano qué dispositivo usará para abrir
+                        la audioguía. Algunos harán clic en el enlace desde su portátil justo después de comprar, en casa. Otros
+                        esperarán y escanearán un código QR con su móvil a la entrada del museo.</p>
+
+                    <p><strong>Te recomendamos encarecidamente que cada entrada muestre tanto el enlace directo como su correspondiente
+                        código QR</strong> — nunca solo uno u otro. Esto te da a los visitantes total libertad para decidir
+                        más tarde si quieren acceder a la guía inmediatamente desde su móvil o esperar hasta que
+                        lleguen al museo. Esto es algo estándar con nuestra API; cualquier desarrollador web puede implementarlo
+                        directamente en tu plantilla de entrada.</p>
+
+                    <p>También te recomendamos añadir una breve frase cerca del enlace o del código QR:</p>
+
+                    <blockquote class="blockquote">
+                        <p>«Consejo: abre este enlace en el móvil que vayas a usar durante tu visita.»</p>
+                    </blockquote>
+
+                    <p>Tu equipo tiene que añadir este texto a tu propia plantilla de entrada; Nubart no lo inserta
+                        automáticamente.</p>
+
+                    <h2>¿Qué pasa si un visitante abre el enlace en dos dispositivos diferentes?</h2>
+
+                    <p>Si un visitante abre el enlace en un ordenador en casa y luego abre el mismo enlace en su smartphone,
+                        simplemente se le pedirá una dirección de correo electrónico para poder enviarle un nuevo enlace de acceso al
+                        dispositivo correcto. El visitante sigue teniendo acceso completo —no se pierde nada—, pero se añade un
+                        paso extra. </p>
+
+                    <p>Una vez que un visitante ha facilitado una dirección de correo electrónico de esta forma, no se puede cambiar por otra. Así que
+                        el mismo mecanismo que restaura el acceso en un nuevo dispositivo también evita que el código se
+                        comparta libremente con otra persona.</p>
+
+                    <p><em>Nota:</em> algunos servicios de correo electrónico analizan automáticamente los enlaces por motivos de seguridad. Nuestro sistema lo reconoce
+                        , así que no bloqueará por error a tus visitantes a la hora de abrir su guía.</p>
+
+                    <h2>Los informes siguen siendo exactamente iguales</h2>
+
+                    <p>El acceso a través de la API no cambia la forma en que ves tus estadísticas. En tu área de cliente, aparece una nueva entrada
+                        etiquetada con el nombre de tu museo más «(API)»; por ejemplo, <strong>«[Nombre del museo]
+                        (API)»</strong> — que muestra cuántos accesos se han realizado a través de la API.</p>
+
+                    <p>En las estadísticas del módulo, se combinan ambos grupos de visitantes: los que usan una tarjeta física y los
+                        que acceden a través de la API se fusionan, lo que te ofrece una visión completa del uso de la audioguía.</p>
+
+                    <h2>¿Esto requiere cambios en la audioguía?</h2>
+
+                    <p>No. La audioguía en sí sigue siendo exactamente la misma. Solo cambia la forma en que los visitantes reciben su
+                        código de acceso.</p>
+
+                    <h2>¿Tienes alguna duda sobre la integración?</h2>
+
+                    <p>Ponte en contacto con nuestro director técnico, Simon Effing:
+                        <a href="mailto:simon.effing@nubart.eu">simon.effing@nubart.eu</a></p>
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+</main><!-- End #main -->
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlín<br>
+
+                            <strong>E-mail:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i
+                                    class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Enlaces útiles</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contacto.html">Contacto</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../aviso-legal.html" rel="nofollow">Aviso
+                            legal</a></li>
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="../condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de
+                                servicio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../politica-privacidad.html" rel="nofollow">Política
+                            de privacidad</a>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de
+                            cookies</a></li>
+
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a
+                                nuestro boletín de noticias</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. Todos los derechos reservados
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Critical JS Files -->
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+
+<!-- Non-Critical JS Files - Still deferred but loaded directly -->
+<script src="../../assets/vendor/aos/aos.js" defer></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../../assets/js/main-min.js" defer></script>
+
+<!-- Hubspot Analytics scripts with proper async loading -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async
+        src="//js.hs-scripts.com/2430134.js"></script>
+
+<!-- Zoho Forms Lightbox -->
+<script src="../../assets/js/zoho-lightbox.js" defer></script>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        ZohoLightbox.init("https://forms.zohopublic.eu/rosasala/form/NubartGUIDEQuotedeliverysystemNewform/formperma/jenSf-2G-aVy2Py21XbzZ5gRmLK_WcmRGz4DgxHZR9U?zf_lang=es");
+    });
+</script>
+
+</body>
+</html>
