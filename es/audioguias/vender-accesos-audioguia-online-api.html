@@ -202,7 +202,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </li>
 
                         <li>
-                            <a href="https://nubart-sync.com/es/">
+                            <a href="https://www.nubart.eu/es/sync/">
                                 <i class="bi bi-person-video3 product-icon"></i>
                                 <div class="product-text">
                                     <span class="product-name">NUBART SYNC</span>
@@ -338,38 +338,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <div class="col-md-8 nubart-blog">
 
-                    <h1>Cómo vender acceso a Nubart GUIDE a través de tu tienda online: guía de implementación</h1>
+                    <h1>Cómo vender el acceso a Nubart GUIDE desde tu tienda online — guía de implementación</h1>
 
-                    <p class="lead">En esta página te explicamos lo que tu museo debe saber antes de pedirle a tu desarrollador web
-                        o a tu proveedor de venta de entradas que conecte tu tienda online a Nubart GUIDE. Te contamos cómo
-                        funciona la integración, qué necesitará tu desarrollador, cómo compartir tus credenciales de API de forma segura,
-                        y un detalle de implementación que ayuda a los visitantes a evitar problemas más adelante.</p>
+                    <p class="lead">En esta página encontrarás todo lo que tu museo necesita saber antes de pedir a tu desarrollador web o a tu proveedor de ticketing que conecte tu tienda online con Nubart GUIDE. Explica cómo funciona la integración, qué necesitará tu desarrollador, cómo compartir de forma segura tus credenciales de la API y un detalle de implementación que evitará problemas a tus visitantes más adelante.</p>
 
                     <div class="alert alert-info">
-                        <strong>Para tu desarrollador:</strong> los detalles técnicos completos (autenticación, puntos de conexión,
-                        formato de solicitud y respuesta) se encuentran en la documentación de la API de Nubart LWAC. Comparte ese enlace
-                        directamente con quien vaya a implementar la integración.
+                        <strong>Para tu desarrollador:</strong> Todos los detalles técnicos (autenticación, endpoints y formato de las peticiones y respuestas) se encuentran en la documentación de la API LWAC de Nubart. Comparte este enlace directamente con la persona que vaya a implementar la integración.
                         <div class="mt-3">
                             <a href="../../lwac-api-documentation.html" class="btn btn-primary text-white">
-                                <i class="bi bi-file-earmark-code"></i>&nbsp; Abrir la documentación de la API de Nubart LWAC
+                                <i class="bi bi-file-earmark-code"></i>&nbsp; Abrir la documentación de la API LWAC de Nubart
                             </a>
                         </div>
                     </div>
 
                     <div class="alert alert-light border" style="border-left: 4px solid #028a8c !important;">
                         <h3 class="h5 mt-0 mb-2">Antes de empezar</h3>
-                        <p class="mb-2">Antes de pedirle a tu desarrollador que implemente la API, asegúrate de tener:</p>
+                        <p class="mb-2">Antes de pedir a tu desarrollador que implemente la API, asegúrate de que dispones de lo siguiente:</p>
                         <ul class="list-unstyled mb-0">
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Una cuenta de administrador
-                                en el portal de clientes de Nubart</li>
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Identificado qué
-                                módulo se va a vender online</li>
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Decidiste quién va a
-                                obtener la clave API (mira más abajo)</li>
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; El enlace a la
-                                documentación técnica de arriba, listo para compartir con tu desarrollador</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Una cuenta de administrador en el portal de clientes de Nubart</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Haber identificado qué módulo se venderá online</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Haber decidido quién obtendrá la clave de la API (véase más abajo)</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; El enlace a la documentación técnica anterior, listo para compartir con tu desarrollador</li>
                         </ul>
                     </div>
+
 
                     <div class="nubart-flow-diagram my-4">
                         <div class="nubart-flow-step"><i class="bi bi-ticket-perforated"></i><span>El visitante compra una entrada</span></div>
@@ -380,114 +372,85 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
                         <div class="nubart-flow-step"><i class="bi bi-qr-code"></i><span>La entrada incluye un código QR y un enlace directo</span></div>
                         <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
-                        <div class="nubart-flow-step"><i class="bi bi-headphones"></i><span>El visitante abre la guía</span></div>
+                        <div class="nubart-flow-step"><i class="bi bi-headphones"></i><span>El visitante abre la audioguía</span></div>
                     </div>
 
                     <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
 
-                    <h2>Lo que realmente ofrece la API</h2>
+                    <h2>Qué ofrece realmente la API</h2>
 
-                    <p>La API no crea una versión diferente de Nubart GUIDE. Simplemente te da el mismo
-                        código de acceso seguro de forma digital, en lugar de imprimirlo en una tarjeta física. En lugar de entregar
-                        una tarjeta al visitante en el mostrador, tu tienda online solicita un código a Nubart en el momento de la
-                        compra y se lo envía al visitante junto con su entrada.</p>
+                    <p>La API no crea una versión distinta de Nubart GUIDE. Simplemente entrega el mismo código de acceso seguro en formato digital, en lugar de imprimirlo en una tarjeta física. En vez de entregar una tarjeta al visitante en la taquilla, tu tienda online solicita un código a Nubart en el momento de la compra y se lo entrega al visitante como parte de su entrada.</p>
 
-                    <p>Todo lo que hace que la versión en tarjeta funcione —no transferible, sin necesidad de iniciar sesión, sin app— se traslada
-                        tal cual a la versión digital.</p>
+                    <p>Todo lo que hace que la versión en tarjeta funcione —la imposibilidad de transferirla, la ausencia de inicio de sesión y la necesidad de no instalar ninguna app— se mantiene exactamente igual en la versión digital.</p>
 
-                    <h2>Cómo conseguir tu clave API</h2>
+                    <h2>Cómo obtener tu clave de la API</h2>
 
-                    <p>Para implementar esto en tu tienda online, tu administrador web necesitará tu clave API. Por motivos de seguridad
-                        , los empleados de Nubart no tenemos acceso a esa clave. <strong>Solo los usuarios con el
-                        rol de «Admin» pueden recuperar tu clave API.</strong> En la práctica, esto significa que hacer que llegue a manos de
-                        tu administrador web requiere un paso adicional antes de que pueda comenzar la implementación.</p>
+                    <p>Para implementar esta integración en tu tienda online, tu desarrollador necesitará tu clave de la API. Por motivos de seguridad, ni siquiera los empleados de Nubart tenemos acceso a esa clave. <strong>Solo los usuarios con el rol «Admin» pueden obtener la clave de la API.</strong> En la práctica, esto significa que, antes de comenzar la implementación, hay que realizar un paso adicional para hacer llegar la clave a tu desarrollador.</p>
+
                     <figure class="figure">
                         <img src="../../assets/img/api-how-to-get-key.png"
-                             class="figure-img img-fluid rounded" alt="Menú desplegable del portal de clientes que muestra dónde los usuarios «Admin» pueden obtener la clave API">
-                        <figcaption class="figure-caption">Los usuarios «Admin» pueden obtener la clave API desde este menú en el
-                            portal de clientes de Nubart.</figcaption>
+                             class="figure-img img-fluid rounded" alt="Menú desplegable del portal de clientes que muestra dónde los administradores pueden obtener la clave de la API">
+                        <figcaption class="figure-caption">Los usuarios con permisos de administrador pueden obtener la clave de la API desde este menú del portal de clientes de Nubart.</figcaption>
                     </figure>
 
-                    <h3>Opción 1: dale a tu administrador web acceso de administrador temporal</h3>
+                    <h3>Opción 1: da a tu desarrollador acceso temporal como administrador</h3>
 
-                    <p>La forma más sencilla es invitar a tu administrador web a tu
-                        portal de clientes de Nubart, donde podrá recuperar la clave él mismo. Puedes hacerlo en la pestaña «Empleados». La contrapartida es que esto conlleva
-                        derechos de administrador completos, no solo la clave: tu administrador web también podría ver cosas como tus
-                        estadísticas de uso de la audioguía. Si no quieres dejar esto abierto indefinidamente, puedes volver a la pestaña «Empleados» y bloquearle el acceso en cuanto termine la implementación.</p>
+                    <p>La forma más sencilla es invitar a tu desarrollador al portal de clientes de Nubart, donde podrá obtener la clave por sí mismo. Puedes hacerlo desde la pestaña «Empleados». La contrapartida es que no solo tendrá acceso a la clave, sino también permisos completos de administrador. Por ejemplo, podrá consultar las estadísticas de uso de tu audioguía. Si no quieres mantener ese acceso de forma indefinida, una vez finalizada la implementación solo tienes que volver a la pestaña «Empleados» y bloquear su usuario.</p>
 
-                    <h3>Opción 2: un administrador recupera la clave y la transmite de forma segura</h3>
+                    <h3>Opción 2: un administrador obtiene la clave y la comparte de forma segura</h3>
 
-                    <p>Si prefieres no ampliar el acceso al portal en absoluto, uno de los usuarios con rol de «Administrador» de tu cuenta puede iniciar sesión,
-                        copiar la clave y enviársela al administrador web a través de un canal seguro.</p>
+                    <p>Si prefieres no dar acceso al portal, uno de los usuarios con el rol «Admin» puede iniciar sesión, copiar la clave de la API y hacérsela llegar al desarrollador mediante un canal seguro.</p>
 
-
-                    <p>Algunas formas de pasársela, más o menos de la más fácil a la más complicada:</p>
+                    <p>Algunas formas de compartirla, ordenadas aproximadamente de la más sencilla a la más laboriosa:</p>
 
                     <ul>
-                        <li>Añádela como entrada compartida en el gestor de contraseñas de tu equipo y dale al administrador del sitio web acceso a
-                            esa entrada.</li>
-                        <li>Divide la clave en dos y envía cada mitad por un canal diferente: la primera mitad por
-                            correo electrónico y la segunda por mensajería instantánea, por ejemplo.</li>
-                        <li>Lee la clave en voz alta durante una llamada y haz que el administrador de la web la escriba directamente en las
-                            variables de entorno de la tienda, para que no quede registrada por escrito en ningún momento durante el proceso.</li>
+                        <li>Guárdala como una entrada compartida en el gestor de contraseñas de tu equipo y concede acceso a tu desarrollador.</li>
+                        <li>Divide la clave en dos partes y envía cada una por un canal distinto; por ejemplo, una por correo electrónico y la otra por mensajería instantánea.</li>
+                        <li>Lee la clave en voz alta durante una llamada para que tu desarrollador la introduzca directamente en las variables de entorno de la tienda online. Así evitarás que la clave quede escrita durante la transmisión.</li>
                     </ul>
 
-                    <p>Sea cual sea el método que utilices, el objetivo es el mismo: evitar enviar la clave completa como texto sin cifrar en un
-                        único correo electrónico o mensaje de chat. Dividirla entre distintos canales o en el tiempo es lo que realmente
-                        la mantiene a salvo.</p>
+                    <p>Elijas el método que elijas, el objetivo es el mismo: evitar enviar la clave completa en texto plano dentro de un único correo electrónico o mensaje de chat. Repartirla entre distintos canales o momentos hace que sea mucho más difícil interceptarla.</p>
 
-                    <h2>El único detalle de implementación que importa: muestra siempre tanto el enlace como el código QR</h2>
+                    <h2>El detalle de implementación más importante: muestra siempre tanto el enlace como el código QR</h2>
 
-                    <p>Cuando un visitante compra una entrada por internet, no puedes saber de antemano qué dispositivo usará para abrir
-                        la audioguía. Algunos harán clic en el enlace desde su portátil justo después de comprar, en casa. Otros
-                        esperarán y escanearán un código QR con su móvil a la entrada del museo.</p>
+                    <p>Cuando un visitante compra una entrada por Internet, no puedes saber de antemano en qué dispositivo abrirá la audioguía. Algunos harán clic en el enlace desde su ordenador justo después de comprar la entrada. Otros esperarán hasta llegar al museo y escanearán el código QR con su teléfono móvil.</p>
 
-                    <p><strong>Te recomendamos encarecidamente que cada entrada muestre tanto el enlace directo como su correspondiente
-                        código QR</strong> — nunca solo uno u otro. Esto te da a los visitantes total libertad para decidir
-                        más tarde si quieren acceder a la guía inmediatamente desde su móvil o esperar hasta que
-                        lleguen al museo. Esto es algo estándar con nuestra API; cualquier desarrollador web puede implementarlo
-                        directamente en tu plantilla de entrada.</p>
+                    <p><strong>Te recomendamos encarecidamente que todas las entradas incluyan tanto el enlace directo como su correspondiente código QR</strong>, nunca solo uno de los dos. Así cada visitante podrá decidir más adelante si quiere abrir la audioguía inmediatamente en su teléfono o esperar hasta llegar al museo. Este es el funcionamiento estándar de nuestra API y cualquier desarrollador web puede implementarlo fácilmente en la plantilla de tus entradas.</p>
 
-                    <p>También te recomendamos añadir una breve frase cerca del enlace o del código QR:</p>
+                    <p>También recomendamos añadir un breve texto junto al enlace o al código QR:</p>
 
                     <blockquote class="blockquote">
-                        <p>«Consejo: abre este enlace en el móvil que vayas a usar durante tu visita.»</p>
+                        <p>«Consejo: abre este enlace en el teléfono que vayas a utilizar durante tu visita.»</p>
                     </blockquote>
 
-                    <p>Tu equipo tiene que añadir este texto a tu propia plantilla de entrada; Nubart no lo inserta
-                        automáticamente.</p>
+                    <p>Este texto debe añadirse a la plantilla de tus entradas. Nubart no lo inserta automáticamente.</p>
 
-                    <h2>¿Qué pasa si un visitante abre el enlace en dos dispositivos diferentes?</h2>
+                    <h2>¿Qué ocurre si un visitante abre el enlace en dos dispositivos distintos?</h2>
 
-                    <p>Si un visitante abre el enlace en un ordenador en casa y luego abre el mismo enlace en su smartphone,
-                        simplemente se le pedirá una dirección de correo electrónico para poder enviarle un nuevo enlace de acceso al
-                        dispositivo correcto. El visitante sigue teniendo acceso completo —no se pierde nada—, pero se añade un
-                        paso extra. </p>
+                    <p>Si un visitante abre el enlace primero en el ordenador de su casa y más tarde vuelve a abrir ese mismo enlace en su teléfono móvil, simplemente se le pedirá una dirección de correo electrónico para enviarle un nuevo enlace de acceso al dispositivo correcto. El visitante seguirá teniendo acceso completo a la audioguía; simplemente deberá realizar un paso adicional.</p>
 
-                    <p>Una vez que un visitante ha facilitado una dirección de correo electrónico de esta forma, no se puede cambiar por otra. Así que
-                        el mismo mecanismo que restaura el acceso en un nuevo dispositivo también evita que el código se
-                        comparta libremente con otra persona.</p>
+                    <p>Una vez que el visitante haya facilitado una dirección de correo electrónico de esta forma, ya no podrá sustituirla por otra diferente. De este modo, el mismo mecanismo que permite cambiar de dispositivo también evita que el código pueda compartirse libremente con otras personas.</p>
 
-                    <p><em>Nota:</em> algunos servicios de correo electrónico analizan automáticamente los enlaces por motivos de seguridad. Nuestro sistema lo reconoce
-                        , así que no bloqueará por error a tus visitantes a la hora de abrir su guía.</p>
+                    <p><em>Nota:</em> Algunos servicios de correo electrónico analizan automáticamente los enlaces por motivos de seguridad. Nuestro sistema reconoce estas comprobaciones automáticas, por lo que no impedirán que tus visitantes puedan abrir su audioguía.</p>
 
-                    <h2>Los informes siguen siendo exactamente iguales</h2>
+                    <h2>Las estadísticas siguen siendo las mismas</h2>
 
-                    <p>El acceso a través de la API no cambia la forma en que ves tus estadísticas. En tu área de cliente, aparece una nueva entrada
-                        etiquetada con el nombre de tu museo más «(API)»; por ejemplo, <strong>«[Nombre del museo]
-                        (API)»</strong> — que muestra cuántos accesos se han realizado a través de la API.</p>
+                    <p>El acceso mediante la API no cambia la forma en que consultas tus estadísticas. En tu área de cliente aparecerá una nueva entrada con el nombre de tu museo seguido de «(API)»; por ejemplo, <strong>«[Nombre del museo] (API)»</strong>. En ella podrás ver cuántos accesos se han realizado a través de la API.</p>
 
-                    <p>En las estadísticas del módulo, se combinan ambos grupos de visitantes: los que usan una tarjeta física y los
-                        que acceden a través de la API se fusionan, lo que te ofrece una visión completa del uso de la audioguía.</p>
+                    <p>En las estadísticas del módulo se combinan ambos grupos de visitantes: tanto los que utilizan una tarjeta física como los que acceden mediante la API. Así obtendrás una visión completa del uso de tu audioguía.</p>
 
-                    <h2>¿Esto requiere cambios en la audioguía?</h2>
+                    <h2>¿Es necesario modificar la audioguía?</h2>
 
-                    <p>No. La audioguía en sí sigue siendo exactamente la misma. Solo cambia la forma en que los visitantes reciben su
-                        código de acceso.</p>
+                    <p>No. La audioguía sigue siendo exactamente la misma. Lo único que cambia es la forma en que los visitantes reciben su código de acceso.</p>
+                    <h2>¿Qué ocurre cuando se agotan mis códigos de acceso?</h2>
+
+                    <p>No tienes que preocuparte por controlar cuántos códigos te quedan. Nuestro sistema nos avisa automáticamente cuando solo queda aproximadamente un 20&nbsp;% de los códigos que habías adquirido.</p>
+
+                    <p>En ese momento, tu representante de Nubart se pondrá en contacto contigo para preguntarte si deseas realizar un nuevo pedido. En cuanto recibamos tu pedido, los nuevos códigos se activarán en cuestión de unas horas y te enviaremos una confirmación.</p>
 
                     <h2>¿Tienes alguna duda sobre la integración?</h2>
 
-                    <p>Ponte en contacto con nuestro director técnico, Simon Effing:
+                    <p>Ponte en contacto con nuestro CTO, Simon Effing:
                         <a href="mailto:simon.effing@nubart.eu">simon.effing@nubart.eu</a></p>
 
                 </div>

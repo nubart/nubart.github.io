@@ -201,7 +201,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a href="https://nubart-sync.com/de/">
+                            <a href="https://www.nubart.eu/de/sync/">
                                 <i class="bi bi-person-video3 product-icon"></i>
                                 <div class="product-text">
                                     <span class="product-name">NUBART SYNC</span>
@@ -346,157 +346,123 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <div class="col-md-8 nubart-blog">
 
-                    <h1>Verkauf von Nubart GUIDE-Zugängen über Ihren Online-Shop – Leitfaden zur Umsetzung</h1>
+                    <h1>Nubart GUIDE-Zugänge über Ihren Online-Shop verkaufen – Implementierungsleitfaden</h1>
 
-                    <p class="lead">Auf dieser Seite erfahren Sie, was Ihr Museum wissen muss, bevor Sie Ihren Webentwickler
-                        oder Ihren Ticketanbieter damit beauftragen, Ihren Online-Shop mit Nubart GUIDE zu verbinden. Erläutert wird, wie die
-                        Integration funktioniert, was Ihr Entwickler benötigt, wie Sie Ihre API-Zugangsdaten sicher weitergeben können
-                        und ein Implementierungsdetail, das Besuchern hilft, spätere Probleme zu vermeiden.</p>
+                    <p class="lead">Auf dieser Seite erfahren Sie, was Ihr Museum wissen sollte, bevor Sie Ihren Webentwickler oder Ticketing-Anbieter mit der Anbindung Ihres Online-Shops an Nubart GUIDE beauftragen. Sie erklärt, wie die Integration funktioniert, was Ihr Entwickler benötigt, wie Sie Ihre API-Zugangsdaten sicher weitergeben und welches wichtige Implementierungsdetail spätere Probleme für Ihre Besucher vermeidet.</p>
 
                     <div class="alert alert-info">
-                        <strong>Für Ihren Entwickler:</strong> Alle technischen Details (Authentifizierung, Endpunkte,
-                        Anfrage- und Antwortformat) finden Sie in der Nubart LWAC-API-Dokumentation. Leiten Sie diesen Link
-                        direkt an die Person weiter, die die Integration umsetzt.
+                        <strong>Für Ihren Entwickler:</strong> Alle technischen Details (Authentifizierung, Endpunkte sowie Anfrage- und Antwortformat) finden Sie in der Dokumentation der Nubart-LWAC-API. Leiten Sie den folgenden Link direkt an die Person weiter, die die Integration umsetzt.
                         <div class="mt-3">
                             <a href="../../lwac-api-documentation.html" class="btn btn-primary text-white">
-                                <i class="bi bi-file-earmark-code"></i>&nbsp; Nubart LWAC-API-Dokumentation öffnen
+                                <i class="bi bi-file-earmark-code"></i>&nbsp; Dokumentation der Nubart-LWAC-API öffnen
                             </a>
                         </div>
                     </div>
 
                     <div class="alert alert-light border" style="border-left: 4px solid #028a8c !important;">
                         <h3 class="h5 mt-0 mb-2">Bevor Sie beginnen</h3>
-                        <p class="mb-2">Bevor Sie Ihren Entwickler bitten, die API zu implementieren, stellen Sie bitte sicher, dass Sie Folgendes haben:</p>
+                        <p class="mb-2">Bevor Sie Ihren Entwickler mit der API-Integration beauftragen, stellen Sie bitte sicher, dass Folgendes vorhanden ist:</p>
                         <ul class="list-unstyled mb-0">
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Ein Administratorkonto
-                                im Nubart-Kundenportal</li>
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Festgelegt, welches
-                                Modul online verkauft werden soll</li>
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Entschieden, wer
-                                den API-Schlüssel abrufen wird (siehe unten)</li>
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Der Link zur technischen
-                                Dokumentation oben, bereit zur Weitergabe an Ihren Entwickler</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Ein Administratorkonto im Nubart-Kundenportal</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Das Modul, das online verkauft werden soll, wurde festgelegt</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Es ist entschieden, wer den API-Schlüssel abruft (siehe unten)</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Der Link zur technischen Dokumentation oben, bereit zur Weitergabe an Ihren Entwickler</li>
                         </ul>
                     </div>
-
                     <div class="nubart-flow-diagram my-4">
-                        <div class="nubart-flow-step"><i class="bi bi-ticket-perforated"></i><span>Besucher kauft ein Ticket</span></div>
+                        <div class="nubart-flow-step"><i class="bi bi-ticket-perforated"></i><span>Besucher kauft Ticket</span></div>
                         <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
-                        <div class="nubart-flow-step"><i class="bi bi-cloud-arrow-up"></i><span>Der Online-Shop fordert einen Zugangscode an</span></div>
+                        <div class="nubart-flow-step"><i class="bi bi-cloud-arrow-up"></i><span>Online-Shop fordert Zugangscode an</span></div>
                         <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
-                        <div class="nubart-flow-step"><i class="bi bi-cloud-arrow-down"></i><span>Die Nubart-API gibt den Code zurück</span></div>
+                        <div class="nubart-flow-step"><i class="bi bi-cloud-arrow-down"></i><span>Nubart-API liefert Code</span></div>
                         <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
-                        <div class="nubart-flow-step"><i class="bi bi-qr-code"></i><span>Das Ticket enthält einen QR-Code und einen Direktlink</span></div>
+                        <div class="nubart-flow-step"><i class="bi bi-qr-code"></i><span>Ticket enthält QR-Code und Direktlink</span></div>
                         <div class="nubart-flow-arrow"><i class="bi bi-arrow-right"></i></div>
-                        <div class="nubart-flow-step"><i class="bi bi-headphones"></i><span>Der Besucher öffnet den Leitfaden</span></div>
+                        <div class="nubart-flow-step"><i class="bi bi-headphones"></i><span>Besucher öffnet Audioguide</span></div>
                     </div>
 
                     <hr class="hr hr-blurry" style="color:#6ec7ba;"/>
 
                     <h2>Was die API tatsächlich liefert</h2>
 
-                    <p>Die API erstellt keine separate Version von Nubart GUIDE. Sie stellt lediglich denselben sicheren
-                        Zugangscode digital bereit, anstatt ihn auf eine physische Karte zu drucken. Anstatt
-                        einem Besucher am Schalter eine Karte auszuhändigen, fordert Ihr Online-Shop zum Zeitpunkt des
-                        Kaufs einen Code bei Nubart an und stellt ihn dem Besucher als Teil seines Tickets zur Verfügung.</p>
+                    <p>Die API erstellt keine andere Version von Nubart GUIDE. Sie liefert lediglich denselben sicheren Zugangscode in digitaler Form, anstatt ihn auf einer physischen Karte bereitzustellen. Statt dem Besucher am Ticketschalter eine Karte auszuhändigen, fordert Ihr Online-Shop den Code im Moment des Kaufs bei Nubart an und stellt ihn dem Besucher als Teil seines Tickets zur Verfügung.</p>
 
-                    <p>Alles, was die Kartenversion auszeichnet – Nichtübertragbarkeit, kein Login, keine App – wird
-                        identisch auf die digitale Version übertragen.</p>
+                    <p>Alles, was die Kartenversion auszeichnet – Nicht-Übertragbarkeit, kein Login, keine App – funktioniert in der digitalen Version genauso.</p>
 
                     <h2>So erhalten Sie Ihren API-Schlüssel</h2>
 
-                    <p>Um dies in Ihrem Online-Shop zu implementieren, benötigt Ihr Webmaster Ihren API-Schlüssel. Aus Sicherheitsgründen
-                        haben wir als Nubart-Mitarbeiter keinen Zugriff auf diesen Schlüssel. <strong>Nur Benutzer mit der
-                        Rolle „Admin“ können Ihren API-Schlüssel abrufen.</strong> In der Praxis bedeutet dies, dass es einen zusätzlichen Schritt erfordert, ihn
-                        Ihrem Webmaster zu übergeben, bevor mit der Implementierung begonnen werden kann.</p>
+                    <p>Für die Anbindung Ihres Online-Shops benötigt Ihr Webentwickler Ihren API-Schlüssel. Aus Sicherheitsgründen haben wir als Nubart-Mitarbeiter keinen Zugriff auf diesen Schlüssel. <strong>Nur Benutzer mit der Rolle „Admin“ können Ihren API-Schlüssel abrufen.</strong> Das bedeutet in der Praxis, dass vor Beginn der Implementierung zunächst ein zusätzlicher Schritt erforderlich ist, um den Schlüssel Ihrem Webentwickler zur Verfügung zu stellen.</p>
+
                     <figure class="figure">
                         <img src="../../assets/img/api-how-to-get-key.png"
-                             class="figure-img img-fluid rounded" alt="Dropdown-Menü im Kundenportal, das zeigt, wo Admin-Benutzer den API-Schlüssel abrufen können">
-                        <figcaption class="figure-caption">Admin-Benutzer können den API-Schlüssel über dieses Menü im
-                            Nubart-Kundenportal abrufen.</figcaption>
+                             class="figure-img img-fluid rounded" alt="Dropdown-Menü im Kundenportal mit dem Menüpunkt zum Abrufen des API-Schlüssels für Administratoren">
+                        <figcaption class="figure-caption">Benutzer mit Administratorrechten können den API-Schlüssel über dieses Menü im Nubart-Kundenportal abrufen.</figcaption>
                     </figure>
 
-                    <h3>Option 1: Gewähren Sie Ihrem Webmaster vorübergehend Administratorrechte</h3>
+                    <h3>Option 1: Geben Sie Ihrem Webentwickler vorübergehend Administratorrechte</h3>
 
-                    <p>Der einfachste Weg besteht darin, Ihren Webmaster in Ihr Nubart-Kundenportal
-                        einzuladen, wo er den Schlüssel selbst abrufen kann. Dies können Sie unter dem Reiter „Mitarbeiter“ tun. Der Nachteil dabei ist, dass damit vollständige
-                        Administratorrechte verbunden sind, nicht nur der Schlüssel – Ihr Webmaster könnte dann auch beispielsweise Ihre
-                        Nutzungsstatistiken für Audioguides einsehen. Wenn Sie dies nicht unbefristet zulassen möchten, können Sie zum Reiter „Mitarbeiter“ zurückkehren und ihm den Zugriff sperren, sobald die Implementierung abgeschlossen ist.</p>
+                    <p>Der einfachste Weg ist, Ihren Webentwickler in Ihr Nubart-Kundenportal einzuladen. Dort kann er den API-Schlüssel selbst abrufen. Dies ist im Reiter „Mitarbeiter“ möglich. Der Nachteil besteht darin, dass Ihr Webentwickler dadurch nicht nur Zugriff auf den API-Schlüssel erhält, sondern vollständige Administratorrechte. Er kann also beispielsweise auch die Nutzungsstatistiken Ihres Audioguides einsehen. Wenn Sie diesen Zugriff nicht dauerhaft gewähren möchten, können Sie nach Abschluss der Implementierung zum Reiter „Mitarbeiter“ zurückkehren und den Benutzer dort wieder sperren.</p>
 
                     <h3>Option 2: Ein Administrator ruft den Schlüssel ab und gibt ihn sicher weiter</h3>
 
-                    <p>Wenn Sie den Portalzugang lieber gar nicht erweitern möchten, kann sich einer der „Admin“-Benutzer Ihres Kontos anmelden,
-                        den Schlüssel kopieren und ihn stattdessen über einen sicheren Kanal an den Webmaster senden.</p>
+                    <p>Wenn Sie Ihrem Webentwickler keinen Zugang zum Kundenportal geben möchten, kann sich stattdessen einer der Benutzer mit der Rolle „Admin“ anmelden, den API-Schlüssel kopieren und ihn über einen sicheren Übertragungsweg weitergeben.</p>
 
-
-                    <p>Einige Möglichkeiten zur Weitergabe, grob geordnet von der einfachsten bis zur aufwendigsten:</p>
+                    <p>Hier sind einige Möglichkeiten – von der einfachsten bis zur aufwendigsten:</p>
 
                     <ul>
-                        <li>Fügen Sie ihn als gemeinsamen Eintrag in den Passwortmanager Ihres Teams ein und gewähren Sie dem Webmaster Zugriff auf
-                            diesen Eintrag.</li>
-                        <li>Teilen Sie den Schlüssel in zwei Hälften und senden Sie jede Hälfte über einen anderen Kanal – die erste Hälfte beispielsweise per
-                            E-Mail, die zweite per Messenger.</li>
-                        <li>Lesen Sie den Schlüssel während eines Telefonats laut vor und lassen Sie den Webmaster ihn direkt in die
-                            Umgebungsvariablen des Shops eingeben, sodass er während der Übertragung überhaupt nicht schriftlich festgehalten wird.</li>
+                        <li>Speichern Sie den Schlüssel als gemeinsamen Eintrag in Ihrem Passwortmanager und geben Sie Ihrem Webentwickler Zugriff darauf.</li>
+                        <li>Teilen Sie den Schlüssel in zwei Hälften und versenden Sie jede Hälfte über einen anderen Kommunikationsweg – zum Beispiel die erste per E-Mail und die zweite über einen Messenger.</li>
+                        <li>Lesen Sie den Schlüssel während eines Telefonats vor, sodass Ihr Webentwickler ihn direkt in die Umgebungsvariablen des Online-Shops einträgt. So wird der Schlüssel unterwegs überhaupt nicht schriftlich übermittelt.</li>
                     </ul>
 
-                    <p>Unabhängig davon, welche Methode Sie verwenden, ist das Ziel dasselbe: Vermeiden Sie es, den vollständigen Schlüssel als Klartext in einer
-                        einzigen E-Mail oder Chat-Nachricht zu versenden. Die Aufteilung auf verschiedene Kanäle oder über einen bestimmten Zeitraum hinweg ist es, was ihn tatsächlich
-                        schützt.</p>
+                    <p>Für welche Methode Sie sich auch entscheiden: Wichtig ist, den vollständigen API-Schlüssel niemals als Klartext in einer einzigen E-Mail oder Chat-Nachricht zu versenden. Die Aufteilung auf verschiedene Kommunikationswege oder Zeitpunkte erhöht die Sicherheit erheblich.</p>
 
-                    <h2>Das eine wichtige Detail bei der Umsetzung: Zeigen Sie stets sowohl den Link als auch den QR-Code an</h2>
+                    <h2>Das entscheidende Implementierungsdetail: Zeigen Sie immer sowohl den Link als auch den QR-Code an</h2>
 
-                    <p>Wenn ein Besucher ein Ticket online kauft, können Sie nicht im Voraus wissen, welches Gerät er zum Öffnen
-                        des Audioguides verwenden wird. Einige werden den Link direkt nach dem Kauf zu Hause auf ihrem Laptop anklicken. Andere
-                        werden warten und einen QR-Code mit ihrem Smartphone am Museumseingang scannen.</p>
+                    <p>Wenn ein Besucher ein Ticket online kauft, wissen Sie im Voraus nicht, auf welchem Gerät er den Audioguide später öffnen wird. Manche öffnen den Link direkt nach dem Kauf zu Hause auf ihrem Laptop. Andere warten bis zum Museumsbesuch und scannen den QR-Code erst am Eingang mit ihrem Smartphone.</p>
 
-                    <p><strong>Wir empfehlen dringend, dass jedes Ticket sowohl den direkten Link als auch den dazugehörigen
-                        QR-Code</strong> – niemals nur das eine oder das andere. Dies gibt den Besuchern die volle Freiheit,
-                        später zu entscheiden, ob sie sofort auf ihrem Smartphone auf den Audioguide zugreifen oder warten möchten, bis sie
-                        im Museum angekommen sind. Dies ist bei unserer API Standard; jeder Webentwickler kann dies
-                        direkt in Ihre Ticketvorlage implementieren.</p>
+                    <p><strong>Wir empfehlen daher ausdrücklich, dass jedes Ticket sowohl den Direktlink als auch den dazugehörigen QR-Code enthält</strong> – niemals nur eines von beiden. So können Besucher später frei entscheiden, ob sie den Audioguide sofort auf ihrem Smartphone öffnen oder erst bei ihrer Ankunft im Museum nutzen möchten. Diese Vorgehensweise entspricht dem Standard unserer API und lässt sich von jedem Webentwickler problemlos in Ihre Ticketvorlage integrieren.</p>
 
-                    <p>Wir empfehlen außerdem, in der Nähe des Links bzw. des QR-Codes einen kurzen Hinweis hinzuzufügen:</p>
+                    <p>Außerdem empfehlen wir, neben dem Link bzw. QR-Code einen kurzen Hinweis einzufügen:</p>
 
                     <blockquote class="blockquote">
-                        <p>„Tipp: Öffnen Sie diesen Link auf dem Smartphone, das Sie während Ihres Besuchs tatsächlich nutzen werden.“</p>
+                        <p>„Tipp: Öffnen Sie diesen Link auf dem Smartphone, das Sie während Ihres Museumsbesuchs verwenden werden.“</p>
                     </blockquote>
 
-                    <p>Dieser Text muss von Ihrem Team in Ihre eigene Ticketvorlage eingefügt werden – Nubart fügt ihn nicht
-                        automatisch ein.</p>
+                    <p>Dieser Hinweis muss von Ihrem Team in Ihre eigene Ticketvorlage eingefügt werden – Nubart fügt ihn nicht automatisch ein.</p>
+                    <figure class="figure">
+                        <img src="../../assets/img/api-integration-in-museum-ticket.png"
+                             class="figure-img img-fluid rounded" alt="Beispiel für eine hypothetische Einbindung unseres QR-Codes und des entsprechenden Links in eine Eintrittskarte für ein Museum.">
+                        <figcaption class="figure-caption">Beispiel für eine hypothetische Einbindung unseres QR-Codes und des entsprechenden Links in eine Online-Eintrittskarte.</figcaption>
+                    </figure>
 
-                    <h2>Was passiert, wenn ein Besucher den Link auf zwei verschiedenen Geräten öffnet</h2>
+                    <h2>Was passiert, wenn ein Besucher den Link auf zwei verschiedenen Geräten öffnet?</h2>
 
-                    <p>Wenn ein Besucher den Link zu Hause auf einem PC öffnet und später denselben Link auf seinem Smartphone öffnet,
-                        wird der Besucher lediglich nach einer E-Mail-Adresse gefragt, damit ein neuer Zugangs-Link an das
-                        richtige Gerät gesendet werden kann. Der Besucher erhält weiterhin vollen Zugriff – es geht nichts verloren –, aber es entsteht ein
-                        zusätzlicher Schritt. </p>
+                    <p>Öffnet ein Besucher den Link zunächst zu Hause auf seinem PC und später denselben Link auf seinem Smartphone, wird er lediglich aufgefordert, seine E-Mail-Adresse anzugeben. Anschließend erhält er einen neuen Zugangslink für das richtige Gerät. Der Besucher behält selbstverständlich weiterhin vollen Zugriff – es kommt lediglich ein zusätzlicher Schritt hinzu.</p>
 
-                    <p>Sobald ein Besucher auf diese Weise eine E-Mail-Adresse angegeben hat, kann diese nicht mehr geändert werden. Somit
-                        verhindert derselbe Mechanismus, der den Zugriff auf einem neuen Gerät wiederherstellt, auch, dass der Code frei
-                        an andere Personen weitergegeben wird.</p>
+                    <p>Sobald auf diese Weise eine E-Mail-Adresse hinterlegt wurde, kann sie nicht mehr durch eine andere ersetzt werden. Dadurch ermöglicht derselbe Mechanismus sowohl den Gerätewechsel als auch den Schutz vor einer unkontrollierten Weitergabe des Zugangscodes.</p>
 
-                    <p><em>Hinweis:</em> Einige E-Mail-Dienste scannen Links aus Sicherheitsgründen automatisch. Unser System erkennt
-                        dies, sodass es Ihre Besucher nicht versehentlich daran hindert, ihren Leitfaden zu öffnen.</p>
+                    <p><em>Hinweis:</em> Einige E-Mail-Dienste prüfen Links in eingehenden Nachrichten automatisch auf Sicherheitsrisiken. Unser System erkennt diese automatischen Prüfungen, sodass Ihre Besucher ihren Audioguide trotzdem problemlos öffnen können.</p>
 
-                    <h2>Die Berichterstellung bleibt unverändert</h2>
+                    <h2>Ihre Auswertungen bleiben unverändert</h2>
 
-                    <p>Der Zugriff über die API ändert nichts an der Darstellung Ihrer Statistiken. In Ihrem Kundenbereich erscheint ein neuer Eintrag
-                        mit dem Namen Ihres Museums und dem Zusatz „(API)“ – zum Beispiel <strong>„[Name des Museums]
-                        (API)“</strong> –, der angibt, wie viele Zugriffe über die API erfolgten.</p>
+                    <p>Die Nutzung der API verändert die Darstellung Ihrer Statistiken nicht. In Ihrem Kundenbereich erscheint lediglich ein zusätzlicher Eintrag mit dem Namen Ihres Museums und dem Zusatz „(API)“ – zum Beispiel <strong>„[Name des Museums] (API)“</strong>. Dort sehen Sie, wie viele Zugriffe über die API erfolgt sind.</p>
 
-                    <p>In den Modulstatistiken werden beide Besuchergruppen zusammengefasst: Diejenigen, die eine physische Karte verwenden, und diejenigen,
-                        die über die API zugreifen, werden zusammengeführt, sodass Sie einen vollständigen Überblick über die Nutzung der Audioguides erhalten.</p>
+                    <p>In den Modulstatistiken werden beide Besuchergruppen gemeinsam ausgewertet: Sowohl die Nutzung über physische Karten als auch die Zugriffe über die API fließen in dieselben Statistiken ein. So erhalten Sie einen vollständigen Überblick über die Nutzung Ihres Audioguides.</p>
 
-                    <h2>Sind hierfür Änderungen am Audioguide erforderlich?</h2>
+                    <h2>Muss dafür der Audioguide geändert werden?</h2>
 
-                    <p>Nein. Der Audioguide selbst bleibt genau derselbe. Es ändert sich lediglich die Art und Weise, wie Besucher ihren Zugangscode erhalten.</p>
+                    <p>Nein. Der Audioguide selbst bleibt unverändert. Lediglich die Art und Weise, wie Besucher ihren Zugangscode erhalten, ändert sich.</p>
+                    <h2>Was passiert, wenn meine Zugangscodes aufgebraucht sind?</h2>
 
-                    <h2>Haben Sie Fragen zur Integration?</h2>
+                    <p>Keine Sorge – Sie müssen den Bestand Ihrer Zugangscodes nicht selbst überwachen. Unser System benachrichtigt uns automatisch, sobald nur noch etwa 20&nbsp;% Ihrer bestellten Codes verfügbar sind.</p>
 
-                    <p>Wenden Sie sich an unseren CTO, Simon Effing:
+                    <p>Ihr persönlicher Nubart-Ansprechpartner wird sich dann proaktiv mit Ihnen in Verbindung setzen und nachfragen, ob Sie weitere Codes bestellen möchten. Nach Eingang Ihrer Bestellung werden die neuen Codes innerhalb weniger Stunden aktiviert. Anschließend erhalten Sie von uns eine Bestätigung.</p>
+
+                    <h2>Fragen zur Integration?</h2>
+
+                    <p>Kontaktieren Sie unseren CTO, Simon Effing:
                         <a href="mailto:simon.effing@nubart.eu">simon.effing@nubart.eu</a></p>
-
                 </div>
             </div>
         </div>
