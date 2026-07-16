@@ -279,7 +279,7 @@ const CALC_I18N_DEFAULT = {
     body:         (eventDetails, trial, total, accessControl) =>
 `Hello,
 
-I used the cost calculator on your website and would like to receive an official quote for the following event:
+I used the cost calculator for Nubart TRANSLATE on your website and would like to receive an official quote for the following event:
 
 Event details: ${eventDetails}
 First-time customer: ${trial}

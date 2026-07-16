@@ -75,6 +75,20 @@ When proposing cross-links, write a one-sentence justification for each naming (
 - Ask before changing any contact info (addresses, phones, emails)
 - Nubart operates through Spanish (Digital Tangible SL) and German (Nubart GmbH) entities
 
+## Terms & Conditions — Contracting Entities & Authoritative Language (CRITICAL)
+Nubart operates two sister companies with the same founders, both selling the same products. This split is intentional and is **not** an error to be corrected.
+
+- **Digital Tangible SL (Barcelona)** — Spain, Portugal, Andorra, Italy, LATAM (incl. Brazil).
+  - Governing law: Spain / Catalonia. Jurisdiction: Barcelona. **Authoritative contract language: SPANISH.**
+- **Nubart GmbH (Berlin)** — all other territories, including France, Germany, Poland, Japan, Israel, Greece.
+  - Governing law: Germany. Jurisdiction: Berlin. **Authoritative contract language: ENGLISH.**
+
+The authoritative language follows the **CONTRACTING ENTITY, never the language of the file.** A French customer contracts with Nubart GmbH, so the English version is authoritative for them, even though the file they read is French. An Italian customer contracts with Digital Tangible SL, so the Spanish version is authoritative for them.
+
+Consequently **§12.9 states the SAME rule in every language version** — it is not file-specific. If a §12.9 appears to point at its own file's language, that is a **bug, not a localisation**.
+
+**§3.6 (VAT) is different and does NOT follow this rule:** it names each entity's country of establishment (Spain for Digital Tangible SL, Germany for Nubart GmbH) for tax purposes only, not the territories each entity covers. (Andorra is outside the EU and the EU VAT area, so an Andorran customer of Digital Tangible SL already falls under the existing "Non-EU customers" paragraph of §3.6 — no clause needed.)
+
 ## Analytics & Tracking
 - Using Plausible Analytics (not GA4)
 - Respect GDPR requirements
@@ -82,6 +96,7 @@ When proposing cross-links, write a one-sentence justification for each naming (
 ## Git Commits & Pushes
 - The user ALWAYS commits and pushes themselves. Never run `git commit` or `git push` unless explicitly asked in that specific instance.
 - Make and verify the file changes, then stop and let the user handle version control.
+- **Never rewrite git history on this repo**, and never hand-edit a Terms & Conditions file outside the normal deploy flow. The commit history of the T&C files is the only record of which text was in force on any given date — treat them as **append-only**.
 
 ## Before Finalizing Changes
 - Test responsive layout (mobile/tablet/desktop)

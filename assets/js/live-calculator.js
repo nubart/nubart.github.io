@@ -235,7 +235,7 @@ function liveCalcRequestQuote() {
     }
 
     const subject = 'Quote request \u2013 Nubart LIVE (est. ' + total + ')';
-    const body = 'Hello,\n\nI used the cost calculator on your website and would like to receive an official quote for Nubart LIVE:\n\n- Card package: ' + cardLine + '\n- Media library: ' + mediaLine + '\n- AI translation: ' + translationLine + firstTimeLine + '\n- Estimated total (calculator): ' + total + ' excl. VAT\n\nPlease send me an official quote addressed to my company.\n\n[Please add your name, company name, and VAT number here]\n\nThank you';
+    const body = 'Hello,\n\nI used the cost calculator for Nubart LIVE on your website and would like to receive an official quote for Nubart LIVE:\n\n- Card package: ' + cardLine + '\n- Media library: ' + mediaLine + '\n- AI translation: ' + translationLine + firstTimeLine + '\n- Estimated total (calculator): ' + total + ' excl. VAT\n\nPlease send me an official quote addressed to my company.\n\n[Please add your name, company name, and VAT number here]\n\nThank you';
 
     const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 

@@ -322,6 +322,7 @@
 - PT-BR: pt-br/traducao-simultanea-ia/termos-e-condicoes.html
 - EL: el/ai-simultaneous-translation/terms-and-conditions.html
 - JA: ja/ai-simultaneous-translation/terms-and-conditions.html
+- PL: pl/tlumaczenie-symultaniczne-ai/regulamin.html
 - BG: (still pending)
 
 **Instructions:**
@@ -491,3 +492,16 @@
 - IT: (still pending)
 - NL: (still pending)
 - PT: (still pending)
+
+### Nubart SYNC
+**Main product explainer:**
+- EN: sync/index.html
+- DE: de/sync/index.html
+- ES: es/sync/index.html
+- FR: fr/sync/index.html
+- IT: it/sync/index.html
+- (NL/PL/JA/HE/BG/PT-BR pages on those language sites link to the EN sync/ page — no localized SYNC yet)
+
+**Pricing:** No standalone pricing page. Pricing lives inline as a cost-calculator section on each SYNC explainer at the `#pricing` anchor (e.g. `sync/#pricing`). The former standalone pages (`sync/pricing/`, `de/sync/preis/`, `es/sync/precio/`, `fr/sync/prix/`, `it/sync/prezzi/`) were removed 2026-07; all "Pricing" nav links and the Service `potentialAction` now target `#pricing`. Calculator: `assets/js/sync-calculator.js` + `assets/css/sync-calculator.css` (EN live; DE/ES/FR/IT calculator adaptation pending — their `#pricing` anchor is dead until added).
+
+Migrated from the standalone nubart-sync.com domain (2026-07). EN + DE/ES/FR/IT migrated. Per-language SYNC links (product cards, nav dropdown, home-page Service JSON-LD `@id`/`url`) on `/de/`, `/es/`, `/fr/`, `/it/` pages point to that language's `/xx/sync/`; all other language sites and EN point to `/sync/`. Brightsign instruction PDFs in assets/pdf/: en-, de-, es-instructions-nubart-sync-brightsign.pdf (FR/IT pages reuse the EN PDF). hreflang across all five SYNC pages is mutual.
