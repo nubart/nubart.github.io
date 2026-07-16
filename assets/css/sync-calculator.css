@@ -1,0 +1,76 @@
+/* ============================================
+   Nubart SYNC Cost Calculator Print Styles
+   Used by: sync/index.html (and localized versions)
+   ============================================ */
+@media print {
+    @page { size: A4 portrait; margin: 1.5cm 2cm; }
+
+    body, #main, #pricing, .section-bg, .card, .card-body {
+        background: #fff !important;
+        background-color: #fff !important;
+        background-image: none !important;
+    }
+
+    body > *:not(#main) { display: none !important; }
+    #main > *:not(#pricing) { display: none !important; }
+
+    #pricing .col-lg-5 { display: none !important; }
+    #pricing .col-lg-7 { width: 100% !important; max-width: 100% !important; flex: 0 0 100% !important; }
+    #pricing .text-center.mt-3 { display: none !important; }
+    #pricing .row.justify-content-center > .col-12 { display: none !important; }
+
+    #calc-print-header {
+        display: block !important;
+        border-bottom: 2pt solid #028a8c;
+        padding-bottom: 0.3cm;
+        margin-bottom: 0.6cm;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    #calc-print-header img {
+        max-width: 50%;
+        height: auto;
+    }
+
+    #calc-step-1, #calc-step-2, #calc-step-3, #calc-step-4 { display: none !important; }
+
+    #pricing [id^="calc-step-"]:has(#calc-result-total) {
+        display: block !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+    #pricing [id^="calc-step-"]:has(#calc-result-total) .card-body { padding: 0 !important; }
+
+    #pricing [id^="calc-step-"]:has(#calc-result-total) .d-flex.flex-wrap.gap-2.align-items-center { display: none !important; }
+    #pricing [id^="calc-step-"]:has(#calc-result-total) > .card-body > p:first-child { display: none !important; }
+
+    #pricing [id^="calc-step-"]:has(#calc-result-total) #calc-result-total {
+        border: 1.5pt solid #028a8c !important;
+        background: #f0fdfb !important;
+        padding: 0.5cm !important;
+        margin-bottom: 0.5cm !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    #pricing [id^="calc-step-"]:has(#calc-result-total) .alert {
+        border-left: 3pt solid #f59e0b !important;
+        background: #fef3c7 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-size: 9pt;
+        padding: 0.3cm 0.4cm !important;
+    }
+
+    #pricing [id^="calc-step-"]:has(#calc-result-total)::after {
+        content: "This is an approximate estimate. All prices exclude VAT, and a minimum permanence of 5 months applies. A final quote will confirm your exact price. www.nubart.eu";
+        display: block;
+        font-size: 8pt;
+        color: #888;
+        margin-top: 0.8cm;
+        border-top: 0.5pt solid #ccc;
+        padding-top: 0.3cm;
+    }
+}

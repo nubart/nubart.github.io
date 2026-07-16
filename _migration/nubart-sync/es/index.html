@@ -1,0 +1,1307 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-ND9Z9PFR');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://www.nubart.eu/sync/#service",
+            "name": "Nubart SYNC",
+            "url": "https://www.nubart.eu/sync/",
+            "inLanguage": "es",
+            "description": "Nubart SYNC resuelve el desafío de proporcionar audio multiidioma para pantallas de vídeo públicas sin apps, auriculares o hardware de transmisión. Transmite audio perfectamente sincronizado directamente a los smartphones de los visitantes mediante escaneo de código QR. La solución basada en navegador elimina la necesidad de descargas de apps, alquiler de equipos de audio o costosos sistemas de transmisión, haciendo el contenido de vídeo accesible en múltiples idiomas al instante. Ideal para museos, exposiciones, señalización digital, pantallas exteriores, projection mappings y en cualquier lugar donde el vídeo silencioso o monolingüe limita el engagement del público. Patentado en la UE, Australia y patente pendiente en EE.UU.",
+            "serviceType": "Solución de Audio para Señalización Digital",
+            "additionalType": "https://schema.org/TechnologyService",
+            "category": ["Tecnología para Museos", "Audio Digital Out-of-Home", "Solución de Accesibilidad", "Streaming de Audio Multiidioma"],
+            "areaServed": "Worldwide",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": "Museos, exposiciones, operadores de señalización digital, lugares con pantallas exteriores, instituciones culturales"
+            },
+            "provider": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart GmbH",
+                "url": "https://www.nubart.eu/es/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
+            },
+            "image": [
+                "https://www.nubart.eu/assets/img/schema/1x1-nubart-sync.webp",
+                "https://www.nubart.eu/assets/img/schema/1x1-nubart-sync.png",
+                "https://www.nubart.eu/assets/img/schema/4x3-nubart-sync.png",
+                "https://www.nubart.eu/assets/img/schema/16x9-nubart-sync-multilingual-museums.png"
+            ],
+            "potentialAction": {
+                "@type": "ContactAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://www.nubart.eu/sync/pricing/",
+                    "description": "Contacte con ventas para información sobre precios y servicios"
+                }
+            },
+            "video": {
+                "@type": "VideoObject",
+                "name": "Nubart Sync - Sincronización video-audio: video in situ, audio en tu smartphone",
+                "description": "Nubart Sync empareja vídeos in situ con bandas sonoras sincronizadas. El sonido se transmite a los teléfonos inteligentes de la gente a través de un código QR.",
+                "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/ES-nubart-sync-video-thumbnail.png",
+                "uploadDate": "2020-11-05",
+                "contentUrl": "https://vimeo.com/476396964",
+                "embedUrl": "https://player.vimeo.com/video/476396964"
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Cómo funciona la implementación de Nubart Sync?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Te damos acceso a un área de clientes protegida por contraseña donde podrás gestionar tus vídeos. La implementación es muy sencilla y está bien documentada. No obstante, nuestro equipo técnico te apoyará personalmente en la primera fase."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Tiene que haber un código QR diferente por cada idioma?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No, a menos que tú lo quieras. La página web generada para la reproducción de audio contiene un menú de idiomas en el que se puede cambiar de un idioma a otro."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Cuál es la resolución de vídeo máxima que admite Nubart Sync?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No hay ninguna limitación, ya que el archivo de vídeo puede reproducirse localmente. Pero al comienzo recomendamos subir ese mismo vídeo en baja resolución para poder hacer pruebas y comprobar que todo va bien."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Cuáles son las instrucciones para implementar Nubart Sync en un reproductor Brightsign?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Instrucciones detalladas en vídeo y documentación PDF para implementar Nubart Sync con reproductores Brightsign están disponibles. El proceso de implementación es sencillo e incluye una guía paso a paso para integrar el sistema de sincronización con reproductores de señalización digital Brightsign."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Qué parámetros tiene que cumplir mi red para implantar Nubart Sync?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Asegúrate de que la configuración de tu red tiene nuestro dominio nub.art en la lista blanca y permite solicitudes POST HTTPS salientes sin restricciones a este dominio. El ancho de banda necesario para la señal de sincronización es muy bajo."
+                    }
+                }
+            ]
+        }
+    ]
+    </script>
+
+    <!-- End Structured data -->
+
+    <title>Envía el sonido sincronizado de tu vídeo a cualquier móvil, via QR</title>
+
+    <meta name="description" content="¡Añade audio sincronizado a tus pantallas con un simple QR (sin app)! Multi-idioma para señalización digital, accesibilidad y museos. Prueba nuestra demo"/>
+
+    <meta name="author" content="Nubart"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/sync/"/>
+    <link rel="alternate" href="https://www.nubart.eu/sync/" hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/sync/" hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/sync/" hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/sync/" hreflang="es"/>
+    <link rel="alternate" href="https://www.nubart.eu/sync/" hreflang="it"/>
+    <link rel="alternate" href="https://www.nubart.eu/sync/" hreflang="fr"/>
+
+
+    <!-- OpenGraph for Linkedin -->
+
+    <meta property="og:title" content="Envía el sonido sincronizado de tu vídeo a cualquier móvil, via QR"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/nubart-sync.webp"/>
+    <meta property="og:author" content="Nubart Sync"/>
+    <meta property="og:description"/>
+    <meta content="No dejes que tus pantallas públicas estén silenciadas. Un simple QR permite escuchar la pista en streaming, perfectamente sincronizada y en cualquier idioma."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.nubart.eu/sync/"/>
+
+    <!-- Icons -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png"/>
+    <link rel="icon" type="image/ico" href="../assets/img/favicon.ico"/> <!-- For legacy browsers -->
+    <link rel="mask-icon" href="../assets/img/safari-pinned-tab.svg"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <!-- ./Icons 	-->
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet"/>
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons-min.css" rel="stylesheet"/>
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+
+    <!-- Lazy-load JS -->
+    <script src="../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style-min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+
+    <link href="../assets/css/custom.css" rel="stylesheet"/>
+
+    <!-- =======================================================
+    * Template Name: Dewi - v4.6.0
+    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<script type="module" src="/assets/js/cookieconsent-config.js"></script>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <p class="logo">
+            <a href="../es/"><img src="../assets/img/logo-nubart-sync-white.svg" width="400" height="33" alt="Nubart Sync's logo" class="img-fluid lazyload"/></a>
+        </p>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown"><a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+
+                        <li><a href="../">English</a></li>
+                        <li><a href="../de/">Deutsch</a></li>
+                        <li><a href="../fr/">Français</a></li>
+
+                        <li><a href="../it/">Italiano</a></li>
+
+
+                    </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>Otros productos de Nubart</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="https://www.nubart.eu/es/audioguias.html">Nubart Guide - La audioguía multimedia que te puedes llevar</a></li>
+                        <li>
+                            <a href="https://www.nubart.eu/es/gamificacion-juego-audioguia.html">Nubart Game - Gamificación “Atrapa y responde” en tu audioguía</a>
+                        </li>
+
+                        <li><a href="https://www.nubart.eu/es/sistema-guiado-grupos/">Nubart Live - Sistema de guiado de grupos</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class="nav-link scrollto" href="../es/precio.html">Precio</a></li>
+                <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+                <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+                <li><a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login"><i class="bi bi-person-circle"></i>&nbsp; Login</a></li>
+                <li><a class="getstarted scrollto" id="zf_button_623421" href="#">Solicita una prueba</a></li>
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" style='background-image: url("../assets/img/hero9-bg.webp");'>
+    <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+        <br/>
+
+        <h1>Nubart Sync</h1>
+        <h2>Transfiere el sonido sincronizado de tus vídeos a los teléfonos móviles</h2>
+        <div class="d-flex">
+
+            <a href="https://vimeo.com/476396964" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Ver el vídeo</span></a>
+        </div>
+        <br/>
+        <div class="img-fluid align-center d-none d-lg-block">
+            <img data-src="../assets/img/nubart-sync-2.webp" class="d-none d-lg-block lazyload" alt="Con Nubart Sync puede emparejar el vídeo con su audio sincronizado" style="height: 50vh;"/>
+        </div>
+    </div>
+</section><!-- End Hero -->
+<main id="main">
+    <section id="about" class="about">
+        <h1 class="text-center">Vídeo y audio emparejados en sincronía a través de internet</h1>
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <br/><br/>
+
+                <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                    <br/> <img data-src="../assets/img/about-nubart-sync-3.webp" class="img-fluid lazyload" alt=""/>
+                    <a href="https://vimeo.com/476396964" class="glightbox play-btn mb-4"></a> <br/><br/>
+                    <div class="d-none d-sm-block text-center">
+                        <a class="btn-lg btn-primary d-none d-lg-block" role="button" style="font-size: 25px" href="#demo"> ¿Difícil de creer? ¡Prueba nuestra demo!
+                            <i class="bi bi-arrow-down-circle-fill"></i></a></div>
+                </div>
+
+                <div class="col-lg-6 pt-3 pt-lg-0 content">
+                    <br/>
+
+                    <p class="fs-5">Alguien ve un vídeo mudo en una sala de espera, un museo o cualquier otro lugar público.</p>
+
+                    <p class="fs-5">Escanea un código QR con su teléfono móvil y accede inmediatamente al sonido perfectamente sincronizado en el idioma de su elección.</p>
+
+                    <p class="fs-5">¡Esto es lo que hace <b>Nubart Sync</b>!</p>
+                    <p class="fs-5">El sonido llegará a tu audiencia en streaming, en perfectamente sincronización con el vídeo y sin latencia perceptible.</p>
+                    <p class="fs-5">Nuestra solución patentada no requiere ningún equipo especial ni sistemas técnicos complejos, como balizas, routers personalizados, aparatos de radiofrecuencia o infrarrojos. Todo lo que tú y tu público necesitáis es una conexión a Internet (WIFI o datos móviles). </p>
+
+
+                    <p class="fs-5">Nubart Sync es totalmente escalable: apta para cualquier número de oyentes. Es posible la reproducción en bucle (looping). La longitud del vídeo es irrelevante. También es adecuada para grandes proyecciones, murales de vídeo en mosaico, proyecciones láser, mappings... </p>
+                    <br/>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ======= Demo section for PCs ======= -->
+    <section id="demo" class="testimonials" style='background-image: url("../assets/img/hero9-bg.webp");'>
+
+        <div class="container d-none d-lg-block" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="section-title">
+                <h2>Demo para probar Nubart Sync</h2>
+                <p>Prueba nuestra demo</p>
+            </div>
+            <div class="row">
+                <div class="col-6">
+
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                                src="https://www.nub.art/customer/5f5f1f2ed2b7fe2c52eb6c81/video/614a0eed518c9a0a134a79f7/play/open/614a0eed518c9a0a134a79f8/913084ba460a4b9a1b4bf2f7566788ce?videoOnly=true"
+                                title="Nubart Sync demo"
+                                style="max-width: 100%;height: 100%;"
+                                allowfullscreen
+                                loading="lazy"
+                                referrerpolicy="no-referrer"
+                        ></iframe>
+                    </div>
+                    <p class="text-center fs-2" style="color:white">Reproduce el vídeo aquí</p>
+                    <p class="text-center fs-5" style="color:white">En nuestra demo, ves el vídeo en streaming. Pero en un caso de uso real, el vídeo se podría reproducir de forma local (tarjeta SD, disco duro...).</p>
+
+                </div>
+
+                <div class="col-2  align-self-end">
+                    <img data-src="../assets/img/sync/demo-nubart-sync.png" class="img-fluid lazyload" alt="Demo Nubart Sync">
+                    <p class="text-center fs-5" style="color:white">Escanea este código QR con tu teléfono móvil</p>
+                </div>
+                <div class="col-2">
+                    <img data-src="../assets/img/sync/demo-nubart-sync-languages.png" class="img-fluid lazyload" alt="Demo Nubart Sync">
+                    <p class="text-center fs-5" style="color:white">Elige un idioma</p>
+                </div>
+                <div class="col-2">
+                    <img src="../assets/img/sync/demo-nubart-sync-play.png" class="img-fluid" alt="Demo Nubart Sync">
+                    <p class="text-center fs-5" style="color:white">Escucha la pista de audio</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="container d-lg-none" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="section-title">
+                <h2>Demo para probar Nubart Sync</h2>
+                <p>Abre esta página en un PC para probar nuestra demo</p>
+            </div>
+
+            <p class="fs-5" style="color:white;">Para probar nuestra demo, necesitarás dos dispositivos: uno para abrir el vídeo y otro para reproducir la pista de audio sincronizada. Como estás viendo nuestra página web en un smartphone, posiblemente no se den esas condiciones. Por favor, abre esta página en un dispositivo de mayor tamaño (PC o tableta) para probar nuestra demo. </p>
+
+        </div>
+    </section>
+
+    <!-- ======= Features Section ======= -->
+    <section id="geo-features" class="features">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2 class="d-none d-lg-block">Vídeos en varios idiomas en espacios públicos </h2>
+                <p>¿Por qué Nubart Sync?</p>
+            </div>
+            <div class="tab-pane active show" id="geolocation">
+                <div class="row">
+                    <div class="col-lg-7 mt-4 mt-lg-0">
+                        <h3>Con Nubart Sync, incluso las pantallas de vídeo silenciadas pueden hablar.</h3><br/>
+
+                        <p class="fs-5">El espacio público está lleno de vídeos mudos: Anuncios de vídeo en vallas publicitarias y escaparates, información de seguridad en aeropuertos, películas educativas en salas de espera... Pero tanto las normas de seguridad como las de convivencia exigen que estos vídeos estén silenciados. </p>
+
+                        <p class="fs-5">Estos vídeos podrían reforzar significativamente su mensaje si los espectadores pudieran simplemente escuchar el sonido en streaming en sus teléfonos móviles. </p>
+                        <p class="fs-5">Hasta ahora, este objetivo sólo podía lograrse con complejos sistemas de integración AV y con hardware especial. </p>
+                        <p class="fs-5">Con Nubart Sync, se puede añadir sonido a los vídeos en espacios públicos sin molestar a los transeúntes. Basta con colocar nuestro código QR junto a la pantalla o integrarlo en el propio vídeo.</p>
+                        <p class="fs-5">Puedes probarlo ahora mismo con nuestra demo.</p><br/><br/>
+                        <div class="text-center">
+                            <a class="btn-lg btn-primary" role="button" style="font-size: 25px" href="#demo"> Ir a la demo
+                                <i class="bi bi-arrow-up-circle-fill"></i></a></div>
+
+                    </div>
+
+                    <div class="col-lg-5 text-center">
+
+                        <figure class="figure">
+                            <img class="figure-img img-fluid d-none d-lg-block lazyload" src="../assets/img/sync/missing-the-sound.webp" alt="Nubart Sync da sonido a los vídeos públicos"/>
+                            <figcaption class="figure-caption d-none d-sm-block ">¿Echas de menos el sonido?</figcaption>
+                        </figure>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ======= business models Section ======= -->
+
+    <section id="business" style='background-image: url("../assets/img/sync/background-sync-section.webp");' class="services section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2 class="d-none d-lg-block">¿Qué hay actualmente en el mercado para emparejar audio y vídeo?</h2>
+                <p>Qué hace que Nubart Sync sea mejor que las soluciones convencionales</p>
+            </div>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Soluciones actuales</h3>
+
+                            <p class="card-text">Hoy en día, sigue siendo necesario un hardware complejo para sincronizar el audio y el vídeo si se emiten desde aparatos distintos: reproductores de vídeo especiales, sistemas de activación por RF, RFID o infrarrojos, i-beacons, etc.</p>
+                            <p class="card-text">Algunas empresas ofrecen una difusión por Wifi, pero sólo mediante un portal cautivo, a veces en combinación con una app. </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Qué hace que Nubart Sync sea mejor</h3>
+                            <p class="card-text">El valor de Nubart Sync reside en su <strong>revolucionaria sencillez</strong>.</p>
+                            <p class="card-text">Por primera vez, una fuente de audio multilingüe y en perfecta sincronización labial con un vídeo público puede transmitirse espontánea y fácilmente a cualquier transeúnte a través de un sencillo código QR. </p>
+                            <p class="card-text">La banda sonora sincronizada se abre simplemente en el navegador del usuario. </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">¿Qué significa eso?</h3>
+                            <p class="card-text"> Nubart Sync es una solución SaaS rentable que tiene el potencial de revolucionar el mundo de la señalización digital, el DOOH, la publicidad y la accesibilidad.</p>
+                            <p class="card-text">Nuestro innovador producto está protegido por patentes en los mercados mundiales más importantes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="data" class="features">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Estadísticas para tus pantallas de vídeo públicas</h2>
+                <p>Obtén información sobre quién está viendo realmente tu vídeo
+
+                </p>
+            </div>
+            <div class="tab-pane">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img data-src="assets/img/features/features-data.webp" alt="" class="img-fluid d-none d-lg-block lazyload"><br><br>
+
+                    </div>
+                    <div class="col-lg-8 mt-3 mt-lg-0">
+                        <h3>Recopila datos de los visitantes sin esfuerzo y respetando la privacidad
+
+                        </h3><br>
+
+                        <p class="fs-5">Con Nubart Sync puedes descubrir quién está interactuando con tus vídeos y videoanuncios en espacios públicos. A diferencia de los métodos tradicionales, como las cámaras o los infrarrojos, Nubart Sync ofrece información fiable sobre el interés real y el comportamiento de los usuarios frente a tus vídeos y te proporciona datos valiosos para la toma de decisiones estratégicas.</p>
+                        <p class="fs-5">Nubart Sync recopila datos agregados de uso y comportamiento de los smartphones de los usuarios de forma anónima, sin cookies de terceros ni violaciones de la privacidad.
+
+                        </p>
+
+                        <p class="fs-5">Tendrás acceso a un área de cliente que revela información esencial, como
+
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check-all"></i>País de origen del usuario</li>
+                            <li><i class="bi bi-check-all"></i>Lengua materna del usuario</li>
+                            <li><i class="bi bi-check-all"></i>Usuarios por día y por hora</li>
+
+
+                        </ul>
+                        <p class="fs-5">Incluso puedes añadir un formulario de comentarios para hacer preguntas específicas.
+
+                        </p>
+                        <a role="button" href="https://vimeo.com/569304489" class="btn btn-lg btn-outline-dark glightbox play-btn mb-4">
+                            <i class="bi bi-play-circle-fill"></i>&nbsp; Ver las estadísticas de Nubart Sync en acción</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ======= About Boxes Section ======= -->
+    <section class="about-boxes">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2 class="d-none d-lg-block">Casos de uso compatibles con Nubart Sync</h2>
+                <p>Nubart Sync es adecuado para</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/sync/museum.webp" width="417" height="285" class="card-img-top img-fluid lazyload" alt="Nubart Sync para museos - vídeo explicativos y vídeo instalaciones"/>
+                        <div class="card-icon">
+                            <i class="bi bi-bank"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Museos</h5>
+
+                            <ul>
+                                <li>Vídeos educativos</li>
+                                <li>Instalaciones de vídeo</li>
+                            </ul>
+                            <p>(Mejor en combinación con la
+                                <a href="https://www.nubart.eu/es/audioguias.html" target="_blank">audioguía PWA de Nubart)</a></p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/sync/advertisement.webp" width="417" height="285" class="card-img-top img-fluid lazyload" alt="Nubart Sync para publicidad digital - DOOH - vallas publicitarias"/>
+                        <div class="card-icon">
+                            <i class="bi bi-badge-ad"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Publicidad</h5>
+                            <ul>
+                                <li>Pantallas publicitarias</li>
+                                <li>Publicidad out-of-home (DOOH)</li>
+                                <li>Show rooms</li>
+                                <li>Tiendas de DIY</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/sync/impaired.webp" width="417" height="285" class="card-img-top img-fluid lazyload" alt="Nubart Sync mejorará la accesibilidad de los vídeos públicos"/>
+                        <div class="card-icon">
+                            <i class="bi bi-universal-access-circle"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Accesibilidad</h5>
+                            <ul>
+                                <li>Audiodescripciones</li>
+                                <li>Lenguaje fácil</li>
+                                <li>Discapacidad auditiva</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/sync/trade-show.webp" width="417" height="285" class="card-img-top img-fluid lazyload" alt="Nubart Sync proporcionará complejas explicaciones multilingües sobre productos en ferias comerciales"/>
+                        <div class="card-icon">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ferias y exposiciones</h5>
+                            <p class="card-text">
+                                Sonido para vídeos explicativos para productos complejos en los stands. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/sync/cinema.webp" width="417" height="285" class="card-img-top img-fluid lazyload" alt="Nubart Sync para festivales de cine públicos, cine al aire libre"/>
+                        <div class="card-icon">
+                            <i class="bi bi-film"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cine</h5>
+                            <ul>
+                                <li>Streaming multilingüe simultáneo</li>
+                                <li>Festivales de cine en la calle</li>
+                                <li>Cine al aire libre o autocines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/sync/waiting-room.webp" width="417" height="285" class="card-img-top img-fluid lazyload" alt="Nubart Sync para todo tipo de salas de espera - hospitales, centros de inmigración"/>
+                        <div class="card-icon">
+                            <i class="bi bi-hourglass-split"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Salas de espera</h5>
+                            <ul>
+                                <li>Inmigración</li>
+                                <li>Hospital</li>
+                                <li>Administraciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/sync/airport.webp" width="417" height="285" class="card-img-top img-fluid lazyload" alt="Nubart Sync para instrucciones de seguridad y entretenimiento en aeropuertos y estaciones de tren"/>
+                        <div class="card-icon">
+                            <i class="bi bi-airplane-engines"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Aeropuertos</h5>
+                            <ul>
+                                <li>Instrucciones de seguridad</li>
+                                <li>Entretenimiento en las zonas de espera</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/sync/projection-mapping.webp" width="417" height="285" class="card-img-top img-fluid lazyload" alt="Nubart Sync puede utilizarse para el mapping de proyección en edificios públicos - photo by KKPCW - Kyu3 - CC BY-SA 4.0 DEED"/>
+                        <div class="card-icon">
+                            <i class="bi bi-buildings"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Proyección o mapping sobre edificios</h5>
+                            <p class="card-text">
+                                El público puede escuchar música sincronizada o una explicación directamente en su smartphone.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <img data-src="../assets/img/sync/question.webp" width="417" height="285" class="card-img-top img-fluid lazyload" alt="Se pregunta qué otros casos de uso existen para Nubart Sync"/>
+                        <div class="card-icon">
+                            <i class="bi bi-question-circle"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Y muchos otros</h5>
+                            <p class="card-text">
+                                Seguro que hay aplicaciones para Nubart Sync en las que aún no hemos pensado,
+                                <a href="mailto:info@nubart.eu" target="_blank">¡cuéntanoslas!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Boxes Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" style='background-image: url("../assets/img/hero9-bg.webp");' class="testimonials d-none d-lg-block">
+
+        <div class="container" data-aos="zoom-in">
+
+            <div data-aos="fade-up" data-aos-delay="100">
+
+                <div class="d-grid gap-2">
+                    <div class="section-title">
+                        <h2>Nubart Sync - Esquema de funcionamiento</h2>
+                        <p>Cómo funciona Nubart Sync</p>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 text-center">
+
+                            <img data-src="../assets/img/video-sinc-explicacion-es.webp" class="hover img-fluid lazyload" alt="¿Cómo funciona Nubart Sync?">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- End Testimonials Section -->
+    <!-- ======= Services Section ======= -->
+    <section id="services2" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2 class="d-none d-lg-block">Sistemas de reproducción de vídeo compatibles con Nubart Sync</h2>
+                <p>Opciones de reproductor de vídeo compatibles:</p>
+            </div>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="200">
+                <div class="col">
+
+                    <div class="icon-box">
+
+                        <i class="bi bi-browser-chrome"></i>
+                        <h4>Cualquier pantalla o reproductor con conexión a Internet</h4>
+                        <p>Si su dispositivo puede abrir un navegador moderno y dispone de conexión a Internet, debería ser compatible con Nubart Sync. </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="icon-box">
+                        <i class="bi bi-displayport"></i>
+                        <h4><a href="https://www.brightsign.biz/" target="_blank" rel="nofollow">Brightsign</a></h4>
+
+                        <p>Compatible con reproductores de vídeo Brightsign habilitados para Internet, como el HD224. Compatible con el software de señalización digital Brightsight Author.</p>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="icon-box"><!-- ======= About Boxes Section ======= -->
+
+                        <i class="bi bi-brightness-high"></i>
+                        <h4>Micromapping y otras soluciones AV</h4>
+                        <p>Mientras tu dispositivo tenga conexión a Internet podrás integrar nuestra API en tu sistema de reproducción personalizado. Por favor,
+                            <a href="mailto:info@nubart.eu">escríbenos</a>.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="section-title">
+                <h2 class="d-none d-lg-block">Sistemas de reproducción de audio compatibles con Nubart Sync</h2>
+                <p>Opciones de reproductor de audio compatibles:</p>
+            </div>
+            <div class="col">
+                <div class="icon-box">
+                    <i class="bi bi-phone"></i>
+                    <h4>Cualquier smartphone</h4>
+                    <p>Las pistas de sonido de Nubart Sync se abren en un navegador, asi que cualquier smartphone con un navegador y la capacidad de escanear un código QR es compatible. No es necesario descargar ninguna aplicación.</p>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Services Section -->
+
+
+    <section id="faq" style="background-color: #6ec7ba">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Preguntas más frecuentes</h2>
+                    <p>Preguntas frecuentes sobre Nubart Sync</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="accordion" class="accordion accordion-flush">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading3">
+
+                                <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">¿Cómo funciona la implementación de Nubart Sync?</button>
+                            </h2>
+                            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordion">
+                                <div class="accordion-body">
+
+                                    Te damos acceso a un área de clientes protegida por contraseña donde podrás gestionar tus vídeos. La implementación es muy sencilla y está bien documentada. No obstante, nuestro equipo técnico te apoyará personalmente en la primera fase.
+                                    <br><br><br>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading4">
+                                <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4"> ¿Tiene que haber un código QR diferente por cada idioma?</button>
+                            </h2>
+                            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordion">
+                                <div class="accordion-body">
+
+                                    No, a menos que tú lo quieras. La página web generada para la reproducción de audio contiene un menú de idiomas en el que se puede cambiar de un idioma a otro. (Lo mejor es que lo compruebes tú mismo con nuestra demo)
+                                    <br><br><br>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading6">
+
+                                <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">¿Cuál es la resolución de vídeo máxima que admite Nubart Sync?</button>
+                            </h2>
+                            <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordion">
+                                <div class="accordion-body">
+
+                                    No hay ninguna limitación, ya que el archivo de vídeo puede reproducirse localmente. Pero al comienzo recomendamos subir ese mismo vídeo en baja resolución para poder hcer pruebas y comprobar que todo va bien.
+                                    <br><br><br>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading1">
+
+                                <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1"> ¿Cuáles son las instrucciones para implementar Nubart Sync en un reproductor Brightsign?</button>
+                            </h2>
+
+                            <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    Aquí tienes un vídeo con instrucciones:<br><br>
+                                    <div class="video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                                        <a class="glightbox btn btn-secondary" type="button" href="https://vimeo.com/996608610">Vídeo con instrucciones para Brightsign</a>
+                                    </div>
+                                    <br> Puedes descargarlas en PDF aquí:<br><br>
+                                    <a class="btn btn-secondary btn-sm" target="_blank" role="button" href="../assets/pdf/ES - Instrucciones Nubart Sync - Brightsign.pdf">
+                                        <p>Descarga nuestras instrucciones para Brightsign</p></a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading2">
+
+                                <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">¿Qué parámetros tiene que cumplir mi red para implantar Nubart Sync?</button>
+
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion">
+                                <div class="accordion-body">
+
+                                    Asegúrate de que la configuración de tu red tiene nuestro dominio "nub.art" en la lista blanca y permite solicitudes POST HTTPS salientes sin restricciones a este dominio.<br> El ancho de banda necesario para la señal de sincronización es muy bajo.<br><br>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Clientes que utilizan Nubart Sync</h2>
+                    <p>Clientes de Nubart Sync (Selección)</p>
+                </div>
+            </div>
+            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="col-lg-3 col-md-3 portfolio-item">
+                    <img src="../assets/img/clients/artdidaktik.webp" class="img-fluid lazyload" alt="Nubart Sync - Immersive exhibition Dalí Challenge for ArtDidaktik"/>
+                    <div class="portfolio-info">
+                        <h4>ArtDidactics (España)</h4>
+                        <p>Exposición inmersiva "Dalí Challenge"</p>
+
+                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 portfolio-item">
+                    <img src="../assets/img/clients/formatwerbeart.webp" class="img-fluid lazyload"/>
+                    <div class=" portfolio-info">
+                        <h4>Format WerbeArt (Alemania)</h4>
+                        <p>Stand en una feria</p>
+
+                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 portfolio-item">
+                    <img src="../assets/img/clients/koge-museum.webp" class="img-fluid lazyload" alt="Nubart Sync - On-site video displays for Koge Museum"/>
+                    <div class=" portfolio-info">
+                        <h4>Museo Koge (Dinamarca)</h4>
+                        <p>Vídeos educativos</p>
+
+                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 portfolio-item">
+                    <img src="../assets/img/clients/musea-brugge.webp" class="img-fluid lazyload"/>
+                    <div class=" portfolio-info">
+                        <h4>Musea Brugge (Bélgica)</h4>
+                        <p>Vídeos explicativos in situ</p>
+
+                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 portfolio-item">
+                    <img src="../assets/img/clients/danmarks-borgcenter.webp" class="img-fluid lazyload" alt="Nubart Sync - On-site video displays for Danish Castle Center (Denmark)"/>
+                    <div class=" portfolio-info">
+                        <h4>Danish Castle Center (Dinamarca)</h4>
+                        <p>Vídeos explicativos in situ</p>
+
+                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 portfolio-item">
+                    <img src="../assets/img/clients/caesarea.webp" class="img-fluid lazyload" alt="Nubart Sync - On-site video displays for the Caesarea Visitor Center (Israel)"/>
+                    <div class=" portfolio-info">
+                        <h4>Centro de visitantes de Cesarea (Israel)</h4>
+                        <p>Audioguía accesible para personas con discapacidad visual y cognitiva</p>
+
+                        <!-- <a href="portfolio/portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section><!-- End Clients Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact" style="background-color: light;">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Contactz con Nubart Sync</h2>
+                    <p>Ponte en contacto con nosotros</p>
+                </div>
+            </div>
+            <div class="row">
+
+                <p class="fs-5">Puedes llamarnos o escribirnos directamente, pero
+                    <b>si deseas una demo personalizada, te recomendamos que rellenes nuestro formulario</b>, ya que las preguntas que contiene te guiarán en el proceso.
+                </p>
+
+                <div class="col-lg-5">
+                    <div class="info-box mt-4">
+                        <i class="bi bi-pencil-square"></i>
+                        <h3>Rellena nuestro formulario</h3>
+
+
+
+                        <script type="text/javascript">function zforms_open_window(url, height, width){var leftPos = 0;var topPos = 0;if(screen){leftPos = (screen.width - width) / 2;topPos = (screen.height - height) / 2;window.open(url, null, 'width='+width+',height='+height+',left='+leftPos+',top='+topPos+', toolbar=0, location=0, status=1, scrollbars=1, resizable=1');}}</script><a href='https://forms.zohopublic.eu/rosasala/form/RequestademoNUBARTSYNC/formperma/1hrSbylzXXLIPI066zfkq-7DL1R5GwOFvE14szZTM4c?zf_lang=es' onclick="zforms_open_window(this.href, 648, 700); return false"> <button type="button" style="margin:15px; font-size: 20px;" class="btn-lg btn-danger text-center">Ir al formulario</button></a>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-box mt-4">
+                        <i class="bi bi-envelope-fill"></i>
+                        <h3>correo electrónico</h3>
+
+                        <a href="mailto:info@nubart.eu" target="_blank">info@nubart.eu</a>
+                        <p>Solemos responder en 24 horas</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info-box mt-4">
+                        <i class="bi bi-telephone-fill"></i>
+                        <h3>Llámanos</h3>
+                        <b>España y LATAM:</b> +34 678650746<br> <b>Otros países:</b> +49 30 216 02 001<br><br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Contact Section -->
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlín<br><br>
+
+                            <strong>Correo electrónico:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <p class="fs-4">Enlaces útiles</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../es/aviso-legal.html" rel="nofollow">Aviso legal</a></li>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../es/politica-privacidad.html" rel="nofollow">Política de privacidad</a>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de cookies</a></li>
+
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a nuestro boletín de noticias</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2024</span></strong> Todos los derechos reservados
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="../assets/vendor/aos/aos.js" defer=""></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer=""></script>
+
+
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main-min.js" defer=""></script>
+
+<!-- Zoho form - get a quote -->
+
+
+<style>
+
+    .zf_lB_Dimmer_623421{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background: rgb(0, 0, 0);
+        opacity: 0.8;
+        z-index: 10000000;
+    }
+
+    .zf_lB_Container_623421{
+        position: fixed;
+        background-color: white;
+        margin: 0;
+        margin-right: 0px;
+        padding: 0;
+        height: 700px;
+        width:  950px;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        border: 7px solid none;
+        max-height: calc(100% - 60px);
+        z-index: 999999;
+    }
+
+    p{
+    margin-bottom: 10px;
+    }
+
+    .zf_lB_Wrapper_623421{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-left: 0;
+        margin-top: -180px;
+        z-index: 10000001;
+    }
+
+    .zf_main_id_623421{
+        height: calc(100% - 0px);
+        display: flex;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .zf_lb_closeform_623421 {
+        position: absolute;
+        right: -20px;
+        background: #2f2e2e;
+        padding: 0;
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        top: -15px;
+        cursor: pointer;
+        border: 2px solid #d9d9d9;
+    }
+    .zf_lb_closeform_623421:before, .zf_lb_closeform_623421:after {
+        position: absolute;
+        left: 16px;
+        content: ' ';
+        height: 19px;
+        width: 2px;
+        top: 7px;
+        background-color: #f7f7f7;
+    }
+
+    .zf_lb_closeform_623421:before {
+      transform: rotate(45deg);
+    }
+    .zf_lb_closeform_623421:after {
+      transform: rotate(-45deg);
+    }
+
+
+
+    @media screen and (min-device-width: 10px) and (max-device-width: 380px) {
+       .zf_lB_Container_623421 {
+      width: 270px !important;
+    }
+    }
+
+    @media screen and (min-device-width: 360px) and (max-device-width: 480px) {
+       .zf_lB_Container_623421 {
+      width: 300px !important;
+    }
+    }
+
+    @media screen and (min-device-width: 440px) and (max-device-width: 500px) {
+       .zf_lB_Container_623421 {
+      width: 380px !important;
+    }
+    }
+
+    @media only screen  and (min-width:500px) and (max-width:600px)  {
+         .zf_lB_Container_623421 {
+        width: 450px;
+     }
+    }
+
+    @media only screen  and (min-width:601px) and (max-width:700px)  {
+         .zf_lB_Container_623421 {
+        width: 540px;
+     }
+    }
+
+    @media only screen  and (min-width:700px) and (max-width:800px)  {
+    .zf_lB_Container_623421 {
+        width: 650px;
+     }
+    }
+
+    @media screen and (min-device-width: 801px) and (max-device-width: 1268px) {
+       .zf_lB_Container_623421 {
+      width: 750px !important;
+    }
+    }
+
+
+</style>
+
+
+
+<script type="text/javascript">(function() {
+	try{
+
+			if( document.readyState == "complete" ){
+				onloadActions_623421();
+			}  else {
+			  	window.addEventListener('load', function (){
+			  		onloadActions_623421();
+			  	}, false);
+			}
+
+			function onloadActions_623421(){
+				constructDiv_623421();
+
+			}
+
+			function constructDiv_623421(){
+				var iframeDiv = document.createElement("div");
+				iframeDiv.setAttribute('id','1hrSbylzXXLIPI066zfkq-7DL1R5GwOFvE14szZTM4c_623421');
+				iframeDiv.setAttribute('class','zf_main_id_623421');
+
+				var closeFormDiv = document.createElement("div");
+				closeFormDiv.setAttribute('id','deleteform_623421');
+				closeFormDiv.setAttribute('class','zf_lb_closeform_623421');
+
+
+				var containerDiv = document.createElement("div");
+				containerDiv.setAttribute('id','containerDiv_623421');
+				containerDiv.setAttribute('class','zf_lB_Container_623421 ');
+				containerDiv.appendChild(iframeDiv);
+				containerDiv.appendChild(closeFormDiv);
+
+				var wrapperDiv = document.createElement("div");
+				wrapperDiv.setAttribute('class','zf_lB_Wrapper_623421');
+				wrapperDiv.appendChild(containerDiv);
+
+
+				var dimmerDiv = document.createElement("div");
+				dimmerDiv.setAttribute('class','zf_lB_Dimmer_623421');
+				dimmerDiv.setAttribute('elname','popup_box');
+
+				var mainDiv = document.createElement("div");
+				mainDiv.setAttribute('id','formsLightBox_623421');
+				mainDiv.style.display = "none";
+				mainDiv.appendChild(wrapperDiv);
+				mainDiv.appendChild(dimmerDiv);
+
+				document.body.appendChild(mainDiv);
+
+			}
+
+			function showZForm_623421(){
+				var iframe = document.getElementById("1hrSbylzXXLIPI066zfkq-7DL1R5GwOFvE14szZTM4c_623421").getElementsByTagName("iframe")[0];
+				if(iframe == undefined ||iframe.length == 0){
+					loadZForm_623421();
+
+				}
+				document.getElementById("formsLightBox_623421").style.display = "block";
+				document.body.style.overflow = "hidden";
+			}
+
+			function loadZForm_623421() {
+				var iframe = document.getElementById("1hrSbylzXXLIPI066zfkq-7DL1R5GwOFvE14szZTM4c_623421").getElementsByTagName("iframe")[0];
+				if(iframe == undefined ||iframe.length == 0){
+					var f = document.createElement("iframe");
+					f.src = getsrcurlZForm_623421('https://forms.zohopublic.eu/rosasala/form/RequestademoNUBARTSYNC/formperma/1hrSbylzXXLIPI066zfkq-7DL1R5GwOFvE14szZTM4c?zf_lang=es');
+					f.style.border="none";
+					f.style.minWidth="100%";
+					f.style.overflow="hidden";
+					var d = document.getElementById("1hrSbylzXXLIPI066zfkq-7DL1R5GwOFvE14szZTM4c_623421");
+					d.appendChild(f);
+
+					var deleteForm = document.getElementById("deleteform_623421");
+					deleteForm.onclick = function deleteZForm_623421() {
+						var divCont = document.getElementById("formsLightBox_623421");
+						divCont.style.display="none";
+						document.body.style.overflow = "";
+
+						var iframe = document.getElementById("1hrSbylzXXLIPI066zfkq-7DL1R5GwOFvE14szZTM4c_623421").getElementsByTagName("iframe")[0];
+						iframe.remove();
+					}
+
+
+
+					window.addEventListener('message', function (){
+						var evntData = event.data;
+						if( evntData && evntData.constructor == String ){
+							var zf_ifrm_data = evntData.split("|");
+							if ( zf_ifrm_data.length == 2 ) {
+								var zf_perma = zf_ifrm_data[0];
+								var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
+								var iframe = document.getElementById("1hrSbylzXXLIPI066zfkq-7DL1R5GwOFvE14szZTM4c_623421").getElementsByTagName("iframe")[0];
+								if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
+									var prevIframeHeight = iframe.style.height;
+									if ( prevIframeHeight != zf_ifrm_ht_nw ) {
+									iframe.style.minHeight = zf_ifrm_ht_nw;
+										var containerDiv = document.getElementById("containerDiv_623421");
+										containerDiv.style.height=zf_ifrm_ht_nw;
+									}
+								}
+							}
+						}
+
+					}, false);
+				}
+			}
+
+
+
+			function getsrcurlZForm_623421(zf_src) {
+				try {
+					if ( typeof ZFAdvLead !== "undefined" && typeof zfutm_zfAdvLead !== "undefined" ) {
+						for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
+				        	var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
+				        	var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
+					        if ( typeof utmVal !== "undefined" ) {
+					          if ( utmVal != "" ){
+					            if(zf_src.indexOf('?') > 0){
+					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
+					            }else{
+					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
+					            }
+					          }
+					        }
+				      	}
+					}
+
+					if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
+						for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
+				        	var utmPm = ZFLead.utmPNameArr[ prmIdx ];
+				        	var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
+					        if ( typeof utmVal !== "undefined" ) {
+					          if ( utmVal != "" ){
+					            if(zf_src.indexOf('?') > 0){
+					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
+					            }else{
+					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
+					            }
+					          }
+					        }
+				      	}
+					}
+				}catch(e){}
+				return zf_src;
+			}
+			var buttonElem = document.getElementById("zf_button_623421");
+			buttonElem.style.display = "block";
+			buttonElem.addEventListener("click", showZForm_623421);
+
+
+	}catch(e){}
+})();
+
+</script>
+<!-- End of Zoho form - get a quote -->
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async defer src="//js.hs-scripts.com/2430134.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<!-- scroll to hash -->
+<script>
+    function getElementTopOffset(element) {
+        if (!element.getClientRects().length){
+            return 0;
+        }
+
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.scrollY;
+    }
+
+    window.addEventListener('load', event => {
+        if (window.location.hash.length > 0) {
+            window.setTimeout(() => {
+                const target = document.getElementById(window.location.hash.substring(1));
+                if(target) {
+                    window.scrollTo(0, getElementTopOffset(target));
+                }
+            }, 1000);
+        }
+    });
+
+</script>
+
+</body>
+
+</html>
