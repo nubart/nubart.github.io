@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Comment tester votre version de démonstration de Nubart MOTION | Nubart</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet">
+    <link href="../../assets/css/custom.css" rel="stylesheet">
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet">
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../../assets/css/demos-trials.css" rel="stylesheet">
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+
+<body>
+<div class="demo-wrap">
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Imprimer les instructions (A4 portrait)
+    </button>
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo">
+        <h1>Comment tester votre démonstration Nubart MOTION - Phase 1</h1>
+        <p class="subtitle">Guide audio déclenché par GPS &mdash; instructions étape par étape</p>
+    </div>
+
+    <!-- QR Code (generated dynamically from ?demo= parameter) -->
+    <div class="qr-box">
+        <h2><i class="bi bi-qr-code me-2"></i>Votre QR code de démonstration personnel</h2>
+        <p class="qr-intro">Scannez ce code avec votre smartphone pour ouvrir votre guide audio de démonstration.</p>
+        <div id="qrcode"></div>
+        <div id="qr-missing" class="qr-missing" style="display:none;">
+            <i class="bi bi-exclamation-triangle me-2"></i>
+            Aucun lien de démonstration n'a été fourni. Veuillez contacter votre interlocuteur Nubart afin de recevoir votre lien personnalisé.
+        </div>
+        <p id="demo-url-display"></p>
+    </div>
+
+    <!-- What this covers -->
+    <div class="situation-box">
+        <strong>Phase 1 sur 2 &mdash; Validation du GPS et de la connectivité</strong>
+        Cette démonstration constitue la première des deux étapes menant à la configuration finale de votre guide audio. Elle poursuit un double objectif :
+        vous permettre de découvrir comment les pistes audio se déclenchent automatiquement lorsque votre véhicule passe devant chaque point d'intérêt,
+        et nous permettre d'analyser les cartes thermiques de géolocalisation générées pendant votre parcours afin d'évaluer la couverture GPS et internet sur l'ensemble de l'itinéraire.<br>
+        Les résultats de cette première phase nous fourniront, à vous comme à nous, toutes les informations nécessaires pour passer en toute confiance à la phase 2,
+        au cours de laquelle nous configurerons le système complet de pilotage à distance destiné à vos passagers.<br>
+        Veuillez noter les pistes qui se déclenchent trop tôt, trop tard ou pas du tout &mdash; tous ces paramètres pourront être ajustés avec précision après analyse commune des données.
+    </div>
+
+
+    <!-- Step 1 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Avant de commencer : préparez votre appareil</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>Autorisez l'accès à votre position.</strong> Comme Nubart est une application web (et non une application native),
+                votre navigateur doit pouvoir accéder à votre position. Une demande d'autorisation s'affichera automatiquement lorsque vous scannerez le QR code
+                &mdash; appuyez sur <em>Autoriser</em> à chaque demande.<br>Pendant le test, ne verrouillez pas manuellement l'écran de votre téléphone.</p>
+            <p><strong>Réglez le volume suffisamment fort</strong> avant de commencer.</p>
+            <p>Si la démonstration ne fonctionne pas correctement, le problème est généralement lié aux autorisations de localisation. Celles-ci peuvent être configurées à trois niveaux :</p>
+            <ul>
+                <li><strong>Niveau système</strong> &mdash; les paramètres du système d'exploitation de votre téléphone</li>
+                <li><strong>Niveau navigateur</strong> &mdash; ouvrez les paramètres système, recherchez votre navigateur dans la rubrique « Applications » et activez l'accès à la localisation</li>
+                <li><strong>Niveau domaine</strong> &mdash; nos guides fonctionnent sur <code>nub.art</code>. Dans les paramètres de confidentialité et de sécurité de votre navigateur, vérifiez que <code>nub.art</code> est autorisé à accéder à votre position.</li>
+            </ul>
+            <p>Si votre démonstration fonctionne en <strong>mode hors ligne</strong>, attendez que toutes les pistes audio soient entièrement préchargées avant de poursuivre.</p>
+        </div>
+    </div>
+    <!-- Step 2 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Vérifiez la première piste &mdash; depuis vos locaux</h3>
+        </div>
+        <div class="step-body">
+            <p>Nous avons placé une piste audio temporaire à l'emplacement de vos locaux. Scannez le QR code ci-dessus et patientez quelques instants. Si la piste démarre automatiquement, cela signifie que les autorisations sont correctement configurées et que vous êtes prêt à effectuer le parcours.</p>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                Si la piste se lance dans vos locaux, tout fonctionne correctement &mdash; vous pouvez vous rendre directement au véhicule.
+            </div>
+            <p>Si rien ne se lance, consultez la section « Résolution des problèmes » ci-dessous avant de poursuivre.</p>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Pendant le parcours</h3>
+        </div>
+        <div class="step-body">
+            <p>Emportez votre smartphone à bord de votre véhicule et effectuez votre itinéraire comme d'habitude. Les pistes audio se lanceront automatiquement à l'approche de chaque point d'intérêt.</p>
+            <ul>
+                <li>Assurez-vous que les données mobiles restent activées pendant toute la durée du parcours.</li>
+                <li>Laissez le navigateur ouvert et l'écran actif &mdash; ne verrouillez pas manuellement votre téléphone.</li>
+                <li>Si vous constatez des problèmes de déclenchement, tenez le téléphone près d'une fenêtre.</li>
+                <li>Si une piste se lance légèrement trop tôt ou trop tard, notez-le &mdash; les zones de déclenchement peuvent être ajustées.</li>
+                <li>Pour refaire le test, <strong>actualisez la page ou scannez de nouveau le QR code</strong> afin de redémarrer le guide depuis le début.</li>
+            </ul>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                Le suivi géographique est activé pour votre démonstration. Après votre essai, nous analyserons les cartes thermiques afin d'identifier les éventuelles zones de faible couverture et nous discuterons avec vous des solutions possibles. Votre interlocuteur Nubart passera en revue les résultats avec vous.
+            </div>
+        </div>
+    </div>
+
+    <!-- Troubleshooting (collapsed on screen, always expanded in print) -->
+    <div class="troubleshooting-title" onclick="toggleTroubleshooting()" id="ts-toggle">
+        <i class="bi bi-tools"></i>
+        Résolution des problèmes
+        <i class="bi bi-chevron-down ms-auto" id="ts-chevron"></i>
+    </div>
+
+    <div class="troubleshooting-body" id="ts-body" style="display:none;">
+        <div class="trouble-item">
+            <strong><i class="bi-apple me-2 text-warning"></i>Le GPS fonctionne avec Chrome (Android), mais pas avec Safari (iPhone)</strong>
+            <p>Sur iPhone, Safari nécessite que la géolocalisation soit activée à trois niveaux distincts. Veuillez vérifier chacun d'eux :</p>
+            <ol>
+                <li><strong>Niveau système :</strong> Ouvrez <em>Réglages → Confidentialité et sécurité → Service de localisation</em> et vérifiez que <strong>le service de localisation est activé.</strong></li>
+                <li><strong>Niveau navigateur :</strong> Toujours dans <em>Réglages → Confidentialité et sécurité → Service de localisation</em>, faites défiler jusqu'à <strong>Safari</strong> et choisissez <em>Lorsque l'app est active</em>.</li>
+                <li><strong>Niveau domaine :</strong> Ouvrez Safari, puis accédez à <em>Réglages → Apps → Safari → Réglages des sites web → Localisation</em> et vérifiez que l'option n'est pas réglée sur <em>Refuser</em>.</li>
+            </ol>
+            <p>Vérifiez également que l'option <strong>Position précise</strong> est activée et non une localisation approximative. Une fois ces trois niveaux correctement configurés, rechargez la page et réessayez.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-volume-mute me-2 text-danger"></i>La piste audio se lance, mais aucun son n'est audible</strong>
+            <p>Une autre application utilise peut-être actuellement la sortie audio. Fermez toutes les applications exécutées en arrière-plan et réessayez. Redémarrez votre téléphone si nécessaire.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-geo me-2 text-danger"></i>La piste audio ne se déclenche pas à l'endroit prévu</strong>
+            <p>Ouvrez la carte dans le guide audio et appuyez sur la petite icône représentant une personne, située en haut à gauche. La carte doit se centrer sur votre position actuelle. Si ce n'est pas le cas, vérifiez les trois niveaux d'autorisation décrits à l'étape 1.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-crosshair me-2 text-warning"></i>Votre position est visible, mais elle saute sur la carte</strong>
+            <p>Assurez-vous d'avoir autorisé l'accès à la <em>position précise</em> et non à une localisation approximative. Si le problème persiste à l'extérieur, il est possible que votre appareil soit équipé d'une puce GPS peu performante &mdash; essayez avec un autre modèle de smartphone.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-reception-0 me-2 text-danger"></i>Certaines pistes audio ne se déclenchent jamais</strong>
+            <p>Ces points se trouvent probablement dans des zones où la couverture internet ou GPS est limitée. Notez lesquels sont concernés et informez-nous-en &mdash; dans les rares zones de faible couverture, nous pouvons mettre en œuvre d'autres stratégies de déclenchement, par exemple un déclenchement temporisé.</p>
+        </div>
+
+        <div class="trouble-item">
+            <strong><i class="bi bi-x-circle me-2 text-danger"></i>De nombreuses pistes audio ne se déclenchent pas</strong>
+            <p>Cela signifie généralement que votre véhicule ne bénéficie pas d'un signal GPS ou d'une connexion internet suffisamment fiable. Essayez d'actualiser la page, puis recommencez le parcours en tenant le téléphone près d'une fenêtre. Si le problème persiste sur l'ensemble de l'itinéraire, votre zone pourrait nécessiter une antenne satellite &mdash; contactez-nous et nous vous conseillerons sur la meilleure solution.</p>
+        </div>
+
+    </div>
+
+
+    <div class="order-section">
+        <img src="../../assets/img/team/maria.webp" alt="Votre contact chez Nubart" class="rep-photo" onerror="this.style.display='none'; document.getElementById('rep-photo-fallback').style.display='flex';" />
+        <div class="rep-photo-placeholder" id="rep-photo-fallback" style="display:none;">
+            <i class="bi bi-person"></i>
+        </div>
+        <div class="rep-info">
+            <p class="rep-intro">Avez-vous des questions ? Je suis votre contact pour ce test et je serai ravie de vous aider :</p>
+            <h4>María Pacheco</h4>
+            <p class="rep-title">Développement commercial – Francophonie</p>
+            <div class="rep-contact">
+                <i class="bi bi-envelope me-1"></i>
+                <a href="mailto:maria.eduarda@nubart.eu">maria.eduarda@nubart.eu</a><br>
+                <i class="bi bi-telephone me-1"></i>
+                +49 307 5668857
+                <i class="bi bi-whatsapp"></i>
+                +55 83 98203-2233
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="../../assets/js/demos-trials.js"></script>
+
+</body>
+</html>
