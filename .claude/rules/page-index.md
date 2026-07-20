@@ -266,6 +266,17 @@
 - PT-BR: (still pending)
 - JA: (still pending)
 
+### Do You Need an Interpreter Booth? A Lighter Alternative for Smaller Multilingual Events
+- EN: digital-tour-guide-app/interpreter-booth-alternative.html
+- DE: (still pending)
+- ES: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+- JA: (still pending)
+
 ## Product Pages
 
 ### Nubart LIVE
