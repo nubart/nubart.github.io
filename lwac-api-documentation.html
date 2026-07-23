@@ -220,17 +220,10 @@
     <p>The call rate per access key is limited by a token bucket with a default size of 100 and a rate of 1/s.</p>
 
     <p>If this limit is exceeded, the endpoints will return an HTTP 429 response.</p>
+        <div class="bg-light p-4 my-3 border-start border-4 border-warning">
+            <p class="mb-0"><strong>TIMEOUTS &amp; RETRIES:</strong> Clients should configure a request timeout of at least 20 seconds. Response times may occasionally exceed typical latency (for example, during deployments). On a timeout or a <code>5xx</code> response, retry the request using exponential backoff before treating the call as failed.</p>
+        </div>
 
-    <div class="bg-light p-4 my-3 border-start border-4 border-primary">
-      <h3 class="mt-0">Open questions flagged for review with Simon Effing</h3>
-      <p>The following points are unclear from the source document as provided and are noted here for discussion, not resolved or altered in this reference:</p>
-      <ol class="mb-0">
-        <li>Section 4 (Endpoints) moves directly from the root URL to the first endpoint with no general note on versioning or base path conventions beyond the <code>/v2</code> segment already in the root URL.</li>
-        <li>No stated behavior for a token that is retrieved via <code>nexttoken</code> but never activated: does it expire, return to the pool, or remain reserved indefinitely?</li>
-        <li>Section 3 lists <code>429 Too Many Requests</code> among the general HTTP codes, but unlike <code>400</code> and <code>404</code> it has no example JSON error body shown anywhere in the document.</li>
-        <li>Module ID acquisition is described as "will be provided by Nubart" with no mention of whether an endpoint exists to list or discover module IDs programmatically, or whether this is strictly manual/out-of-band.</li>
-      </ol>
-    </div>
 
     <footer class="mt-5 pt-3 border-top text-center text-muted small">
       <p>Nubart LWAC API &mdash; Technical Reference v2.0.1<br>
