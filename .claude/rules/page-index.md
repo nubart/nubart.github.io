@@ -366,7 +366,8 @@
 - DE (German/Swiss leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-dach.html
 - DE (Südtirol): de/simultan-uebersetzung-ki/nubart-translate-testkit-suedtirol.html
 - ES: es/traduccion-simultanea-ia/nubart-translate-prueba-gratis.html
-- IT: it/traduzione-simultanea-ia/nubart-translate-prova-gratuita.html
+- IT (Italy leads, contracted via Digital Tangible SL): it/traduzione-simultanea-ia/nubart-translate-prova-gratuita.html
+- IT (Italian-speaking Switzerland leads, contracted via Nubart GmbH): it/traduzione-simultanea-ia/nubart-translate-prova-gratuita-ch-it.html
 - FR: fr/traduction-simultanee-ia/nubart-translate-essai-gratuit.html
 - HE: he/ai-simultaneous-interpretation/nubart-translate-trial.html
 - PT-BR: pt-br/traducao-simultanea-ia/nubart-translate-teste-gratuito.html
