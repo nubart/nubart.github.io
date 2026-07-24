@@ -259,6 +259,16 @@ traduction.</p>
                         <strong>Recommandation :</strong> Prévoyez une marge de sécurité d'environ 20 % pour garantir un fonctionnement stable.
                     </div>
 
+                    <h3>Filtrage du pare-feu (allowlisting) :</h3>
+                    <p>Pour les réseaux d'entreprise restrictifs, demandez à votre service informatique d'autoriser :</p>
+                    <ul>
+                        <li><strong>Domaines :</strong> nub.art, www.nub.art, digitaltangible.s3.eu-west-1.amazonaws.com, digitaltangible-customer.s3.eu-west-1.amazonaws.com, digitaltangible-temp.s3.eu-west-1.amazonaws.com, digitaltangible-user.s3.eu-west-1.amazonaws.com</li>
+                        <li><strong>Ports :</strong> TCP 443 (HTTPS/WSS, tout le trafic) et TCP 80 (redirection uniquement). Pas d'UDP, pas de CDN.</li>
+                    </ul>
+                    <div class="alert alert-info">
+                        <strong>Inspection TLS :</strong> autorisez ces domaines pour contourner l'inspection TLS. Certains proxys interrompent la mise à niveau (upgrade) WebSocket lorsque l'inspection est active.
+                    </div>
+
                     <h3>Bande passante minimale (vitesse de téléchargement) :</h3>
                     <table>
                         <tr>
@@ -281,6 +291,12 @@ traduction.</p>
 
                     <p><small>Assurez-vous que votre routeur peut gérer plusieurs connexions simultanées.</small></p>
                 </div>
+
+            </div>
+
+            <!-- CENTER COLUMN -->
+            <div class="center-column">
+
                 <div class="section-box">
                     <h2>Comment Nubart optimise la traduction pour votre événement</h2>
 
@@ -319,12 +335,6 @@ que l'IA connaît déjà et ignorent la terminologie vraiment spécifique.
                     </div>
                 </div>
 
-            </div>
-
-            <!-- CENTER COLUMN -->
-            <div class="center-column">
-
-
                 <div class="section-box">
                     <h2>Exigences en matière d'équipement audio</h2>
 
@@ -361,6 +371,10 @@ précision de la reconnaissance.</p>
                     </ul>
                     <p><strong>Avant l'événement :</strong> veuillez redémarrer l'appareil du conférencier afin de fermer les éventuels processus en arrière-plan.</p>
                 </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="right-column">
                 <div class="section-box">
                     <h2>Options d'entrée audio</h2>
                     <p><strong>De la meilleure à la moins bonne qualité :</strong></p>
@@ -384,10 +398,7 @@ précision de la reconnaissance.</p>
                         <li><strong>Déconseillé pour les événements importants</strong></li>
                     </ul>
                 </div>
-            </div>
 
-            <!-- RIGHT COLUMN -->
-            <div class="right-column">
                 <h2> Vos deux outils de diagnostic les plus importants :</h2>
 
                 <div class="section-box">
