@@ -225,7 +225,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <h2>Internet Requirements</h2>
 
                 <h3>Network Compatibility:</h3>
-                <p>The speaker's device must support <strong>secure WebSocket connections (WSS protocol)</strong>.
+                <p>The speaker's device must support <strong>WebSocket Secure connections (WSS protocol)</strong>.
                     Most modern networks allow this, but some corporate or public Wi-Fi networks may block these connections.</p>
 
                 <h3>Bandwidth Requirements:</h3>
@@ -237,7 +237,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="alert alert-info">
                     <strong>Recommendation:</strong> Plan a safety margin of approx. 20% to ensure stable performance.
                 </div>
-
+                <h3>Firewall Allowlisting:</h3>
+                <p>For restrictive corporate networks, ask IT to allowlist:</p>
+                <ul>
+                    <li><strong>Domains:</strong> nub.art, www.nub.art, digitaltangible.s3.eu-west-1.amazonaws.com, digitaltangible-customer.s3.eu-west-1.amazonaws.com, digitaltangible-temp.s3.eu-west-1.amazonaws.com, digitaltangible-user.s3.eu-west-1.amazonaws.com</li>
+                    <li><strong>Ports:</strong> TCP 443 (HTTPS/WSS, all traffic) and TCP 80 (redirect only). No UDP, no CDN.</li>
+                </ul>
+                <div class="alert alert-info">
+                    <strong>TLS inspection:</strong> Allowlist these domains for TLS-inspection bypass. Some proxies break the WebSocket upgrade under inspection.
+                </div>
                 <h3>Minimum Bandwidth (Download Speed):</h3>
                 <table>
                     <tr>
@@ -260,6 +268,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <p><small>Ensure that your router can handle multiple simultaneous device connections.</small></p>
             </div>
+
+        </div>
+
+        <!-- CENTER COLUMN -->
+        <div class="center-column">
+
             <div class="section-box">
                 <h2>How Nubart Optimizes Translation for Your Event</h2>
 
@@ -283,12 +297,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <strong>Why context documents work better than glossaries:</strong> AI-extracted context from real documents captures terminology in natural usage patterns. This produces better results than standalone term lists, which often contain common words AI already knows while missing truly unique terminology.
                 </div>
             </div>
-
-        </div>
-
-        <!-- CENTER COLUMN -->
-        <div class="center-column">
-
 
             <div class="section-box">
                 <h2>Audio Setup Requirements</h2>
@@ -319,6 +327,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </ul>
                 <p><strong>Before event:</strong> Restart speaker device to close background processes.</p>
             </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-column">
             <div class="section-box">
                 <h2>Audio Input Options</h2>
                 <p><strong>Best to Worst Quality:</strong></p>
@@ -342,10 +355,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <li><strong>Not recommended for important events</strong></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- RIGHT COLUMN -->
-        <div class="right-column">
             <h2> Your two main diagnostic tools:</h2>
 
             <div class="section-box">
