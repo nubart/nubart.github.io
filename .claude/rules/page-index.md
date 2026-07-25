@@ -178,6 +178,17 @@
 - JA: (still pending)
 - NL: (still pending)
 
+### How Is Nubart TRANSLATE Different From Other AI Interpretation Providers?
+- EN: ai-simultaneous-interpretation/nubart-translate-comparison.html
+- DE: (still pending)
+- ES: (still pending)
+- FR: (still pending)
+- IT: (still pending)
+- PT-BR: (still pending)
+- PL: (still pending)
+- JA: (still pending)
+- NL: (still pending)
+
 ### Remote-controlled audioguide to alleviate problems with tour guide shortage
 - EN: audio-guides/remote-controlled-guides-solution.html
 - DE: de/audioguides/mit-fernbedienung.html
