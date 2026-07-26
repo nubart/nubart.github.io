@@ -180,8 +180,8 @@
 
 ### How Is Nubart TRANSLATE Different From Other AI Interpretation Providers?
 - EN: ai-simultaneous-interpretation/nubart-translate-comparison.html
-- DE: (still pending)
-- ES: (still pending)
+- DE: de/simultan-uebersetzung-ki/nubart-translate-anbietervergleich.html
+- ES: es/traduccion-simultanea-ia/nubart-translate-comparativa.html
 - FR: (still pending)
 - IT: (still pending)
 - PT-BR: (still pending)
