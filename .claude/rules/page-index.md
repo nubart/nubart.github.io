@@ -288,6 +288,17 @@
 - PT-BR: (still pending)
 - JA: (still pending)
 
+### Revenue share for audio guides: an old model, back for the smartphone era
+- EN: audio-guides/revenue-share-history.html
+- DE: (still pending)
+- ES: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+- JA: (still pending)
+
 ## Product Pages
 
 ### Nubart LIVE
