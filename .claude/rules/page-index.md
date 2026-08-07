@@ -189,16 +189,17 @@
 - JA: (still pending)
 - NL: (still pending)
 
-### Remote-controlled audioguide to alleviate problems with tour guide shortage
+### Remote-controlled audio guides: how one guide can lead a multilingual group
 - EN: audio-guides/remote-controlled-guides-solution.html
-- DE: de/audioguides/mit-fernbedienung.html
-- ES: es/blog/audioguia-web-app-por-control-remoto.html
-- IT: it/blog/audioguida-telecomandata-visite-guidate.html
-- FR: fr/blog/audioguide-qr-web-app-telecommande.html
-- JA: ja/audio-guides/with-remote-control.html
+- DE: (removed 2026-08-07 — no traction, redirect stub at de/audioguides/mit-fernbedienung.html to de/audioguides/)
+- ES: (removed 2026-08-07 — no traction, redirect stub at es/blog/audioguia-web-app-por-control-remoto.html to es/audioguias.html)
+- IT: (removed 2026-08-07 — no traction, redirect stub at it/blog/audioguida-telecomandata-visite-guidate.html to it/audioguida.html)
+- FR: (removed 2026-08-07 — no traction, redirect stub at fr/blog/audioguide-qr-web-app-telecommande.html to fr/audioguides.html)
+- JA: (removed 2026-08-07 — no traction, redirect stub at ja/audio-guides/with-remote-control.html to ja/audio-guides/)
 - PL: (still pending)
 - NL: (still pending)
 - PT-BR: (still pending)
+- EN-only now: no longer in workTranslation/hreflang, and dropped from all blog hub cards and sitemap.xml.
 
 ### Do you sell postcards in your museum store? Consider turning your audio tour into postcards
 - EN: audio-guides/postcard-qr-code-souvenirs.html
