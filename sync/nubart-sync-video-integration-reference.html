@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+  <title>Nubart SYNC Video Integration &ndash; Technical Reference</title>
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
+
+  <!-- CSS -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/printable-terms.css" rel="stylesheet"/>
+
+  <style>
+    /* Page-specific overrides: monospace code blocks and inline code for API reference content.
+       printable-terms.css does not define these, so they're scoped locally to this page. */
+    .content-area code {
+      font-family: "Courier New", Courier, monospace;
+      background-color: #f0f0f0;
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      font-size: 0.9em;
+      word-break: break-all;
+    }
+    .content-area pre {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 1rem 1.25rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.85em;
+      line-height: 1.5;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .content-area pre code {
+      background-color: transparent;
+      padding: 0;
+      color: inherit;
+      word-break: normal;
+    }
+    .content-area table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .content-area table th,
+    .content-area table td {
+      border: 1px solid #dee2e6;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.95em;
+    }
+    .content-area table th {
+      background-color: #f0f0f0;
+    }
+
+    @media print {
+      @page { size: A4 portrait; margin: 2cm; }
+      .content-area pre { white-space: pre-wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="terms-container">
+  <div class="row justify-content-center">
+   <div class="col-lg-8">
+    <div class="content-area">
+
+    <div class="d-flex justify-content-between align-items-start mb-4">
+      <button onclick="window.print()" class="btn btn-primary no-print">
+        🖨️ Print this document
+      </button>
+      <img src="../assets/img/logos/logo-nubart-sync-teal.svg" alt="Nubart SYNC" style="width: 260px;">
+    </div>
+
+    <h1>NUBART SYNC VIDEO INTEGRATION</h1>
+    <p><strong>Service:</strong> Nubart SYNC &mdash; Direct Video Position Integration</p>
+    <p><strong>Document version:</strong> 2.0</p>
+    <p><strong>Author:</strong> Simon Effing</p>
+    <p><strong>Date:</strong> 9 August 2026</p>
+
+    <div class="alert alert-warning my-4">
+      <p class="mb-0"><strong>Technical / integration partner reference.</strong> This page is not indexed and not linked from public navigation. It documents direct, code-level integration with Nubart SYNC's video-position sync endpoint, intended for developers and AV integrators building a custom player. If you're deploying to a BrightSign player, use the standard BrightSign Instructions guide instead — this document is for players that need a lower-level integration.</p>
+    </div>
+
+    <h2>1. OVERVIEW</h2>
+
+    <p>If your video player doesn't support browser-based playback, you can integrate video position synchronization directly into your player's JavaScript code by reusing the <code>sendVideoPos</code> function from the generated script.</p>
+
+    <p>If your player cannot be programmed with JavaScript at all, the generated HTML file can instead be used as a blueprint: reimplement the same request pattern in whatever language or scripting environment your player does support.</p>
+
+    <h2>2. INTEGRATION STEPS</h2>
+
+    <h3>2.1 Copy the sync function</h3>
+
+    <p>Open the generated HTML file and copy everything between the markers:</p>
+
+    <pre><code>========== COPY FROM HERE ==========</code></pre>
+    <p>and</p>
+    <pre><code>========== COPY TO HERE ==========</code></pre>
+
+    <p>into your player's JavaScript. This gives you <code>sendVideoPos()</code> and a <code>playerId</code> for this session. Deciding when to call it is entirely up to your integration.</p>
+
+    <h3>2.2 Call the function on playback start</h3>
+
+    <pre><code>sendVideoPos(currentVideoTime);</code></pre>
+
+    <p>The position is in seconds, as a decimal number.</p>
+
+    <h3>2.3 Keep the position up to date</h3>
+
+    <p>How you obtain the current position depends on your player &mdash; an event it fires, a polling loop, a timer, or a callback from its playback API. The goal is simply that the sync endpoint never has a position that is more than about 10 seconds stale.</p>
+
+    <p>A straightforward approach that works in most environments:</p>
+
+    <ul>
+      <li>Poll every 10 seconds during playback and call <code>sendVideoPos()</code> with the current position.</li>
+      <li>Also call it on transport events &mdash; playback start, resume after pause, seek, and loop or restart &mdash; since these change the position discontinuously and shouldn't wait for the next poll.</li>
+    </ul>
+
+    <div class="bg-light p-4 my-3 border-start border-4 border-primary">
+      <p class="mb-0"><strong>IMPORTANT:</strong> The exact interval is not critical. As long as the video runs continuously, our server extrapolates the current position from the last one it received, so a longer interval &mdash; or an occasional missed update &mdash; makes no practical difference. What matters is that a new position is sent whenever playback jumps, which is why the transport events above are worth wiring up if your player provides them.</p>
+    </div>
+
+    <p>If your player exposes no transport events at all, the periodic poll alone is sufficient; sync will simply take up to one interval to catch up after a jump.</p>
+
+    <p>Make sure whatever drives the polling keeps running across loops and restarts.</p>
+
+    <h3>2.4 Optional: handle sync status</h3>
+
+    <pre><code>sendVideoPos(currentVideoTime, function(status) {
+  if (status === 200) {
+    console.log("Sync successful");
+  } else {
+    console.log("Sync failed with status: " + status);
+  }
+});</code></pre>
+
+    <div class="bg-light p-4 my-3 border-start border-4 border-primary">
+      <p class="mb-0"><strong>RELATED:</strong> The customer portal's "Sync status" indicator (on the Nubart SYNC tab) reflects how recently <code>sendVideoPos()</code> was last successfully called for a given video. It updates purely from what your player reports here &mdash; it is not affected by whether any listener's phone is connected or playing audio.</p>
+    </div>
+
+    <h2>3. NOTES</h2>
+
+    <ul>
+      <li>Each generated HTML file contains credentials for exactly one video instance.</li>
+      <li>The <code>playerId</code> is generated automatically when the page loads and remains constant for that session.</li>
+    </ul>
+
+    <footer class="mt-5 pt-3 border-top text-center text-muted small">
+      <p>Nubart SYNC &mdash; Video Integration Reference v2.0<br>
+      Nubart GmbH, Berlin, Germany &nbsp;|&nbsp; Digital Tangible SL, Barcelona, Spain<br>
+      Technical / integration partner reference. Not for public distribution.</p>
+    </footer>
+
+    </div>
+   </div>
+  </div>
+</div>
+
+</body>
+</html>
