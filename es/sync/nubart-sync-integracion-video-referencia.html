@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+  <title>Integración de vídeo Nubart SYNC &ndash;- Referencia técnica</title>
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
+
+  <!-- CSS -->
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../../assets/css/printable-terms.css" rel="stylesheet"/>
+
+  <style>
+    /* Page-specific overrides: monospace code blocks and inline code for API reference content.
+       printable-terms.css does not define these, so they're scoped locally to this page. */
+    .content-area code {
+      font-family: "Courier New", Courier, monospace;
+      background-color: #f0f0f0;
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      font-size: 0.9em;
+      word-break: break-all;
+    }
+    .content-area pre {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 1rem 1.25rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.85em;
+      line-height: 1.5;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .content-area pre code {
+      background-color: transparent;
+      padding: 0;
+      color: inherit;
+      word-break: normal;
+    }
+    .content-area table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .content-area table th,
+    .content-area table td {
+      border: 1px solid #dee2e6;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.95em;
+    }
+    .content-area table th {
+      background-color: #f0f0f0;
+    }
+
+    @media print {
+      @page { size: A4 portrait; margin: 2cm; }
+      .content-area pre { white-space: pre-wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="terms-container">
+  <div class="row justify-content-center">
+   <div class="col-lg-8">
+    <div class="content-area">
+
+    <div class="d-flex justify-content-between align-items-start mb-4">
+      <button onclick="window.print()" class="btn btn-primary no-print">
+        🖨️ imprimir este documento
+      </button>
+      <img src="../../assets/img/logos/logo-nubart-sync-teal.svg" alt="Nubart SYNC" style="width: 260px;">
+    </div>
+
+    <h1>INTEGRACIÓN DE VÍDEO NUBART SYNC</h1>
+
+        <p><strong>Servicio:</strong> Nubart SYNC — Integración directa de la posición de vídeo</p>
+        <p><strong>Versión del documento:</strong> 2.0</p>
+        <p><strong>Autor:</strong> Simon Effing</p>
+        <p><strong>Fecha:</strong> 9 de agosto de 2026</p>
+
+        <div class="alert alert-warning my-4">
+            <p class="mb-0"><strong>Referencia para socios técnicos y de integración.</strong> Esta página no está indexada ni enlazada desde la navegación pública. Documenta la integración directa, a nivel de código, con el punto final de sincronización de posición de vídeo de Nubart SYNC, y está pensada para desarrolladores e integradores audiovisuales que estén creando un reproductor personalizado. Si vas a implementarlo en un reproductor BrightSign, usa mejor la guía estándar de instrucciones de BrightSign; este documento es para reproductores que necesitan una integración de nivel más bajo.</p>
+        </div>
+
+        <h2>1. DESCRIPCIÓN GENERAL</h2>
+        <p>Si tu reproductor de vídeo no admite la reproducción basada en navegador, puedes integrar la sincronización de la posición del vídeo directamente en el código JavaScript de tu reproductor reutilizando la función <code>sendVideoPos</code> del script generado.</p>
+        <p>Si tu reproductor no se puede programar en absoluto con JavaScript, puedes utilizar el archivo HTML generado como plantilla: reimplementa el mismo patrón de solicitud en cualquier lenguaje o entorno de scripting que admita tu reproductor.</p>
+
+
+        <h2>2. PASOS DE INTEGRACIÓN</h2>
+
+        <h3>2.1 Copia la función de sincronización</h3>
+
+        <p>Abre el archivo HTML generado y copia todo lo que hay entre los marcadores:</p>
+
+        <pre><code>========== COPIA DESDE AQUÍ ==========</code></pre>
+        <p>y</p>
+
+        <pre><code>========== COPIAR HASTA AQUÍ ==========</code></pre>
+
+        <p>en el código JavaScript de tu reproductor. Así obtendrás <code>sendVideoPos()</code> y un <code>playerId</code> para esta sesión. Decidir cuándo llamarla depende totalmente de tu integración.</p>
+
+        <h3>2.2 Llama a la función al inicio de la reproducción</h3>
+
+        <pre><code>sendVideoPos(currentVideoTime);</code></pre>
+
+        <p>La posición se expresa en segundos, como un número decimal.</p>
+
+        <h3>2.3 Mantén la posición actualizada</h3>
+
+        <p>La forma de obtener la posición actual depende de tu reproductor: un evento que este active, un bucle de sondeo, un temporizador o una llamada de retorno desde su API de reproducción. El objetivo es simplemente que el punto final de sincronización nunca tenga una posición con un retraso de más de unos 10 segundos.</p>
+
+        <p>Un enfoque sencillo que funciona en la mayoría de entornos:</p>
+
+        <ul>
+            <li>Realiza una consulta cada 10 segundos durante la reproducción y llama a <code>sendVideoPos()</code> con la posición actual.</li>
+            <li>Llámala también en los eventos de transporte —inicio de la reproducción, reanudación tras una pausa, búsqueda y bucle o reinicio—, ya que estos cambian la posición de forma discontinua y no deberías esperar a la siguiente consulta.</li>
+        </ul>
+
+        <div class="bg-light p-4 my-3 border-start border-4 border-primary">
+            <p class="mb-0"><strong>IMPORTANTE:</strong> El intervalo exacto no es crucial. Mientras el vídeo se reproduzca de forma continua, nuestro servidor extrapola la posición actual a partir de la última que recibió, así que un intervalo más largo —o que se te pase alguna actualización de vez en cuando— no supone ninguna diferencia práctica. Lo que importa es que se envíe una nueva posición cada vez que la reproducción salte, por eso vale la pena conectar los eventos de transporte anteriores si tu reproductor los ofrece.</p>
+        </div>
+
+        <p>Si tu reproductor no ofrece ningún evento de transporte, basta con la consulta periódica; la sincronización tardará simplemente hasta un intervalo en ponerse al día tras un salto.</p>
+
+        <p>Asegúrate de que lo que sea que controle el sondeo siga funcionando durante los bucles y los reinicios.</p>
+
+        <h3>2.4 Opcional: gestionar el estado de sincronización</h3>
+
+        <pre><code>sendVideoPos(currentVideoTime, function(status) {
+  if (status === 200) {
+    console.log("Sync successful");
+  } else {
+    console.log("Sync failed with status: " + status);
+  }
+});</code></pre>
+
+    <div class="bg-light p-4 my-3 border-start border-4 border-primary">
+        <p class="mb-0"><strong>RELACIONADO:</strong> El indicador «Estado de sincronización» del portal del cliente (en la pestaña «Nubart SYNC») muestra cuándo fue la última vez que se llamó con éxito a <code>sendVideoPos()</code> para un vídeo concreto. Se actualiza únicamente en función de lo que te informe aquí tu reproductor; no le afecta si el teléfono de algún oyente está conectado o reproduciendo audio.</p>
+
+    </div>
+
+        <h2>3. NOTAS</h2>
+
+        <ul>
+            <li>Cada archivo HTML generado contiene las credenciales para una única instancia de vídeo.</li>
+            <li>El <code>playerId</code> se genera automáticamente al cargar la página y permanece constante durante esa sesión.</li>
+        </ul>
+
+
+        <footer class="mt-5 pt-3 border-top text-center text-muted small">
+            <p>Nubart SYNC — Referencia de integración de vídeo v2.0<br>
+                Nubart GmbH, Berlín, Alemania &nbsp;|&nbsp; Digital Tangible SL, Barcelona, España<br>
+                Referencia para socios técnicos y de integración. No destinada a la distribución pública.</p>
+        </footer>
+
+    </div>
+   </div>
+  </div>
+</div>
+
+</body>
+</html>

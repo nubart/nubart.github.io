@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <title>Nubart SYNC: implementación e instrucciones de BrightSign</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+
+    <!-- Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+
+    <!-- Cookie consent config -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png"/>
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <!-- CSS Files -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+    <link href="../../assets/css/style.css" rel="stylesheet"/>
+    <link href="../../assets/css/custom.css" rel="stylesheet"/>
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Page-specific additions on top of printable-terms.css -->
+    <style>
+        /* Generalized version of .center-column .interface-image, usable in any column */
+        .step-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 8px 0;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+        }
+        .icon-row {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-end;
+            margin: 8px 0;
+            flex-wrap: wrap;
+        }
+        .icon-row figure {
+            margin: 0;
+            text-align: center;
+        }
+        .icon-row img {
+            max-height: 70px;
+            width: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            display: block;
+        }
+        .icon-row figcaption {
+            font-size: 0.72rem;
+            color: #6c757d;
+            margin-top: 3px;
+        }
+        .flow-diagram {
+            margin: 8px 0;
+        }
+        .flow-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        .flow-box {
+            border: 1.5px solid #00a7b5;
+            border-radius: 6px;
+            background: #f0fdfb;
+            padding: 6px 8px;
+            font-size: 0.72rem;
+            line-height: 1.25;
+            flex: 1;
+            text-align: center;
+        }
+        .flow-arrow {
+            font-size: 1rem;
+            color: #00a7b5;
+            flex: 0 0 auto;
+            padding: 0 2px;
+        }
+        .flow-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6c757d;
+            margin: 10px 0 4px 0;
+        }
+        code {
+            background: #f1f3f5;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        @media print {
+            .step-image {
+                max-height: 6cm;
+                width: auto;
+                max-width: 100%;
+                object-fit: contain;
+            }
+            .icon-row img {
+                max-height: 2cm;
+            }
+            .flow-box {
+                font-size: 6.5pt;
+                padding: 0.15cm 0.2cm;
+            }
+            .flow-label {
+                font-size: 6pt;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="instructions-quick-reference">
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Imprimir instrucciones (A4 apaisado)
+    </button>
+
+    <!-- PAGE 1: PLATFORM SETUP (MERGED) -->
+    <section class="instruction-page">
+
+        <h1>Nubart SYNC — Configuración en la plataforma</h1>
+
+        <div class="instructions-grid">
+            <!-- COLUMNA IZQUIERDA: pasos 1-3 -->
+            <div class="left-column">
+
+                <div class="section-box">
+                    <h2>Antes de empezar</h2>
+                    <p>Estos pasos se realizan en la <strong>plataforma Nubart SYNC</strong> y son exactamente los mismos independientemente de cómo vayas a reproducir tus vídeos: ya sea con BrightSign, otro reproductor multimedia o un sistema basado en navegador. Completa primero esta página.</p>
+
+                    <p>¿Vas a publicar en <strong>BrightSign</strong>? Pasa a la página 2 una vez que hayas completado los pasos que aparecen a continuación. ¿Usas otra cosa? Echa un vistazo a la nota al final de esta página.</p>
+                </div>
+
+                <div class="section-box">
+                    <h2>1. Inicia sesión</h2>
+                    <ol>
+
+                        <li>Abre el enlace de invitación de administrador que te hemos enviado y guarda tus datos de inicio de sesión para consultarlos más adelante.</li>
+                        <li>A partir de ese momento, podrás iniciar sesión cuando quieras en <strong>www.nub.art/customer/login</strong>.</li>
+                    </ol>
+                    <p>La pestaña <strong>Estadísticas</strong> muestra las estadísticas de uso y los comentarios de los visitantes una vez que tus vídeos estén en línea.</p>
+                </div>
+
+                <div class="section-box">
+                    <h2>2. Invita a un técnico (opcional)</h2>
+                    <p>Si alguien que no seas tú —un integrador audiovisual o un técnico informático— se va a encargar de la integración, invítalo desde la pestaña <strong>Empleados</strong> y concédele el permiso <strong>«Controlador de vídeo»</strong>.</p>
+                </div>
+
+                <div class="section-box">
+                    <h2>3. Sube los vídeos a «Recursos»</h2>
+                    <p>Ve a <strong>Recursos</strong> y sube tus vídeos uno por uno. </p>
+                    <div class="alert alert-info">
+                        <strong>No hace falta que sean tus archivos definitivos.</strong> Las copias con marca de agua o de baja resolución sirven perfectamente aquí; solo se usan como referencia y para comprobar la sincronización. Lo importante es que la duración y el contenido coincidan exactamente con el vídeo que vas a publicar finalmente.
+                    </div>
+                </div>
+
+
+                <div class="section-box">
+                    <h2>4. Crea las instancias de vídeo</h2>
+                    <p>Ve a la pestaña <strong>Sincronización de vídeo</strong>, escribe un nombre en <strong>Nombre del nuevo vídeo</strong> y haz clic en <strong>Crear nuevo</strong>. A continuación, abre el menú desplegable <strong>Archivo de vídeo</strong> y selecciona el archivo que acabas de subir.</p>
+
+                    <img class="step-image" src="../../assets/img/sync/instructions/step4-create-video-instance.png" alt="Creando una nueva instancia de vídeo y seleccionando su archivo de vídeo en la plataforma Nubart SYNC">
+                </div>
+
+                <div class="section-box">
+                    <div class="alert alert-warning">
+                        <strong>Elige el nombre con cuidado: no se podrá cambiar más adelante.</strong> Usa algo descriptivo que nuestro equipo de producción pueda reconocer, por ejemplo, <em>«3-Entrevista con Picasso»</em> en lugar de simplemente <em>«3»</em>.
+
+                    </div>
+                    <h3>¿Una instancia o dos?</h3>
+                    <ul>
+                        <li><strong>El mismo vídeo, con audio sincronizado en varios idiomas:</strong> crea <u>una</u> instancia de vídeo; los idiomas se incluyen dentro de ella.</li>
+
+                        <li><strong>El mismo vídeo que se muestra en dos ubicaciones diferentes:</strong> crea <u>dos</u> instancias de vídeo, una por ubicación.</li>
+                    </ul>
+                    <p>Repite el paso 4 para cada vídeo que necesites sincronizar.</p>
+                </div>
+
+            </div>
+
+            <!-- CENTER COLUMN: step 5 -->
+        <div class="center-column">
+
+
+            <div class="section-box">
+                <h2>5. Vincula las pistas de audio</h2>
+                <p>Antes de seguir, decide cómo quieres que lleguen las pistas sincronizadas a tu público. </p>
+                <h3>Opción A: un único código QR para todo</h3>
+                <p>Un único código QR abre una audioguía multimedia que puede combinar pistas sincronizadas con otros audios pregrabados, imágenes o archivos PDF.</p>
+
+                <img class="step-image" src="../../assets/img/sync/instructions/step5-option-a-single-qr.png" alt="Diagrama de un código QR que abarca varias pantallas y abre una audioguía combinada de varias pistas en un móvil">
+                <p>Sube todo el material a Assets y tu gestor de proyectos de Nubart se encargará del resto.</p>
+
+            </div>
+
+            <div class="section-box">
+                <h3>Opción B — Un código QR por pantalla</h3>
+                <p>Cada pantalla tiene su propio código QR, vinculado únicamente a la(s) pista(s) de audio de esa pantalla. Puedes configurarlo tú mismo:</p>
+
+                <img class="step-image" src="../../assets/img/sync/instructions/step5-option-b-multi-qr.png" alt="Diagrama de un código QR independiente y una banda sonora correspondiente para cada una de las cuatro pantallas">
+                <ol>
+                    <li>Haz clic en el icono <strong>Audio</strong> de la instancia de vídeo.</li>
+
+                    <li>Sube la pista, ponle un título y asigna el idioma. Añade más pistas en otros idiomas si lo necesitas.</li>
+                    <li>Descarga el código QR.</li>
+                </ol>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Option B continued (icons + note), Option C, through step 7 -->
+        <div class="right-column">
+
+            <div class="section-box">
+
+                <h4>Opción B, cont. </h4>
+                <div class="icon-row">
+                    <figure>
+                        <img src="../../assets/img/sync/instructions/step5-click-audio-icon.png" alt="Icono de audio en la tabla de instancias de vídeo de Nubart SYNC">
+                        <figcaption>1. Haz clic en «Audio»</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../../assets/img/sync/instructions/step5-download-qr-icon.png" alt="Icono de descarga del código QR junto a una pista de audio subida">
+                        <figcaption>3. Descargar QR</figcaption>
+                    </figure>
+                </div>
+                <div class="alert alert-danger">
+                    <strong>Las pistas de audio deben coincidir exactamente con la duración del vídeo y tener una tasa de bits constante.</strong> Dinos si necesitas ayuda para prepararlas.
+                </div>
+            </div>
+
+            <div class="section-box">
+                <h3>Opción C — Híbrida</h3>
+                <p>Combina ambas cosas: una audioguía multimedia y un código QR junto a cada pantalla. Pregúntanos y te guiaremos en el proceso.</p>
+            </div>
+
+            <div class="section-box">
+                <h2>6. Configurar la reproducción en bucle</h2>
+                <img class="step-image" src="../../assets/img/sync/instructions/step6-loop-checkbox.png" alt="Casilla de bucle en la tabla de instancias de vídeo de Nubart SYNC">
+
+                <p>Desmarca <strong>Loop</strong> (Repetición en bucle) si quieres que el vídeo se detenga tras reproducirse una vez, en lugar de repetirse. Hazlo <strong>antes</strong> de descargar el script del reproductor, en el siguiente paso.</p>
+            </div>
+
+            <div class="section-box">
+                <h2>7. Descarga el script del reproductor</h2>
+                <img class="step-image" src="../../assets/img/sync/instructions/step7-download-player-script.png" alt="Botón para descargar el script del reproductor en la tabla de instancias de vídeo de Nubart SYNC">
+
+                <p>Haz clic en el icono de descarga para obtener <strong>videoplayer.html</strong>. Este script vincula tu archivo de vídeo local con Nubart SYNC e incluye un token único para esta instancia de vídeo; lo necesitarás para publicarlo.</p>
+            </div>
+
+            <div class="section-box">
+                <h2>¿No usas BrightSign?</h2>
+                <p>Nubart SYNC funciona con cualquier reproductor moderno basado en Chromium; pregunta al equipo de soporte de tu sistema cómo publicar un archivo HTML en él. Si tu reproductor no puede cargar una página web completa pero sí admite JavaScript, o en el caso de mapeos, micromapeos y proyecciones, nuestra <a href="nubart-sync-integracion-video-referencia.html" target="_blank"><strong>Referencia de integración de Video Sync</strong></a> explica cómo tu integrador audiovisual puede conectarse directamente al punto final de sincronización.
+
+                    En cualquier caso, escribe a <a href="mailto:info@nubart.eu">info@nubart.eu</a> y te ayudaremos.</p>
+                <p> Si <em>estás</em> usando BrightSign, pasa a la página 2.</p>
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <!-- PAGE 3: BRIGHTSIGN PUBLISHING (MERGED) -->
+    <section class="instruction-page">
+
+        <h1>Publicar en un reproductor BrightSign</h1>
+
+        <div class="instructions-grid">
+            <!-- COLUMNA IZQUIERDA: pasos 1-2 -->
+            <div class="left-column">
+
+                <div class="section-box">
+                    <h2>Antes de empezar</h2>
+                    <div class="alert alert-warning">
+                        <strong>Tu reproductor BrightSign necesita una conexión a Internet permanente</strong> (Ethernet o Wi-Fi) para mantenerse sincronizado con el servidor de Nubart. Los requisitos de ancho de banda son mínimos: el vídeo siempre se reproduce localmente desde el reproductor.
+
+                    </div>
+                    <p>En la pestaña «Sincronización de vídeo» de nuestra plataforma, el botón <strong>Instrucciones de BrightSign</strong> abre un breve vídeo explicativo. Vale la pena verlo antes de empezar.</p>
+                </div>
+
+                <div class="section-box">
+                    <h2>1. Prepara tus archivos</h2>
+                    <p>Necesitas exactamente dos archivos, colocados juntos en una carpeta que no contenga nada más:</p>
+
+                    <ul>
+                        <li><i class="bi bi-film"></i> Tu vídeo, renombrado como <code>video.mp4</code></li>
+                        <li><i class="bi bi-filetype-html"></i> El archivo <code>videoplayer.html</code> que descargaste en la página 1</li>
+
+                    </ul>
+                    <div class="alert alert-danger">
+                        <strong>Los nombres de estos dos archivos son fijos.</strong> Siempre deben llamarse exactamente <code>video.mp4</code> y <code>videoplayer.html</code> — pero a la carpeta en sí puedes ponerle el nombre que te ayude a organizarte mejor.
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <h2>2. Abre BrightSign Author</h2>
+                    <p>Inicia sesión en BrightSign Author (BrightAuthor:connected) y selecciona <strong>Nueva presentación</strong> en el panel de control.</p>
+
+                    <img class="step-image" src="../../assets/img/sync/instructions/brightauthor-dashboard.png" alt="Panel de control de BrightSign Author con el mosaico «Nueva presentación»">
+                </div>
+
+            </div>
+
+            <!-- CENTER COLUMN: steps 3-4 -->
+        <div class="center-column">
+
+            <div class="section-box">
+
+                <h2>3. Configurar la zona HTML</h2>
+                <p>Elige la plantilla <strong>Zona única → HTML</strong>, ponle un nombre a la presentación y selecciona <strong>Contenido local</strong> para el sitio HTML.</p>
+                <img class="step-image" src="../../assets/img/sync/instructions/brightauthor-html-zone-dialog.png" alt="Cuadro de diálogo de configuración de una presentación HTML de una sola zona en BrightSign Author">
+
+                <p>Configura <strong>el dispositivo de destino, el conector, la resolución de salida, la frecuencia de fotogramas de destino</strong> y <strong>la orientación de la pantalla</strong> para que se ajusten a tu pantalla y, a continuación, haz clic en <strong>Iniciar</strong>.</p>
+            </div>
+
+            <div class="section-box">
+                <h2>4. Añade tus archivos</h2>
+                <p>De vuelta en BrightSign Author, se abrirá un explorador de archivos: selecciona el archivo <strong>videoplayer.html</strong> de la carpeta que preparaste en el paso 1. Antes de continuar, comprueba que ambos archivos aparecen en la pestaña «Contenido».</p>
+
+                <img class="step-image" src="../../assets/img/sync/instructions/brightauthor-content-view.png" alt="Vista de contenido de BrightSign Author mostrando video.mp4 y videoplayer.html cargados juntos">
+                <p>Selecciona el vídeo y haz clic en <strong>Publicar</strong> (arriba a la derecha).</p>
+            </div>
+
+        </div>
+
+            <!-- COLUMNA DERECHA: paso 5 + notas finales -->
+            <div class="right-column">
+
+                <div class="section-box">
+                    <h2>5. Selecciona el dispositivo y publica</h2>
+
+                    <img class="step-image" src="../../assets/img/sync/instructions/brightauthor-schedule-publish.png" alt="Pantalla de programación de BrightSign Author con un dispositivo de destino seleccionado y el botón «Publicar»">
+                    <p>Elige el dispositivo de destino de tu lista de red y haz clic en <strong>Publicar</strong> otra vez.</p>
+
+                    <div class="alert alert-success">
+                        <strong>Repite todo este proceso</strong> con cada vídeo que quieras publicar.
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <h2>Tu reproductor</h2>
+                    <img class="step-image" src="../../assets/img/sync/instructions/brightsign-player-photo.png" alt="Un reproductor multimedia BrightSign, conectado por HDMI y Ethernet">
+
+                    <p>Cualquier reproductor BrightSign conectado a Internet sirve, por ejemplo, un HD224 o un modelo similar. Solo tienes que tener abierto BrightAuthor:connected cuando vayas a publicar; en el día a día, basta con que el reproductor esté conectado a Internet.</p>
+                </div>
+
+                <div class="section-box">
+                    <h2>¿Necesitas ayuda?</h2>
+                    <p>Escríbenos a <a href="mailto:info@nubart.eu">info@nubart.eu</a> cuando quieras: antes, durante o después de la configuración.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 5: FINAL CHECKS & REFERENCE -->
+    <section class="instruction-page">
+
+        <h1>Comprobaciones finales y referencias</h1>
+
+        <div class="instructions-grid">
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="left-column">
+
+                <div class="section-box">
+                    <h2>Estado de sincronización</h2>
+
+                    <p>Cuando se esté reproduciendo tu vídeo, el semáforo de la columna <strong>Estado de sincronización</strong> muestra cuántos segundos han pasado desde la última vez que el reproductor se comunicó con el servidor de Nubart. Actualiza la página para que se actualice.</p>
+                    <div>
+                        <p>🟢 <strong>Verde</strong> — se está sincronizando con normalidad, todo funciona bien.</p>
+
+                        <p>🔴 <strong>Rojo</strong> — no se ha producido ninguna conexión reciente.</p>
+                    </div>
+                    <div class="alert alert-info">
+                        <strong>El rojo no siempre es un problema.</strong> Si un vídeo está configurado para <em>no</em> reproducirse en bucle y solo se reproduce de vez en cuando, es totalmente normal que el semáforo se ponga rojo entre reproducciones.
+
+                    </div>
+                </div>
+
+                <p class="flow-label">Solución de problemas</p>
+                <div class="section-box">
+                    <h2>Comprobación de que la señal está activa</h2>
+                    <p>Para confirmar que Nubart SYNC está recibiendo tu señal, haz una prueba con dos dispositivos a la vez:</p>
+
+                    <ol>
+                        <li>En un portátil o una tableta, abre la pestaña «Video Sync» y fíjate en el estado de sincronización de ese vídeo.</li>
+                        <li>Mientras se reproduce el vídeo, el estado debería mantenerse en verde al actualizar la página.</li>
+
+                    </ol>
+                    <div class="alert alert-warning">
+
+                        Si el estado no se vuelve verde durante esta prueba, la señal no nos está llegando; escribe a <a href="mailto:info@nubart.eu">info@nubart.eu</a>.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLUMNA CENTRAL -->
+            <div class="center-column">
+
+                <div class="section-box">
+                    <h2>Desfase</h2>
+                    <p>Si el audio va ligeramente por detrás o por delante del vídeo —se nota más cuando alguien está hablando en pantalla—, ajusta el campo <strong>Desfase (ms)</strong> de esa instancia de vídeo.</p>
+
+                    <ol>
+                        <li>Ponte delante de la pantalla con un móvil reproduciendo el audio sincronizado; mantén abierta una tableta o un portátil en la plataforma Nubart.</li>
+                        <li>Introduce un valor de desfase para ese vídeo (positivo o negativo, en milisegundos).</li>
+                        <li>Actualiza el móvil y vuelve a reproducir el audio. Repite el proceso hasta que la sincronización te parezca correcta.</li>
+                    </ol>
+                    <p><small>Esta latencia viene de la pantalla y la cadena de cableado de cada sitio, así que, una vez configurada, es estable, pero es específica de cada instalación y pantalla.</small></p>
+                </div>
+
+                <p class="flow-label">Solución de problemas</p>
+                <div class="section-box">
+                    <h2>El audio se desvía o salta solo en el iPhone</h2>
+                    <p>Si el audio sincronizado salta o se desvía específicamente en los iPhone (Safari), mientras que la misma pista se reproduce bien en Android, la causa suele ser casi siempre la codificación de la pista de audio.
+                        Tiene que ser <strong>velocidad de bits constante (CBR)</strong>, <strong>44,1 kHz</strong>, <strong>MPEG Versión 1, Capa 3</strong>; la velocidad de bits variable (un valor predeterminado habitual en herramientas como Audacity) suele ser la culpable.</p>
+
+                    <div class="alert alert-info">
+                        ¿No sabes cómo está codificado tu archivo? Envíalo a <a href="mailto:info@nubart.eu">info@nubart.eu</a> y lo comprobaremos por ti.
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <h2>Pequeñas diferencias de sincronización entre teléfonos</h2>
+                    <p>Si haces la prueba con varios teléfonos a la vez, no te sorprendas si no están perfectamente sincronizados entre sí: el hardware, el sistema operativo y la conexión a Internet de cada teléfono se comportan de forma ligeramente diferente. Normalmente, la diferencia es inferior a 0,3 segundos, y a menudo menor en Android.</p>
+
+                    <div class="alert alert-info">
+                        Esto solo se nota cuando comparas varios teléfonos a la vez. Un visitante real, que esté navegando solo con su propio teléfono, no lo percibirá.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+        <div class="right-column">
+
+            <div class="section-box">
+
+                <h2>Cómo encaja todo</h2>
+                <div class="flow-diagram">
+                    <p class="flow-label">Configuración única</p>
+                    <div class="flow-row">
+                        <div class="flow-box">BrightAuthor: conectado<br>(se publica una vez)</div>
+
+                        <div class="flow-arrow">&#8594;</div>
+                        <div class="flow-box">video.mp4 + videoplayer.html<br>en el reproductor BrightSign</div>
+                    </div>
+                    <p class="flow-label">Todos los días, en el lugar</p>
+
+                    <div class="flow-row">
+                        <div class="flow-box">Pantalla<br>(aquí se reproduce el vídeo, siempre sin sonido)</div>
+                        <div class="flow-arrow">&#8596;</div>
+                        <div class="flow-box">Backend de Nubart<br>(señal de sincronización)</div>
+
+                        <div class="flow-arrow">&#8596;</div>
+                        <div class="flow-box">El móvil del visitante<br>(aquí se reproduce el sonido)</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="flow-label">Solución de problemas</p>
+            <div class="section-box">
+
+                <h2>Breve pausa al reiniciarse un vídeo en bucle</h2>
+                <p>Puede que notes una pausa muy breve cada vez que un vídeo en bucle se reinicia desde el principio. En los reproductores BrightSign, esto es normal: el reproductor necesita volver a cargar el vídeo en cada ciclo para reiniciarlo de forma fiable y mantener la precisión de la señal de sincronización; no se trata de un fallo.</p>
+            </div>
+
+            <div class="section-box">
+                <h2>Asistencia técnica</h2>
+                <p><strong>Correo electrónico:</strong> info@nubart.eu</p>
+                <p style="text-align: center; margin-top: 10px;">
+                    <strong>Nubart SYNC</strong><br>
+
+                    <small>www.nubart.eu | <a href="mailto:info@nubart.eu">info@nubart.eu</a></small>
+                </p>
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+</div>
+
+<div class="no-print" style="text-align: center; margin: 2rem 0;">
+    <a href="../sync/" style="font-size: 1rem; color: #00a7b5; text-decoration: none;">
+        ← Volver a Nubart SYNC
+    </a>
+</div>
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Critical JS Files -->
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+
+
+<!-- Non-Critical JS Files - Still deferred but loaded directly -->
+<script src="../../assets/vendor/aos/aos.js" defer></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../../assets/js/main-min.js" defer></script>
+
+<!-- Hubspot Analytics scripts with proper async loading -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async
+        src="//js.hs-scripts.com/2430134.js"></script>
+
+
+<script type="module" src="/js/cookieconsent-config.js"></script>
+</body>
+</html>
