@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <title>Integración de vídeo Nubart SYNC &ndash;- Referencia técnica</title>
+  <title>Integración de vídeo Nubart SYNC &ndash; Referencia técnica</title>
 
   <!-- Icons -->
   <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
@@ -62,6 +62,7 @@
     @media print {
       @page { size: A4 portrait; margin: 2cm; }
       .content-area pre { white-space: pre-wrap; }
+      .content-area img { max-height: 8cm; width: auto; max-width: 100%; object-fit: contain; }
     }
   </style>
 </head>
@@ -87,12 +88,16 @@
         <p><strong>Fecha:</strong> 9 de agosto de 2026</p>
 
         <div class="alert alert-warning my-4">
-            <p class="mb-0"><strong>Referencia para socios técnicos y de integración.</strong> Esta página no está indexada ni enlazada desde la navegación pública. Documenta la integración directa, a nivel de código, con el punto final de sincronización de posición de vídeo de Nubart SYNC, y está pensada para desarrolladores e integradores audiovisuales que estén creando un reproductor personalizado. Si vas a implementarlo en un reproductor BrightSign, usa mejor la guía estándar de instrucciones de BrightSign; este documento es para reproductores que necesitan una integración de nivel más bajo.</p>
+            <p class="mb-0"><strong>Referencia para socios técnicos y de integración.</strong> Esta página no está indexada ni enlazada desde la navegación pública. Documenta la integración directa, a nivel de código, con el punto final (endpoint)de sincronización de posición de vídeo de Nubart SYNC, y está pensada para desarrolladores e integradores audiovisuales que estén creando un reproductor personalizado. Si vas a implementarlo en un reproductor BrightSign, usa mejor <a href="nubart-sync-brightsign-instrucciones.html" target="_blank">la guía estándar de instrucciones de BrightSign</a>; este documento es para reproductores que necesitan una integración de nivel más bajo.</p>
         </div>
 
         <h2>1. DESCRIPCIÓN GENERAL</h2>
         <p>Si tu reproductor de vídeo no admite la reproducción basada en navegador, puedes integrar la sincronización de la posición del vídeo directamente en el código JavaScript de tu reproductor reutilizando la función <code>sendVideoPos</code> del script generado.</p>
-        <p>Si tu reproductor no se puede programar en absoluto con JavaScript, puedes utilizar el archivo HTML generado como plantilla: reimplementa el mismo patrón de solicitud en cualquier lenguaje o entorno de scripting que admita tu reproductor.</p>
+        <p>Si tu reproductor no se puede programar en absoluto con JavaScript, puedes utilizar el archivo HTML generado como plantilla en tu plataforma Nubart: </p>
+        <img class="img-fluid d-block my-4 border rounded" src="../../assets/img/sync/instructions/step7-download-player-script.png" alt="Botón para descargar el script del reproductor en la tabla de instancias de vídeo de Nubart SYNC">
+
+        <p>
+            Reimplementa el mismo patrón de solicitud en cualquier lenguaje o entorno de scripting que admita tu reproductor.</p>
 
 
         <h2>2. PASOS DE INTEGRACIÓN</h2>
@@ -101,10 +106,10 @@
 
         <p>Abre el archivo HTML generado y copia todo lo que hay entre los marcadores:</p>
 
-        <pre><code>========== COPIA DESDE AQUÍ ==========</code></pre>
+        <pre><code>========== COPY FROM HERE ==========</code></pre>
         <p>y</p>
 
-        <pre><code>========== COPIAR HASTA AQUÍ ==========</code></pre>
+        <pre><code>========== COPY TO HERE ==========</code></pre>
 
         <p>en el código JavaScript de tu reproductor. Así obtendrás <code>sendVideoPos()</code> y un <code>playerId</code> para esta sesión. Decidir cuándo llamarla depende totalmente de tu integración.</p>
 
@@ -116,24 +121,24 @@
 
         <h3>2.3 Mantén la posición actualizada</h3>
 
-        <p>La forma de obtener la posición actual depende de tu reproductor: un evento que este active, un bucle de sondeo, un temporizador o una llamada de retorno desde su API de reproducción. El objetivo es simplemente que el punto final de sincronización nunca tenga una posición con un retraso de más de unos 10 segundos.</p>
+        <p>La forma de obtener la posición actual depende de tu reproductor: un evento que este active, un bucle de sondeo, un temporizador o una llamada de retorno (callback) desde su API de reproducción. El objetivo es simplemente que el punto final de sincronización nunca tenga una posición con un retraso de más de unos 10 segundos.</p>
 
         <p>Un enfoque sencillo que funciona en la mayoría de entornos:</p>
 
         <ul>
-            <li>Realiza una consulta cada 10 segundos durante la reproducción y llama a <code>sendVideoPos()</code> con la posición actual.</li>
-            <li>Llámala también en los eventos de transporte —inicio de la reproducción, reanudación tras una pausa, búsqueda y bucle o reinicio—, ya que estos cambian la posición de forma discontinua y no deberías esperar a la siguiente consulta.</li>
+            <li>Realiza un sondeo cada 10 segundos durante la reproducción y llama a <code>sendVideoPos()</code> con la posición actual.</li>
+            <li>Llámala también en los eventos de transporte —inicio de la reproducción, reanudación tras una pausa, salto y bucle o reinicio—, ya que estos cambian la posición de forma discontinua y no deberías esperar al siguiente sondeo.</li>
         </ul>
 
         <div class="bg-light p-4 my-3 border-start border-4 border-primary">
             <p class="mb-0"><strong>IMPORTANTE:</strong> El intervalo exacto no es crucial. Mientras el vídeo se reproduzca de forma continua, nuestro servidor extrapola la posición actual a partir de la última que recibió, así que un intervalo más largo —o que se te pase alguna actualización de vez en cuando— no supone ninguna diferencia práctica. Lo que importa es que se envíe una nueva posición cada vez que la reproducción salte, por eso vale la pena conectar los eventos de transporte anteriores si tu reproductor los ofrece.</p>
         </div>
 
-        <p>Si tu reproductor no ofrece ningún evento de transporte, basta con la consulta periódica; la sincronización tardará simplemente hasta un intervalo en ponerse al día tras un salto.</p>
+        <p>Si tu reproductor no ofrece ningún evento de transporte, basta con el sondeo periódico: la sincronización puede tardar hasta un intervalo completo en ponerse al día tras un salto.</p>
 
         <p>Asegúrate de que lo que sea que controle el sondeo siga funcionando durante los bucles y los reinicios.</p>
 
-        <h3>2.4 Opcional: gestionar el estado de sincronización</h3>
+        <h3>2.4 Opcional: gestionar el Sync Status (estado de sincronización)</h3>
 
         <pre><code>sendVideoPos(currentVideoTime, function(status) {
   if (status === 200) {
@@ -144,7 +149,7 @@
 });</code></pre>
 
     <div class="bg-light p-4 my-3 border-start border-4 border-primary">
-        <p class="mb-0"><strong>RELACIONADO:</strong> El indicador «Estado de sincronización» del portal del cliente (en la pestaña «Nubart SYNC») muestra cuándo fue la última vez que se llamó con éxito a <code>sendVideoPos()</code> para un vídeo concreto. Se actualiza únicamente en función de lo que te informe aquí tu reproductor; no le afecta si el teléfono de algún oyente está conectado o reproduciendo audio.</p>
+        <p class="mb-0"><strong>RELACIONADO:</strong> El indicador «Sync Status» del portal del cliente (en la pestaña «Nubart SYNC») muestra cuándo fue la última vez que se llamó con éxito a <code>sendVideoPos()</code> para un vídeo concreto. Se actualiza únicamente en función de lo que te informe aquí tu reproductor; no le afecta si el teléfono de algún oyente está conectado o reproduciendo audio.</p>
 
     </div>
 

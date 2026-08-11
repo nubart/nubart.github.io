@@ -62,6 +62,7 @@
     @media print {
       @page { size: A4 portrait; margin: 2cm; }
       .content-area pre { white-space: pre-wrap; }
+      .content-area img { max-height: 8cm; width: auto; max-width: 100%; object-fit: contain; }
     }
   </style>
 </head>
@@ -86,14 +87,16 @@
     <p><strong>Date:</strong> 9 August 2026</p>
 
     <div class="alert alert-warning my-4">
-      <p class="mb-0"><strong>Technical / integration partner reference.</strong> This page is not indexed and not linked from public navigation. It documents direct, code-level integration with Nubart SYNC's video-position sync endpoint, intended for developers and AV integrators building a custom player. If you're deploying to a BrightSign player, use the standard BrightSign Instructions guide instead — this document is for players that need a lower-level integration.</p>
+      <p class="mb-0"><strong>Technical / integration partner reference.</strong> This page is not indexed and not linked from public navigation. It documents direct, code-level integration with Nubart SYNC's video-position sync endpoint, intended for developers and AV integrators building a custom player. If you're deploying to a BrightSign player, use the <a href="nubart-sync-brightsign-instructions.html" target="_blank">standard BrightSign Instructions guide</a> instead — this document is for players that need a lower-level integration.</p>
     </div>
 
     <h2>1. OVERVIEW</h2>
 
     <p>If your video player doesn't support browser-based playback, you can integrate video position synchronization directly into your player's JavaScript code by reusing the <code>sendVideoPos</code> function from the generated script.</p>
 
-    <p>If your player cannot be programmed with JavaScript at all, the generated HTML file can instead be used as a blueprint: reimplement the same request pattern in whatever language or scripting environment your player does support.</p>
+    <p>If your player cannot be programmed with JavaScript at all, you can use as a blueprint the generated HTML file on your Nubart platform: </p>
+        <img class="img-fluid d-block my-4 border rounded" src="../assets/img/sync/instructions/step7-download-player-script.png" alt="Button to download the player script in the Nubart SYNC video instances table">
+        <p>Just reimplement the same request pattern in whatever language or scripting environment your player does support.</p>
 
     <h2>2. INTEGRATION STEPS</h2>
 

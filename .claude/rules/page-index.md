@@ -540,13 +540,14 @@
 **Instructions (Platform Setup + BrightSign publishing, unlinked from search — printable, noindex):**
 - EN: sync/nubart-sync-brightsign-instructions.html
 - ES: es/sync/nubart-sync-brightsign-instrucciones.html
-- DE/FR/IT: (still pending — secondary navbar "Instructions" button on those SYNC landing pages links to the EN page)
-- Each landing page's "Instructions" navbar button links to its own language's instructions page where one exists (EN, ES), and to the EN page otherwise (DE, FR, IT).
+- DE: de/sync/nubart-sync-brightsign-anleitung.html
+- FR/IT: (still pending — secondary navbar "Instructions" button on those SYNC landing pages links to the EN page)
+- Each landing page's "Instructions" navbar button links to its own language's instructions page where one exists (EN, ES, DE), and to the EN page otherwise (FR, IT).
 
 **Video Integration Reference (technical/AV-integrator doc for direct `sendVideoPos` sync-endpoint integration, unlinked from search — noindex, nofollow, noarchive, nosnippet):**
 - EN: sync/nubart-sync-video-integration-reference.html
 - ES: es/sync/nubart-sync-integracion-video-referencia.html
-- DE/FR/IT: (still pending)
+- DE/FR/IT: (still pending — the "Not using BrightSign?" note on `de/sync/nubart-sync-brightsign-anleitung.html` deliberately links to the EN reference page, by design, rather than waiting on a translation)
 - Linked from the "Not using BrightSign?" note at the bottom of page 1 of each language's BrightSign instructions page (own-language link on EN/ES; the DE/FR/IT instructions pages don't exist yet so this doesn't apply to them).
 
 **Pricing:** No standalone pricing page. Pricing lives inline as a cost-calculator section on each SYNC explainer at the `#pricing` anchor (e.g. `sync/#pricing`). The former standalone pages (`sync/pricing/`, `de/sync/preis/`, `es/sync/precio/`, `fr/sync/prix/`, `it/sync/prezzi/`) were removed 2026-07; all "Pricing" nav links and the Service `potentialAction` now target `#pricing`. Calculator: `assets/js/sync-calculator.js` (shared engine) + `assets/css/sync-calculator.css`, driven by a per-page inline `window.SYNC_CALC_I18N` object (`locale`, `subject`/`body`, `ui`, `details`). Live in EN, DE, ES, FR and IT. Currency is rendered number-first with a suffixed `€` via `fmt()` using each page's `locale` (e.g. `1.500 €` / `1 500 €`).
