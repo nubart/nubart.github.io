@@ -56,7 +56,7 @@
         </div>
         <div class="trial-tip">
             <i class="bi bi-qr-code tip-icon"></i>
-            <div><strong>6 unique QR cards</strong> for testing, printed on the last page of this document.</div>
+            <div><strong><span class="card-count">6</span> unique QR cards</strong> for testing, printed on the last page of this document.</div>
         </div>
         <div class="trial-tip">
             <i class="bi bi-images tip-icon"></i>
@@ -71,7 +71,7 @@
     <div class="full-instructions-box">
         <i class="bi bi-printer"></i>
         <div>
-            <strong>Practical advice:</strong> print the full instructions now and cut out the six cards before leaving. This makes the test much easier in the field.
+            <strong>Practical advice:</strong> print the full instructions now and cut out the <span class="card-count">6</span> cards before leaving. This makes the test much easier in the field.
         </div>
     </div>
     <!-- ── PHASE 1 ─────────────────────────────────────────────────────── -->
@@ -119,10 +119,10 @@
     <div class="step-block">
         <div class="step-header">
             <span class="step-number">2</span>
-            <h3>Print and cut the 6 participant cards</h3>
+            <h3>Print and cut the <span class="card-count">6</span> participant cards</h3>
         </div>
         <div class="step-body">
-            <p>Cut out the 6 cards from the last printed page — it takes less than a minute. Keep them ready to
+            <p>Cut out the <span class="card-count">6</span> cards from the last printed page — it takes less than a minute. Keep them ready to
                 hand
                 out when you meet your group.</p>
             <div class="callout">
@@ -171,7 +171,7 @@
             <p><strong>First, you (the guide) scan the cards.</strong></p>
             <p>Tap <strong>"Open scanner"</strong> on the guide screen and scan the QR cards of the participants
                 joining
-                your test — you do not need to scan all 6 if you are only testing with a smaller group.</p>
+                your test — you do not need to scan all <span class="card-count">6</span> if you are only testing with a smaller group.</p>
             <div class="callout info">
                 <i class="bi bi-info-circle me-1"></i>
                 We recommend scanning the cards before handing them out — it is the easiest approach. That said,
@@ -518,10 +518,21 @@
             return wrapper;
         }
 
+        /* ── How many cards does this link provide? (max 12) ─ */
+        const MAX_CARDS = 12;
+        let cardCount = 0;
+        for (let i = 1; i <= MAX_CARDS; i++) {
+            if (params.get('card' + i)) cardCount = i;
+        }
+        if (cardCount === 0) cardCount = 6;
+        document.querySelectorAll('.card-count').forEach(function (el) {
+            el.textContent = cardCount;
+        });
+
         /* ── Render grid ───────────────────────────────── */
         const grid = document.getElementById('qr-grid');
         let anyCard = false;
-        for (let i = 1; i <= 6; i++) {
+        for (let i = 1; i <= cardCount; i++) {
             const url = params.get('card' + i);
             if (url) {
                 anyCard = true;

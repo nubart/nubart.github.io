@@ -55,7 +55,7 @@
         </div>
         <div class="trial-tip">
             <i class="bi bi-qr-code tip-icon"></i>
-            <div><strong>6 cartes QR uniques</strong> pour le test, imprimées à la dernière page de ce document.</div>
+            <div><strong><span class="card-count">6</span> cartes QR uniques</strong> pour le test, imprimées à la dernière page de ce document.</div>
         </div>
         <div class="trial-tip">
             <i class="bi bi-images tip-icon"></i>
@@ -70,7 +70,7 @@
     <div class="full-instructions-box">
         <i class="bi bi-printer"></i>
         <div>
-           <strong>Conseil pratique :</strong> imprimez dès maintenant les instructions complètes et découpez les six cartes avant de partir. Cela facilitera grandement le test sur le terrain.
+           <strong>Conseil pratique :</strong> imprimez dès maintenant les instructions complètes et découpez les <span class="card-count">6</span> cartes avant de partir. Cela facilitera grandement le test sur le terrain.
         </div>
     </div>
     <!-- ── PHASE 1 ─────────────────────────────────────────────────────── -->
@@ -117,10 +117,10 @@
     <div class="step-block">
         <div class="step-header">
             <span class="step-number">2</span>
-            <h3>Imprimez et découpez les 6 cartes de participant</h3>
+            <h3>Imprimez et découpez les <span class="card-count">6</span> cartes de participant</h3>
         </div>
         <div class="step-body">
-            <p>Découpez les 6 cartes sur la dernière page imprimée — cela prend moins d’une minute. Gardez-les à portée de
+            <p>Découpez les <span class="card-count">6</span> cartes sur la dernière page imprimée — cela prend moins d’une minute. Gardez-les à portée de
                 main
                 pour les distribuer lorsque vous rencontrerez votre groupe.</p>
             <div class="callout">
@@ -166,7 +166,7 @@
             <p><strong>Tout d'abord, c'est vous (le guide) qui scannez les cartes.</strong></p>
             <p>Appuyez sur <strong> « Ouvrir le scanner »</strong> sur l'écran du guide et scannez les cartes QR des participants
                 qui participent
-                à votre test — vous n'avez pas besoin de scanner les 6 si vous ne testez qu'avec un petit groupe.</p>
+                à votre test — vous n'avez pas besoin de scanner les <span class="card-count">6</span> si vous ne testez qu'avec un petit groupe.</p>
             <div class="callout info">
                <i class="bi bi-info-circle me-1"></i> 
                 Nous vous recommandons de scanner les cartes avant de les distribuer — c'est la méthode la plus simple. Cela dit,
@@ -506,10 +506,21 @@
             return wrapper;
         }
 
+        /* ── Combien de cartes ce lien fournit-il ? (max. 12) ─ */
+        const MAX_CARDS = 12;
+        let cardCount = 0;
+        for (let i = 1; i <= MAX_CARDS; i++) {
+            if (params.get('card' + i)) cardCount = i;
+        }
+        if (cardCount === 0) cardCount = 6;
+        document.querySelectorAll('.card-count').forEach(function (el) {
+            el.textContent = cardCount;
+        });
+
         /* ── Render grid ───────────────────────────────── */
         const grid = document.getElementById('qr-grid');
         let anyCard = false;
-        for (let i = 1; i <= 6; i++) {
+        for (let i = 1; i <= cardCount; i++) {
             const url = params.get('card' + i);
             if (url) {
                 anyCard = true;
