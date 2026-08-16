@@ -196,10 +196,10 @@
 - IT: (removed 2026-08-07 — no traction, redirect stub at it/blog/audioguida-telecomandata-visite-guidate.html to it/audioguida.html)
 - FR: (removed 2026-08-07 — no traction, redirect stub at fr/blog/audioguide-qr-web-app-telecommande.html to fr/audioguides.html)
 - JA: (removed 2026-08-07 — no traction, redirect stub at ja/audio-guides/with-remote-control.html to ja/audio-guides/)
-- PL: (still pending)
+- PL: pl/audioprzewodnik/zdalnie-sterowane-audioprzewodniki.html (2026-08-13, in progress — header/footer/schema/hreflang scaffolded, content pending)
 - NL: (still pending)
 - PT-BR: (still pending)
-- EN-only now: no longer in workTranslation/hreflang, and dropped from all blog hub cards and sitemap.xml.
+- DE/ES/IT/FR/JA dropped from workTranslation/hreflang/sitemap after their 2026-08-07 removal for no traction; PL was added back 2026-08-13 despite that removal (explicit user call, not a reversal of the removal decision for the other languages).
 
 ### Do you sell postcards in your museum store? Consider turning your audio tour into postcards
 - EN: audio-guides/postcard-qr-code-souvenirs.html
@@ -472,6 +472,11 @@
 - JA: (still pending)
 - NL: (still pending)
 - PL: (still pending)
+
+**Remote control + full offline mode — free demo (customer-only, noindex, unlinked):**
+- EN: audio-guides/nubart-guide-manual-remote-control-full-offline-demo.html
+- PL: pl/audioprzewodnik/nubart-guide-manual-zdalnie-sterowany-pelny-tryb-offline.html
+- DE/ES/IT/FR/JA/NL/PT-BR/HE/BG: (still pending)
 
 ### Content Production
 **Main service explainer:**

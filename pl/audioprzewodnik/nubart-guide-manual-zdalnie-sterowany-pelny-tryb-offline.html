@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Nubart GUIDE zdalnie sterowany | Tryb offline | Demo | Nubart</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet" />
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../../assets/css/demos-trials.css" rel="stylesheet" />
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Instrukcje drukowania (format A4, orientacja pionowa)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo">
+        <h1>Nubart GUIDE zdalnie sterowany | Tryb offline | Demo</h1>
+
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-box">
+       <strong>Witamy</strong>
+        Dziękujemy za zainteresowanie Nubart GUIDE. Na tej stronie znajdą Państwo wszystko, co jest potrzebne do wypróbowania
+        przygotowanej przez nas wersji demonstracyjnej: aplikację Nubart GUIDE działającą w <strong>pełnym trybie offline</strong>,
+        wzbogaconą o <strong>ręczne sterowanie zdalne</strong>, dzięki czemu przewodnik może uruchamiać ścieżki dla
+        całej grupy w czasie rzeczywistym — rozwiązanie to zostało stworzone z myślą o bardzo ograniczonej łączności w Państwa obiekcie.
+    </div>
+
+    <!-- Situation box -->
+    <div class="situation-box">
+       <strong>Dlaczego taka konfiguracja</strong>
+        Gdy urządzenie odwiedzającego wstępnie załaduje przewodnik, działa ono bez sygnału przez
+        resztę wizyty — właśnie to obejmuje opisany poniżej „pełny tryb offline”. Zdalne sterowanie to osobna funkcja działająca na tej samej warstwie: do wysłania każdego
+        sygnału wyzwalającego potrzebuje ono jedynie bardzo niewielkiej przepustowości, dzięki czemu działa nawet przy słabym połączeniu, jednak wymaga <em>pewnego</em> sygnału, aby dotrzeć
+        do urządzenia, na którym uruchomiony jest przewodnik. W kroku 3 oraz w ramce poniżej wyjaśniono, co należy zrobić w rzadkich przypadkach, gdy w danym miejscu na
+        Państwa terenie występuje faktyczny brak łączności.
+    </div>
+
+    <!-- QR + Login credentials -->
+    <div class="credentials-row">
+
+        <!-- Login box: speaker device -->
+        <div class="login-box">
+            <h2><i class="bi bi-broadcast me-2"></i>Logowanie dla przewodnika</h2>
+            <p class="login-intro">
+               <span class="role-label role-speaker">Urządzenie przewodnika</span>
+                Proszę się zalogować tutaj, aby uzyskać dostęp do zdalnego sterowania i uruchamiać ścieżki dla swojej grupy.
+            </p>
+
+            <p class="login-label"><strong>Krok 1 — Tylko przy pierwszym logowaniu: proszę utworzyć konto</strong></p>
+            <div class="login-link-block">
+                <a id="invite-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+            <p style="font-size:0.8rem; color:#000; margin-top:6px;">
+                Skorzystaj z tego linku, aby ustawić hasło. Potrzebne będzie ono tylko raz.
+            </p>
+
+            <p id="registered-email-wrap" class="login-label" style="margin-top:10px;">
+                <strong>Zarejestrowany adres e-mail:</strong>
+                <span id="registered-email" style="font-weight:600; color:#028a8c;"></span><br>
+                <span style="font-size:0.8rem; color:#888; font-weight:400;">
+                    Jest to adres, którego należy używać do logowania. Proszę mieć go pod ręką.
+                </span>
+            </p>
+
+            <hr style="border-color:#ddd; margin: 12px 0;" />
+
+            <p class="login-label"><strong>Krok 2 — Za każdym razem: proszę zalogować się tutaj</strong></p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Po zalogowaniu się proszę kliknąć <strong>„Zdalne sterowanie”</strong>, wybrać moduł przewodnika,
+                a następnie kliknąć ścieżkę, którą chcą Państwo odtworzyć dla grupy.
+            </p>
+        </div>
+
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>Kod QR dla zwiedzających</h2>
+            <p class="qr-intro">
+               <span class="role-label role-listener">Urządzenie gościa</span>
+                Proszę zeskanować ten kod w miejscu z dostępem do sieci, aby wstępnie załadować audioprzewodnik. Po załadowaniu
+                urządzenie będzie działać bez sygnału przez resztę wizyty.
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+               <i class="bi bi-exclamation-triangle me-2"></i> 
+                Nie udostępniono linku do kodu QR. Prosimy o kontakt z przedstawicielem firmy Nubart.
+            </div>
+            <p id="demo-url-display"></p>
+            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
+               <i class="bi bi-info-circle me-1"></i> 
+                Jest to Państwa stały kod QR. Jeśli złożą Państwo zamówienie, Państwa goście będą korzystać
+                właśnie z tego kodu. Nie zmieniamy kodów QR dla naszych klientów, więc mogą Państwo
+                bez obaw wydrukować go na trwałych nośnikach.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Two-device notice -->
+    <div class="two-device-banner">
+        <i class="bi bi-phone-flip"></i>
+        <div>
+           <strong>Aby prawidłowo przetestować tę funkcję, potrzebne będą dwa urządzenia.</strong> Jednym z nich jest
+ <span class="role-label role-speaker">           urządzenie przewodnika</span> — służy ono do logowania się i
+            uruchamiania ścieżek. Drugim jest <span class="role-label role-listener">urządzenie gościa
+</span>           — skanuje ono kod QR i odbiera ścieżki. Testowanie z
+            współpracownikiem, na dwóch oddzielnych telefonach, zapewni Państwu najbardziej realistyczny obraz działania.
+        </div>
+    </div>
+
+    <!-- Trial tips -->
+    <div class="trial-tips-box">
+        <h3><i class="bi bi-lightbulb me-2"></i>Jak najlepiej wykorzystać tę wersję demonstracyjną</h3>
+
+        <div class="trial-tip">
+            <i class="bi bi-wifi tip-icon"></i>
+            <div>
+               <span class="role-label role-listener">Urządzenie gościa</span>
+ <strong>               Proszę pobrać przewodnik przed wejściem w obszar o słabym sygnale.</strong> Proszę zeskanować kod QR i wybrać
+                język, póki mają Państwo jeszcze dostęp do sieci. Proszę poczekać, aż przewodnik w pełni się załaduje,
+                zanim wejdą Państwo w obszar o słabym sygnale — jest to jedyny moment podczas
+                całej wizyty, w którym faktycznie wymagane jest połączenie z siecią.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-stoplights tip-icon"></i>
+            <div>
+               <span class="role-label role-speaker">Urządzenie przewodnika</span>
+ <strong>               Podczas uruchamiania proszę obserwować kolor ścieżki.</strong> Wskazuje on, czy każda
+                ścieżka została faktycznie przesłana — znaczenie poszczególnych kolorów opisano w kroku 3 poniżej.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Step 1: Guide device -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Konfiguracja urządzenia przewodnika</h3>
+        </div>
+        <div class="step-body">
+            <p>Na <span class="role-label role-speaker">urządzeniu przewodnika</span> proszę przejść do <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+
+                www.nub.art/customer/login</a> i proszę się zalogować. Jeśli korzystają Państwo z niego po raz pierwszy, proszę skorzystać z
+                linku rejestracyjnego w polu powyżej, aby najpierw utworzyć konto.</p>
+            <ol>
+                <li>Proszę kliknąć <strong>„Zdalne sterowanie”</strong>.</li>
+                <li>Zobaczą Państwo listę ścieżek, które można uruchomić dla tej grupy.</li>
+            </ol>
+            <div class="callout">
+               <i class="bi bi-info-circle me-1"></i> 
+                Urządzenie przewodnika musi pozostawać połączone przez cały czas trwania wycieczki, aby wysyłać sygnały wyzwalające
+                — jednak każdy sygnał wyzwalający wymaga jedynie bardzo niewielkiej przepustowości, więc nawet
+                słaby sygnał zazwyczaj wystarcza.
+            </div>
+            <div class="callout tip">
+               <i class="bi bi-lightbulb me-1"></i>
+                Prosimy zapisać link do logowania w przeglądarce, aby nie trzeba było go za każdym razem
+                wyszukiwać. Na telefonie warto dodać go do ekranu głównego, tak aby zawsze był pod ręką.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Visitor device + preload -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Konfiguracja urządzenia gościa i wstępne załadowanie przewodnika</h3>
+        </div>
+        <div class="step-body">
+            <p>Na <span class="role-label role-listener">urządzeniu gościa</span>, póki
+                mają Państwo jeszcze połączenie z internetem, proszę zeskanować kod QR znajdujący się u góry tej strony (lub kliknąć link
+                pod nim).</p>
+            <ol>
+                <li>Proszę wybrać język. Spowoduje to rozpoczęcie wstępnego ładowania kompletnego audioprzewodnika w tym
+                    języku na urządzenie.</li>
+                <li>Proszę poczekać na zakończenie ładowania przed udaniem się do obszaru o słabym sygnale.</li>
+                <li>Nie jest wymagane logowanie ani instalowanie aplikacji ani przyznawanie uprawnień.</li>
+            </ol>
+            <div class="callout tip">
+               <i class="bi bi-lightbulb me-1"></i>
+                Opcjonalnie, wyłącznie dla własnego spokoju: po wstępnym załadowaniu proszę przełączyć urządzenie w tryb samolotowy,
+                zamknąć przeglądarkę lub kartę, a następnie ponownie zeskanować kod QR. Pełny przewodnik powinien otworzyć się
+                natychmiast, bez konieczności nawiązywania połączenia.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Trigger tracks remotely -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Zdalne uruchamianie ścieżek</h3>
+        </div>
+        <div class="step-body">
+            <p>W panelu zdalnego sterowania urządzenia przewodnika proszę kliknąć dowolną ścieżkę, aby wysłać ją w czasie
+                rzeczywistym do wszystkich urządzeń gości z otwartą sesją. Kolor ścieżki informuje o
+                aktualnym stanie:</p>
+
+            <ul>
+                <li>🟢 <strong>Zielony</strong> — jeszcze nie uruchomiono.</li>
+                <li>🔴 <strong>Czerwony, z paskiem postępu</strong> — trwa wysyłanie. Proszę poczekać, aż
+                    zmieni kolor na szary, zanim uruchomią Państwo następną ścieżkę.</li>
+                <li>🔘 <strong>Szary</strong> — wysłano pomyślnie. W dowolnym momencie mogą Państwo kliknąć
+                    ją ponownie, aby wysłać ją jeszcze raz.</li>
+                <li>🟡 <strong>Żółty</strong> — nie udało się wysłać. Zazwyczaj oznacza to całkowity brak łączności w tym miejscu.</li>
+            </ul>
+
+            <div class="callout warning">
+               <i class="bi bi-exclamation-triangle me-1"></i>
+                Jeśli ścieżka zmieni kolor na żółty, proszę podać uczestnikom jej numer i poprosić ich o
+                ręczne wybranie jej na własnym urządzeniu — ponieważ przewodnik jest już wstępnie załadowany,
+                goście mogą zawsze samodzielnie przeglądać i odtwarzać dowolną ścieżkę.
+            </div>
+
+            <div class="callout tip">
+               <i class="bi bi-arrow-counterclockwise me-1"></i>
+                Po zakończeniu wycieczki proszę kliknąć <strong>„Restartuj wycieczkę”</strong> u dołu
+                ekranu urządzenia przewodnika. Nie ma to żadnego wpływu na urządzenia gości — powoduje jedynie
+                przywrócenie wszystkich ścieżek do koloru zielonego na Państwa ekranie, przygotowując je dla kolejnej grupy. Jeśli
+                pominą Państwo tę czynność, wszystkie ścieżki nadal będą wyświetlane na szaro przy następnym uruchomieniu funkcji „Zdalne sterowanie”.
+            </div>
+
+            <p style="font-size:0.8rem; color:#888; font-style:italic; margin-top:10px;">
+                Domyślnie uruchomione ścieżki odtwarzają się automatycznie na telefonie gościa. Jeśli
+                woleliby Państwo, aby dana ścieżka jedynie przewijała się na górę ekranu, umożliwiając
+                ręczne uruchomienie, prosimy o kontakt — chętnie wyłączymy dla Państwa tę funkcję.
+            </p>
+        </div>
+    </div>
+
+    <!-- Link to full instructions -->
+    <div class="full-instructions-box">
+        <i class="bi bi-file-earmark-text"></i>
+        <div>
+            <strong>Chcieliby Państwo uzyskać więcej informacji?</strong><br>
+            <span style="font-size:0.88rem; color:#555;">Dwa artykuły omawiają mechanikę działania
+            tej wersji demonstracyjnej bardziej szczegółowo:</span><br>
+            <a href="https://www.nubart.eu/audio-guides/remote-controlled-guides-solution.html" target="_blank" rel="noopener">
+                nubart.eu → Zdalnie sterowane audioprzewodniki
+            </a><br>
+            <a href="https://www.nubart.eu/audio-guides/offline-mode-best-practices.html" target="_blank" rel="noopener">
+                nubart.eu → Tryb offline dla audioprzewodników
+            </a>
+        </div>
+    </div>
+
+    <!-- Sales rep card -->
+    <!-- TO CUSTOMISE PER LANGUAGE VERSION: replace photo src, name, title, email and phone -->
+    <div class="rep-card">
+        <div>
+            <img src="../../assets/img/team/evelyn.webp" alt="Your Nubart contact" class="rep-photo" onerror="this.style.display='none'; document.getElementById('rep-photo-fallback').style.display='flex';" />
+            <div class="rep-photo-placeholder" id="rep-photo-fallback" style="display:none;">
+                <i class="bi bi-person"></i>
+            </div>
+        </div>
+        <!-- <div class="rep-info">
+            <p class="rep-intro">Czy mają Państwo jakieś pytania? To ja jestem osobą odpowiedzialną za tę wersję demonstracyjną i
+                chętnie Państwu pomogę:</p>
+            <h4>Evelyn Crende</h4>
+            <p class="rep-title">Kierownik ds. sprzedaży</p>
+            <div class="rep-contact">
+               <i class="bi bi-envelope me-1"></i> 
+               <a href="mailto:evelyn@nubart.eu">evelyn@nubart.eu</a><br>
+                <i class="bi bi-telephone me-1"></i>
+                Europa: +49 307 5669416<br>
+                <i class="bi bi-telephone me-1"></i>
+                USA: +1 (305) 454-2085
+            </div>
+        </div> -->
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Mają Państwo pytania? Prosimy o kontakt pod adresem <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+             — 
+ <a href="https://www.nubart.eu">           www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script src="../../assets/js/demos-trials.js"></script>
+
+</body>
+</html>

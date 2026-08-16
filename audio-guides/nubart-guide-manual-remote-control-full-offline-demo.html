@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Your Nubart GUIDE with remote control | Demo | Nubart</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+
+    <!-- Shared printable stylesheet -->
+    <link href="../assets/css/printable-terms.css" rel="stylesheet">
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../assets/css/demos-trials.css" rel="stylesheet">
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Print Instructions (A4 portrait)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../assets/img/logo.png" alt="Nubart" class="nubart-logo">
+        <h1>Your Nubart GUIDE with remote control | Free Demo</h1>
+        <p class="subtitle">Full offline mode with manual remote control &mdash; the setup we've prepared for your evaluation</p>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-box">
+        <strong>Welcome</strong>
+        Thank you for your interest in Nubart GUIDE. This page contains everything you need to try
+        the demo we've prepared for you: a Nubart GUIDE running in <strong>full offline mode</strong>,
+        with <strong>manual remote control</strong> layered on top so a guide can trigger tracks for
+        the whole group in real time &mdash; built with your site's very limited connectivity in mind.
+    </div>
+
+    <!-- Situation box -->
+    <div class="situation-box">
+        <strong>Why this setup</strong>
+        Once a visitor's device has preloaded the guide, it keeps working with zero signal for the
+        rest of the visit &mdash; that's what "full offline mode" covers below. Remote control is a
+        separate mechanic layered on top: it needs only a very small amount of bandwidth to send each
+        trigger, so it works even on a poor connection, but it does need <em>some</em> signal to reach
+        the guide's device. Step 3 and the box below explain what to do on the rare occasion a spot on
+        your site has genuinely zero connectivity.
+    </div>
+
+    <!-- QR + Login credentials -->
+    <div class="credentials-row">
+
+        <!-- Login box: speaker device -->
+        <div class="login-box">
+            <h2><i class="bi bi-broadcast me-2"></i>Guide Login</h2>
+            <p class="login-intro">
+                <span class="role-label role-speaker">Guide device</span>
+                Log in here to access the remote control and trigger tracks for your group.
+            </p>
+
+            <p class="login-label"><strong>Step 1 &mdash; First time only: create your account</strong></p>
+            <div class="login-link-block">
+                <a id="invite-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+            <p style="font-size:0.8rem; color:#000; margin-top:6px;">
+                Use this link to set your password. You only need it once.
+            </p>
+
+            <p id="registered-email-wrap" class="login-label" style="margin-top:10px;">
+                <strong>Your registered email:</strong>
+                <span id="registered-email" style="font-weight:600; color:#028a8c;"></span><br>
+                <span style="font-size:0.8rem; color:#888; font-weight:400;">
+                    This is the address you log in with. Keep it handy.
+                </span>
+            </p>
+
+            <hr style="border-color:#ddd; margin: 12px 0;">
+
+            <p class="login-label"><strong>Step 2 &mdash; Every time: log in here</strong></p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Once logged in, click <strong>Remote Control</strong>, select your guide module,
+                and click a track whenever you want to trigger it for the group.
+            </p>
+        </div>
+
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>Visitor QR Code</h2>
+            <p class="qr-intro">
+                <span class="role-label role-listener">Visitor device</span>
+                Scan this in an area with connectivity to preload your audio guide. Once loaded, it
+                keeps working with zero signal for the rest of the visit.
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                No QR link provided. Please contact your Nubart representative.
+            </div>
+            <p id="demo-url-display"></p>
+            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
+                <i class="bi bi-info-circle me-1"></i>
+                This is your permanent QR code. If you place an order, your visitors will use
+                this exact code. We don't change QR codes for our customers, so you can
+                safely print it on permanent materials.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Two-device notice -->
+    <div class="two-device-banner">
+        <i class="bi bi-phone-flip"></i>
+        <div>
+            <strong>You'll need two devices to test this properly.</strong> One is the
+            <span class="role-label role-speaker">Guide device</span> &mdash; it logs in and
+            triggers tracks. The other is the <span class="role-label role-listener">Visitor
+            device</span> &mdash; it scans the QR code and receives the tracks. Testing with a
+            colleague, on two separate phones, gives you the most realistic picture.
+        </div>
+    </div>
+
+    <!-- Trial tips -->
+    <div class="trial-tips-box">
+        <h3><i class="bi bi-lightbulb me-2"></i>How to get the best out of this demo</h3>
+
+        <div class="trial-tip">
+            <i class="bi bi-wifi tip-icon"></i>
+            <div>
+                <span class="role-label role-listener">Visitor device</span>
+                <strong>Preload before you go dark.</strong> Scan the QR code and select a
+                language while you still have connectivity. Wait for the guide to finish loading
+                fully before heading into a low-signal area &mdash; that's the one moment in the
+                whole visit where a connection is actually required.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-stoplights tip-icon"></i>
+            <div>
+                <span class="role-label role-speaker">Guide device</span>
+                <strong>Watch the track colour as you trigger.</strong> It tells you whether each
+                track actually got through &mdash; see Step 3 below for what each colour means.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Step 1: Guide device -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Set Up the Guide Device</h3>
+        </div>
+        <div class="step-body">
+            <p>On the <span class="role-label role-speaker">Guide device</span>, go to
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login</a> and log in. If this is your first time, use the
+                registration link in the box above to create your account first.</p>
+            <ol>
+                <li>Click <strong>Remote Control</strong>.</li>
+                <li>You'll see the list of tracks you can trigger for the group.</li>
+            </ol>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                The Guide device needs to stay connected for the whole tour to send trigger
+                signals &mdash; but only a very small amount of bandwidth per trigger, so even a
+                weak signal is normally enough.
+            </div>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                Save the login link in your browser so you don't have to search for it next time.
+                On a phone, add it to your home screen so it's always one tap away.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Visitor device + preload -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Set Up the Visitor Device and Preload the Guide</h3>
+        </div>
+        <div class="step-body">
+            <p>On the <span class="role-label role-listener">Visitor device</span>, while you
+                still have connectivity, scan the QR code at the top of this page (or tap the link
+                below it).</p>
+            <ol>
+                <li>Select a language. This starts preloading the complete audio guide in that
+                    language onto the device.</li>
+                <li>Wait for the preload to finish before moving into a low-signal area.</li>
+                <li>No login, no app, no permissions required.</li>
+            </ol>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                Optional, just for your own reassurance: once preloaded, switch to flight mode,
+                close the browser or the tab, then rescan the QR code. The full guide should open
+                immediately, without any connection.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Trigger tracks remotely -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Trigger Tracks Remotely</h3>
+        </div>
+        <div class="step-body">
+            <p>From the Guide device's Remote Control panel, click any track to send it, in real
+                time, to every Visitor device with an open session. The track's colour tells you
+                what's happening:</p>
+
+            <ul>
+                <li>🟢 <strong>Green</strong> &mdash; not triggered yet.</li>
+                <li>🔴 <strong>Red, with a progress bar</strong> &mdash; sending now. Wait for it
+                    to turn grey before you trigger the next one.</li>
+                <li>🔘 <strong>Grey</strong> &mdash; sent successfully. You can click it again
+                    any time to resend it.</li>
+                <li>🟡 <strong>Yellow</strong> &mdash; couldn't send. Normally means zero
+                    connectivity at that spot.</li>
+            </ul>
+
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                If a track turns yellow, tell your participants its number and ask them to select
+                it manually on their own device &mdash; since the guide is already preloaded,
+                visitors can always browse and play any track themselves.
+            </div>
+
+            <div class="callout tip">
+                <i class="bi bi-arrow-counterclockwise me-1"></i>
+                When the tour is over, click <strong>Restart Tour</strong> at the bottom of the
+                Guide device's screen. It has no effect on the Visitor devices &mdash; it only
+                resets all tracks back to green on your own screen, ready for the next group. Skip
+                it, and every track will still show grey the next time you open Remote Control.
+            </div>
+
+            <p style="font-size:0.8rem; color:#888; font-style:italic; margin-top:10px;">
+                Triggered tracks play automatically on the visitor's phone by default. If you'd
+                rather they just scroll to the top of the screen for a manual tap, let us know and
+                we'll switch autoplay off.
+            </p>
+        </div>
+    </div>
+
+    <!-- Link to full instructions -->
+    <div class="full-instructions-box">
+        <i class="bi bi-file-earmark-text"></i>
+        <div>
+            <strong>Want more background?</strong><br>
+            <span style="font-size:0.88rem; color:#555;">Two articles cover the mechanics behind
+            this demo in more depth:</span><br>
+            <a href="https://www.nubart.eu/audio-guides/remote-controlled-guides-solution.html"
+               target="_blank" rel="noopener">
+                nubart.eu &rarr; Remote-controlled audio guides
+            </a><br>
+            <a href="https://www.nubart.eu/audio-guides/offline-mode-best-practices.html"
+               target="_blank" rel="noopener">
+                nubart.eu &rarr; Offline mode for audio guides
+            </a>
+        </div>
+    </div>
+
+    <!-- Sales rep card -->
+    <!-- TO CUSTOMISE PER LANGUAGE VERSION: replace photo src, name, title, email and phone -->
+    <div class="rep-card">
+        <div>
+            <img src="../assets/img/team/evelyn.webp"
+                 alt="Your Nubart contact"
+                 class="rep-photo"
+                 onerror="this.style.display='none'; document.getElementById('rep-photo-fallback').style.display='flex';">
+            <div class="rep-photo-placeholder" id="rep-photo-fallback" style="display:none;">
+                <i class="bi bi-person"></i>
+            </div>
+        </div>
+        <div class="rep-info">
+            <p class="rep-intro">Any questions? I am the real person behind this demo and will
+                be happy to help:</p>
+            <h4>Evelyn Crende</h4>
+            <p class="rep-title">Sales Manager</p>
+            <div class="rep-contact">
+                <i class="bi bi-envelope me-1"></i>
+                <a href="mailto:evelyn@nubart.eu">evelyn@nubart.eu</a><br>
+                <i class="bi bi-telephone me-1"></i>
+                Europe: +49 307 5669416<br>
+                <i class="bi bi-telephone me-1"></i>
+                USA: +1 (305) 454-2085
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Questions? Write to us at <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+            &nbsp;&mdash;&nbsp;
+            <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+
+<script src="../assets/js/demos-trials.js"></script>
+
+</body>
+</html>
