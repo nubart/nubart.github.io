@@ -45,9 +45,16 @@
 
     const params    = new URLSearchParams(window.location.search);
     const inviteUrl = params.get('invite');
+    // Optional wrapper around the whole "first time only" block. If present,
+    // pages can hide the block entirely for already-registered customers
+    // instead of showing the placeholder text below.
+    const firstTimeBlock = document.getElementById('first-time-block');
+
     if (inviteUrl) {
         inviteLink.href        = inviteUrl;
         inviteLink.textContent = inviteUrl;
+    } else if (firstTimeBlock) {
+        firstTimeBlock.style.display = 'none';
     } else {
         inviteLink.textContent = '(registration link to be provided by your Nubart contact)';
         inviteLink.removeAttribute('href');
