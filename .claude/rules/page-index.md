@@ -45,6 +45,7 @@
 - IT: it/blog/index.html
 - JA: ja/blog/index.html
 - PT-BR: pt-br/blog/index.html
+- PL: pl/blog/index.html (created since the "no PL hub" note in schema-rules.md was written — that note is now stale for PL; only NL and BG still lack a hub)
 
 ### Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide
 - EN: audio-guides/content-structure-digital-guides.html
@@ -196,7 +197,7 @@
 - IT: (removed 2026-08-07 — no traction, redirect stub at it/blog/audioguida-telecomandata-visite-guidate.html to it/audioguida.html)
 - FR: (removed 2026-08-07 — no traction, redirect stub at fr/blog/audioguide-qr-web-app-telecommande.html to fr/audioguides.html)
 - JA: (removed 2026-08-07 — no traction, redirect stub at ja/audio-guides/with-remote-control.html to ja/audio-guides/)
-- PL: pl/audioprzewodnik/zdalnie-sterowane-audioprzewodniki.html (2026-08-13, in progress — header/footer/schema/hreflang scaffolded, content pending)
+- PL: pl/audioprzewodnik/zdalnie-sterowane-audioprzewodniki.html (2026-08-16, complete — in sitemap.xml and pl/blog/ hub)
 - NL: (still pending)
 - PT-BR: (still pending)
 - DE/ES/IT/FR/JA dropped from workTranslation/hreflang/sitemap after their 2026-08-07 removal for no traction; PL was added back 2026-08-13 despite that removal (explicit user call, not a reversal of the removal decision for the other languages).

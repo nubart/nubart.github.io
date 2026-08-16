@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": "https://www.nubart.eu/pl/audioprzewodnik/zdalnie-sterowane-audioprzewodniki.html#article",
+            "headline": "Zdalnie sterowany audioprzewodnik dla wielojęzycznych grup",
+            "description": "Jeden przewodnik może oprowadzać wielojęzyczną grupę, uruchamiając nagrania w różnych językach na telefonach zwiedzających. Bez aplikacji i bez dodatkowego urządzenia.",
+            "inLanguage": "pl",
+            "image": "https://www.nubart.eu/assets/img/blog/cover-audioguides-remote-control.webp",
+            "author": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "url": "https://www.nubart.eu",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
+            },
+            "datePublished": "2026-08-13",
+            "dateModified": "2026-08-16",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/pl/audioprzewodnik/zdalnie-sterowane-audioprzewodniki.html"
+            },
+            "isPartOf": {
+                "@id": "https://www.nubart.eu/pl/blog/#blog"
+            },
+            "translationOfWork": {
+                "@id": "https://www.nubart.eu/audio-guides/remote-controlled-guides-solution.html#article"
+            },
+            "video": {
+                "@type": "VideoObject",
+                "name": "Zdalne sterowanie Nubart dla cyfrowych audioprzewodników",
+                "description": "Demonstracja zdalnie sterowanych cyfrowych audioprzewodników Nubart dla miejsc historycznych i wycieczek z przewodnikiem.",
+                "url": "https://vimeo.com/669095438",
+                "thumbnailUrl": "https://www.nubart.eu/assets/img/thumbnails/remote-control-en.png",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Nubart"
+                },
+                "uploadDate": "2022-01-23T00:00:00+00:00",
+                "embedUrl": "https://player.vimeo.com/video/669095438"
+            }
+        }
+    </script>
+    <!-- End Structured data -->
+
+    <!-- Breadcrumb Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/pl/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Nubart GUIDE - Audioprzewodniki PWA oparte na QR",
+                    "item": "https://www.nubart.eu/pl/audioprzewodnik/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Zdalnie sterowany audioprzewodnik dla wielojęzycznych grup",
+                    "item": "https://www.nubart.eu/pl/audioprzewodnik/zdalnie-sterowane-audioprzewodniki.html"
+                }
+            ]
+        }
+    </script>
+
+    <!-- FAQ Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "inLanguage": "pl",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Czym jest zdalnie sterowany audioprzewodnik?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Zdalnie sterowany audioprzewodnik umożliwia przewodnikowi lub osobie nadzorującej uruchamianie wcześniej nagranych treści audio na telefonach wszystkich zwiedzających w czasie rzeczywistym, za pomocą własnego telefonu, bez transmitowania swojego głosu. Nubart GUIDE oferuje tę funkcję w ramach swojej platformy audioprzewodników opartych na kodach QR."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Jak działa funkcja zdalnego sterowania w Nubart GUIDE?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Każdy zwiedzający skanuje kod QR swoim telefonem i wybiera preferowany język, bez konieczności instalowania aplikacji lub rejestracji. Przewodnik loguje się na platformie Nubart. Gdy dociera do punktu zainteresowania, naciśnięcie przycisku na jego telefonie wysyła krótki sygnał do telefonów wszystkich zwiedzających, uruchamiając odpowiednie nagranie, które jest już na nich zapisane."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Czy głos przewodnika jest transmitowany na telefony zwiedzających?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nie. Zdalne sterowanie Nubart GUIDE wysyła jedynie sygnał wyzwalający; odpowiednie nagranie audio jest już zapisane na telefonie zwiedzającego. Głos przewodnika nigdy nie jest transmitowany, co stanowi główną różnicę techniczną w porównaniu z Nubart LIVE."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Czy jeden przewodnik może oprowadzać wielojęzyczną grupę za pomocą zdalnie sterowanego audioprzewodnika?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Tak. Przewodnik oprowadza na żywo w swoim własnym języku, a zdalne sterowanie Nubart GUIDE uruchamia w tym samym momencie odpowiednie, wcześniej nagrane nagranie w języku wybranym przez każdego zwiedzającego, dzięki czemu cała grupa porusza się w jednym tempie."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Czy zdalnie sterowany audioprzewodnik może być używany, gdy osoba prowadząca grupę jest obecna wyłącznie w celu nadzorowania, a nie narracji?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Tak. Osoba nadzorująca, która nie jest wykwalifikowanym przewodnikiem, może uruchamiać te same wcześniej nagrane treści dla całej grupy, skupiając się na nadzorowaniu, ponieważ nagrania w Nubart GUIDE zapewniają całą narrację."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Czy kilka grup może jednocześnie korzystać z tego samego zdalnie sterowanego audioprzewodnika?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Tak, dzięki opcjonalnemu trybowi grupowemu w Nubart GUIDE: podczas skanowania kodu zwiedzający wybierają grupę, a sygnał wyzwalający każdego przewodnika dociera wyłącznie do jego własnej grupy. Rozwiązanie to sprawdza się w przypadku niewielkiej, stałej liczby jednocześnie prowadzonych grup, a nie przy stale zmieniającej się liczbie grup."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Co się dzieje, jeśli podczas zdalnie sterowanej wycieczki zostanie utracone połączenie z internetem?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Jeśli w danym miejscu nie ma żadnego połączenia, sygnał wyzwalający nie może dotrzeć do telefonu zwiedzającego, ale zwiedzający nadal mogą ręcznie odtwarzać dowolne nagranie, ponieważ pełny audioprzewodnik został wcześniej załadowany na ich telefon w trybie offline Nubart."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+
+<!-- 2. Cookie consent CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+
+<!-- 3. Cookie consent config (MOVED HERE) -->
+<script type="module" src="/js/cookieconsent-config.js"></script>
+
+
+    <title>Zdalnie sterowany audioprzewodnik dla wielojęzycznych grup | Nubart GUIDE</title>
+    <meta name="description" content="Jeden przewodnik może oprowadzać wielojęzyczną grupę, uruchamiając nagrania w różnych językach na telefonach zwiedzających. Bez aplikacji i bez dodatkowego urządzenia." />
+    <meta name="author" content="Nubart" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zdalnie sterowany audioprzewodnik dla wielojęzycznych grup | Nubart GUIDE" />
+    <meta name="twitter:description" content="Jeden przewodnik może oprowadzać wielojęzyczną grupę, uruchamiając nagrania w różnych językach na telefonach zwiedzających. Bez aplikacji i bez dodatkowego urządzenia." />
+    <meta name="twitter:site" content="@nubartEN" />
+    <meta name="twitter:creator" content="@nubartEN" />
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-audioguides-remote-control.webp" />
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/pl/audioprzewodnik/zdalnie-sterowane-audioprzewodniki.html" />
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/remote-controlled-guides-solution.html" hreflang="x-default" />
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/remote-controlled-guides-solution.html" hreflang="en-gb" />
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/remote-controlled-guides-solution.html" hreflang="en" />
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/remote-controlled-guides-solution.html" hreflang="en-us" />
+    <link rel="alternate" href="https://www.nubart.eu/pl/audioprzewodnik/zdalnie-sterowane-audioprzewodniki.html" hreflang="pl" />
+
+    <!-- OpenGraph for LinkedIn -->
+
+    <meta property="og:title" content="Zdalnie sterowany audioprzewodnik dla wielojęzycznych grup | Nubart GUIDE" />
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-audioguides-remote-control.webp" />
+    <meta property="og:author" content="Nubart International" />
+    <meta property="og:description" content="Jeden przewodnik może oprowadzać wielojęzyczną grupę, uruchamiając nagrania w różnych językach na telefonach zwiedzających. Bez aplikacji i bez dodatkowego urządzenia." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.nubart.eu/pl/audioprzewodnik/zdalnie-sterowane-audioprzewodniki.html" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png" />
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- ./Icons -->
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- =======================================================
+    * Template Name: Dewi - v4.6.0
+    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="../" class="logo"> <img src="../../assets/img/logo.png" alt="Nubart's logo" class="img-fluid" /> </a>
+        <nav id="navbar" class="navbar">
+            <ul>                <li class="dropdown">
+                    <a href="#"><span>Produkty</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a href="../audioprzewodnik/">
+                                <i class="bi bi-headphones product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GUIDE</span>
+                                    <span class="product-description">Samodzielne wycieczki audio oparte na kodach QR (PWA)</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="../tour-guide-system/">
+                                <i class="bi bi-headset product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART LIVE</span>
+                                    <span class="product-description">System przewodników turystycznych z tłumaczeniem na żywo przez sztuczną inteligencję</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="../tlumaczenie-symultaniczne-ai/">
+                                <i class="bi bi-translate product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART TRANSLATE</span>
+                                    <span class="product-description">Tłumaczenie symultaniczne AI w czasie rzeczywistym podczas wydarzeń</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="../klienci/">Klienci</a></li>
+                <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Kontakt</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../o-nas.html">O nas</a></li>
+                        <li><a href="../kontakt.html">Kontakt Nubart</a></li>
+                    </ul>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank" href="https://www.nub.art/customer/login"> <i class="bi bi-person-circle"></i>&nbsp; Login </a>        </li>
+                <li class="dropdown">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../../">English</a></li>
+                        <li><a href="../../es/">Español</a></li>
+                        <li><a href="../../de/">Deutsch</a></li>
+                        <li><a href="../../fr/">Français</a></li>
+                        <li><a href="../../pt-br/">Português</a></li>
+                        <li><a href="../../nl/">Nederlands</a></li>
+                        <li><a href="../../it/">Italiano</a></li>
+                        <li><a href="../../bg/">български</a></li>
+                        <li><a href="../../he/">עִברִית</a></li>
+                        <li><a href="../../ja/">日本語</a></li>
+                    </ul>
+                </li>
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none">
+                    <hr>
+                </li>
+                <li class="mobile-secondary-header d-md-none" style="color: #028a8c;"><i class="bi bi-headphones product-icon"></i>&nbsp<span>NUBART GUIDE</span></li>
+                <li class="dropdown d-md-none">
+                    <a href="#"><span>Produkcja treści</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="produkcja-tresci/">Nasz proces produkcji</a></li>
+                        <li><a href="produkcja-tresci/materialy-do-przygotowania.html">Czego potrzebujemy od Ciebie</a></li>
+                    </ul>
+                </li>
+                <li class="d-md-none">
+                    <a href="https://forms.zohopublic.eu/rosasala/form/Requestquoteorsamples/formperma/4H-CRA3O6LsU3dQVGKmXKdKxgDspTmwgEb2Npghuyx4"
+                       class="scrollto">Kontakt</a>
+                </li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header><!-- End Header -->
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <i class="bi bi-headphones"></i>&nbsp;&nbsp;
+                    <b>NUBART GUIDE:</b>
+                </div>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+                    <li style="margin-right: 22px;"><a href="funkcje-multimedialne.html">Funkcje multimedialne</a></li>
+                    <li style="margin-right: 22px;" class="dropdown">
+                        <a href="#"><span>Produkcja treści</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="produkcja-tresci/">Nasz proces produkcji</a></li>
+                            <li><a href="produkcja-tresci/materialy-do-przygotowania.html">Czego potrzebujemy od Ciebie</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;"><a href="dostepnosc-i-inkluzywnosc.html">Dostępność</a></li>
+                    <li style="margin-right: 22px;"><a href="faq.html">FAQ</a></li>
+
+                    <li style="margin-right: 30px;"><a class="getstarted scrollto"
+                                                       href="https://forms.zohopublic.eu/rosasala/form/Requestquoteorsamples/formperma/4H-CRA3O6LsU3dQVGKmXKdKxgDspTmwgEb2Npghuyx4">Kontakt</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="d-md-none" style="height: 60px;"></div>
+    <section class="breadcrumbs d-none d-md-block">
+    <div class="container">
+
+        <ol>
+            <li><a href="../">Strona główna</a></li>
+
+            <li><a href="../audioprzewodnik/">Nubart GUIDE</a></li>
+
+            <li>Zdalnie sterowany audioprzewodnik dla wielojęzycznych grup</li>
+        </ol>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+
+<main id="main">
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div>
+
+                        <img src="../../assets/img/team/nubart-profile.webp" class="img-thumbnail rounded-circle d-none d-lg-block" style="margin-right:30px;" width="45%" alt="Nubart" />
+
+                    </div>
+                    <div>
+                        <h4 class="fs-5">Zespół Nubart</h4>
+                        <p class="nubart-blog-author">Rozwój działalności</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-8 nubart-blog">
+
+
+                    <h1>Zdalnie sterowane audioprzewodniki: jak jeden przewodnik może oprowadzać wielojęzyczną grupę</h1>
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/cover-audioguides-remote-control.webp" class="figure-img img-fluid rounded" alt="Rozproszona grupa zwiedzających w zabytkowym miejscu, ilustrująca zagrożenie dla ochrony dziedzictwa bez przewodnika utrzymującego spójność grupy" />
+
+                        <figcaption class="figure-caption text-center">Rozproszone grupy zwiedzających mogą stanowić zagrożenie dla ochrony dziedzictwa kulturowego (AI za pośrednictwem Canva)</figcaption>
+                    </figure>
+                    <p class="fs-3">Treść niniejszego artykułu</p>
+                    <p class="lead">Niektóre wycieczki mogą odbywać się wyłącznie w obecności przewodnika. Pałac z delikatnymi, zabytkowymi wnętrzami, dawna kopalnia, czynne wykopaliska archeologiczne czy rezerwat z niebezpieczną dziką fauną – wszystkie te miejsca wymagają obecności przewodnika ze względów bezpieczeństwa, ochrony zabytków lub przepisów prawnych. Gdy członkowie grupy posługują się różnymi językami, przewodnik staje przed problemem, na który nie ma dobrego rozwiązania: podział grupy według języków oznacza organizowanie osobnych terminów zwiedzania, a oprowadzanie wszystkich w jednym języku sprawia, że część grupy nie rozumie wyjaśnień.</p>
+                    <p class="lead">Funkcja zdalnego sterowania w Nubart GUIDE eliminuje ten dylemat w przypadku przewodnika prowadzącego jedną grupę. Przewodnik oprowadza grupę na żywo, w swoim własnym języku, dokładnie tak jak dotychczas. Pozostali uczestnicy skanują kod QR, wybierają swój język i otrzymują odpowiednie wyjaśnienia na swoich telefonach, uruchamiane przez przewodnika dokładnie w odpowiednim momencie. Nie trzeba pobierać żadnej aplikacji, a przewodnik nie musi nosić ze sobą żadnego dodatkowego urządzenia.
+                    </p>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <h3 class="fs-5">
+                        <i class="bi bi-arrow-bar-right"></i>&nbsp;<a href="#guide-required">Kiedy potrzebny jest przewodnik i dlaczego język wciąż dzieli grupę</a></h3>
+                    <h3 class="fs-5">
+                        <i class="bi bi-arrow-bar-right"></i>&nbsp;<a href="#how-it-works">Jak działa funkcja zdalnego sterowania w Nubart GUIDE</a>
+                    </h3>
+                    <h3 class="fs-5">
+                        <i class="bi bi-arrow-bar-right"></i>&nbsp;<a href="#what-it-solves">Jakie problemy rozwiązuje to rozwiązanie i kiedy lepiej sprawdzają się Nubart MOTION lub Nubart LIVE</a></h3>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+                    <h2 id="guide-required">Kiedy potrzebny jest przewodnik i dlaczego język wciąż dzieli grupę</h2>
+
+                    <p>Przewodnik jest niezbędny w wielu miejscach. Pałace i muzea mieszczące się w zabytkowych budynkach często ograniczają dostęp zwiedzającym korzystającym z samodzielnych audioprzewodników, aby chronić delikatne wnętrza. Dawne kopalnie, wycofane z eksploatacji obiekty wojskowe oraz czynne wykopaliska archeologiczne wymagają obecności przewodnika ze względów bezpieczeństwa oraz w celu uniemożliwienia zwiedzającym wkraczania na tereny o ograniczonym dostępie. Podobnie jest w rezerwatach z niebezpieczną fauną lub chronionymi ekosystemami. We wszystkich tych przypadkach zastąpienie przewodnika audioprzewodnikiem do samodzielnego zwiedzania zazwyczaj nie wchodzi w grę, a i tak nie rozwiązałoby to problemu językowego.</p>
+
+                    <p>Pozyskiwanie i utrzymanie przewodników biegle posługujących się kilkoma językami pozostaje prawdziwym wyzwaniem na większości rynków, a nawet przewodnik biegle posługujący się trzema językami może prowadzić wycieczkę tylko w jednym z nich w danym momencie. W związku z tym harmonogram wycieczek grupowych jest dostosowywany do tego ograniczenia: wycieczka w języku angielskim o godz. 10:00, francuskim o godz. 11:00, a japońskim o godz. 12:00. Gość, który pojawi się o niewłaściwej godzinie, musi albo czekać, albo odejść, a obiekt, który odsyła spontanicznych zwiedzających, traci potencjalne przychody.</p>
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/employee-timetable-board.webp" class="figure-img img-fluid rounded" alt="Pracownica muzeum próbująca pogodzić harmonogramy swoich wycieczek z przewodnikiem – Blog Nubart" />
+
+                        <figcaption class="figure-caption text-center">Pracownica muzeum próbująca zharmonizować harmonogramy swoich wycieczek z przewodnikiem (AI za pośrednictwem Canva)</figcaption>
+                    </figure>
+
+                    <h2 id="how-it-works">Jak działa funkcja zdalnego sterowania w Nubart GUIDE</h2>
+
+                    <p><a href="funkcje-multimedialne.html#remote-control" target="_blank">Funkcja zdalnego sterowania w Nubart GUIDE</a> bezpośrednio rozwiązuje ten problem w przypadku przewodnika oprowadzającego pojedynczą grupę. Przewodnik loguje się na swoje konto Nubart za pomocą własnego telefonu. Każdy zwiedzający skanuje kod QR – znajdujący się na wydrukowanej karcie lub wyświetlony przy wejściu – i wybiera język na swoim telefonie. Bez aplikacji, bez rejestracji. Naciśnięcie odpowiedniego nagrania na telefonie przewodnika wysyła krótki sygnał, nakazujący telefonom wszystkich zwiedzających odtworzenie odpowiedniego nagrania, które jest już w nich zapisane. Głos przewodnika nigdy nie jest transmitowany – przekazywany jest wyłącznie sygnał wyzwalający.</p>
+
+                    <p>Rozwiązanie to sprawdza się w dwóch różnych rodzajach wycieczek. W pierwszym przypadku przewodnik opowiada przez cały czas, a nagrania obejmują wszystkie języki, których nie zna. W drugim przypadku osoba prowadząca grupę w ogóle nie opowiada, a wszystkie wyjaśnienia pochodzą z nagrań. Pierwszy scenariusz jest bardziej typowy, dlatego warto zacząć od niego.</p>
+
+                    <h3 id="guide-narrates">Gdy przewodnik oprowadza i opowiada</h3>
+
+                    <p>Gdy przewodnik przemieszcza się po obiekcie i opowiada na żywo w swoim języku, uruchamia z telefonu odpowiednie nagrania w pozostałych językach w pozostałych językach dokładnie w momencie, gdy są potrzebne. Wyobraźcie sobie przewodnika prowadzącego wycieczkę w języku francuskim: francuskojęzyczni zwiedzający słyszą bezpośrednio głos przewodnika, podczas gdy osoby mówiące po angielsku i japońsku w tej samej grupie słyszą odpowiednie, wcześniej nagrane wyjaśnienie odtwarzane na ich własnych telefonach w momencie, gdy przewodnik dociera do danego punktu zainteresowania. Cała grupa porusza się w jednym tempie, razem, niezależnie od liczby reprezentowanych języków.</p>
+                    <h3 id="supervisor-instead">Gdy nadzór sprawuje inna osoba</h3>
+
+                    <p>W drugim scenariuszu nikt w ogóle nie musi pełnić roli narratora. Niektóre obiekty wymagają obecności osoby prowadzącej grupę z powodów niezwiązanych z narracją: aby trzymać zwiedzających z dala od delikatnych powierzchni, pilnować, by nikt nie wkroczył do strefy o ograniczonym dostępie, lub po prostu zadbać o to, by grupa poruszała się zgodnie z harmonogramem. Zadaniem tej osoby jest nadzór, a nie opowiadanie historii, więc nie ma potrzeby, aby była to wykwalifikowana, wielojęzyczna przewodniczka. Dzięki zdalnemu sterowaniu ten sam pracownik może uruchamiać każde nagranie w dowolnym języku w każdym punkcie zwiedzania, skupiając się jednocześnie wyłącznie na nadzorowaniu grupy. Komentarz pochodzi z nagrań, a nie od tej osoby. W przypadku obiektu, który wymaga obecności osoby, ale nie wymaga, by była ona ekspertem w danej dziedzinie, takie rozwiązanie zwiększa grono potencjalnych kandydatów do tej pracy i znacznie ułatwia obsadzanie stanowiska oraz przekazywanie obowiązków między zmianami.</p>
+
+                    <p>Zobacz, jak to działa:</p>
+                    <div style="padding:56.25% 0 0 0;position:relative;">
+                        <iframe src="https://player.vimeo.com/video/669095438?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Funkcje Nubart - Audioprzewodnik zdalnie sterowany"></iframe>
+                    </div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+                    <br />
+                    <p>Ponieważ jest to <a href="pwa-dla-muzeow-przewodnik.html" target="_blank">aplikacja PWA oparta na kodach QR</a>, a nie aplikacja natywna, nie trzeba niczego instalować. Tego rodzaju zdalne uruchamianie nagrań wymagało wcześniej aplikacji natywnej, ponieważ przeglądarki zazwyczaj zatrzymywały odtwarzanie dźwięku w momencie zablokowania ekranu przez zwiedzającego. Własne prace rozwojowe firmy Nubart rozwiązały ten konkretny problem, dzięki czemu sygnał wyzwalający wysyłany przez przewodnika nadal dociera do telefonu zwiedzającego, nawet jeśli jego ekran jest wyłączony. Sam sygnał wyzwalający wymaga również bardzo niewielkiej przepustowości, dzięki czemu działa nawet tam, gdzie sygnał Wi-Fi lub komórkowy w obiekcie jest słaby. W prawdziwej strefie bez zasięgu sygnał wyzwalający nie może dotrzeć do telefonu zwiedzającego, ale wycieczka nie zostaje z tego powodu przerwana: na telefonie każdego zwiedzającego został już wcześniej załadowany pełny przewodnik dzięki <a href="../../audio-guides/offline-mode-best-practices.html" target="_blank">trybowi offline firmy Nubart</a>, więc przewodnik po prostu podaje numer nagrania, a zwiedzający samodzielnie je wybierają przed przejściem dalej.</p>
+                    <h2 id="what-it-solves">Jakie problemy rozwiązuje to rozwiązanie i kiedy lepiej sprawdzają się Nubart MOTION lub Nubart LIVE</h2>
+
+                    <h3 id="how-many-groups">Ile grup może korzystać z jednego kodu QR</h3>
+
+                    <p>Warto dokładnie zrozumieć, jak działa sygnał wyzwalający, ponieważ określa to, w jakich sytuacjach dane rozwiązanie ma zastosowanie. Domyślnie jedna sesja zdalnego sterowania obejmuje wszystkich podłączonych do niej użytkowników: gdy przewodnik uruchamia nagranie, jest ono odtwarzane dla wszystkich osób, które mają aktualnie otwarty ten audioprzewodnik, a nie tylko dla osób stojących przed przewodnikiem. Rozwiązanie to idealnie sprawdza się w przypadku pojedynczego przewodnika prowadzącego jedną grupę.</p>
+
+                    <p>W przypadku obiektów, w których jednocześnie może być prowadzona więcej niż jedna grupa, firma Nubart może zamiast tego skonfigurować opcjonalny tryb grupowy: każdy zwiedzający wybiera swoją grupę, np. „Grupa 1” lub „Grupa 2”, podczas skanowania kodu, a od tego momentu sygnał wyzwalający przewodnika dociera wyłącznie do jego własnej grupy. Nie ma to również wpływu na zwiedzających korzystających z samodzielnego zwiedzania, którzy poruszają się po obiekcie bez wybierania grupy.</p>
+
+                    <p>To rozwiązanie nie jest jednak przeznaczone do sytuacji, w których liczba niezależnych grup ulega ciągłym zmianom, a zwiedzający musieliby być przypisywani dynamicznie, zamiast samodzielnie wybierać grupę na początku. W takich sytuacjach lepiej sprawdza się opisane poniżej <a href="../tour-guide-system/" target="_blank">rozwiązanie Nubart LIVE</a>.</p>
+                    <h3 id="guide-vs-motion">Nubart GUIDE a Nubart MOTION</h3>
+
+                    <p>Jeśli wycieczka odbywa się na łodzi, w autobusie lub innym pojeździe, <a href="../../audio-commentary-system/" target="_blank">rozwiązanie Nubart MOTION</a> zostało stworzone specjalnie z myślą o takich warunkach. Komentarze są zazwyczaj uruchamiane na podstawie lokalizacji GPS w miarę przemieszczania się pojazdu, jednak kierowca lub przewodnik może również przełączyć się na ręczne uruchamianie komentarzy, klikając poszczególne przystanki w odpowiednim momencie, zamiast polegać wyłącznie na GPS. Kilku naszych klientów korzystających z tego rozwiązania w pojazdach faktycznie preferuje opcję ręczną, ponieważ zapewnia ona bezpośrednią kontrolę nad momentem uruchamiania komentarzy na trasach, na których ruch uliczny i przystanki nie zawsze przebiegają zgodnie z przewidywalnym harmonogramem.</p>
+
+                    <h3 id="guide-vs-live">Nubart GUIDE a Nubart LIVE</h3>
+
+                    <p>Jeśli kilku przewodników musi jednocześnie oprowadzać niezależne, nieplanowane grupy bez konieczności wcześniejszego konfigurowania dedykowanych modułów lub jeśli przewodnik chce podczas oprowadzania przesyłać nie tylko dźwięk, ale także zdjęcia, filmy lub dokumenty, <a href="../tour-guide-system/" target="_blank">system przewodnicki Nubart LIVE</a> jest stworzony właśnie z myślą o takich sytuacjach. Zdalne sterowanie Nubart GUIDE wysyła jedynie sygnał wyzwalający; Nubart LIVE idzie o krok dalej i przesyła na żywo głos przewodnika do telefonów wszystkich uczestników w czasie rzeczywistym, podobnie jak w przypadku wideorozmowy, z opcjonalnym dodatkiem w postaci tłumaczenia na żywo opartego na sztucznej inteligencji.</p>
+
+                    <p>Różnica ta ma największe znaczenie, gdy łączność jest niestabilna. Nubart LIVE wymaga stabilnego połączenia przez cały czas trwania wizyty, nie tylko wtedy, gdy włączone jest tłumaczenie, ponieważ przesyła ciągły strumień danych. Jeśli telefon uczestnika straci połączenie, strumień zostaje przerwany do czasu ponownego nawiązania połączenia. Zdalne sterowanie Nubart GUIDE zapewnia natomiast ręczne rozwiązanie awaryjne, ponieważ pliki audio są już zapisane w telefonie: jeśli sygnał wyzwalający nie dotrze do odbiorcy, przewodnik podaje numer nagrania, a zwiedzający sam je wybiera. W przypadku obiektów, w których łączność jest niestabilna przez cały czas trwania wizyty, to właśnie takie rozwiązanie awaryjne często okazuje się czynnikiem decydującym.</p>
+                    <br />   <br />
+                    <div class="col text-center">
+                        <a id="emailButton" href="#" class="btn btn-primary btn-lg">
+                            Aktywuj tę funkcję już teraz
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlin<br>
+
+
+                            <strong>E-mail:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a> <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a> <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a> <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Przydatne linki</p>
+                    <ul>
+
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../kontakt.html">Kontakt</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../nota-prawna.html" rel="nofollow">Nota prawna</a>     </li>
+
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../polityka-prywatnosci.html" rel="nofollow">Strona internetowa z polityką prywatności</a>           </li>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencje dotyczące plików cookie</a>     </li>
+
+
+
+
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. Wszelkie prawa zastrzeżone        </div>
+
+
+    </div>
+</footer><!-- End Footer -->
+
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Critical JS Files -->
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+
+<!-- Non-Critical JS Files - Still deferred but loaded directly -->
+<script src="../../assets/vendor/aos/aos.js" defer></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../../assets/js/main-min.js" defer></script>
+
+<!-- Hubspot Analytics scripts with proper async loading -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async
+        src="//js.hs-scripts.com/2430134.js"></script>
+
+
+<!-- Script to obfuscate the e-mail address -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var button = document.getElementById('emailButton');
+        if (!button) {
+            console.error('Button with id "emailButton" not found');
+            return;
+        }
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            var user = 'info';
+            var domain = 'nubart.eu';
+            var ccUser = 'evelyn.crende';
+            var subject = 'Proszę przesłać ofertę aktywacji zdalnego sterowania';
+            var mailtoLink = 'mailto:' + user + '@' + domain +
+                             '?cc=' + ccUser + '@' + domain +
+                             '&subject=' + encodeURIComponent(subject);
+            window.location.href = mailtoLink;
+        });
+    });
+</script>
+<!-- End script to obfuscate the e-mail address -->
+
+</body>
+</html>
