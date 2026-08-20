@@ -534,6 +534,15 @@
 - NL: (still pending)
 - PT: (still pending)
 
+**Master smartphone GPS fine-tuning instructions for test routes (customer-only, noindex, unlinked):**
+- EN: audio-commentary-system/instructions-customers-master-smartphone-for-fine-tuning.html
+- DE: de/motion/anleitung-kunden-justierung-gps.html
+- ES: (still pending)
+- FR: (still pending)
+- IT: (still pending)
+- NL: (still pending)
+- PT: (still pending)
+
 ### Nubart SYNC
 **Main product explainer:**
 - EN: sync/index.html
