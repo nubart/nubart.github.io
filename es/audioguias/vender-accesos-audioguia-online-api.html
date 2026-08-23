@@ -424,6 +424,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </blockquote>
 
                     <p>Este texto debe añadirse a la plantilla de tus entradas. Nubart no lo inserta automáticamente.</p>
+                    <figure class="figure">
+                        <img src="../../assets/img/api-integration-in-museum-ticket.png"
+                             class="figure-img img-fluid rounded" alt="Ejemplo de una maqueta de entrada de museo mostrando nuestro código QR y el enlace directo correspondiente">
+                        <figcaption class="figure-caption">Un ejemplo hipotético de cómo podrían aparecer el código QR
+                            y su enlace correspondiente en una entrada de museo online.</figcaption>
+                    </figure>
 
                     <h2>¿Qué ocurre si un visitante abre el enlace en dos dispositivos distintos?</h2>
 
@@ -433,11 +439,84 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p><em>Nota:</em> Algunos servicios de correo electrónico analizan automáticamente los enlaces por motivos de seguridad. Nuestro sistema reconoce estas comprobaciones automáticas, por lo que no impedirán que tus visitantes puedan abrir su audioguía.</p>
 
-                    <h2>Las estadísticas siguen siendo las mismas</h2>
+                    <h2>Cómo la activación de tokens te protege de pagar por un fallo técnico</h2>
 
-                    <p>El acceso mediante la API no cambia la forma en que consultas tus estadísticas. En tu área de cliente aparecerá una nueva entrada con el nombre de tu museo seguido de «(API)»; por ejemplo, <strong>«[Nombre del museo] (API)»</strong>. En ella podrás ver cuántos accesos se han realizado a través de la API.</p>
+                    <p>En Nubart, creamos por adelantado una serie de tokens de acceso para tu módulo, y esa serie es
+                        la que se te factura, siguiendo el mismo principio que cuando encargas un lote de tarjetas
+                        impresas. Cuando tu tienda online se conecta a través de la API, obtiene tokens individuales de
+                        esa misma serie en lugar de utilizar una tarjeta impresa.</p>
+
+                    <p>Obtener un token a través de la API y activarlo son dos pasos distintos. Primero, tu tienda
+                        online solicita el siguiente token disponible y, después, lo activa una vez confirmada la
+                        compra del visitante. Solo el paso de activación se descuenta de la serie facturada y aparece
+                        en tus informes.</p>
+
+                    <p>Este diseño en dos pasos existe precisamente para protegerte de tener que pagar por algo que
+                        nunca llegó a un visitante. Si se obtiene un token, pero la compra finalmente no se completa
+                        por un motivo técnico —un timeout, una conexión interrumpida, un error en la tienda—, ese token
+                        simplemente nunca se activa. No se descuenta de tu serie y nunca se te factura.</p>
+
+                    <p>Para garantizar que esto funcione de forma fiable, recomendamos que tu webmaster implemente el
+                        comportamiento de timeout y reintento descrito en la sección 5 de la documentación de la API,
+                        de modo que una respuesta lenta se vuelva a solicitar automáticamente en lugar de tratarse
+                        silenciosamente como un fallo.</p>
+
+                    <h2>Cómo consultar los tokens activados y el uso</h2>
+
+                    <p>El acceso mediante la API no cambia la forma en que consultas tus estadísticas. En tu área de cliente aparecerá una nueva entrada con el nombre de la audioguía seguido de «(API)»; por ejemplo, <strong>«[Nombre de la audioguía] (API)»</strong>.</p>
+
+                    <p>En <strong>Stats</strong>, dentro de tu área de cliente, puedes ver en cualquier momento cuántos
+                        de los tokens de esa entrada han sido activados, en relación con el tamaño de la serie que
+                        compraste:</p>
+
+                    <figure class="figure">
+                        <img src="../../assets/img/api-token-stats.png"
+                             class="figure-img img-fluid rounded" alt="Ejemplo ilustrativo de la vista de una entrada de API en Stats, que muestra los tokens activados en relación con el tamaño de la serie y el número de usuarios">
+                        <figcaption class="figure-caption">Ejemplo ilustrativo de la vista de una entrada de API en Stats.
+                            Las cifras mostradas son solo a título ilustrativo.</figcaption>
+                    </figure>
+
+                    <p>La columna <strong>Users</strong> muestra una cifra diferente de la de los tokens activados.
+                        Cuenta los visitantes que realmente utilizaron el enlace o código QR que recibieron al comprar
+                        su entrada para abrir la audioguía; es decir, tu tasa de uso real. Esta cifra suele ser
+                        significativamente inferior al número de tokens activados: se venden muchas audioguías junto con la entrada, pero no todos los visitantes que la compran llegan a abrirla.</p>
 
                     <p>En las estadísticas del módulo se combinan ambos grupos de visitantes: tanto los que utilizan una tarjeta física como los que acceden mediante la API. Así obtendrás una visión completa del uso de tu audioguía.</p>
+
+                    <h2>¿Por qué mi tasa de uso podría ser más baja de lo esperado?</h2>
+
+                    <p>Observamos de forma constante tasas de uso más bajas en los tokens entregados a través de la
+                        API que en nuestras tarjetas QR impresas, que se entregan in situ y donde el uso suele ser muy
+                        alto, especialmente cuando se venden como artículo adicional. Es probable que varios factores
+                        influyan a la vez, y con una sola integración aún no tenemos datos suficientes para valorar el
+                        peso de cada uno:</p>
+
+                    <ul>
+                        <li><strong>El desfase entre la compra y la visita.</strong> Las entradas online suelen
+                            comprarse días o semanas antes de la visita. Algunos tokens que hoy parecen sin usar
+                            corresponden a visitas que sencillamente todavía no han tenido lugar.</li>
+                        <li><strong>Quien compra no siempre es quien visita.</strong> Es habitual que una sola persona
+                            reserve online para todo un grupo: familia, compañeros de trabajo, una clase escolar. El
+                            enlace de la audioguía puede acabar en la bandeja de entrada de quien pagó, no
+                            necesariamente en manos de todas las personas que visitan el museo.</li>
+                        <li><strong>Un contexto de decisión distinto.</strong> Aunque añadir la audioguía online sea
+                            una decisión deliberada y de pago, y no una opción incluida por defecto, esa decisión se
+                            toma lejos del museo, a veces días antes de la visita. Quien pide una tarjeta en taquilla
+                            ya está en el propio museo y empieza la visita de inmediato: esa inmediatez puede
+                            traducirse también en un mayor uso real.</li>
+                        <li><strong>Sin recordatorio el día de la visita.</strong> Una tarjeta física ya está en la
+                            mano del visitante nada más entrar. Un código digital comprado con antelación no tiene
+                            nada que lo traiga de vuelta a la memoria el día de la visita, por lo que es fácil olvidar
+                            que estaba incluido o no tenerlo a mano al llegar.</li>
+                        <li><strong>Tasa general de no presentación de la propia entrada.</strong> Algunas entradas
+                            compradas, con o sin audioguía, simplemente no se utilizan nunca, por motivos que nada
+                            tienen que ver con la audioguía.</li>
+                    </ul>
+
+                    <p>Para determinar cuánto pesa cada factor haría falta acceso a los registros de compra y de fecha
+                        de visita de la propia tienda de entradas, no solo a nuestros datos de activación. Estaremos
+                        encantados de analizarlo junto con cualquier cliente que quiera profundizar en sus propios
+                        números.</p>
 
                     <h2>¿Es necesario modificar la audioguía?</h2>
 

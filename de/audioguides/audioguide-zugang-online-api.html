@@ -444,11 +444,88 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p><em>Hinweis:</em> Einige E-Mail-Dienste prüfen Links in eingehenden Nachrichten automatisch auf Sicherheitsrisiken. Unser System erkennt diese automatischen Prüfungen, sodass Ihre Besucher ihren Audioguide trotzdem problemlos öffnen können.</p>
 
-                    <h2>Ihre Auswertungen bleiben unverändert</h2>
+                    <h2>Wie die Aktivierung von Tokens Sie davor schützt, für einen technischen Fehler bezahlen zu müssen</h2>
 
-                    <p>Die Nutzung der API verändert die Darstellung Ihrer Statistiken nicht. In Ihrem Kundenbereich erscheint lediglich ein zusätzlicher Eintrag mit dem Namen Ihres Museums und dem Zusatz „(API)“ – zum Beispiel <strong>„[Name des Museums] (API)“</strong>. Dort sehen Sie, wie viele Zugriffe über die API erfolgt sind.</p>
+                    <p>Bei Nubart erstellen wir im Voraus eine Reihe von Zugangstokens für Ihr Modul, und diese Reihe
+                        wird Ihnen in Rechnung gestellt, genauso wie beim Druck einer Auflage von physischen Karten. Wenn Ihr Online-Shop über die API verbunden ist, entnimmt er einzelne Tokens
+                        aus derselben Reihe, anstatt eine gedruckte Karte zu verwenden.</p>
+
+                    <p>Das Abrufen eines Tokens über die API und seine Aktivierung sind zwei getrennte Schritte. Ihr
+                        Online-Shop fragt zunächst nach dem nächsten verfügbaren Token und aktiviert es erst, sobald
+                        der Kauf des Besuchers bestätigt wurde. Nur der Aktivierungsschritt wird auf die in Rechnung
+                        gestellte Token-Reihe angerechnet und erscheint in Ihrem Reporting.</p>
+
+                    <p>Dieses zweistufige Verfahren dient ausdrücklich dazu, Sie davor zu schützen, für etwas bezahlen
+                        zu müssen, das nie bei einem Besucher angekommen ist. Wenn ein Token abgerufen wird, der Kauf
+                        dann aber aus einem technischen Grund nicht abgeschlossen werden kann – etwa wegen eines
+                        Timeouts, einer unterbrochenen Verbindung oder eines Fehlers auf Seiten des Shops –, wird dieser
+                        Token einfach nicht aktiviert. Er wird nicht auf Ihre Token-Reihe angerechnet, und Sie zahlen
+                        niemals dafür.</p>
+
+                    <p>Damit dies zuverlässig funktioniert, empfehlen wir Ihrem Webmaster, das in Abschnitt 5 der
+                        API-Dokumentation beschriebene Timeout- und Wiederholungsverhalten zu implementieren, sodass
+                        eine langsame Antwort automatisch erneut angefordert wird, anstatt stillschweigend als Fehler
+                        behandelt zu werden.</p>
+
+                    <h2>So prüfen Sie aktivierte Tokens und die Nutzung</h2>
+
+                    <p>Die Nutzung der API verändert die Darstellung Ihrer Statistiken nicht. In Ihrem Kundenbereich erscheint lediglich ein zusätzlicher Eintrag mit dem Namen des Audioguides und dem Zusatz „(API)” – zum Beispiel <strong>„[Name des Audioguides] (API)”</strong>.</p>
+
+                    <p>Unter <strong>Stats</strong> in Ihrem Kundenbereich können Sie jederzeit sehen, wie viele der
+                        Tokens dieses Eintrags aktiviert wurden, dargestellt im Verhältnis zur Größe der von Ihnen
+                        erworbenen Token-Reihe:</p>
+
+                    <figure class="figure">
+                        <img src="../../assets/img/api-token-stats.png"
+                             class="figure-img img-fluid rounded" alt="Illustratives Beispiel der API-Eintragsansicht unter Stats, die aktivierte Tokens im Verhältnis zur Größe der Token-Reihe und die Anzahl der Benutzer zeigt">
+                        <figcaption class="figure-caption">Illustratives Beispiel der API-Eintragsansicht unter Stats.
+                            Die angezeigten Zahlen dienen nur zur Veranschaulichung.</figcaption>
+                    </figure>
+
+                    <p>Die Spalte <strong>Users</strong> zeigt eine andere Zahl als die Anzahl der aktivierten Tokens.
+                        Sie zählt die Besucher, die den bei der Buchung erhaltenen Link oder QR-Code tatsächlich
+                        verwendet haben, um den Audioguide zu öffnen – also Ihre tatsächliche Nutzungsrate. Diese Zahl
+                        liegt in der Regel deutlich unter der Anzahl der aktivierten Tokens: Viele Audioguides werden mit
+                        dem Ticket verkauft, aber nicht jeder Besucher, der einen solchen gekauft hat, öffnet
+                        ihn tatsächlich.</p>
 
                     <p>In den Modulstatistiken werden beide Besuchergruppen gemeinsam ausgewertet: Sowohl die Nutzung über physische Karten als auch die Zugriffe über die API fließen in dieselben Statistiken ein. So erhalten Sie einen vollständigen Überblick über die Nutzung Ihres Audioguides.</p>
+
+                    <h2>Warum könnte meine Nutzungsrate niedriger als erwartet sein?</h2>
+
+                    <p>Wir beobachten durchgängig niedrigere Nutzungsraten bei Tokens, die über die API bereitgestellt
+                        werden, als bei unseren gedruckten QR-Karten, die vor Ort ausgegeben werden – dort ist die
+                        Nutzung in der Regel sehr hoch, besonders wenn sie als Zusatzoption verkauft werden.
+                        Wahrscheinlich wirken hier mehrere Faktoren gleichzeitig zusammen, und aus einer einzelnen
+                        Integration haben wir noch nicht genügend Daten, um sie gegeneinander abzuwägen:</p>
+
+                    <ul>
+                        <li><strong>Der zeitliche Abstand zwischen Kauf und Besuch.</strong> Online-Tickets werden oft
+                            Tage oder Wochen vor dem eigentlichen Besuch gekauft. Manche Tokens, die heute ungenutzt
+                            erscheinen, gehören zu Besuchen, die schlicht noch nicht stattgefunden haben.</li>
+                        <li><strong>Der Käufer ist nicht immer der Besucher.</strong> Häufig bucht eine Person online
+                            für eine ganze Gruppe – Familie, Kollegen, eine Schulklasse. Der Link zum Audioguide landet
+                            dann im Posteingang der zahlenden Person, nicht zwangsläufig in den Händen aller, die das
+                            Museum tatsächlich besuchen.</li>
+                        <li><strong>Ein anderer Entscheidungskontext.</strong> Auch wenn die Online-Buchung des
+                            Audioguides eine bewusste, kostenpflichtige Entscheidung ist und keine automatisch
+                            enthaltene Option, wird diese Entscheidung fernab des Museums getroffen, manchmal Tage vor
+                            dem Besuch. Wer hingegen am Einlass eine Karte verlangt, steht bereits im Museum und
+                            beginnt den Besuch unmittelbar danach – diese Unmittelbarkeit kann sich auch auf die
+                            tatsächliche Nutzung auswirken.</li>
+                        <li><strong>Keine Erinnerung am Tag selbst.</strong> Eine physische Karte hat der Besucher
+                            bereits am Einlass in der Hand. Ein digitaler Code, der vorab gekauft wurde, wird am
+                            Besuchstag durch nichts in Erinnerung gerufen – es lässt sich daher leicht vergessen, dass
+                            er im Ticket enthalten war, oder man hat ihn bei Ankunft schlicht nicht zur Hand.</li>
+                        <li><strong>Allgemeine No-Show-Quote beim Ticket selbst.</strong> Manche gekauften Tickets
+                            werden – unabhängig vom Audioguide – überhaupt nicht eingelöst, aus Gründen, die nichts mit
+                            dem Audioguide zu tun haben.</li>
+                    </ul>
+
+                    <p>Um herauszufinden, wie stark jeder einzelne Faktor beiträgt, bräuchten wir Einblick in die Kauf-
+                        und Besuchsdatensätze des Ticket-Shops selbst, nicht nur in unsere Aktivierungsdaten. Gerne
+                        arbeiten wir das gemeinsam mit jedem Kunden durch, der seine eigenen Zahlen genauer
+                        untersuchen möchte.</p>
 
                     <h2>Muss dafür der Audioguide geändert werden?</h2>
 

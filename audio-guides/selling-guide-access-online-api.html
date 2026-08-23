@@ -469,6 +469,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>This text needs to be added by your team into your own ticket template — Nubart doesn't insert it
                         automatically.</p>
 
+                    <figure class="figure">
+                        <img src="../assets/img/api-integration-in-museum-ticket.png"
+                             class="figure-img img-fluid rounded" alt="Example of a museum ticket mockup showing our QR code and the corresponding direct link">
+                        <figcaption class="figure-caption">A hypothetical example of how the QR code and its
+                            corresponding link could appear on an online museum ticket.</figcaption>
+                    </figure>
+
                     <h2>What happens if a visitor opens the link on two different devices</h2>
 
                     <p>If a visitor opens the link on a PC at home, then later opens the same link on their smartphone,
@@ -483,14 +490,85 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p><em>Note:</em> some email services automatically scan links for security. Our system recognizes
                         this, so it won't accidentally block your visitors from opening their guide.</p>
 
-                    <h2>Reporting stays exactly the same</h2>
+                    <h2>How token activation protects you from being charged for a technical failure</h2>
+
+                    <p>At Nubart, we create a series of access tokens for your module in advance, and that series is
+                        what you're invoiced for — the same principle as ordering a batch of printed cards. When your
+                        online shop connects through the API, it draws individual tokens from that same series
+                        instead of a printed one.</p>
+
+                    <p>Retrieving a token from the API and activating it are two separate steps. Your online shop
+                        first asks for the next available token, then activates it once the visitor's purchase is
+                        confirmed. Only the activation step counts against your invoiced series and appears in your
+                        reporting.</p>
+
+                    <p>This two-step design exists specifically to protect you from being charged for something that
+                        never reached a visitor. If a token is retrieved but the purchase then fails to complete for
+                        a technical reason — a timeout, a dropped connection, an error on the shop's side — that
+                        token is simply never activated. It isn't counted against your series, and you are never
+                        billed for it.</p>
+
+                    <p>To keep this working reliably, we recommend your webmaster implement the timeout and retry
+                        behaviour described in Section 5 of the API documentation, so a slow response is retried
+                        automatically rather than silently treated as a failure.</p>
+
+                    <h2>How to check activated tokens and usage</h2>
 
                     <p>Access via API doesn't change how you view your statistics. In your customer area, a new entry
-                        appears labelled with your museum's name plus "(API)" — for example, <strong>"[Museum Name]
-                        (API)"</strong> — showing how many accesses came through the API.</p>
+                        appears labelled with your audio guide's name plus "(API)" — for example, <strong>"[Audio Guide Name]
+                        (API)"</strong>.</p>
 
-                    <p>In the module statistics, both visitor groups are combined: those using a physical card and those
-                        accessing through the API are merged, giving you one complete picture of guide usage.</p>
+                    <p>Under <strong>Stats</strong> in your customer area, you can see at any time how many of that
+                        entry's tokens have been activated, shown against the size of the series you purchased:</p>
+
+                    <figure class="figure">
+                        <img src="../assets/img/api-token-stats.png"
+                             class="figure-img img-fluid rounded" alt="Illustrative example of the API entry view under Stats, showing activated tokens against series size and the number of users">
+                        <figcaption class="figure-caption">Illustrative example of the API entry view under Stats.
+                            Numbers shown are for illustration only.</figcaption>
+                    </figure>
+
+                    <p>The <strong>Users</strong> column is a different number from activated tokens. It counts the
+                        visitors who actually used the link or QR code they received at purchase to open the audio
+                        guide — in other words, your real usage rate. This number is typically significantly lower
+                        than the number of activated tokens: plenty of audio guides are sold with the ticket, but not
+                        every visitor who buys one goes on to open it.</p>
+
+                    <p>In the module statistics, both visitor groups are combined: those using a physical card and
+                        those accessing through the API are merged, giving you one complete picture of guide
+                        usage.</p>
+
+                    <h2>Why might my usage rate be lower than expected?</h2>
+
+                    <p>We consistently see lower usage rates for tokens delivered through the API than for our
+                        physical printed QR-cards handed out on site, where usage is typically very high, especially
+                        when sold as an extra item. A few factors are likely contributing at once, and we don't yet
+                        have enough data from a single integration to weigh them against each other:</p>
+
+                    <ul>
+                        <li><strong>The purchase-to-visit gap.</strong> Online tickets are often bought days or weeks
+                            before the visit itself. Some tokens that look unused today belong to visits that simply
+                            haven't happened yet.</li>
+                        <li><strong>The buyer isn't always the visitor.</strong> One person often books online for a
+                            group — family, colleagues, a school class. The audio guide link can end up in the inbox
+                            of whoever paid, not necessarily in the hands of everyone who visits.</li>
+                        <li><strong>A different purchase context.</strong> Even when adding the audio guide online is
+                            a deliberate paid choice, not a bundled default, that choice is made away from the
+                            museum, sometimes days before the visit. Someone asking for a card at the front desk is
+                            already standing at the entrance, about to start their visit immediately — that
+                            immediacy may carry through to actually using it.</li>
+                        <li><strong>No reminder on the day.</strong> A physical card is already in a visitor's hand
+                            at the entrance. A digital code bought earlier has nothing bringing it back to mind on
+                            the day itself, so it's easy to forget it was included or not have it at hand once you
+                            arrive.</li>
+                        <li><strong>General no-show rate on the ticket itself.</strong> Some purchased tickets, audio
+                            guide or not, are never used at all — for reasons that have nothing to do with the audio
+                            guide.</li>
+                    </ul>
+
+                    <p>Isolating how much each factor contributes would need visibility into the ticket shop's own
+                        purchase and visit-date records, not just our activation data. We're happy to work through
+                        this together with any customer who wants to dig into their own numbers.</p>
 
                     <h2>Does this require changes to the audio guide?</h2>
 
