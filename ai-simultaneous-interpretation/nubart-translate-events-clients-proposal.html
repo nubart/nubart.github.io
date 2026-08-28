@@ -1,0 +1,413 @@
+<!-- ============================================================
+     SCRIPT:  nubart-translate-events-client-proposal
+     VERSION: v1 — draft
+     DATE:    2026-08-28
+     TYPE:    Web tool (Type B) — but NOT an internal tool.
+              This page is the one artifact in this whole workflow that a
+              PROSPECT opens directly, so it must be reachable WITHOUT
+              Cloudflare Access / OTP login. If it's committed into the
+              same nubart-tools Cloudflare Pages/Worker project as the
+              internal generators, it needs its own Access-bypass rule
+              (e.g. exclude the /proposal/* path from the Access policy),
+              or it needs to live on a separate public route entirely.
+              This is infrastructure Rosa (or Claude Code, with Rosa's
+              sign-off) needs to set up — flagging as a KNOWN UNCERTAINTY,
+              not something this draft can verify from the browser.
+     STATUS:  In progress — new template, not yet wired up to the
+              generator tool (see integration notes below).
+     NOTES:   Reusable, data-driven template. It renders whatever proposal
+              JSON is encoded in the URL's hash fragment (never sent to
+              any server — hash fragments aren't transmitted in HTTP
+              requests, so this stays a pure client-side, no-backend
+              design as agreed). One template serves every prospect.
+
+              URL FORMAT:  yourpage.html#<version>:<base64url-payload>
+                - v1:<base64url(JSON)>                     — uncompressed
+                - v2:<base64url(gzip(JSON))>                — compressed (preferred)
+              The generator tool should try v2 (gzip via CompressionStream)
+              and fall back to v1 if CompressionStream isn't available in
+              the rep's browser at generation time. This page's decoder
+              already handles both.
+
+              WHAT MUST NEVER BE IN THE PAYLOAD: pricing.negotiation
+              (startingPrice / targetClose / absoluteFloor). That block is
+              for internal eyes only. The generator's "Get shareable link"
+              button must build a fresh object for encoding — not spread
+              the whole `generated.pricing` — so this can never leak by
+              accident. See the encode() snippet in the handoff notes.
+
+              Everything else (proposalText.*, the usage/pricing numbers
+              actually meant for the client, rep info, company info) is
+              fair game and mirrors what's already in the Google Doc.
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Nubart TRANSLATE — Proposal</title>
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon-tools/favicon.ico">
+<style>
+  :root {
+    --teal: #008C95;
+    --teal-light: #A1D6CA;
+    --teal-bg: #EAF6F7;
+    --stripe: #F7FBFB;
+    --gray: #5B6066;
+    --dark: #1A1A1A;
+    --border: #E1EEEE;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; background: #F3F6F6; color: var(--dark);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 760px; margin: 0 auto; background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+  .page-inner { padding: 48px 56px 56px; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .topbar img.logo { height: 34px; }
+  .topbar .date { font-size: 12px; color: var(--gray); }
+  hr.rule { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+  .hero-wrap { margin: 0 -56px 24px; }
+  .hero-wrap img { width: 100%; display: block; }
+  .product-logo { height: 26px; margin-bottom: 18px; display: block; }
+
+  h1.intro-title { font-size: 26px; color: var(--teal); margin: 0 0 18px; font-weight: 700; }
+  .prospect-line { font-size: 14px; margin-bottom: 2px; }
+  .prospect-line .company { font-weight: 700; }
+  .prospect-line .loc { color: var(--gray); }
+  .attn-line { font-size: 13px; color: var(--gray); font-style: italic; margin-bottom: 0; }
+
+  h2.section-h { font-size: 17px; color: var(--teal); font-weight: 700; margin: 34px 0 10px; }
+  p.section-body { font-size: 14.5px; margin: 0 0 4px; text-align: justify; }
+
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px;
+  }
+  .stat-tile {
+    background: var(--teal-bg); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .stat-tile .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--gray); margin-bottom: 4px; }
+  .stat-tile .stat-value { font-size: 16px; font-weight: 700; color: var(--dark); }
+
+  .price-hero {
+    background: linear-gradient(135deg, var(--teal) 0%, #00777e 100%);
+    color: #fff; border-radius: 14px; padding: 26px 28px; margin: 16px 0 14px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .price-hero .label { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; opacity: .85; margin-bottom: 6px; }
+  .price-hero .amount { font-size: 40px; font-weight: 800; line-height: 1; }
+  .price-hero .amount small { font-size: 16px; font-weight: 500; opacity: .85; }
+  .price-rows { margin-top: 16px; border-top: 1px solid rgba(255,255,255,.25); padding-top: 12px; }
+  .price-row { display: flex; justify-content: space-between; font-size: 13px; padding: 3px 0; opacity: .95; }
+
+  .branding-note {
+    font-size: 12.5px; color: var(--gray); background: var(--stripe);
+    border: 1px dashed var(--border); border-radius: 8px; padding: 10px 12px; margin-top: 10px;
+  }
+
+  .savings-callout {
+    background: var(--teal-bg); border-left: 4px solid var(--teal); border-radius: 6px;
+    padding: 12px 16px; font-size: 15px; font-weight: 700; color: var(--teal); margin-top: 14px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  ol.next-steps { margin: 10px 0 0; padding-left: 20px; }
+  ol.next-steps li { font-size: 14.5px; margin-bottom: 10px; }
+
+  .rep-card {
+    display: flex; align-items: center; gap: 16px; margin-top: 36px;
+    padding-top: 24px; border-top: 1px solid var(--border);
+  }
+  .rep-card img.rep-photo {
+    width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--teal-light);
+  }
+  .rep-card .rep-name { font-weight: 700; font-size: 14.5px; }
+  .rep-card .rep-title { font-size: 12.5px; color: var(--gray); font-style: italic; }
+  .rep-card .rep-contact { font-size: 12.5px; color: var(--teal); margin-top: 2px; }
+
+  .footer-line { text-align: center; font-size: 11.5px; color: var(--gray); font-style: italic; margin-top: 30px; }
+
+  .print-bar {
+    position: sticky; top: 0; z-index: 10; background: #fff;
+    border-bottom: 1px solid var(--border); padding: 12px 16px;
+    display: flex; justify-content: center;
+  }
+  .print-btn {
+    background: var(--teal); color: #fff; border: none; border-radius: 7px;
+    padding: 10px 22px; font-size: 14px; font-weight: 600; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .print-btn:hover { background: #006d75; }
+  .print-hint { font-size: 11px; color: var(--gray); margin-left: 10px; align-self: center; }
+
+  .state-msg {
+    max-width: 480px; margin: 80px auto; text-align: center; color: var(--gray);
+    font-size: 14px; padding: 0 20px;
+  }
+  .state-msg strong { display: block; color: var(--dark); font-size: 16px; margin-bottom: 8px; }
+
+  [hidden] { display: none !important; }
+
+  @media (max-width: 700px) {
+    .page-inner { padding: 28px 20px 40px; }
+    .hero-wrap { margin: 0 -20px 20px; }
+    .stat-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; max-width: none; }
+    .print-bar { display: none; }
+    .page-inner { padding: 0 8mm; }
+    h2.section-h { break-after: avoid; }
+    .price-hero, .stat-tile, .savings-callout { break-inside: avoid; }
+    @page { size: A4; margin: 16mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-bar no-print" id="printBar" hidden>
+  <button class="print-btn" onclick="window.print()">🖨 Print as PDF</button>
+  <span class="print-hint">Opens your browser's print dialog — choose "Save as PDF" as the destination.</span>
+</div>
+
+<div class="page">
+  <div class="page-inner">
+
+    <div id="loadingState" class="state-msg">
+      <strong>Loading proposal…</strong>
+    </div>
+
+    <div id="errorState" class="state-msg" hidden>
+      <strong>This link looks incomplete or broken.</strong>
+      Please ask your Nubart contact to resend the proposal link.
+    </div>
+
+    <div id="content" hidden>
+      <div class="topbar">
+        <img class="logo" id="nubartLogo" alt="Nubart">
+        <span class="date" id="dateLine"></span>
+      </div>
+      <hr class="rule">
+
+      <div class="hero-wrap">
+        <img id="heroImage" alt="">
+      </div>
+      <img class="product-logo" id="productLogo" alt="Nubart TRANSLATE">
+
+      <h1 class="intro-title" id="introTitle"></h1>
+      <div class="prospect-line">
+        <span class="company" id="companyName"></span>
+        <span class="loc" id="locationLine"></span>
+      </div>
+      <p class="attn-line" id="attnLine" hidden></p>
+
+      <hr class="rule">
+
+      <h2 class="section-h" id="overviewHeading"></h2>
+      <p class="section-body" id="executiveSummary"></p>
+
+      <h2 class="section-h" id="situationHeading"></h2>
+      <p class="section-body" id="situationAnalysis"></p>
+
+      <h2 class="section-h" id="solutionHeading"></h2>
+      <p class="section-body" id="solutionDescription"></p>
+
+      <h2 class="section-h" id="usageHeading"></h2>
+      <div class="stat-grid" id="usageStats"></div>
+
+      <h2 class="section-h" id="pricingHeading"></h2>
+      <p class="section-body" id="pricingNote"></p>
+      <div class="price-hero">
+        <div class="label" id="pricingPlanHeading"></div>
+        <div class="amount" id="monthlyFeeAmount"></div>
+        <div class="price-rows" id="priceRows"></div>
+      </div>
+      <div class="branding-note" id="brandingNote"></div>
+
+      <h2 class="section-h" id="roiHeading"></h2>
+      <p class="section-body" id="roiNarrative"></p>
+      <div class="savings-callout" id="savingsSentence"></div>
+
+      <h2 class="section-h" id="nextStepsHeading"></h2>
+      <ol class="next-steps" id="nextStepsList"></ol>
+
+      <div class="rep-card" id="repCard" hidden>
+        <img class="rep-photo" id="repPhoto" alt="" hidden>
+        <div>
+          <div class="rep-name" id="repName"></div>
+          <div class="rep-title" id="repTitle" hidden></div>
+          <div class="rep-contact" id="repEmail" hidden></div>
+          <div class="rep-contact" id="repPhone" hidden></div>
+        </div>
+      </div>
+
+      <div class="footer-line">Nubart · Barcelona – Berlin · info@nubart.eu · www.nubart.eu</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// TODO placeholders — same caveat as the internal tool / Apps Script:
+// swap for real "Nubart TRANSLATE" assets before this is sent to anyone real.
+const LOGO_NUBART_URL    = 'https://www.nubart.eu/img/customers/logo-nubart-horizontal-teal.png';
+const LOGO_TRANSLATE_URL = 'https://www.nubart.eu/img/customers/logo-nubart-motion-teal.png';
+const HERO_IMAGE_URL     = 'https://www.nubart.eu/img/customers/bilboats.jpg';
+
+// ─── Payload decoding ─────────────────────────────────────────────────────
+function base64UrlToBytes(str) {
+  str = str.replace(/-/g, '+').replace(/_/g, '/');
+  while (str.length % 4) str += '=';
+  const binary = atob(str);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return bytes;
+}
+
+async function decodePayload() {
+  const raw = location.hash.slice(1);
+  if (!raw) throw new Error('No proposal data in link.');
+  const sep = raw.indexOf(':');
+  const version = sep === -1 ? 'v1' : raw.slice(0, sep);
+  const b64 = sep === -1 ? raw : raw.slice(sep + 1);
+  const bytes = base64UrlToBytes(b64);
+
+  let jsonBytes = bytes;
+  if (version === 'v2') {
+    if (!('DecompressionStream' in window)) {
+      throw new Error('This link needs a newer browser (gzip decompression unsupported).');
+    }
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+    jsonBytes = new Uint8Array(await new Response(stream).arrayBuffer());
+  }
+  const json = new TextDecoder().decode(jsonBytes);
+  return JSON.parse(json);
+}
+
+// ─── Rendering ────────────────────────────────────────────────────────────
+function txt(id, value) { document.getElementById(id).textContent = value || ''; }
+
+function formatDate(lang) {
+  const locale = {
+    'Deutsch': 'de-DE', 'Français': 'fr-FR', 'Español': 'es-ES', 'Italiano': 'it-IT',
+    'Nederlands': 'nl-NL', 'Polski': 'pl-PL', 'Português (BR)': 'pt-BR',
+  }[lang] || 'en-GB';
+  return new Date().toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function render(d) {
+  const t = d.proposalText || {};
+  const p = d.pricing || {};
+  const s = p.subscription || {};
+  const rep = d.rep || {};
+
+  document.title = 'Nubart TRANSLATE — Proposal for ' + (d.company || '');
+
+  document.getElementById('nubartLogo').src = LOGO_NUBART_URL;
+  document.getElementById('heroImage').src = HERO_IMAGE_URL;
+  document.getElementById('productLogo').src = LOGO_TRANSLATE_URL;
+  txt('dateLine', formatDate(d.lang));
+
+  txt('introTitle', t.introTitle);
+  txt('companyName', d.company);
+  txt('locationLine', d.location ? '  ·  ' + d.location : '');
+  if (d.contact) {
+    document.getElementById('attnLine').hidden = false;
+    txt('attnLine', 'Attn: ' + d.contact + (d.email ? '  ·  ' + d.email : ''));
+  }
+
+  txt('overviewHeading', t.overviewHeading || 'Overview');
+  txt('executiveSummary', t.executiveSummary);
+  txt('situationHeading', t.situationHeading || 'Your situation');
+  txt('situationAnalysis', t.situationAnalysis);
+  txt('solutionHeading', t.solutionHeading || 'The solution: Nubart TRANSLATE');
+  txt('solutionDescription', t.solutionDescription);
+
+  txt('usageHeading', t.usageHeading || 'Usage estimate');
+  const usage = [
+    [t.lbl_eventDuration || 'Average event duration', (d.eventDuration || '') + ' h'],
+    [t.lbl_avgEventsPerMonth || 'Average events / month', Number(d.avgEventsPerMonth || 0).toFixed(1)],
+    [t.lbl_busiestMonth || 'Busiest month observed', (d.maxMonthLabel || '') + ' (' + (d.maxMonthEvents ?? '') + ')'],
+    [t.lbl_monthlyHours || 'Estimated average monthly stream hours', Math.round(p.avgMonthlyHours || d.avgMonthlyHours || 0) + ' h'],
+  ];
+  document.getElementById('usageStats').innerHTML = usage.map(([label, value]) =>
+    `<div class="stat-tile"><div class="stat-label"></div><div class="stat-value"></div></div>`
+  ).join('');
+  document.querySelectorAll('#usageStats .stat-tile').forEach((tile, i) => {
+    tile.querySelector('.stat-label').textContent = usage[i][0];
+    tile.querySelector('.stat-value').textContent = usage[i][1];
+  });
+
+  txt('pricingHeading', t.pricingHeading || 'Pricing proposal');
+  txt('pricingNote', t.pricingNote);
+  txt('pricingPlanHeading', t.pricingPlanHeading || 'Monthly subscription');
+  txt('monthlyFeeAmount', '€' + Number(s.monthlyFee || 0).toLocaleString());
+  document.getElementById('monthlyFeeAmount').innerHTML =
+    '€' + Number(s.monthlyFee || 0).toLocaleString() + ' <small>/ month</small>';
+  const priceRows = [
+    [t.lbl_effectiveRate || 'Effective rate per hour (on average usage)', '€' + Number(s.effectiveHourlyRateOnAverage || 0).toFixed(2)],
+    [t.lbl_annualTotal || 'Annual total', '€' + Number(s.annualFee || 0).toLocaleString()],
+    [t.lbl_costPerEvent || 'Cost per event (approx.)', p.costPerEvent ? '€' + Number(p.costPerEvent).toFixed(2) : '—'],
+  ];
+  document.getElementById('priceRows').innerHTML = priceRows.map(([label, value]) =>
+    `<div class="price-row"><span></span><span></span></div>`
+  ).join('');
+  document.querySelectorAll('#priceRows .price-row').forEach((row, i) => {
+    row.children[0].textContent = priceRows[i][0];
+    row.children[1].textContent = priceRows[i][1];
+  });
+  if (t.lbl_brandingFee && d.customBrandingFee) {
+    txt('brandingNote', t.lbl_brandingFee + ': €' + d.customBrandingFee);
+  } else {
+    document.getElementById('brandingNote').hidden = true;
+  }
+
+  txt('roiHeading', t.roiHeading || 'Return on investment');
+  txt('roiNarrative', t.roiNarrative);
+  txt('savingsSentence', t.savingsSentence);
+
+  txt('nextStepsHeading', t.nextStepsHeading || 'Next steps');
+  const steps = Array.isArray(t.nextSteps) ? t.nextSteps : (t.nextSteps ? [t.nextSteps] : []);
+  document.getElementById('nextStepsList').innerHTML = steps.map(() => '<li></li>').join('');
+  document.querySelectorAll('#nextStepsList li').forEach((li, i) => { li.textContent = steps[i]; });
+
+  if (rep.name || rep.email || rep.phone) {
+    document.getElementById('repCard').hidden = false;
+    if (rep.photo) {
+      const img = document.getElementById('repPhoto');
+      img.src = 'data:' + (rep.photoMime || 'image/jpeg') + ';base64,' + rep.photo;
+      img.hidden = false;
+    }
+    txt('repName', rep.name);
+    if (rep.title) { document.getElementById('repTitle').hidden = false; txt('repTitle', rep.title); }
+    if (rep.email) { document.getElementById('repEmail').hidden = false; txt('repEmail', '✉  ' + rep.email); }
+    if (rep.phone) { document.getElementById('repPhone').hidden = false; txt('repPhone', '✆  ' + rep.phone); }
+  }
+
+  document.getElementById('loadingState').hidden = true;
+  document.getElementById('content').hidden = false;
+  document.getElementById('printBar').hidden = false;
+}
+
+decodePayload().then(render).catch(err => {
+  console.error(err);
+  document.getElementById('loadingState').hidden = true;
+  document.getElementById('errorState').hidden = false;
+});
+</script>
+</body>
+</html>
