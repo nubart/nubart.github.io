@@ -1,22 +1,51 @@
 
 <!-- ============================================================
-     SCRIPT:  nubart-translate-events-client-proposal
-     VERSION: v1 — draft
-     DATE:    2026-08-28
+     SCRIPT:  nubart-translate-events-clients-proposal
+     VERSION: v2 — draft
+     DATE:    2026-08-29
      TYPE:    Web tool (Type B) — but NOT an internal tool.
               This page is the one artifact in this whole workflow that a
-              PROSPECT opens directly, so it must be reachable WITHOUT
-              Cloudflare Access / OTP login. If it's committed into the
-              same nubart-tools Cloudflare Pages/Worker project as the
-              internal generators, it needs its own Access-bypass rule
-              (e.g. exclude the /proposal/* path from the Access policy),
-              or it needs to live on a separate public route entirely.
-              This is infrastructure Rosa (or Claude Code, with Rosa's
-              sign-off) needs to set up — flagging as a KNOWN UNCERTAINTY,
-              not something this draft can verify from the browser.
-     STATUS:  In progress — new template, not yet wired up to the
-              generator tool (see integration notes below).
-     NOTES:   Reusable, data-driven template. It renders whatever proposal
+              PROSPECT opens directly. It is LIVE at
+              https://www.nubart.eu/ai-simultaneous-interpretation/
+              nubart-translate-events-clients-proposal.html, published
+              outside Cloudflare Access with noindex/nofollow, and wired
+              up as CLIENT_PROPOSAL_BASE_URL in the generator tool
+              (nubart-translate-events-proposal.html).
+     STATUS:  In progress — awaiting Rosa's review before handoff. Live
+              and reachable by real prospects; the generator tool's Google
+              Doc generation has been removed entirely (Rosa's request),
+              so THIS page + the HubSpot note push are now the only way a
+              proposal reaches a prospect — there is no Doc fallback.
+     NOTES:   v2 changes vs. v1 (bugs found by testing the actual payload
+              the generator sends, and one live-link failure report):
+              1. FIXED: usage stats rendered t.lbl_busiestMonth /
+                 d.maxMonthLabel / d.maxMonthEvents, all three of which
+                 the generator stopped sending once the misleading
+                 "Busiest month observed" line was removed there (it
+                 always picked the first month on a tie — e.g. always
+                 "Jan" for 12 equal months). Left in here, it rendered a
+                 broken "Busiest month observed ()" tile to real
+                 prospects. Removed that row.
+              2. FIXED: LOGO_TRANSLATE_URL was still the MOTION-logo
+                 placeholder (logo-nubart-motion-teal.png). Since the
+                 generator tool's Doc generation (and its own copy of this
+                 fix) was removed, this page is now the ONLY place that
+                 actually renders the TRANSLATE logo to anyone — swapped
+                 to the real logo-nubart-translate.png.
+              3. REMOVED: rep photo (rep.photo/rep.photoMime) rendering —
+                 the <img>, its CSS, and the render() code that set it.
+                 A real link sent to a prospect (Sion) arrived truncated
+                 and failed to decode; embedding a base64 headshot was
+                 identified as the main risk factor for pushing these
+                 already-large gzipped links past what chat/email clients
+                 handle reliably. The generator no longer sends photo data
+                 at all (see buildClientLinkPayload() there) — name,
+                 title, email, and phone still render on the rep card.
+              4. Minor: removed a dead line that set monthlyFeeAmount's
+                 textContent immediately before it was overwritten by an
+                 innerHTML assignment on the next line.
+
+              Reusable, data-driven template. It renders whatever proposal
               JSON is encoded in the URL's hash fragment (never sent to
               any server — hash fragments aren't transmitted in HTTP
               requests, so this stays a pure client-side, no-backend
@@ -25,21 +54,21 @@
               URL FORMAT:  yourpage.html#<version>:<base64url-payload>
                 - v1:<base64url(JSON)>                     — uncompressed
                 - v2:<base64url(gzip(JSON))>                — compressed (preferred)
-              The generator tool should try v2 (gzip via CompressionStream)
-              and fall back to v1 if CompressionStream isn't available in
-              the rep's browser at generation time. This page's decoder
+              The generator tries v2 (gzip via CompressionStream) and
+              falls back to v1 if CompressionStream isn't available in the
+              rep's browser at generation time. This page's decoder
               already handles both.
 
               WHAT MUST NEVER BE IN THE PAYLOAD: pricing.negotiation
               (startingPrice / targetClose / absoluteFloor). That block is
-              for internal eyes only. The generator's "Get shareable link"
-              button must build a fresh object for encoding — not spread
-              the whole `generated.pricing` — so this can never leak by
-              accident. See the encode() snippet in the handoff notes.
+              for internal eyes only. The generator's "Link to share with
+              the prospect" button builds a fresh object for encoding —
+              not spread the whole `generated.pricing` — so this can never
+              leak by accident. See buildClientLinkPayload() there.
 
               Everything else (proposalText.*, the usage/pricing numbers
               actually meant for the client, rep info, company info) is
-              fair game and mirrors what's already in the Google Doc.
+              fair game.
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -129,10 +158,6 @@
     .rep-card {
       display: flex; align-items: center; gap: 16px; margin-top: 36px;
       padding-top: 24px; border-top: 1px solid var(--border);
-    }
-    .rep-card img.rep-photo {
-      width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
-      border: 2px solid var(--teal-light);
     }
     .rep-card .rep-name { font-weight: 700; font-size: 14.5px; }
     .rep-card .rep-title { font-size: 12.5px; color: var(--gray); font-style: italic; }
@@ -247,7 +272,6 @@
       <ol class="next-steps" id="nextStepsList"></ol>
 
       <div class="rep-card" id="repCard" hidden>
-        <img class="rep-photo" id="repPhoto" alt="" hidden>
         <div>
           <div class="rep-name" id="repName"></div>
           <div class="rep-title" id="repTitle" hidden></div>
@@ -267,7 +291,7 @@
   // swap for real "Nubart TRANSLATE" assets before this is sent to anyone real.
   const LOGO_NUBART_URL    = 'https://www.nubart.eu/img/customers/logo-nubart-horizontal-teal.png';
   const LOGO_TRANSLATE_URL = 'https://www.nubart.eu/img/customers/logo-nubart-translate.png';
-  const HERO_IMAGE_URL     = 'https://www.nubart.eu/img/customers/proposal-nubart-translate.jpg';
+  const HERO_IMAGE_URL     = 'https://www.nubart.eu/img/customers/bilboats.jpg';
 
   // ─── Payload decoding ─────────────────────────────────────────────────────
   function base64UrlToBytes(str) {
@@ -386,11 +410,6 @@
 
     if (rep.name || rep.email || rep.phone) {
       document.getElementById('repCard').hidden = false;
-      if (rep.photo) {
-        const img = document.getElementById('repPhoto');
-        img.src = 'data:' + (rep.photoMime || 'image/jpeg') + ';base64,' + rep.photo;
-        img.hidden = false;
-      }
       txt('repName', rep.name);
       if (rep.title) { document.getElementById('repTitle').hidden = false; txt('repTitle', rep.title); }
       if (rep.email) { document.getElementById('repEmail').hidden = false; txt('repEmail', '✉  ' + rep.email); }
