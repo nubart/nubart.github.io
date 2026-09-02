@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
-    <title>Nubart SYNC: implementación e instrucciones de BrightSign</title>
+    <title>Nubart SYNC: implementación e instrucciones de Samsung MagicINFO</title>
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -161,9 +161,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <div class="section-box">
                     <h2>Antes de empezar</h2>
-                    <p>Estos pasos se realizan en la <strong>plataforma Nubart SYNC</strong> y son exactamente los mismos independientemente de cómo vayas a reproducir tus vídeos: ya sea con BrightSign, otro reproductor multimedia o un sistema basado en navegador. Completa primero esta página.</p>
+                    <p>Estos pasos se realizan en la <strong>plataforma Nubart SYNC</strong> y son exactamente los mismos independientemente de cómo vayas a reproducir tus vídeos: ya sea con Samsung MagicINFO, BrightSign, otro reproductor multimedia o un sistema basado en navegador. Completa primero esta página.</p>
 
-                    <p>¿Vas a publicar en <strong>BrightSign</strong>? Pasa a la página 2 una vez que hayas completado los pasos que aparecen a continuación. ¿Usas otra cosa? Echa un vistazo a la nota al final de esta página.</p>
+                    <p>¿Vas a publicar en <strong>Samsung MagicINFO</strong>? Pasa a la página 2 una vez que hayas completado los pasos que aparecen a continuación. ¿Usas otra cosa? Echa un vistazo a la nota al final de esta página.</p>
                 </div>
 
                 <div class="section-box">
@@ -285,104 +285,90 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
 
             <div class="section-box">
-                <h2>¿No usas BrightSign?</h2>
-                <p>Nubart SYNC funciona con cualquier reproductor moderno basado en Chromium; pregunta al equipo de soporte de tu sistema cómo publicar un archivo HTML en él. Si tu reproductor no puede cargar una página web completa pero sí admite JavaScript, o en el caso de mapeos, micromapeos y proyecciones, nuestra <a href="nubart-sync-integracion-video-referencia.html" target="_blank"><strong>Referencia de integración de Video Sync</strong></a> explica cómo tu integrador audiovisual puede conectarse directamente al punto final de sincronización.
+                <h2>¿No usas Samsung MagicINFO?</h2>
+                <p>Nubart SYNC funciona con cualquier reproductor moderno basado en Chromium; pregunta al equipo de soporte de tu sistema cómo publicar un archivo HTML en él. ¿Vas a publicar en un reproductor <strong>BrightSign</strong>? Usa nuestra guía aparte de <a href="nubart-sync-brightsign-instrucciones.html" target="_blank"><strong>instrucciones de BrightSign</strong></a>. Si tu reproductor no puede cargar una página web completa pero sí admite JavaScript, o en el caso de mapeos, micromapeos y proyecciones, nuestra <a href="nubart-sync-integracion-video-referencia.html" target="_blank"><strong>Referencia de integración de Video Sync</strong></a> explica cómo tu integrador audiovisual puede conectarse directamente al punto final de sincronización.
 
                     En cualquier caso, escribe a <a href="mailto:info@nubart.eu">info@nubart.eu</a> y te ayudaremos.</p>
-                <p> Si <em>estás</em> usando BrightSign, pasa a la página 2.</p>
+                <p> Si <em>estás</em> usando Samsung MagicINFO, pasa a la página 2.</p>
             </div>
 
         </div>
         </div>
     </section>
 
-    <!-- PAGE 2: BRIGHTSIGN PUBLISHING (MERGED) -->
+    <!-- PAGE 2: SAMSUNG MAGICINFO PUBLISHING -->
     <section class="instruction-page">
 
-        <h1>Publicar en un reproductor BrightSign</h1>
+        <h1>Publicar Nubart SYNC en un reproductor Samsung MagicINFO</h1>
 
         <div class="instructions-grid">
-            <!-- COLUMNA IZQUIERDA: pasos 1-2 -->
+            <!-- COLUMNA IZQUIERDA -->
             <div class="left-column">
 
                 <div class="section-box">
                     <h2>Antes de empezar</h2>
+                    <p>Igual que en la configuración con BrightSign: tu pantalla necesita una conexión a Internet permanente para mantenerse sincronizada con el servidor de Nubart. Los requisitos de ancho de banda son mínimos: el vídeo siempre se reproduce localmente en la pantalla, nunca en streaming.</p>
                     <div class="alert alert-warning">
-                        <strong>Tu reproductor BrightSign necesita una conexión a Internet permanente</strong> (Ethernet o Wi-Fi) para mantenerse sincronizado con el servidor de Nubart. Los requisitos de ancho de banda son mínimos: el vídeo siempre se reproduce localmente desde el reproductor.
-
+                        Esta guía es para reproductores MagicINFO compatibles con <strong>contenido web HTML5</strong> y con el ajuste <strong>Start Page</strong> (página de inicio), presente tanto en MagicINFO Server 8 como en Server 9. Samsung ha dejado de dar soporte a <strong>MagicINFO 8</strong>: en instalaciones nuevas, usa Server 9 (o posterior) siempre que sea posible.
                     </div>
-                    <p>En la pestaña «Sincronización de vídeo» de nuestra plataforma, el botón <strong>Instrucciones de BrightSign</strong> abre un breve vídeo explicativo. Vale la pena verlo antes de empezar.</p>
                 </div>
 
                 <div class="section-box">
                     <h2>1. Prepara tus archivos</h2>
-                    <p>Necesitas exactamente dos archivos, colocados juntos en una carpeta que no contenga nada más:</p>
-
+                    <p>Ya tienes estos dos archivos de la plataforma Nubart SYNC (pestaña «Sincronización de vídeo», paso 7):</p>
                     <ul>
                         <li><i class="bi bi-film"></i> Tu vídeo, renombrado como <code>video.mp4</code></li>
-                        <li><i class="bi bi-filetype-html"></i> El archivo <code>videoplayer.html</code> que descargaste en la página 1</li>
-
+                        <li><i class="bi bi-filetype-html"></i> El archivo <code>videoplayer.html</code></li>
                     </ul>
-                    <div class="alert alert-danger">
-                        <strong>Los nombres de estos dos archivos son fijos.</strong> Siempre deben llamarse exactamente <code>video.mp4</code> y <code>videoplayer.html</code> — pero a la carpeta en sí puedes ponerle el nombre que te ayude a organizarte mejor.
-                    </div>
+                    <p>Los nombres de estos dos archivos son fijos y ambos deben estar juntos en una misma carpeta que no contenga nada más.</p>
                 </div>
 
                 <div class="section-box">
-                    <h2>2. Abre BrightSign Author</h2>
-                    <p>Inicia sesión en BrightSign Author (BrightAuthor:connected) y selecciona <strong>New Presentation</strong> en el panel de control.</p>
-
-                    <img class="step-image" src="../../assets/img/sync/instructions/brightauthor-dashboard.png" alt="Panel de control de BrightSign Author con el mosaico «Nueva presentación»">
+                    <h2>2. Comprime la carpeta</h2>
+                    <p>Comprime el contenido de esa carpeta en un único archivo <code>.zip</code>: esta carpeta solamente debe contener los dos archivos anteriores, sin subcarpetas ni archivos adicionales dentro del zip.</p>
                 </div>
 
             </div>
 
-            <!-- CENTER COLUMN: steps 3-4 -->
-        <div class="center-column">
+            <!-- COLUMNA CENTRAL -->
+            <div class="center-column">
 
-            <div class="section-box">
+                <div class="section-box">
+                    <h2>3. Sube el contenido HTML5 a MagicINFO</h2>
+                    <ol>
+                        <li>Inicia sesión en MagicINFO Server. (MagicINFO Author es una herramienta de creación de contenidos aparte: esta operación debes realizarla en el Server.)</li>
+                        <li>Ve a <strong>Content</strong> y luego a <strong>New</strong> → <strong>Upload Web Content</strong>. No uses <strong>Upload Content</strong> a secas: esa opción es para imágenes, vídeos y otros archivos multimedia sueltos, y no ejecutará un paquete HTML/web.</li>
+                        <li>Selecciona el archivo <code>.zip</code> que acabas de crear.</li>
+                        <li><strong>Importante:</strong> en el cuadro de diálogo de subida, indica explícitamente <code>videoplayer.html</code> en el campo <strong>Start Page</strong>. Hay que decirle a MagicINFO qué archivo debe abrir.</li>
+                        <li>Desactiva el <strong>Refresh Interval</strong> (intervalo de actualización) o ponlo en el valor más bajo disponible. Una actualización recarga la página, lo que reiniciaría el vídeo a mitad de reproducción.</li>
+                        <li>Completa la subida. MagicINFO registrará el paquete como contenido HTML5/web. (Algunas instalaciones tienen activada la aprobación de contenidos —Content Approval— en Server Management: en ese caso, un administrador deberá aprobar la subida antes de que pueda añadirse a una lista de reproducción.)</li>
+                    </ol>
+                    <img class="step-image" src="../../assets/img/sync/instructions/samsung-magic-info.png" alt="Pantalla de contenidos de MagicINFO Server, con el elemento «Content» de la barra lateral izquierda y el botón desplegable «New» resaltados">
+                    <p class="mb-0"><small>Inicia sesión en MagicINFO Server → ve a <strong>Content</strong> y luego a <strong>New</strong>.</small></p>
+                </div>
 
-                <h2>3. Configurar la zona HTML</h2>
-                <p>Elige la plantilla <strong>Single Zone → HTML</strong>, ponle un nombre a la presentación y selecciona <strong>Local Content</strong> para el sitio HTML.</p>
-                <img class="step-image" src="../../assets/img/sync/instructions/brightauthor-html-zone-dialog.png" alt="Cuadro de diálogo de configuración de una presentación HTML de una sola zona en BrightSign Author">
+                <div class="section-box">
+                    <h2>4. Prográmalo</h2>
+                    <p>Añade el contenido subido a una lista de reproducción y prográmalo en la pantalla, igual que con cualquier otro contenido. Algo que no conviene saltarse: a diferencia de un archivo de vídeo, este paquete de contenido web no tiene duración propia, así que lo más probable es que reciba la breve duración predeterminada que MagicINFO aplica a los elementos que no son vídeo. Ajusta tú mismo el <strong>Playing Time</strong> (tiempo de reproducción) del elemento para que coincida con la duración de tu vídeo —o más, si se reproduce en bucle—; de lo contrario, podría cortarse antes de tiempo.</p>
+                </div>
 
-                <p>Configura <strong>Target Device, Connector, Output Resolution, Target Frame Rate</strong> (dispositivo de destino, conector, resolución de salida, frecuencia de fotogramas de destino) y <strong>Screen Orientation</strong> (orientación de la pantalla) para que se ajusten a tu pantalla y, a continuación, haz clic en <strong>Start</strong>.</p>
             </div>
 
-            <div class="section-box">
-                <h2>4. Añade tus archivos</h2>
-                <p>De vuelta en BrightSign Author, se abrirá un explorador de archivos: selecciona el archivo <strong>videoplayer.html</strong> de la carpeta que preparaste en el paso 1. Antes de continuar, comprueba que ambos archivos aparecen en la pestaña «Contents».</p>
-
-                <img class="step-image" src="../../assets/img/sync/instructions/brightauthor-content-view.png" alt="Vista de contenido de BrightSign Author mostrando video.mp4 y videoplayer.html cargados juntos">
-                <p>Selecciona el vídeo y haz clic en <strong>Publish</strong> (arriba a la derecha).</p>
-            </div>
-
-        </div>
-
-            <!-- COLUMNA DERECHA: paso 5 + notas finales -->
+            <!-- COLUMNA DERECHA -->
             <div class="right-column">
 
                 <div class="section-box">
-                    <h2>5. Selecciona el dispositivo y publica</h2>
-
-                    <img class="step-image" src="../../assets/img/sync/instructions/brightauthor-schedule-publish.png" alt="Pantalla de programación de BrightSign Author con un dispositivo de destino seleccionado y el botón «Publicar»">
-                    <p>Elige el dispositivo de destino de tu lista de red y haz clic en <strong>Publish</strong> otra vez.</p>
-
-                    <div class="alert alert-success">
-                        <strong>Repite todo este proceso</strong> con cada vídeo que quieras publicar.
-                    </div>
+                    <h2>5. Comprueba que funciona</h2>
+                    <p>Una vez publicado en la pantalla, dale unos minutos: el contenido puede tardar un rato en llegar al reproductor tras la publicación, así que no interpretes un semáforo en rojo como un fallo de inmediato.</p>
+                    <ul>
+                        <li>Consulta el semáforo de <strong>Sync status</strong> (estado de sincronización) en la pestaña «Sincronización de vídeo» de la plataforma Nubart SYNC: es el mismo indicador que se describe en la guía de BrightSign. En verde significa que se está comunicando correctamente.</li>
+                        <li>Si sigue en rojo, comprueba en este orden: que la pantalla tenga acceso saliente a Internet; que el paquete se subiera como Web Content con <code>videoplayer.html</code> indicado en Start Page (paso 3); y que la generación de reproductor de este dispositivo —indicada como S3, I Player, etc. en la columna «Supported Devices» de MagicINFO— sea realmente compatible con paquetes web HTML5. No todas las pantallas Samsung lo son.</li>
+                    </ul>
                 </div>
 
                 <div class="section-box">
-                    <h2>Tu reproductor</h2>
-                    <img class="step-image" src="../../assets/img/sync/instructions/brightsign-player-photo.png" alt="Un reproductor multimedia BrightSign, conectado por HDMI y Ethernet">
-
-                    <p>Cualquier reproductor BrightSign conectado a Internet sirve, por ejemplo, un HD224 o un modelo similar. Solo tienes que tener abierto BrightAuthor:connected cuando vayas a publicar; en el día a día, basta con que el reproductor esté conectado a Internet.</p>
-                </div>
-
-                <div class="section-box">
-                    <h2>¿Necesitas ayuda?</h2>
-                    <p>Escríbenos a <a href="mailto:info@nubart.eu">info@nubart.eu</a> cuando quieras: antes, durante o después de la configuración.</p>
+                    <h2>Diferencias con BrightSign</h2>
+                    <p>Los dos archivos son idénticos en ambos casos: no hay que modificar nada en <code>video.mp4</code> ni en <code>videoplayer.html</code>. La única diferencia está en cómo llegan los archivos a la pantalla: la subida de contenidos de MagicINFO Server sustituye al paso de publicación de BrightAuthor, así que en este flujo de trabajo no necesitas una herramienta de autoría aparte. (MagicINFO sí tiene su propio producto Web Author para crear contenidos desde cero, pero este flujo de trabajo no lo requiere.)</p>
                 </div>
 
             </div>
@@ -475,10 +461,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="flow-diagram">
                     <p class="flow-label">Configuración única</p>
                     <div class="flow-row">
-                        <div class="flow-box">BrightAuthor: conectado<br>(se publica una vez)</div>
+                        <div class="flow-box">MagicINFO Server<br>(se publica una vez)</div>
 
                         <div class="flow-arrow">&#8594;</div>
-                        <div class="flow-box">video.mp4 + videoplayer.html<br>en el reproductor BrightSign</div>
+                        <div class="flow-box">video.mp4 + videoplayer.html<br>en el reproductor MagicINFO</div>
                     </div>
                     <p class="flow-label">Todos los días, en el lugar</p>
 

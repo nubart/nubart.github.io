@@ -561,11 +561,12 @@
 
 **Instructions — Samsung MagicINFO variant (unlinked from search and from the SYNC landing pages — printable, noindex):**
 - EN: sync/nubart-sync-samsung-magicinfo-instructions.html
+- ES: es/sync/nubart-sync-samsung-magicinfo-instrucciones.html (2026-09-02, page 2 translated from EN; page 1 + page 3 mirror the ES BrightSign page with MagicINFO wording)
 - Created 2026-09-02 as a copy of `sync/nubart-sync-brightsign-instructions.html`. Page 1 (Platform Setup) and page 3 (Final Checks & Reference) mirror the BrightSign page, with their BrightSign wording swapped for MagicINFO; only the middle publishing page is genuinely different. Page 1's closing box cross-links to the BrightSign guide for readers on the other player.
 - Publishing steps come from MagicINFO Server documentation and have **not been bench-tested on a real MagicINFO display**. Two open questions in particular: whether the Web Package upload wants a single zip or the entry HTML separately from a resource zip, and whether the default Playing Time for non-video playlist items truncates a long video.
 - Draft banner and in-page fact-check notes were removed 2026-09-02, together with their `.draft-banner` / `.review-box` CSS in the page's own `<style>` block.
 - Deliberately NOT in sitemap.xml and NOT linked from any SYNC landing page — same treatment as the BrightSign instructions page.
-- DE/ES/FR/IT and all other languages: (still pending)
+- DE/FR/IT and all other languages: (still pending)
 
 **Video Integration Reference (technical/AV-integrator doc for direct `sendVideoPos` sync-endpoint integration, unlinked from search — noindex, nofollow, noarchive, nosnippet):**
 - EN: sync/nubart-sync-video-integration-reference.html
