@@ -1,0 +1,529 @@
+<!-- ============================================================
+     SCRIPT:  nubart-motion-with-translate-recurring-clients-proposal
+     VERSION: v1 — draft
+     DATE:    2026-09-06
+     TYPE:    Web tool (Type B) — but NOT an internal tool.
+              This page is the one artifact in this workflow that a
+              PROSPECT opens directly. It must be published at
+              https://www.nubart.eu/audio-commentary-system/
+              nubart-motion-with-translate-recurring-clients-proposal.html,
+              OUTSIDE Cloudflare Access, with noindex/nofollow, and is
+              wired up as CLIENT_PROPOSAL_BASE_URL in the generator tool
+              (nubart-motion-translate-proposal.html).
+     STATUS:  In progress — awaiting Rosa's review before handoff.
+              The generator tool's Google Doc generation has been removed
+              entirely (Rosa's request), so THIS page + the HubSpot note
+              push are now the only way a MOTION + TRANSLATE proposal
+              reaches a prospect — there is no Doc fallback.
+     NOTES:   Direct port of nubart-translate-events-clients-proposal.html
+              (v2), which is the reference template — same hash decoding,
+              same rendering idiom, same print styles. Differences, all
+              forced by MOTION's data model:
+
+              1. TWO PRICING OPTIONS. The events tool always quotes one
+                 flat monthly subscription; MOTION quotes option1 (flat)
+                 and, when the operator has a clear high/low season,
+                 option2 (seasonal tiers) as well. Both render as
+                 .price-hero blocks; option2 stays hidden when the payload
+                 omits it. Headings come from the payload's existing
+                 option1Heading / option2Heading / lbl_lowSeason /
+                 lbl_highSeason fields — no new proposalText fields were
+                 added to the generator's AI prompt for this page.
+              2. USAGE TILES are the vehicle/tour operation figures
+                 (vehicles, billable tour length, tours per day, operating
+                 days and months, monthly stream hours, cost per
+                 passenger) instead of the events tool's event counts.
+              3. ROI closes on a break-even callout (breakEvenSentence)
+                 rather than the events tool's savings-vs-interpreter
+                 sentence — MOTION's ROI argument is "how many extra
+                 international bookings per month cover the fee", not a
+                 comparison against hiring human interpreters.
+              4. NO branding-fee note. The one-off custom-branding fee is
+                 an events-tool concept (branding the listener interface
+                 for one renting client's single event); it does not exist
+                 in the MOTION + TRANSLATE offer.
+              5. NO rep photo, inherited deliberately from the events page
+                 — see its v2 note 3: a real link sent to a prospect
+                 arrived truncated and failed to decode, and an embedded
+                 base64 headshot was the main size risk. The generator
+                 does not send photo data at all (see
+                 buildClientLinkPayload() there). Name, title, email and
+                 phone still render on the rep card.
+
+              Reusable, data-driven template. It renders whatever proposal
+              JSON is encoded in the URL's hash fragment (never sent to
+              any server — hash fragments aren't transmitted in HTTP
+              requests, so this stays a pure client-side, no-backend
+              design as agreed). One template serves every prospect.
+
+              URL FORMAT:  yourpage.html#<version>:<base64url-payload>
+                - v1:<base64url(JSON)>                     — uncompressed
+                - v2:<base64url(gzip(JSON))>               — compressed (preferred)
+              The generator tries v2 (gzip via CompressionStream) and
+              falls back to v1 if CompressionStream isn't available in the
+              rep's browser at generation time. This page's decoder
+              handles both.
+
+              WHAT MUST NEVER BE IN THE PAYLOAD: pricing.negotiation
+              (startingPrice / targetClose / absoluteFloor), pricing
+              .monthlyCost (Nubart's own infrastructure cost) and the
+              grossMarginPct on either option. Those are internal-only.
+              The generator's "Link to share with the prospect" button
+              builds a fresh object field by field for encoding — it does
+              not spread `generated.pricing` — so none of this can leak by
+              accident. See buildClientLinkPayload() there.
+
+              Everything else (proposalText.*, the usage/pricing numbers
+              actually meant for the client, rep info, company info) is
+              fair game.
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Nubart MOTION + TRANSLATE — Proposal</title>
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon-tools/favicon.ico">
+  <style>
+    :root {
+      --teal: #008C95;
+      --teal-light: #A1D6CA;
+      --teal-bg: #EAF6F7;
+      --stripe: #F7FBFB;
+      --gray: #5B6066;
+      --dark: #1A1A1A;
+      --border: #E1EEEE;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0; background: #F3F6F6; color: var(--dark);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 760px; margin: 0 auto; background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .page-inner { padding: 48px 56px 56px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .topbar img.logo { height: 34px; }
+    .topbar .date { font-size: 12px; color: var(--gray); }
+    hr.rule { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+    .hero-wrap { margin: 0 -56px 24px; }
+    .hero-wrap img { width: 100%; display: block; }
+    .product-logo { height: 26px; margin-bottom: 18px; display: block; }
+
+    h1.intro-title { font-size: 26px; color: var(--teal); margin: 0 0 18px; font-weight: 700; }
+    .prospect-line { font-size: 14px; margin-bottom: 2px; }
+    .prospect-line .company { font-weight: 700; }
+    .prospect-line .loc { color: var(--gray); }
+    .attn-line { font-size: 13px; color: var(--gray); font-style: italic; margin-bottom: 0; }
+
+    h2.section-h { font-size: 17px; color: var(--teal); font-weight: 700; margin: 34px 0 10px; }
+    p.section-body { font-size: 14.5px; margin: 0 0 4px; text-align: justify; }
+
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px;
+    }
+    .stat-tile {
+      background: var(--teal-bg); border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .stat-tile .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--gray); margin-bottom: 4px; }
+    .stat-tile .stat-value { font-size: 16px; font-weight: 700; color: var(--dark); }
+
+    .price-hero {
+      background: linear-gradient(135deg, var(--teal) 0%, #00777e 100%);
+      color: #fff; border-radius: 14px; padding: 26px 28px; margin: 16px 0 14px;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .price-hero .label { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; opacity: .85; margin-bottom: 6px; }
+    .price-hero .amount { font-size: 40px; font-weight: 800; line-height: 1; }
+    .price-hero .amount small { font-size: 16px; font-weight: 500; opacity: .85; }
+    .price-rows { margin-top: 16px; border-top: 1px solid rgba(255,255,255,.25); padding-top: 12px; }
+    .price-row { display: flex; justify-content: space-between; font-size: 13px; padding: 3px 0; opacity: .95; }
+
+    /* Option 2 (seasonal tiers) — two amounts side by side inside the same
+       price-hero shell, so both options read as one visual family. */
+    .season-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 4px; }
+    .season-label { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; opacity: .85; margin-bottom: 4px; }
+    .season-amount { font-size: 28px; font-weight: 800; line-height: 1.1; }
+    .season-amount small { font-size: 14px; font-weight: 500; opacity: .85; }
+    .season-hours { font-size: 12.5px; opacity: .9; margin-top: 3px; }
+
+    .savings-callout {
+      background: var(--teal-bg); border-left: 4px solid var(--teal); border-radius: 6px;
+      padding: 12px 16px; font-size: 15px; font-weight: 700; color: var(--teal); margin-top: 14px;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+
+    ol.next-steps { margin: 10px 0 0; padding-left: 20px; }
+    ol.next-steps li { font-size: 14.5px; margin-bottom: 10px; }
+
+    .rep-card {
+      display: flex; align-items: center; gap: 16px; margin-top: 36px;
+      padding-top: 24px; border-top: 1px solid var(--border);
+    }
+    .rep-card .rep-name { font-weight: 700; font-size: 14.5px; }
+    .rep-card .rep-title { font-size: 12.5px; color: var(--gray); font-style: italic; }
+    .rep-card .rep-contact { font-size: 12.5px; color: var(--teal); margin-top: 2px; }
+
+    .footer-line { text-align: center; font-size: 11.5px; color: var(--gray); font-style: italic; margin-top: 30px; }
+
+    .print-bar {
+      position: sticky; top: 0; z-index: 10; background: #fff;
+      border-bottom: 1px solid var(--border); padding: 12px 16px;
+      display: flex; justify-content: center;
+    }
+    .print-btn {
+      background: var(--teal); color: #fff; border: none; border-radius: 7px;
+      padding: 10px 22px; font-size: 14px; font-weight: 600; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .print-btn:hover { background: #006d75; }
+    .print-hint { font-size: 11px; color: var(--gray); margin-left: 10px; align-self: center; }
+
+    .state-msg {
+      max-width: 480px; margin: 80px auto; text-align: center; color: var(--gray);
+      font-size: 14px; padding: 0 20px;
+    }
+    .state-msg strong { display: block; color: var(--dark); font-size: 16px; margin-bottom: 8px; }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 700px) {
+      .page-inner { padding: 28px 20px 40px; }
+      .hero-wrap { margin: 0 -20px 20px; }
+      .stat-grid { grid-template-columns: 1fr; }
+      .season-grid { grid-template-columns: 1fr; gap: 14px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; max-width: none; }
+      .print-bar { display: none; }
+      .page-inner { padding: 0 8mm; }
+      h2.section-h { break-after: avoid; }
+      .price-hero, .stat-tile, .savings-callout { break-inside: avoid; }
+      @page { size: A4; margin: 16mm; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-bar no-print" id="printBar" hidden>
+  <button class="print-btn" onclick="window.print()">🖨 Print as PDF</button>
+  <span class="print-hint">Opens your browser's print dialog — choose "Save as PDF" as the destination.</span>
+</div>
+
+<div class="page">
+  <div class="page-inner">
+
+    <div id="loadingState" class="state-msg">
+      <strong>Loading proposal…</strong>
+    </div>
+
+    <div id="errorState" class="state-msg" hidden>
+      <strong>This link looks incomplete or broken.</strong>
+      Please ask your Nubart contact to resend the proposal link.
+    </div>
+
+    <div id="content" hidden>
+      <div class="topbar">
+        <img class="logo" id="nubartLogo" alt="Nubart">
+        <span class="date" id="dateLine"></span>
+      </div>
+      <hr class="rule">
+
+      <div class="hero-wrap">
+        <img id="heroImage" alt="">
+      </div>
+      <img class="product-logo" id="productLogo" alt="Nubart MOTION">
+
+      <h1 class="intro-title" id="introTitle"></h1>
+      <div class="prospect-line">
+        <span class="company" id="companyName"></span>
+        <span class="loc" id="locationLine"></span>
+      </div>
+      <p class="attn-line" id="attnLine" hidden></p>
+
+      <hr class="rule">
+
+      <h2 class="section-h" id="overviewHeading"></h2>
+      <p class="section-body" id="executiveSummary"></p>
+
+      <h2 class="section-h" id="situationHeading"></h2>
+      <p class="section-body" id="situationAnalysis"></p>
+
+      <h2 class="section-h" id="solutionHeading"></h2>
+      <p class="section-body" id="solutionDescription"></p>
+
+      <h2 class="section-h" id="usageHeading"></h2>
+      <div class="stat-grid" id="usageStats"></div>
+
+      <h2 class="section-h" id="pricingHeading"></h2>
+      <p class="section-body" id="pricingNote"></p>
+
+      <div class="price-hero" id="option1Block" hidden>
+        <div class="label" id="option1Heading"></div>
+        <div class="amount"><span id="option1Amount"></span> <small id="option1Per"></small></div>
+        <div class="price-rows" id="option1Rows"></div>
+      </div>
+
+      <div class="price-hero" id="option2Block" hidden>
+        <div class="label" id="option2Heading"></div>
+        <div class="season-grid">
+          <div>
+            <div class="season-label" id="lowSeasonLabel"></div>
+            <div class="season-amount"><span id="lowSeasonAmount"></span> <small id="lowSeasonPer"></small></div>
+            <div class="season-hours" id="lowSeasonHours"></div>
+          </div>
+          <div>
+            <div class="season-label" id="highSeasonLabel"></div>
+            <div class="season-amount"><span id="highSeasonAmount"></span> <small id="highSeasonPer"></small></div>
+            <div class="season-hours" id="highSeasonHours"></div>
+          </div>
+        </div>
+        <div class="price-rows" id="option2Rows"></div>
+      </div>
+
+      <h2 class="section-h" id="roiHeading"></h2>
+      <p class="section-body" id="roiNarrative"></p>
+      <div class="savings-callout" id="breakEvenSentence"></div>
+
+      <h2 class="section-h" id="nextStepsHeading"></h2>
+      <ol class="next-steps" id="nextStepsList"></ol>
+
+      <div class="rep-card" id="repCard" hidden>
+        <div>
+          <div class="rep-name" id="repName"></div>
+          <div class="rep-title" id="repTitle" hidden></div>
+          <div class="rep-contact" id="repEmail" hidden></div>
+          <div class="rep-contact" id="repPhone" hidden></div>
+        </div>
+      </div>
+
+      <div class="footer-line">Nubart · Barcelona – Berlin · info@nubart.eu · www.nubart.eu</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Shared Nubart assets. HERO_IMAGE_URL is the Bilboats customer photo the
+  // Apps Script Doc builder used before Doc generation was removed — kept as
+  // the MOTION hero for continuity. Rosa may swap or drop it.
+  const LOGO_NUBART_URL = 'https://www.nubart.eu/img/customers/logo-nubart-horizontal-teal.png';
+  const LOGO_MOTION_URL = 'https://www.nubart.eu/img/customers/logo-nubart-motion-teal.png';
+  const HERO_IMAGE_URL  = 'https://www.nubart.eu/img/customers/bilboats.jpg';
+
+  // ─── Payload decoding ─────────────────────────────────────────────────────
+  function base64UrlToBytes(str) {
+    str = str.replace(/-/g, '+').replace(/_/g, '/');
+    while (str.length % 4) str += '=';
+    const binary = atob(str);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return bytes;
+  }
+
+  async function decodePayload() {
+    const raw = location.hash.slice(1);
+    if (!raw) throw new Error('No proposal data in link.');
+    const sep = raw.indexOf(':');
+    const version = sep === -1 ? 'v1' : raw.slice(0, sep);
+    const b64 = sep === -1 ? raw : raw.slice(sep + 1);
+    const bytes = base64UrlToBytes(b64);
+
+    let jsonBytes = bytes;
+    if (version === 'v2') {
+      if (!('DecompressionStream' in window)) {
+        throw new Error('This link needs a newer browser (gzip decompression unsupported).');
+      }
+      const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+      jsonBytes = new Uint8Array(await new Response(stream).arrayBuffer());
+    }
+    const json = new TextDecoder().decode(jsonBytes);
+    return JSON.parse(json);
+  }
+
+  // ─── Rendering ────────────────────────────────────────────────────────────
+  function txt(id, value) { document.getElementById(id).textContent = value || ''; }
+
+  // Build rows/tiles by creating the elements empty and then assigning
+  // textContent, never by interpolating payload values into an HTML string —
+  // the payload is attacker-controllable in principle (it's just a URL hash),
+  // so nothing from it is ever parsed as HTML.
+  function fillPairs(containerId, pairs, rowHtml, labelSel, valueSel) {
+    const el = document.getElementById(containerId);
+    el.innerHTML = pairs.map(() => rowHtml).join('');
+    el.querySelectorAll(labelSel).forEach((node, i) => { node.textContent = pairs[i][0]; });
+    el.querySelectorAll(valueSel).forEach((node, i) => { node.textContent = pairs[i][1]; });
+  }
+
+  function fillStatTiles(containerId, pairs) {
+    fillPairs(containerId, pairs,
+      '<div class="stat-tile"><div class="stat-label"></div><div class="stat-value"></div></div>',
+      '.stat-label', '.stat-value');
+  }
+
+  function fillPriceRows(containerId, pairs) {
+    fillPairs(containerId, pairs,
+      '<div class="price-row"><span class="pr-label"></span><span class="pr-value"></span></div>',
+      '.pr-label', '.pr-value');
+  }
+
+  function euro(n) { return '€' + Number(n || 0).toLocaleString(); }
+
+  // "/ month" is the one client-facing string on this page that the payload
+  // does not carry a translation for — the generator's AI prompt has no
+  // proposalText field for it, and adding one was out of scope. Rather than
+  // print an English "/ month" inside a German or Polish proposal, translate
+  // it here from the language the payload already states, the same way
+  // formatDate() below derives its locale. Covers the eight languages the
+  // generator offers (LANGS in nubart-motion-translate-proposal.html);
+  // anything else falls back to English.
+  // NOTE: nubart-translate-events-clients-proposal.html hardcodes the English
+  // "/ month" and has the same issue — deliberately not touched here, since
+  // that page is live and outside this task's scope. Worth raising with Rosa.
+  function perMonth(lang) {
+    return '/ ' + ({
+      'Deutsch': 'Monat', 'Français': 'mois', 'Español': 'mes', 'Italiano': 'mese',
+      'Nederlands': 'maand', 'Polski': 'miesiąc', 'Português (BR)': 'mês',
+    }[lang] || 'month');
+  }
+
+  function formatDate(lang) {
+    const locale = {
+      'Deutsch': 'de-DE', 'Français': 'fr-FR', 'Español': 'es-ES', 'Italiano': 'it-IT',
+      'Nederlands': 'nl-NL', 'Polski': 'pl-PL', 'Português (BR)': 'pt-BR',
+    }[lang] || 'en-GB';
+    return new Date().toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  function render(d) {
+    const t = d.proposalText || {};
+    const p = d.pricing || {};
+    const o1 = p.option1;
+    const o2 = p.option2;
+    const rep = d.rep || {};
+
+    document.title = 'Nubart MOTION + TRANSLATE — Proposal for ' + (d.company || '');
+
+    document.getElementById('nubartLogo').src = LOGO_NUBART_URL;
+    document.getElementById('heroImage').src = HERO_IMAGE_URL;
+    document.getElementById('productLogo').src = LOGO_MOTION_URL;
+    txt('dateLine', formatDate(d.lang));
+
+    txt('introTitle', t.introTitle);
+    txt('companyName', d.company);
+    txt('locationLine', d.location ? '  ·  ' + d.location : '');
+    if (d.contact) {
+      document.getElementById('attnLine').hidden = false;
+      txt('attnLine', 'Attn: ' + d.contact + (d.email ? '  ·  ' + d.email : ''));
+    }
+
+    txt('overviewHeading', t.overviewHeading || 'Overview');
+    txt('executiveSummary', t.executiveSummary);
+    txt('situationHeading', t.situationHeading || 'Your situation');
+    txt('situationAnalysis', t.situationAnalysis);
+    txt('solutionHeading', t.solutionHeading || 'The solution: Nubart MOTION + TRANSLATE');
+    txt('solutionDescription', t.solutionDescription);
+
+    // ── Usage estimate ──────────────────────────────────────────────────────
+    txt('usageHeading', t.usageHeading || 'Usage estimate');
+    const usage = [
+      [t.lbl_vehicles || 'Vehicles',
+        (d.vehicles || '') + ' × ' + (t.val_vehicleType || d.vehicle || '')],
+      [t.lbl_tourLength || 'Tour length (billable)',
+        (d.effHours || '') + ' h  (' + (d.tourlength || '') + ' h, ' + (t.val_fullguidePct || d.fullguidePct || '') + ')'],
+      [t.lbl_toursPerDay || 'Tours per day per vehicle', String(d.toursperday || '')],
+      [t.lbl_daysPerWeek || 'Operating days / week', String(d.daysperweek || '')],
+      [t.lbl_monthsPerYear || 'Operating months / year', String(d.months || '')],
+      [t.lbl_monthlyHours || 'Estimated monthly stream hours',
+        Math.round(p.totalMonthlyHours || 0) + ' h'],
+      [t.lbl_costPerPax || 'Cost per passenger (approx.)',
+        p.costPerPassenger ? '€' + Number(p.costPerPassenger).toFixed(2) : '—'],
+    ];
+    fillStatTiles('usageStats', usage);
+
+    // ── Pricing ─────────────────────────────────────────────────────────────
+    txt('pricingHeading', t.pricingHeading || 'Pricing proposal');
+    txt('pricingNote', t.pricingNote);
+
+    if (o1) {
+      document.getElementById('option1Block').hidden = false;
+      txt('option1Heading', t.option1Heading || 'Option 1 — Flat monthly rate');
+      document.getElementById('option1Amount').textContent = euro(o1.monthlyFee);
+      document.getElementById('option1Per').textContent = perMonth(d.lang);
+      fillPriceRows('option1Rows', [
+        [t.lbl_includedHours || 'Included hours / month', (o1.includedHours || 0) + ' h'],
+        [t.lbl_effectiveRate || 'Effective rate per hour', '€' + Number(o1.effectiveHourlyRate || 0).toFixed(2)],
+        [t.lbl_overage || 'Overage rate (above cap)', euro(o1.overageRate) + ' / h'],
+        [t.lbl_annualTotal || 'Annual total', euro(o1.annualFee)],
+      ]);
+    }
+
+    if (o2) {
+      document.getElementById('option2Block').hidden = false;
+      txt('option2Heading', t.option2Heading || 'Option 2 — Seasonal tiered rate');
+
+      txt('lowSeasonLabel', (t.lbl_lowSeason || 'Low season')
+        + (o2.lowSeasonLabel ? ' · ' + o2.lowSeasonLabel : ''));
+      document.getElementById('lowSeasonAmount').textContent = euro(o2.lowSeasonFee);
+      document.getElementById('lowSeasonPer').textContent = perMonth(d.lang);
+      txt('lowSeasonHours', (o2.lowSeasonHours || 0) + ' h '
+        + (t.lbl_includedHours || 'included'));
+
+      txt('highSeasonLabel', (t.lbl_highSeason || 'High season')
+        + (o2.highSeasonLabel ? ' · ' + o2.highSeasonLabel : ''));
+      document.getElementById('highSeasonAmount').textContent = euro(o2.highSeasonFee);
+      document.getElementById('highSeasonPer').textContent = perMonth(d.lang);
+      txt('highSeasonHours', (o2.highSeasonHours || 0) + ' h '
+        + (t.lbl_includedHours || 'included'));
+
+      fillPriceRows('option2Rows', [
+        [t.lbl_overage || 'Overage rate (above cap)', euro(o2.overageRate) + ' / h'],
+        [t.lbl_annualTotal || 'Annual total', euro(o2.annualFee)],
+      ]);
+    }
+
+    // ── ROI ─────────────────────────────────────────────────────────────────
+    txt('roiHeading', t.roiHeading || 'Return on investment');
+    txt('roiNarrative', t.roiNarrative);
+    txt('breakEvenSentence', t.breakEvenSentence
+      || (p.extraBookingsToBreakEven == null
+        ? ''
+        : 'Break-even: ' + p.extraBookingsToBreakEven + ' additional international bookings per month.'));
+
+    txt('nextStepsHeading', t.nextStepsHeading || 'Next steps');
+    const steps = Array.isArray(t.nextSteps) ? t.nextSteps : (t.nextSteps ? [t.nextSteps] : []);
+    document.getElementById('nextStepsList').innerHTML = steps.map(() => '<li></li>').join('');
+    document.querySelectorAll('#nextStepsList li').forEach((li, i) => { li.textContent = steps[i]; });
+
+    if (rep.name || rep.email || rep.phone) {
+      document.getElementById('repCard').hidden = false;
+      txt('repName', rep.name);
+      if (rep.title) { document.getElementById('repTitle').hidden = false; txt('repTitle', rep.title); }
+      if (rep.email) { document.getElementById('repEmail').hidden = false; txt('repEmail', '✉  ' + rep.email); }
+      if (rep.phone) { document.getElementById('repPhone').hidden = false; txt('repPhone', '✆  ' + rep.phone); }
+    }
+
+    document.getElementById('loadingState').hidden = true;
+    document.getElementById('content').hidden = false;
+    document.getElementById('printBar').hidden = false;
+  }
+
+  decodePayload().then(render).catch(err => {
+    console.error(err);
+    document.getElementById('loadingState').hidden = true;
+    document.getElementById('errorState').hidden = false;
+  });
+</script>
+</body>
+</html>
