@@ -1,7 +1,7 @@
 <!-- ============================================================
      SCRIPT:  nubart-motion-with-translate-recurring-clients-proposal
-     VERSION: v1 — draft
-     DATE:    2026-09-06
+     VERSION: v2 — draft
+     DATE:    2026-09-08
      TYPE:    Web tool (Type B) — but NOT an internal tool.
               This page is the one artifact in this workflow that a
               PROSPECT opens directly. It must be published at
@@ -15,7 +15,34 @@
               entirely (Rosa's request), so THIS page + the HubSpot note
               push are now the only way a MOTION + TRANSLATE proposal
               reaches a prospect — there is no Doc fallback.
-     NOTES:   Direct port of nubart-translate-events-clients-proposal.html
+     NOTES:   v2 changes vs. v1 (at Rosa's request):
+              1. HERO IMAGE is now proposal-nubart-motion-with-translate.jpg,
+                 a dedicated MOTION + TRANSLATE asset. It replaces
+                 bilboats.jpg, which showed a named third party's boat with
+                 "BILBOATS.COM" and a phone number legible on the hull —
+                 poor form at the top of a proposal addressed to a
+                 different operator.
+                 WORTH KNOWING, because it cost a live page a wrong image
+                 for a few hours: the first attempt at this swap pointed
+                 here at proposal-nubart-translate.jpg, which was already
+                 the EVENTS client page's hero, and overwrote that file in
+                 place (commit 053623a3c). Because both pages requested the
+                 same URL, the live events proposal — sold to conference
+                 venues, AGMs and press conferences — started heading its
+                 proposals with a river-cruise photo instead of its
+                 microphone/multilingual-greetings brand graphic. Rosa
+                 restored proposal-nubart-translate.jpg (verified
+                 byte-identical to the pre-swap original) and supplied
+                 proposal-nubart-motion-with-translate.jpg for this page.
+                 Each proposal page now owns its hero outright. Do not
+                 reintroduce a shared hero filename between them.
+                 A caveat that survives the fix: the image is still a boat
+                 scene, so a hop-on-hop-off bus, coach or tourist-train
+                 prospect sees a vehicle that is not theirs. Rosa is aware;
+                 a vehicle-neutral hero would fix it if it ever matters
+                 enough.
+
+              v1: Direct port of nubart-translate-events-clients-proposal.html
               (v2), which is the reference template — same hash decoding,
               same rendering idiom, same print styles. Differences, all
               forced by MOTION's data model:
@@ -315,12 +342,20 @@
 </div>
 
 <script>
-  // Shared Nubart assets. HERO_IMAGE_URL is the Bilboats customer photo the
-  // Apps Script Doc builder used before Doc generation was removed — kept as
-  // the MOTION hero for continuity. Rosa may swap or drop it.
+  // Nubart assets. HERO_IMAGE_URL is this page's OWN hero, not shared with any
+  // other proposal page — proposal-nubart-motion-with-translate.jpg exists for
+  // MOTION + TRANSLATE and nothing else. Keep it that way: the events client
+  // page has its own (proposal-nubart-translate.jpg), and briefly sharing one
+  // filename between the two meant a swap intended for MOTION silently changed
+  // the live events proposal as well. See the v2 note at the top of this file.
+  // It replaces bilboats.jpg, which had "BILBOATS.COM" and a phone number
+  // legible on the hull — not something to put at the top of a proposal
+  // addressed to a different operator. At 900x350 (vs bilboats' 800x550) the
+  // hero renders as a slimmer banner; .hero-wrap img is width:100% with auto
+  // height, so no CSS change was needed.
   const LOGO_NUBART_URL = 'https://www.nubart.eu/img/customers/logo-nubart-horizontal-teal.png';
   const LOGO_MOTION_URL = 'https://www.nubart.eu/img/customers/logo-nubart-motion-teal.png';
-  const HERO_IMAGE_URL  = 'https://www.nubart.eu/img/customers/bilboats.jpg';
+  const HERO_IMAGE_URL  = 'https://www.nubart.eu/img/customers/proposal-nubart-motion-with-translate.jpg';
 
   // ─── Payload decoding ─────────────────────────────────────────────────────
   function base64UrlToBytes(str) {
