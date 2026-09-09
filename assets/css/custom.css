@@ -317,8 +317,14 @@ a.index-item2:hover {
 
 .accordion-button:not(.collapsed) {
     color: #ffffff;
-    background-color: #53D3C5;
+    background-color: #028a8c;
     box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+
+/* Bootstrap's open-state chevron is dark blue, which disappears on the
+   turquoise background above. Recolour it to white to match the label. */
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);
 }
 
 .accordion-button:focus {
@@ -725,24 +731,18 @@ section {
     color: #fff !important;
 }
 
-/* Inline links — Nubart turquoise */
-.nubart-blog a {
+/* Inline links — Nubart turquoise.
+   Buttons are excluded so each .btn-* variant keeps its own Bootstrap text
+   colour. (The previous version used var(--bs-btn-color), which only exists
+   from Bootstrap 5.3 on; with the 5.1.2 we vendor it resolved to nothing, so
+   colour fell back to inherit and button labels came out dark on turquoise.) */
+.nubart-blog a:not(.btn) {
     color: #028a8c;
 }
 
-.nubart-blog a:hover {
+.nubart-blog a:not(.btn):hover,
+.nubart-blog a:not(.btn):focus {
     color: #026e6d;
-}
-
-/* Buttons inside blog articles must keep their own Bootstrap colours,
-   not inherit the blog link colour (which made text unreadable). */
-.nubart-blog a.btn {
-    color: var(--bs-btn-color);
-}
-
-.nubart-blog a.btn:hover,
-.nubart-blog a.btn:focus {
-    color: var(--bs-btn-hover-color);
 }
 
 /* Take-up comparison tables — rounded card, prominent figures */
