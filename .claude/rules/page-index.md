@@ -474,6 +474,10 @@
 - NL: (still pending)
 - PL: (still pending)
 
+**Card design instructions for customers designing their own cards (applies to both Nubart GUIDE and Nubart LIVE — customer-only, noindex, unlinked; lives at the site root, not under audio-guides/):**
+- EN: card-design-instructions.html
+- DE/ES/IT/FR/JA/NL/PT-BR/PL/HE/BG: (still pending)
+
 **Remote control + full offline mode — free demo (customer-only, noindex, unlinked):**
 - EN: audio-guides/nubart-guide-manual-remote-control-full-offline-demo.html
 - PL: pl/audioprzewodnik/nubart-guide-manual-zdalnie-sterowany-pelny-tryb-offline.html

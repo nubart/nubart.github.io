@@ -1,6 +1,6 @@
 <!-- ============================================================
      SCRIPT:  nubart-motion-with-translate-recurring-clients-proposal
-     VERSION: v2 — draft
+     VERSION: v4 — draft
      DATE:    2026-09-08
      TYPE:    Web tool (Type B) — but NOT an internal tool.
               This page is the one artifact in this workflow that a
@@ -15,7 +15,39 @@
               entirely (Rosa's request), so THIS page + the HubSpot note
               push are now the only way a MOTION + TRANSLATE proposal
               reaches a prospect — there is no Doc fallback.
-     NOTES:   v2 changes vs. v1 (at Rosa's request):
+     NOTES:   v4: caption rewritten — see the colour note below; v3 called
+              the figure a coverage survey, which misdescribed it.
+
+              v3 changes vs. v2 (at Rosa's request): a heat map now
+              renders under Next steps, making the mobile-signal survey that
+              step describes concrete rather than a claim. Caption is
+              translated via proposalText.lbl_coverageHeatMap (added to the
+              generator's prompt in its v6), with English as fallback.
+              HEATMAP_IMAGE_URL = '' removes the figure everywhere.
+              Being a hosted <img>, it adds nothing to the link payload.
+              WHAT THE COLOURS MEAN (asked, because the caption depended
+              on it): traffic frequency, NOT signal quality. Bright means
+              this vessel passed that spot many times, darker means less
+              often, and every plotted point had a working connection. The
+              map therefore shows where the vessel goes, with connectivity
+              present throughout — it does not show good and bad coverage.
+              There is deliberately NO legend and the caption explains no
+              colours: the figure is there to show Nubart can produce these
+              remotely, not to be studied. The clause "every point shown
+              had a working mobile connection" is what stops a prospect
+              reading the dark stretches as dead zones, which on this
+              product would mean translation stopping.
+              STILL OPEN ON THE IMAGE ITSELF, raised with Rosa:
+                - It is a real, identifiable Hamburg harbour route, and the
+                  basemap names third-party terminals (Eurogate, HHLA,
+                  Burchardkai, Tollerort, H&R Oelwerke Schindler).
+                - No map attribution is visible; if the basemap is
+                  OpenStreetMap, "(c) OpenStreetMap contributors" belongs
+                  on it.
+                - 698 KB PNG, ~8x the hero photo, on a page prospects open
+                  on phones.
+
+     v2 changes vs. v1 (at Rosa's request):
               1. HERO IMAGE is now proposal-nubart-motion-with-translate.jpg,
                  a dedicated MOTION + TRANSLATE asset. It replaces
                  bilboats.jpg, which showed a named third party's boat with
@@ -189,6 +221,13 @@
       -webkit-print-color-adjust: exact; print-color-adjust: exact;
     }
 
+    figure.heatmap { margin: 20px 0 0; }
+    figure.heatmap img { width: 100%; display: block; border: 1px solid var(--border); border-radius: 10px; }
+    figure.heatmap figcaption {
+      font-size: 12px; color: var(--gray); font-style: italic;
+      margin-top: 7px; text-align: center; line-height: 1.5;
+    }
+
     ol.next-steps { margin: 10px 0 0; padding-left: 20px; }
     ol.next-steps li { font-size: 14.5px; margin-bottom: 10px; }
 
@@ -236,7 +275,7 @@
       .print-bar { display: none; }
       .page-inner { padding: 0 8mm; }
       h2.section-h { break-after: avoid; }
-      .price-hero, .stat-tile, .savings-callout { break-inside: avoid; }
+      .price-hero, .stat-tile, .savings-callout, figure.heatmap { break-inside: avoid; }
       @page { size: A4; margin: 16mm; }
     }
   </style>
@@ -326,6 +365,11 @@
       <h2 class="section-h" id="nextStepsHeading"></h2>
       <ol class="next-steps" id="nextStepsList"></ol>
 
+      <figure class="heatmap" id="heatmapFigure" hidden>
+        <img id="heatmapImage" alt="">
+        <figcaption id="heatmapCaption"></figcaption>
+      </figure>
+
       <div class="rep-card" id="repCard" hidden>
         <div>
           <div class="rep-name" id="repName"></div>
@@ -356,6 +400,13 @@
   const LOGO_NUBART_URL = 'https://www.nubart.eu/img/customers/logo-nubart-horizontal-teal.png';
   const LOGO_MOTION_URL = 'https://www.nubart.eu/img/customers/logo-nubart-motion-teal.png';
   const HERO_IMAGE_URL  = 'https://www.nubart.eu/img/customers/proposal-nubart-motion-with-translate.jpg';
+
+  // Illustrative coverage heat map, shown under Next steps to make the signal
+  // survey described there concrete. Set to '' to drop the figure from every
+  // proposal — render() hides it when this is empty, so nothing else needs
+  // touching. It is a hosted <img>, NOT part of the link payload, so it costs
+  // nothing against the link-length budget.
+  const HEATMAP_IMAGE_URL = 'https://www.nubart.eu/img/customers/harbour-hamburg-heatmap.png';
 
   // ─── Payload decoding ─────────────────────────────────────────────────────
   function base64UrlToBytes(str) {
@@ -540,6 +591,18 @@
     const steps = Array.isArray(t.nextSteps) ? t.nextSteps : (t.nextSteps ? [t.nextSteps] : []);
     document.getElementById('nextStepsList').innerHTML = steps.map(() => '<li></li>').join('');
     document.querySelectorAll('#nextStepsList li').forEach((li, i) => { li.textContent = steps[i]; });
+
+    // Coverage heat map. Caption comes from the payload so it is translated
+    // like every other client-facing string; the English text is only a
+    // fallback for when the model omits the field.
+    if (HEATMAP_IMAGE_URL) {
+      const caption = t.lbl_coverageHeatMap
+        || 'Connectivity check on a harbour route: position and signal data gathered remotely from phones on board, accumulated over many tours. Every point shown had a working mobile connection — your own route is measured the same way during the trial.';
+      document.getElementById('heatmapFigure').hidden = false;
+      document.getElementById('heatmapImage').src = HEATMAP_IMAGE_URL;
+      document.getElementById('heatmapImage').alt = caption;
+      txt('heatmapCaption', caption);
+    }
 
     if (rep.name || rep.email || rep.phone) {
       document.getElementById('repCard').hidden = false;
