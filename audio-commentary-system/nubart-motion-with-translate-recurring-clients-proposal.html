@@ -221,11 +221,19 @@
       -webkit-print-color-adjust: exact; print-color-adjust: exact;
     }
 
-    figure.heatmap { margin: 20px 0 0; }
+    /* Deliberately narrow and centred rather than full-bleed. Two reasons:
+       it is a supporting illustration, not evidence the prospect needs to
+       study, so full page width overstated it; and the source image is only
+       893px wide, so at the 648px content width it rendered near 1:1 and
+       looked soft. At 420px it displays at under half its native size, which
+       reads sharp on ordinary and high-DPI screens alike. Centring avoids a
+       float, which would have been fragile next to the next-steps <ol> and in
+       print. */
+    figure.heatmap { margin: 22px auto 0; max-width: 420px; }
     figure.heatmap img { width: 100%; display: block; border: 1px solid var(--border); border-radius: 10px; }
     figure.heatmap figcaption {
-      font-size: 12px; color: var(--gray); font-style: italic;
-      margin-top: 7px; text-align: center; line-height: 1.5;
+      font-size: 11.5px; color: var(--gray); font-style: italic;
+      margin-top: 7px; text-align: center; line-height: 1.45;
     }
 
     ol.next-steps { margin: 10px 0 0; padding-left: 20px; }
