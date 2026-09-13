@@ -42,7 +42,7 @@
 
               The usage tiles follow the MOTION clients page's fillStatTiles
               idiom rather than the events page's month grid: this product's
-              usage shape (tours, hours, guides, channels) is closer to
+              usage shape (tours, hours, cards) is closer to
               MOTION's than to a 12-month event calendar.
 
               All client-facing strings come from the payload's proposalText,
@@ -402,7 +402,6 @@
       [t.lbl_tourLength || 'Tour length (billable)',
         Number(p.effHours || 0).toFixed(2) + ' h  (' + (d.avgTourLengthHours || '') + ' h, '
         + (t.val_guideSpeechPct || ((d.guideSpeechPct || '') + '%')) + ')'],
-      [t.lbl_concurrentChannels || 'Simultaneous translation channels per tour', String(d.concurrentChannels || '')],
       [t.lbl_monthlyHours || 'Estimated monthly stream hours', Math.round(p.monthlyStreamHours || 0) + ' h'],
       [t.lbl_peakGroupSize || 'Cards needed at peak group size', String(d.peakGroupSize || '')],
       [t.lbl_cardType || 'Card type',
