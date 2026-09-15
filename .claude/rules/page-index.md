@@ -380,6 +380,7 @@
 - FR: fr/traduction-simultanee-ia/da-pr-eu.html
 - PT-BR: pt-br/traducao-simultanea-ia/da-pr-eu.html
 - EL: el/ai-simultaneous-translation/da-pr-eu.html
+- PL: pl/tlumaczenie-symultaniczne-ai/da-pr-eu.html
 - HE: (still pending)
 - BG: (still pending)
 - JA: (still pending)
