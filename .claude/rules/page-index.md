@@ -301,6 +301,17 @@
 - PT-BR: (still pending)
 - JA: (still pending)
 
+### Best tips for using Nubart LIVE to guide groups on travel and field trips
+- EN: digital-tour-guide-app/tips-usage-field-trips.html
+- DE: de/personenfuehrungsanlage-app/hinweise-verwendung-gruppenreisen.html
+- ES: es/sistema-guiado-grupos/consejos-uso-viajes.html
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+- JA: (still pending)
+
 ## Product Pages
 
 ### Nubart LIVE
@@ -335,6 +346,13 @@
 - PT-BR: (still pending)
 - PL: (still pending)
 - NL: (still pending)
+
+**Flat-rate client proposal (client-facing shell page, unlinked):**
+- EN: digital-tour-guide-app/nubart-live-translate-flatrate-clients-proposal.html
+- Shell page for a tool that is password-protected behind a Cloudflare Worker (under "tools"). Not linked from navigation and not in sitemap.xml.
+- All other languages: (still pending)
+
+**Pricing:** No standalone pricing page. Pricing lives inline as a section on each LIVE explainer at the `#pricing` anchor (e.g. `digital-tour-guide-app/#pricing`). The former standalone pages still exist on disk purely as `noindex,nofollow` meta-refresh redirect stubs — `digital-tour-guide-app/pricing.html`, `de/personenfuehrungsanlage-app/preis.html`, `es/sistema-guiado-grupos/precio.html`, `fr/systeme-audio-visite-guidee/prix.html`, `it/tour-guide-app/prezzi.html`, `ja/digital-tour-guide-app/pricing.html` (→ `/ja/`, LIVE discontinued there), plus the orphaned `fr/prix-kit-test-nubart-live.html` (nothing links to it). Every stub now points at its OWN language's `#pricing` anchor — as of 2026-09-18 the DE stub was pointing at the SPANISH page, and the FR trial-price stub redirected to another stub. Link to the `#pricing` anchor directly; never to a stub.
 
 ### Nubart TRANSLATE
 **Main product explainer:**
