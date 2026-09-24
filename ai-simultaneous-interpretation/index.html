@@ -32,7 +32,8 @@
                 ]
             },
             "areaServed": "Worldwide",
-            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/" },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/",
+            "dateModified": "2026-09-24" },
 
 
 
@@ -44,6 +45,30 @@
             ],
 
             "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "nubartProductLine",
+                    "name": "Nubart product line",
+                    "value": "Nubart is a company name, not a product name. Nubart offers six distinct products: GUIDE (prerecorded self-guided audio guides for venues), LIVE (live tour guide system for groups led by a human guide), TRANSLATE (AI simultaneous interpretation for events), MOTION (commentary for sightseeing boats, buses and trains), SYNC (multilingual audio for on-site video screens) and GAME (AR game module inside Nubart GUIDE). Only GUIDE and GAME are museum audio guides."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "voiceSource",
+                    "name": "Voice source",
+                    "value": "A live human speaker, interpreted in real time by AI into 35+ languages and delivered to the audience as both audio and text."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "audienceSetting",
+                    "name": "Audience setting",
+                    "value": "A seated audience listening to a speaker at an event — conferences, congresses, keynotes, university lectures, AGMs, board and investor meetings, multi-room programmes."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "notSuitableFor",
+                    "name": "Not suitable for",
+                    "value": "Guided walking tours (use Nubart LIVE); self-guided venue audio guides (use Nubart GUIDE). This is AI interpretation and does not replace a professional human interpreter in high-stakes legal, diplomatic or medical settings."
+                },
                 {
                     "@type": "PropertyValue",
                     "name": "GDPR Compliance",
@@ -62,7 +87,7 @@
                 {
                     "@type": "PropertyValue",
                     "name": "Unlimited Users",
-                    "value": "No technical limit to audience size; one QR code for all."
+                    "value": "No technical limit to audience size; one standard QR code for all."
                 },
                 {
                     "@type": "PropertyValue",
@@ -72,7 +97,7 @@
                 {
                     "@type": "PropertyValue",
                     "name": "Listener Access Security",
-                    "value": "Nubart TRANSLATE uses a browser-based Progressive Web App (PWA) framework. Standard listener access is via a generic QR code (open link), suitable for public or non-sensitive events. For confidential events — such as board meetings, investor presentations, or internal strategy sessions — Nubart offers LWAC-protected access cards, a technology internationally protected with granted patents. LWAC binds the QR token to the first device that activates it, preventing unauthorized sharing without requiring any registration or personal data from attendees."
+                    "value": "Nubart TRANSLATE uses a browser-based Progressive Web App (PWA) framework. Standard listener access is via a generic QR code (open link), suitable for public or non-sensitive events. For confidential events — such as board meetings, investor presentations, or internal strategy sessions — Nubart offers LWAC-protected access cards, a technology internationally protected with granted patents. LWAC binds the QR token to the first device that activates it, designed to stop unauthorized sharing without requiring any registration or personal data from attendees."
                 }
             ]
         }
@@ -100,7 +125,7 @@
                     "name": "How many people can use live translation simultaneously?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Unlimited. Hundreds or thousands of attendees can access translation simultaneously using the same QR code, with no additional per-user charges."
+                        "text": "Unlimited. Hundreds or thousands of attendees can access translation simultaneously using the same standard QR code, with no additional per-user charges."
                     }
                 },
                 {
@@ -198,7 +223,7 @@
                     "name": "Do I need to generate a new QR code for every event when using AI interpretation?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "With Nubart TRANSLATE, no. Each account is assigned a single permanent QR code that never changes and can be reused across all events — printed once on banners, table cards, or slide decks. Many AI interpretation platforms require generating a new code per session or per room, which increases logistical complexity and the risk of errors on the day of the event."
+                        "text": "With Nubart TRANSLATE, no. Each account is assigned a single permanent QR code that never changes and can be reused across all events — printed once on banners, table cards, or slide decks. Many AI interpretation platforms require generating a new code per session or per room, which increases logistical complexity and the risk of errors on the day of the event. The only exception is the optional non-transferable access cards (LWAC) for confidential events: a new series of codes is generated for each event, while the permanent QR code stays unchanged."
                     }
                 }
             ]
@@ -1022,14 +1047,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <!-- Context shown up front, before the user chooses -->
                                 <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
                                     <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
-                                    Nubart TRANSLATE offers <strong>non-transferable, device-bound access cards</strong> that cannot be shared or forwarded. This prevents uninvited guests from accessing your event because someone shared the QR code by accident or with malicious intent.
+                                    Nubart TRANSLATE offers <strong>non-transferable, device-bound access cards</strong> designed to stop sharing or forwarding. This helps keep uninvited guests out when someone shares a QR code by accident or on purpose.
                                     <a href="qr-code-security-gap-ai-interpretation.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">Learn more →</a>
                                 </div>
 
                                 <div class="d-flex flex-wrap gap-3 mb-3">
                                     <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">No, the content is not sensitive</button>
                                     <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">Yes — Print-Your-Own cards</button>
-                                    <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">Yes — Fully branded cards</button>
                                 </div>
 
                                 <!-- Print-Your-Own sub-form -->
@@ -1038,27 +1062,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         <img src="../assets/img/live/live-print-your-own.png" alt="Print-Your-Own cards" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
                                         <div>
                                             <strong>Print-Your-Own</strong><br>
-                                            <small class="text-muted">PDF delivered in under 24 hours · cut &amp; use</small><br>
+                                            <small class="text-muted">PDF with your logo, delivered in under 24 hours · A4 or US Letter · cut &amp; use</small><br>
                                             <small class="text-muted">€79 setup + €1.50 per code · minimum 50 codes</small>
                                         </div>
                                     </div>
                                     <label class="form-label fw-semibold" style="font-size: 0.85rem;">How many attendees will need a card? <small class="text-muted fw-normal">(one card per person)</small></label>
                                     <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="e.g. 120" style="max-width: 180px;">
                                     <div class="invalid-feedback">Minimum 50 cards.</div>
+                                    <div class="form-text">One card per person. We recommend at least 10% extra, as spare cards and for testing, because a card cannot be reset. Each order is for one event. Cards cannot be reused at later events.</div>
                                     <div class="form-text">For more than 3,000 attendees, please contact us for a custom quote.</div>
-                                </div>
-
-                                <!-- Fully branded note -->
-                                <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <img src="../assets/img/live/live-custom.png" alt="Custom branded cards" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
-                                        <div>
-                                            <strong>Fully branded cards</strong><br>
-                                            <small class="text-muted">3,000+ cards · your logo and design</small><br>
-                                            <small class="text-muted">⚠ Must be ordered 30 days in advance</small><br>
-                                            <small class="text-muted">From €3,500 · our team will follow up on quantities and design</small>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
@@ -1173,7 +1185,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         trialNo:    'No',
         lwacNo:     'No (standard QR code)',
         lwacPyo:    (qty) => `Print-Your-Own non-transferable cards (${qty} codes)`,
-        lwacCustom: 'Fully branded non-transferable cards (from €3,500, 30-day lead time)',
         body:       (eventDetails, trial, total, accessControl) =>
 `Hello,
 
@@ -1198,10 +1209,7 @@ Thank you`,
             chipRoom:       (h)    => `${h} h/day · 1 room`,
             trialChip:      '30-min trial deducted',
             lwacPyoLabel:   (qty) => `Print-Your-Own cards (${qty} codes)`,
-            lwacCustomLabel: 'Fully branded cards (from €3,500)',
-            lwacLeadTime:   '30-day lead time',
-            lwacPyoChip:    (qty) => `${qty} PYO cards`,
-            lwacCustomChip: 'Branded cards · 30-day lead time'
+            lwacPyoChip:    (qty) => `${qty} PYO cards`
         }
     };
     </script>
@@ -1397,7 +1405,7 @@ Thank you`,
                             For board meetings, investor presentations, or internal strategy sessions, Nubart TRANSLATE offers physical access cards whose QR code binds to the first device that activates it. If a participant forwards the link, access is denied on the recipient's device. No registration or personal data required from attendees.
                         </p>
                         <p style="color: #ccc;">
-                            Cards are available with custom branding, or as a print-your-own file — formatted to fit standard pre-cut business card sheets, so no scissors required.
+                            Nubart provides the cards as a print-your-own PDF with your logo, formatted for standard pre-cut business card sheets in A4 or US Letter, so no scissors are required. A new series of codes is generated for each event, so a card cannot be reused at a later event.
                         </p>
                         <p style="color: #aaa; font-size: 0.88rem;">
                             Powered by LWAC, a technology internationally protected with granted patents.
@@ -1456,7 +1464,7 @@ Thank you`,
                                 <div class="accordion-body" style="text-align: justify;">
                                     No. Nubart TRANSLATE runs entirely in the browser and works on all common smartphones, operating systems, and modern browsers (e.g. iOS, Android, Chrome, Safari).
                                     Only the speaker needs to log in. Participants simply open a link via a generic QR code
-                                    (the same QR code for everyone in the room). No app, no hardware, no installation.
+                                    (with the standard QR code, the same code for everyone in the room). No app, no hardware, no installation.
                                 </div>
                             </div>
                         </div>
@@ -1508,7 +1516,7 @@ Thank you`,
                             </h2>
                             <div id="faq5" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body" style="text-align: justify;">
-                                    There is no technical limit. Hundreds, or even thousands, of listeners can join a session simultaneously using the same access QR-code.<br><br>
+                                    There is no technical limit. Hundreds, or even thousands, of listeners can join a session simultaneously using the same standard access QR-code.<br><br>
                                     What's best: Nubart TRANSLATE will not charge you based on the number of users!
                                 </div>
                             </div>

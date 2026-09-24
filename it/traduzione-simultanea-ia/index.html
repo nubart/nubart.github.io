@@ -36,7 +36,8 @@
             "areaServed": "Worldwide",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://www.nubart.eu/it/traduzione-simultanea-ia/"
+                "@id": "https://www.nubart.eu/it/traduzione-simultanea-ia/",
+                "dateModified": "2026-09-24"
             },
 
 
@@ -49,6 +50,30 @@
                 "ru-RU", "sk-SK", "sl-SI", "sr-RS", "sv-SE", "th-TH", "tr-TR", "uk-UA", "vi-VN", "zh-HK", "zh-CN"
             ],
             "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "nubartProductLine",
+                    "name": "Linea di prodotti Nubart",
+                    "value": "Nubart è il nome dell'azienda, non di un prodotto. Nubart offre sei prodotti distinti: GUIDE (audioguide preregistrate per visite autonome), LIVE (sistema di guida per gruppi con guida umana dal vivo), TRANSLATE (interpretazione simultanea con IA per eventi), MOTION (commento per battelli, autobus e treni turistici), SYNC (audio multilingue per schermi video in loco) e GAME (modulo di gioco AR all'interno di Nubart GUIDE). Solo GUIDE e GAME sono audioguide da museo."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "voiceSource",
+                    "name": "Origine dell'audio",
+                    "value": "Un relatore umano dal vivo, interpretato in tempo reale dall'IA in oltre 35 lingue e restituito al pubblico sia come audio sia come testo."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "audienceSetting",
+                    "name": "Situazione d'uso",
+                    "value": "Un pubblico seduto che ascolta un relatore a un evento — congressi, conferenze, keynote, lezioni universitarie, assemblee dei soci, consigli di amministrazione e incontri con investitori, programmi con più sale."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "notSuitableFor",
+                    "name": "Non adatto per",
+                    "value": "Visite guidate a piedi (usare Nubart LIVE); audioguide autoguidate di un luogo (usare Nubart GUIDE). Si tratta di interpretazione con IA e non sostituisce un interprete umano professionista in contesti giuridici, diplomatici o medici delicati."
+                },
                 {
                     "@type": "PropertyValue",
                     "name": "Conformità GDPR",
@@ -67,7 +92,7 @@
                 {
                     "@type": "PropertyValue",
                     "name": "Utenti illimitati",
-                    "value": "Nessun limite tecnico sul pubblico; stesso QR code per tutti."
+                    "value": "Nessun limite tecnico sul pubblico; lo stesso QR code standard per tutti."
                 },
                 {
                     "@type": "PropertyValue",
@@ -77,7 +102,7 @@
                 {
                     "@type": "PropertyValue",
                     "name": "Sicurezza dell'accesso degli ascoltatori",
-                    "value": "Nubart TRANSLATE utilizza un framework Progressive Web App (PWA) basato sul browser. L'accesso standard degli ascoltatori avviene tramite un codice QR generico (link aperto), adatto a eventi pubblici o non riservati. Per gli eventi riservati — come riunioni del consiglio di amministrazione, presentazioni agli investitori o sessioni interne di strategia — Nubart offre schede di accesso protette con LWAC, una tecnologia protetta a livello internazionale da brevetti concessi. LWAC vincola il token QR al primo dispositivo che lo attiva, impedendo la condivisione non autorizzata senza richiedere alcuna registrazione o dato personale ai partecipanti."
+                    "value": "Nubart TRANSLATE utilizza un framework Progressive Web App (PWA) basato sul browser. L'accesso standard degli ascoltatori avviene tramite un codice QR generico (link aperto), adatto a eventi pubblici o non riservati. Per gli eventi riservati — come riunioni del consiglio di amministrazione, presentazioni agli investitori o sessioni interne di strategia — Nubart offre schede di accesso protette con LWAC, una tecnologia protetta a livello internazionale da brevetti concessi. LWAC vincola il token QR al primo dispositivo che lo attiva ed è pensata per fermare la condivisione non autorizzata, senza richiedere alcuna registrazione o dato personale ai partecipanti."
                 }
             ]
         }
@@ -104,7 +129,7 @@
                     "name": "Quante persone possono accedere alla traduzione contemporaneamente?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Illimitate. Centinaia o migliaia di utenti possono ascoltare la traduzione contemporaneamente con lo stesso QR code, senza costi aggiuntivi per utente."
+                        "text": "Illimitate. Centinaia o migliaia di utenti possono ascoltare la traduzione contemporaneamente con lo stesso QR code standard, senza costi aggiuntivi per utente."
                     }
                 },
                 {
@@ -192,7 +217,7 @@
                     "name": "Devo generare un nuovo codice QR per ogni evento quando uso l'interpretazione con IA?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Con Nubart TRANSLATE, no. A ogni account viene assegnato un unico codice QR permanente che non cambia mai e può essere riutilizzato per tutti gli eventi: stampato una sola volta su striscioni, segnaposto o presentazioni. Molte piattaforme di interpretazione con IA richiedono la generazione di un nuovo codice per ogni sessione o per ogni sala, il che aumenta la complessità logistica e il rischio di errori il giorno dell'evento."
+                        "text": "Con Nubart TRANSLATE, no. A ogni account viene assegnato un unico codice QR permanente che non cambia mai e può essere riutilizzato per tutti gli eventi: stampato una sola volta su striscioni, segnaposto o presentazioni. Molte piattaforme di interpretazione con IA richiedono la generazione di un nuovo codice per ogni sessione o per ogni sala, il che aumenta la complessità logistica e il rischio di errori il giorno dell'evento. L'unica eccezione sono le schede di accesso non trasferibili (LWAC), opzionali, per gli eventi riservati: per ogni evento viene generata una nuova serie di codici, mentre il codice QR permanente resta invariato."
                     }
                 }
             ]
@@ -1037,14 +1062,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <!-- Context shown up front, before the user chooses -->
                             <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
                                 <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
-                                Nubart TRANSLATE offre <strong>schede di accesso non trasferibili e vincolate al dispositivo</strong> che non possono essere condivise o inoltrate. Questo impedisce a ospiti non invitati di accedere al tuo evento perché qualcuno ha condiviso il codice QR per errore o con intenzioni malevole.
+                                Nubart TRANSLATE offre <strong>schede di accesso non trasferibili e vincolate al dispositivo</strong>, pensate per fermare la condivisione o l'inoltro. Questo aiuta a tenere fuori gli ospiti non invitati quando qualcuno condivide un codice QR per errore o di proposito.
                                 <a href="../../ai-simultaneous-interpretation/qr-code-security-gap-ai-interpretation.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">Scopri di più →</a>
                             </div>
 
                             <div class="d-flex flex-wrap gap-3 mb-3">
                                 <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">No, il contenuto non è sensibile</button>
                                 <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">Sì — schede da stampare in autonomia</button>
-                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">Sì — schede completamente personalizzate</button>
                             </div>
 
                             <!-- Print-Your-Own sub-form -->
@@ -1053,27 +1077,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <img src="../../assets/img/live/live-print-your-own.png" alt="Schede da stampare in autonomia" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
                                     <div>
                                         <strong>Da stampare in autonomia</strong><br>
-                                        <small class="text-muted">PDF consegnato in meno di 24 ore · ritaglia e usa</small><br>
+                                        <small class="text-muted">PDF con il tuo logo, consegnato in meno di 24 ore · A4 o US Letter · stacca e usa</small><br>
                                         <small class="text-muted">€79 di setup + €1,50 per codice · minimo 50 codici</small>
                                     </div>
                                 </div>
                                 <label class="form-label fw-semibold" style="font-size: 0.85rem;">Quanti partecipanti avranno bisogno di una scheda? <small class="text-muted fw-normal">(una scheda per persona)</small></label>
                                 <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="es. 120" style="max-width: 180px;">
                                 <div class="invalid-feedback">Minimo 50 schede.</div>
+                                <div class="form-text">Una scheda per persona. Ti consigliamo di ordinarne almeno il 10% in più, come schede di riserva e per il test, perché una scheda non può essere reimpostata. Ogni ordine vale per un solo evento. Le schede non possono essere riutilizzate in eventi successivi.</div>
                                 <div class="form-text">Per più di 3.000 partecipanti, contattaci per un preventivo personalizzato.</div>
-                            </div>
-
-                            <!-- Fully branded note -->
-                            <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
-                                <div class="d-flex align-items-center gap-3">
-                                    <img src="../../assets/img/live/live-custom.png" alt="Schede personalizzate" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
-                                    <div>
-                                        <strong>Schede completamente personalizzate</strong><br>
-                                        <small class="text-muted">Oltre 3.000 schede · con il tuo logo e design</small><br>
-                                        <small class="text-muted">⚠ Devono essere ordinate con 30 giorni di anticipo</small><br>
-                                        <small class="text-muted">A partire da €3.500 · il nostro team ti contatterà per quantità e design</small>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
@@ -1189,7 +1201,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             trialNo:    'No',
             lwacNo:     'No (codice QR standard)',
             lwacPyo:    (qty) => `Schede non trasferibili da stampare in autonomia (${qty} codici)`,
-            lwacCustom: 'Schede non trasferibili completamente personalizzate (a partire da €3.500, con 30 giorni di anticipo)',
             body:       (eventDetails, trial, total, accessControl) =>
 `Ciao,
 
@@ -1214,10 +1225,7 @@ Grazie`,
                 chipRoom:   (h)    => `${h} h/giorno · 1 sala`,
                 trialChip:  'Prova di 30 min dedotta',
                 lwacPyoLabel:   (qty) => `Schede da stampare in autonomia (${qty} codici)`,
-                lwacCustomLabel: 'Schede completamente personalizzate (a partire da €3.500)',
-                lwacLeadTime:   '30 giorni di anticipo',
-                lwacPyoChip:    (qty) => `${qty} schede PYO`,
-                lwacCustomChip: 'Schede personalizzate · 30 giorni di anticipo'
+                lwacPyoChip:    (qty) => `${qty} schede PYO`
             }
         };
         </script>
@@ -1409,7 +1417,7 @@ Grazie`,
                             Per riunioni del consiglio di amministrazione, presentazioni agli investitori o sessioni interne di strategia, Nubart TRANSLATE offre schede di accesso fisiche il cui codice QR si vincola al primo dispositivo che lo attiva. Se un partecipante inoltra il link, l'accesso viene negato sul dispositivo del destinatario. Non è richiesta alcuna registrazione né dato personale ai partecipanti.
                         </p>
                         <p style="color: #ccc;">
-                            Le schede sono disponibili con branding personalizzato, oppure come file da stampare in proprio, formattato per adattarsi ai normali fogli di biglietti da visita pretranciati, così non servono forbici.
+                            Nubart fornisce le schede come PDF da stampare in proprio con il tuo logo, formattato per i normali fogli di biglietti da visita pretranciati in formato A4 o US Letter, così non servono forbici. Per ogni evento viene generata una nuova serie di codici, quindi una scheda non può essere riutilizzata in un evento successivo.
                         </p>
                         <p style="color: #aaa; font-size: 0.88rem;">
                             Basato su LWAC, una tecnologia protetta a livello internazionale da brevetti concessi.
@@ -1458,7 +1466,7 @@ Grazie`,
                                 <div class="accordion-body" style="text-align: justify;">
                                     No. Nubart TRANSLATE funziona interamente nel browser ed è compatibile con tutti gli smartphone, sistemi operativi e browser moderni (ad es. iOS, Android, Chrome, Safari).
                                     Solo il relatore deve effettuare l'accesso. I partecipanti aprono semplicemente un link tramite un QR code generico
-                                    (lo stesso QR code per tutti nella sala). Nessuna app, nessun hardware, nessuna installazione.
+                                    (con il QR code standard, lo stesso codice per tutti nella sala). Nessuna app, nessun hardware, nessuna installazione.
                                 </div>
                             </div>
                         </div>
@@ -1509,7 +1517,7 @@ Grazie`,
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5"><b>Quanti partecipanti possono ascoltare contemporaneamente? </b></button>                  </h2>
                             <div id="faq5" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body" style="text-align: justify;">
-                                    Non ci sono limiti tecnici. Centinaia o addirittura migliaia di ascoltatori possono partecipare contemporaneamente a una sessione utilizzando lo stesso codice QR di accesso.<br><br>
+                                    Non ci sono limiti tecnici. Centinaia o addirittura migliaia di ascoltatori possono partecipare contemporaneamente a una sessione utilizzando lo stesso codice QR di accesso standard.<br><br>
                                     E la cosa migliore è che Nubart TRANSLATE non ti fa pagare in base al numero di utenti!       </div>
                             </div>
                         </div>

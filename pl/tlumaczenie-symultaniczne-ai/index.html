@@ -35,7 +35,8 @@
                 ]
             },
             "areaServed": "Na całym świecie",
-            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/pl/tlumaczenie-symultaniczne-ai/" },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/pl/tlumaczenie-symultaniczne-ai/",
+            "dateModified": "2026-09-24" },
 
 
 
@@ -49,6 +50,30 @@
 
 
             "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "nubartProductLine",
+                    "name": "Linia produktów Nubart",
+                    "value": "Nubart to nazwa firmy, a nie nazwa produktu. Nubart oferuje sześć odrębnych produktów: GUIDE (nagrane wcześniej audioprzewodniki do zwiedzania indywidualnego), LIVE (system oprowadzania grup z przewodnikiem na żywo), TRANSLATE (tłumaczenie symultaniczne AI na wydarzeniach), MOTION (komentarz dla statków, autobusów i pociągów turystycznych), SYNC (wielojęzyczny dźwięk do ekranów wideo na miejscu) oraz GAME (moduł gry AR wewnątrz Nubart GUIDE). Tylko GUIDE i GAME to muzealne audioprzewodniki."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "voiceSource",
+                    "name": "Źródło dźwięku",
+                    "value": "Żywy ludzki prelegent, tłumaczony w czasie rzeczywistym przez AI na ponad 35 języków i przekazywany publiczności jednocześnie jako dźwięk i tekst."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "audienceSetting",
+                    "name": "Sytuacja użycia",
+                    "value": "Siedząca publiczność słuchająca prelegenta na wydarzeniu — konferencje, kongresy, wykłady inauguracyjne, zajęcia uniwersyteckie, walne zgromadzenia, posiedzenia zarządu i spotkania z inwestorami, programy w kilku salach jednocześnie."
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "notSuitableFor",
+                    "name": "Nieodpowiedni do",
+                    "value": "Pieszych wycieczek z przewodnikiem (wtedy Nubart LIVE); samodzielnych audioprzewodników po obiekcie (wtedy Nubart GUIDE). To tłumaczenie AI i nie zastępuje profesjonalnego tłumacza w newralgicznych sytuacjach prawnych, dyplomatycznych czy medycznych."
+                },
                 {
                     "@type": "PropertyValue",
                     "name": "Zgodność z RODO",
@@ -72,7 +97,7 @@
                 {
                     "@type": "PropertyValue",
                     "name": "Nieograniczona liczba użytkowników",
-                    "value": "Brak technicznego limitu liczby odbiorców; jeden kod QR dla wszystkich."
+                    "value": "Brak technicznego limitu liczby odbiorców; jeden standardowy kod QR dla wszystkich."
                 },
                 {
                     "@type": "PropertyValue",
@@ -109,7 +134,7 @@
                     "name": "Ile osób może jednocześnie korzystać z tłumaczenia na żywo?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Nieograniczona liczba. Setki lub tysiące uczestników może jednocześnie korzystać z tłumaczenia za pomocą tego samego kodu QR, bez dodatkowych opłat za użytkownika."
+                        "text": "Nieograniczona liczba. Setki lub tysiące uczestników może jednocześnie korzystać z tłumaczenia za pomocą tego samego standardowego kodu QR, bez dodatkowych opłat za użytkownika."
                     }
                 },
                 {
@@ -999,14 +1024,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <!-- Context shown up front, before the user chooses -->
                             <div id="calc-lwac-explanation" class="alert mb-3 p-3" style="background: #e6f7f6; border: 1px solid #2ec4b6; color: #1a2332; font-size: 0.85rem;">
                                 <i class="bi bi-shield-lock-fill me-1" style="color: #2ec4b6;"></i>
-                                Nubart TRANSLATE oferuje <strong>nieprzenoszalne karty dostępu powiązane z urządzeniem</strong>, których nie można udostępnić ani przekazać dalej. Zapobiega to dostępowi nieproszonych gości do Państwa wydarzenia, gdyby ktoś udostępnił kod QR przez przypadek lub w złych zamiarach.
+                                Nubart TRANSLATE oferuje <strong>nieprzenoszalne karty dostępu powiązane z urządzeniem</strong>, zaprojektowane tak, aby zapobiegać ich udostępnianiu i przekazywaniu dalej. Pomaga to chronić Państwa wydarzenie przed nieproszonymi gośćmi, gdy ktoś udostępni kod QR przez przypadek lub celowo.
                                 <a href="../../ai-simultaneous-interpretation/qr-code-security-gap-ai-interpretation.html" class="text-decoration-none ms-1" style="color: #2ec4b6;" target="_blank" rel="noopener">Dowiedz się więcej →</a>
                             </div>
 
                             <div class="d-flex flex-wrap gap-3 mb-3">
                                 <button class="btn btn-outline-secondary px-4" id="btn-lwac-no" onclick="calcSetLwac('no')">Nie, treść nie jest poufna</button>
                                 <button class="btn btn-outline-secondary px-4" id="btn-lwac-pyo" onclick="calcSetLwac('pyo')">Tak — karty do samodzielnego wydruku</button>
-                                <button class="btn btn-outline-secondary px-4" id="btn-lwac-custom" onclick="calcSetLwac('custom')">Tak — karty z pełnym brandingiem</button>
                             </div>
 
                             <!-- Print-Your-Own sub-form -->
@@ -1015,27 +1039,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <img src="../../assets/img/live/live-print-your-own.png" alt="Karty do samodzielnego wydruku" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
                                     <div>
                                         <strong>Do samodzielnego wydruku</strong><br>
-                                        <small class="text-muted">Plik PDF dostarczany w mniej niż 24 godziny · wytnij i używaj</small><br>
+                                        <small class="text-muted">Plik PDF z Państwa logo, dostarczany w mniej niż 24 godziny · A4 lub US Letter · wytnij i używaj</small><br>
                                         <small class="text-muted">€79 opłaty początkowej + €1,50 za kod · minimum 50 kodów</small>
                                     </div>
                                 </div>
                                 <label class="form-label fw-semibold" style="font-size: 0.85rem;">Ilu uczestników będzie potrzebować karty? <small class="text-muted fw-normal">(jedna karta na osobę)</small></label>
                                 <input type="number" id="calc-lwac-qty" class="form-control" min="50" max="3000" placeholder="np. 120" style="max-width: 180px;">
                                 <div class="invalid-feedback">Minimum 50 kart.</div>
+                                <div class="form-text">Jedna karta na osobę. Zalecamy zamówienie co najmniej 10% kart więcej, jako karty zapasowe i do testu, ponieważ karty nie można zresetować. Każde zamówienie dotyczy jednego wydarzenia. Kart nie można ponownie wykorzystać na kolejnych wydarzeniach.</div>
                                 <div class="form-text">W przypadku ponad 3 000 uczestników prosimy o kontakt w celu uzyskania indywidualnej oferty.</div>
-                            </div>
-
-                            <!-- Fully branded note -->
-                            <div class="d-none p-3 rounded" id="calc-lwac-custom-note" style="background:#f5f8fa; border:1px solid #d0dce6;">
-                                <div class="d-flex align-items-center gap-3">
-                                    <img src="../../assets/img/live/live-custom.png" alt="Karty z pełnym brandingiem" style="width:65px; height:auto; border-radius:4px; flex-shrink:0;">
-                                    <div>
-                                        <strong>Karty z pełnym brandingiem</strong><br>
-                                        <small class="text-muted">Ponad 3 000 kart · Państwa logo i projekt</small><br>
-                                        <small class="text-muted">⚠ Należy zamówić z 30-dniowym wyprzedzeniem</small><br>
-                                        <small class="text-muted">Od €3 500 · nasz zespół skontaktuje się w sprawie ilości i projektu</small>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="d-none text-danger mt-2" id="calc-lwac-warning" style="font-size:0.85rem;">
@@ -1118,7 +1130,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             trialNo:    'Nie',
             lwacNo:     'Nie (standardowy kod QR)',
             lwacPyo:    (qty) => `Nieprzenoszalne karty do samodzielnego wydruku (${qty} kodów)`,
-            lwacCustom: 'Nieprzenoszalne karty z pełnym brandingiem (od €3 500, 30-dniowy czas realizacji)',
             body:       (eventDetails, trial, total, accessControl) =>
 `Dzień dobry,
 
@@ -1143,10 +1154,7 @@ Dziękuję`,
                 chipRoom:   (h)    => `${h} h/dzień · 1 sala`,
                 trialChip:  'Test 30 min odliczony',
                 lwacPyoLabel:   (qty) => `Karty do samodzielnego wydruku (${qty} kodów)`,
-                lwacCustomLabel: 'Karty z pełnym brandingiem (od €3 500)',
-                lwacLeadTime:   '30-dniowy czas realizacji',
-                lwacPyoChip:    (qty) => `${qty} kart do wydruku`,
-                lwacCustomChip: 'Karty z brandingiem · 30-dniowy czas realizacji'
+                lwacPyoChip:    (qty) => `${qty} kart do wydruku`
             }
         };
         </script>
@@ -1344,7 +1352,7 @@ Dziękuję`,
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body" style="text-align: justify;">
-                                    Nie. Nubart TRANSLATE działa całkowicie w przeglądarce. Tylko prelegent musi się zalogować. Uczestnicy po prostu otwierają link za pomocą ogólnego kodu QR (tego samego dla wszystkich osób w pomieszczeniu). Bez aplikacji, bez sprzętu, bez instalacji.
+                                    Nie. Nubart TRANSLATE działa całkowicie w przeglądarce. Tylko prelegent musi się zalogować. Uczestnicy po prostu otwierają link za pomocą ogólnego kodu QR (przy standardowym kodzie QR jest to ten sam kod dla wszystkich osób w pomieszczeniu). Bez aplikacji, bez sprzętu, bez instalacji.
                                 </div>
                             </div>
                         </div>
@@ -1372,7 +1380,7 @@ Dziękuję`,
                             </h2>
                             <div id="faq5" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body" style="text-align: justify;">
-                                    Nie ma żadnych ograniczeń technicznych. Setki, a nawet tysiące słuchaczy mogą jednocześnie dołączyć do sesji, korzystając z tego samego kodu QR dostępu.<br><br>
+                                    Nie ma żadnych ograniczeń technicznych. Setki, a nawet tysiące słuchaczy mogą jednocześnie dołączyć do sesji, korzystając z tego samego standardowego kodu QR dostępu.<br><br>
                                     A co najlepsze: Nubart TRANSLATE nie pobiera opłat w zależności od liczby użytkowników!
                                 </div>
                             </div>

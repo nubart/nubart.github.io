@@ -7,7 +7,6 @@ const CALC_TRIAL = 0.5;     // free trial deduction in hours (30 min)
 // LWAC non-transferable access cards (step 4)
 const CALC_PYO_SETUP    = 79;     // Print-Your-Own one-off setup fee
 const CALC_PYO_PER_CODE = 1.50;   // per non-transferable code
-const CALC_CUSTOM_FROM  = 3500;   // fully-branded cards, starting price
 const CALC_PYO_MIN      = 50;     // minimum codes for Print-Your-Own
 
 let calcState = {
@@ -16,7 +15,7 @@ let calcState = {
     multiroom: false,
     rooms: [],              // [{hours}] per room
     firstTime: null,        // true/false, set in step 3
-    lwac: null,             // null | 'no' | 'pyo' | 'custom', set in step 4
+    lwac: null,             // null | 'no' | 'pyo', set in step 4
     lwacQty: 0              // number of PYO cards, only when lwac === 'pyo'
 };
 
@@ -130,7 +129,7 @@ function calcStep3Next() {
 
 function calcSetLwac(choice) {
     calcState.lwac = choice;
-    ['no','pyo','custom'].forEach(c => {
+    ['no','pyo'].forEach(c => {
         const btn = document.getElementById('btn-lwac-' + c);
         if (btn) {
             btn.classList.toggle('btn-primary', c === choice);
@@ -139,8 +138,6 @@ function calcSetLwac(choice) {
     });
     const pyoForm = document.getElementById('calc-lwac-pyo-form');
     if (pyoForm) pyoForm.classList.toggle('d-none', choice !== 'pyo');
-    const customNote = document.getElementById('calc-lwac-custom-note');
-    if (customNote) customNote.classList.toggle('d-none', choice !== 'custom');
     const warn = document.getElementById('calc-lwac-warning');
     if (warn) warn.classList.add('d-none');
 }
@@ -209,9 +206,6 @@ function calcCompute() {
     if (calcState.lwac === 'pyo') {
         lwacCost = CALC_PYO_SETUP + (calcState.lwacQty * CALC_PYO_PER_CODE);
         lwacLabel = ui.lwacPyoLabel(calcState.lwacQty);
-    } else if (calcState.lwac === 'custom') {
-        lwacCost = CALC_CUSTOM_FROM;
-        lwacLabel = ui.lwacCustomLabel;
     }
 
     const total = baseFee + extraFee + lwacCost;
@@ -227,9 +221,9 @@ function calcCompute() {
             <strong>− €${(trialDeduction * CALC_EXTRA).toLocaleString('de-DE')}</strong>
         </li>` : '';
 
-    const lwacRow = (calcState.lwac === 'pyo' || calcState.lwac === 'custom') ? `
+    const lwacRow = calcState.lwac === 'pyo' ? `
         <li class="d-flex justify-content-between border-bottom pb-1 mb-1">
-            <span class="text-muted">${lwacLabel}${calcState.lwac === 'custom' ? ' ⚠ ' + ui.lwacLeadTime : ''}</span>
+            <span class="text-muted">${lwacLabel}</span>
             <strong>€${calcFmt(lwacCost)}</strong>
         </li>` : '';
 
@@ -259,8 +253,7 @@ function calcCompute() {
             : rooms.map((r,idx) => `<span style="${chipStyle}">${i18n.roomLabel(idx+1)}: ${r.hours} h/day</span>`).join('')
         }
         ${firstTime ? `<span style="background:#dcfce7; color:#059669; border:1px solid #059669; border-radius:2rem; padding:0.25rem 0.75rem; font-size:0.78rem; font-weight:600;">${ui.trialChip}</span>` : ''}
-        ${calcState.lwac === 'pyo' ? `<span style="${chipStyle}">${ui.lwacPyoChip(calcState.lwacQty)}</span>` : ''}
-        ${calcState.lwac === 'custom' ? `<span style="background:#fef3c7; color:#92400e; border:1px solid #f59e0b; border-radius:2rem; padding:0.25rem 0.75rem; font-size:0.78rem; font-weight:600;">${ui.lwacCustomChip}</span>` : ''}`;
+        ${calcState.lwac === 'pyo' ? `<span style="${chipStyle}">${ui.lwacPyoChip(calcState.lwacQty)}</span>` : ''}`;
 }
 
 // Default English strings — override per page via window.CALC_I18N
@@ -275,7 +268,6 @@ const CALC_I18N_DEFAULT = {
     trialNo:      'No',
     lwacNo:       'No (standard QR code)',
     lwacPyo:      (qty) => `Print-Your-Own non-transferable cards (${qty} codes)`,
-    lwacCustom:   'Fully branded non-transferable cards (from €3,500, 30-day lead time)',
     body:         (eventDetails, trial, total, accessControl) =>
 `Hello,
 
@@ -300,10 +292,7 @@ Thank you`,
         chipRoom:       (h)    => `${h} h/day · 1 room`,
         trialChip:      '30-min trial deducted',
         lwacPyoLabel:   (qty) => `Print-Your-Own cards (${qty} codes)`,
-        lwacCustomLabel: 'Fully branded cards (from €3,500)',
-        lwacLeadTime:   '30-day lead time',
-        lwacPyoChip:    (qty) => `${qty} PYO cards`,
-        lwacCustomChip: 'Branded cards · 30-day lead time'
+        lwacPyoChip:    (qty) => `${qty} PYO cards`
     }
 };
 
@@ -326,9 +315,7 @@ function calcRequestQuote() {
 
     const accessControl = calcState.lwac === 'pyo'
         ? i18n.lwacPyo(calcState.lwacQty)
-        : calcState.lwac === 'custom'
-            ? i18n.lwacCustom
-            : i18n.lwacNo;
+        : i18n.lwacNo;
 
     const subject = i18n.subject(days, total);
     const body    = i18n.body(eventDetails, trial, total, accessControl);
