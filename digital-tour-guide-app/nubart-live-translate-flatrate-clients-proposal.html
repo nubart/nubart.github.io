@@ -112,6 +112,8 @@
     }
     .stat-tile .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--gray); margin-bottom: 4px; }
     .stat-tile .stat-value { font-size: 16px; font-weight: 700; color: var(--dark); }
+    .stat-tile.wide { grid-column: 1 / -1; }
+    .stat-tile .stat-note { font-size: 13.5px; color: var(--dark); margin-top: 6px; line-height: 1.5; }
 
     .price-hero {
       background: linear-gradient(135deg, var(--teal) 0%, #00777e 100%);
@@ -403,14 +405,28 @@
         Number(p.effHours || 0).toFixed(2) + ' h  (' + (d.avgTourLengthHours || '') + ' h, '
         + (t.val_guideSpeechPct || ((d.guideSpeechPct || '') + '%')) + ')'],
       [t.lbl_monthlyHours || 'Estimated hours of live translation per month', Math.round(p.monthlyStreamHours || 0) + ' h'],
-      [t.lbl_peakGroupSize || 'Largest group size', String(d.peakGroupSize || '')],
-      [t.lbl_cardType || 'Card type',
-        t.val_cardType || (d.cardType === 'custom' ? 'Custom printed cards' : 'Print-Your-Own cards')],
     ];
+    // No group-size tile: the prospect must never see a figure that reads as
+    // a card quantity. Older links still carry peakGroupSize; it is ignored.
     if (d.mediaLibrary) {
       usage.push([t.lbl_mediaLibrary || 'Media Library', t.val_mediaLibrary || 'Included']);
     }
+    // Card type goes last and full width, so the fixed "cards included"
+    // sentence (cardsIncludedNote, a fixed translation from the generator)
+    // sits directly under it. Links that predate the note show the tile alone.
+    usage.push([t.lbl_cardType || 'Card type',
+      t.val_cardType || (d.cardType === 'custom' ? 'Custom printed cards' : 'Print-Your-Own cards')]);
     fillStatTiles('usageStats', usage);
+    const cardTile = document.getElementById('usageStats').lastElementChild;
+    cardTile.classList.add('wide');
+    // An odd number of tiles above it would leave a gap next to the last one.
+    if ((usage.length - 1) % 2 === 1) cardTile.previousElementSibling.classList.add('wide');
+    if (t.cardsIncludedNote) {
+      const note = document.createElement('div');
+      note.className = 'stat-note';
+      note.textContent = t.cardsIncludedNote;
+      cardTile.appendChild(note);
+    }
 
     // ── Pricing ─────────────────────────────────────────────────────────────
     txt('pricingHeading', t.pricingHeading || 'Pricing proposal');
