@@ -364,6 +364,7 @@
 - HE: he/ai-simultaneous-interpretation/index.html
 - PT-BR: pt-br/traducao-simultanea-ia/index.html
 - JA: ja/ai-simultaneous-translation/index.html
+- PL: pl/tlumaczenie-symultaniczne-ai/index.html
 
 **Terms and conditions:**
 - EN: ai-simultaneous-interpretation/terms-and-conditions.html
@@ -388,6 +389,7 @@
 - PT-BR: pt-br/traducao-simultanea-ia/instrucoes-nubart-translate.html
 - EL: el/ai-simultaneous-translation/nubart-translate-instructions.html
 - JA: ja/ai-simultaneous-translation/nubart-translate-instructions.html
+- PL: pl/tlumaczenie-symultaniczne-ai/instrukcje-nubart-translate.html
 - BG: (still pending)
 
 **DPA:**
