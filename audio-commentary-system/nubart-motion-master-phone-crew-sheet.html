@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Master Phone: Crew Instructions (A5) | Nubart MOTION</title>
+    <!-- Customer-only page: not indexed, not in sitemap, not linked from navigation -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File (site fonts) -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- Printable A5 crew sheet -->
+    <link href="../assets/css/crew-sheet-a5.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="sheet-toolbar no-print">
+    <button onclick="window.print()" class="btn btn-primary mb-3">
+        <i class="bi bi-printer" aria-hidden="true"></i>&nbsp; Print the crew sheet (A5 portrait)
+    </button>
+    <ul>
+        <li>You can type into the blank fields before printing, or fill them in by hand afterwards. Nothing you type is saved or sent anywhere.</li>
+        <li>Print one sheet for each vessel, double-sided (flip on long edge), and laminate it.</li>
+        <li>If your printer only takes A4 paper, choose &ldquo;Pages per sheet: 2&rdquo; in the print settings and cut the sheet in half.</li>
+    </ul>
+</div>
+
+<main>
+
+    <!-- ======= Front ======= -->
+    <section class="a5-page" aria-labelledby="sheet-title">
+
+        <div class="sheet-header">
+            <img src="../assets/img/nubart-logo-horizontal-black.svg" alt="Nubart">
+            <span class="side">Crew sheet &middot; Front</span>
+        </div>
+
+        <h1 id="sheet-title">Master phone: crew instructions</h1>
+        <p>This phone starts the commentary on the passengers' phones. If it is off, locked or closed, the commentary stops.</p>
+
+        <div class="fill">
+            <label for="vessel">Vessel:</label>
+            <input type="text" id="vessel" autocomplete="off">
+        </div>
+
+        <div class="always-box">
+            <h2>Always</h2>
+            <ul>
+                <li><i class="bi bi-arrow-up-circle" aria-hidden="true"></i> Place the phone at the highest point, near a window, away from radars.</li>
+                <li><i class="bi bi-plug" aria-hidden="true"></i> Keep it plugged in.</li>
+                <li><i class="bi bi-unlock" aria-hidden="true"></i> Keep the screen unlocked.</li>
+                <li><i class="bi bi-window" aria-hidden="true"></i> Keep the &ldquo;Remote Control&rdquo; tab open for the whole journey.</li>
+            </ul>
+        </div>
+
+        <h2>Reconnect after a restart, or if the page was closed</h2>
+        <ol>
+            <li>Unlock the phone.
+                <div class="fill mt-1">
+                    <label for="pin">PIN:</label>
+                    <input type="text" id="pin" autocomplete="off">
+                </div>
+            </li>
+            <li>Open Chrome (Android) or Safari (iPhone). Do not use other browsers.</li>
+            <li>Go to <strong>www.nub.art/customer/login</strong> and log in:
+                <div class="fill mt-1">
+                    <label for="login-email">Email:</label>
+                    <input type="text" id="login-email" autocomplete="off">
+                </div>
+                <div class="fill">
+                    <label for="login-password">Password:</label>
+                    <input type="text" id="login-password" autocomplete="off">
+                </div>
+            </li>
+            <li>Select &ldquo;Remote Control&rdquo;.</li>
+            <li>Select the right vessel.</li>
+            <li>If the phone asks for location access, tap &ldquo;Allow&rdquo;.</li>
+        </ol>
+
+        <p><strong>Maintenance:</strong> restart the phone every two to three months, then reconnect as above.</p>
+
+    </section>
+
+    <!-- ======= Back ======= -->
+    <section class="a5-page" aria-labelledby="sheet-back-title">
+
+        <div class="sheet-header">
+            <img src="../assets/img/nubart-logo-horizontal-black.svg" alt="Nubart">
+            <span class="side">Crew sheet &middot; Back</span>
+        </div>
+
+        <h2 id="sheet-back-title" class="mt-0">The Remote Control screen</h2>
+
+        <div class="screen-row">
+            <img src="../assets/img/motion/remote-control-phone-for-instructions.webp" class="screen-img"
+                 alt="Remote Control screen: the vessel name at the top, one button per track, and &ldquo;Restart Tour&rdquo; at the bottom.">
+            <div>
+            <p>Each track changes colour:</p>
+            <ul class="legend">
+                <li><span class="swatch swatch-green" aria-hidden="true"></span><span><strong>Green:</strong> not started yet.</span></li>
+                <li><span class="swatch swatch-red" aria-hidden="true"></span><span><strong>Red, with a progress bar:</strong> being sent now.</span></li>
+                <li><span class="swatch swatch-grey" aria-hidden="true"></span><span><strong>Grey:</strong> sent.</span></li>
+                <li><span class="swatch swatch-yellow" aria-hidden="true"></span><span><strong>Yellow:</strong> could not be sent, normally because there is no connectivity at that spot.</span></li>
+            </ul>
+
+            <p>The icon on each track shows how it starts: a <strong>pin</strong> starts it at a location, a <strong>clock</strong> after a set time, and a <strong>hand</strong> when you tap it. If all tracks start the same way, no pin or clock is shown. After tapping a track, wait until it turns grey before starting another one.</p>
+
+            <p>&ldquo;Restart Tour&rdquo; at the bottom is optional. It only turns the tracks back to green on this screen, ready for the next tour.</p>
+            </div>
+        </div>
+
+        <h2>Troubleshooting</h2>
+
+        <div class="trouble">
+            <p><strong>A passenger says a track did not start?</strong><br>
+                Ask them to press play on that track in the guide.</p>
+        </div>
+
+        <div class="trouble">
+            <p><strong>No tracks are starting?</strong><br>
+                Check that this phone is plugged in, unlocked and showing the Remote Control for the right vessel. If not, reconnect (see front).</p>
+        </div>
+
+        <div class="trouble">
+            <p><strong>A track starts too early, too late or not at all?</strong><br>
+                Nubart can adjust it remotely. Email the name of the trigger and the vessel to info@nubart.eu.</p>
+        </div>
+
+        <div class="support-box">
+            <p><strong>Nubart support:</strong> +49 (0)30 216 02 001 &middot; info@nubart.eu<br>
+                Monday to Friday, 9:00&ndash;17:00 Berlin time</p>
+            <div class="fill mb-0">
+                <label for="onboard-contact">Onboard contact:</label>
+                <input type="text" id="onboard-contact" autocomplete="off">
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

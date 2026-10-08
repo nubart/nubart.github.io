@@ -798,6 +798,64 @@ section {
     color: #016a6c;
 }
 
+/* Collapsible items in blog-style pages: the header is an h3 for the outline,
+   but must not pick up the blog h3 top margin */
+.nubart-blog .accordion-header {
+    margin-top: 0;
+}
+
+.nubart-blog .accordion-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Collapsible items in blog-style pages: always expanded when printed */
+@media print {
+    .nubart-blog .accordion-collapse {
+        display: block !important;
+    }
+
+    .nubart-blog .accordion-button::after {
+        display: none;
+    }
+}
+
+/* Row of photos with different shapes, all shown at the same height.
+   Each figure sets --ratio (width / height of its image); widths follow that ratio.
+   Phones: stacked, full width. */
+.nubart-blog .photo-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.nubart-blog .photo-row > figure {
+    flex: var(--ratio, 1) 1 0;
+    min-width: 0;
+    margin: 0;
+}
+
+@media (max-width: 575.98px) {
+    .nubart-blog .photo-row {
+        flex-direction: column;
+    }
+
+    .nubart-blog .photo-row > figure {
+        flex: none;
+        width: 100%;
+    }
+}
+
+/* Sample of ready-to-print text (e.g. a sticker), styled like a small sticker */
+.nubart-blog .sign-sample {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #6ec7ba;
+    border-radius: 0.75rem;
+    background-color: #e8f7f6;
+    font-weight: 600;
+}
+
 /*--------------------------------------------------------------
 # Make secondary navigation bar in the upper menu sticky with primary navigation bar
 --------------------------------------------------------------*/

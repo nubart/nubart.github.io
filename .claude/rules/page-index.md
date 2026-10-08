@@ -570,6 +570,15 @@
 - NL: (still pending)
 - PT: (still pending)
 
+**Launch guide for contracted customers (signage, QR codes, crew, master smartphone, troubleshooting, privacy — customer-only, noindex, unlinked):**
+- EN: audio-commentary-system/nubart-motion-the-launch.html
+- All other languages: (still pending)
+
+**Master phone crew sheet (printable A5 portrait, front and back, to laminate and keep on board — customer-only, noindex, unlinked; linked from the launch guide; replaced a Canva PDF, deleted 2026-10-08):**
+- EN: audio-commentary-system/nubart-motion-master-phone-crew-sheet.html
+- Styles: assets/css/crew-sheet-a5.css
+- All other languages: (still pending)
+
 ### Nubart SYNC
 **Main product explainer:**
 - EN: sync/index.html
