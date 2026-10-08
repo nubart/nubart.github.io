@@ -401,11 +401,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p>Nubart can provide access to the guide in three ways: non-transferable codes printed on cards, non-transferable codes sent online or through an API, or a generic QR code. The first two can be sold to passengers; the generic code gives free access to everyone. The differences are explained under <a href="../audio-guides/#delivery-options">our three delivery options</a>.</p>
 
-                    <p>Most Nubart MOTION customers choose a generic QR code. It is a plain link to the guide, so it works wherever it is scanned, including from a photo or a screen. This is why it matters where the working codes are placed, as explained below.</p>
+                    <p>Most Nubart MOTION customers choose a generic QR code. It is a plain link to the guide and technically works wherever it is scanned, including from a photo or a screen. This is why it matters where the working codes are placed, as explained below.</p>
 
-                    <p>Where a vehicle carries a master smartphone, each vehicle that operates at the same time has its own code, matching that vehicle's commentary. Name the print files after the vehicle to avoid mix-ups when printing and installing.</p>
+                    <p>In the standard set-up, each vehicle that operates at the same time has its own master smartphone and its own code, matching that vehicle's commentary. Name the print files after the vehicle to avoid mix-ups when printing and installing.</p>
 
-                    <p>If you would rather use a single QR code, or if you add another vessel later, Nubart can set up the guide in a modular way: passengers choose their vessel or route in the guide itself, and the commentary follows their choice. Please talk to us before you print, so that the codes match the set-up.</p>
+                    <p>Alternatively, if you would rather use a single QR code, or if you add another vessel later, Nubart can set up the guide in a modular way: passengers choose their vessel or route in the guide itself, and the commentary follows their choice. Please talk to us before you print, so that the codes match the set-up.</p>
 
                     <h3>Where to use working codes</h3>
 
@@ -458,7 +458,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <h3>What it does</h3>
 
-                    <p>In set-ups with triggered tracks, one smartphone on each vessel, the master smartphone, controls when the commentary starts. It receives GPS and internet data to determine the correct timing and sends the triggers to the passengers' devices.</p>
+                    <p>In set-ups with triggered tracks, one smartphone on each vessel, the master smartphone, controls when the commentary starts. It receives GPS and internet data to determine the correct timing and sends the triggers to the passengers' devices. It stays with the crew throughout the journey and is never handed to passengers.</p>
+
+                    <p>A trigger is only a very short message, "play track X now", so even a weak connection is usually enough. The passengers' phones need a connection to receive it, also when the guide is in offline mode. Before the guide is delivered, Nubart normally records the vessel's route to find the weak spots, and covers them with time-based triggers.</p>
+
+                    <figure class="figure d-block">
+                        <img src="../assets/img/motion/motion-geotracking-heatmap-ceuta.webp"
+                             class="figure-img img-fluid rounded" width="834" height="461" loading="lazy"
+                             alt="Heatmap on a street map of Ceuta: the recorded route of a vessel leaving the harbour, sailing east along the coast, turning and returning, with the most frequently recorded positions in yellow."/>
+                        <figcaption class="figure-caption">Example of a heatmap from the vessel's positions recorded on a test route (Ceuta). Nubart uses these recordings to set the trigger lines and to find stretches with weak connectivity. Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="nofollow">OpenStreetMap</a> contributors.</figcaption>
+                    </figure>
 
                     <h3>Set-up on board</h3>
 
@@ -519,7 +528,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <p>That depends on how the guide is set up. There are three ways to deliver the tracks to the passengers' phones:</p>
                                     <ul>
                                         <li><strong>Streaming:</strong> each track is fetched when it is needed. Phones need a mobile data connection or Wi-Fi throughout the trip.</li>
-                                        <li><strong>Total offline:</strong> right after the passenger has chosen a language, the guide loads all its content onto the phone, and asks the passenger to wait a moment until it is finished. Afterwards it no longer needs a connection.</li>
+                                        <li><strong>Total offline:</strong> right after the passenger has chosen a language, the guide loads all its content onto the phone, and asks the passenger to wait a moment until it is finished. Afterwards the tracks are stored on the phone and no longer need to be downloaded. The phone still needs a connection, even a weak one, to receive the signal to start each track.</li>
                                         <li><strong>Partial offline:</strong> the guide loads in advance only the tracks for stretches of the route where mobile coverage is weak, in the same way and with the same request to wait. The other tracks stream as usual.</li>
                                     </ul>
                                     <p>In both offline modes, if a phone cannot store the content, for example because it is short of storage space, the guide switches to streaming automatically. If you are not sure which mode your guide uses, ask Nubart.</p>
@@ -582,7 +591,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <p>Check that the master smartphone is connected to power, that the screen is unlocked and that the "Remote Control" tab is open on the right vessel. If the phone has restarted or the browser was closed, reconnect as described under <a href="#maintenance">Maintenance</a>.</p>
                                     <p>A track that shows yellow on the Remote Control screen could not be sent, normally because there was no connectivity at that spot.</p>
                                     <p>For tracks marked with a hand icon, the crew can start the track by tapping it on the Remote Control screen.</p>
-                                    <p>Only if the master smartphone cannot be reconnected and no track starts at all, passengers can start the tracks themselves by pressing play on the track for the sight they are passing. This is an emergency solution. A track that is still running blocks the next one, so passengers should play one track at a time and let it finish.</p>
+                                    <p><strong>Emergency only:</strong> if the master smartphone cannot be reconnected and no track starts at all, passengers can start the tracks themselves by pressing play on the track for the sight they are passing. This is not an alternative way of operating the guide. A track that is still running blocks the next one, so passengers should play one track at a time and let it finish.</p>
                                 </div>
                             </div>
                         </div>
@@ -610,17 +619,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <h3>Short version for signage</h3>
 
-                    <p>No app. No registration. Anonymous statistics only. Your location is never requested.</p>
+                    <p>No app. No registration. Anonymous usage statistics only. Your phone's location is never requested.</p>
 
                     <h3>Version for the website</h3>
 
                     <p>The audio guide runs in your phone's browser. No app, registration or account is needed, and no personal data is requested.</p>
 
-                    <p>Nubart, the provider of the guide, records anonymous usage statistics, such as the language chosen, the type of device, the country of origin as indicated by the browser settings and the tracks listened to. These statistics are aggregated and cannot be traced back to an individual. IP addresses are not stored. The data is hosted in the EU (Ireland).</p>
+                    <p>Nubart, the provider of the guide, records anonymous passenger usage statistics, such as the language chosen, the type of device, the country of origin as indicated by the browser settings and the tracks listened to. These statistics are aggregated and cannot be traced back to an individual. IP addresses are not stored. The data is hosted in the EU (Ireland).</p>
 
                     <p>To work properly, the guide stores only first-party technical cookies on your phone. They stay there until you delete them or your browser removes them automatically. The guide does not use third-party cookies or external tracking services.</p>
 
-                    <p>Your phone's location is never requested. The position of the vessel is determined by a device operated by the crew and is recorded to check the quality of the triggering.</p>
+                    <p>Your phone's location is never requested. The position of the vessel is determined by the master smartphone operated by the crew, not by passengers' phones. It is recorded separately from the passenger statistics, only to monitor and improve the triggering.</p>
 
                     <p>A feedback form is available and entirely optional. Please do not include personal details, such as your name or email address, in your comments.</p>
 
