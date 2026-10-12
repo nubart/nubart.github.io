@@ -405,6 +405,10 @@
 - BG: (still pending)
 - JA: (still pending)
 
+**AI Transparency Overview (plain-language AI, data and quality summary for legal/compliance/procurement teams — printable, noindex, not in sitemap.xml; the Terms and the DPA prevail):**
+- EN: ai-simultaneous-interpretation/ai-transparency-overview.html (v1.0, 2026-10-12)
+- All other languages: (still pending)
+
 **Trial kit (unlinked):**
 - EN: ai-simultaneous-interpretation/nubart-translate-trial.html
 - DE (Austrian leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-oes.html
