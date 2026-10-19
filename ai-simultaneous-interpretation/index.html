@@ -33,7 +33,7 @@
             },
             "areaServed": "Worldwide",
             "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.nubart.eu/ai-simultaneous-interpretation/",
-            "dateModified": "2026-10-12" },
+            "dateModified": "2026-10-18" },
 
 
 
@@ -73,7 +73,7 @@
                     "@type": "PropertyValue",
                     "propertyID": "eventPreparation",
                     "name": "Event preparation",
-                    "value": "Once an order is in place or a prepared test is booked, Nubart prepares the AI from the organizer's own documents (programme, slides, press kit, speaker biographies), as one would brief a human interpreter. Speech recognition, translation and the synthetic voice are prepared separately for each speaker language: a context text for the translation engine, a custom vocabulary of names, acronyms and coined terms for the speech recognition, and, where needed, hand-set lists of terms that must not be translated, fixed term translations per listener language, and pronunciation for the spoken translation. AI produces the first draft and the Nubart team reviews and refines it. Preparation improves the handling of names and terminology but does not guarantee correct output and does not replace good audio. It is not part of the free trial; 30 additional minutes with prepared AI and the customer's logo and colors can be booked for 60 EUR (excl. VAT)."
+                    "value": "Once an order is in place or a prepared test is booked, Nubart prepares the AI from the organizer's own documents (programme, slides, press kit, speaker biographies), as one would brief a human interpreter. Speech recognition, translation and the synthetic voice are prepared separately for each speaker language: a context text for the translation engine, a custom vocabulary of names, acronyms and coined terms for the speech recognition, and, where needed, hand-set lists of terms that must not be translated, fixed term translations per listener language, and pronunciation for the spoken translation. AI produces the first draft and the Nubart team reviews and refines it. Preparation improves the handling of names and terminology but does not guarantee correct output and does not replace good audio. It is not part of the free trial. A prepared test with prepared AI and the customer's logo and colors can be booked for 60 EUR (excl. VAT); once the preparation is ready, 30 minutes of use are available, and any unused free trial minutes are included in these 30 minutes, not added to them."
                 },
                 {
                     "@type": "PropertyValue",
@@ -187,7 +187,7 @@
                     "name": "Is the AI prepared for my event during the free trial?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "No. The free trial uses the standard system, without event-specific preparation. Nubart prepares the AI for an event once the order is in place. Customers who want to test the system with a prepared AI before ordering can book 30 additional minutes with prepared AI and their own logo and colors for €60 (excl. VAT), after uploading their material as they would for a real event."
+                        "text": "No. The free trial uses the standard system, without event-specific preparation. Nubart prepares the AI for an event once the order is in place. Anyone who wants to test the system with a prepared AI before ordering can book a prepared test with prepared AI and their own logo and colors for €60 (excl. VAT), after uploading their material as they would for a real event. Once the preparation is ready, 30 minutes of use are available; any unused free trial minutes are included in these 30 minutes, not added to them."
                     }
                 },
                 {
@@ -1007,7 +1007,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <div class="card-body p-4">
                                 <h4 class="fw-bold mb-1">Your event cost</h4>
                                 <p class="text-muted small mb-3">Calculate in seconds</p>
-                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Step 1 of 5</p>
+                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; text-transform: uppercase;">Step 1 of 4</p>
                                 <h6 class="fw-bold mb-3">How long is your event?</h6>
 
                                 <div class="row g-3">
@@ -1031,7 +1031,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <!-- Step 2: Multi-room -->
                         <div class="card shadow-sm border mb-3 d-none" id="calc-step-2">
                             <div class="card-body p-4">
-                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 2 of 5</p>
+                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 2 of 4</p>
                                 <h5 class="fw-bold mb-1">Is this a multi-room event?</h5>
                                 <p class="text-muted mb-3" style="font-size: 0.85rem;">For example: a conference with parallel sessions in different rooms, each with its own speaker.</p>
                                 <div class="d-flex gap-3 mb-3">
@@ -1054,30 +1054,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                         </div>
 
-                        <!-- Step 3: First-time customer? -->
-                        <div class="card shadow-sm border mb-3 d-none" id="calc-step-3">
-                            <div class="card-body p-4">
-                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 3 of 5</p>
-                                <h5 class="fw-bold mb-1">Is this your first time using Nubart TRANSLATE?</h5>
-                                <p class="text-muted mb-3" style="font-size: 0.85rem;">First-time customers can deduct their free 30-minute trial from the final invoice.</p>
-                                <div class="d-flex gap-3 mb-2">
-                                    <button class="btn btn-outline-secondary px-4" id="btn-firsttime-yes" onclick="calcSetFirstTime(true)">Yes, first time</button>
-                                    <button class="btn btn-outline-secondary px-4" id="btn-firsttime-no" onclick="calcSetFirstTime(false)">No, we have used it before</button>
-                                </div>
-                                <div class="d-none text-danger mt-2" id="calc-firsttime-warning" style="font-size:0.85rem;">
-                                    <i class="bi bi-exclamation-circle me-1"></i>Please select an option to continue.
-                                </div>
-                                <div class="text-end mt-3">
-                                    <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← Back</button>
-                                    <button class="btn btn-primary px-4" onclick="calcStep3Next()">Next →</button>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Step 4: Confidentiality / LWAC -->
                         <div class="card shadow-sm border mb-3 d-none" id="calc-step-4">
                             <div class="card-body p-4">
-                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 4 of 5</p>
+                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 3 of 4</p>
                                 <h5 class="fw-bold mb-1">Is what will be discussed at this event confidential?</h5>
                                 <p class="text-muted mb-3" style="font-size: 0.85rem;">For example: a strategy meeting, board session, or any event where sensitive information should not reach unintended listeners.</p>
 
@@ -1115,7 +1095,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
 
                                 <div class="text-end mt-3">
-                                    <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(3)">← Back</button>
+                                    <button class="btn btn-outline-secondary me-2" onclick="calcGoToStep(2)">← Back</button>
                                     <button class="btn btn-primary px-4" onclick="calcStep4Next()">Next →</button>
                                 </div>
                             </div>
@@ -1124,7 +1104,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <!-- Step 5: Result -->
                         <div class="card shadow-sm border mb-3 d-none" id="calc-step-5">
                             <div class="card-body p-4">
-                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 5 of 5</p>
+                                <p class="fw-bold mb-1" style="color: #2ec4b6; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Step 4 of 4</p>
                                 <h5 class="fw-bold mb-3">Your estimate</h5>
 
                                 <!-- Summary chips -->
@@ -1218,17 +1198,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         subject:    (days, total) => `Quote request – Nubart TRANSLATE event (${days} day${days>1?'s':''}, est. ${total})`,
         roomLabel:  (i)           => `Room ${i}`,
         roomSuffix: (n)           => `${n} simultaneous rooms`,
-        trialYes:   'Yes (30-min trial to be deducted)',
-        trialNo:    'No',
         lwacNo:     'No (standard QR code)',
         lwacPyo:    (qty) => `Print-Your-Own non-transferable cards (${qty} codes)`,
-        body:       (eventDetails, trial, total, accessControl) =>
+        body:       (eventDetails, total, accessControl) =>
 `Hello,
 
 I used the cost calculator for Nubart TRANSLATE on your website and would like to receive an official quote for the following event:
 
 Event details: ${eventDetails}
-First-time customer: ${trial}
 Access control: ${accessControl}
 Estimated total (calculator): ${total} excl. VAT
 
@@ -1241,10 +1218,8 @@ Thank you`,
             baseFee:        (days) => `Base fee (${days} day${days>1?'s':''}, incl. 2 h/day)`,
             extraHours:     (h)    => `Extra hours (${h} h × €39)`,
             totalHours:     'Total stream-hours billed',
-            trialRow:       'Free trial deduction (30 min)',
             chipDays:       (days) => `${days} event day${days>1?'s':''}`,
             chipRoom:       (h)    => `${h} h/day · 1 room`,
-            trialChip:      '30-min trial deducted',
             lwacPyoLabel:   (qty) => `Print-Your-Own cards (${qty} codes)`,
             lwacPyoChip:    (qty) => `${qty} PYO cards`
         }
@@ -1754,7 +1729,7 @@ Thank you`,
                             <div id="faqPrepTrialEN" class="accordion-collapse collapse" aria-labelledby="headingPrepTrialEN" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body" style="text-align: justify;">
                                     No. The free trial uses the standard system, without event-specific preparation. We prepare the AI for your event once your order is in place.<br><br>
-                                    If you want to test the system with a prepared AI before ordering, we offer 30 additional minutes with prepared AI and your logo and colors for €60 (excl. VAT). Upload your material, as you would for a real event, and we prepare the system for your test.
+                                    If you want to test the system with a prepared AI before ordering, we offer a prepared test with prepared AI and your logo and colors for €60 (excl. VAT). Upload your material, as you would for a real event, and we prepare the system for your test. Once it is ready, you have 30 minutes of use; any free trial minutes you have not used yet are included in these 30 minutes, not added to them.
                                 </div>
                             </div>
                         </div>

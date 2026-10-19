@@ -2,7 +2,6 @@
 const CALC_BASE = 349;
 const CALC_EXTRA = 39;
 const CALC_INCLUDED = 2;    // stream-hours included in base rate per event day
-const CALC_TRIAL = 0.5;     // free trial deduction in hours (30 min)
 
 // LWAC non-transferable access cards (step 4)
 const CALC_PYO_SETUP    = 79;     // Print-Your-Own one-off setup fee
@@ -14,7 +13,6 @@ let calcState = {
     hoursPerDay: 0,
     multiroom: false,
     rooms: [],              // [{hours}] per room
-    firstTime: null,        // true/false, set in step 3
     lwac: null,             // null | 'no' | 'pyo', set in step 4
     lwacQty: 0              // number of PYO cards, only when lwac === 'pyo'
 };
@@ -99,32 +97,9 @@ function calcStep2Next() {
         }
         if (!ok) return;
     }
-    calcGoToStep(3);
-}
-
-function calcSetFirstTime(isFirst) {
-    calcState.firstTime = isFirst;
-    document.getElementById('btn-firsttime-yes').classList.toggle('btn-primary', isFirst);
-    document.getElementById('btn-firsttime-yes').classList.toggle('btn-outline-secondary', !isFirst);
-    document.getElementById('btn-firsttime-no').classList.toggle('btn-primary', !isFirst);
-    document.getElementById('btn-firsttime-no').classList.toggle('btn-outline-secondary', isFirst);
-}
-
-function calcStep3Next() {
-    if (calcState.firstTime === null) {
-        document.getElementById('calc-firsttime-warning').classList.remove('d-none');
-        return;
-    }
-    document.getElementById('calc-firsttime-warning').classList.add('d-none');
-    // Updated pages have the confidentiality/LWAC step (step 4) before the result
-    // (step 5). Legacy pages not yet updated jump straight to the result (step 4),
-    // so compute here for them.
-    if (document.getElementById('btn-lwac-no')) {
-        calcGoToStep(4);
-    } else {
-        calcCompute();
-        calcGoToStep(4);
-    }
+    // Step IDs keep their old numbers: the former step 3 (free trial deduction)
+    // was removed, so step 2 leads to step 4.
+    calcGoToStep(4);
 }
 
 function calcSetLwac(choice) {
@@ -168,7 +143,7 @@ function calcStep4Next() {
 }
 
 function calcCompute() {
-    const { days, hoursPerDay, multiroom, rooms, firstTime } = calcState;
+    const { days, hoursPerDay, multiroom, rooms } = calcState;
     const i18n = Object.assign({}, CALC_I18N_DEFAULT, window.CALC_I18N || {});
     const ui   = Object.assign({}, CALC_I18N_DEFAULT.ui, ((window.CALC_I18N || {}).ui) || {});
 
@@ -193,12 +168,7 @@ function calcCompute() {
         totalExtraHours = Math.max(0, streamHoursPerDay - CALC_INCLUDED) * days;
     }
 
-    // First-time customers: deduct the 30-min free trial from extra hours only
-    // (trial minutes come off the top of billable usage, which eats into extra hours first)
-    const trialDeduction = firstTime ? CALC_TRIAL : 0;
-    const extraHoursAfterTrial = Math.max(0, totalExtraHours - trialDeduction);
-
-    const extraFee = extraHoursAfterTrial * CALC_EXTRA;
+    const extraFee = totalExtraHours * CALC_EXTRA;
 
     // LWAC non-transferable access cards
     let lwacCost = 0;
@@ -215,12 +185,6 @@ function calcCompute() {
 
     // Render breakdown
     const bd = document.getElementById('calc-result-breakdown');
-    const trialRow = firstTime ? `
-        <li class="d-flex justify-content-between border-bottom pb-1 mb-1" style="color: #059669;">
-            <span>${ui.trialRow}</span>
-            <strong>− €${(trialDeduction * CALC_EXTRA).toLocaleString('de-DE')}</strong>
-        </li>` : '';
-
     const lwacRow = calcState.lwac === 'pyo' ? `
         <li class="d-flex justify-content-between border-bottom pb-1 mb-1">
             <span class="text-muted">${lwacLabel}</span>
@@ -236,7 +200,6 @@ function calcCompute() {
             <span class="text-muted">${ui.extraHours(totalExtraHours)}</span>
             <strong>${totalExtraHours > 0 ? '€'+(totalExtraHours * CALC_EXTRA).toLocaleString('de-DE') : '—'}</strong>
         </li>
-        ${trialRow}
         ${lwacRow}
         <li class="d-flex justify-content-between">
             <span class="text-muted">${ui.totalHours}</span>
@@ -250,9 +213,8 @@ function calcCompute() {
         <span style="${chipStyle}">${ui.chipDays(days)}</span>
         ${!multiroom
             ? `<span style="${chipStyle}">${ui.chipRoom(hoursPerDay)}</span>`
-            : rooms.map((r,idx) => `<span style="${chipStyle}">${i18n.roomLabel(idx+1)}: ${r.hours} h/day</span>`).join('')
+            : rooms.map((r,idx) => `<span style="${chipStyle}">${i18n.roomLabel(idx+1)}: ${i18n.perDay(r.hours)}</span>`).join('')
         }
-        ${firstTime ? `<span style="background:#dcfce7; color:#059669; border:1px solid #059669; border-radius:2rem; padding:0.25rem 0.75rem; font-size:0.78rem; font-weight:600;">${ui.trialChip}</span>` : ''}
         ${calcState.lwac === 'pyo' ? `<span style="${chipStyle}">${ui.lwacPyoChip(calcState.lwacQty)}</span>` : ''}`;
 }
 
@@ -262,19 +224,20 @@ const CALC_I18N_DEFAULT = {
     subject:      (days, total) => `Quote request – Nubart TRANSLATE event (${days} day${days>1?'s':''}, est. ${total})`,
     roomLabel:    (i)           => `Room ${i}`,
     roomSuffix:   (n)           => `${n} simultaneous rooms`,
+    eventDays:    (days)        => `${days} day${days>1?'s':''}`,
+    perDay:       (h)           => `${h} h/day`,
+    oneRoom:      '1 room',
+    listSep:      ', ',
     tableRoom:    'Room',
     tableHours:   'Hours of active use per day',
-    trialYes:     'Yes (30-min trial to be deducted)',
-    trialNo:      'No',
     lwacNo:       'No (standard QR code)',
     lwacPyo:      (qty) => `Print-Your-Own non-transferable cards (${qty} codes)`,
-    body:         (eventDetails, trial, total, accessControl) =>
+    body:         (eventDetails, total, accessControl) =>
 `Hello,
 
 I used the cost calculator for Nubart TRANSLATE on your website and would like to receive an official quote for the following event:
 
 Event details: ${eventDetails}
-First-time customer: ${trial}
 Access control: ${accessControl}
 Estimated total (calculator): ${total} excl. VAT
 
@@ -287,17 +250,15 @@ Thank you`,
         baseFee:        (days) => `Base fee (${days} day${days>1?'s':''}, incl. 2 h/day)`,
         extraHours:     (h)    => `Extra hours (${h} h × €${CALC_EXTRA})`,
         totalHours:     'Total stream-hours billed',
-        trialRow:       'Free trial deduction (30 min)',
         chipDays:       (days) => `${days} event day${days>1?'s':''}`,
         chipRoom:       (h)    => `${h} h/day · 1 room`,
-        trialChip:      '30-min trial deducted',
         lwacPyoLabel:   (qty) => `Print-Your-Own cards (${qty} codes)`,
         lwacPyoChip:    (qty) => `${qty} PYO cards`
     }
 };
 
 function calcRequestQuote() {
-    const { days, hoursPerDay, multiroom, rooms, firstTime } = calcState;
+    const { days, hoursPerDay, multiroom, rooms } = calcState;
     const i18n = Object.assign({}, CALC_I18N_DEFAULT, window.CALC_I18N || {});
 
     const totalEl = document.getElementById('calc-result-total');
@@ -305,20 +266,18 @@ function calcRequestQuote() {
 
     let eventDetails;
     if (!multiroom) {
-        eventDetails = `${days} day${days>1?'s':''}, ${hoursPerDay} h/day, 1 room`;
+        eventDetails = [i18n.eventDays(days), i18n.perDay(hoursPerDay), i18n.oneRoom].join(i18n.listSep);
     } else {
-        const roomList = rooms.map((r,i) => `${i18n.roomLabel(i+1)}: ${r.hours} h/day`).join(' | ');
-        eventDetails = `${days} day${days>1?'s':''}, ${i18n.roomSuffix(rooms.length)} (${roomList})`;
+        const roomList = rooms.map((r,i) => `${i18n.roomLabel(i+1)}: ${i18n.perDay(r.hours)}`).join(' | ');
+        eventDetails = `${i18n.eventDays(days)}${i18n.listSep}${i18n.roomSuffix(rooms.length)} (${roomList})`;
     }
-
-    const trial = firstTime ? i18n.trialYes : i18n.trialNo;
 
     const accessControl = calcState.lwac === 'pyo'
         ? i18n.lwacPyo(calcState.lwacQty)
         : i18n.lwacNo;
 
     const subject = i18n.subject(days, total);
-    const body    = i18n.body(eventDetails, trial, total, accessControl);
+    const body    = i18n.body(eventDetails, total, accessControl);
 
     const mailtoLink = `mailto:${i18n.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
