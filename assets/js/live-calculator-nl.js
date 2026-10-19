@@ -1,6 +1,5 @@
 // ---- Nubart LIVE Cost Calculator — NL ----
 const LIVE_RATE = 39;
-const LIVE_TRIAL = 0.5;
 const LIVE_PYO_SETUP = 79;
 const LIVE_PYO_PER_CODE = 1.5;
 const LIVE_BASIC_PRICE = 599;
@@ -17,7 +16,7 @@ function liveCustomPrice(qty) {
 let liveCalcState = {
     pkg: null, pkgQty: 0,
     media: false, mediaQty: 0,
-    translate: false, guides: 1, hours: 0, firstTime: null
+    translate: false, guides: 1, hours: 0
 };
 
 function liveCalcGoToStep(n) {
@@ -116,14 +115,6 @@ function liveCalcSetTranslation(yes) {
     document.getElementById('live-calc-translate-form').classList.toggle('d-none', !yes);
 }
 
-function liveCalcSetFirstTime(isFirst) {
-    liveCalcState.firstTime = isFirst;
-    document.getElementById('btn-live-firsttime-yes').classList.toggle('btn-primary', isFirst);
-    document.getElementById('btn-live-firsttime-yes').classList.toggle('btn-outline-secondary', !isFirst);
-    document.getElementById('btn-live-firsttime-no').classList.toggle('btn-primary', !isFirst);
-    document.getElementById('btn-live-firsttime-no').classList.toggle('btn-outline-secondary', isFirst);
-}
-
 function liveCalcStep3Next() {
     if (liveCalcState.translate) {
         const gEl = document.getElementById('live-calc-guides');
@@ -133,19 +124,12 @@ function liveCalcStep3Next() {
         let ok = true;
         if (!g || g < 1) { gEl.classList.add('is-invalid'); ok = false; } else { gEl.classList.remove('is-invalid'); }
         if (!h || h <= 0) { hEl.classList.add('is-invalid'); ok = false; } else { hEl.classList.remove('is-invalid'); }
-        if (liveCalcState.firstTime === null) {
-            document.getElementById('live-calc-firsttime-warning').classList.remove('d-none');
-            ok = false;
-        } else {
-            document.getElementById('live-calc-firsttime-warning').classList.add('d-none');
-        }
         if (!ok) return;
         liveCalcState.guides = g;
         liveCalcState.hours = h;
     } else {
         liveCalcState.guides = 0;
         liveCalcState.hours = 0;
-        liveCalcState.firstTime = false;
     }
     liveCalcCompute();
     liveCalcGoToStep(4);
@@ -172,11 +156,10 @@ function liveCalcCompute() {
         mediaCost = LIVE_MEDIA_FIRST + Math.max(0, s.mediaQty - 1) * LIVE_MEDIA_EXTRA;
     }
 
-    let totalStreamHours = 0, translationCost = 0, trialDeduction = 0;
+    let totalStreamHours = 0, translationCost = 0;
     if (s.translate) {
         totalStreamHours = Math.ceil(s.hours) * s.guides;
-        trialDeduction = s.firstTime ? LIVE_TRIAL : 0;
-        translationCost = Math.max(0, totalStreamHours - trialDeduction) * LIVE_RATE;
+        translationCost = totalStreamHours * LIVE_RATE;
     }
 
     const total = cardCost + mediaCost + translationCost;
@@ -193,9 +176,6 @@ function liveCalcCompute() {
 
     if (s.translate) {
         rows += '<li class="d-flex justify-content-between border-bottom pb-1 mb-1"><span class="text-muted">Vertaling (' + totalStreamHours + ' stream-h \u00d7 \u20ac' + LIVE_RATE + ')</span><strong>\u20ac' + (totalStreamHours * LIVE_RATE).toLocaleString('de-DE') + '</strong></li>';
-        if (s.firstTime) {
-            rows += '<li class="d-flex justify-content-between border-bottom pb-1 mb-1" style="color:#059669;"><span>Aftrek gratis proef (30 min)</span><strong>\u2212 \u20ac' + (trialDeduction * LIVE_RATE).toLocaleString('de-DE') + '</strong></li>';
-        }
     }
     document.getElementById('live-calc-result-breakdown').innerHTML = rows;
 
@@ -205,7 +185,6 @@ function liveCalcCompute() {
     if (s.media && s.mediaQty > 0) ch += '<span style="' + cs + '">' + (s.mediaQty > 1 ? s.mediaQty + ' mediabibliotheken' : '1 mediabibliotheek') + '</span>';
     if (s.translate) ch += '<span style="' + cs + '">' + s.guides + ' gids' + (s.guides > 1 ? 'en' : '') + ' \u00b7 ' + s.hours + ' h vertaling</span>';
     else ch += '<span style="' + cs + '">Geen vertaling</span>';
-    if (s.firstTime && s.translate) ch += '<span style="background:#dcfce7;color:#059669;border:1px solid #059669;border-radius:2rem;padding:0.25rem 0.75rem;font-size:0.78rem;font-weight:600;">Proef 30 min afgetrokken</span>';
     document.getElementById('live-calc-summary-chips').innerHTML = ch;
 
     // Vertaalnotitie tonen/verbergen
@@ -226,16 +205,15 @@ function liveCalcRequestQuote() {
         ? 'Ja (' + (s.mediaQty > 1 ? s.mediaQty + ' mediabibliotheken' : '1 mediabibliotheek') + ')'
         : 'Nee';
 
-    let translationLine, firstTimeLine = '';
+    let translationLine;
     if (s.translate) {
         translationLine = 'Ja (' + s.guides + ' gids' + (s.guides > 1 ? 'en' : '') + ' \u00d7 ' + s.hours + ' h elk)';
-        firstTimeLine = '\n- Eerste keer AI-vertaling gebruiken: ' + (s.firstTime ? 'Ja (30 min proef wordt afgetrokken)' : 'Nee');
     } else {
         translationLine = 'Nee';
     }
 
     const subject = 'Offerteaanvraag \u2013 Nubart LIVE (ca. ' + total + ')';
-    const body = 'Hallo,\n\nIk heb de kostencalculator op jullie website gebruikt en wil graag een officiële offerte ontvangen voor Nubart LIVE:\n\n- Kaartenpakket: ' + cardLine + '\n- Mediabibliotheek: ' + mediaLine + '\n- AI-vertaling: ' + translationLine + firstTimeLine + '\n- Geschat totaal (calculator): ' + total + ' excl. btw\n\nKun je me een officiële offerte op naam van mijn bedrijf sturen?\n\n[Voeg hier je naam, bedrijfsnaam en btw-nummer in]\n\nMet vriendelijke groet';
+    const body = 'Hallo,\n\nIk heb de kostencalculator op jullie website gebruikt en wil graag een officiële offerte ontvangen voor Nubart LIVE:\n\n- Kaartenpakket: ' + cardLine + '\n- Mediabibliotheek: ' + mediaLine + '\n- AI-vertaling: ' + translationLine + '\n- Geschat totaal (calculator): ' + total + ' excl. btw\n\nKun je me een officiële offerte op naam van mijn bedrijf sturen?\n\n[Voeg hier je naam, bedrijfsnaam en btw-nummer in]\n\nMet vriendelijke groet';
 
     const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 

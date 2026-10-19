@@ -1,6 +1,5 @@
 // ---- Nubart LIVE Cost Calculator — DE ----
 const LIVE_RATE = 39;
-const LIVE_TRIAL = 0.5;
 const LIVE_PYO_SETUP = 79;
 const LIVE_PYO_PER_CODE = 1.5;
 const LIVE_BASIC_PRICE = 599;
@@ -17,7 +16,7 @@ function liveCustomPrice(qty) {
 let liveCalcState = {
     pkg: null, pkgQty: 0,
     media: false, mediaQty: 0,
-    translate: false, guides: 1, hours: 0, firstTime: null
+    translate: false, guides: 1, hours: 0
 };
 
 function liveCalcGoToStep(n) {
@@ -116,14 +115,6 @@ function liveCalcSetTranslation(yes) {
     document.getElementById('live-calc-translate-form').classList.toggle('d-none', !yes);
 }
 
-function liveCalcSetFirstTime(isFirst) {
-    liveCalcState.firstTime = isFirst;
-    document.getElementById('btn-live-firsttime-yes').classList.toggle('btn-primary', isFirst);
-    document.getElementById('btn-live-firsttime-yes').classList.toggle('btn-outline-secondary', !isFirst);
-    document.getElementById('btn-live-firsttime-no').classList.toggle('btn-primary', !isFirst);
-    document.getElementById('btn-live-firsttime-no').classList.toggle('btn-outline-secondary', isFirst);
-}
-
 function liveCalcStep3Next() {
     if (liveCalcState.translate) {
         const gEl = document.getElementById('live-calc-guides');
@@ -133,19 +124,12 @@ function liveCalcStep3Next() {
         let ok = true;
         if (!g || g < 1) { gEl.classList.add('is-invalid'); ok = false; } else { gEl.classList.remove('is-invalid'); }
         if (!h || h <= 0) { hEl.classList.add('is-invalid'); ok = false; } else { hEl.classList.remove('is-invalid'); }
-        if (liveCalcState.firstTime === null) {
-            document.getElementById('live-calc-firsttime-warning').classList.remove('d-none');
-            ok = false;
-        } else {
-            document.getElementById('live-calc-firsttime-warning').classList.add('d-none');
-        }
         if (!ok) return;
         liveCalcState.guides = g;
         liveCalcState.hours = h;
     } else {
         liveCalcState.guides = 0;
         liveCalcState.hours = 0;
-        liveCalcState.firstTime = false;
     }
     liveCalcCompute();
     liveCalcGoToStep(4);
@@ -172,11 +156,10 @@ function liveCalcCompute() {
         mediaCost = LIVE_MEDIA_FIRST + Math.max(0, s.mediaQty - 1) * LIVE_MEDIA_EXTRA;
     }
 
-    let totalStreamHours = 0, translationCost = 0, trialDeduction = 0;
+    let totalStreamHours = 0, translationCost = 0;
     if (s.translate) {
         totalStreamHours = Math.ceil(s.hours) * s.guides;
-        trialDeduction = s.firstTime ? LIVE_TRIAL : 0;
-        translationCost = Math.max(0, totalStreamHours - trialDeduction) * LIVE_RATE;
+        translationCost = totalStreamHours * LIVE_RATE;
     }
 
     const total = cardCost + mediaCost + translationCost;
@@ -193,9 +176,6 @@ function liveCalcCompute() {
 
     if (s.translate) {
         rows += '<li class="d-flex justify-content-between border-bottom pb-1 mb-1"><span class="text-muted">Übersetzung (' + totalStreamHours + ' stream-h \u00d7 \u20ac' + LIVE_RATE + ')</span><strong>\u20ac' + (totalStreamHours * LIVE_RATE).toLocaleString('de-DE') + '</strong></li>';
-        if (s.firstTime) {
-            rows += '<li class="d-flex justify-content-between border-bottom pb-1 mb-1" style="color:#059669;"><span>Testabzug (30 Min.)</span><strong>\u2212 \u20ac' + (trialDeduction * LIVE_RATE).toLocaleString('de-DE') + '</strong></li>';
-        }
     }
     document.getElementById('live-calc-result-breakdown').innerHTML = rows;
 
@@ -205,7 +185,6 @@ function liveCalcCompute() {
     if (s.media && s.mediaQty > 0) ch += '<span style="' + cs + '">' + (s.mediaQty > 1 ? s.mediaQty + ' Mediatheken' : '1 Mediathek') + '</span>';
     if (s.translate) ch += '<span style="' + cs + '">' + s.guides + ' Guide' + (s.guides > 1 ? 's' : '') + ' \u00b7 ' + s.hours + ' h Übersetzung</span>';
     else ch += '<span style="' + cs + '">Keine Übersetzung</span>';
-    if (s.firstTime && s.translate) ch += '<span style="background:#dcfce7;color:#059669;border:1px solid #059669;border-radius:2rem;padding:0.25rem 0.75rem;font-size:0.78rem;font-weight:600;">30-Min.-Test abgezogen</span>';
     document.getElementById('live-calc-summary-chips').innerHTML = ch;
 
     // Übersetzungshinweis ein-/ausblenden
@@ -226,16 +205,15 @@ function liveCalcRequestQuote() {
         ? 'Ja (' + (s.mediaQty > 1 ? s.mediaQty + ' Mediatheken' : '1 Mediathek') + ')'
         : 'Nein';
 
-    let translationLine, firstTimeLine = '';
+    let translationLine;
     if (s.translate) {
         translationLine = 'Ja (' + s.guides + ' Guide' + (s.guides > 1 ? 's' : '') + ' \u00d7 ' + s.hours + ' h je Guide)';
-        firstTimeLine = '\n- Erstmalige Nutzung der KI-Übersetzung: ' + (s.firstTime ? 'Ja (30 Min. Test werden abgezogen)' : 'Nein');
     } else {
         translationLine = 'Nein';
     }
 
     const subject = 'Angebotsanfrage \u2013 Nubart LIVE (ca. ' + total + ')';
-    const body = 'Sehr geehrte Damen und Herren,\n\nich habe den Kostenkalkulator auf Ihrer Website verwendet und möchte ein offizielles Angebot für Nubart LIVE erhalten:\n\n- Kartenpaket: ' + cardLine + '\n- Mediathek: ' + mediaLine + '\n- KI-Übersetzung: ' + translationLine + firstTimeLine + '\n- Geschätzter Gesamtbetrag (Kalkulator): ' + total + ' zzgl. MwSt.\n\nBitte senden Sie mir ein offizielles Angebot auf meinen Firmennamen.\n\n[Bitte Name, Firmenname und USt-IdNr. hier eintragen]\n\nMit freundlichen Grüßen';
+    const body = 'Sehr geehrte Damen und Herren,\n\nich habe den Kostenkalkulator auf Ihrer Website verwendet und möchte ein offizielles Angebot für Nubart LIVE erhalten:\n\n- Kartenpaket: ' + cardLine + '\n- Mediathek: ' + mediaLine + '\n- KI-Übersetzung: ' + translationLine + '\n- Geschätzter Gesamtbetrag (Kalkulator): ' + total + ' zzgl. MwSt.\n\nBitte senden Sie mir ein offizielles Angebot auf meinen Firmennamen.\n\n[Bitte Name, Firmenname und USt-IdNr. hier eintragen]\n\nMit freundlichen Grüßen';
 
     const mailtoLink = 'mailto:info@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 

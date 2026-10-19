@@ -1,6 +1,5 @@
 // ---- Nubart LIVE Cost Calculator — JA ----
 const LIVE_RATE = 39;
-const LIVE_TRIAL = 0.5;
 const LIVE_PYO_SETUP = 79;
 const LIVE_PYO_PER_CODE = 1.5;
 const LIVE_BASIC_PRICE = 599;
@@ -17,7 +16,7 @@ function liveCustomPrice(qty) {
 let liveCalcState = {
     pkg: null, pkgQty: 0,
     media: false, mediaQty: 0,
-    translate: false, guides: 1, hours: 0, firstTime: null
+    translate: false, guides: 1, hours: 0
 };
 
 function liveCalcGoToStep(n) {
@@ -116,14 +115,6 @@ function liveCalcSetTranslation(yes) {
     document.getElementById('live-calc-translate-form').classList.toggle('d-none', !yes);
 }
 
-function liveCalcSetFirstTime(isFirst) {
-    liveCalcState.firstTime = isFirst;
-    document.getElementById('btn-live-firsttime-yes').classList.toggle('btn-primary', isFirst);
-    document.getElementById('btn-live-firsttime-yes').classList.toggle('btn-outline-secondary', !isFirst);
-    document.getElementById('btn-live-firsttime-no').classList.toggle('btn-primary', !isFirst);
-    document.getElementById('btn-live-firsttime-no').classList.toggle('btn-outline-secondary', isFirst);
-}
-
 function liveCalcStep3Next() {
     if (liveCalcState.translate) {
         const gEl = document.getElementById('live-calc-guides');
@@ -133,19 +124,12 @@ function liveCalcStep3Next() {
         let ok = true;
         if (!g || g < 1) { gEl.classList.add('is-invalid'); ok = false; } else { gEl.classList.remove('is-invalid'); }
         if (!h || h <= 0) { hEl.classList.add('is-invalid'); ok = false; } else { hEl.classList.remove('is-invalid'); }
-        if (liveCalcState.firstTime === null) {
-            document.getElementById('live-calc-firsttime-warning').classList.remove('d-none');
-            ok = false;
-        } else {
-            document.getElementById('live-calc-firsttime-warning').classList.add('d-none');
-        }
         if (!ok) return;
         liveCalcState.guides = g;
         liveCalcState.hours = h;
     } else {
         liveCalcState.guides = 0;
         liveCalcState.hours = 0;
-        liveCalcState.firstTime = false;
     }
     liveCalcCompute();
     liveCalcGoToStep(4);
@@ -172,11 +156,10 @@ function liveCalcCompute() {
         mediaCost = LIVE_MEDIA_FIRST + Math.max(0, s.mediaQty - 1) * LIVE_MEDIA_EXTRA;
     }
 
-    let totalStreamHours = 0, translationCost = 0, trialDeduction = 0;
+    let totalStreamHours = 0, translationCost = 0;
     if (s.translate) {
         totalStreamHours = Math.ceil(s.hours) * s.guides;
-        trialDeduction = s.firstTime ? LIVE_TRIAL : 0;
-        translationCost = Math.max(0, totalStreamHours - trialDeduction) * LIVE_RATE;
+        translationCost = totalStreamHours * LIVE_RATE;
     }
 
     const total = cardCost + mediaCost + translationCost;
@@ -193,9 +176,6 @@ function liveCalcCompute() {
 
     if (s.translate) {
         rows += '<li class="d-flex justify-content-between border-bottom pb-1 mb-1"><span class="text-muted">翻訳（' + totalStreamHours + ' stream-h \u00d7 \u20ac' + LIVE_RATE + '）</span><strong>\u20ac' + (totalStreamHours * LIVE_RATE).toLocaleString('de-DE') + '</strong></li>';
-        if (s.firstTime) {
-            rows += '<li class="d-flex justify-content-between border-bottom pb-1 mb-1" style="color:#059669;"><span>無料トライアル控除（30分）</span><strong>\u2212 \u20ac' + (trialDeduction * LIVE_RATE).toLocaleString('de-DE') + '</strong></li>';
-        }
     }
     document.getElementById('live-calc-result-breakdown').innerHTML = rows;
 
@@ -205,7 +185,6 @@ function liveCalcCompute() {
     if (s.media && s.mediaQty > 0) ch += '<span style="' + cs + '">' + s.mediaQty + 'ライブラリ</span>';
     if (s.translate) ch += '<span style="' + cs + '">ガイド' + s.guides + '名 \u00b7 ' + s.hours + 'h 翻訳</span>';
     else ch += '<span style="' + cs + '">翻訳なし</span>';
-    if (s.firstTime && s.translate) ch += '<span style="background:#dcfce7;color:#059669;border:1px solid #059669;border-radius:2rem;padding:0.25rem 0.75rem;font-size:0.78rem;font-weight:600;">30分トライアル控除済み</span>';
     document.getElementById('live-calc-summary-chips').innerHTML = ch;
 
     // 翻訳注記の表示/非表示
@@ -226,16 +205,15 @@ function liveCalcRequestQuote() {
         ? 'はい（' + s.mediaQty + '点）'
         : 'いいえ';
 
-    let translationLine, firstTimeLine = '';
+    let translationLine;
     if (s.translate) {
         translationLine = 'はい（ガイド' + s.guides + '名 \u00d7 ' + s.hours + '時間/名）';
-        firstTimeLine = '\n・AI翻訳の初回利用：' + (s.firstTime ? 'はい（30分トライアル控除あり）' : 'いいえ');
     } else {
         translationLine = 'いいえ';
     }
 
     const subject = '見積もり依頼 \u2013 Nubart LIVE（推定 ' + total + '）';
-    const body = 'ご担当者様\n\nウェブサイトのコスト計算ツールを使用しました。Nubart LIVEの正式見積もりをお送りいただけますでしょうか。\n\n・カードパッケージ：' + cardLine + '\n・メディアライブラリ：' + mediaLine + '\n・AI翻訳：' + translationLine + firstTimeLine + '\n・推定合計（計算ツール）：' + total + '（税別）\n\n弊社宛の正式見積書をお送りください。\n\n【お名前、会社名、法人番号をご記入ください】\n\nよろしくお願いいたします。';
+    const body = 'ご担当者様\n\nウェブサイトのコスト計算ツールを使用しました。Nubart LIVEの正式見積もりをお送りいただけますでしょうか。\n\n・カードパッケージ：' + cardLine + '\n・メディアライブラリ：' + mediaLine + '\n・AI翻訳：' + translationLine + '\n・推定合計（計算ツール）：' + total + '（税別）\n\n弊社宛の正式見積書をお送りください。\n\n【お名前、会社名、法人番号をご記入ください】\n\nよろしくお願いいたします。';
 
     const mailtoLink = 'mailto:nami.hirota@nubart.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 
