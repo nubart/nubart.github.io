@@ -1,0 +1,59 @@
+/* Revenue-share article figures (audio-guides/revenue-share-for-audio-guides.html).
+   Schematic visuals built in HTML/CSS so they reflow on phones. No fees, prices or take-up figures. */
+
+:root {
+    --rs-accent: #016a6c;
+    --rs-line: #d3e2e1;
+    --rs-band: #eaf4f3;
+    --rs-muted: #52646a;
+    --rs-seg-nubart: #016a6c;
+    --rs-seg-museum: #c3e9e2;
+    --rs-seg-museum-fg: #0f3b3b;
+    --rs-seg-vat: #dde3e3;
+    --rs-seg-vat-fg: #2a3a3a;
+}
+
+.rs-fig { margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.75rem; min-width: 0; }
+.rs-fig figcaption { font-size: 0.95rem; line-height: 1.45; color: var(--rs-muted); }
+.rs-fig ol, .rs-fig p { margin: 0; }
+
+/* Figure 1: how one sale is divided */
+.rs-sale-label {
+    border: 1px solid var(--rs-line); border-bottom: 0; border-radius: 6px 6px 0 0;
+    padding: 0.35rem 0.75rem; text-align: center; font-size: 0.9rem; color: var(--rs-muted);
+}
+.rs-sale-bar { display: flex; min-height: 3.5rem; border-radius: 0 0 6px 6px; overflow: hidden; }
+.rs-sale-bar span {
+    display: flex; align-items: center; justify-content: center; min-width: 0;
+    padding: 0.5rem; text-align: center; font-weight: 600; font-size: 0.95rem; line-height: 1.25;
+}
+.rs-sale-bar .rs-seg-vat { flex: 16; background: var(--rs-seg-vat); color: var(--rs-seg-vat-fg); }
+.rs-sale-bar .rs-seg-nubart { flex: 34; background: var(--rs-seg-nubart); color: #fff; }
+.rs-sale-bar .rs-seg-museum { flex: 50; background: var(--rs-seg-museum); color: var(--rs-seg-museum-fg); }
+
+/* Figure 2: the path of one card */
+.rs-flow { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.75rem; }
+.rs-flow li {
+    border: 1px solid var(--rs-line); border-radius: 6px; padding: 0.8rem; min-width: 0;
+    display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.98rem; line-height: 1.4;
+}
+.rs-flow li.rs-billed { background: var(--rs-band); border-color: var(--rs-accent); }
+.rs-flow .rs-who { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rs-accent); }
+.rs-flow .rs-what { font-weight: 600; }
+.rs-flow .rs-tag {
+    align-self: flex-start; font-size: 0.78rem; font-weight: 600; padding: 0.1rem 0.5rem;
+    border-radius: 3px; background: var(--rs-accent); color: #fff;
+}
+
+/* Figure 3: who does what over time */
+.rs-phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.75rem; }
+.rs-phase { border: 1px solid var(--rs-line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; font-size: 0.98rem; line-height: 1.45; }
+.rs-phase .rs-phase-title { background: var(--rs-band); padding: 0.6rem 0.8rem; font-weight: 600; }
+.rs-phase .rs-role { padding: 0.65rem 0.8rem; display: flex; flex-direction: column; gap: 0.2rem; }
+.rs-phase .rs-role + .rs-role { border-top: 1px dashed var(--rs-line); }
+.rs-phase .rs-role b { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rs-accent); }
+
+/* Comparison table: highlight the Nubart GUIDE column */
+.rs-compare .rs-nubart { background: var(--rs-band); }
+.rs-compare thead .rs-nubart { color: var(--rs-accent); }
+.rs-compare tbody th { width: 16%; }
