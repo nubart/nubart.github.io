@@ -301,6 +301,17 @@
 - PT-BR: (still pending)
 - JA: (still pending)
 
+### Revenue share for museum audio guides: how it works with Nubart GUIDE
+- EN: audio-guides/revenue-share-for-audio-guides.html (2026-10-21)
+- DE: (still pending)
+- ES: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+- JA: (still pending)
+
 ### Best tips for using Nubart LIVE to guide groups on travel and field trips
 - EN: digital-tour-guide-app/tips-usage-field-trips.html
 - DE: de/personenfuehrungsanlage-app/hinweise-verwendung-gruppenreisen.html
