@@ -303,8 +303,8 @@
 
 ### Revenue share for museum audio guides: how it works with Nubart GUIDE
 - EN: audio-guides/revenue-share-for-audio-guides.html (2026-10-21)
-- DE: (still pending)
-- ES: (still pending)
+- DE: de/audioguides/umsatzbeteiligung-bei-audioguides.html (2026-10-22)
+- ES: es/audioguias/reparto-beneficios-audioguias.html (2026-10-22)
 - IT: (still pending)
 - FR: (still pending)
 - PL: (still pending)

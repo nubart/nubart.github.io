@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <!-- Structured Data: Article -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "@id": "https://www.nubart.eu/es/audioguias/reparto-beneficios-audioguias.html#article",
+            "headline": "Modelo de ingresos compartidos para audioguías de museos: cómo funciona con Nubart GUIDE",
+            "alternativeHeadline": "Reparto de ingresos en audioguías: cómo funciona",
+            "description": "Audioguía QR con reparto de ingresos: quién invierte qué, por qué solo se facturan las tarjetas activadas, de quién es el contenido y qué asume el museo.",
+            "proficiencyLevel": "Intermediate",
+            "inLanguage": "es",
+            "image": [
+                "https://www.nubart.eu/assets/img/blog/cover-voluntary-deal.webp"
+            ],
+            "author": {
+                "@type": "Person",
+                "name": "Rosa Sala",
+                "jobTitle": "CEO de Nubart",
+                "url": "https://www.nubart.eu/about.html"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
+            },
+            "datePublished": "2026-10-22",
+            "dateModified": "2026-10-22",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/es/audioguias/reparto-beneficios-audioguias.html"
+            },
+            "isPartOf": {
+                "@id": "https://www.nubart.eu/es/blog/#blog"
+            },
+            "translationOfWork": {
+                "@id": "https://www.nubart.eu/audio-guides/revenue-share-for-audio-guides.html#article"
+            },
+            "keywords": [
+                "reparto de ingresos audioguía",
+                "audioguía de museo con reparto de ingresos",
+                "audioguía con código QR",
+                "facturación por activación",
+                "propiedad del contenido de la audioguía",
+                "código QR no transferible"
+            ],
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Monetización de museos"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Aplicación web progresiva",
+                    "sameAs": "https://es.wikipedia.org/wiki/Aplicaci%C3%B3n_web_progresiva"
+                }
+            ],
+            "articleSection": [
+                "El principio básico: una tarifa acordada por cada tarjeta activada",
+                "Cómo funciona, paso a paso",
+                "Quién asume los costes: el museo paga poco o nada por adelantado",
+                "Contenidos: los aporta el museo o los produce Nubart",
+                "Comparación del modelo de reparto de ingresos con otros modelos",
+                "Qué esperamos del museo",
+                "Cuándo encaja este modelo y cuándo no",
+                "Una nota para los museos públicos"
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Necesita un museo un contrato de reparto de ingresos para usar Nubart GUIDE?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. La mayoría de los clientes de Nubart GUIDE compran las tarjetas con código QR como producto, según las condiciones generales de Nubart GUIDE, sin contrato de colaboración, y se quedan con todo el margen de cada tarjeta que venden. Una colaboración basada en el reparto de ingresos es una alternativa opcional para museos que prefieren no invertir por adelantado y están dispuestos a comprometerse a ofrecer activamente la audioguía durante varios años."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Cómo funciona el reparto de ingresos en una audioguía de museo?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En una colaboración de Nubart GUIDE basada en el reparto de ingresos, el museo vende a los visitantes tarjetas con un código QR intransferible como servicio opcional. Nubart cobra una tarifa acordada por cada tarjeta que un visitante activa. El museo fija el precio de venta al público, hasta un máximo acordado, y se queda con la diferencia. El reparto de ingresos es solo una opción: la mayoría de los clientes de Nubart GUIDE simplemente compran las tarjetas como producto según las condiciones generales."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Tiene que pagar un museo por adelantado por una audioguía con reparto de ingresos?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En una colaboración de Nubart GUIDE basada en el reparto de ingresos, poco o nada. Nubart imprime y envía las tarjetas, configura y aloja la audioguía y, si es necesario, produce los contenidos, y recupera estos costes gradualmente mediante la tarifa por cada tarjeta activada. Si se acuerda un pago anticipado al firmar el contrato, este se descuenta de las primeras facturas."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "En un acuerdo de reparto de ingresos, ¿paga el museo por tarjetas de audioguía que nunca se usan?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No en una colaboración de Nubart GUIDE basada en el reparto de ingresos. Cada tarjeta activada se factura una sola vez, independientemente de cuántas veces su titular vuelva a utilizar la audioguía. Las tarjetas que nunca se activan no se facturan, y el museo no está obligado a comprar una cantidad mínima de tarjetas. Los museos que compran las tarjetas directamente según las condiciones generales, que es como trabaja la mayoría de los clientes de Nubart GUIDE, pagan en cambio las tarjetas que piden."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿De quién son los contenidos de la audioguía en un acuerdo de reparto de ingresos?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En una colaboración de Nubart GUIDE basada en el reparto de ingresos, si el museo aporta contenidos existentes, sigue siendo su titular. Si Nubart produce los contenidos, una vez amortizada la inversión en producción el museo obtiene el derecho a utilizar las grabaciones gratuitamente, sin límite de tiempo y para sus propios fines. Este derecho se mantiene después de que finalice el contrato."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿A qué se compromete un museo en un acuerdo de reparto de ingresos para la audioguía?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En una colaboración de Nubart GUIDE basada en el reparto de ingresos, el museo se compromete a ofrecer la audioguía a todos los visitantes, a vender las tarjetas en lugar de entregarlas gratuitamente (se pueden acordar excepciones de antemano, por ejemplo para grupos escolares), a mantener el precio de venta en el máximo acordado o por debajo de él, a no ofrecer otra audioguía digital que compita con ella para la misma visita y a firmar un contrato de varios años."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Es adecuada una audioguía con reparto de ingresos para un museo de entrada gratuita?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Es más difícil de aplicar en museos con entrada gratuita que no disponen de taquilla ni de un sistema de cobro, porque no hay una oportunidad natural para ofrecer la tarjeta. Un mostrador de recepción donde cada visitante recoge una entrada gratuita suele ser suficiente; si no existe un punto de contacto similar, suele ser preferible optar por otro modelo."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Puede un museo público firmar un acuerdo de reparto de ingresos para la audioguía sin licitación?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Depende del país, del tipo de institución y del valor total estimado del contrato. El modelo de reparto de ingresos no exime del cumplimiento de la normativa de contratación pública."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: Breadcrumbs -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/es/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Nubart GUIDE - audioguías PWA con código QR",
+                    "item": "https://www.nubart.eu/es/audioguias.html"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Modelo de ingresos compartidos para audioguías de museos: cómo funciona con Nubart GUIDE",
+                    "item": "https://www.nubart.eu/es/audioguias/reparto-beneficios-audioguias.html"
+                }
+            ]
+        }
+    </script>
+
+    <!-- End Structured data -->
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+    </script>
+
+    <!-- 2. Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css"/>
+
+    <!-- 3. Cookie consent config (MOVED HERE) -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+
+    <title>Reparto de ingresos en audioguías: cómo funciona | Nubart</title>
+    <meta name="description"
+          content="Audioguía QR con reparto de ingresos: quién invierte qué, por qué solo se facturan las tarjetas activadas, de quién es el contenido y qué asume el museo."/>
+    <meta name="author" content="Rosa Sala"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Reparto de ingresos en audioguías: cómo funciona | Nubart"/>
+    <meta name="twitter:description"
+          content="Audioguía QR con reparto de ingresos: quién invierte qué, por qué solo se facturan las tarjetas activadas, de quién es el contenido y qué asume el museo."/>
+    <meta name="twitter:site" content="@NubartEN"/>
+    <meta name="twitter:creator" content="@NubartEN"/>
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-voluntary-deal.webp"/>
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/es/audioguias/reparto-beneficios-audioguias.html"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/revenue-share-for-audio-guides.html" hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/revenue-share-for-audio-guides.html" hreflang="en-gb"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/revenue-share-for-audio-guides.html" hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/revenue-share-for-audio-guides.html" hreflang="en-us"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/umsatzbeteiligung-bei-audioguides.html" hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/umsatzbeteiligung-bei-audioguides.html" hreflang="de-ch"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/audioguias/reparto-beneficios-audioguias.html" hreflang="es"/>
+
+    <!-- OpenGraph for LinkedIn -->
+
+    <meta property="og:title"
+          content="Reparto de ingresos en audioguías: cómo funciona | Nubart"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-voluntary-deal.webp"/>
+    <meta property="og:author" content="Rosa Sala"/>
+    <meta property="og:description"
+          content="Audioguía QR con reparto de ingresos: quién invierte qué, por qué solo se facturan las tarjetas activadas, de quién es el contenido y qué asume el museo."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://www.nubart.eu/es/audioguias/reparto-beneficios-audioguias.html"/>
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png"/>
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <!-- ./Icons -->
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet"/>
+
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet"/>
+
+
+    <link href="../../assets/css/custom.css" rel="stylesheet"/>
+    <link href="../../assets/css/zoho-lightbox.css" rel="stylesheet">
+    <link href="../../assets/css/revenue-share-figures.css" rel="stylesheet">
+
+
+    <!-- =======================================================
+    * Template Name: Dewi - v4.6.0
+    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="../" class="logo"> <img src="../../assets/img/logo.png" alt="logo de Nubart" class="img-fluid">
+            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li>
+                                <a href="../audioguias.html">
+                                    <i class="bi bi-headphones product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART GUIDE</span>
+                                        <span class="product-description">Audioguías multimedia vía código QR (PWA)</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a href="../sistema-guiado-grupos/">
+                                    <i class="bi bi-headset product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART LIVE</span>
+                                        <span class="product-description">Sistema de guiado de grupos con traducción por IA</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../tours-barcos-buses.html">
+                                    <i class="bi bi-bus-front-fill product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">Nubart MOTION</span>
+                                        <span class="product-description">Audioguía automatizada para vehículos turísticos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../traduccion-simultanea-ia/">
+                                    <i class="bi bi-translate product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART TRANSLATE</span>
+                                        <span class="product-description">Traducción simultánea por IA para eventos y conferencias</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../gamificacion-juego-audioguia.html">
+                                    <i class="bi bi-controller product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART GAME</span>
+                                        <span class="product-description">Juego de realidad aumentada y preguntas para audioguía</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a href="https://www.nubart.eu/es/sync/">
+                                    <i class="bi bi-person-video3 product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART SYNC</span>
+                                        <span class="product-description">Sonido multilingüe perfectamente sincronizado vía QR para pantallas de vídeo</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Contacto</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../quienes-somos.html">Quiénes somos</a></li>
+                            <li><a href="../contacto.html">Contacto</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="d-flex">
+                        <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                           href="https://www.nub.art/customer/login">
+                            <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                    </li>
+
+                    <li class="dropdown d-none d-md-block">
+                        <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../../">English</a></li>
+                            <li><a href="../../de/">Deutsch</a></li>
+                            <li><a href="../../fr/">Français</a></li>
+                            <li><a href="../../pt-br/">Português</a></li>
+                            <li><a href="../../nl/">Nederlands</a></li>
+                            <li><a href="../../it/">Italiano</a></li>
+                            <li><a href="../../pl/">Polski</a></li>
+                            <li><a href="../../bg/">български</a></li>
+                            <li><a href="../../he/">עִברִית</a></li>
+                            <li><a href="../../ja/">日本語</a></li>
+                        </ul>
+                    </li>
+                    <!-- Mobile-only secondary menu items -->
+                    <li class="mobile-secondary-menu-divider d-md-none">
+                        <hr>
+                    </li>
+                    <li class="mobile-secondary-header d-md-none" style="color: #028a8c;"><i
+                            class="bi bi-headphones product-icon"></i>&nbsp<span>NUBART GUIDE</span></li>
+                    <li class="dropdown d-md-none">
+                        <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../produccion-contenido.html">Nuestro proceso de producción</a></li>
+                            <li><a href="../materiales.html">Qué necesitamos para producir tu audioguía</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="d-md-none">
+                        <a href="#" onclick="ZohoLightbox.open(); return false;"
+                           class="scrollto">Solicita una muestra</a>
+                    </li>
+
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </div>
+</header><!-- End Header -->
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <i class="bi bi-headphones"></i>&nbsp;&nbsp;
+                    <b>NUBART GUIDE:</b>
+                </div>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Casos de uso</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../audioguias.html">Museos</a></li>
+                            <li><a href="../audioguia-zoos.html">Zoos</a></li>
+
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;"><a href="../audioguia-multimedia.html">Elementos multimedia</a></li>
+                    <li style="margin-right: 22px;" class="dropdown">
+                        <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../produccion-contenido.html">Nuestro proceso de producción</a></li>
+                            <li><a href="../materiales.html">Qué necesitamos para producir tu audioguía</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a class="nav-link scrollto" href="../clientes-proyectos.html">Clientes</a></li>
+                    <li style="margin-right: 30px;"><a class="getstarted scrollto"
+                                                       href="#" onclick="ZohoLightbox.open(); return false;">Solicita
+                        un presupuesto</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="d-md-none" style="height: 60px;"></div>
+<section class="breadcrumbs d-none d-md-block">
+    <div class="container">
+        <ol>
+            <li><a href="../">Inicio</a></li>
+            <li><a href="../audioguias.html">Nubart GUIDE</a></li>
+            <li>Modelo de ingresos compartidos para audioguías de museos: cómo funciona con Nubart GUIDE</li>
+        </ol>
+    </div>
+</section><!-- End Breadcrumbs -->
+<main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div>
+
+                        <img src="../../assets/img/team/rosa.webp" class="img-thumbnail rounded-circle d-none d-lg-block"
+                             style="margin-right:30px;" width="45%" alt="Rosa Sala - Nubart">
+
+                    </div>
+                    <div>
+                        <h4 class="fs-5">Rosa Sala</h4>
+                        <p class="nubart-blog-author">CEO de Nubart</p>
+
+                    </div>
+                </div>
+                <div class="col-md-8 nubart-blog">
+
+                    <h1>Modelo de ingresos compartidos para audioguías de museos: cómo funciona con Nubart GUIDE</h1>
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/cover-voluntary-deal.webp" class="figure-img img-fluid rounded" alt="Tarjeta de audioguía con código QR y un icono de auriculares en el mostrador de taquilla de un museo" />
+                    </figure>
+                    <p class="lead">Los museos que quieran ofrecer una audioguía completa, con contenidos producidos si es necesario, pueden hacerlo con una inversión inicial mínima o incluso sin inversión inicial mediante un modelo de reparto de ingresos. Con Nubart GUIDE, el museo vende a los visitantes una tarjeta con un código QR intransferible que les da acceso a la audioguía digital como servicio opcional. Nubart se encarga de la configuración inicial y de las tarjetas y, si es necesario, también de producir los contenidos. A cambio, Nubart cobra una tarifa acordada por cada tarjeta activada. El museo fija el precio de venta al público, hasta el límite acordado, y se queda con la diferencia.</p>
+                    <p class="text-muted">El reparto de ingresos es una de las dos formas de utilizar Nubart GUIDE. Como alternativa, los museos pueden comprar las tarjetas directamente según nuestras condiciones habituales, sin necesidad de firmar un acuerdo de reparto de ingresos. La mayoría de nuestros clientes optan por esta segunda opción.</p>
+                    <p>Nuestro <a href="../../audio-guides/revenue-share-history.html" hreflang="en">artículo sobre la historia del reparto de ingresos</a> explica por qué este modelo estuvo a punto de desaparecer cuando las audioguías pasaron a los teléfonos inteligentes y cómo un código QR intransferible permite recuperarlo. Si se reenvía el código, no sirve para que otras personas accedan a la audioguía, por lo que una sola venta no se convierte en accesos gratuitos para múltiples usuarios. En este artículo nos centramos en los aspectos prácticos: cómo funciona la colaboración en el día a día, quién asume los costes y qué compromisos pedimos al museo a cambio.</p>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+
+
+                    <nav aria-label="Índice de contenidos">
+                        <h2>Contenido</h2>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="#basic-principle">El principio básico: una tarifa acordada por cada tarjeta activada</a></li>
+                            <li><a href="#how-it-works">Cómo funciona, paso a paso</a></li>
+                            <li><a href="#who-invests">Quién asume los costes: el museo paga poco o nada por adelantado</a></li>
+                            <li><a href="#content">Contenidos: los aporta el museo o los produce Nubart</a></li>
+                            <li><a href="#comparison">Comparación del modelo de reparto de ingresos con otros modelos</a></li>
+                            <li><a href="#commitments">Qué esperamos del museo</a></li>
+                            <li><a href="#fit">Cuándo encaja este modelo y cuándo no</a></li>
+                            <li><a href="#public-museums">Una nota para los museos públicos</a></li>
+                        </ul>
+                    </nav>
+                    <br />
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <h2 id="basic-principle">El principio básico: una tarifa acordada por cada tarjeta activada</h2>
+
+                    <p>Cuando se utilizaban audioguías con dispositivos de alquiler, el proveedor solía recibir un porcentaje de los ingresos por el alquiler. Nubart funciona de otra manera. Antes de iniciar el proyecto, Nubart y el museo acuerdan una tarifa por cada tarjeta activada y un precio máximo de venta al público. El museo fija libremente el precio, siempre que no supere ese límite, y se queda con la diferencia entre el precio de venta y la tarifa de Nubart.</p>
+                    <p>Esto tiene tres ventajas prácticas. En primer lugar, el museo sabe exactamente cuánto le cuesta cada venta, independientemente del precio que establezca. En segundo lugar, los costes dependen del número de tarjetas activadas: facturamos periódicamente, normalmente cada mes, las tarjetas activadas durante ese periodo según la tarifa acordada. En tercer lugar, la factura es fácil de comprobar, ya que el museo puede consultar en cualquier momento, a través de su portal privado, cuántas tarjetas se han activado.</p>
+
+
+                    <figure class="rs-fig">
+                        <div>
+                            <div class="rs-sale-label">Precio de venta al público, hasta el máximo acordado, IVA incluido</div>
+                            <div class="rs-sale-bar">
+                                <span class="rs-seg-vat">IVA</span>
+                                <span class="rs-seg-nubart">Tarifa acordada de Nubart</span>
+                                <span class="rs-seg-museum">Margen del museo</span>
+                            </div>
+                        </div>
+                        <figcaption>Así se distribuye el importe de una venta: del precio pagado por el visitante se deducen primero el IVA y después la tarifa acordada de Nubart. El importe restante constituye el margen del museo. Esquema ilustrativo, no a escala.</figcaption>
+                    </figure>
+                    <p>Este artículo se centra en el modelo opcional, en el que la audioguía se ofrece como un servicio adicional que solo algunos visitantes compran. En el modelo universal, la audioguía está incluida en el precio de la entrada y todos los visitantes reciben una tarjeta. Ambos modelos se explican en nuestro artículo sobre <a href="cobrar-audioguia-codigo-qr.html">cómo monetizar una audioguía de museo</a>.</p>
+
+
+
+                    <h2 id="how-it-works">Cómo funciona, paso a paso</h2>
+                    <figure class="rs-fig">
+                        <ol class="rs-flow">
+                            <li><span class="rs-who">1 · Nubart</span><span class="rs-what">Envía las tarjetas</span><span>Las tarjetas siguen siendo propiedad de Nubart hasta que se entregan a los visitantes.</span></li>
+                            <li><span class="rs-who">2 · Museo</span><span class="rs-what">Vende la tarjeta</span><span>El personal las ofrece en taquilla o en línea, junto con la entrada.</span></li>
+                            <li class="rs-billed"><span class="rs-who">3 · Visitante</span><span class="rs-what">Escanea el código QR y activa la tarjeta</span><span>Al activarla, la tarjeta queda habilitada para ese visitante.</span><span class="rs-tag">Se factura en este momento</span></li>
+                            <li><span class="rs-who">4 · Nubart</span><span class="rs-what">Factura las tarjetas activadas</span><span>El museo puede consultar en cualquier momento el número de activaciones en su portal de clientes.</span></li>
+                        </ol>
+                        <figcaption>El recorrido de la tarjeta de audioguía, desde su entrega hasta la facturación.</figcaption>
+                    </figure>
+
+
+                    <ol>
+                        <li><strong>Configuramos la audioguía.</strong> Nubart GUIDE se basa en una aplicación web progresiva (PWA). La audioguía funciona directamente en el navegador del teléfono y está disponible en todos los idiomas acordados. Los visitantes escanean el código QR y escuchan los contenidos sin tener que descargar una aplicación ni registrarse.</li>
+                        <li><strong>Entregamos las tarjetas.</strong> Las tarjetas llevan el diseño del museo y un código QR individual. Siguen siendo propiedad de Nubart hasta que se entregan a los visitantes, por lo que el museo no tiene que comprarlas por adelantado.</li>
+                        <li><strong>El museo vende las tarjetas.</strong> El personal las ofrece en taquilla o en otros puntos de venta donde los visitantes compran sus entradas. Si el museo vende entradas por Internet, también se puede entregar la tarjeta de audioguía en formato digital durante el proceso de compra.</li>
+                        <li><strong>El visitante escanea la tarjeta.</strong> Al escanearla por primera vez, la tarjeta se activa. A partir de ese momento, el visitante puede utilizar la audioguía durante la visita y volver a escuchar los contenidos tantas veces como quiera. Si se reenvía la tarjeta a otra persona, esta no podrá utilizar el código. Esto es posible gracias a nuestra tecnología patentada LWAC.</li>
+                        <li><strong>Solo facturamos las tarjetas activadas.</strong> Cada tarjeta activada se factura una sola vez, independientemente de cuántas veces vuelva a utilizar la audioguía su titular. Las tarjetas que nunca se activan no se facturan. El museo no está obligado a comprar una cantidad mínima de tarjetas.</li>
+                        <li><strong>Nos encargamos del stock y de los datos de uso.</strong> Supervisamos el consumo de tarjetas y enviamos nuevas unidades antes de que se agoten, de modo que el museo no tenga que gestionar los pedidos. A través de un portal de clientes protegido con contraseña, el museo puede consultar en cualquier momento cuántas tarjetas se han activado cada mes. Esos mismos datos sirven de base para la facturación. Además, el museo tiene acceso a las estadísticas de visitantes de Nubart GUIDE, como los idiomas elegidos y el tiempo de escucha. Nuestro <a href="../../audio-guides/revenue-share-history.html" hreflang="en">artículo sobre la historia del reparto de ingresos</a> explica por qué el registro compartido de estos datos es importante en este tipo de acuerdos.</li>
+                    </ol>
+
+
+
+                    <h2 id="who-invests">Quién asume los costes: el museo paga poco o nada por adelantado</h2>
+                    <p>En una colaboración basada en el reparto de ingresos, nosotros asumimos la mayor parte de la inversión inicial. Imprimimos y enviamos las tarjetas, configuramos la audioguía, nos encargamos de su alojamiento técnico y, si es necesario, también producimos los contenidos. Asumimos estos costes inicialmente y los recuperamos gradualmente mediante la tarifa acordada por cada tarjeta activada.</p>
+                    <p>El museo apenas tiene que invertir dinero por adelantado. Si acordamos un pago anticipado al firmar el contrato, este se descuenta de las primeras facturas, por lo que no supone un coste adicional. La principal aportación del museo es organizativa: reservar espacio en taquilla, ofrecer una breve formación al personal y asegurarse de que la audioguía se ofrece activamente a todos los visitantes. Según nuestra experiencia, esto es decisivo para que el proyecto funcione.</p>
+                    <p>Como asumimos los costes inicialmente, los acuerdos de reparto de ingresos se firman por varios años. La duración del contrato debe ser suficiente para que podamos recuperar la inversión con un volumen de ventas realista.</p>
+                    <figure class="rs-fig">
+                        <div class="rs-phases">
+                            <div class="rs-phase">
+                                <p class="rs-phase-title">Antes del inicio del proyecto</p>
+                                <p class="rs-role"><b>Nubart</b><span>Imprime las tarjetas, configura la audioguía, se encarga de su alojamiento técnico y produce los contenidos si es necesario.</span></p>
+                                <p class="rs-role"><b>Museo</b><span>Proporciona los guiones o los contenidos existentes y forma al personal de taquilla.</span></p>
+                            </div>
+                            <div class="rs-phase">
+                                <p class="rs-phase-title">Durante la vigencia del contrato</p>
+                                <p class="rs-role"><b>Nubart</b><span>Envía nuevas tarjetas antes de que se agoten las existencias y factura una sola vez cada tarjeta activada.</span></p>
+                                <p class="rs-role"><b>Museo</b><span>Ofrece activamente las tarjetas en todas las taquillas y las vende al precio acordado, sin superar el límite establecido.</span></p>
+                            </div>
+                            <div class="rs-phase">
+                                <p class="rs-phase-title">Una vez amortizada nuestra inversión</p>
+                                <p class="rs-role"><b>Nubart</b><span>Sigue gestionando y alojando la audioguía hasta el final de la vigencia del contrato.</span></p>
+                                <p class="rs-role"><b>Museo</b><span>Obtiene el derecho a utilizar gratuitamente las grabaciones producidas por Nubart, también después de que finalice el contrato.</span></p>
+                            </div>
+                        </div>
+                        <figcaption>Reparto de tareas a lo largo del tiempo en un proyecto en el que Nubart produce los contenidos.</figcaption>
+                    </figure>
+
+
+
+                    <h2 id="content">Contenidos: los aporta el museo o los produce Nubart</h2>
+                    <h3>El museo ya dispone de contenidos</h3>
+                    <p>Muchos museos ya cuentan con grabaciones o guiones procedentes, por ejemplo, de antiguas audioguías con dispositivos de alquiler o de aplicaciones gratuitas. Si el museo tiene los derechos sobre esos contenidos, podemos incorporarlos a Nubart GUIDE. El museo sigue siendo el titular de los contenidos y nosotros solo los utilizamos para prestar el servicio de audioguía durante la vigencia del contrato.</p>
+                    <h3>Nubart produce los contenidos</h3>
+                    <p>Si el museo todavía no dispone de una audioguía, podemos producirla a partir de los textos aprobados por el museo. El trabajo incluye la traducción, las locuciones y la edición de audio. En una colaboración basada en el reparto de ingresos, también asumimos inicialmente los costes de producción. El museo no recibe una factura aparte por este trabajo, ya que recuperamos los costes mediante la tarifa acordada por cada tarjeta activada.</p>
+                    <p>Una vez amortizada la inversión en producción, el museo obtiene el derecho a utilizar las grabaciones gratuitamente y sin límite de tiempo para sus propios fines. El contrato establece cuándo se alcanza ese momento y cada factura indica qué parte de la inversión queda pendiente de amortizar.</p>
+                    <p>Más adelante se pueden añadir otros idiomas, nuevas paradas o contenidos para exposiciones temporales. Por lo general, estos trabajos se encargan y presupuestan por separado, por lo que no incrementan la inversión inicial.</p>
+
+
+                    <h2 id="comparison">Comparación del modelo de reparto de ingresos con otros modelos</h2>
+                    <p>Las audioguías se han comercializado mediante distintos modelos de reparto de ingresos. Esta tabla compara los tres que encontramos con mayor frecuencia.</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered rs-compare">
+                            <caption class="visually-hidden">Comparación entre dispositivos de alquiler, audioguías con código QR y pago en línea, y el modelo de reparto de ingresos de Nubart GUIDE</caption>
+                            <thead>
+                            <tr>
+                                <th scope="col"><span class="visually-hidden">Aspecto</span></th>
+                                <th scope="col">Dispositivos de alquiler</th>
+                                <th scope="col">Audioguía con código QR y pago en línea</th>
+                                <th scope="col" class="rs-nubart">Nubart GUIDE</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Dónde paga el visitante</th>
+                                <td>En el mostrador de alquiler</td>
+                                <td>En su propio teléfono, después de escanear el código QR</td>
+                                <td class="rs-nubart">En taquilla o por Internet, junto con la entrada</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cómo se remunera al proveedor</th>
+                                <td>Normalmente, con un porcentaje de cada alquiler</td>
+                                <td>A menudo, con un porcentaje de los pagos</td>
+                                <td class="rs-nubart">Con una tarifa acordada por cada tarjeta activada</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">¿Quién fija el precio para el visitante?</th>
+                                <td>Normalmente, se acuerda por contrato</td>
+                                <td>A menudo, el proveedor</td>
+                                <td class="rs-nubart">El museo, hasta el máximo acordado</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cómo se contabilizan las ventas</th>
+                                <td>Según los registros del propio operador</td>
+                                <td>Según los registros del procesador de pagos</td>
+                                <td class="rs-nubart">El museo puede consultar el número de activaciones utilizado para la facturación</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Qué aporta el museo</th>
+                                <td>Espacio para un mostrador de alquiler</td>
+                                <td>A menudo, nada</td>
+                                <td class="rs-nubart">Ofrecer activamente la audioguía en taquilla</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Principal inconveniente</th>
+                                <td>Los costes de personal y de los dispositivos, y la dificultad para controlar las ventas</td>
+                                <td>El visitante tiene que completar el pago después de escanear el código QR, lo que añade un paso al proceso</td>
+                                <td class="rs-nubart">El éxito depende de que el personal ofrezca activamente la audioguía</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                    <h2 id="commitments">Qué esperamos del museo</h2>
+                    <p>Dado que asumimos la mayor parte de la inversión inicial, pedimos al museo que se comprometa a cumplir una serie de condiciones.</p>
+                    <p>La primera es ofrecer la audioguía a todos los visitantes en todas las taquillas y, si dispone de ella, también en la tienda en línea. Por lo general, basta con dar unas breves instrucciones al personal de taquilla.</p>
+                    <p>La segunda es vender las tarjetas, en lugar de entregarlas gratuitamente. Se pueden acordar excepciones de antemano, por ejemplo, para grupos escolares. En esos casos, también se facturará cada tarjeta activada, aunque se haya entregado gratuitamente en virtud de una excepción acordada.</p>
+                    <p>La tercera es mantener el precio de venta al público en el máximo acordado o por debajo de él. El precio influye considerablemente en el número de visitantes que compran la audioguía. Según nuestra experiencia, las ventas tienden a disminuir a medida que aumenta el precio. Nuestro artículo sobre <a href="cobrar-audioguia-codigo-qr.html">cómo monetizar una audioguía de museo</a> incluye una calculadora que permite analizar la relación entre el precio y las ventas.</p>
+                    <p>La cuarta condición es utilizar una única audioguía digital para esa visita. Durante la vigencia del contrato, el museo no ofrecerá otra audioguía que compita con ella para el mismo recorrido, ya sea una aplicación gratuita, una audioguía en su página web o dispositivos de alquiler. Como financiamos el proyecto por adelantado, necesitamos que los visitantes utilicen nuestra audioguía. Esta condición no afecta a la información general de la página web, las visitas guiadas a cargo del personal, los carteles, los paneles informativos ni los breves audios de accesibilidad que no constituyan una visita completa.</p>
+                    <p>Por último, el contrato debe tener una duración de varios años.</p>
+
+
+                    <h2 id="fit">Cuándo encaja este modelo y cuándo no</h2>
+                    <p>El modelo de reparto de ingresos con venta opcional funciona mejor en museos que cuentan con una taquilla o recepción donde el personal pueda atender a los visitantes. También es adecuado para museos que quieren generar ingresos con la audioguía en lugar de pagarla directamente y que prefieren ofrecerla como un servicio adicional opcional, en vez de incluirla en el precio de la entrada.</p>
+                    <p>El volumen de visitantes también es importante. Si tenemos que producir los contenidos y recuperar el coste de producción mediante la tarifa por tarjeta activada, el museo necesita recibir un número suficiente de visitantes. Si ya dispone de los contenidos, en cambio, el modelo también puede funcionar para museos más pequeños.</p>
+                    <p>Este modelo es más difícil de aplicar en museos con entrada gratuita que no disponen de taquilla ni de un sistema de cobro. Si el personal no está autorizado a vender productos o servicios, no hay una oportunidad natural para ofrecer la tarjeta de audioguía. Algunos museos de entrada gratuita solucionan este problema con un mostrador de recepción donde cada visitante recoge una entrada gratuita; normalmente, ese punto de contacto es suficiente para ofrecer la audioguía. Si no existe ningún punto de contacto similar, suele ser preferible optar por otro modelo.</p>
+                    <p>Si el museo quiere ofrecer una audioguía a todos los visitantes, resulta más adecuado el modelo universal, en el que la audioguía está incluida en el precio de la entrada. Por otro lado, si prefiere comprar las tarjetas directamente y quedarse con todo el margen de venta, puede hacerlo sin firmar un acuerdo de reparto de ingresos. Ambas opciones se describen en nuestro artículo sobre cómo monetizar una audioguía de museo.</p>
+
+
+                    <h2 id="public-museums">Una nota para los museos públicos</h2>
+                    <p>Una colaboración basada en el reparto de ingresos sigue siendo una relación contractual, y los museos públicos suelen estar sujetos a la normativa de contratación pública. La posibilidad de adjudicar el contrato directamente depende del país, del tipo de institución y del valor total estimado del contrato. Nuestro modelo no exime del cumplimiento de estas normas. Si es necesario convocar una licitación, podemos participar en ella y explicar cómo funciona el modelo, incluido el uso de códigos de activación individuales, la facturación por tarjeta activada y los registros de uso verificables.</p>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+                    <p>Si desea saber si una colaboración basada en el reparto de ingresos podría funcionar para su museo, indíquenos cuántos visitantes recibe, cómo acceden al recinto y si ya dispone de contenidos de audio. Estas tres respuestas suelen bastar para que podamos valorar si una colaboración con Nubart GUIDE resulta comercialmente viable para su museo.</p>
+
+
+
+                    <div class="text-center my-5">
+                        <p class="fs-5">Compruébelo usted mismo para su museo: solicite tarjetas gratuitas de muestra para probar la experiencia.</p>
+                        <div class="d-flex justify-content-center flex-wrap gap-3">
+
+                            <a class="btn btn-primary btn-lg text-white" href="../audioguias.html#samples">Solicite una muestra</a>
+                        </div>
+                    </div>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <p>Esperamos que este artículo le haya resultado útil. <a href="https://share.hsforms.com/1wMbMX3CMSdCDzitqTHmXiA1g33q" rel="nofollow">Suscríbase a nuestro boletín</a> para no perderse ninguna de nuestras publicaciones.</p>
+
+                    <div class="container" data-aos="fade-up">
+                        <h2 class="mb-4">También le puede interesar</h2>
+                        <div class="row">
+
+                            <!-- Article 1 -->
+                            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card">
+                                    <img src="../../assets/img/blog/cover-nubart-museum-revenue-share.webp" class="card-img-top" alt="Reparto de ingresos para audioguías: un modelo antiguo que vuelve a la era de los teléfonos inteligentes" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="../../audio-guides/revenue-share-history.html" hreflang="en">Reparto de ingresos para audioguías: un modelo antiguo que vuelve a la era de los teléfonos inteligentes</a>
+                                        </h5>
+                                        <p class="card-text">Cómo funcionaba el reparto de ingresos en la era de los dispositivos, por qué la digitalización lo desmanteló y cómo los códigos QR no transferibles vuelven a hacer viable el antiguo modelo económico.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Article 2 -->
+                            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="150">
+                                <div class="card">
+                                    <img src="../../assets/img/blog/cover-nubart-museum-monetisation.webp" class="card-img-top" alt="Cómo monetizan los museos una audioguía con código QR" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="cobrar-audioguia-codigo-qr.html">Cómo monetizan los museos una audioguía con código QR</a>
+                                        </h5>
+                                        <p class="card-text">Un código QR puede compartirse infinitamente, por lo que un enlace público no se puede vender. Cómo la tecnología LWAC patentada por Nubart hace que una tarjeta sea intransferible, con datos reales de aceptación y una calculadora del umbral de rentabilidad.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlín<br>
+
+                            <strong>E-mail:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i
+                                    class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Enlaces útiles</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contacto.html">Contacto</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../aviso-legal.html" rel="nofollow">Aviso
+                            legal</a></li>
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="../condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de
+                                servicio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../politica-privacidad.html" rel="nofollow">Política
+                            de privacidad</a>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de
+                            cookies</a></li>
+
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a
+                                nuestro boletín de noticias</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. Todos los derechos reservados
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Critical JS Files -->
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+
+<!-- Non-Critical JS Files - Still deferred but loaded directly -->
+<script src="../../assets/vendor/aos/aos.js" defer></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../../assets/js/main-min.js" defer></script>
+
+<!-- Hubspot Analytics scripts with proper async loading -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async
+        src="//js.hs-scripts.com/2430134.js"></script>
+
+
+<script type="module" src="/js/cookieconsent-config.js"></script>
+<!-- Zoho Forms Lightbox -->
+<script src="../../assets/js/zoho-lightbox.js" defer></script>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        ZohoLightbox.init("https://forms.zohopublic.eu/rosasala/form/NubartGUIDEQuotedeliverysystemNewform/formperma/jenSf-2G-aVy2Py21XbzZ5gRmLK_WcmRGz4DgxHZR9U?zf_lang=es");
+    });
+</script>
+</body>
+</html>
+
