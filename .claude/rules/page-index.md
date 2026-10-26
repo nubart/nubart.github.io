@@ -417,7 +417,7 @@
 - JA: (still pending)
 
 **AI Transparency Overview (plain-language AI, data and quality summary for legal/compliance/procurement teams — printable, noindex, not in sitemap.xml; the Terms and the DPA prevail):**
-- EN: ai-simultaneous-interpretation/ai-transparency-overview.html (v1.1, 2026-10-19)
+- EN: ai-simultaneous-interpretation/ai-transparency-overview.html (v1.2, 2026-10-26)
 - All other languages: (still pending)
 
 **Trial kit (unlinked):**
