@@ -1262,3 +1262,34 @@ h1, h2, h3, h4, h5, h6 {
     .trial-wrap .troubleshooting-body { display: block !important; border-top: 1px solid #ddd; }
     .phase-divider { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* ==========================================================================
+   RTL (Hebrew) — mirror the left/right rules above for dir="rtl" pages
+   ========================================================================== */
+[dir="rtl"] .step-number { margin-right: 0; margin-left: 12px; }
+[dir="rtl"] .step-body { padding-left: 0; padding-right: 44px; }
+
+[dir="rtl"] .callout {
+    border-left: 0;
+    border-right: 4px solid #028a8c;
+    border-radius: 6px 0 0 6px;
+}
+[dir="rtl"] .callout.warning { border-right-color: #e07b00; }
+[dir="rtl"] .callout.tip { border-right-color: #2e7d32; }
+
+[dir="rtl"] .login-box { text-align: right; }
+
+[dir="rtl"] .role-label,
+[dir="rtl"] .device-label { margin-right: 0; margin-left: 6px; letter-spacing: normal; }
+
+@media print {
+    [dir="rtl"] .step-number { margin-right: 0; margin-left: 7pt; }
+    [dir="rtl"] .step-body { padding-left: 0; padding-right: 25pt; }
+
+    [dir="rtl"] .callout {
+        border-left: 0 !important;
+        border-right: 3pt solid #028a8c !important;
+    }
+    [dir="rtl"] .callout.warning { border-right-color: #e07b00 !important; }
+    [dir="rtl"] .callout.tip { border-right-color: #2e7d32 !important; }
+}
