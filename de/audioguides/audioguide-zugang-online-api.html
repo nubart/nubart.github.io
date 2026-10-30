@@ -363,10 +363,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <h3 class="h5 mt-0 mb-2">Bevor Sie beginnen</h3>
                         <p class="mb-2">Bevor Sie Ihren Entwickler mit der API-Integration beauftragen, stellen Sie bitte sicher, dass Folgendes vorhanden ist:</p>
                         <ul class="list-unstyled mb-0">
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Ein Administratorkonto im Nubart-Kundenportal</li>
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Das Modul, das online verkauft werden soll, wurde festgelegt</li>
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Es ist entschieden, wer den API-Schlüssel abruft (siehe unten)</li>
-                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Der Link zur technischen Dokumentation oben, bereit zur Weitergabe an Ihren Entwickler</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Ein <a href="https://www.nub.art/customer/login" rel="nofollow" target="_blank">Administratorkonto</a> im Nubart-Kundenportal</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Ein existierendes Modul, das online verkauft werden soll</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Eine Entscheidung darüber, wer den API-Schlüssel abrufen soll (siehe unten)</li>
+                            <li><i class="bi bi-check2-circle" style="color:#028a8c;"></i>&nbsp; Der Link zur Dokumentation der Nubart-LWAC-API (siehe oben) bereit zur Weitergabe an Ihren Entwickler</li>
                         </ul>
                     </div>
                     <div class="nubart-flow-diagram my-4">
@@ -385,13 +385,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <h2>Was die API tatsächlich liefert</h2>
 
-                    <p>Die API erstellt keine andere Version von Nubart GUIDE. Sie liefert lediglich denselben sicheren Zugangscode in digitaler Form, anstatt ihn auf einer physischen Karte bereitzustellen. Statt dem Besucher am Ticketschalter eine Karte auszuhändigen, fordert Ihr Online-Shop den Code im Moment des Kaufs bei Nubart an und stellt ihn dem Besucher als Teil seines Tickets zur Verfügung.</p>
+                    <p>Die API erstellt keine andere Version von Nubart GUIDE. Sie liefert lediglich den gleichen sicheren Zugangscode in digitaler Form, statt ihn auf einer physischen Karte bereitzustellen. Anstatt dem Besucher am Ticketschalter eine Karte auszuhändigen, fordert Ihr Online-Shop den Code zum Zeitpunkt des Kaufs bei Nubart an und stellt ihn dem Besucher als Teil seines Tickets zur Verfügung.</p>
 
                     <p>Alles, was die Kartenversion auszeichnet – Nicht-Übertragbarkeit, kein Login, keine App – funktioniert in der digitalen Version genauso.</p>
 
                     <h2>So erhalten Sie Ihren API-Schlüssel</h2>
 
-                    <p>Für die Anbindung Ihres Online-Shops benötigt Ihr Webentwickler Ihren API-Schlüssel. Aus Sicherheitsgründen haben wir als Nubart-Mitarbeiter keinen Zugriff auf diesen Schlüssel. <strong>Nur Benutzer mit der Rolle „Admin“ können Ihren API-Schlüssel abrufen.</strong> Das bedeutet in der Praxis, dass vor Beginn der Implementierung zunächst ein zusätzlicher Schritt erforderlich ist, um den Schlüssel Ihrem Webentwickler zur Verfügung zu stellen.</p>
+                    <p>Für die Anbindung Ihres Online-Shops benötigt Ihr Webentwickler Ihren API-Schlüssel. Aus Sicherheitsgründen haben wir als Nubart-Mitarbeiter keinen Zugriff auf diesen Schlüssel. <strong>Nur Benutzer mit der Rolle „Admin“ können den API-Schlüssel abrufen.</strong> Das bedeutet in der Praxis, dass vor Beginn der Implementierung zunächst ein zusätzlicher Schritt erforderlich ist, um den Schlüssel Ihrem Webentwickler zur Verfügung zu stellen.</p>
 
                     <figure class="figure">
                         <img src="../../assets/img/api-how-to-get-key.png"
@@ -401,11 +401,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <h3>Option 1: Geben Sie Ihrem Webentwickler vorübergehend Administratorrechte</h3>
 
-                    <p>Der einfachste Weg ist, Ihren Webentwickler in Ihr Nubart-Kundenportal einzuladen. Dort kann er den API-Schlüssel selbst abrufen. Dies ist im Reiter „Mitarbeiter“ möglich. Der Nachteil besteht darin, dass Ihr Webentwickler dadurch nicht nur Zugriff auf den API-Schlüssel erhält, sondern vollständige Administratorrechte. Er kann also beispielsweise auch die Nutzungsstatistiken Ihres Audioguides einsehen. Wenn Sie diesen Zugriff nicht dauerhaft gewähren möchten, können Sie nach Abschluss der Implementierung zum Reiter „Mitarbeiter“ zurückkehren und den Benutzer dort wieder sperren.</p>
+                    <p>Am einfachsten ist es, Ihren Webentwickler in Ihr Nubart-Kundenportal einzuladen. Dort kann er den API-Schlüssel selbst abrufen. Dies ist im Reiter „Mitarbeiter“ möglich. Der Nachteil besteht darin, dass Ihr Webentwickler dadurch nicht nur Zugriff auf den API-Schlüssel erhält, sondern vollständige Administratorrechte. Er kann also beispielsweise auch die Nutzungsstatistiken Ihres Audioguides einsehen. Wenn Sie diesen Zugriff nicht dauerhaft gewähren möchten, können Sie nach Abschluss der Implementierung zum Reiter „Mitarbeiter“ zurückkehren und den Benutzer dort wieder sperren.</p>
 
                     <h3>Option 2: Ein Administrator ruft den Schlüssel ab und gibt ihn sicher weiter</h3>
 
-                    <p>Wenn Sie Ihrem Webentwickler keinen Zugang zum Kundenportal geben möchten, kann sich stattdessen einer der Benutzer mit der Rolle „Admin“ anmelden, den API-Schlüssel kopieren und ihn über einen sicheren Übertragungsweg weitergeben.</p>
+                    <p>Wenn Sie Ihrem Webentwickler keinen Zugang zum Kundenportal gewähren möchten, kann sich stattdessen ein Benutzer mit Admin-Rechten anmelden, den API-Schlüssel kopieren und ihn auf einem sicheren Weg weitergeben.</p>
 
                     <p>Hier sind einige Möglichkeiten – von der einfachsten bis zur aufwendigsten:</p>
 
@@ -446,20 +446,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <h2>Wie die Aktivierung von Token Sie davor schützt, für einen technischen Fehler bezahlen zu müssen</h2>
 
-                    <p>Bei Nubart erstellen wir im Voraus eine Reihe von Zugangstoken für Ihr Modul, und diese Reihe
-                        wird Ihnen in Rechnung gestellt, genauso wie beim Druck einer Auflage von physischen Karten. Wenn Ihr Online-Shop über die API verbunden ist, entnimmt er einzelne Token
-                        aus derselben Reihe, anstatt eine gedruckte Karte zu verwenden.</p>
+                    <p>Bei Nubart erstellen wir im Voraus eine Serie von Zugangstoken für Ihr Modul. Diese Serie wird Ihnen in Rechnung gestellt, genauso wie es bei einer Auflage von physischen Karten der Fall wäre. Wenn Ihr Online-Shop über die API verbunden ist, entnimmt er einzelne Token aus dieser Serie, anstatt eine gedruckte Karte zu verwenden.</p>
 
                     <p>Das Abrufen eines Tokens über die API und seine Aktivierung sind zwei getrennte Schritte. Ihr
                         Online-Shop fragt zunächst nach dem nächsten verfügbaren Token und aktiviert es erst, sobald
                         der Kauf des Besuchers bestätigt wurde. Nur der Aktivierungsschritt wird auf die in Rechnung
-                        gestellte Token-Reihe angerechnet und erscheint in Ihrem Reporting.</p>
+                        gestellte Token-Serie angerechnet und erscheint in Ihrem Reporting.</p>
 
                     <p>Dieses zweistufige Verfahren dient ausdrücklich dazu, Sie davor zu schützen, für etwas bezahlen
                         zu müssen, das nie bei einem Besucher angekommen ist. Wenn ein Token abgerufen wird, der Kauf
                         dann aber aus einem technischen Grund nicht abgeschlossen werden kann – etwa wegen eines
                         Timeouts, einer unterbrochenen Verbindung oder eines Fehlers auf Seiten des Shops –, wird dieser
-                        Token einfach nicht aktiviert. Er wird nicht auf Ihre Token-Reihe angerechnet, und Sie zahlen
+                        Token einfach nicht aktiviert. Er wird nicht auf Ihre Token-Serie angerechnet, und Sie zahlen
                         niemals dafür.</p>
 
                     <p>Damit dies zuverlässig funktioniert, empfehlen wir Ihrem Webmaster, das in Abschnitt 5 der
@@ -473,11 +471,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     <p>Unter <strong>Stats</strong> in Ihrem Kundenbereich können Sie jederzeit sehen, wie viele der
                         Token dieses Eintrags aktiviert wurden, dargestellt im Verhältnis zur Größe der von Ihnen
-                        erworbenen Token-Reihe:</p>
+                        erworbenen Token-Serie:</p>
 
                     <figure class="figure">
                         <img src="../../assets/img/api-token-stats.png"
-                             class="figure-img img-fluid rounded" alt="Illustratives Beispiel der API-Eintragsansicht unter Stats, die aktivierte Token im Verhältnis zur Größe der Token-Reihe und die Anzahl der Benutzer zeigt">
+                             class="figure-img img-fluid rounded" alt="Illustratives Beispiel der API-Eintragsansicht unter Stats, die aktivierte Token im Verhältnis zur Größe der Token-Serie und die Anzahl der Benutzer zeigt">
                         <figcaption class="figure-caption">Illustratives Beispiel der API-Eintragsansicht unter Stats.
                             Die angezeigten Zahlen dienen nur zur Veranschaulichung.</figcaption>
                     </figure>
