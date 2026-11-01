@@ -179,6 +179,28 @@
 - JA: (still pending)
 - NL: (still pending)
 
+### What to Do When Your Interpreters Can't Make It: AI as a Backup Plan for Live Events
+- EN: ai-simultaneous-interpretation/interpreter-shortage-ai-backup.html
+- DE: de/simultan-uebersetzung-ki/dolmetscher-ausfall-ki-backup.html
+- ES: es/traduccion-simultanea-ia/plan-b-para-interpretacion-eventos.html
+- FR: fr/traduction-simultanee-ia/solution-secours-interpretation-evenement.html
+- IT: (still pending)
+- PT-BR: (still pending)
+- PL: (still pending)
+- JA: (still pending)
+- NL: (still pending)
+
+### Can AI interpretation make serious mistakes? What to tell your guests and your client
+- EN: ai-simultaneous-interpretation/ai-interpretation-guest-notice.html (2026-11-01)
+- DE: de/simultan-uebersetzung-ki/ki-dolmetschen-fehler-hinweis-gaeste.html (2026-11-01)
+- ES: (still pending)
+- FR: (still pending)
+- IT: (still pending)
+- PT-BR: (still pending)
+- PL: (still pending)
+- JA: (still pending)
+- NL: (still pending)
+
 ### How Is Nubart TRANSLATE Different From Other AI Interpretation Providers?
 - EN: ai-simultaneous-interpretation/nubart-translate-comparison.html
 - DE: de/simultan-uebersetzung-ki/nubart-translate-anbietervergleich.html
