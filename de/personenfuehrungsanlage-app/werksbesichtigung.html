@@ -122,11 +122,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- 3. Cookie consent config (MOVED HERE) -->
     <script type="module" src="/js/cookieconsent-config.js"></script>
 
-    <!-- Zoho form - request a kit-->
-    <script type="text/javascript">
-        function zforms_open_window(url, height, width){var leftPos = 0;var topPos = 0;if(screen){leftPos = (screen.width - width) / 2;topPos = (screen.height - height) / 2;window.open(url, null, 'width='+width+',height='+height+',left='+leftPos+',top='+topPos+', toolbar=0, location=0, status=1, scrollbars=1, resizable=1');}}
-    </script>
-    <!-- End Zoho form - request a kit -->
 
 
     <title>Besucherführungssystem für Werksbesichtigungen | Nubart Live</title>
@@ -178,6 +173,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <link href="../../assets/css/custom.css" rel="stylesheet">
+    <link href="../../assets/css/zoho-lightbox.css" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: Dewi - v4.6.0
@@ -309,7 +305,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <li class="d-md-none"><a href="./#pricing">Preise</a></li>
                 <li class="d-md-none">
                     <a href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=de"
-                       target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Test-Kit
+                       target="_blank" onclick="ZohoLightbox.open(); return false;">Test-Kit
                         anfordern</a>
                 </li>
                 <li class="d-flex d-md-none">
@@ -382,10 +378,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <i class="bi bi-box-arrow-down" style="font-size: 1.2em; color: white;"></i>&nbsp;&nbsp;Anleitung</a>
                     </li>
                     <li style="margin-right: 22px;"><a href="./#pricing">Preise</a></li>
+                    <li style="margin-right: 22px;"><a href="agb.html">AGB</a></li>
                     <li>
                         <a class="getstarted scrollto"
                            href="https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=de"
-                           target="_blank" onclick="zforms_open_window(this.href, 648, 700); return false">Testkit
+                           target="_blank" onclick="ZohoLightbox.open(); return false;">Testkit
                             anfordern</a>
                     </li>
                 </ul>
@@ -1028,8 +1025,7 @@ filter-live filter-germany">
                         <li><i class="bi bi-chevron-right"></i> <a href="../kontakt.html">Kontakt</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="../impressum.html" rel="nofollow">Impressum</a>
                         </li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="../agb.html" rel="nofollow">Allgemeine
-                            Geschäftsbedingungen</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="agb.html" rel="nofollow">Allgemeine Geschäftsbedingungen - Nubart LIVE</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="../datenschutz-web.html" rel="nofollow">Datenschutz</a>
                         <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Cookie-Einstellungen</a>
                         </li>
@@ -1073,5 +1069,12 @@ filter-live filter-germany">
 
 
 <script type="module" src="/js/cookieconsent-config.js"></script>
+<!-- Zoho Forms Lightbox -->
+<script src="../../assets/js/zoho-lightbox.js" defer></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        ZohoLightbox.init('https://forms.zohopublic.eu/rosasala/form/RequestquoteorsamplesNUBARTLIVE/formperma/7NeCqnbCGES1hs80n0vCySQb5GOc77_HRFnoS5KgYRA?zf_lang=de');
+    });
+</script>
 </body>
 </html>

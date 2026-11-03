@@ -369,6 +369,14 @@
 - PL: (still pending)
 - NL: (still pending)
 
+**Terms and conditions (noindex, not in sitemap.xml; linked from the secondary navbar "AGB" and the footer of every DE LIVE page):**
+- DE: de/personenfuehrungsanlage-app/agb.html (2026-11-03)
+- All other languages: (still pending)
+
+**DPA (noindex, not in sitemap.xml, deliberately unlinked — shared only via customer quotes):**
+- DE: de/personenfuehrungsanlage-app/da-pr-eu.html (2026-11-03)
+- All other languages: (still pending)
+
 **Trial kit (unlinked):**
 - EN: digital-tour-guide-app/nubart-live-free-trial.html
 - DE: de/personenfuehrungsanlage-app/nubart-live-gratis-test.html
