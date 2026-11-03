@@ -111,3 +111,10 @@ Consequently **§12.9 states the SAME rule in every language version** — it is
 
 ## Page Index & URL Map
 For all page paths across languages (blog articles, product pages, instructions, trial kits, etc.): see `.claude/rules/page-index.md`
+
+## Pending tasks
+- **Links to the upcoming "AI gets names wrong" article** (added 2026-11-03). When Rosa gives you the new blog article on why AI interpretation gets names wrong (working title "Why AI Interpretation Still Gets Names Wrong After Preparation"):
+  a) In ai-vs-human-interpretation (all languages), section "Fourth Fallacy": the link that currently points to ai-interpretation-guest-notice.html#where-mistakes-come-from must point to the new article. Adjust the link text if needed.
+  b) In the same article, glossary section (#long-glossaries; #glosarios-largos in ES and PT-BR): add one sentence with a link to the new article, after the sentence about Nubart preparing from documents.
+  c) In ai-interpretation-guest-notice (EN and DE): at the end of the section "Where AI mistakes come from", add one sentence linking to the new article.
+  Each link goes to the language version of the new article if it exists, otherwise to the EN version. Remove this pending task when it is done.
