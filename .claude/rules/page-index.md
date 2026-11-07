@@ -201,6 +201,17 @@
 - JA: (still pending)
 - NL: (still pending)
 
+### Why AI Interpretation Still Gets Names Wrong After Preparation
+- EN: ai-simultaneous-interpretation/why-ai-interpretation-gets-names-wrong.html (2026-11-06)
+- DE: (still pending)
+- ES: (still pending)
+- FR: (still pending)
+- IT: (still pending)
+- PT-BR: (still pending)
+- PL: (still pending)
+- JA: (still pending)
+- NL: (still pending)
+
 ### How Is Nubart TRANSLATE Different From Other AI Interpretation Providers?
 - EN: ai-simultaneous-interpretation/nubart-translate-comparison.html
 - DE: de/simultan-uebersetzung-ki/nubart-translate-anbietervergleich.html
