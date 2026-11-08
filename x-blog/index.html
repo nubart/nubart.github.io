@@ -110,17 +110,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="alternate" href="https://www.nubart.eu/x-blog/" hreflang="en-gb"/>
     <link rel="alternate" href="https://www.nubart.eu/x-blog/" hreflang="en"/>
     <link rel="alternate" href="https://www.nubart.eu/x-blog/" hreflang="en-us"/>
-    <link rel="alternate" href="https://www.nubart.eu/fr/blog/" hreflang="fr" />
-    <link rel="alternate" href="https://www.nubart.eu/fr/blog/" hreflang="fr-be" />
-    <link rel="alternate" href="https://www.nubart.eu/fr/blog/" hreflang="fr-ch" />
-    <link rel="alternate" href="https://www.nubart.eu/it/blog/" hreflang="it" />
+    <link rel="alternate" href="https://www.nubart.eu/fr/blog/" hreflang="fr"/>
+    <link rel="alternate" href="https://www.nubart.eu/fr/blog/" hreflang="fr-be"/>
+    <link rel="alternate" href="https://www.nubart.eu/fr/blog/" hreflang="fr-ch"/>
+    <link rel="alternate" href="https://www.nubart.eu/it/blog/" hreflang="it"/>
     <link rel="alternate" href="https://www.nubart.eu/de/blog/" hreflang="de"/>
     <link rel="alternate" href="https://www.nubart.eu/de/blog/" hreflang="de-ch"/>
     <link rel="alternate" href="https://www.nubart.eu/es/blog/" hreflang="es"/>
-    <link rel="alternate" href="https://www.nubart.eu/ja/blog/" hreflang="ja" />
-    <link rel="alternate" href="https://www.nubart.eu/pl/blog/" hreflang="pl" />
-    <link rel="alternate" href="https://www.nubart.eu/pt-br/blog/" hreflang="pt-br" />
-    <link rel="alternate" href="https://www.nubart.eu/pt-br/blog/" hreflang="pt" />
+    <link rel="alternate" href="https://www.nubart.eu/ja/blog/" hreflang="ja"/>
+    <link rel="alternate" href="https://www.nubart.eu/pl/blog/" hreflang="pl"/>
+    <link rel="alternate" href="https://www.nubart.eu/pt-br/blog/" hreflang="pt-br"/>
+    <link rel="alternate" href="https://www.nubart.eu/pt-br/blog/" hreflang="pt"/>
 
 
 
@@ -162,6 +162,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/blog-filter.css" rel="stylesheet">
 
 
     <!-- =======================================================
@@ -336,10 +337,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- End TITLE only on mobile -->
         <div class="container" data-aos="fade-up">
 
+            <!-- Product filter -->
+            <div class="blog-filter d-flex flex-wrap align-items-center justify-content-center gap-2 mb-4" role="group" aria-label="Filter articles by product">
+                <span class="fw-semibold me-1">Show articles about:</span>
+                <button type="button" class="btn btn-sm blog-filter-btn" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="btn btn-sm blog-filter-btn blog-filter-guide" data-filter="guide" aria-pressed="false">Nubart GUIDE</button>
+                <button type="button" class="btn btn-sm blog-filter-btn blog-filter-translate" data-filter="translate" aria-pressed="false">Nubart TRANSLATE</button>
+                <button type="button" class="btn btn-sm blog-filter-btn blog-filter-live" data-filter="live" aria-pressed="false">Nubart LIVE</button>
+                <button type="button" class="btn btn-sm blog-filter-btn blog-filter-motion" data-filter="motion" aria-pressed="false">Nubart MOTION</button>
+            </div>
+            <p class="visually-hidden" id="blog-filter-status" aria-live="polite"></p>
+
             <div class="row">
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="translate" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-why-ai-interpretation-gets-names-wrong.webp" class="card-img-top" alt="Why AI Interpretation Still Gets Names Wrong After Preparation">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-translate position-absolute top-0 end-0 m-2">Nubart TRANSLATE</span>
+                            <img src="../assets/img/blog/cover-why-ai-interpretation-gets-names-wrong.webp" class="card-img-top" alt="Why AI Interpretation Still Gets Names Wrong After Preparation">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -349,9 +364,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="translate" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-what-to-tell-guests.webp" class="card-img-top" alt="Can AI Interpretation Make Serious Mistakes? What to Tell Your Guests and Your Client">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-translate position-absolute top-0 end-0 m-2">Nubart TRANSLATE</span>
+                            <img src="../assets/img/blog/cover-what-to-tell-guests.webp" class="card-img-top" alt="Can AI Interpretation Make Serious Mistakes? What to Tell Your Guests and Your Client">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -361,9 +379,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-voluntary-deal.webp" class="card-img-top" alt="Revenue share for museum audio guides: how it works with Nubart GUIDE">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-voluntary-deal.webp" class="card-img-top" alt="Revenue share for museum audio guides: how it works with Nubart GUIDE">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -373,9 +394,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-nubart-museum-revenue-share.webp" class="card-img-top" alt="Revenue share for audio guides: an old model, back for the smartphone era">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-nubart-museum-revenue-share.webp" class="card-img-top" alt="Revenue share for audio guides: an old model, back for the smartphone era">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -385,9 +409,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="translate" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-nubart-translate-comparison.webp" class="card-img-top" alt="How Is Nubart TRANSLATE Different From Other AI Interpretation Providers?">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-translate position-absolute top-0 end-0 m-2">Nubart TRANSLATE</span>
+                            <img src="../assets/img/blog/cover-nubart-translate-comparison.webp" class="card-img-top" alt="How Is Nubart TRANSLATE Different From Other AI Interpretation Providers?">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -397,9 +424,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="live" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-alternative-interpreter-booth-live.webp" class="card-img-top" alt="Do You Need an Interpreter Booth? A Lighter Alternative for Smaller Multilingual Events">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-live position-absolute top-0 end-0 m-2">Nubart LIVE</span>
+                            <img src="../assets/img/blog/cover-alternative-interpreter-booth-live.webp" class="card-img-top" alt="Do You Need an Interpreter Booth? A Lighter Alternative for Smaller Multilingual Events">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -409,9 +439,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-fact-checking.webp" class="card-img-top" alt="How does Nubart compare? Verifiable facts about pricing, features and data">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-fact-checking.webp" class="card-img-top" alt="How does Nubart compare? Verifiable facts about pricing, features and data">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -421,9 +454,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-nubart-museum-monetisation.webp" class="card-img-top" alt="How museums monetise a QR-code audio guide">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-nubart-museum-monetisation.webp" class="card-img-top" alt="How museums monetise a QR-code audio guide">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -433,9 +469,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-pronunciation-guides-audio-guides.webp" class="card-img-top" alt="Pronunciation guides for multilingual museum audio guides">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-pronunciation-guides-audio-guides.webp" class="card-img-top" alt="Pronunciation guides for multilingual museum audio guides">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -445,9 +484,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="translate" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-qr-code-security-gap-ai-interpretation.webp" class="card-img-top" alt="The Security Gap Nobody Talks About in AI Interpretation">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-translate position-absolute top-0 end-0 m-2">Nubart TRANSLATE</span>
+                            <img src="../assets/img/blog/cover-qr-code-security-gap-ai-interpretation.webp" class="card-img-top" alt="The Security Gap Nobody Talks About in AI Interpretation">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -457,9 +499,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="translate" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-interpreter-shortage-backup.webp" class="card-img-top" alt="What to Do When Your Interpreters Can't Make It to the Event">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-translate position-absolute top-0 end-0 m-2">Nubart TRANSLATE</span>
+                            <img src="../assets/img/blog/cover-interpreter-shortage-backup.webp" class="card-img-top" alt="What to Do When Your Interpreters Can't Make It to the Event">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -469,9 +514,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="motion" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/motion/cover-motion-gps.webp" class="card-img-top" alt="Why GPS Audio Commentary for Sightseeing Vehicles Fails: And How to Fix It">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-motion position-absolute top-0 end-0 m-2">Nubart MOTION</span>
+                            <img src="../assets/img/motion/cover-motion-gps.webp" class="card-img-top" alt="Why GPS Audio Commentary for Sightseeing Vehicles Fails: And How to Fix It">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -481,9 +529,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-offline-mode-best-practices.webp" class="card-img-top" alt="Offline Mode for Museum Audio Guides: A Practical Framework">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-offline-mode-best-practices.webp" class="card-img-top" alt="Offline Mode for Museum Audio Guides: A Practical Framework">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -493,9 +544,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="translate" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/expectations-ai-interpretation.webp" class="card-img-top" alt="What to Expect from AI vs Human Interpretation">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-translate position-absolute top-0 end-0 m-2">Nubart TRANSLATE</span>
+                            <img src="../assets/img/blog/expectations-ai-interpretation.webp" class="card-img-top" alt="What to Expect from AI vs Human Interpretation">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -505,9 +559,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/adoption-rate-audio-guide-apps.webp" class="card-img-top" alt="Nubart - The adoption rate of museum audio guide apps">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/adoption-rate-audio-guide-apps.webp" class="card-img-top" alt="Nubart - The adoption rate of museum audio guide apps">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -517,9 +574,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/translating-audio-guides.webp" class="card-img-top" alt="Best tips for translating audio guides">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/translating-audio-guides.webp" class="card-img-top" alt="Best tips for translating audio guides">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -529,9 +589,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="live" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-nubart-live-travel.webp" class="card-img-top" alt="Best tips for using Nubart LIVE to guide groups on travel and field trips">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-live position-absolute top-0 end-0 m-2">Nubart LIVE</span>
+                            <img src="../assets/img/blog/cover-nubart-live-travel.webp" class="card-img-top" alt="Best tips for using Nubart LIVE to guide groups on travel and field trips">
+                        </div>
                         
                         <div class="card-body">
                             <h5 class="card-title">
@@ -541,9 +604,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-qr-codes-in-museum.webp" class="card-img-top" alt="How to improve the visitor experience with QR codes in museums">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-qr-codes-in-museum.webp" class="card-img-top" alt="How to improve the visitor experience with QR codes in museums">
+                        </div>
                         
                         <div class="card-body">
                             <h5 class="card-title">
@@ -553,9 +619,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-audioguides-remote-control.webp" class="card-img-top" alt="Nubart - Cohesive group tours of historic sites using Nubart's remote-controlled audio guide">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-audioguides-remote-control.webp" class="card-img-top" alt="Nubart - Cohesive group tours of historic sites using Nubart's remote-controlled audio guide">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -565,9 +634,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-pwa-museum.webp" class="card-img-top" alt="QR to access a PWA audio guide in a museum - Nubart">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-pwa-museum.webp" class="card-img-top" alt="QR to access a PWA audio guide in a museum - Nubart">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -577,9 +649,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-accessible-audioguides.webp" class="card-img-top" alt="Museum visitors listening to an audio guide on their phones with headphones in a gallery of paintings">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-accessible-audioguides.webp" class="card-img-top" alt="Museum visitors listening to an audio guide on their phones with headphones in a gallery of paintings">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -589,9 +664,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-ai-voices.webp" class="card-img-top" alt="A voice artist holding a script stands beside a humanoid robot at a microphone on a theatre stage">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-ai-voices.webp" class="card-img-top" alt="A voice artist holding a script stands beside a humanoid robot at a microphone on a theatre stage">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title"><a href="../audio-guides/content-production/ai-voices-for-museums.html">The truth about AI voices for audio guides - how good are they really?</a></h5>
@@ -599,9 +677,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/jpg/cover-data-museum.jpg" class="card-img-top" alt="How to collect data about museum's visitors - Nubart's blog">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/jpg/cover-data-museum.jpg" class="card-img-top" alt="How to collect data about museum's visitors - Nubart's blog">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -611,9 +692,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-tsuruga.webp" class="card-img-top" alt="Museum Port Tsuruga">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-tsuruga.webp" class="card-img-top" alt="Museum Port Tsuruga">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title"><a href="../audio-guides/tsuruga-museum-hebrew-voiceover.html">Port Tsuruga - when museums
@@ -624,9 +708,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="../assets/img/blog/jpg/cover-structure-audioguide.jpg" class="card-img-top" alt="Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/jpg/cover-structure-audioguide.jpg" class="card-img-top" alt="Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -636,10 +723,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="300">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-audioguide-children.webp" class="card-img-top"
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-audioguide-children.webp" class="card-img-top"
                              alt="Children looking at a painting in a museum">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -649,10 +739,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="300">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-nubart-postcard-audioguide.webp" class="card-img-top"
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-nubart-postcard-audioguide.webp" class="card-img-top"
                              alt="Nubart's audio guide inserted in a postcard">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -664,9 +757,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch blog-item" data-product="guide" data-aos="fade-up" data-aos-delay="300">
                     <div class="card">
-                        <img src="../assets/img/blog/cover-write-script-audioguide.webp" class="card-img-top" alt="A writer wearing headphones taking notes at a desk beside a laptop">
+                        <div class="position-relative">
+                            <span class="badge blog-tag blog-tag-guide position-absolute top-0 end-0 m-2">Nubart GUIDE</span>
+                            <img src="../assets/img/blog/cover-write-script-audioguide.webp" class="card-img-top" alt="A writer wearing headphones taking notes at a desk beside a laptop">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">
@@ -755,6 +851,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="../assets/vendor/aos/aos.js" defer></script>
 <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
 <script src="../assets/js/main-min.js" defer></script>
+<script src="../assets/js/blog-filter.js" defer></script>
 
 <!-- Hubspot Analytics scripts with proper async loading -->
 <script type="text/plain" data-category="analytics" id="hs-script-loader" async
