@@ -1,0 +1,40 @@
+/* Blog hub — product tags on cover images and product filter.
+   Colours: white text on each background passes WCAG AA (>= 4.5:1). */
+
+.blog-filter-btn { --blog-color: #15222b; } /* "All" button */
+
+.blog-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.blog-tag-guide,     .blog-filter-guide     { --blog-color: #026e6d; } /* teal (brand) */
+.blog-tag-translate, .blog-filter-translate { --blog-color: #5b2a86; } /* purple */
+.blog-tag-live,      .blog-filter-live      { --blog-color: #b02a17; } /* red */
+.blog-tag-motion,    .blog-filter-motion    { --blog-color: #1f4e9c; } /* blue */
+
+.blog-tag { background-color: var(--blog-color); }
+
+/* Filter buttons: outlined in the product colour, filled when active */
+.blog-filter-btn {
+    color: var(--blog-color);
+    background-color: #fff;
+    border: 2px solid var(--blog-color);
+    border-radius: 50rem;
+    font-weight: 600;
+}
+
+.blog-filter-btn:hover,
+.blog-filter-btn[aria-pressed="true"] {
+    color: #fff;
+    background-color: var(--blog-color);
+    border-color: var(--blog-color);
+}
+
+.blog-filter-btn:focus-visible {
+    outline: 3px solid #15222b;
+    outline-offset: 2px;
+}
