@@ -203,9 +203,9 @@
 
 ### Why AI Interpretation Still Gets Names Wrong After Preparation
 - EN: ai-simultaneous-interpretation/why-ai-interpretation-gets-names-wrong.html (2026-11-06)
-- DE: (still pending)
-- ES: (still pending)
-- FR: (still pending)
+- DE: de/simultan-uebersetzung-ki/ki-dolmetschen-namen-falsch.html (2026-11-07)
+- ES: es/traduccion-simultanea-ia/interpretacion-ia-errores-nombres.html (2026-11-07)
+- FR: fr/traduction-simultanee-ia/interpretation-ia-erreurs-noms.html (2026-11-07)
 - IT: (still pending)
 - PT-BR: (still pending)
 - PL: (still pending)
