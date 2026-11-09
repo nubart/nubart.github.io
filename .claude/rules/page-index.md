@@ -206,9 +206,9 @@
 - DE: de/simultan-uebersetzung-ki/ki-dolmetschen-namen-falsch.html (2026-11-07)
 - ES: es/traduccion-simultanea-ia/interpretacion-ia-errores-nombres.html (2026-11-07)
 - FR: fr/traduction-simultanee-ia/interpretation-ia-erreurs-noms.html (2026-11-07)
+- PL: pl/tlumaczenie-symultaniczne-ai/dlaczego-ai-myli-nazwy-wlasne.html (2026-11-09)
 - IT: (still pending)
 - PT-BR: (still pending)
-- PL: (still pending)
 - JA: (still pending)
 - NL: (still pending)
 
