@@ -109,5 +109,8 @@ Consequently **§12.9 states the SAME rule in every language version** — it is
 - Update hreflang tags if pages added/modified
 - Add any new indexable page to `sitemap.xml` (plain `<url><loc>…</loc></url>` entry). For new blog articles this also means: add a card on the blog hub, register the page in `.claude/rules/page-index.md`, and add justified contextual cross-links from related pages.
 
+## Customers Page Schema
+After adding, removing or editing a customer card on `portfolio/index.html`, run `python3 .claude/scripts/generate-portfolio-schema.py` from the repo root: it regenerates the CollectionPage/ItemList JSON-LD and the project count in the stats line (fix any WARNING it prints).
+
 ## Page Index & URL Map
 For all page paths across languages (blog articles, product pages, instructions, trial kits, etc.): see `.claude/rules/page-index.md`

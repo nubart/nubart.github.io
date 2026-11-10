@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Nubart GUIDE customers page (portfolio/index.html)
+   Everything is scoped to .customers-page so the other language versions,
+   which still use the template's .breadcrumbs band and filter block, are unaffected.
+   ========================================================================== */
+
+.customers-page .portfolio {
+  padding: 0 0 40px;
+}
+
+/* ---------- Header: breadcrumb line, H1 + stats, intro ---------- */
+.customers-page .customers-header {
+  margin-top: 88px; /* clears the fixed first navbar; the sticky second navbar is in the flow above */
+  padding-top: 0;
+}
+@media (max-width: 992px) {
+  .customers-page .customers-header {
+    margin-top: 72px;
+  }
+}
+
+.customers-page .customers-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: #5a6872;
+}
+.customers-page .customers-breadcrumb li + li::before {
+  content: "/";
+  padding: 0 6px;
+}
+.customers-page .customers-breadcrumb a {
+  color: #5a6872;
+  text-decoration: underline;
+}
+
+.customers-page .customers-header h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.customers-page .customer-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #444;
+}
+.customers-page .customer-stats strong {
+  font-size: 26px;
+  font-weight: 600;
+  color: #027a7c;
+  margin-right: 2px;
+}
+
+.customers-page .customers-intro {
+  margin: 12px 0 16px;
+}
+
+/* ---------- Filter block ---------- */
+.customers-page .customers-filters {
+  background-color: #f0f4f8;
+  padding: 12px 0 4px;
+}
+.customers-page #portfolio-flters {
+  text-align: left;
+  margin: 0;
+  border-radius: 0;
+}
+.customers-page .filter-heading {
+  font-size: 15px;
+  font-weight: 600;
+  color: #c9301e;
+  margin: 0 0 6px;
+}
+.customers-page .filter-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+}
+.customers-page #portfolio-flters li {
+  padding: 4px 8px;
+  margin: 0 4px 5px 0;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.customers-page #portfolio-flters li:hover,
+.customers-page #portfolio-flters li.filter-active,
+.customers-page #portfolio-flters li:focus-visible {
+  color: #fff;
+  background: #027a7c; /* darker than the template teal for 4.5:1 contrast with white text */
+}
+.customers-page #portfolio-flters li:focus-visible {
+  outline: 2px solid #263d4d;
+  outline-offset: 1px;
+}
+
+/* Mobile: one horizontally scrollable chip row per group */
+@media (max-width: 767.98px) {
+  .customers-page .customers-header h1 {
+    font-size: 26px;
+  }
+  .customers-page .customer-stats strong {
+    font-size: 22px;
+  }
+  .customers-page .filter-group {
+    margin-bottom: 2px;
+  }
+  .customers-page .filter-heading {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .customers-page .filter-group ul {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+  }
+  .customers-page #portfolio-flters li {
+    flex: 0 0 auto;
+    margin-bottom: 0;
+  }
+}
+
+/* ---------- Cards ---------- */
+.customers-page .portfolio-container {
+  margin-top: 20px;
+}
+/* Longer hover line ("Description · Country · Nubart GUIDE + SYNC"): keep it clear of the link icon */
+.customers-page .portfolio-item .portfolio-info:has(.details-link) {
+  padding-right: 52px;
+}
