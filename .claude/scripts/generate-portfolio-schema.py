@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Regenerate the CollectionPage + ItemList JSON-LD and the project count on portfolio/index.html.
 
-Run from the repository root after adding, removing or editing a customer card:
+Run from the repository root after adding, removing or editing a customer card on any customers page:
 
-    python3 .claude/scripts/generate-portfolio-schema.py            # default: portfolio/index.html
-    python3 .claude/scripts/generate-portfolio-schema.py some/other/page.html
+    python3 .claude/scripts/generate-portfolio-schema.py                     # all customers pages listed in PAGES
+    python3 .claude/scripts/generate-portfolio-schema.py de/kunden/index.html  # just one of them
 
 What it reads from each card (<div class="... portfolio-item ...">):
   - the <h4> text, split into name and place at the last " - " (or else the last ", ")
@@ -23,8 +23,18 @@ import re
 import sys
 from urllib.parse import urljoin
 
-PAGE = sys.argv[1] if len(sys.argv) > 1 else "portfolio/index.html"
-BASE = "https://www.nubart.eu/portfolio/"
+# page -> (page URL, inLanguage, schema description template, word for "and")
+PAGES = {
+    "portfolio/index.html": ("https://www.nubart.eu/portfolio/", "en", "Self-guided audio tour with {p}.", "and"),
+    "de/kunden/index.html": ("https://www.nubart.eu/de/kunden/", "de", "Selbstgeführte Audiotour mit {p}.", "und"),
+    "es/clientes-proyectos.html": ("https://www.nubart.eu/es/clientes-proyectos.html", "es", "Visita autoguiada con {p}.", "y"),
+    "fr/nubart-clients-projets.html": ("https://www.nubart.eu/fr/nubart-clients-projets.html", "fr", "Visite audio libre avec {p}.", "et"),
+    "it/nubart-progetti-clienti.html": ("https://www.nubart.eu/it/nubart-progetti-clienti.html", "it", "Visita audio autoguidata con {p}.", "e"),
+    "ja/audio-guides/customers/index.html": ("https://www.nubart.eu/ja/audio-guides/customers/", "ja", "{p}によるセルフガイド音声ツアー。", "と"),
+    "nl/klanten-projecten.html": ("https://www.nubart.eu/nl/klanten-projecten.html", "nl", "Audiotour op eigen gelegenheid met {p}.", "en"),
+    "pl/klienci/index.html": ("https://www.nubart.eu/pl/klienci/", "pl", "Samodzielne zwiedzanie z {p}.", "i"),
+    "bg/klienti.html": ("https://www.nubart.eu/bg/klienti.html", "bg", "Самостоятелна аудио обиколка с {p}.", "и"),
+}
 GUIDE_ID = "https://www.nubart.eu/audio-guides/#service"  # Nubart GUIDE Service @id on /audio-guides/
 
 ISO = {"uk": "GB", "usa": "US", "newzealand": "NZ", "australia": "AU", "andorra": "AD", "austria": "AT",
@@ -62,11 +72,15 @@ def split_place(h4):
     return name.strip(), loc.strip() or None, reg.strip() or None
 
 
-def and_list(items):
-    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+def and_list(items, word):
+    if len(items) == 1:
+        return items[0]
+    sep = "" if word == "と" else " "
+    return ", ".join(items[:-1]) + sep + word + sep + items[-1]
 
 
-def main():
+def main(PAGE):
+    BASE, LANG, TEMPLATE, AND = PAGES[PAGE]
     s = open(PAGE, encoding="utf-8").read()
     start = s.index("portfolio-container")
     cards = re.finditer(r'(<div class="[^"]*\bportfolio-item\b[^"]*"[^>]*>)(.*?<h4>(.*?)</h4>\s*<p>(.*?)</p>)',
@@ -97,10 +111,7 @@ def main():
         schema_type = ("LandmarksOrHistoricalBuildings" if types & LANDMARK
                        else "Museum" if "museum" in types else "TouristAttraction")
         prods = [PRODUCTS[p] for p in ("guide", "live", "sync", "game") if p in f]
-        if "guide" in f:
-            desc = "Self-guided audio tour with " + and_list(prods) + "."
-        else:
-            desc = "Guided tours with the " + and_list(prods) + (" tour guide system." if "live" in f else ".")
+        desc = TEMPLATE.format(p=and_list(prods, AND))
 
         address = {"@type": "PostalAddress"}
         if loc: address["addressLocality"] = loc
@@ -113,7 +124,7 @@ def main():
         items.append({"@type": "ListItem", "position": pos, "item": item})
 
     h1 = text(re.search(r"<h1[^>]*>(.*?)</h1>", s, re.S).group(1))
-    desc = attr(re.search(r'<meta name="description"[^>]*>', s).group(0), "content")
+    desc = attr(re.search(r'<meta\s[^>]*name="description"[^>]*>', s).group(0), "content")
     data = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -121,7 +132,7 @@ def main():
         "url": BASE,
         "name": h1,
         "description": desc,
-        "inLanguage": "en",
+        "inLanguage": LANG,
         "about": {"@id": GUIDE_ID},
         "mainEntity": {"@type": "ItemList", "numberOfItems": len(items), "itemListElement": items},
     }
@@ -149,4 +160,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    for page in (sys.argv[1:] or PAGES):
+        main(page)
