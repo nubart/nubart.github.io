@@ -345,6 +345,17 @@
 - PT-BR: (still pending)
 - JA: (still pending)
 
+### QR-code audio guides and phone loudspeakers: will visitors without headphones disturb others?
+- EN: audio-guides/qr-code-audio-guides-without-headphones.html (2026-11-14)
+- DE: (still pending)
+- ES: (still pending)
+- IT: (still pending)
+- FR: (still pending)
+- PL: (still pending)
+- NL: (still pending)
+- PT-BR: (still pending)
+- JA: (still pending)
+
 ### Best tips for using Nubart LIVE to guide groups on travel and field trips
 - EN: digital-tour-guide-app/tips-usage-field-trips.html
 - DE: de/personenfuehrungsanlage-app/hinweise-verwendung-gruppenreisen.html
