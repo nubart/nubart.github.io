@@ -474,6 +474,7 @@
 
 **Trial kit (unlinked):**
 - EN: ai-simultaneous-interpretation/nubart-translate-trial.html
+- EN (paid prepared-AI test, 30 min with AI prepared from the customer's material): ai-simultaneous-interpretation/nubart-translate-prepared-test.html (noindex, not in sitemap.xml)
 - DE (Austrian leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-oes.html
 - DE (German/Swiss leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-dach.html
 - DE (Südtirol): de/simultan-uebersetzung-ki/nubart-translate-testkit-suedtirol.html
