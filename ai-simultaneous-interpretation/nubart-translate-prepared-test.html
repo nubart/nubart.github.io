@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Your Nubart TRANSLATE Prepared Test | Nubart</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+
+    <!-- Shared printable stylesheet -->
+    <link href="../assets/css/printable-terms.css" rel="stylesheet">
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../assets/css/demos-trials.css" rel="stylesheet">
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+
+</head>
+
+<body>
+
+<main id="main">
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Print Instructions (A4 portrait)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../assets/img/logo.png" alt="Nubart" class="nubart-logo">
+        <h1>Your Nubart TRANSLATE Prepared Test</h1>
+        <p class="subtitle">30 minutes with the AI prepared for your event, with your logo and colors</p>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-box">
+        <strong>Thank you for ordering a prepared test</strong>
+        For this test, our team prepares the AI from your own material, the same way we prepare it for a
+        real event. This page explains how to get the most out of your 30 minutes.<br>
+        We assume that you have already done the free trial and know the basics: logging in as a speaker,
+        scanning the QR code and choosing a language. If not, the
+        <a href="https://www.nubart.eu/ai-simultaneous-interpretation/nubart-translate-instructions.html"
+           target="_blank" rel="noopener">full instructions</a> explain everything.
+    </div>
+
+    <!-- Login + QR -->
+    <div class="credentials-row">
+
+        <!-- Login box: speaker device -->
+        <div class="login-box">
+            <h2><i class="bi bi-mic me-2"></i>Speaker Login</h2>
+            <p class="login-intro">
+                <span class="role-label role-speaker">Speaker device</span>
+                Log in with the same account you used for the free trial.
+            </p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Once logged in, click <strong>Nubart TRANSLATE</strong>, select the language you
+                will speak, then tap <strong>Unmute</strong> to start.
+            </p>
+
+            <!-- Kept hidden so that demos-trials.js finds the same elements as on the trial page -->
+            <div style="display:none;">
+                <a id="invite-link" href="#"></a>
+                <p id="registered-email-wrap"><span id="registered-email"></span></p>
+            </div>
+        </div>
+
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>Listener QR Code</h2>
+            <p class="qr-intro">
+                <span class="role-label role-listener">Listener device</span>
+                Scan this to receive the live translation in your chosen language.
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                No QR link provided. Please contact your Nubart representative.
+            </div>
+            <p id="demo-url-display"></p>
+            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
+                <i class="bi bi-info-circle me-1"></i>
+                This is the same QR code you received for your free trial. It is permanent: if you
+                place an order, your listeners will use this exact code.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Step 1: Upload -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Upload Your Material</h3>
+        </div>
+        <div class="step-body">
+            <p>Log in and upload your material in the <strong>Assets</strong> section of your customer
+                area. Send what you would give a human interpreter to prepare for the session:</p>
+            <ul>
+                <li>Programme, slides, speaker biographies, product sheets or other texts about the content.</li>
+                <li>The names of the speakers.</li>
+                <li>The languages that will be <strong>spoken</strong> (not the languages your listeners
+                    will choose).</li>
+                <li>Your logo, if we don't have it yet. You can also send it by email.</li>
+            </ul>
+            <p>Give each file a descriptive name. Files must contain text: scanned documents, images,
+                audio and video cannot be read. You do not need to create a glossary. A short list is
+                only useful for names or terms that must always be translated, pronounced or kept in
+                one specific way.</p>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                We start the preparation once your payment and your material have arrived.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Wait -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Wait for Our Confirmation</h3>
+        </div>
+        <div class="step-body">
+            <p>Our team usually needs up to 24 hours on working days to prepare the AI. On weekends
+                and public holidays it can take longer.</p>
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                Please do not start testing before we confirm that everything is ready. Before that,
+                you would be testing the standard system and using up your test minutes.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Test -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Run Your First Test</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>Plan your 30 minutes.</strong> You can split them over several sessions and
+                several days. Keep about 10 minutes for a second test after we have worked on your
+                results (step 5). Minutes count while the microphone is unmuted, so mute it whenever
+                nobody is speaking. Unused minutes expire when you order an event.</p>
+
+            <p><strong>Test in a setting as close as possible to the real event:</strong> ideally the
+                real speaker, reading part of the real talk into the microphone that will be used
+                at the event.</p>
+
+            <p><strong>Ask two colleagues to check the result while the speaker talks:</strong></p>
+            <ul>
+                <li><strong>Colleague 1 checks the transcription.</strong> On a listener device, they
+                    select the <strong>same language as the speaker</strong> and turn the sound off.
+                    The screen now shows what the speech recognition wrote down. They note every word
+                    that does not match what the speaker said.</li>
+                <li><strong>Colleague 2 checks the translation and the voice.</strong> On another
+                    listener device, with headphones, they select the main translation language. They
+                    note terms that are translated wrongly and names that are pronounced badly, and
+                    write down how these names should sound.</li>
+            </ul>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                The listener device starts in the language of its browser. Select the language
+                manually with the button <i class="bi bi-translate"></i>.
+            </div>
+            <p>If taking notes is too much work, you can leave it to us: we will check the transcript
+                of your test session ourselves.</p>
+        </div>
+    </div>
+
+    <!-- Step 4: Send results -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">4</span>
+            <h3>Send Us Your Results</h3>
+        </div>
+        <div class="step-body">
+            <p>When you consider your first test finished, reply to the email in which you received
+                this page. Please send <strong>all your notes in one message</strong>: your prepared
+                test includes one round of revisions. For each problem, tell us:</p>
+            <ul>
+                <li>the word you expected, and what you read or heard instead;</li>
+                <li>roughly when it was said;</li>
+                <li>whether it was a problem of transcription, translation or pronunciation.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Step 5: Second test -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">5</span>
+            <h3>Test Again</h3>
+        </div>
+        <div class="step-body">
+            <p>We work on your list and let you know when the improvements are in place. Then use
+                your remaining minutes to test again, in the same way.</p>
+        </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="trial-tips-box">
+        <h3><i class="bi bi-lightbulb me-2"></i>Good to know</h3>
+
+        <div class="trial-tip">
+            <i class="bi bi-collection-play tip-icon"></i>
+            <div>
+                <strong>Testing with a recording? Send the sound by cable.</strong>
+                A recording played through loudspeakers loses much of its quality, and background
+                music confuses the speech recognition. A video played in another browser tab on the
+                speaker device may even be filtered out by the browser as echo. If you test with a
+                recording:
+                <ul>
+                    <li>Use a recording of one person speaking clearly, without music, and with
+                        content that matches the material you uploaded.</li>
+                    <li>Play it on a separate device and connect that device's audio output to the
+                        speaker device with a cable (for example a 3.5 mm TRRS cable).</li>
+                    <li>Check that the audio quality indicator is green. If it is not, the test shows
+                        a problem with the sound, not with the translation.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-ear tip-icon"></i>
+            <div>
+                <strong>Most problems start with the transcription.</strong> A name or term can go
+                wrong at three points: when the speech recognition hears it, when it is translated,
+                or when the synthetic voice reads it aloud. In our experience, most errors happen at
+                the first point: if the system writes down the wrong word, the translation never sees
+                the right one. That is why the transcription check in step 3 is so useful. Read more in
+                our article
+                <a href="https://www.nubart.eu/ai-simultaneous-interpretation/why-ai-interpretation-gets-names-wrong.html"
+                   target="_blank" rel="noopener">Why AI Interpretation Still Gets Names Wrong After Preparation</a>.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-check2-circle tip-icon"></i>
+            <div>
+                <strong>What preparation can and cannot do.</strong> Preparation makes correct names
+                and terms much more likely, but not certain. At the real event, the speaker's accent,
+                the sound conditions at the venue and spontaneous speech, such as audience questions,
+                can still cause new errors, as they can with human interpreters. Live AI interpretation
+                cannot be perfect.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Link to full instructions -->
+    <div class="full-instructions-box">
+        <i class="bi bi-file-earmark-text"></i>
+        <div>
+            <strong>Full operational instructions</strong><br>
+            <span style="font-size:0.88rem; color:#555;">For audio setup, microphone options,
+            the quality indicators and troubleshooting, see our complete instructions:</span><br>
+            <a href="https://www.nubart.eu/ai-simultaneous-interpretation/nubart-translate-instructions.html"
+               target="_blank" rel="noopener">
+                nubart.eu &rarr; Nubart TRANSLATE Instructions
+            </a>
+        </div>
+    </div>
+
+    <!-- Order section -->
+    <div class="order-section no-print">
+        <h3>Happy with the test? Place your order</h3>
+        <p>Log in with the same account and click <strong>Order</strong> in the top menu. We then
+            prepare Nubart TRANSLATE for your event. Please note that unused test minutes expire
+            when you place an order.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Questions? Reply to the email in which you received this page, or write to us at
+            <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+            &nbsp;|&nbsp;
+            <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+</main><!-- End #main -->
+
+<script src="../assets/js/demos-trials.js"></script>
+
+</body>
+</html>
