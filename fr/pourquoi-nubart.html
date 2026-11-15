@@ -14,7 +14,7 @@
             "url": "https://www.nubart.eu/fr/pourquoi-nubart.html",
             "description": "Une comparaison pratique des quatre grands formats d’audioguide pour musées — appareils matériels, applications natives, codes QR/PWA génériques et cartes QR non transférables — sur le coût, la logistique, l’accès hors ligne, les données visiteurs et le ROI.",
             "inLanguage": "fr",
-            "dateModified": "2026-06-04",
+            "dateModified": "2026-11-14",
             "provider": {
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization"
@@ -440,6 +440,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td class="table-danger">Nécessite généralement une connexion Internet ; la prise en charge hors ligne dépend du prestataire concerné.</td>
                         <td class="table-success">Mode hors ligne complet : les pistes audio, les images, la carte et le code de l’application sont préchargés via des service workers, de sorte que le guide fonctionne sans aucune connexion, y compris après la fermeture du navigateur et un nouveau scan du QR.</td>
                         <td class="table-success">Mode hors ligne complet : même implémentation que ci-dessus.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-wrap"><h5 class="mb-0">Contrôle du son</h5></th>
+                        <td class="table-success">Écouteur intégré ou prise casque intégrée gardent le son privé par conception ; aucun risque de haut-parleur.</td>
+                        <td class="table-success">Une application native peut diriger le son vers l'écouteur du téléphone ou refuser de jouer tant qu'un casque n'est pas connecté — mais seulement si le développeur l'a prévu.</td>
+                        <td class="table-danger">Diffuse par défaut via le haut-parleur du téléphone ; aucun moyen intégré d'exiger ou de vérifier le port d'un casque.</td>
+                        <td class="table-success">Diffuse via le haut-parleur comme toute application web, mais une vérification optionnelle du casque dans le navigateur peut confirmer qu'un casque est porté et basculer vers du texte et des images pour quiconque n'en porte pas — sans téléchargement. <a href="../audio-guides/qr-code-audio-guides-without-headphones.html" target="_blank">Comment fonctionne cette vérification</a></td>
+                        <td class="table-success">La même vérification optionnelle du casque que le QR générique Nubart.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-wrap"><h5 class="mb-0">Statistiques &amp; données d’usage</h5></th>

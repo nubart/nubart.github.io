@@ -14,7 +14,7 @@
             "url": "https://www.nubart.eu/es/por-que-nubart.html",
             "description": "Una comparación práctica de los cuatro principales formatos de audioguía para museos —dispositivos físicos, apps nativas, códigos QR/PWA genéricos y tarjetas QR intransferibles— en coste, logística, acceso sin conexión, datos de visitantes y ROI.",
             "inLanguage": "es",
-            "dateModified": "2026-06-04",
+            "dateModified": "2026-11-14",
             "provider": {
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization"
@@ -442,6 +442,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td class="table-danger">Normalmente requiere conexión a Internet; el soporte sin conexión depende del proveedor concreto.</td>
                         <td class="table-success">Soporte total sin conexión: las pistas de audio, las imágenes, el mapa y el código de la app se precargan mediante service workers, de modo que la guía funciona sin conexión alguna, incluso tras cerrar el navegador y volver a escanear el QR. <a href="blog/audioguia-streaming-versus-offline.html">Cómo funciona el modo sin conexión en la práctica</a></td>
                         <td class="table-success">Soporte total sin conexión: misma implementación que la anterior.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-wrap"><h5 class="mb-0">Control del sonido</h5></th>
+                        <td class="table-success">El auricular o la clavija para cascos integrados mantienen el sonido privado por diseño; sin riesgo de altavoz.</td>
+                        <td class="table-success">Una app nativa puede enviar el audio al auricular del teléfono o impedir la reproducción hasta que se conecten cascos, pero solo si el desarrollador lo ha implementado.</td>
+                        <td class="table-danger">Se reproduce por el altavoz del teléfono por defecto; no hay forma integrada de exigir o comprobar los cascos.</td>
+                        <td class="table-success">Se reproduce por el altavoz como cualquier app web, pero una comprobación opcional de cascos en el navegador puede verificar que el visitante los lleva puestos y mostrar texto e imágenes a quien no los lleve, sin necesidad de descarga. <a href="../audio-guides/qr-code-audio-guides-without-headphones.html" target="_blank">Cómo funciona la comprobación</a></td>
+                        <td class="table-success">La misma comprobación opcional de cascos que el QR genérico Nubart.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-wrap"><h5 class="mb-0">Estadísticas y datos de uso</h5></th>

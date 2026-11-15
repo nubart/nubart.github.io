@@ -16,7 +16,7 @@
             "url": "https://www.nubart.eu/pt-br/audioguia/comparar-solucoes-audioguia-digital.html",
             "description": "Uma comparação prática dos quatro principais formatos de audioguia para museus — dispositivos de hardware, apps nativos, códigos QR/PWA genéricos e cartões QR intransferíveis — em custo, logística, acesso offline, dados de visitantes e ROI.",
             "inLanguage": "pt-BR",
-            "dateModified": "2026-06-04",
+            "dateModified": "2026-11-14",
             "provider": {
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization"
@@ -392,6 +392,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <td class="table-danger">Normalmente exige conexão com a internet; o suporte offline depende do fornecedor específico.</td>
                     <td class="table-success">Suporte total offline: faixas de áudio, imagens, mapa e código do app são pré-carregados via service workers, de modo que o guia funciona sem nenhuma conexão, inclusive após fechar o navegador e reescanear o QR.</td>
                     <td class="table-success">Suporte total offline: mesma implementação descrita acima.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-wrap"><h5 class="mb-0">Controle de som</h5></th>
+                    <td class="table-success">Fone de ouvido embutido ou entrada para fones mantêm o som privado por design; sem risco de alto-falante.</td>
+                    <td class="table-success">Um app nativo pode direcionar o áudio para o fone de ouvido do telefone ou recusar a reprodução até que fones sejam conectados — mas somente se o desenvolvedor tiver implementado isso.</td>
+                    <td class="table-danger">Reproduz pelo alto-falante do telefone por padrão; sem forma integrada de exigir ou verificar fones de ouvido.</td>
+                    <td class="table-success">Reproduz pelo alto-falante como qualquer web app, mas uma verificação opcional de fones de ouvido no navegador pode confirmar que estão sendo usados e alternar para texto e imagens para quem não os usa — sem download. <a href="../../audio-guides/qr-code-audio-guides-without-headphones.html" target="_blank">Veja como funciona a verificação</a></td>
+                    <td class="table-success">A mesma verificação opcional de fones de ouvido do QR genérico Nubart.</td>
                 </tr>
                 <tr>
                     <th scope="row" class="text-wrap"><h5 class="mb-0">Estatísticas e dados de uso</h5></th>

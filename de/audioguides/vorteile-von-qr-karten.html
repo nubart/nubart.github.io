@@ -14,7 +14,7 @@
             "url": "https://www.nubart.eu/de/audioguides/vorteile-von-qr-karten.html",
             "description": "Ein praktischer Vergleich der vier wichtigsten Audioguide-Formate für Museen – Hardware-Geräte, native Apps, generische PWA-/QR-Codes und nicht übertragbare QR-Karten – hinsichtlich Kosten, Logistik, Offline-Zugang, Besucherdaten und ROI.",
             "inLanguage": "de",
-            "dateModified": "2026-06-04",
+            "dateModified": "2026-11-14",
             "provider": {
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization"
@@ -460,6 +460,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td class="table-danger">Erfordert in der Regel eine Internetverbindung; Offline-Unterstützung hängt vom jeweiligen Anbieter ab.</td>
                         <td class="table-success">Vollständig offline-fähig: Audiotracks, Bilder, Karte und App-Code werden über Service Worker vorgeladen, sodass der Guide ohne jede Verbindung funktioniert – auch nach Schließen des Browsers und erneutem Scannen des QR-Codes. <a href="streaming-oder-offline.html">Wie der Offline-Modus in der Praxis funktioniert</a></td>
                         <td class="table-success">Vollständig offline-fähig: gleiche Implementierung wie oben.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-nowrap"><h5 class="mb-0">Klangkontrolle</h5></th>
+                        <td class="table-success">Integrierter Hörer oder Kopfhöreranschluss hält den Ton standardmäßig privat; kein Lautsprecher-Risiko.</td>
+                        <td class="table-success">Eine native App kann den Ton über den Hörer des Telefons ausgeben oder die Wiedergabe verweigern, bis Kopfhörer angeschlossen sind – allerdings nur, wenn der Entwickler dies implementiert hat.</td>
+                        <td class="table-danger">Spielt standardmäßig über den Lautsprecher des Telefons ab; keine integrierte Möglichkeit, Kopfhörer zu verlangen oder zu prüfen.</td>
+                        <td class="table-success">Spielt wie jede Web-App über den Lautsprecher ab, aber ein optionaler Kopfhörer-Check im Browser kann prüfen, ob Kopfhörer getragen werden, und zeigt andernfalls Text und Bilder an – ohne Download. <a href="../../audio-guides/qr-code-audio-guides-without-headphones.html" target="_blank">Wie der Check funktioniert</a></td>
+                        <td class="table-success">Derselbe optionale Kopfhörer-Check wie beim Nubart Generischen QR-Code.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-nowrap"><h5 class="mb-0">Statistiken &amp;<br>Nutzungsdaten</h5></th>

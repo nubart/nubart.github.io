@@ -14,7 +14,7 @@
             "url": "https://www.nubart.eu/audio-guides/compare-digital-guide-solutions.html",
             "description": "A practical comparison of the four main museum audio guide formats — hardware devices, native apps, generic PWA/QR codes, and non-transferable QR cards — covering cost, logistics, offline access, visitor data and ROI.",
             "inLanguage": "en",
-            "dateModified": "2026-06-04",
+            "dateModified": "2026-11-14",
             "mainEntity": {
                 "@type": "ItemList",
                 "name": "Audio Guide Solution Comparison",
@@ -499,6 +499,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td class="table-danger">Typically requires an internet connection; offline support depends on the specific provider.</td>
                         <td class="table-success">Full offline supported: audio tracks, images, map and app code are preloaded via service workers so the guide works with zero connectivity, including after the browser is closed and the QR code rescanned. <a href="offline-mode-best-practices.html">How offline mode works in practice</a></td>
                         <td class="table-success">Full offline supported: same implementation as above.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-nowrap"><h5 class="mb-0">Sound Control</h5></th>
+                        <td class="table-success">Built-in earpiece or headphone jack keeps sound private by design; no loudspeaker risk.</td>
+                        <td class="table-success">A native app can route audio to the phone's earpiece or refuse to play until headphones are connected — but only if the developer has built this in.</td>
+                        <td class="table-danger">Plays through the phone's loudspeaker by default; no built-in way to require or verify headphones.</td>
+                        <td class="table-success">Plays through the loudspeaker like any web app, but an optional in-browser headphone check can verify headphones are on and fall back to text and pictures for anyone who isn't wearing them — no download required. <a href="qr-code-audio-guides-without-headphones.html">How the check works</a></td>
+                        <td class="table-success">Same optional headphone check as the Nubart Generic QR Code.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-nowrap"><h5 class="mb-0">Stats &amp; Usage Data</h5></th>

@@ -16,7 +16,7 @@
             "url": "https://www.nubart.eu/pl/audioprzewodnik/porownanie-systemow.html",
             "description": "Praktyczne porównanie czterech głównych formatów audioprzewodników dla muzeów — urządzeń sprzętowych, aplikacji natywnych, ogólnych kodów QR/PWA i nieprzekazywalnych kart QR — pod kątem kosztów, logistyki, dostępu offline, danych o odwiedzających i ROI.",
             "inLanguage": "pl",
-            "dateModified": "2026-06-04",
+            "dateModified": "2026-11-14",
             "provider": {
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization"
@@ -412,6 +412,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td class="table-danger">Zwykle wymaga połączenia z internetem; obsługa offline zależy od konkretnego dostawcy.</td>
                         <td class="table-success">Pełna obsługa offline: ścieżki audio, obrazy, mapa i kod aplikacji są wstępnie ładowane przez service workery, dzięki czemu przewodnik działa bez żadnego połączenia, także po zamknięciu przeglądarki i ponownym zeskanowaniu kodu QR.</td>
                         <td class="table-success">Pełna obsługa offline: ta sama implementacja co powyżej.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-wrap"><h5 class="mb-0">Kontrola dźwięku</h5></th>
+                        <td class="table-success">Wbudowana słuchawka douszna lub gniazdo słuchawkowe domyślnie zapewniają prywatność dźwięku; brak ryzyka głośnika.</td>
+                        <td class="table-success">Aplikacja natywna może kierować dźwięk do słuchawki telefonu lub odmówić odtwarzania, dopóki nie podłączono słuchawek — ale tylko jeśli deweloper to zaimplementował.</td>
+                        <td class="table-danger">Domyślnie odtwarza przez głośnik telefonu; brak wbudowanego sposobu na wymaganie lub sprawdzenie słuchawek.</td>
+                        <td class="table-success">Odtwarza przez głośnik jak każda aplikacja webowa, ale opcjonalna kontrola słuchawek w przeglądarce może sprawdzić, czy są założone, i przełączyć się na tekst i obrazy dla tych, którzy ich nie mają — bez pobierania aplikacji. <a href="../../audio-guides/qr-code-audio-guides-without-headphones.html" target="_blank">Jak działa ta kontrola</a></td>
+                        <td class="table-success">Ta sama opcjonalna kontrola słuchawek co w ogólnym kodzie QR Nubart.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-wrap"><h5 class="mb-0">Statystyki i dane użycia</h5></th>

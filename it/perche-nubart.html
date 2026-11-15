@@ -15,7 +15,7 @@
             "url": "https://www.nubart.eu/it/perche-nubart.html",
             "description": "Un confronto pratico dei quattro principali formati di audioguida per musei — dispositivi hardware, app native, codici QR/PWA generici e schede QR non trasferibili — su costi, logistica, accesso offline, dati sui visitatori e ROI.",
             "inLanguage": "it",
-            "dateModified": "2026-06-04",
+            "dateModified": "2026-11-14",
             "provider": {
                 "@type": "Organization",
                 "@id": "https://www.nubart.eu/#organization"
@@ -427,6 +427,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <td class="table-danger">Di norma richiede una connessione a Internet; il supporto offline dipende dal singolo fornitore.</td>
                         <td class="table-success">Supporto offline totale: tracce audio, immagini, mappa e codice dell'app vengono precaricati tramite service worker, così la guida funziona senza alcuna connessione, anche dopo aver chiuso il browser e riscansionato il QR.</td>
                         <td class="table-success">Supporto offline totale: stessa implementazione di cui sopra.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-nowrap"><h5 class="mb-0">Controllo del suono</h5></th>
+                        <td class="table-success">Auricolare o presa cuffie integrati mantengono il suono privato per progettazione; nessun rischio di altoparlante.</td>
+                        <td class="table-success">Un'app nativa può instradare l'audio verso l'auricolare del telefono o rifiutarsi di riprodurre finché non sono collegate le cuffie — ma solo se lo sviluppatore lo ha implementato.</td>
+                        <td class="table-danger">Riproduce tramite l'altoparlante del telefono per impostazione predefinita; nessun modo integrato per richiedere o verificare le cuffie.</td>
+                        <td class="table-success">Riproduce tramite l'altoparlante come qualsiasi web app, ma un controllo opzionale delle cuffie nel browser può verificare che siano indossate e mostrare testo e immagini a chi non le indossa — senza download. <a href="../audio-guides/qr-code-audio-guides-without-headphones.html" target="_blank">Come funziona il controllo</a></td>
+                        <td class="table-success">Lo stesso controllo opzionale delle cuffie del QR generico Nubart.</td>
                     </tr>
                     <tr>
                         <th scope="row" class="text-nowrap"><h5 class="mb-0">Statistiche e dati d’uso</h5></th>
