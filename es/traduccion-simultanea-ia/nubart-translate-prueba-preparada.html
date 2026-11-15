@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Tu prueba preparada de Nubart TRANSLATE | Nubart</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet">
+    <link href="../../assets/css/custom.css" rel="stylesheet">
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet">
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../../assets/css/demos-trials.css" rel="stylesheet">
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+
+</head>
+
+<body>
+
+<main id="main">
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Imprimir instrucciones (A4 vertical)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo">
+        <h1>Tu prueba preparada de Nubart TRANSLATE</h1>
+        <p class="subtitle">30 minutos con la IA preparada para tu evento, con tu logotipo y tus colores</p>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-box">
+        <strong>Gracias por solicitar una prueba preparada</strong>
+        Para esta prueba, nuestro equipo prepara la IA a partir de tu propio material, igual que la preparamos para un
+        evento real. Esta página explica cómo aprovechar al máximo tus 30 minutos.<br>
+        Damos por hecho que ya has hecho la prueba gratuita y conoces lo básico: iniciar sesión como ponente,
+        escanear el código QR y elegir un idioma. Si no es así, las
+        <a href="https://www.nubart.eu/es/traduccion-simultanea-ia/instrucciones-nubart-translate.html"
+           target="_blank" rel="noopener">instrucciones completas</a> lo explican todo.
+    </div>
+
+    <!-- Login + QR -->
+    <div class="credentials-row">
+
+        <!-- Login box: speaker device -->
+        <div class="login-box">
+            <h2><i class="bi bi-mic me-2"></i>Inicio de sesión para ponentes</h2>
+            <p class="login-intro">
+                <span class="role-label role-speaker">Dispositivo del ponente</span>
+                Inicia sesión con la misma cuenta que usaste para la prueba gratuita.
+            </p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Una vez dentro, pulsa en <strong>Nubart TRANSLATE</strong>, selecciona el idioma en el que
+                vas a hablar y, a continuación, pulsa en <strong>Activar micrófono</strong> para empezar.
+            </p>
+
+            <!-- Se mantiene oculto para que demos-trials.js encuentre los mismos elementos que en la página de prueba -->
+            <div style="display:none;">
+                <a id="invite-link" href="#"></a>
+                <p id="registered-email-wrap"><span id="registered-email"></span></p>
+            </div>
+        </div>
+
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>Código QR para oyentes</h2>
+            <p class="qr-intro">
+                <span class="role-label role-listener">Dispositivo del oyente</span>
+                Escanéalo para recibir la traducción en directo en el idioma que elijas.
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                No se ha proporcionado ningún enlace QR. Ponte en contacto con tu persona de contacto en Nubart.
+            </div>
+            <p id="demo-url-display"></p>
+            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
+                <i class="bi bi-info-circle me-1"></i>
+                Este es el mismo código QR que recibiste para tu prueba gratuita. Es permanente: si
+                haces un pedido, tus oyentes usarán exactamente este código.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Step 1: Upload -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Sube tu material</h3>
+        </div>
+        <div class="step-body">
+            <p>Inicia sesión y sube tu material en la sección <strong>Assets</strong> de tu área de
+                cliente. Envía lo que le darías a un intérprete humano para preparar la sesión:</p>
+            <ul>
+                <li>Programa, diapositivas, biografías de los ponentes, fichas de producto u otros textos sobre el contenido.</li>
+                <li>Los nombres de los ponentes.</li>
+                <li>Los idiomas que se <strong>hablarán</strong> (no los idiomas que elegirán tus
+                    oyentes).</li>
+                <li>Tu logotipo, si aún no lo tenemos. También puedes enviarlo por correo electrónico.</li>
+            </ul>
+            <p>Pon a cada archivo un nombre descriptivo. Los archivos deben contener texto: los documentos escaneados, las imágenes,
+                el audio y el vídeo no se pueden leer. Si es necesario, también puedes enviarnos una lista de términos que deban traducirse siempre de una forma concreta. </p>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                Empezamos la preparación cuando recibimos tu pago y tu material.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Wait -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Espera nuestra confirmación</h3>
+        </div>
+        <div class="step-body">
+            <p>Nuestro equipo suele necesitar hasta 24 horas laborables para preparar la IA. En fines de semana
+                y festivos puede tardar más.</p>
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                Por favor, no empieces a probar antes de que confirmemos que todo está listo. Antes de eso,
+                estarías probando el sistema estándar y gastando tus minutos de prueba.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Test -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Haz tu primera prueba</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>Planifica tus 30 minutos.</strong> Puedes repartirlos en varias sesiones y
+                varios días. Reserva unos 10 minutos para una segunda prueba, cuando hayamos trabajado con tus
+                resultados (paso 5). Los minutos cuentan mientras el micrófono está activado, así que ponlo en silencio siempre que
+                nadie esté hablando. Los minutos no utilizados caducan cuando haces el pedido de un evento.</p>
+
+            <p><strong>Prueba en un entorno lo más parecido posible al evento real:</strong> lo ideal es que
+                el ponente real lea una parte de la charla real en el micrófono que se utilizará
+                en el evento.</p>
+
+            <p><strong>Pide a dos compañeros que revisen el resultado mientras habla el ponente:</strong></p>
+            <ul>
+                <li><strong>El compañero 1 revisa la transcripción.</strong> En un dispositivo de oyente,
+                    selecciona el <strong>mismo idioma que el ponente</strong> y quita el sonido.
+                    La pantalla muestra ahora lo que ha escrito el reconocimiento de voz. Anota cada palabra
+                    que no coincida con lo que dijo el ponente.</li>
+                <li><strong>El compañero 2 revisa la traducción y la voz.</strong> En otro
+                    dispositivo de oyente, con auriculares, selecciona el idioma principal de traducción. Anota
+                    los términos mal traducidos y los nombres mal pronunciados, y
+                    escribe cómo deberían sonar esos nombres.</li>
+            </ul>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                El dispositivo del oyente arranca en el idioma de su navegador. Selecciona el idioma
+                manualmente con el botón <i class="bi bi-translate"></i>.
+            </div>
+            <p>Si tomar notas te supone demasiado trabajo, puedes dejárnoslo a nosotros: revisaremos nosotros mismos la transcripción
+                de tu sesión de prueba.</p>
+        </div>
+    </div>
+
+    <!-- Step 4: Send results -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">4</span>
+            <h3>Envíanos tus resultados</h3>
+        </div>
+        <div class="step-body">
+            <p>Cuando consideres terminada tu primera prueba, responde al correo en el que recibiste
+                esta página. Envía <strong>todas tus notas en un solo mensaje</strong>: tu prueba
+                preparada incluye una ronda de revisiones. Para cada problema, indícanos:</p>
+            <ul>
+                <li>la palabra que esperabas y lo que leíste u oíste en su lugar;</li>
+                <li>aproximadamente cuándo se dijo;</li>
+                <li>si fue un problema de transcripción, de traducción o de pronunciación.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Step 5: Second test -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">5</span>
+            <h3>Prueba de nuevo</h3>
+        </div>
+        <div class="step-body">
+            <p>Trabajamos con tu lista y te avisamos cuando las mejoras estén listas. Después usa
+                tus minutos restantes para volver a probar, de la misma manera.</p>
+        </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="trial-tips-box">
+        <h3><i class="bi bi-lightbulb me-2"></i>Conviene saber</h3>
+
+        <div class="trial-tip">
+            <i class="bi bi-collection-play tip-icon"></i>
+            <div>
+                <strong>¿Pruebas con una grabación? Envía el sonido por cable.</strong>
+                Una grabación reproducida por altavoces pierde mucha calidad, y la música
+                de fondo confunde el reconocimiento de voz. Un vídeo reproducido en otra pestaña del navegador del
+                dispositivo del ponente incluso puede ser filtrado por el navegador como eco. Si pruebas con una
+                grabación:
+                <ul>
+                    <li>Usa la grabación de una sola persona hablando con claridad, sin música y con
+                        un contenido que coincida con el material que subiste.</li>
+                    <li>Reprodúcela en un dispositivo aparte y envía su sonido al dispositivo del ponente por cable,
+                        idealmente mediante un adaptador de audio USB con entrada de línea. Un simple cable de audio entre dos
+                        tomas de auriculares no funciona. Mantén bajo el volumen del dispositivo que reproduce. Los detalles están en
+                        las instrucciones completas.</li>
+                    <li>Comprueba que el indicador de calidad de audio esté en verde. Si no lo está, la prueba muestra
+                        un problema con el sonido, no con la traducción.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-ear tip-icon"></i>
+            <div>
+                <strong>La mayoría de los problemas empiezan en la transcripción.</strong> Un nombre o un término puede
+                fallar en tres puntos: cuando el reconocimiento de voz lo oye, cuando se traduce
+                o cuando la voz sintética lo lee en voz alta. Según nuestra experiencia, la mayoría de los errores ocurren en
+                el primer punto: si el sistema escribe la palabra equivocada, la traducción nunca llega a ver
+                la correcta. Por eso la revisión de la transcripción del paso 3 es tan útil. Más información en
+                nuestro artículo
+                <a href="https://www.nubart.eu/es/traduccion-simultanea-ia/interpretacion-ia-errores-nombres.html"
+                   target="_blank" rel="noopener">¿Por qué la interpretación con IA sigue equivocándose con los nombres propios?</a>.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-check2-circle tip-icon"></i>
+            <div>
+                <strong>Lo que la preparación puede y no puede hacer.</strong> La preparación hace mucho más probable que los nombres
+                y términos sean correctos, pero no lo garantiza. En el evento real, el acento del ponente,
+                las condiciones de sonido del recinto y el habla espontánea, como las preguntas del público,
+                pueden provocar nuevos errores, igual que ocurre con los intérpretes humanos. La interpretación
+                en directo con IA no puede ser perfecta.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Link to full instructions -->
+    <div class="full-instructions-box">
+        <i class="bi bi-file-earmark-text"></i>
+        <div>
+            <strong>Instrucciones completas de uso</strong><br>
+            <span style="font-size:0.88rem; color:#555;">Para la configuración del audio, las opciones de micrófono,
+            los indicadores de calidad y la resolución de problemas, consulta nuestras instrucciones completas:</span><br>
+            <a href="https://www.nubart.eu/es/traduccion-simultanea-ia/instrucciones-nubart-translate.html"
+               target="_blank" rel="noopener">
+                nubart.eu &rarr; Instrucciones de Nubart TRANSLATE
+            </a>
+        </div>
+    </div>
+
+    <!-- Order section -->
+    <div class="order-section no-print">
+        <h3>¿Te ha convencido la prueba? Haz tu pedido</h3>
+        <p>Inicia sesión con la misma cuenta y pulsa en <strong>Pedido</strong> en el menú superior. Después
+            preparamos Nubart TRANSLATE para tu evento. Ten en cuenta que los minutos de prueba no utilizados caducan
+            al hacer el pedido.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>¿Tienes alguna pregunta? Responde al correo en el que recibiste esta página o escríbenos a
+            <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+            &nbsp;|&nbsp;
+            <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+</main><!-- End #main -->
+
+<script src="../../assets/js/demos-trials.js"></script>
+
+</body>
+</html>

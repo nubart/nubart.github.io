@@ -475,9 +475,11 @@
 **Trial kit (unlinked):**
 - EN: ai-simultaneous-interpretation/nubart-translate-trial.html
 - EN (paid prepared-AI test, 30 min with AI prepared from the customer's material): ai-simultaneous-interpretation/nubart-translate-prepared-test.html (noindex, not in sitemap.xml)
+- DE (paid prepared-AI test): de/simultan-uebersetzung-ki/nubart-translate-vorbereiteter-test.html (noindex, not in sitemap.xml; "speaker" = "Redner")
 - DE (Austrian leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-oes.html
 - DE (German/Swiss leads): de/simultan-uebersetzung-ki/nubart-translate-testkit-dach.html
 - DE (Südtirol): de/simultan-uebersetzung-ki/nubart-translate-testkit-suedtirol.html
+- ES (paid prepared-AI test): es/traduccion-simultanea-ia/nubart-translate-prueba-preparada.html (noindex, not in sitemap.xml)
 - ES: es/traduccion-simultanea-ia/nubart-translate-prueba-gratis.html
 - IT (Italy leads, contracted via Digital Tangible SL): it/traduzione-simultanea-ia/nubart-translate-prova-gratuita.html
 - IT (Italian-speaking Switzerland leads, contracted via Nubart GmbH): it/traduzione-simultanea-ia/nubart-translate-prova-gratuita-ch-it.html

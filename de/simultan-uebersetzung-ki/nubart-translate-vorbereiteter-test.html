@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Ihr vorbereiteter Nubart TRANSLATE Test | Nubart</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet">
+    <link href="../../assets/css/custom.css" rel="stylesheet">
+
+    <!-- Shared printable stylesheet -->
+    <link href="../../assets/css/printable-terms.css" rel="stylesheet">
+
+    <!-- Shared demos/trials stylesheet -->
+    <link href="../../assets/css/demos-trials.css" rel="stylesheet">
+
+    <!-- QR Code generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+
+</head>
+
+<body>
+
+<main id="main">
+<div class="demo-wrap">
+
+    <button onclick="window.print()" class="btn btn-primary mb-3 no-print">
+        🖨️ Anleitung drucken (A4 Hochformat)
+    </button>
+
+    <!-- Header -->
+    <div class="page-header">
+        <img src="../../assets/img/logo.png" alt="Nubart" class="nubart-logo">
+        <h1>Ihr vorbereiteter Nubart TRANSLATE Test</h1>
+        <p class="subtitle">30 Minuten mit der für Ihre Veranstaltung vorbereiteten KI, mit Ihrem Logo und Ihren Farben</p>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-box">
+        <strong>Vielen Dank für Ihre Bestellung des vorbereiteten Tests</strong>
+        Für diesen Test bereitet unser Team die KI anhand Ihres eigenen Materials vor, genau so, wie wir sie für eine
+        echte Veranstaltung vorbereiten. Diese Seite erklärt, wie Sie Ihre 30 Minuten optimal nutzen.<br>
+        Wir gehen davon aus, dass Sie den kostenlosen Test bereits durchgeführt haben und die Grundlagen kennen: Anmeldung als Redner,
+        Scannen des QR-Codes und Auswahl einer Sprache. Falls nicht, erklärt die
+        <a href="https://www.nubart.eu/de/simultan-uebersetzung-ki/anleitung-nubart-translate.html"
+           target="_blank" rel="noopener">vollständige Anleitung</a> alles.
+    </div>
+
+    <!-- Login + QR -->
+    <div class="credentials-row">
+
+        <!-- Login box: speaker device -->
+        <div class="login-box">
+            <h2><i class="bi bi-mic me-2"></i>Redner-Login</h2>
+            <p class="login-intro">
+                <span class="role-label role-speaker">Redner-Gerät</span>
+                Melden Sie sich mit demselben Konto an, das Sie für den kostenlosen Test verwendet haben.
+            </p>
+            <div class="login-link-block">
+                <a href="https://www.nub.art/customer/login" target="_blank" rel="noopener">
+                    www.nub.art/customer/login
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#888; margin-top:6px;">
+                Klicken Sie nach der Anmeldung auf <strong>Nubart TRANSLATE</strong>, wählen Sie die Sprache,
+                in der gesprochen wird, und tippen Sie zum Starten auf <strong>Stummschaltung aufheben</strong>.
+            </p>
+
+            <!-- Bleibt verborgen, damit demos-trials.js finds the same elements as on the trial page -->
+            <div style="display:none;">
+                <a id="invite-link" href="#"></a>
+                <p id="registered-email-wrap"><span id="registered-email"></span></p>
+            </div>
+        </div>
+
+        <!-- QR box: listener device -->
+        <div class="qr-box">
+            <h2><i class="bi bi-qr-code me-2"></i>QR-Code für Zuhörer</h2>
+            <p class="qr-intro">
+                <span class="role-label role-listener">Zuhörer-Gerät</span>
+                Scannen Sie diesen Code, um die Live-Übersetzung in der gewünschten Sprache zu empfangen.
+            </p>
+            <div id="qrcode"></div>
+            <div id="qr-missing" class="qr-missing" style="display:none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                Es wurde kein QR-Link übermittelt. Bitte wenden Sie sich an Ihre Nubart-Ansprechperson.
+            </div>
+            <p id="demo-url-display"></p>
+            <p style="font-size:0.78rem; color:#028a8c; margin-top:10px; font-style:italic;">
+                <i class="bi bi-info-circle me-1"></i>
+                Dies ist derselbe QR-Code, den Sie für Ihren kostenlosen Test erhalten haben. Er ist dauerhaft: Wenn Sie
+                bestellen, verwenden Ihre Zuhörer genau diesen Code.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Step 1: Upload -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Material hochladen</h3>
+        </div>
+        <div class="step-body">
+            <p>Melden Sie sich an und laden Sie Ihr Material im Bereich <strong>Assets</strong> Ihres Kundenbereichs
+                hoch. Senden Sie das, was Sie auch einem menschlichen Dolmetscher zur Vorbereitung auf die Veranstaltung geben würden:</p>
+            <ul>
+                <li>Programm, Folien, Redner-Biografien, Produktblätter oder andere Texte zum Inhalt.</li>
+                <li>Die Namen der Redner.</li>
+                <li>Die Sprachen, die <strong>gesprochen</strong> werden (nicht die Sprachen, die Ihre Zuhörer
+                    wählen).</li>
+                <li>Ihr Logo, falls wir es noch nicht haben. Sie können es auch per E-Mail senden.</li>
+            </ul>
+            <p>Geben Sie jeder Datei einen aussagekräftigen Namen. Die Dateien müssen Text enthalten: Gescannte Dokumente, Bilder,
+                Audio- und Videodateien können nicht gelesen werden. Bei Bedarf können Sie uns auch eine Liste mit Begriffen senden, die immer auf eine bestimmte Weise übersetzt werden sollen. </p>
+            <div class="callout">
+                <i class="bi bi-info-circle me-1"></i>
+                Wir beginnen mit der Vorbereitung, sobald Ihre Zahlung und Ihr Material bei uns eingegangen sind.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Wait -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Unsere Bestätigung abwarten</h3>
+        </div>
+        <div class="step-body">
+            <p>Unser Team benötigt für die Vorbereitung der KI an Werktagen in der Regel bis zu 24 Stunden. An Wochenenden
+                und Feiertagen kann es länger dauern.</p>
+            <div class="callout warning">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                Bitte beginnen Sie erst mit dem Testen, wenn wir bestätigt haben, dass alles bereit ist. Zuvor
+                würden Sie das Standardsystem testen und Ihre Testminuten verbrauchen.
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Test -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Ersten Test durchführen</h3>
+        </div>
+        <div class="step-body">
+            <p><strong>Planen Sie Ihre 30 Minuten.</strong> Sie können sie auf mehrere Sitzungen und
+                mehrere Tage verteilen. Heben Sie etwa 10 Minuten für einen zweiten Test auf, nachdem wir Ihre
+                Rückmeldungen umgesetzt haben (Schritt 5). Die Minuten zählen, solange das Mikrofon aktiv ist. Schalten Sie es daher stumm,
+                sobald niemand spricht. Nicht genutzte Minuten verfallen, wenn Sie eine Veranstaltung bestellen.</p>
+
+            <p><strong>Testen Sie unter möglichst realistischen Bedingungen:</strong> idealerweise mit dem
+                echten Redner, der einen Teil des echten Vortrags in das Mikrofon liest, das auch
+                bei der Veranstaltung verwendet wird.</p>
+
+            <p><strong>Bitten Sie zwei Kollegen, das Ergebnis zu prüfen, während der Redner spricht:</strong></p>
+            <ul>
+                <li><strong>Kollege 1 prüft die Transkription.</strong> Auf einem Zuhörer-Gerät wählt er
+                    <strong>dieselbe Sprache wie der Redner</strong> und schaltet den Ton aus.
+                    Der Bildschirm zeigt nun, was die Spracherkennung aufgeschrieben hat. Er notiert jedes Wort,
+                    das nicht mit dem übereinstimmt, was der Redner gesagt hat.</li>
+                <li><strong>Kollege 2 prüft die Übersetzung und die Stimme.</strong> Auf einem anderen
+                    Zuhörer-Gerät wählt er mit Kopfhörern die wichtigste Übersetzungssprache. Er
+                    notiert falsch übersetzte Begriffe und schlecht ausgesprochene Namen und
+                    schreibt auf, wie diese Namen klingen sollten.</li>
+            </ul>
+            <div class="callout tip">
+                <i class="bi bi-lightbulb me-1"></i>
+                Das Zuhörer-Gerät startet in der Sprache seines Browsers. Wählen Sie die Sprache
+                manuell mit der Schaltfläche <i class="bi bi-translate"></i> aus.
+            </div>
+            <p>Wenn Ihnen das Notieren zu aufwendig ist, können Sie es uns überlassen: Wir prüfen das Transkript
+                Ihrer Testsitzung selbst.</p>
+        </div>
+    </div>
+
+    <!-- Step 4: Send results -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">4</span>
+            <h3>Ergebnisse an uns senden</h3>
+        </div>
+        <div class="step-body">
+            <p>Wenn Sie Ihren ersten Test für abgeschlossen halten, antworten Sie auf die E-Mail, mit der Sie
+                diese Seite erhalten haben. Bitte senden Sie <strong>alle Ihre Notizen in einer Nachricht</strong>: Ihr vorbereiteter
+                Test beinhaltet eine Überarbeitungsrunde. Teilen Sie uns zu jedem Problem Folgendes mit:</p>
+            <ul>
+                <li>das Wort, das Sie erwartet haben, und was Sie stattdessen gelesen oder gehört haben;</li>
+                <li>ungefähr, wann es gesagt wurde;</li>
+                <li>ob es ein Problem der Transkription, der Übersetzung oder der Aussprache war.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Step 5: Second test -->
+    <div class="step-block">
+        <div class="step-header">
+            <span class="step-number">5</span>
+            <h3>Erneut testen</h3>
+        </div>
+        <div class="step-body">
+            <p>Wir arbeiten Ihre Liste ab und informieren Sie, sobald die Verbesserungen umgesetzt sind. Nutzen Sie dann
+                Ihre restlichen Minuten, um auf dieselbe Weise erneut zu testen.</p>
+        </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="trial-tips-box">
+        <h3><i class="bi bi-lightbulb me-2"></i>Gut zu wissen</h3>
+
+        <div class="trial-tip">
+            <i class="bi bi-collection-play tip-icon"></i>
+            <div>
+                <strong>Test mit einer Aufnahme? Übertragen Sie den Ton per Kabel.</strong>
+                Eine über Lautsprecher abgespielte Aufnahme verliert viel an Qualität, und Hintergrundmusik
+                verwirrt die Spracherkennung. Ein Video, das in einem anderen Browser-Tab auf dem
+                Redner-Gerät abgespielt wird, kann vom Browser sogar als Echo herausgefiltert werden. Wenn Sie mit einer
+                Aufnahme testen:
+                <ul>
+                    <li>Verwenden Sie die Aufnahme einer einzelnen, deutlich sprechenden Person, ohne Musik und mit
+                        Inhalten, die zu dem von Ihnen hochgeladenen Material passen.</li>
+                    <li>Spielen Sie sie auf einem separaten Gerät ab und leiten Sie den Ton per Kabel an das Redner-Gerät,
+                        idealerweise über einen USB-Audioadapter mit Line-Eingang. Ein einfaches Audiokabel zwischen zwei
+                        Kopfhörerbuchsen funktioniert nicht. Halten Sie die Lautstärke des abspielenden Geräts niedrig. Details finden Sie in
+                        der vollständigen Anleitung.</li>
+                    <li>Prüfen Sie, ob die Anzeige der Audioqualität grün ist. Falls nicht, zeigt der Test
+                        ein Problem mit dem Ton, nicht mit der Übersetzung.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-ear tip-icon"></i>
+            <div>
+                <strong>Die meisten Probleme beginnen bei der Transkription.</strong> Ein Name oder Begriff kann an
+                drei Stellen schiefgehen: wenn die Spracherkennung ihn hört, wenn er übersetzt wird
+                oder wenn die synthetische Stimme ihn ausspricht. Unserer Erfahrung nach passieren die meisten Fehler an
+                der ersten Stelle: Schreibt das System das falsche Wort auf, bekommt die Übersetzung nie
+                das richtige zu sehen. Deshalb ist die Transkriptionsprüfung in Schritt 3 so hilfreich. Mehr dazu in
+                unserem Artikel
+                <a href="https://www.nubart.eu/de/simultan-uebersetzung-ki/ki-dolmetschen-namen-falsch.html"
+                   target="_blank" rel="noopener">Warum KI-Dolmetschsysteme Namen auch nach der Vorbereitung noch falsch wiedergeben</a>.
+            </div>
+        </div>
+
+        <div class="trial-tip">
+            <i class="bi bi-check2-circle tip-icon"></i>
+            <div>
+                <strong>Was Vorbereitung leisten kann und was nicht.</strong> Die Vorbereitung macht korrekte Namen
+                und Begriffe deutlich wahrscheinlicher, aber nicht sicher. Bei der echten Veranstaltung können der Akzent des Redners,
+                die Tonbedingungen im Veranstaltungsort und spontanes Sprechen, etwa Publikumsfragen,
+                weiterhin neue Fehler verursachen, so wie auch bei menschlichen Dolmetschern. Live-KI-Dolmetschen
+                kann nicht perfekt sein.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Link to full instructions -->
+    <div class="full-instructions-box">
+        <i class="bi bi-file-earmark-text"></i>
+        <div>
+            <strong>Vollständige Bedienungsanleitung</strong><br>
+            <span style="font-size:0.88rem; color:#555;">Hinweise zu Audio-Setup, Mikrofonoptionen,
+            Qualitätsanzeigen und Fehlerbehebung finden Sie in unserer vollständigen Anleitung:</span><br>
+            <a href="https://www.nubart.eu/de/simultan-uebersetzung-ki/anleitung-nubart-translate.html"
+               target="_blank" rel="noopener">
+                nubart.eu &rarr; Nubart TRANSLATE Anleitung
+            </a>
+        </div>
+    </div>
+
+    <!-- Order section -->
+    <div class="order-section no-print">
+        <h3>Zufrieden mit dem Test? Jetzt bestellen</h3>
+        <p>Melden Sie sich mit demselben Konto an und klicken Sie im oberen Menü auf <strong>Bestellen</strong>. Anschließend
+            bereiten wir Nubart TRANSLATE für Ihre Veranstaltung vor. Bitte beachten Sie, dass nicht genutzte Testminuten
+            mit der Bestellung verfallen.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="instructions-footer">
+        <p>Fragen? Antworten Sie auf die E-Mail, mit der Sie diese Seite erhalten haben, oder schreiben Sie uns an
+            <a href="mailto:info@nubart.eu">info@nubart.eu</a>
+            &nbsp;|&nbsp;
+            <a href="https://www.nubart.eu">www.nubart.eu</a>
+        </p>
+    </div>
+
+</div><!-- /.demo-wrap -->
+</main><!-- End #main -->
+
+<script src="../../assets/js/demos-trials.js"></script>
+
+</body>
+</html>
