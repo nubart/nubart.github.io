@@ -347,8 +347,8 @@
 
 ### QR-code audio guides and phone loudspeakers: will visitors without headphones disturb others?
 - EN: audio-guides/qr-code-audio-guides-without-headphones.html (2026-11-14)
-- DE: (still pending)
-- ES: (still pending)
+- DE: de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html (2026-11-16)
+- ES: es/audioguias/audioguia-codigo-qr-sin-auriculares.html (2026-11-16)
 - IT: (still pending)
 - FR: (still pending)
 - PL: (still pending)

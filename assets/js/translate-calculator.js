@@ -36,10 +36,69 @@ function calcGoToStep(n) {
     if (target) target.classList.remove('d-none');
 }
 
+// ---- Whole-number validation (days, rooms, cards) ----
+// We bill one base fee per event day and per stream: half days / half rooms don't exist.
+// Returns an integer, or null (and shows an inline error) if the field isn't a whole number.
+function calcWholeNumberError(el, show) {
+    let fb = document.getElementById(el.id + '-whole-error');
+    if (!fb) {
+        fb = document.createElement('div');
+        fb.id = el.id + '-whole-error';
+        fb.className = 'invalid-feedback';
+        el.insertAdjacentElement('afterend', fb);
+    }
+    if (show) {
+        const i18n = Object.assign({}, CALC_I18N_DEFAULT, window.CALC_I18N || {});
+        fb.textContent = i18n.wholeNumberError;
+        el.classList.add('is-invalid');
+        el.setAttribute('aria-describedby', fb.id);
+    } else {
+        fb.textContent = '';
+        el.removeAttribute('aria-describedby');
+    }
+}
+
+function calcReadWhole(el) {
+    const raw = String(el.value).trim();
+    // badInput: browser couldn't parse what was typed (e.g. "1,5" in some locales)
+    if (el.validity && el.validity.badInput) { calcWholeNumberError(el, true); return null; }
+    if (raw === '') { calcWholeNumberError(el, false); return NaN; }   // empty: handled by caller
+    if (!/^\d+$/.test(raw)) { calcWholeNumberError(el, true); return null; }
+    calcWholeNumberError(el, false);
+    return parseInt(raw, 10);
+}
+
+function calcAttachWholeNumberGuard(id, onChange) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.setAttribute('step', '1');
+    el.setAttribute('inputmode', 'numeric');
+    // Block decimal separators (and exponent/sign characters) while typing
+    el.addEventListener('keydown', function (e) {
+        if (['.', ',', 'e', 'E', '+', '-'].includes(e.key)) {
+            e.preventDefault();
+            calcWholeNumberError(el, true);
+        }
+    });
+    // Catches paste, drag-and-drop and mobile keyboards
+    el.addEventListener('input', function () {
+        const v = calcReadWhole(el);
+        if (v === null) { el.classList.add('is-invalid'); }
+        else { el.classList.remove('is-invalid'); }
+        if (onChange) onChange();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    calcAttachWholeNumberGuard('calc-days');
+    calcAttachWholeNumberGuard('calc-room-count');
+    calcAttachWholeNumberGuard('calc-lwac-qty');
+});
+
 function calcStep1Next() {
-    const days = parseFloat(document.getElementById('calc-days').value);
-    const hours = parseFloat(document.getElementById('calc-hours').value);
     const dEl = document.getElementById('calc-days');
+    const days = calcReadWhole(dEl);
+    const hours = parseFloat(document.getElementById('calc-hours').value);
     const hEl = document.getElementById('calc-hours');
     let ok = true;
     if (!days || days < 1) { dEl.classList.add('is-invalid'); ok = false; } else { dEl.classList.remove('is-invalid'); }
@@ -61,7 +120,7 @@ function calcSetMultiroom(isMulti) {
 }
 
 function calcRenderRoomTable() {
-    const n = parseInt(document.getElementById('calc-room-count').value);
+    const n = calcReadWhole(document.getElementById('calc-room-count'));
     const wrap = document.getElementById('calc-room-table-wrap');
     if (!n || n < 2) { wrap.innerHTML = ''; return; }
     const i18n = Object.assign({}, CALC_I18N_DEFAULT, window.CALC_I18N || {});
@@ -76,7 +135,7 @@ function calcRenderRoomTable() {
 
 function calcStep2Next() {
     if (calcState.multiroom) {
-        const n = parseInt(document.getElementById('calc-room-count').value);
+        const n = calcReadWhole(document.getElementById('calc-room-count'));
         if (!n || n < 2) {
             document.getElementById('calc-room-count').classList.add('is-invalid');
             return;
@@ -127,7 +186,7 @@ function calcStep4Next() {
 
     if (choice === 'pyo') {
         const el = document.getElementById('calc-lwac-qty');
-        const qty = parseInt(el.value);
+        const qty = calcReadWhole(el);
         if (!qty || qty < CALC_PYO_MIN) {
             el.classList.add('is-invalid');
             return;
@@ -229,6 +288,7 @@ const CALC_I18N_DEFAULT = {
     oneRoom:      '1 room',
     listSep:      ', ',
     tableRoom:    'Room',
+    wholeNumberError: 'Only whole numbers can be entered (no decimals).',
     tableHours:   'Hours of active use per day',
     lwacNo:       'No (standard QR code)',
     lwacPyo:      (qty) => `Print-Your-Own non-transferable cards (${qty} codes)`,
