@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <!-- Structured Data: Article -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "@id": "https://www.nubart.eu/es/audioguias/audioguia-codigo-qr-sin-auriculares.html#article",
+            "headline": "Audioguías con códigos QR y altavoces del móvil: ¿molestan a los demás los visitantes que no llevan auriculares?",
+            "alternativeHeadline": "¿Molestan a los demás los visitantes que utilizan una audioguía sin auriculares?",
+            "description": "Las audioguías en forma de aplicación web reproducen el sonido por el altavoz del móvil. Por qué ocurre, qué puede y qué no puede hacer una app nativa y cómo una breve prueba permite comprobar si los visitantes llevan auriculares.",
+            "proficiencyLevel": "Intermediate",
+            "inLanguage": "es",
+            "image": [
+                "https://www.nubart.eu/assets/img/blog/cover-noise-heaphones-museum.webp"
+            ],
+            "author": {
+                "@type": "Person",
+                "name": "Rosa Sala",
+                "jobTitle": "CEO de Nubart",
+                "url": "https://www.nubart.eu/about.html"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
+            },
+            "datePublished": "2026-11-16",
+            "dateModified": "2026-11-16",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/es/audioguias/audioguia-codigo-qr-sin-auriculares.html"
+            },
+            "isPartOf": {
+                "@id": "https://www.nubart.eu/es/blog/#blog"
+            },
+            "translationOfWork": {
+                "@id": "https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html#article"
+            },
+            "keywords": [
+                "audioguía código QR auriculares",
+                "ruido altavoz audioguía",
+                "quejas por ruido audioguía museo",
+                "tono de Huggins prueba de auriculares",
+                "comprobación de auriculares app web",
+                "app nativa vs app web audioguía",
+                "prueba de audición de tono dicótico"
+],
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Aplicación web progresiva",
+                    "sameAs": "https://es.wikipedia.org/wiki/Aplicaci%C3%B3n_web_progresiva"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Audioguía de museo"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Tono de Huggins"
+                }
+            ],
+            "articleSection": [
+                "La respuesta corta",
+                "La preocupación es real: el ruido de los móviles molesta a la mayoría de la gente",
+                "Por qué una audioguía en forma de aplicación web se reproduce por el altavoz",
+                "Lo que puede hacer una app nativa y cuánto cuesta",
+                "Por qué repartir auriculares tampoco es una buena solución",
+                "Lo que recomendamos para la mayoría de los recintos",
+                "Las opciones de un vistazo",
+                "Para requisitos más exigentes: una comprobación de auriculares basada en el tono de Huggins",
+                "Conclusión: empieza por lo sencillo y añade la comprobación solo donde sea necesario"
+]
+        }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Las audioguías con código QR se reproducen por el altavoz del móvil?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sí, a menos que el visitante conecte unos auriculares. Los navegadores móviles no permiten que una página web utilice de forma fiable el auricular silencioso que los teléfonos usan para las llamadas."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Una app nativa resolvería el problema del altavoz?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En gran medida, sí. Una app nativa puede usar el auricular o exigir que se conecten unos auriculares. El inconveniente es la descarga: en nuestro estudio de 175 apps oficiales de audioguías de museos, solo el 2,47 % de los visitantes las descargó."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Puede una aplicación web comprobar si los visitantes llevan auriculares puestos?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No preguntándole al móvil: una página web no puede detectar de forma fiable qué dispositivo de audio está conectado. Pero sí puede comprobarlo mediante el sonido. La comprobación de auriculares de Nubart reproduce una melodía que solo se oye con auriculares y activa la audioguía para los visitantes que la reconocen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Qué es el tono de Huggins?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Es un tono débil que crea el cerebro cuando ambos oídos reciben el mismo ruido con una pequeña diferencia en una banda de frecuencia muy estrecha. Se oye con auriculares y es débil o inexistente a través de altavoces."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Qué pasa con los visitantes que no llevan auriculares?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En la configuración estándar, bajan el volumen y se acercan el móvil al oído. Con la comprobación de auriculares, reciben la audioguía en forma de texto e imágenes."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Nubart proporciona los auriculares?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Los auriculares desechables generan residuos electrónicos y no hay un modelo único que sirva para todos los móviles."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: Breadcrumbs -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/es/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Nubart GUIDE",
+                    "item": "https://www.nubart.eu/es/audioguias.html"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Audioguías con códigos QR y altavoces del móvil: ¿molestarán a los demás los visitantes que no lleven auriculares?",
+                    "item": "https://www.nubart.eu/es/audioguias/audioguia-codigo-qr-sin-auriculares.html"
+                }
+            ]
+        }
+    </script>
+
+    <!-- End Structured data -->
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+    </script>
+
+    <!-- 2. Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css"/>
+
+    <!-- 3. Cookie consent config (MOVED HERE) -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+
+
+    <title>Audioguías con códigos QR: ¿molestan a los demás los visitantes sin auriculares? | Nubart GUIDE</title>
+    <meta name="description" content="Las audioguías en forma de aplicación web reproducen el sonido por el altavoz del móvil. Por qué ocurre, qué puede y qué no puede hacer una app nativa y cómo una breve prueba permite comprobar si los visitantes llevan auriculares."/>
+    <meta name="author" content="Rosa Sala"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Audioguías con códigos QR: ¿molestan a los demás los visitantes sin auriculares? | Nubart GUIDE"/>
+    <meta name="twitter:description" content="Las audioguías en forma de aplicación web reproducen el sonido por el altavoz del móvil. Por qué ocurre, qué puede y qué no puede hacer una app nativa y cómo una breve prueba permite comprobar si los visitantes llevan auriculares."/>
+    <meta name="twitter:site" content="@NubartEN"/>
+    <meta name="twitter:creator" content="@NubartEN"/>
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-noise-heaphones-museum.webp"/>
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/es/audioguias/audioguia-codigo-qr-sin-auriculares.html"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html" hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html" hreflang="en-gb"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html" hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html" hreflang="en-us"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html" hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html" hreflang="de-ch"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/audioguias/audioguia-codigo-qr-sin-auriculares.html" hreflang="es"/>
+
+    <!-- OpenGraph for LinkedIn -->
+    <meta property="og:title" content="Audioguías con códigos QR: ¿molestan a los demás los visitantes sin auriculares? | Nubart GUIDE"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-noise-heaphones-museum.webp"/>
+    <meta property="og:author" content="Rosa Sala"/>
+    <meta property="og:description" content="Las audioguías en forma de aplicación web reproducen el sonido por el altavoz del móvil. Por qué ocurre, qué puede y qué no puede hacer una app nativa y cómo una breve prueba permite comprobar si los visitantes llevan auriculares."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://www.nubart.eu/es/audioguias/audioguia-codigo-qr-sin-auriculares.html"/>
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png"/>
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <!-- ./Icons -->
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet"/>
+
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet"/>
+
+
+    <link href="../../assets/css/custom.css" rel="stylesheet"/>
+    <link href="../../assets/css/zoho-lightbox.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="../" class="logo"> <img src="../../assets/img/logo.png" alt="logo de Nubart" class="img-fluid">
+            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li>
+                                <a href="../audioguias.html">
+                                    <i class="bi bi-headphones product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART GUIDE</span>
+                                        <span class="product-description">Audioguías multimedia vía código QR (PWA)</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a href="../sistema-guiado-grupos/">
+                                    <i class="bi bi-headset product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART LIVE</span>
+                                        <span class="product-description">Sistema de guiado de grupos con traducción por IA</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../tours-barcos-buses.html">
+                                    <i class="bi bi-bus-front-fill product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">Nubart MOTION</span>
+                                        <span class="product-description">Audioguía automatizada para vehículos turísticos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../traduccion-simultanea-ia/">
+                                    <i class="bi bi-translate product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART TRANSLATE</span>
+                                        <span class="product-description">Traducción simultánea por IA para eventos y conferencias</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="../gamificacion-juego-audioguia.html">
+                                    <i class="bi bi-controller product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART GAME</span>
+                                        <span class="product-description">Juego de realidad aumentada y preguntas para audioguía</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a href="https://www.nubart.eu/es/sync/">
+                                    <i class="bi bi-person-video3 product-icon"></i>
+                                    <div class="product-text">
+                                        <span class="product-name">NUBART SYNC</span>
+                                        <span class="product-description">Sonido multilingüe perfectamente sincronizado vía QR para pantallas de vídeo</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Contacto</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../quienes-somos.html">Quiénes somos</a></li>
+                            <li><a href="../contacto.html">Contacto</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="d-flex">
+                        <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                           href="https://www.nub.art/customer/login">
+                            <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                    </li>
+
+                    <li class="dropdown d-none d-md-block">
+                        <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../../">English</a></li>
+                            <li><a href="../../de/">Deutsch</a></li>
+                            <li><a href="../../fr/">Français</a></li>
+                            <li><a href="../../pt-br/">Português</a></li>
+                            <li><a href="../../nl/">Nederlands</a></li>
+                            <li><a href="../../it/">Italiano</a></li>
+                            <li><a href="../../pl/">Polski</a></li>
+                            <li><a href="../../bg/">български</a></li>
+                            <li><a href="../../he/">עִברִית</a></li>
+                            <li><a href="../../ja/">日本語</a></li>
+                        </ul>
+                    </li>
+                    <!-- Mobile-only secondary menu items -->
+                    <li class="mobile-secondary-menu-divider d-md-none">
+                        <hr>
+                    </li>
+                    <li class="mobile-secondary-header d-md-none" style="color: #028a8c;"><i
+                            class="bi bi-headphones product-icon"></i>&nbsp<span>NUBART GUIDE</span></li>
+                    <li class="dropdown d-md-none">
+                        <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../produccion-contenido.html">Nuestro proceso de producción</a></li>
+                            <li><a href="../materiales.html">Qué necesitamos para producir tu audioguía</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="d-md-none">
+                        <a href="#" onclick="ZohoLightbox.open(); return false;"
+                           class="scrollto">Solicita una muestra</a>
+                    </li>
+
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </div>
+</header><!-- End Header -->
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <i class="bi bi-headphones"></i>&nbsp;&nbsp;
+                    <b>NUBART GUIDE:</b>
+                </div>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Casos de uso</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../audioguias.html">Museos</a></li>
+                            <li><a href="../audioguia-zoos.html">Zoos</a></li>
+
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;"><a href="../audioguia-multimedia.html">Elementos multimedia</a></li>
+                    <li style="margin-right: 22px;" class="dropdown">
+                        <a href="#"><span>Producción de contenidos</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../produccion-contenido.html">Nuestro proceso de producción</a></li>
+                            <li><a href="../materiales.html">Qué necesitamos para producir tu audioguía</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a class="nav-link scrollto" href="../clientes-proyectos.html">Clientes</a></li>
+                    <li style="margin-right: 30px;"><a class="getstarted scrollto"
+                                                       href="#" onclick="ZohoLightbox.open(); return false;">Solicita
+                        un presupuesto</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="d-md-none" style="height: 60px;"></div>
+<section class="breadcrumbs d-none d-md-block">
+    <div class="container">
+        <ol>
+            <li><a href="../">Inicio</a></li>
+            <li><a href="../audioguias.html">Nubart GUIDE</a></li>
+            <li>Audioguías con códigos QR y altavoces del móvil: ¿molestarán a los demás los visitantes que no lleven auriculares?</li>
+        </ol>
+    </div>
+</section><!-- End Breadcrumbs -->
+<main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div style="align-items:flex-start;">
+
+                    <img src="../../assets/img/team/rosa.webp" class="img-thumbnail rounded-circle d-none d-lg-block" style="margin-right:30px;" width="45%" alt="Rosa Sala - Nubart" />
+
+                    </div>
+                    <div>
+                        <h4 class="fs-5">Rosa Sala</h4>
+                        <p class="nubart-blog-author">CEO de Nubart</p>
+                    </div>
+                </div>
+
+                <div class="col-md-8 nubart-blog">
+
+                    <h1>Audioguías con códigos QR y altavoces del móvil: ¿molestan a los demás los visitantes que no llevan auriculares?</h1>
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/cover-noise-heaphones-museum.webp" class="figure-img img-fluid rounded" alt="Visitante que utiliza una audioguía con código QR en su móvil, sin auriculares, en una sala de museo" />
+                    </figure>
+
+                    <div class="summary-block">
+                        <p class="mb-2"><strong>La respuesta breve</strong></p>
+                        <ul class="mb-0">
+                            <li>Una audioguía con código QR (una aplicación web que funciona en el navegador del móvil) suele reproducir el sonido a través del altavoz del teléfono. Una página web no puede dirigirlo de forma fiable al auricular, que es el pequeño altavoz utilizado para las llamadas y que emite el sonido a un volumen más bajo.</li>
+                            <li>Una aplicación nativa (de las que se descargan desde App Store o Google Play) puede controlar mejor la salida de audio: puede utilizar el auricular o permitir la reproducción solo cuando hay unos auriculares conectados. Pero los visitantes tienen que descargarla e instalarla primero, y muy pocos lo hacen.</li>
+                            <li>En la mayoría de los espacios, bastan unas medidas sencillas: los visitantes pueden utilizar sus propios auriculares o bajar el volumen y acercarse el móvil al oído.</li>
+                            <li>Para los espacios y vehículos que necesitan un mayor control, una breve prueba basada en un efecto auditivo llamado «tono de Huggins» permite comprobar directamente en el navegador si el visitante lleva auriculares. Quienes no superen la prueba podrán acceder al mismo contenido en forma de texto e imágenes.</li>
+                        </ul>
+                    </div>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <nav aria-label="Índice">
+                        <h2>Contenido</h2>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="#concern-is-real">La preocupación es real: el ruido de los móviles molesta a la mayoría de la gente</a></li>
+                            <li><a href="#why-loudspeaker">Por qué las audioguías en forma de aplicación web se reproducen por el altavoz</a></li>
+                            <li><a href="#native-app">Qué puede hacer una app nativa y cuánto cuesta</a></li>
+                            <li><a href="#handing-out-headphones">Por qué repartir auriculares tampoco es una buena solución</a></li>
+                            <li><a href="#recommend">Qué recomendamos a la mayoría de los espacios</a></li>
+                            <li><a href="#options-glance">Las opciones de un vistazo</a></li>
+                            <li><a href="#huggins-pitch-check">Para requisitos más exigentes: una comprobación de auriculares basada en el tono de Huggins</a></li>
+                            <li><a href="#conclusion">Conclusión: empezar por lo sencillo y añadir la comprobación solo donde sea necesario</a></li>
+                            <li><a href="#faq">Preguntas frecuentes</a></li>
+                        </ul>
+                    </nav>
+                    <br />
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <h2 id="concern-is-real">La preocupación es real: el ruido de los móviles molesta a la mayoría de la gente</h2>
+                    <p>Cuando presentamos una audioguía con código QR a un museo o a una empresa de excursiones en barco, siempre surge la misma objeción: «La gente pondrá el volumen a tope y molestará a los demás».</p>
+                    <p>El temor está justificado. En una encuesta de Transport for London realizada a 1.000 pasajeros en junio de 2025, el 70 % afirmó que le molestan la música a todo volumen y las llamadas telefónicas sin auriculares <a href="#src1">[1]</a>. En otra encuesta de YouGov, publicada en abril de 2025, el 79 % de los británicos afirmó que le molesta que otras personas reproduzcan música o vídeos a todo volumen en el móvil, y el 41 % dijo que le molesta mucho <a href="#src2">[2]</a>.</p>
+                    <p>Una sala de museo tranquila o un barco turístico en el que los pasajeros permanecen sentados muy juntos durante una hora son precisamente los lugares donde este problema puede cobrar importancia. Por eso, algunos establecimientos prefieren las aplicaciones nativas o los dispositivos de alquiler, que permiten controlar mejor la salida de audio. Pero estas alternativas también tienen sus inconvenientes y sus costes.</p>
+
+                    <h2 id="why-loudspeaker">Por qué las audioguías en forma de aplicación web se reproducen por el altavoz</h2>
+                    <p>La mayoría de los smartphones tienen dos salidas de audio.</p>
+
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/earpieces-smartphone.webp" class="figure-img img-fluid rounded" alt="Esquema de un smartphone con el auricular en la parte superior y el altavoz en el borde inferior" />
+                    </figure>
+
+                    <ul>
+                        <li>El auricular está en la parte superior de la pantalla. Está pensado para las llamadas telefónicas, cuando nos acercamos el móvil a la oreja. Emite el sonido a un volumen bajo y de forma discreta.</li>
+                        <li>El altavoz suele estar en el borde inferior del teléfono. Se utiliza para reproducir música, vídeos y llamadas en modo manos libres.</li>
+                    </ul>
+                    <p>En muchos smartphones recientes, el auricular también funciona como un segundo altavoz para reproducir música y vídeos. En ese caso, emite el sonido al volumen habitual de un altavoz, no al volumen reducido de una llamada telefónica.</p>
+                    <p>Una app nativa puede indicar al sistema operativo que reproduzca el sonido en modo de llamada, a través del auricular. Las aplicaciones de mensajería hacen precisamente eso cuando nos acercamos el móvil a la oreja para escuchar un mensaje de voz. Una página web, en cambio, no puede controlar esta función de forma fiable:</p>
+                    <ul>
+                        <li>En Android, ni Chrome ni Firefox admiten la función del navegador que permite seleccionar una salida de audio (<code>setSinkId</code>) <a href="#src3">[3]</a>.</li>
+                        <li>En el iPhone, Safari puede redirigir el sonido al auricular como efecto secundario del uso del micrófono. Sin embargo, los informes de errores registrados a lo largo de varias versiones de iOS muestran que este comportamiento no es fiable <a href="#src4">[4]</a>. Además, una página web tendría que pedir permiso para acceder al micrófono de cada visitante, solo para reproducir una grabación.</li>
+                    </ul>
+                    <p>Por eso, una audioguía que funciona en el navegador reproduce el sonido a través del altavoz, salvo que el visitante conecte unos auriculares. Se trata de una limitación técnica de los navegadores móviles, no de una decisión de diseño de los proveedores de audioguías.</p>
+                    <h2 id="native-app">Qué puede hacer una app nativa y cuánto cuesta</h2>
+                    <p>Una app nativa ofrece más control sobre el audio que una página web. Puede reproducir el sonido a través del auricular, como durante una llamada telefónica. También puede impedir que se inicie la reproducción hasta que se conecten unos auriculares. Desde el punto de vista del control del ruido, es una solución eficaz.</p>
+                    <p>El inconveniente es que reduce el alcance. Antes de poder escuchar nada, los visitantes tienen que encontrar la app, descargarla e instalarla. En nuestro <a href="../blog/tasa-adopcion-app-audioguia-para-museos.html">análisis de 175 apps oficiales de audioguías de museos</a>, solo el 2,47 % de los visitantes había descargado la aplicación. En una excursión en barco de una hora, donde los visitantes quizá tengan que recurrir a los datos móviles y la hora de salida está fijada, la barrera es todavía mayor.</p>
+                    <p>Por tanto, la elección no está entre una app web ruidosa y una app nativa silenciosa. Se trata de elegir entre una audioguía que prácticamente todos los visitantes pueden abrir al instante y otra que pocos llegarán a utilizar. La pregunta adecuada es si una app web puede ofrecer un control similar sobre el uso de auriculares. La respuesta es sí, como veremos a continuación.</p>
+
+                    <h2 id="handing-out-headphones">Por qué repartir auriculares tampoco es una buena solución</h2>
+                    <p><strong>Auriculares desechables.</strong> Antes los ofrecíamos nosotros mismos, pero dejamos de hacerlo. Los auriculares son pequeños dispositivos electrónicos, y los aparatos de este tipo se encuentran entre los residuos electrónicos que menos se reciclan. Según el Global E-waste Monitor 2024 de Naciones Unidas, en 2022 se generaron en todo el mundo 62 millones de toneladas de residuos electrónicos. Solo el 22,3 % se recogió y recicló de forma documentada. En el caso de los pequeños dispositivos electrónicos, la tasa de reciclaje documentada fue de apenas el 12 % <a href="#src5">[5]</a>.</p>
+                    <p>También hay una dimensión medioambiental que los museos no deberían pasar por alto. En un momento en que el cambio climático y la reducción de residuos ocupan un lugar cada vez más importante en el debate público, los visitantes prestan cada vez más atención al impacto medioambiental de los lugares que visitan. Una cesta llena de auriculares de plástico en la entrada, con cada par utilizado durante apenas una hora antes de acabar en la basura, transmite un mensaje poco afortunado. Supone una contradicción visible con la imagen de una experiencia de visita moderna y con una actitud responsable hacia los recursos. Algunos visitantes lo notarán y puede que incluso lo mencionen en sus reseñas.</p>
+                    <p><strong>Conectores.</strong> Los auriculares con cable deben ser compatibles con el móvil de cada visitante. Según el dispositivo, pueden necesitar una toma de 3,5 mm, Lightning (en los iPhone más antiguos) o USB-C. Desde el 28 de diciembre de 2024, los nuevos móviles comercializados en la UE deben disponer de un puerto USB-C <a href="#src6">[6]</a>. Sin embargo, los dispositivos que los visitantes ya tienen seguirán utilizando distintos tipos de conexión durante años. Un establecimiento tendría que mantener en stock tres tipos diferentes de auriculares.</p>
+                    <p><strong>Auriculares Bluetooth de préstamo.</strong> Cada visitante tendría que emparejarlos con su propio móvil, y probablemente el personal tendría que ayudar a menudo. Al terminar la visita, el visitante tendría que eliminar los auriculares de la lista de dispositivos emparejados de su móvil («olvidar dispositivo»). Después, el establecimiento tendría que limpiarlos y cargarlos antes de que pudiera utilizarlos el siguiente visitante. Así se recupera precisamente el trabajo de gestión e higiene que una audioguía en el propio móvil del visitante pretende evitar.</p>
+
+                    <h2 id="recommend">Qué recomendamos a la mayoría de los espacios</h2>
+                    <p>En la mayoría de los lugares bastan unas cuantas medidas sencillas.</p>
+                    <ul>
+                        <li><strong>Recomiende a los visitantes que traigan sus propios auriculares.</strong> Indíquelo al hacer la reserva, en las entradas y en su página web. Muchos visitantes ya llevan auriculares consigo.</li>
+                        <li><strong>Explique la alternativa.</strong> Quienes no lleven auriculares pueden bajar el volumen y acercarse el móvil al oído, como si estuvieran hablando por teléfono (véase la imagen). Si el sonido sale por el altavoz situado en el borde inferior del móvil, es ese extremo el que deben acercarse al oído.</li>
+                        <li><strong>Utilice carteles y cuente con el personal.</strong> Un cartel bien visible junto al código QR deja claras las instrucciones. El personal de sala puede dirigirse amablemente a quienes no las sigan, igual que haría ante cualquier otro comportamiento que moleste a los demás.</li>
+                    </ul>
+
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/listening-audioguide-with-loudspeakers.webp" class="figure-img img-fluid rounded" alt="Visitante en un museo que sostiene el móvil junto al oído para escuchar la audioguía" />
+                    </figure>
+                    <p>Hay dos factores que ayudan en la práctica. Las pistas de la audioguía son cortas y se reproducen de una en una, no de forma continua como la música. Además, según nuestra experiencia, suele bastar con dar instrucciones claras y recordar brevemente a los visitantes cómo utilizarla. Muchos de nuestros clientes trabajan así, sin proporcionar auriculares.</p>
+                    <p>Hay algo que no funciona: bajar el volumen de las grabaciones. Lo probamos con uno de nuestros clientes. Los visitantes simplemente subían el volumen de sus móviles, mientras que quienes tenían dispositivos con altavoces menos potentes apenas podían oír la audioguía, incluso al volumen máximo. La razón es que los móviles presentan diferencias considerables en cuanto al volumen que pueden alcanzar sus altavoces, algo de lo que pocas personas son conscientes. En 2023, GSMArena midió los altavoces de más de 110 móviles. La diferencia entre el modelo más potente y el menos potente fue de unas 10 unidades en su escala de volumen <a href="#src9">[9]</a>. Esto demuestra hasta qué punto puede variar el volumen de reproducción de un dispositivo a otro. Una grabación que se oye perfectamente en un móvil con un altavoz potente puede resultar demasiado baja en otro menos potente. El archivo de audio no puede controlar el volumen: eso depende del propio visitante.</p>
+
+                    <h2 id="options-glance">Las opciones de un vistazo</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <caption class="visually-hidden">Comparación de las opciones de auriculares para audioguías con código QR</caption>
+                            <thead>
+                            <tr>
+                                <th scope="col">Opción</th>
+                                <th scope="col">Ventajas</th>
+                                <th scope="col">Inconvenientes</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Auriculares propios de los visitantes</th>
+                                <td>No requiere equipos adicionales ni tareas de gestión</td>
+                                <td>No todos los visitantes llevan auriculares</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Móvil junto al oído, con el volumen bajo</th>
+                                <td>No requiere ningún equipo adicional</td>
+                                <td>Menos cómodo; depende de la colaboración del visitante</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Auriculares desechables</th>
+                                <td>Disponibles en el momento</td>
+                                <td>Generan residuos, tienen un coste recurrente y requieren distintos tipos de conectores</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Auriculares Bluetooth de préstamo</th>
+                                <td>Reutilizables</td>
+                                <td>Hay que emparejarlos, limpiarlos y cargarlos; requieren tiempo del personal</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">App nativa de audioguía</th>
+                                <td>Puede utilizar el auricular o exigir que haya auriculares conectados</td>
+                                <td>Pocos visitantes llegan a descargarla</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Audioguía con código QR y comprobación de auriculares</th>
+                                <td>No requiere descarga; comprueba si se utilizan auriculares; ofrece una versión en texto para los demás</td>
+                                <td>Incluye una breve prueba al principio</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2 id="huggins-pitch-check">Para requisitos más exigentes: una comprobación de auriculares basada en el tono de Huggins</h2>
+                    <p>Algunos operadores necesitan algo más que confiar en el sentido común de los visitantes. Un caso típico es el de un barco turístico o un autobús en el que los pasajeros no pueden alejarse de un vecino que escucha el sonido a todo volumen. Para estos casos, Nubart ha desarrollado una comprobación de auriculares que funciona directamente en el navegador, sin necesidad de instalar ninguna app.</p>
+
+                    <h3>La ciencia: un sonido que solo se oye con auriculares</h3>
+                    <p>La prueba utiliza el tono de Huggins, un efecto auditivo descrito por primera vez por Cramer y Huggins en 1958 <a href="#src7">[7]</a>. Funciona de forma parecida a una película en 3D.</p>
+                    <p>En un cine 3D, cada ojo recibe una imagen ligeramente diferente. Ninguna de las dos imágenes contiene por sí sola información sobre la profundidad. El cerebro compara ambas imágenes y genera la sensación de profundidad. Si te quitas las gafas, los dos ojos ven ambas imágenes al mismo tiempo y el efecto 3D desaparece.</p>
+                    <p>El tono de Huggins produce un efecto similar con el sonido.</p>
+                    <ul>
+                        <li><strong>Dos sonidos casi idénticos.</strong> Cada oído recibe el mismo ruido, parecido al sonido de una cascada. En uno de los oídos se modifica una pequeña parte de ese ruido. La diferencia es demasiado sutil para percibirla por separado.</li>
+                        <li><strong>El cerebro se encarga del resto.</strong> Cada oído, por separado, solo percibe el ruido. Pero el cerebro compara las señales que recibe de ambos oídos, detecta la pequeña diferencia y la transforma en un tono suave. Ese tono no está presente ni en la señal del oído izquierdo ni en la del derecho: solo existe en el cerebro de quien escucha. Al desplazar gradualmente la parte modificada, el tono se convierte en una breve melodía.</li>
+                        <li><strong>Los auriculares son como las gafas 3D.</strong> Proporcionan a cada oído una señal de sonido independiente. A través de un altavoz, las dos señales se mezclan en el aire y ambos oídos reciben prácticamente la misma mezcla. El cerebro pierde así la referencia necesaria para compararlas, por lo que la melodía se debilita o desaparece.</li>
+                    </ul>
+                    <p>La idea de utilizar este efecto para comprobar si alguien lleva auriculares surgió de unos investigadores del University College London. Realizaron pruebas auditivas en línea y necesitaban saber si las personas que participaban desde casa llevaban realmente auriculares. Para averiguarlo, hicieron un experimento: un grupo escuchó con auriculares y otro a través de altavoces. Aproximadamente el 80 % de quienes utilizaron auriculares oyó el tono oculto en todos los intentos. En el grupo que escuchó a través de altavoces, solo lo consiguió alrededor del 20 %.</p>
+                    <p>¿A qué se debe ese 20 %? Los participantes utilizaban los altavoces de sus propios ordenadores. Según la explicación de los investigadores, una persona sentada cerca de los altavoces izquierdo y derecho, justo entre ambos, todavía puede percibir las dos señales parcialmente separadas [8]. Un teléfono móvil no permite lo mismo: sus altavoces están separados por apenas unos centímetros, por lo que las dos señales se mezclan por completo. En nuestras propias pruebas, la melodía se escuchaba claramente en un ordenador portátil, pero no se oía a través del altavoz de un móvil.</p>
+                    <p>La prueba también detecta un truco bastante habitual: escuchar con un solo auricular. Al recibir sonido por un solo oído, el cerebro no tiene una segunda señal con la que comparar, por lo que no se percibe ningún tono.</p>
+                    <h3>Cómo funciona la prueba para el visitante</h3>
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/headphone-check-workflow.webp" class="figure-img img-fluid rounded" alt="Diagrama del proceso de comprobación de auriculares en cinco pantallas del móvil: solicitud de auriculares, versión de texto, prueba de audio, tres rondas y pantalla para repetir la prueba tras una respuesta incorrecta" />
+                        <figcaption>La prueba de auriculares, pantalla por pantalla.</figcaption>
+                    </figure>
+                    <p>Después de seleccionar el idioma, se pide al visitante que se ponga los auriculares. Aparecen dos botones, cada uno de los cuales conduce a un recorrido diferente:</p>
+                    <ul>
+                        <li><strong>«No tengo auriculares»:</strong> el visitante accede directamente a la versión de texto, sin realizar ninguna prueba. Para cada pista se muestran una imagen y el texto correspondiente. En <a href="../tours-barcos-buses.html">una audioguía Nubart MOTION con pistas que se activan automáticamente</a>, el texto y la imagen aparecen cuando el vehículo llega al correspondiente punto de interés. No se reproduce ningún sonido.</li>
+                        <li><strong>«OK»:</strong> el visitante realiza una breve prueba de audio y, a continuación, accede a la audioguía.</li>
+                    </ul>
+                    <ol>
+                        <li>El visitante escucha tres sonidos y pulsa el botón correspondiente al que contiene una melodía tenue oculta tras el ruido. Cada botón se ilumina mientras se reproduce el sonido correspondiente.</li>
+                        <li>El ejercicio se repite tres veces. Las tres respuestas deben ser correctas.</li>
+                        <li>Si se equivoca, el visitante dispone de un segundo intento, esta vez con los sonidos en un orden diferente. Adivinar sirve de poco: incluso teniendo dos oportunidades, solo unos 7 de cada 100 visitantes superarían la prueba por pura suerte.</li>
+                        <li>Quienes superen la prueba acceden a la audioguía. Quienes fallen también en el segundo intento reciben la versión de texto, para que nadie se quede sin acceso al contenido.</li>
+                    </ol>
+
+                    <h3>Nadie se queda sin contenido: texto e imágenes en lugar de audio</h3>
+                    <p>Esta es la parte que más nos importa. Los visitantes que no tengan auriculares o no superen la prueba no quedan excluidos. Pueden seguir el mismo recorrido en la pantalla del móvil: se muestran fotografías, galerías de imágenes y el texto completo de cada pista en el momento adecuado. En un barco o un autobús, cada texto aparece cuando el vehículo llega al correspondiente punto de interés.</p>
+                    <p>Todo el mundo tiene acceso al contenido. Solo la reproducción de audio depende del uso de auriculares.</p>
+                    <p>La prueba basada en el tono de Huggins no es perfecta. Algunos visitantes con pérdida auditiva en un oído no la superarán. Lo mismo puede ocurrirles a quienes utilicen un solo auricular o tengan el móvil configurado en modo mono. Además, un entorno muy ruidoso puede dificultar la prueba <a href="#src8">[8]</a>. Para todas estas personas está disponible la versión de texto. Esta comprobación no es una prueba de audición y nunca determina si alguien puede seguir la visita. Se trata de <a href="../blog/audioguia-nubart-accesible.html">la misma versión que pueden utilizar los visitantes sordos o con dificultades auditivas</a>.</p>
+                    <p>La comprobación no termina cuando empieza la visita. Si los auriculares se desconectan durante el recorrido, la audioguía lo detecta y detiene la reproducción. Esto funciona tanto con auriculares con cable como con auriculares Bluetooth.</p>
+                    <p>De este modo, una audioguía en forma de aplicación web ofrece el tipo de control que antes solo era posible con una aplicación nativa, pero sin necesidad de descargar nada.</p>
+                    <h2 id="conclusion">Conclusión: empezar por lo sencillo y añadir la comprobación solo donde sea necesario</h2>
+                    <p>Nuestro consejo es que confíe primero en sus visitantes y empiece sin activar la comprobación. Pídales que traigan sus propios auriculares y explique a quienes no los tengan cómo escuchar sin molestar a los demás: bajando el volumen y acercándose el móvil al oído. En la mayoría de los espacios, esto es suficiente.</p>
+                    <p>Si más adelante recibe quejas o reseñas negativas por el ruido, no tendrá que cambiar nada más. Activar la comprobación de auriculares en una audioguía Nubart ya existente solo requiere unos pocos clics por nuestra parte. Sus códigos QR, sus contenidos y la forma habitual en que los visitantes utilizan la audioguía seguirán siendo los mismos.</p>
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+
+                    <h2 id="sources">Fuentes</h2>
+                    <ol style="font-size: 0.9em; color: #6c757d;">
+                        <li id="src1">Transport for London, comunicado de prensa, 26 de agosto de 2025: <em>New TfL campaign encourages customers to use headphones on public transport</em>.</li>
+                        <li id="src2">YouGov, 28 de abril de 2025: <em>Littering, loudspeakers and Lime bikes: what public nuisances bother Britons most?</em></li>
+                        <li id="src3">Can I use: compatibilidad de los navegadores con <code>HTMLMediaElement.setSinkId</code>, comprobada en noviembre de 2026.</li>
+                        <li id="src4">WebKit Bugzilla, error 218012, abierto en 2020, última modificación en mayo de 2026.</li>
+                        <li id="src5">UIT y UNITAR, <em>Global E-waste Monitor 2024</em>, comunicado de prensa del 20 de marzo de 2024.</li>
+                        <li id="src6">Comisión Europea, 28 de diciembre de 2024: normativa de la UE sobre cargadores universales (<em>EU common charger rules</em>).</li>
+                        <li id="src7">Cramer, E. M., y Huggins, W. H. (1958). Creation of pitch through binaural interaction. <em>Journal of the Acoustical Society of America</em>, 30(5), 412-417.</li>
+                        <li id="src8">Milne, A. E., Bianco, R., Poole, K. C., et al. (2021). An online headphone screening test based on dichotic pitch. <em>Behavior Research Methods</em>, 53, 1551-1562.</li>
+                        <li id="src9">GSMArena, 30 de diciembre de 2023: <em>Here are the loudest phones we tested in 2023</em>.</li>
+                    </ol>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <p>Esperamos que este artículo te haya resultado útil. <a href="https://share.hsforms.com/1wMbMX3CMSdCDzitqTHmXiA1g33q" rel="nofollow">Suscríbete a nuestro boletín</a> para no perderte ninguna de nuestras publicaciones.</p>
+
+                    <div class="container" data-aos="fade-up">
+                        <h2 class="mb-4">Quizá también te interese</h2>
+                        <div class="row">
+
+                            <!-- Article 1 -->
+                            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card">
+                                    <img src="../../assets/img/blog/adoption-rate-audio-guide-apps.webp" class="card-img-top" alt="Nubart: la tasa de adopción de las apps de audioguías de los museos" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="../blog/tasa-adopcion-app-audioguia-para-museos.html">La tasa de adopción de las apps de audioguías de los museos</a>
+                                        </h5>
+                                        <p class="card-text">Un análisis en profundidad de los datos reales muestra que menos del 3 % de los visitantes de los museos usan aplicaciones de audioguía, lo que plantea serias dudas sobre su eficacia.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Article 2 -->
+                            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="150">
+                                <div class="card">
+                                    <img src="../../assets/img/blog/cover-accessible-audioguides.webp" class="card-img-top" alt="Visitantes de un museo que escuchan una audioguía en el móvil con auriculares en una sala de pintura" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="../blog/audioguia-nubart-accesible.html">Las audioguías de Nubart son accesibles</a>
+                                        </h5>
+                                        <p class="card-text">La accesibilidad es una preocupación cada vez mayor en los museos. Con las audioguías de Nubart puedes cumplir todos los requisitos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlín<br>
+
+                            <strong>E-mail:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i
+                                    class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nub_art" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Enlaces útiles</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contacto.html">Contacto</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../aviso-legal.html" rel="nofollow">Aviso
+                            legal</a></li>
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="../condiciones-generales-servicio.html" rel="nofollow">Condiciones generales de
+                                servicio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../politica-privacidad.html" rel="nofollow">Política
+                            de privacidad</a>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Preferencias de
+                            cookies</a></li>
+
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="https://share.hsforms.com/1qnT5HOkyQnuyCe83QMqP7Q1g33q" rel="nofollow">Suscríbete a
+                                nuestro boletín de noticias</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. Todos los derechos reservados
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Critical JS Files -->
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+
+<!-- Non-Critical JS Files - Still deferred but loaded directly -->
+<script src="../../assets/vendor/aos/aos.js" defer></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../../assets/js/main-min.js" defer></script>
+
+<!-- Hubspot Analytics scripts with proper async loading -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async
+        src="//js.hs-scripts.com/2430134.js"></script>
+
+
+<script type="module" src="/js/cookieconsent-config.js"></script>
+<!-- Zoho Forms Lightbox -->
+<script src="../../assets/js/zoho-lightbox.js" defer></script>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        ZohoLightbox.init("https://forms.zohopublic.eu/rosasala/form/NubartGUIDEQuotedeliverysystemNewform/formperma/jenSf-2G-aVy2Py21XbzZ5gRmLK_WcmRGz4DgxHZR9U?zf_lang=es");
+    });
+</script>
+</body>
+</html>
+
