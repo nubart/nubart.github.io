@@ -42,9 +42,58 @@ function calcGoToStep(n) {
     if (panel) panel.classList.add('d-none');
 }
 
+// ---- Whole-number validation: counts such as cards, guides or videos can't be fractional ----
+function calcWholeError(el, show) {
+    let fb = document.getElementById(el.id + '-whole-error');
+    if (!fb) {
+        fb = document.createElement('div');
+        fb.id = el.id + '-whole-error';
+        fb.className = 'invalid-feedback';
+        el.insertAdjacentElement('afterend', fb);
+    }
+    if (show) {
+        fb.textContent = ((window.SYNC_CALC_I18N && window.SYNC_CALC_I18N.wholeNumberError) || 'Only whole numbers can be entered (no decimals).');
+        el.classList.add('is-invalid');
+        el.setAttribute('aria-describedby', fb.id);
+    } else {
+        fb.textContent = '';
+        el.removeAttribute('aria-describedby');
+    }
+}
+
+// Returns an integer, NaN if empty, or null if not a whole number (error shown).
+function calcReadWhole(el) {
+    const raw = String(el.value).trim();
+    if (el.validity && el.validity.badInput) { calcWholeError(el, true); return null; }
+    if (raw === '') { calcWholeError(el, false); return NaN; }
+    if (!/^\d+$/.test(raw)) { calcWholeError(el, true); return null; }
+    calcWholeError(el, false);
+    return parseInt(raw, 10);
+}
+
+function calcAttachWholeGuard(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.setAttribute('inputmode', 'numeric');
+    el.addEventListener('keydown', function (e) {
+        if (['.', ',', 'e', 'E', '+', '-'].includes(e.key)) {
+            e.preventDefault();
+            calcWholeError(el, true);
+        }
+    });
+    el.addEventListener('input', function () {
+        const v = calcReadWhole(el);
+        if (v !== null) el.classList.remove('is-invalid');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    ['calc-videos', 'calc-months'].forEach(calcAttachWholeGuard);
+});
+
 function calcStep1Next() {
     const input = document.getElementById('calc-videos');
-    const val = parseInt(input.value, 10);
+    const val = calcReadWhole(input);
     if (!val || val < 1) {
         input.classList.add('is-invalid');
         return;
@@ -72,7 +121,7 @@ function calcSetExhibitionType(type) {
 function calcCheckMinMonths() {
     const input = document.getElementById('calc-months');
     const warning = document.getElementById('calc-months-warning');
-    const val = parseInt(input.value, 10);
+    const val = calcReadWhole(input);
     warning.classList.toggle('d-none', !(val && val < PRICING.minMonths));
 }
 
@@ -94,7 +143,7 @@ function calcStep2Next() {
 
     if (calcState.exhibitionType === 'temporary') {
         const input = document.getElementById('calc-months');
-        const val = parseInt(input.value, 10);
+        const val = calcReadWhole(input);
         if (!val) {
             warning.classList.remove('d-none');
             return;

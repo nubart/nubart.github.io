@@ -40,26 +40,76 @@ function liveCalcSetPackage(pkg) {
     document.getElementById('live-calc-custom-hint').textContent = '';
 }
 
+// ---- Whole-number validation: counts such as cards, guides or videos can't be fractional ----
+function liveWholeError(el, show) {
+    let fb = document.getElementById(el.id + '-whole-error');
+    if (!fb) {
+        fb = document.createElement('div');
+        fb.id = el.id + '-whole-error';
+        fb.className = 'invalid-feedback';
+        el.insertAdjacentElement('afterend', fb);
+    }
+    if (show) {
+        fb.textContent = 'Można wpisać tylko liczby całkowite (bez ułamków).';
+        el.classList.add('is-invalid');
+        el.setAttribute('aria-describedby', fb.id);
+    } else {
+        fb.textContent = '';
+        el.removeAttribute('aria-describedby');
+    }
+}
+
+// Returns an integer, NaN if empty, or null if not a whole number (error shown).
+function liveReadWhole(el) {
+    const raw = String(el.value).trim();
+    if (el.validity && el.validity.badInput) { liveWholeError(el, true); return null; }
+    if (raw === '') { liveWholeError(el, false); return NaN; }
+    if (!/^\d+$/.test(raw)) { liveWholeError(el, true); return null; }
+    liveWholeError(el, false);
+    return parseInt(raw, 10);
+}
+
+function liveAttachWholeGuard(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.setAttribute('inputmode', 'numeric');
+    el.addEventListener('keydown', function (e) {
+        if (['.', ',', 'e', 'E', '+', '-'].includes(e.key)) {
+            e.preventDefault();
+            liveWholeError(el, true);
+        }
+    });
+    el.addEventListener('input', function () {
+        const v = liveReadWhole(el);
+        if (v !== null) el.classList.remove('is-invalid');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    ['live-calc-pyo-qty', 'live-calc-basic-qty', 'live-calc-custom-qty', 'live-calc-media-qty', 'live-calc-guides'].forEach(liveAttachWholeGuard);
+});
+
 function liveCalcStep1Next() {
     const pkg = liveCalcState.pkg;
     if (!pkg) return;
 
     if (pkg === 'pyo') {
         const el = document.getElementById('live-calc-pyo-qty');
-        const qty = parseInt(el.value);
+        const qty = liveReadWhole(el);
         if (!qty || qty < 50) { el.classList.add('is-invalid'); return; }
         el.classList.remove('is-invalid');
         liveCalcState.pkgQty = qty;
     } else if (pkg === 'basic') {
         const el = document.getElementById('live-calc-basic-qty');
-        const qty = parseInt(el.value);
+        const qty = liveReadWhole(el);
         if (!qty || qty < 1) { el.classList.add('is-invalid'); return; }
         el.classList.remove('is-invalid');
         liveCalcState.pkgQty = qty;
     } else if (pkg === 'custom') {
         const el = document.getElementById('live-calc-custom-qty');
-        const qty = parseInt(el.value);
+        const qty = liveReadWhole(el);
         const hint = document.getElementById('live-calc-custom-hint');
+        if (qty === null) { hint.textContent = ''; return; }
         if (!qty || qty < 3000) {
             hint.textContent = 'Minimalne zamówienie dla kart Custom wynosi 3\u00a0000.';
             hint.style.color = '#dc3545';
@@ -95,7 +145,7 @@ function liveCalcSetMedia(yes) {
 function liveCalcStep2Next() {
     if (liveCalcState.media) {
         const el = document.getElementById('live-calc-media-qty');
-        const qty = parseInt(el.value);
+        const qty = liveReadWhole(el);
         if (!qty || qty < 1) { el.classList.add('is-invalid'); return; }
         el.classList.remove('is-invalid');
         liveCalcState.mediaQty = qty;
@@ -119,7 +169,7 @@ function liveCalcStep3Next() {
     if (liveCalcState.translate) {
         const gEl = document.getElementById('live-calc-guides');
         const hEl = document.getElementById('live-calc-hours');
-        const g = parseInt(gEl.value);
+        const g = liveReadWhole(gEl);
         const h = parseFloat(hEl.value);
         let ok = true;
         if (!g || g < 1) { gEl.classList.add('is-invalid'); ok = false; } else { gEl.classList.remove('is-invalid'); }
