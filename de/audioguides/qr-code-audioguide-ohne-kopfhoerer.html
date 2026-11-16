@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Structured Data: Article -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "@id": "https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html#article",
+            "headline": "QR-Code-Audioguides und Smartphone-Lautsprecher: Stören Besucher ohne Kopfhörer andere Besucher?",
+            "alternativeHeadline": "Stören Audioguide-Besucher ohne Kopfhörer andere?",
+            "description": "Web-App-Audioguides geben den Ton über den Lautsprecher des Smartphones wieder. Warum das so ist, was eine native App dagegen tun kann und was nicht, und wie ein kurzer Hörtest prüfen kann, ob Besucher Kopfhörer tragen.",
+            "proficiencyLevel": "Intermediate",
+            "inLanguage": "de",
+            "image": [
+                "https://www.nubart.eu/assets/img/blog/cover-noise-heaphones-museum.webp"
+            ],
+            "author": {
+                "@type": "Person",
+                "name": "Rosa Sala",
+                "jobTitle": "CEO von Nubart",
+                "url": "https://www.nubart.eu/about.html"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.nubart.eu/#organization",
+                "name": "Nubart",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nubart.eu/assets/img/logo-nubart.png"
+                }
+            },
+            "datePublished": "2026-11-16",
+            "dateModified": "2026-11-16",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html"
+            },
+            "isPartOf": {
+                "@id": "https://www.nubart.eu/de/blog/#blog"
+            },
+            "translationOfWork": {
+                "@id": "https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html#article"
+            },
+            "keywords": [
+                "QR-Code-Audioguide Kopfhörer",
+                "Audioguide Lautsprecher Lärm",
+                "Museum Audioguide Lärmbeschwerden",
+                "Huggins-Pitch Kopfhörertest",
+                "Kopfhörer-Check Web-App",
+                "native App vs. Web-App Audioguide",
+                "dichotischer Tonhöhen-Hörtest"
+            ],
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Progressive Web App",
+                    "sameAs": "https://de.wikipedia.org/wiki/Progressive_Web_App"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Museums-Audioguide"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Huggins-Pitch"
+                }
+            ],
+            "articleSection": [
+                "Die kurze Antwort",
+                "Die Sorge ist berechtigt: Handygeräusche stören die meisten Menschen",
+                "Warum ein Web-App-Audioguide über den Lautsprecher wiedergegeben wird",
+                "Was eine native App leisten kann und was sie kostet",
+                "Warum auch das Verteilen von Kopfhörern keine gute Lösung ist",
+                "Was wir für die meisten Veranstaltungsorte empfehlen",
+                "Die Optionen auf einen Blick",
+                "Für strengere Anforderungen: ein Kopfhörer-Check auf Basis des Huggins-Pitch",
+                "Fazit: Einfach anfangen und den Check nur dort ergänzen, wo Sie ihn brauchen"
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Werden QR-Code-Audioguides über den Lautsprecher des Smartphones wiedergegeben?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja, es sei denn, der Besucher schließt Kopfhörer an. Mobile Browser lassen es nicht zu, dass eine Webseite zuverlässig die leise Hörmuschel nutzt, die Smartphones für Telefonate verwenden."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Würde eine native App das Lautsprecherproblem lösen?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Weitgehend ja. Eine native App kann die Hörmuschel nutzen oder den Anschluss von Kopfhörern verlangen. Der Preis dafür ist der Download: In unserer Studie zu 175 offiziellen Audioguide-Apps von Museen haben nur 2,47 % der Besucher die App heruntergeladen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Kann eine Web-App prüfen, ob Besucher Kopfhörer tragen?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nicht, indem sie das Smartphone fragt: Eine Webseite kann nicht zuverlässig auslesen, welches Audiogerät angeschlossen ist. Sie kann es aber per Klang testen. Der Kopfhörer-Check von Nubart spielt eine Melodie ab, die nur mit Kopfhörern zu hören ist, und startet den Audioguide für Besucher, die sie erkennen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Was ist der Huggins-Pitch?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ein schwacher Ton, den das Gehirn erzeugt, wenn beide Ohren dasselbe Rauschen mit einem kleinen Unterschied in einem schmalen Frequenzband erhalten. Er ist mit Kopfhörern zu hören und über Lautsprecher schwach oder gar nicht wahrnehmbar."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Was geschieht mit Besuchern ohne Kopfhörer?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "In der Standardkonfiguration verringern sie die Lautstärke und halten das Smartphone ans Ohr. Mit dem Kopfhörer-Check erhalten sie den Audioguide als Text und Bilder."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Stellt Nubart Kopfhörer zur Verfügung?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nein. Einweg-Ohrhörer verursachen Elektronikschrott, und es gibt keinen einheitlichen Typ, der zu jedem Smartphone passt."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Structured Data: Breadcrumbs -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/de/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Nubart GUIDE - PWA Audioguides via QR",
+                    "item": "https://www.nubart.eu/de/audioguides/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "QR-Code-Audioguides und Smartphone-Lautsprecher: Stören Besucher ohne Kopfhörer andere Besucher?",
+                    "item": "https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html"
+                }
+            ]
+        }
+    </script>
+
+    <!-- End Structured data -->
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+    </script>
+
+    <!-- 2. Cookie consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+
+    <!-- 3. Cookie consent config (MOVED HERE) -->
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+
+
+    <title>Stören Besucher ohne Kopfhörer andere? | Nubart GUIDE</title>
+    <meta name="description" content="Web-App-Audioguides geben den Ton über den Lautsprecher des Smartphones wieder. Warum das so ist, was eine native App dagegen tun kann und was nicht, und wie ein kurzer Hörtest prüfen kann, ob Besucher Kopfhörer tragen.">
+    <meta name="author" content="Rosa Sala">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stören Besucher ohne Kopfhörer andere? | Nubart GUIDE">
+    <meta name="twitter:description" content="Web-App-Audioguides geben den Ton über den Lautsprecher des Smartphones wieder. Warum das so ist, was eine native App dagegen tun kann und was nicht, und wie ein kurzer Hörtest prüfen kann, ob Besucher Kopfhörer tragen.">
+    <meta name="twitter:site" content="@NubartEN">
+    <meta name="twitter:creator" content="@NubartEN">
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/blog/cover-noise-heaphones-museum.webp">
+
+    <!-- hreflang -->
+    <link rel="canonical" href="https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html" hreflang="x-default"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html" hreflang="en-gb"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html" hreflang="en"/>
+    <link rel="alternate" href="https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html" hreflang="en-us"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html" hreflang="de"/>
+    <link rel="alternate" href="https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html" hreflang="de-ch"/>
+    <link rel="alternate" href="https://www.nubart.eu/es/audioguias/audioguia-codigo-qr-sin-auriculares.html" hreflang="es"/>
+
+    <!-- OpenGraph for LinkedIn -->
+    <meta property="og:title" content="Stören Besucher ohne Kopfhörer andere? | Nubart GUIDE"/>
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/blog/cover-noise-heaphones-museum.webp"/>
+    <meta property="og:author" content="Rosa Sala"/>
+    <meta property="og:description" content="Web-App-Audioguides geben den Ton über den Lautsprecher des Smartphones wieder. Warum das so ist, was eine native App dagegen tun kann und was nicht, und wie ein kurzer Hörtest prüfen kann, ob Besucher Kopfhörer tragen.">
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html">
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png">
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- ./Icons -->
+
+    <!-- Vendor CSS Files -->
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Lazy-load JS -->
+    <script src="../../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet">
+
+
+    <link href="../../assets/css/custom.css" rel="stylesheet">
+    <link href="../../assets/css/zoho-lightbox.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="../" class="logo">
+            <img src="../../assets/img/logo.png" alt="Nubart's logo" class="img-fluid">
+        </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown primary-menu">
+                    <a href="#"><span>Produkte</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul style="text-align: left;">
+                        <li>
+                            <a href="../audioguides/">
+                                <i class="bi bi-headphones product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GUIDE</span>
+                                    <span class="product-description">QR-basierte Multimedia-Audioguides (PWA)</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a href="../personenfuehrungsanlage-app/">
+                                <i class="bi bi-headset product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART LIVE</span>
+                                    <span class="product-description">Gruppenführungssystem mit KI-Übersetzung in Echtzeit</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="../audioguides/fuer-bootsfahrten-und-schiffstouren.html">
+                                <i class="bi bi-bus-front-fill product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART MOTION</span>
+                                    <span class="product-description">Kommentarsystem für Fahrzeuge mit automatischer Aktivierung</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="../simultan-uebersetzung-ki/">
+                                <i class="bi bi-translate product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART TRANSLATE</span>
+                                    <span class="product-description">Simultane KI-Übersetzung in Echtzeit für Ihre Veranstaltungen</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a href="../audioguides/ar-quiz-spiel.html">
+                                <i class="bi bi-controller product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GAME</span>
+                                    <span class="product-description">Interaktives AR-Spiel und Quiz für Audioguides</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="https://www.nubart.eu/de/sync/">
+                                <i class="bi bi-person-video3 product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART SYNC</span>
+                                    <span class="product-description">Synchronisiertes Streaming des Tons von vor Ort abgespielten Videos</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="../blog/">Blog</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Kontakt</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../ueber-uns.html">Über uns</a></li>
+                        <li><a href="../kontakt.html">Kontakt zu Nubart</a></li>
+                    </ul>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                       href="https://www.nub.art/customer/login">
+                        <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
+
+                <li class="dropdown d-none d-md-block">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/">English</a></li>
+                        <li><a href="../../es/">Español</a></li>
+                        <li><a href="../../fr/">Français</a></li>
+                        <li><a href="../../pt-br/">Português</a></li>
+                        <li><a href="../../nl/">Nederlands</a></li>
+                        <li><a href="../../it/">Italiano</a></li>
+                        <li><a href="../../pl/">Polski</a></li>
+                        <li><a href="../../bg/">български</a></li>
+                        <li><a href="../../he/">עִברִית</a></li>
+                        <li><a href="../../ja/">日本語</a></li>
+                    </ul>
+                </li>
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none">
+                    <hr>
+                </li>
+                <li class="mobile-secondary-header d-md-none" style="color: #028a8c;"><i
+                        class="bi bi-headphones product-icon"></i>&nbsp<span>NUBART GUIDE</span></li>
+                <li class="dropdown d-md-none">
+                    <a href="#"><span>Inhaltsproduktion</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="produktion/">Unser Prozess für die Inhaltsproduktion</a></li>
+                        <li><a href="produktion/was-wir-brauchen.html">Was wir von Ihnen brauchen</a></li>
+                    </ul>
+                </li>
+
+                <li class="d-md-none"><a
+                        href="#" onclick="ZohoLightbox.open(); return false;">Angebot
+                    anfordern</a></li>
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header><!-- End Header -->
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <a href="../audioguides/" style="font-size: 20px;">
+                        <i class="bi bi-headphones" style="font-size: inherit;"></i>&nbsp;&nbsp;
+                        <b>NUBART GUIDE:</b>
+                    </a>
+                </div>
+
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 22px;">
+                        <a href="#"><span>Anwendungsfälle</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../audioguides/">Museen</a></li>
+                            <li><a href="../audioguides/fuer-zoos.html">Zoos & Tiergärten</a></li>
+                            <li><a href="../audioguides/fuer-bootsfahrten-und-schiffstouren.html">Bootsfahrten
+                                und Schiffstouren</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;">
+                        <a href="../audioguides/multimedia.html">Multimedia-Elemente</a>
+                    </li>
+                    <li class="dropdown" style="margin-right: 22px;">
+                        <a href="#"><span>Content-Produktion</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="produktion/">Unser Produktionsprozess</a></li>
+                            <li><a href="produktion/was-wir-brauchen.html">Was wir von Ihnen brauchen</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;">
+                        <a href="../audioguides/barrierefrei.html">Barrierefreiheit</a>
+                    </li>
+
+                    <li><a class="nav-link scrollto" href="../kunden/">Kunden</a></li>
+                    <li style="margin-right: 30px;">
+                        <a class="getstarted scrollto"
+                           href="#" onclick="ZohoLightbox.open(); return false;">Angebot anfordern</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="d-md-none" style="height: 60px;"></div>
+    <section class="breadcrumbs d-none d-md-block">
+        <div class="container">
+            <ol>
+                <li><a href="../">Startseite</a></li>
+                <li><a href=".">Nubart GUIDE</a></li>
+                <li>QR-Code-Audioguides und Smartphone-Lautsprecher: Stören Besucher ohne Kopfhörer andere Besucher?</li>
+            </ol>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="inner-page services">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div style="align-items:flex-start;">
+
+                    <img src="../../assets/img/team/rosa.webp" class="img-thumbnail rounded-circle d-none d-lg-block" style="margin-right:30px;" width="45%" alt="Rosa Sala - Nubart" />
+
+                    </div>
+                    <div>
+                        <h4 class="fs-5">Dr. Rosa Sala</h4>
+                        <p class="nubart-blog-author">Geschäftsführung</p>
+                    </div>
+                </div>
+
+                <div class="col-md-8 nubart-blog">
+
+                    <h1>QR-Code-Audioguides und Smartphone-Lautsprecher: Stören Besucher ohne Kopfhörer andere Besucher?</h1>
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/cover-noise-heaphones-museum.webp" class="figure-img img-fluid rounded" alt="Besucherin nutzt in einer Museumsgalerie einen QR-Code-Audioguide auf dem Smartphone, ohne Kopfhörer" />
+                    </figure>
+
+                    <div class="summary-block">
+                        <p class="mb-2"><strong>Die kurze Antwort</strong></p>
+                        <ul class="mb-0">
+                            <li>Ein QR-Code-Audioguide (eine Web-App, die im Browser des Smartphones läuft) gibt den Ton normalerweise über den Lautsprecher des Smartphones wieder. Eine Webseite kann den Ton nicht zuverlässig an die leise Hörmuschel senden, die für Telefonate verwendet wird.</li>
+                            <li>Eine native App (wie man sie aus dem App Store oder von Google Play herunterlädt) kann die Audiowiedergabe besser steuern: Sie kann die Hörmuschel nutzen oder die Wiedergabe erst starten, wenn Kopfhörer angeschlossen sind. Allerdings müssen Besucher diese App zunächst herunterladen und installieren, was nur sehr wenige tun.</li>
+                            <li>An den meisten Veranstaltungsorten reichen einfache Maßnahmen aus: Besucher verwenden ihre eigenen Kopfhörer oder sie verringern die Lautstärke und halten das Smartphone ans Ohr.</li>
+                            <li>Für Veranstaltungsorte und Fahrzeuge, die mehr benötigen, kann ein kurzer Hörtest, der auf einem als „Huggins-Pitch“ bezeichneten Höreffekt basiert, im Browser überprüfen, ob ein Besucher Kopfhörer trägt. Besucher, die diesen Test nicht bestehen, erhalten denselben Inhalt in Form von Text und Bildern.</li>
+                        </ul>
+                    </div>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <nav aria-label="Table of contents">
+                        <h2>Inhalt</h2>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="#concern-is-real">Die Sorge ist berechtigt: Handygeräusche stören die meisten Menschen</a></li>
+                            <li><a href="#why-loudspeaker">Warum ein Web-App-Audioguide über den Lautsprecher wiedergegeben wird</a></li>
+                            <li><a href="#native-app">Was eine native App leisten kann und was sie kostet</a></li>
+                            <li><a href="#handing-out-headphones">Warum auch das Verteilen von Kopfhörern keine gute Lösung ist</a></li>
+                            <li><a href="#recommend">Was wir für die meisten Veranstaltungsorte empfehlen</a></li>
+                            <li><a href="#options-glance">Die Optionen auf einen Blick</a></li>
+                            <li><a href="#huggins-pitch-check">Für strengere Anforderungen: ein Kopfhörer-Check auf Basis des Huggins-Pitch</a></li>
+                            <li><a href="#conclusion">Fazit: Einfach anfangen und den Check nur dort ergänzen, wo Sie ihn brauchen</a></li>
+                            <li><a href="#faq">Häufig gestellte Fragen</a></li>
+                        </ul>
+                    </nav>
+                    <br />
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <h2 id="concern-is-real">Die Sorge ist berechtigt: Handygeräusche stören die meisten Menschen</h2>
+                    <p>Wenn wir einem Museum oder einem Schiffsbetreiber einen QR-Code-Audioguide vorstellen, taucht immer wieder ein Einwand auf: „Die Leute werden ihn laut abspielen und alle anderen stören.“</p>
+                    <p>Diese Befürchtung ist berechtigt. In einer Umfrage von Transport for London unter 1.000 Kunden im Juni 2025 gaben 70 % an, dass laute Musik und Telefonate ohne Kopfhörer ein Ärgernis darstellen <a href="#src1">[1]</a>. In einer im April 2025 veröffentlichten YouGov-Umfrage gaben 79 % der Briten an, dass es sie stört, wenn Menschen Musik oder Videos laut auf ihrem Handy abspielen, und 41 % sagten, dass es sie sehr stört <a href="#src2">[2]</a>.</p>
+                    <p>Eine ruhige Galerie oder ein Ausflugsboot, auf dem die Passagiere eine Stunde lang dicht beieinander sitzen, ist genau die Art von Ort, an dem dies eine Rolle spielt. Einige Veranstaltungsorte bevorzugen daher eine native App oder gemietete Geräte, die mehr Kontrolle über die Tonwiedergabe ermöglichen. Doch diese Optionen sind mit eigenen Kosten verbunden.</p>
+
+                    <h2 id="why-loudspeaker">Warum ein Web-App-Audioguide über den Lautsprecher wiedergegeben wird</h2>
+                    <p>Die meisten Smartphones verfügen über zwei Audioausgänge.</p>
+
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/earpieces-smartphone.webp" class="figure-img img-fluid rounded" alt="Smartphone-Schema mit der Hörmuschel am oberen Rand und dem Lautsprecher am unteren Rand" />
+                    </figure>
+
+                    <ul>
+                        <li>Die Hörmuschel befindet sich am oberen Rand des Bildschirms. Sie ist für Telefonate konzipiert, bei denen das Telefon ans Ohr gehalten wird. Sie ist leise und unauffällig.</li>
+                        <li>Der Lautsprecher befindet sich in der Regel am unteren Rand. Er dient zur Wiedergabe von Musik, Videos und für Freisprechanrufe.</li>
+                    </ul>
+                    <p>Bei vielen neueren Handys fungiert die Hörmuschel auch als zweiter Lautsprecher für Musik und Videos. In diesem Modus wird der Ton mit Lautsprecherlautstärke wiedergegeben, nicht mit der leisen Lautstärke eines Telefonats.</p>
+                    <p>Eine native App kann das Betriebssystem anweisen, den Ton im Anrufmodus über die Hörmuschel wiederzugeben. Messaging-Apps tun dies, wenn Sie das Telefon ans Ohr halten, um eine Sprachnachricht abzuhören. Eine Webseite kann dies nicht zuverlässig bewerkstelligen:</p>
+                    <ul>
+                        <li>Unter Android unterstützen Chrome und Firefox die Browserfunktion zur Auswahl eines Audioausgangs (<code>setSinkId</code>) überhaupt nicht <a href="#src3">[3]</a>.</li>
+                        <li>Auf dem iPhone kann Safari den Ton als Nebeneffekt der Mikrofonnutzung auf die Hörmuschel umleiten. Fehlerberichte, die sich über mehrere Jahre hinweg auf verschiedene iOS-Versionen erstrecken, zeigen, dass dieses Verhalten inkonsistent ist <a href="#src4">[4]</a>. Eine Webseite müsste zudem jeden Besucher um Zugriff auf das Mikrofon bitten, nur um eine Aufnahme abzuspielen.</li>
+                    </ul>
+                    <p>Daher wird jeder browserbasierte Audioguide über den Lautsprecher wiedergegeben, es sei denn, der Besucher schließt Kopfhörer an. Dies ist eine Eigenschaft mobiler Browser und keine Designentscheidung eines Anbieters.</p>
+
+                    <h2 id="native-app">Was eine native App leisten kann und was dies kostet</h2>
+                    <p>Eine native App hat mehr Kontrolle über die Audiowiedergabe als eine Webseite. Sie kann den Ton über die Hörmuschel wiedergeben, wie bei einem Telefonat. Sie kann die Wiedergabe auch so lange verweigern, bis Kopfhörer angeschlossen sind. Allein für das Lärmproblem funktioniert dies.</p>
+                    <p>Der Preis dafür ist die Reichweite. Besucher müssen die App finden, herunterladen und installieren, bevor sie etwas hören können. In unserer <a href="download-raten-audioguide-apps-fuer-museen.html">Analyse von 175 offiziellen Audioführer-Apps für Museen haben nur 2,47 % der Besucher diese heruntergeladen</a>. Bei einer einstündigen Bootsfahrt mit mobilen Daten und einer festgelegten Abfahrtszeit ist die Hürde sogar noch höher.</p>
+                    <p>Die Wahl besteht also nicht zwischen einer lauten Web-App und einer leisen nativen App. Sie besteht vielmehr zwischen einem Audioguide, den fast jeder Besucher öffnen kann, und einem Audioguide, den nur wenige Besucher jemals nutzen werden. Die bessere Frage ist, ob eine Web-App die gleiche Kontrolle über Kopfhörer erlangen kann. Das ist möglich, wie wir im Folgenden zeigen.</p>
+
+                    <h2 id="handing-out-headphones">Warum auch das Verteilen von Kopfhörern keine gute Lösung ist</h2>
+                    <p><strong>Einweg-Ohrhörer.</strong> Früher haben wir diese selbst angeboten, doch wir haben damit aufgehört. Ohrhörer gehören zu den Kleingeräten, und Kleingeräte sind die Art von Elektronikschrott, die am seltensten recycelt wird. Laut dem „Global E-waste Monitor 2024“ der Vereinten Nationen fielen im Jahr 2022 weltweit 62 Millionen Tonnen Elektronikschrott an, von denen nur 22,3 % als ordnungsgemäß gesammelt und recycelt dokumentiert wurden. Bei Kleingeräten lag die dokumentierte Quote bei 12 % <a href="#src5">[5]</a>.</p>
+                    <p>Es gibt zudem eine ökologische Dimension, die Museen nicht außer Acht lassen sollten. In einer Zeit, in der Klimawandel und Abfallvermeidung zunehmend Teil der öffentlichen Debatte sind, werden sich die Besucher immer bewusster, welchen ökologischen Fußabdruck die Orte hinterlassen, die sie besuchen. Ein Korb voller Plastik-Ohrhörer am Eingang, von denen jedes Paar eine Stunde lang benutzt und dann weggeworfen wurde, vermittelt eine eher unglückliche Botschaft. Er schafft einen sichtbaren Widerspruch zwischen einem modernen Besuchererlebnis und einem Wegwerf-Umgang mit Ressourcen. Einige Besucher werden dies bemerken, und manche werden es vielleicht sogar in ihren Bewertungen erwähnen.</p>
+                    <p><strong>Anschlüsse.</strong> Kabelgebundene Kopfhörer müssen zum Smartphone des Besuchers passen. Heutzutage bedeutet das eine 3,5-mm-Buchse, Lightning bei älteren iPhones oder USB-C. Seit dem 28. Dezember 2024 müssen neue, in der EU verkaufte Smartphones über USB-C verfügen <a href="#src6">[6]</a>, doch die Smartphones in den Taschen der Besucher werden noch jahrelang gemischt sein. Eine Einrichtung müsste daher drei verschiedene Typen vorrätig halten.</p>
+                    <p><strong>Verleih von Bluetooth-Kopfhörern.</strong> Jeder Besucher müsste die Kopfhörer mit seinem eigenen Smartphone koppeln, wobei das Personal helfen müsste. Am Ende des Besuchs muss der Besucher das Gerät auf seinem Smartphone entfernen („vergessen“), die Einrichtung muss die Kopfhörer reinigen und aufladen, und der nächste Besucher beginnt von vorne. Das bringt genau den Aufwand bei Handhabung und Hygiene zurück, den ein Audioguide auf dem eigenen Smartphone eigentlich beseitigen soll.</p>
+
+                    <h2 id="recommend">Was wir für die meisten Veranstaltungsorte empfehlen</h2>
+                    <p>In den meisten Einrichtungen reichen einige einfache Maßnahmen aus.</p>
+                    <ul>
+                        <li><strong>Bitten Sie die Besucher, Kopfhörer mitzubringen.</strong> Weisen Sie bei der Buchung, auf dem Ticket und auf Ihrer Website darauf hin. Viele Besucher haben ohnehin Ohrhörer dabei.</li>
+                        <li><strong>Zeigen Sie die Alternative.</strong> Ein Besucher ohne Kopfhörer verringert die Lautstärke und hält das Smartphone wie bei einem Telefonat ans Ohr (siehe Abbildung unten). Wenn der Ton vom unteren Rand des Smartphones kommt, wird dieses Ende ans Ohr gehalten.</li>
+                        <li><strong>Setzen Sie Hinweisschilder und Personal ein.</strong> Ein deutliches Schild neben dem QR-Code schafft klare Erwartungen. Saalpersonal oder Mitarbeiter können den seltenen Besucher, der dies ignoriert, darauf ansprechen, so wie sie es bei jedem anderen Verhalten tun würden.</li>
+                    </ul>
+
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/listening-audioguide-with-loudspeakers.webp" class="figure-img img-fluid rounded" alt="Besucherin im Museum hält das Smartphone ans Ohr, um den Audioguide zu hören" />
+                    </figure>
+
+                    <p>Zwei Aspekte erweisen sich in der Praxis als hilfreich: Die Tracks sind kurz und werden einzeln abgespielt, nicht kontinuierlich wie Musik. Und unserer Erfahrung nach reichen eine klare Einweisung und eine kurze Erinnerung durch das Personal in der Regel aus. Viele unserer Kunden arbeiten auf diese Weise, ohne Kopfhörer bereitzustellen.</p>
+                    <p>Eines hilft jedoch nicht: die Aufnahmen leiser zu stellen. Wir haben dies bei einem Kunden getestet. Die Besucher drehten einfach die Lautstärke ihrer Smartphones höher, und Besucher mit leistungsschwächeren Geräten konnten den Audioguide selbst bei voller Lautstärke nicht mehr richtig hören. Der Grund dafür ist, dass sich Smartphones stark darin unterscheiden, wie laut sie wiedergeben können, und nur wenige Menschen sind sich dessen bewusst. Im Jahr 2023 hat GSMArena die Lautsprecher von mehr als 110 Smartphones gemessen. Das lauteste und das leiseste Modell lagen etwa 10 Lautstärkeeinheiten auseinander, was ungefähr 10 Dezibel entspricht <a href="#src9">[9]</a>. Als Faustregel gilt: Ein Unterschied von 10 Dezibel klingt etwa doppelt so laut. Eine Aufnahme, die auf einem lauten Smartphone laut genug ist, ist also auf einem leisen zu leise. Die Datei kann die Lautstärke nicht steuern. Das kann nur der Besucher.</p>
+
+                    <h2 id="options-glance">Die Optionen auf einen Blick</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <caption class="visually-hidden">Vergleich der Kopfhöreroptionen für QR-Code-Audioguides</caption>
+                            <thead>
+                            <tr>
+                                <th scope="col">Option</th>
+                                <th scope="col">Was funktioniert</th>
+                                <th scope="col">Was funktioniert nicht</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Eigene Kopfhörer der Besucher</th>
+                                <td>Keine Ausrüstung, keine Handhabung</td>
+                                <td>Nicht jeder bringt sie mit</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Smartphone ans Ohr gehalten, geringe Lautstärke</th>
+                                <td>Es wird nichts Zusätzliches benötigt</td>
+                                <td>Weniger bequem; hängt vom Besucher ab</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Einweg-Ohrhörer</th>
+                                <td>Vor Ort erhältlich</td>
+                                <td>Abfall, Kosten, drei verschiedene Steckertypen</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Leihkopfhörer mit Bluetooth</th>
+                                <td>Wiederverwendbar</td>
+                                <td>Kopplung, Reinigung, Aufladen, Zeitaufwand für das Personal</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Native Audioguide-App</th>
+                                <td>Kann die Hörmuschel nutzen oder Kopfhörer verlangen</td>
+                                <td>Nur wenige Besucher laden die App herunter</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">QR-Code-Audioguide mit Kopfhörer-Check</th>
+                                <td>Kein Download erforderlich; überprüft, ob Kopfhörer verwendet werden; Textversion für alle anderen</td>
+                                <td>Fügt zu Beginn einen kurzen Test ein</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="huggins-pitch-check">Für strengere Anforderungen: ein Kopfhörer-Check auf Basis des Huggins-Pitch</h2>
+                    <p>Manche Betreiber benötigen mehr als nur gute Manieren. Ein typischer Fall ist ein Ausflugsboot oder -bus, in dem sich die Fahrgäste nicht von einem lauten Nachbarn entfernen können. Für diese Fälle hat Nubart einen Kopfhörertest entwickelt, der im Browser läuft und keine App benötigt.</p>
+
+                    <h3>Die wissenschaftliche Grundlage: Ein Ton, der nur über Kopfhörer hörbar ist</h3>
+                    <p>Der Test nutzt den Huggins-Pitch, einen Höreffekt, der erstmals 1958 von Cramer und Huggins beschrieben wurde <a href="#src7">[7]</a>. Er funktioniert ein wenig wie ein 3D-Film.</p>
+                    <p>In einem 3D-Kino erhält jedes Auge ein leicht unterschiedliches Bild. Keines der beiden Bilder enthält Tiefeninformation. Ihr Gehirn vergleicht die beiden Bilder und erzeugt die Tiefe selbst. Nimmt man die Brille ab, sehen beide Augen beide Bilder gleichzeitig: Die Tiefe ist verschwunden.</p>
+                    <p>Der Huggins-Pitch bewirkt dasselbe mit Schall.</p>
+                    <ul>
+                        <li><strong>Zwei fast identische Töne.</strong> Jedes Ohr nimmt das gleiche Rauschen wahr, ähnlich dem Geräusch eines Wasserfalls. In einem Ohr wird ein sehr kleiner Teil dieses Rauschens verändert. Die Veränderung ist zu gering, um sie zu hören.</li>
+                        <li><strong>Das Gehirn erledigt den Rest.</strong> Jedes Ohr hört für sich genommen nur das Rauschen. Doch das Gehirn vergleicht die beiden Ohren, nimmt den kleinen Unterschied wahr und wandelt ihn in einen leisen Ton um. Dieser Ton ist weder im linken noch im rechten Ton enthalten. Er existiert nur im Kopf des Zuhörers. Wenn wir den veränderten Teil Schritt für Schritt verschieben, wird der Ton zu einer kurzen Melodie.</li>
+                        <li><strong>Kopfhörer sind wie 3D-Brillen.</strong> Sie liefern jedem Ohr seinen eigenen Klang. Aus einem Lautsprecher vermischen sich die beiden Klänge in der Luft, und beide Ohren nehmen dieselbe Mischung wahr. Dem Gehirn fehlt ein Vergleichsmaßstab, sodass die Melodie schwächer wird oder ganz verschwindet.</li>
+                    </ul>
+                    <p>Die Idee, diesen Effekt als Kopfhörertest zu nutzen, stammt von Forschern des University College London. Sie führten online Hörtests durch und mussten wissen, ob die Teilnehmer zu Hause tatsächlich Kopfhörer trugen. Also probierten sie es aus: Eine Gruppe hörte über Kopfhörer zu, eine andere über Lautsprecher. Etwa 80 % der Kopfhörergruppe hörten den versteckten Ton jedes Mal. In der Lautsprechergruppe waren es nur etwa 20 %.</p>
+                    <p>Woher kommen diese 20 %? Die Teilnehmer hörten über die Lautsprecher ihrer eigenen Computer zu. Die Erklärung der Forscher lautet, dass jemand, der nahe an einem linken und einem rechten Lautsprecher sitzt – genau zwischen beiden –, die beiden Töne dennoch teilweise getrennt wahrnimmt [8]. Ein Smartphone kann das nicht. Seine Lautsprecher sitzen nur wenige Zentimeter voneinander entfernt, sodass sich die beiden Töne vollständig vermischen. In unseren eigenen Tests war die Melodie auf einem Laptop gut zu hören, über den Lautsprecher eines Smartphones hingegen nicht.</p>
+                    <p>Der Test deckt zudem eine gängige Abkürzung auf: das Hören mit nur einem Ohrhörer. Mit nur einem Ohr hat das Gehirn nichts zum Vergleichen, sodass kein Ton wahrgenommen wird.</p>
+
+                    <h3>So funktioniert der Test für den Besucher</h3>
+                    <figure class="figure">
+                        <img src="../../assets/img/blog/headphone-check-workflow.webp" class="figure-img img-fluid rounded" alt="Ablaufdiagramm des Kopfhörer-Checks auf fünf Smartphone-Bildschirmen: Aufforderung zum Aufsetzen der Kopfhörer, Textversion, Hörtest, drei Runden und Bildschirm für den erneuten Versuch nach einer falschen Antwort" />
+                        <figcaption>Der Kopfhörer-Check, Bildschirm für Bildschirm.</figcaption>
+                    </figure>
+                    <p>Nach der Auswahl einer Sprache wird der Besucher gebeten, Kopfhörer aufzusetzen. Es gibt zwei Tasten, von denen jede zu einem anderen Ablauf führt.</p>
+                    <ul>
+                        <li><strong>„Ich habe keine Kopfhörer“:</strong> direkt zur Textversion, ohne Test. Der Besucher erhält zu jedem Track ein Bild und den Text. In <a href="fuer-bootsfahrten-und-schiffstouren.html">einem Nubart-MOTION-Audioguide mit automatisch ausgelösten Tracks</a> erscheinen Text und Bild automatisch, sobald das Fahrzeug die jeweilige Sehenswürdigkeit erreicht. Es wird nichts laut abgespielt.</li>
+                        <li><strong>„OK“:</strong> ein kurzer Hörtest, dann der Audioguide.</li>
+                    </ul>
+                    <ol>
+                        <li>Der Besucher hört drei Töne und tippt auf denjenigen, bei dem hinter dem Rauschen eine leise Melodie zu hören ist. Jede Taste leuchtet auf, während der entsprechende Ton abgespielt wird.</li>
+                        <li>Dies wird dreimal wiederholt. Alle drei Antworten müssen richtig sein.</li>
+                        <li>Nach einer falschen Antwort erhält der Besucher einen weiteren Versuch, wobei die Töne in einer neuen Reihenfolge abgespielt werden. Raten hilft nicht viel: Selbst bei beiden Versuchen würden nur etwa 7 von 100 Besuchern durch reines Glück bestehen.</li>
+                        <li>Besucher, die bestehen, erhalten den Audioguide. Besucher, die zweimal scheitern, erhalten die Textversion, sodass niemand ohne Inhalt dasteht.</li>
+                    </ol>
+
+                    <h3>Niemand bleibt ohne Inhalt: Text und Bilder ersetzen den Ton</h3>
+                    <p>Dies ist der Aspekt, der uns am meisten am Herzen liegt. Ein Besucher, der keine Kopfhörer hat oder den Test nicht besteht, wird nicht ausgeschlossen. Er folgt derselben Führung auf dem Bildschirm: Bilder, Bildkarussells und der vollständige Text jedes Tracks werden zum richtigen Zeitpunkt angezeigt. Auf einem Boot oder in einem Bus erscheint jeder Text, sobald das Fahrzeug die jeweilige Sehenswürdigkeit erreicht.</p>
+                    <p>Jeder erhält die Inhalte. Lediglich der Ton ist von Kopfhörern abhängig.</p>
+                    <p>Der Huggins-Pitch-Test ist nicht perfekt. Einige Besucher mit Hörverlust auf einem Ohr werden ihn nicht bestehen. Gleiches gilt für Personen, die nur einen Ohrhörer tragen oder deren Smartphone auf Mono-Ton eingestellt ist; zudem erschwert eine sehr laute Umgebung den Test <a href="#src8">[8]</a>. Für alle diese Personen steht die Textversion zur Verfügung. Der Check ist kein Hörtest und entscheidet niemals darüber, ob jemand der Führung folgen kann. Es handelt sich um <a href="barrierefrei.html">dieselbe Version, die auch gehörlose oder schwerhörige Besucher nutzen können</a>.</p>
+                    <p>Der Check endet nicht mit dem Beginn der Führung. Werden die Kopfhörer unterwegs getrennt, bemerkt der Audioguide dies und stoppt die Wiedergabe. Dies funktioniert sowohl bei kabelgebundenen als auch bei Bluetooth-Kopfhörern.</p>
+                    <p>Dadurch erhält ein Web-App-Audioguide die Art von Kontrolle, für die früher eine native App erforderlich war – und das ganz ohne Download.</p>
+
+                    <h2 id="conclusion">Fazit: Einfach anfangen und den Check nur dort ergänzen, wo Sie ihn brauchen</h2>
+                    <p>Unser Rat lautet: Vertrauen Sie Ihren Besuchern zunächst. Beginnen Sie ohne den Check. Bitten Sie die Besucher, Kopfhörer mitzubringen, und zeigen Sie denjenigen, die keine haben, wie man leise zuhört – mit geringer Lautstärke und dem Smartphone am Ohr. An den meisten Veranstaltungsorten reicht dies bereits aus.</p>
+                    <p>Sollten Sie anschließend Beschwerden oder schlechte Bewertungen wegen lauter Besucher erhalten, muss nichts neu entwickelt werden. Den Kopfhörer-Check in einem bestehenden Nubart-Audioguide zu aktivieren, erfordert bei uns nur wenige Klicks. Ihre QR-Codes, Ihre Inhalte und die Gewohnheiten Ihrer Besucher bleiben unverändert.</p>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <h2 id="faq">Häufig gestellte Fragen</h2>
+                    <h3>Werden QR-Code-Audioguides über den Lautsprecher des Smartphones wiedergegeben?</h3>
+                    <p>Ja, es sei denn, der Besucher schließt Kopfhörer an. Mobile Browser lassen es nicht zu, dass eine Webseite zuverlässig die leise Hörmuschel nutzt, die Smartphones für Telefonate verwenden.</p>
+                    <h3>Würde eine native App das Lautsprecherproblem lösen?</h3>
+                    <p>Weitgehend ja. Eine native App kann die Hörmuschel nutzen oder den Anschluss von Kopfhörern verlangen. Der Preis dafür ist der Download: In unserer Studie zu 175 offiziellen Audioguide-Apps von Museen haben nur 2,47 % der Besucher die App heruntergeladen.</p>
+                    <h3>Kann eine Web-App prüfen, ob Besucher Kopfhörer tragen?</h3>
+                    <p>Nicht, indem sie das Smartphone fragt: Eine Webseite kann nicht zuverlässig auslesen, welches Audiogerät angeschlossen ist. Sie kann es aber per Klang testen. Der Kopfhörer-Check von Nubart spielt eine Melodie ab, die nur mit Kopfhörern zu hören ist, und startet den Audioguide für Besucher, die sie erkennen.</p>
+                    <h3>Was ist der Huggins-Pitch?</h3>
+                    <p>Ein schwacher Ton, den das Gehirn erzeugt, wenn beide Ohren dasselbe Rauschen mit einem kleinen Unterschied in einem schmalen Frequenzband erhalten. Er ist mit Kopfhörern zu hören und über Lautsprecher schwach oder gar nicht wahrnehmbar. <a href="#src7">[7]</a><a href="#src8">[8]</a></p>
+                    <h3>Was geschieht mit Besuchern ohne Kopfhörer?</h3>
+                    <p>In der Standardkonfiguration verringern sie die Lautstärke und halten das Smartphone ans Ohr. Mit dem Kopfhörer-Check erhalten sie den Audioguide als Text und Bilder.</p>
+                    <h3>Stellt Nubart Kopfhörer zur Verfügung?</h3>
+                    <p>Nein. Einweg-Ohrhörer verursachen Elektronikschrott, und es gibt keinen einheitlichen Typ, der zu jedem Smartphone passt.</p>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <h2 id="sources">Quellen</h2>
+                    <ol style="font-size: 0.9em; color: #6c757d;">
+                        <li id="src1">Transport for London, Pressemitteilung, 26. August 2025: <em>New TfL campaign encourages customers to use headphones on public transport</em>.</li>
+                        <li id="src2">YouGov, 28. April 2025: <em>Littering, loudspeakers and Lime bikes: what public nuisances bother Britons most?</em></li>
+                        <li id="src3">Can I use: Browser-Unterstützung für <code>HTMLMediaElement.setSinkId</code>, geprüft im November 2026.</li>
+                        <li id="src4">WebKit Bugzilla, Bug 218012, eröffnet 2020, zuletzt geändert im Mai 2026.</li>
+                        <li id="src5">ITU und UNITAR, <em>Global E-waste Monitor 2024</em>, Pressemitteilung vom 20. März 2024.</li>
+                        <li id="src6">Europäische Kommission, 28. Dezember 2024: EU-Vorschriften für einheitliche Ladegeräte (<em>EU common charger rules</em>).</li>
+                        <li id="src7">Cramer, E. M., und Huggins, W. H. (1958). Creation of pitch through binaural interaction. <em>Journal of the Acoustical Society of America</em>, 30(5), 412–417.</li>
+                        <li id="src8">Milne, A. E., Bianco, R., Poole, K. C., et al. (2021). An online headphone screening test based on dichotic pitch. <em>Behavior Research Methods</em>, 53, 1551–1562.</li>
+                        <li id="src9">GSMArena, 30. Dezember 2023: <em>Here are the loudest phones we tested in 2023</em>.</li>
+                    </ol>
+
+                    <hr class="hr hr-blurry" style="color:#6ec7ba;" />
+
+                    <p>Wir hoffen, dass Ihnen dieser Artikel weitergeholfen hat. <a href="https://share.hsforms.com/1wMbMX3CMSdCDzitqTHmXiA1g33q" rel="nofollow">Abonnieren Sie unseren Newsletter</a>, damit Sie keinen unserer Beiträge verpassen.</p>
+
+                    <div class="container" data-aos="fade-up">
+                        <h2 class="mb-4">Das könnte Sie auch interessieren</h2>
+                        <div class="row">
+
+                            <!-- Article 1 -->
+                            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card">
+                                    <img src="../../assets/img/blog/adoption-rate-audio-guide-apps.webp" class="card-img-top" alt="Nubart – Die Akzeptanz von Audioguide-Apps in Museen" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="download-raten-audioguide-apps-fuer-museen.html">Die Akzeptanz von Audioguide-Apps in Museen</a>
+                                        </h5>
+                                        <p class="card-text">Eine eingehende Analyse realer Daten zeigt, dass weniger als 3 % der Museumsbesucher Audioguide-Apps nutzen, was ernsthafte Fragen hinsichtlich ihrer Wirksamkeit aufwirft.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Article 2 -->
+                            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="150">
+                                <div class="card">
+                                    <img src="../../assets/img/blog/cover-accessible-audioguides.webp" class="card-img-top" alt="Museumsbesucher hören in einer Gemäldegalerie mit Kopfhörern einen Audioguide auf ihren Smartphones" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="barrierefrei.html">Die Audioguides von Nubart sind barrierefrei</a>
+                                        </h5>
+                                        <p class="card-text">Barrierefreiheit gewinnt in Museen zunehmend an Bedeutung. Mit den Audioguides von Nubart können Sie alle Anforderungen erfüllen.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+
+                <!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlin<br>
+
+                            <strong>Email:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/nubart-eu/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Nützliche Links</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../kontakt.html">Kontakt</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../impressum.html" rel="nofollow">Impressum</a>
+                        </li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="agb.html" rel="nofollow">AGB für Nubart GUIDE</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../datenschutz-web.html" rel="nofollow">Datenschutz</a>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Cookie-Einstellungen</a></li>
+
+                        <li><i class="bi bi-chevron-right"></i>
+                            <a href="https://share.hsforms.com/1zz_2kT0_SPqvfHoYSBleWw1g33q" rel="nofollow">Abonnieren Sie unseren Newsletter</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. Alle Rechte vorbehalten
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Critical JS Files -->
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+
+<!-- Non-Critical JS Files - Still deferred but loaded directly -->
+<script src="../../assets/vendor/aos/aos.js" defer></script>
+<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../../assets/js/main-min.js" defer></script>
+
+<!-- Hubspot Analytics scripts with proper async loading -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async
+        src="//js.hs-scripts.com/2430134.js"></script>
+
+<!-- scroll to hash -->
+<script>
+    function getElementTopOffset(element) {
+        if (!element.getClientRects().length){
+            return 0;
+        }
+
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.scrollY;
+    }
+
+    window.addEventListener('load', event => {
+        if (window.location.hash.length > 0) {
+            window.setTimeout(() => {
+                const target = document.getElementById(window.location.hash.substring(1));
+                if(target) {
+                    window.scrollTo(0, getElementTopOffset(target));
+                }
+            }, 1000);
+        }
+    });
+</script>
+
+<script src="../../assets/js/zoho-lightbox.js" defer></script>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        ZohoLightbox.init('https://forms.zohopublic.eu/rosasala/form/NubartGUIDEQuotedeliverysystemNewform/formperma/jenSf-2G-aVy2Py21XbzZ5gRmLK_WcmRGz4DgxHZR9U?zf_lang=de');
+    });
+</script>
+<script type="module" src="/js/cookieconsent-config.js"></script>
+</body>
+</html>
