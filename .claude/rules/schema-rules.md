@@ -14,10 +14,13 @@ Every blog-style article (BlogPosting, Article, TechArticle, ScholarlyArticle on
 - JA: `"isPartOf": { "@id": "https://www.nubart.eu/ja/blog/#blog" }`
 - PT-BR: `"isPartOf": { "@id": "https://www.nubart.eu/pt-br/blog/#blog" }`
 - PL: `"isPartOf": { "@id": "https://www.nubart.eu/pl/blog/#blog" }`
+- HE: `"isPartOf": { "@id": "https://www.nubart.eu/he/blog/#blog" }`
 
 The Blog entity itself is declared once on each language's blog hub page with that exact `@id`. Do NOT invent per-cluster Blog entities like "Nubart Audio Guide Blog" — there is one Blog per language.
 
 **Languages without a Blog hub** — NL and BG currently have no Blog hub page. Blog-style articles in those languages **omit `isPartOf` entirely**. They still get per-language `@id`, `mainEntityOfPage`, breadcrumb, and `translationOfWork`. If a Blog hub is later created for one of these languages, add the matching `isPartOf` to every existing article in that language and declare the Blog `@id` on the new hub.
+
+HE got its hub (`he/blog/index.html`, `@id` `https://www.nubart.eu/he/blog/#blog`) on 2026-11-18; its first article, `he/ai-simultaneous-interpretation/interpreter-shortage-ai-backup.html`, carries the matching `isPartOf`. HE blog articles live in the product directory (e.g. `he/ai-simultaneous-interpretation/`), like EN and DE; `he/blog/` holds only the hub.
 
 PL got its hub (`pl/blog/index.html`) on 2026-08-16 — its Blog entity now carries `"@id": "https://www.nubart.eu/pl/blog/#blog"`, and existing PL blog articles have been backfilled with the matching `isPartOf` per the rule above.
 

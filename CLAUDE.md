@@ -98,6 +98,12 @@ Consequently **§12.9 states the SAME rule in every language version** — it is
 - Make and verify the file changes, then stop and let the user handle version control.
 - **Never rewrite git history on this repo**, and never hand-edit a Terms & Conditions file outside the normal deploy flow. The commit history of the T&C files is the only record of which text was in force on any given date — treat them as **append-only**.
 
+## Creating Blog Articles & Blog Hubs
+- **Header class (CRITICAL):** every blog article and every blog hub page uses `<header id="header" class="fixed-top header-inner-pages">`. Never `class="fixed-top header"`: that is the home-page/product-page hero header and is wrong on blog pages. When copying the header/nav from a product page (e.g. a landing page), change the class.
+- **File location:** the article file lives in its product directory (e.g. `he/ai-simultaneous-interpretation/`, `de/simultan-uebersetzung-ki/`), like EN and DE. `<lang>/blog/` holds only the hub (`index.html`); articles are reached from a card on the hub.
+- **Zoho form buttons (trial, quote, demo):** open the form in the lightbox, never in a new tab. Include `assets/css/zoho-lightbox.css` and `assets/js/zoho-lightbox.js`, call `ZohoLightbox.init('<form URL>')` on `DOMContentLoaded`, and give every CTA `onclick="ZohoLightbox.open(); return false;"` (no `target="_blank"`, no `zforms_open_window`, which is not defined anywhere in the repo). Use the language variant of the form URL (`?zf_lang=xx`) where the form supports it.
+- **Hub linkage:** the article declares `isPartOf` → that language's `#blog` entity (see `.claude/rules/schema-rules.md`); the hub has a card for it, newest first.
+
 ## Before Finalizing Changes
 - Test responsive layout (mobile/tablet/desktop)
 - Verify all internal links work

@@ -1454,3 +1454,118 @@ section {
 .nubart-blog .sample-clause p {
     margin-bottom: 0;
 }
+
+/* RTL blog articles (Hebrew): move the H2 accent border to the right-hand side */
+[dir="rtl"] .nubart-blog h2 {
+    border-left: 0;
+    padding-left: 0;
+    border-right: 4px solid #6ec7ba;
+    padding-right: 0.6em;
+}
+
+/*--------------------------------------------------------------
+# Nubart GUIDE AI landing page (audio-guides/nubart-guide-ai.html)
+# All rules prefixed .gai-. Only what Bootstrap/Dewi cannot do:
+# a hero that grows with its content, the visit flow, and clearly
+# marked placeholder boxes for visuals that do not exist yet.
+--------------------------------------------------------------*/
+
+/* Hero: the template hero is fixed at 100vh with an absolute container,
+   which clips longer copy on small screens. Let it grow instead. */
+.gai-hero {
+    height: auto;
+    min-height: 100vh;
+}
+.gai-hero .hero-container {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+}
+.gai-hero h1,
+.gai-hero h2,
+.gai-hero .gai-hero-for,
+.gai-hero .gai-hero-existing {
+    max-width: 860px;
+}
+.gai-hero h2 {
+    margin-bottom: 20px;
+}
+.gai-hero .gai-hero-for {
+    color: #eee;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.gai-hero .gai-hero-existing {
+    color: #ddd;
+    font-size: 15px;
+    margin: 30px 0 0;
+}
+
+/* Visit flow: camera > narration > collection */
+.gai-flow {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 12px;
+    margin: 2rem 0 0;
+    padding: 0;
+}
+.gai-flow-step {
+    flex: 1 1 0;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 1.1rem 1rem;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #b9e0d9;
+    border-radius: 8px;
+}
+.gai-flow-step i {
+    font-size: 2.2rem;
+    color: #026a6c;
+}
+.gai-flow-arrow {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #026a6c;
+}
+@media (max-width: 767px) {
+    .gai-flow {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gai-flow-step {
+        width: 100%;
+        max-width: 320px;
+    }
+    .gai-flow-arrow i {
+        transform: rotate(90deg);
+    }
+}
+
+/* Placeholder for visuals still to be produced (remove once real images exist) */
+.gai-placeholder {
+    margin: 2rem 0 0;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: #f4fafa;
+    border: 2px dashed #6ec7ba;
+    border-radius: 8px;
+    color: #2f4f4f;
+}
+.gai-placeholder > i {
+    font-size: 2rem;
+    color: #026a6c;
+}
+.gai-placeholder .gai-placeholder-label {
+    margin: 0.25rem 0 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #026a6c;
+}

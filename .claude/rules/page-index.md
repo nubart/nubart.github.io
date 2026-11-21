@@ -46,6 +46,7 @@
 - JA: ja/blog/index.html
 - PT-BR: pt-br/blog/index.html
 - PL: pl/blog/index.html (created since the "no PL hub" note in schema-rules.md was written — that note is now stale for PL; only NL and BG still lack a hub)
+- HE: he/blog/index.html (created 2026-11-18; Blog `@id` `https://www.nubart.eu/he/blog/#blog`; HE blog articles live in their product directory, not in he/blog/)
 
 ### Scrolling vs. clicking: how navigation design makes or breaks a digital audio guide
 - EN: audio-guides/content-structure-digital-guides.html
@@ -162,6 +163,7 @@
 - DE: de/simultan-uebersetzung-ki/erwartungen-ki-vs-menschliche-dolmetscher.html
 - ES: es/traduccion-simultanea-ia/expectativas-interpretacion-ia-vs-humana.html
 - PT-BR: pt-br/traducao-simultanea-ia/expectativas-interpretacao-ia-versus-humana.html
+- HE: he/ai-simultaneous-interpretation/ai-vs-human-interpretation.html (2026-11-18)
 - IT: (still pending)
 - FR: (still pending)
 - PL: (still pending)
@@ -184,6 +186,7 @@
 - DE: de/simultan-uebersetzung-ki/dolmetscher-ausfall-ki-backup.html
 - ES: es/traduccion-simultanea-ia/plan-b-para-interpretacion-eventos.html
 - FR: fr/traduction-simultanee-ia/solution-secours-interpretation-evenement.html
+- HE: he/ai-simultaneous-interpretation/interpreter-shortage-ai-backup.html (2026-11-18)
 - IT: (still pending)
 - PT-BR: (still pending)
 - PL: (still pending)
@@ -216,6 +219,7 @@
 - EN: ai-simultaneous-interpretation/nubart-translate-comparison.html
 - DE: de/simultan-uebersetzung-ki/nubart-translate-anbietervergleich.html
 - ES: es/traduccion-simultanea-ia/nubart-translate-comparativa.html
+- HE: he/ai-simultaneous-interpretation/nubart-translate-comparison.html (2026-11-18)
 - FR: (still pending)
 - IT: (still pending)
 - PT-BR: (still pending)
