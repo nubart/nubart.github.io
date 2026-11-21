@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Not indexed for now (do NOT block in robots.txt, or the noindex cannot be read) -->
+    <meta name="robots" content="noindex" />
+
+    <!-- Structured Data: FAQ (schema only, not shown on the page) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can an AI audio guide use only a museum's own sources?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Nubart GUIDE AI bases its narration only on sources the museum has approved, such as exhibition catalogues, articles, room texts and existing scripts. When the sources contain no information on a detail, Nubart GUIDE AI tells the visitor so instead of inventing an answer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do curators have to review every text an AI audio guide generates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. With Nubart GUIDE AI, curators can read, edit or remove any text at any time in the Nubart customer portal, and can check selected objects before opening, but a review of every text is not required. Each text is written once and then kept, so what curators read is exactly what visitors hear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does an AI museum audio guide recognise an object?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Nubart GUIDE AI, the visitor points the phone camera at the object or its label. Nubart GUIDE AI first compares the image with objects likely to be nearby, can read labels and inventory numbers, uses discreet markers for very small objects such as coins, and asks the visitor to choose when it is not sure. Visitors never have to share their location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does an AI audio guide for museums need an app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nubart GUIDE AI does not. It runs as a progressive web app (PWA) in the visitor's browser and is opened with a Nubart card, printed or digital. There is no download and no account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a museum charge for an AI audio guide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Nubart GUIDE AI is accessed through non-transferable Nubart cards, protected by Nubart's patented Light-Weight method for Web Access Control (LWAC), granted in the EU, Spain and the USA. Museums can sell the cards, share the revenue with Nubart, or include a card with every admission ticket."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does an AI audio guide pronounce artist names correctly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nubart GUIDE AI keeps a pronunciation list for each museum, with an entry per name and guide language. The museum approves the list once, and an automatic check flags names that seem to have come out wrong before visitors hear them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does an AI audio guide replace a museum's existing audio guide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with Nubart GUIDE AI. The museum's human-made audio guide tracks stay exactly as they are, and Nubart GUIDE AI covers the rest of the collection as a second, clearly labelled layer."
+      }
+    }
+  ]
+}
+    </script>
+
+    <!-- Breadcrumb Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Nubart",
+                    "item": "https://www.nubart.eu/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Nubart GUIDE",
+                    "item": "https://www.nubart.eu/audio-guides/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Nubart GUIDE AI",
+                    "item": "https://www.nubart.eu/audio-guides/nubart-guide-ai.html"
+                }
+            ]
+        }
+    </script>
+    <!-- End Structured data -->
+
+    <!-- Google Tag Manager -->
+    <script type="text/plain" data-category="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRW7KZS');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-_SS5raLBVT-tHypWms35n.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+
+    <!-- Cookie consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+    <title>Nubart GUIDE AI: an audio guide for every exhibit</title>
+    <meta name="description" content="Nubart GUIDE AI lets every exhibit speak, based only on your museum's approved sources. Curators keep control. Apply as a founding partner museum." />
+
+    <meta name="author" content="Nubart" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nubart GUIDE AI: an audio guide for every exhibit" />
+    <meta name="twitter:description" content="Nubart GUIDE AI lets every exhibit speak, based only on your museum's approved sources. Curators keep control. Apply as a founding partner museum." />
+    <meta name="twitter:site" content="@nubartEN" />
+    <meta name="twitter:creator" content="@nubartEN" />
+    <meta name="twitter:image" content="https://www.nubart.eu/assets/img/nubart-guide.webp" />
+
+    <!-- Canonical (no hreflang yet: DE and ES versions will follow) -->
+    <link rel="canonical" href="https://www.nubart.eu/audio-guides/nubart-guide-ai.html" />
+
+    <!-- OpenGraph for LinkedIn -->
+    <meta property="og:title" content="Nubart GUIDE AI: an audio guide for every exhibit" />
+    <meta property="og:image" content="https://www.nubart.eu/assets/img/nubart-guide.webp" />
+    <meta property="og:author" content="Nubart International" />
+    <meta property="og:description" content="Nubart GUIDE AI lets every exhibit speak, based only on your museum's approved sources. Curators keep control. Apply as a founding partner museum." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.nubart.eu/audio-guides/nubart-guide-ai.html" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="https://nubart.eu/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nubart.eu/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nubart.eu/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nubart.eu/favicon-16x16.png">
+    <link rel="mask-icon" href="https://nubart.eu/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- supplier CSS Files -->
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Lazy-load JS -->
+    <script src="../assets/vendor/lazysizes/lazysizes.min.js" async=""></script>
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <link href="../assets/css/zoho-lightbox.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- First Navbar -->
+<header id="header" class="fixed-top header">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="../" class="logo"> <img src="../assets/img/logo.png" alt="Nubart's logo" class="img-fluid"> </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a href="../audio-guides/">
+                                <i class="bi bi-headphones product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GUIDE</span>
+                                    <span class="product-description">Self-guided QR-based audio tours (PWA)</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+
+                        <li>
+                            <a href="../digital-tour-guide-app/">
+                                <i class="bi bi-headset product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART LIVE</span>
+                                    <span class="product-description">Tour guide system with live AI translation</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                         <li>
+                            <a href="../audio-commentary-system/">
+                                <i class="bi bi-bus-front-fill product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART MOTION</span>
+                                    <span class="product-description">Triggered commentary system for boats, buses & other vehicles</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a href="../ai-simultaneous-interpretation/">
+                                <i class="bi bi-translate product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART TRANSLATE</span>
+                                    <span class="product-description">Simultaneous AI-translation in real-time for your events</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a href="../audio-guides/ar-game-quiz.html">
+                                <i class="bi bi-controller product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART GAME</span>
+                                    <span class="product-description">Interactive AR game and quiz to integrate in your audio guide.</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+
+                        <li>
+                            <a href="https://www.nubart.eu/sync/">
+                                <i class="bi bi-person-video3 product-icon"></i>
+                                <div class="product-text">
+                                    <span class="product-name">NUBART SYNC</span>
+                                    <span class="product-description">A QR-code to stream the multilingual audio of your on-site videos in perfect sync.</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a class="nav-link scrollto" href="../x-blog/">Blog</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../about.html">About us</a></li>
+                        <li><a href="../contact.html">Contact Nubart</a></li>
+                    </ul>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link scrollto" rel="nofollow" target="_blank"
+                       href="https://www.nub.art/customer/login"> <i class="bi bi-person-circle"></i>&nbsp; Login </a>
+                </li>
+
+                <li class="dropdown d-none d-md-block">
+                    <a href="#"><i style="font-size: 18px;" class="bi bi-globe"></i> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../es/">Español</a></li>
+                        <li><a href="../de/">Deutsch</a></li>
+                        <li><a href="../fr/">Français</a></li>
+                        <li><a href="../pt-br/">Português</a></li>
+                        <li><a href="../nl/">Nederlands</a></li>
+                        <li><a href="../it/">Italiano</a></li>
+                        <li><a href="../pl/">Polski</a></li>
+                        <li><a href="../bg/">български</a></li>
+                        <li><a href="../he/">עִברִית</a></li>
+                        <li><a href="../ja/">日本語</a></li>
+                    </ul>
+                </li>
+                <!-- Mobile-only secondary menu items -->
+                <li class="mobile-secondary-menu-divider d-md-none">
+                    <hr>
+                </li>
+                <li class="mobile-secondary-header d-md-none"  style="color: #028a8c;"><i class="bi bi-headphones product-icon"></i>&nbsp<span>NUBART GUIDE</span></li>
+                <li class="dropdown d-md-none">
+                    <a href="#"><span>Content Production</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="../audio-guides/content-production/">Our production process</a></li>
+                        <li><a href="../audio-guides/content-production/customer-requirements.html">What we need from
+                                                                                                    you</a></li>
+                    </ul>
+                </li>
+
+                <li class="d-md-none"><a href="#" onclick="ZohoLightbox.open(); return false;">Apply as a founding partner</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header><!-- End Header -->
+<main id="main">
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="gai-hero" style='background-image: url("../assets/img/bg/bg-guide-2.webp");'>
+    <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+        <img
+                data-src="../assets/img/logos/logo-nubart-guide-teal.svg"
+                class="img-fluid mx-auto d-block lazyload mb-4"
+                style="max-width: 320px; width: 70vw; height: auto;"
+                alt="Nubart GUIDE logo">
+        <h1>Nubart GUIDE AI: every exhibit can speak</h1>
+        <h2>AI narration for your whole collection, based only on sources your museum approves. Your curators stay in control.</h2>
+        <p class="gai-hero-for">Founding partner programme for museums with a large collection that their current guide covers only in part, or that have no guide yet. Places are limited.</p>
+        <a class="btn btn-danger btn-lg" href="#" onclick="ZohoLightbox.open(); return false;">Apply as a founding partner</a>
+        <p class="gai-hero-existing"><em>Already using Nubart GUIDE? The AI layer is added to your current guide and cards. Your existing tracks stay as they are.</em></p>
+    </div>
+</section>
+
+<!-- Second Navbar - Desktop Only -->
+<header class="sticky-top d-none d-md-block" style="top: 60px; background: #6ec7ba">
+    <div class="container d-flex align-items-center justify-content-between"
+         style="padding-top: 5px; padding-bottom: 5px;">
+        <nav id="secondary-navbar" class="navbar" style="width: 100%;">
+            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                <div style="color: white;">
+                    <i class="bi bi-headphones"></i>&nbsp;&nbsp;
+                    <b>NUBART GUIDE:</b>
+                </div>
+                <ul id="secondary-menu-items" class="secondary-menu-list"
+                    style="margin-left: 10px; display: flex; align-items: center;">
+                    <li class="dropdown secondary-menu" style="margin-right: 30px;">
+                        <a href="#"><span>Use Cases</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../audio-guides/">Museums</a></li>
+                            <li><a href="../audio-guides/zoo-guide.html">Zoos</a></li>
+                            <li><a href="../audio-commentary-system/">Sightseeing boats</a></li>
+                            <li><a href="../audio-guides/digital-campus-tour.html">Campus Tours</a></li>
+                            <li><a href="../panoramic-guide/">Viewing Platforms and Roofs</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;"><a href="../audio-guides/multimedia-features.html">Multimedia
+                                                                                                       Features</a>
+                    </li>
+                    <li style="margin-right: 22px;" class="dropdown">
+                        <a href="#"><span>Content Production</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../audio-guides/content-production/">Our production process</a></li>
+                            <li>
+                                <a href="../audio-guides/content-production/customer-requirements.html">What we need from you</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-right: 22px;"><a href="../audio-guides/inclusive-museum-qr-codes.html">Accessibility</a>
+                    </li>
+
+<li><a class="nav-link scrollto" href="../portfolio/">Customers</a></li>
+<li  style="margin-right: 30px;"><a class="getstarted scrollto" href="#" onclick="ZohoLightbox.open(); return false;">Apply as a founding partner</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- ======= Breadcrumbs ======= -->
+<div class="d-md-none" style="height: 60px;"></div>
+<section class="breadcrumbs d-none d-md-block">
+    <div class="container">
+        <ol>
+            <li><a href="../">Home</a></li>
+            <li><a href=".">Nubart GUIDE</a></li>
+            <li>Nubart GUIDE AI</li>
+        </ol>
+    </div>
+</section><!-- End Breadcrumbs -->
+
+    <!-- ======= Lead ======= -->
+    <section id="lead">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <p class="lead">A classic audio guide often covers only a small part of the collection. Scripts, translations and studio recordings are too expensive to produce for hundreds of objects, so most exhibits stay silent.</p>
+                    <p class="lead">Nubart GUIDE AI gives the rest of the collection a voice. A visitor points their phone at an object and hears a short narration about it, with the text on screen, in one of the languages you offer. There is no app to download.</p>
+                    <p class="lead">The narration is based only on material your museum has approved. Where your sources say nothing, the guide says so instead of guessing. Nubart GUIDE AI is an extension of Nubart GUIDE, the QR-code audio guide used by around 200 institutions in 28 countries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Why now ======= -->
+    <section id="why-now" class="section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">Why your museum's own AI guide matters now</h2>
+                    <p>Visitors can already point their phones at objects and receive AI-generated descriptions, and they are starting to do so in galleries. Those descriptions come from the open internet, and the museum has no say in what they contain. Nubart GUIDE AI gives visitors a better option: narration based on your own research, under your control, through the same card that opens your audio guide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= A visit ======= -->
+    <section id="visit">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">What a visit with Nubart GUIDE AI looks like</h2>
+                    <p>The visitor opens the guide with their Nubart card, on their own phone. To hear about an object, they point the camera at it, or at its label, and the guide plays a short narration with the text on screen. The text also makes the guide usable for visitors who cannot listen. The browser asks for permission to use the camera. Visitors do not need an app or an account, and they never have to share their location.</p>
+                    <p>At the start of the visit, visitors can choose a style: for children, short highlights, or more depth. All three are based on the same approved sources. Adding a language means preparing a pronunciation list for it, not writing and recording the collection again.</p>
+                    <p>To recognise an object, the guide first compares the camera image with the objects likely to be near the visitor, for example in the room of the last object they scanned. It can also read an object's label or inventory number, and very small objects such as coins can carry a discreet marker. When the guide is not sure, it shows a few likely objects and asks the visitor which one they mean. How these methods perform with glass cases, reflections and similar objects side by side is what we will test on site with our founding partners.</p>
+
+                    <ol class="gai-flow list-unstyled" aria-label="Flow of a visit">
+                        <li class="gai-flow-step"><i class="bi bi-camera" aria-hidden="true"></i><span>Camera on object</span></li>
+                        <li class="gai-flow-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></li>
+                        <li class="gai-flow-step"><i class="bi bi-volume-up" aria-hidden="true"></i><span>Narration with text</span></li>
+                        <li class="gai-flow-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></li>
+                        <li class="gai-flow-step"><i class="bi bi-collection" aria-hidden="true"></i><span>Object added to the visitor's collection</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Existing guide ======= -->
+    <section id="existing-guide" class="section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">If you already have an audio guide, it stays as it is</h2>
+                    <p>Many museums already have a carefully produced audio guide for their highlights. Nubart GUIDE AI does not touch it. Your human-made tracks stay exactly as they are, and the AI layer covers the rest of the collection. AI narration is clearly labelled, so visitors always know which of the two they are listening to.</p>
+                    <p>If your museum has no audio guide yet, Nubart GUIDE AI can cover the whole collection on its own, and you can add human-made tracks for selected highlights later.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Sources ======= -->
+    <section id="sources">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">Where the words come from: only your approved sources</h2>
+                    <p>You upload your material as it is: exhibition catalogues, academic articles, room texts and existing scripts, in Word, PowerPoint, Excel or as scanned documents. There is no need to sort it or to assign texts to objects. The only structured input we need is your object list, with name or inventory number, image, and room if you have it.</p>
+                    <p>For each object, the system searches all of your sources for the passages that concern it and keeps a reference to where each passage came from. The catalogue is the main source, and selected academic texts add background. The narration is written strictly from those passages. If your sources say nothing about a detail, the guide tells the visitor that this information is not available.</p>
+                    <p>Before any source is used, your museum confirms that it holds the rights for this use. For catalogue essays by external authors, this may need the authors' agreement. If you wish, the guide can name the author of each source. Images are a separate question: catalogue images appear in visitors' collections only where your image rights allow it.</p>
+
+                    <div class="gai-placeholder" role="note">
+                        <i class="bi bi-image" aria-hidden="true"></i>
+                        <p class="gai-placeholder-label">Visual placeholder</p>
+                        <p class="mb-0">Example of a catalogue passage next to the narration written from it</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Curators ======= -->
+    <section id="curators" class="section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">Curators stay in control of every text</h2>
+                    <p>Each narration is written once, for each object, language and style, and then kept. Every visitor hears the same version until your team changes it, so it can be read, checked and corrected like any page of a printed guide. This also means the same text is not generated again for hundreds of visitors a day, which keeps computing, and the energy it uses, to a minimum.</p>
+                    <p>Curators work in the Nubart customer portal, where you already see usage statistics and visitor feedback. A new curator view lets you read any narration at any time. If you edit a text, visitors hear your version from then on. If you remove a text, a new one is written from your sources the next time a visitor asks for that object. If an error comes from a source itself, update the source in the portal: every text that depends on it is marked and written again from the corrected version.</p>
+                    <p>You can have selected objects prepared in advance and read their texts before visitors hear them, for example sensitive objects. You don't have to. The guide works only from your sources and says when they are silent, so it does not depend on a review of every single text.</p>
+                    <p>The curator view also shows which objects visitors ask about most. Each card has a limit that stops automated copying of your content. It is set well above anything a real visit needs.</p>
+
+                    <div class="gai-placeholder" role="note">
+                        <i class="bi bi-image" aria-hidden="true"></i>
+                        <p class="gai-placeholder-label">Visual placeholder</p>
+                        <p class="mb-0">Curator view with a narration text, edit and remove buttons</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Pronunciation ======= -->
+    <section id="pronunciation">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">Correct pronunciation without listening to every track</h2>
+                    <p>Wrong pronunciation of names is the most common complaint about synthetic voices. Nubart GUIDE AI starts from the pronunciation corrections we have already made in years of audio guide production, and keeps a list for each museum. The system collects names and foreign terms from your sources and proposes how each should sound in each guide language. Our team listens and confirms, and you approve the list once. An automatic check compares the finished audio with the text and flags names that seem to have come out wrong, so many problems are caught before a visitor hears them. When an entry is corrected, every track with that name is produced again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Personal collection ======= -->
+    <section id="collection" class="section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">Each visitor builds their own collection</h2>
+                    <p>Every object a visitor discovers is added to their personal collection, linked to their Nubart card: the audio, the text and, where your image rights allow, the catalogue image. The card is non-transferable but reusable without limit, so visitors can listen again at home, with no account or password.</p>
+                    <p>A large museum is rarely seen in one visit. The collection shows visitors what they have already discovered, and the rooms they missed can be a reason to come back.</p>
+                    <p>If you correct or remove a text, it changes in every personal collection that holds it.</p>
+
+                    <div class="gai-placeholder" role="note">
+                        <i class="bi bi-image" aria-hidden="true"></i>
+                        <p class="gai-placeholder-label">Visual placeholder</p>
+                        <p class="mb-0">Mockup of a visitor's personal collection with a progress indicator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Experience ======= -->
+    <section id="experience">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">Built on years of experience with museums and with AI</h2>
+                    <p>Nubart GUIDE AI is an extension of Nubart GUIDE, which museums have used since 2016. It runs as a progressive web app (PWA) in the visitor's browser. Access works through Nubart's patented Light-Weight method for Web Access Control (LWAC), granted in the EU, Spain and the USA. All data is processed on servers in the EU, in line with the GDPR.</p>
+                    <p>Nubart GUIDE AI is not our first AI product. Nubart TRANSLATE provides live AI interpretation for events, Nubart LIVE adds live AI translation to guided tours, and AI voices are already part of our audio guide production. This work has taught us where AI is reliable, where it needs firm rules, and how much careful tuning the details take.</p>
+                    <p>We also know what curators worry about when they hear "AI": invented facts, badly pronounced names, and losing control over how their collection is presented. Nubart GUIDE AI is designed around those concerns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Founding partner programme ======= -->
+    <section id="programme" class="section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">The founding partner programme</h2>
+                    <p>We are selecting a small number of founding partner museums and work closely with each of them. Founding partners pay no setup fee. Together we prepare your sources and object list, test the guide on site, including object recognition in your own rooms, and look at how visitors use it and how your curators work with it. What we learn with you shapes the version that later goes to all museums.</p>
+                    <p>The programme suits museums with a large collection that their current guide covers only in part, or that have no guide yet.</p>
+                    <p><strong>What your museum provides.</strong> Your object list and your source material, with the rights confirmed, and one contact person for questions about sources and the pronunciation list. The exhibition rooms need good mobile or Wi-Fi coverage: recognition and narration happen online, so the AI layer does not run in offline mode. The human-made tracks of an existing Nubart GUIDE can still run offline.</p>
+
+                    <div class="monetise-callout p-4 my-4">
+                        <h3 class="h5 fw-bold mb-2">Already a Nubart GUIDE customer?</h3>
+                        <p class="mb-0">You can add the AI layer to your current guide and use your current cards. Your existing tracks stay as they are. Tell us in the form below, or write to your usual contact at Nubart.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Business model ======= -->
+    <section id="business" class="services">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">How the business model works</h2>
+                    <p>Nubart GUIDE AI is paid for through Nubart cards, just like Nubart GUIDE. Your museum chooses how the cards reach visitors, from the models already available for Nubart GUIDE.</p>
+                </div>
+            </div>
+            <div class="row text-center my-4">
+                <div class="col-md-4 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card mb-3 h-100 w-100">
+                        <div class="card-body">
+                            <h3 class="h4">Pay as you go</h3>
+                            <p class="card-text">You buy cards, sell them at your own price and keep the margin.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card mb-3 h-100 w-100">
+                        <div class="card-body">
+                            <h3 class="h4">Revenue share</h3>
+                            <p class="card-text">You sell the cards as an extra, and we share the revenue.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card mb-3 h-100 w-100">
+                        <div class="card-body">
+                            <h3 class="h4">Subscription</h3>
+                            <p class="card-text">You include a card with every admission and recover its cost in the ticket price.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <p>If you sell tickets online, the same non-transferable access can also be issued as a digital code with each ticket, through our API.</p>
+                    <p>Nubart GUIDE AI works with personal cards, printed or digital, because each visitor's own collection depends on them. Founding partners pay no setup fee. After the founding partner phase, new museums will pay a moderate one-time setup fee. We are happy to work out the options for your museum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Apply ======= -->
+    <section id="apply" class="section-bg">
+        <div class="container text-center" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="fs-2 mb-4">Apply to become a founding partner</h2>
+                    <p>Tell us a little about your museum. We will reply personally and, if the programme is a good fit, suggest a call.</p>
+                    <a class="btn btn-danger btn-lg mt-3" href="#" onclick="ZohoLightbox.open(); return false;">Apply as a founding partner</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="footer-info">
+                        <p class="fs-3">Nubart</p>
+                        <p>
+                            Barcelona - Berlin<br>
+
+                            <strong>Email:</strong> info@nubart.eu<br>
+                        </p>
+                        <div class="social-links mt-3"><a href="https://www.linkedin.com/company/nubart-eu/"
+                                                          class="linkedin" target="_blank"><i
+                                class="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/nubartEN" class="twitter" target="_blank"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/Nubart/" class="facebook" target="_blank"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/nubart.eu/" class="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <p class="fs-4">Useful Links</p>
+                    <ul>
+
+                        <li><i class="bi bi-chevron-right"></i> <a href="../contact.html">Contact</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../legal-notice.html" rel="nofollow">Legal
+                            notice</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="terms-conditions.html" rel="nofollow">Terms and Conditions of Nubart GUIDE</a>
+                        </li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="../privacy-policy.html" rel="nofollow">Privacy
+                            policy website</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a data-cc="show-consentModal">Cookie Preferences</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-6 col-md-6 footer-newsletter">
+                    <h4>Our Newsletter</h4>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Nubart 2026</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Critical JS Files -->
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+
+<!-- Non-Critical JS Files - Still deferred but loaded directly -->
+<script src="../assets/vendor/aos/aos.js" defer></script>
+<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../assets/js/main-min.js" defer></script>
+
+<!-- Hubspot Analytics scripts with proper async loading -->
+<script type="text/plain" data-category="analytics" id="hs-script-loader" async
+        src="//js.hs-scripts.com/2430134.js"></script>
+
+<!-- Scroll to hash - Inlined for critical functionality -->
+<script>
+    function getElementTopOffset(element) {
+        if (!element.getClientRects().length){
+            return 0;
+        }
+
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.scrollY;
+    }
+
+    window.addEventListener('load', event => {
+        if (window.location.hash.length > 0) {
+            window.setTimeout(() => {
+                const target = document.getElementById(window.location.hash.substring(1));
+                if(target) {
+                    window.scrollTo(0, getElementTopOffset(target));
+                }
+            }, 1000);
+        }
+    });
+</script>
+
+<script type="module" src="/js/cookieconsent-config.js"></script>
+<!-- Zoho Forms Lightbox -->
+<script src="../assets/js/zoho-lightbox.js" defer></script>
+<script>
+    // TODO: replace with the real Zoho form URL for the Nubart GUIDE AI founding partner form
+    const ZOHO_FORM_URL_GUIDE_AI = "ZOHO_FORM_URL_GUIDE_AI";
+    window.addEventListener("DOMContentLoaded", function () {
+        ZohoLightbox.init(ZOHO_FORM_URL_GUIDE_AI);
+    });
+</script>
+
+</body>
+</html>
