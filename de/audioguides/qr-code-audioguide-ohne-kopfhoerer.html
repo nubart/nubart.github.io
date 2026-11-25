@@ -35,7 +35,7 @@
                 }
             },
             "datePublished": "2026-11-16",
-            "dateModified": "2026-11-16",
+            "dateModified": "2026-11-25",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/de/audioguides/qr-code-audioguide-ohne-kopfhoerer.html"
@@ -528,12 +528,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>Eine native App kann das Betriebssystem anweisen, den Ton im Telefonmodus gezielt über die Hörmuschel auszugeben. Messenger-Apps nutzen genau das, wenn Sie das Smartphone ans Ohr halten, um eine Sprachnachricht abzuhören. Eine Webseite kann dies hingegen nicht zuverlässig steuern:</p>
                     <ul>
                         <li>Unter Android unterstützen weder Chrome noch Firefox die Browserfunktion zur Auswahl eines bestimmten Audioausgangs (<code>setSinkId</code>) <a href="#src3">[3]</a>.</li>
-                        <li>Auf dem iPhone kann Safari den Ton zwar als Nebeneffekt einer Mikrofonnutzung auf die Hörmuschel umleiten. Fehlerberichte aus verschiedenen iOS-Versionen über mehrere Jahre hinweg zeigen jedoch, dass dieses Verhalten unzuverlässig ist <a href="#src4">[4]</a>. Zudem müsste eine Webseite jeden Besucher erst um Zugriff auf das Mikrofon bitten – bloß um eine Audioaufnahme abzuspielen.</li>
+                        <li>Auf dem iPhone kann Safari den Ton zwar als Nebeneffekt einer Mikrofonnutzung auf die Hörmuschel umleiten. Fehlerberichte aus verschiedenen iOS-Versionen über mehrere Jahre hinweg zeigen jedoch, dass dieses Verhalten unzuverlässig ist <a href="#src4">[4]</a>. Zudem müsste eine Webseite jeden Besucher erst um Zugriff auf das Mikrofon bitten – bloß um eine Audioaufnahme abzuspielen. Safari 18.4 hat eine Möglichkeit ergänzt, den Audioausgang zu wählen, doch WebKit hat sie für Mac-Computer angekündigt, und zwar erst, nachdem der Nutzer den Zugriff auf das Mikrofon erlaubt hat <a href="#src10">[10]</a>.</li>
                     </ul>
                     <p>Deshalb gibt ein browserbasierter Audioguide den Ton grundsätzlich über den Lautsprecher aus, sofern der Besucher keine Kopfhörer anschließt. Das liegt an den technischen Rahmenbedingungen mobiler Browser und ist keine bewusste Designentscheidung eines einzelnen Anbieters.</p>
 
                     <h2 id="native-app">Was eine native App leisten kann – und was sie kostet</h2>
-                    <p>Eine native App hat deutlich mehr Kontrolle über die Audioausgabe als eine Webseite. Sie kann den Ton wie bei einem Telefonat gezielt über die Hörmuschel wiedergeben und die Wiedergabe so lange blockieren, bis Kopfhörer angeschlossen sind. Damit lässt sich das Geräuschproblem rein technisch gesehen lösen.</p>
+                    <p>Eine native App hat deutlich mehr Kontrolle über die Audioausgabe als eine Webseite. Sie kann den Ton wie bei einem Telefonat gezielt über die Hörmuschel wiedergeben und die Wiedergabe so lange blockieren, bis Kopfhörer angeschlossen sind. Eine Webseite kann das nicht. Aus Datenschutzgründen teilen mobile Browser einer Webseite nicht mit, welches Audiogerät angeschlossen ist, es sei denn, der Besucher erlaubt zuvor den Zugriff auf das Mikrofon. Damit lässt sich das Geräuschproblem rein technisch gesehen lösen.</p>
                     <p>Der Preis dafür ist jedoch eine drastisch geringere Reichweite. Besucher müssen die App im Store erst finden, herunterladen und installieren, bevor sie auch nur ein Wort hören. Unsere <a href="download-raten-audioguide-apps-fuer-museen.html">Analyse von 175 offiziellen Audioguide-Apps für Museen</a> zeigt, dass im Schnitt nur 2,47 % der Besucher eine solche App tatsächlich herunterladen. Bei einer einstündigen Bootsfahrt, bei der die Gäste unterwegs oft auf mobile Daten angewiesen sind und die Zeit bis zur Abfahrt knapp ist, liegt diese Hürde noch höher.</p>
                     <p>Die eigentliche Wahl besteht also nicht zwischen einer lauten Web-App und einer leisen nativen App. Vielmehr geht es um die Entscheidung zwischen einem Audioguide, den praktisch jeder Besucher sofort öffnen kann, und einem, den am Ende kaum jemand nutzt. Die entscheidende Frage lautet daher: Kann eine Web-App eine vergleichbare Kontrolle über die Kopfhörernutzung bieten? Ja, das geht – wie wir im Folgenden zeigen.</p>
 
@@ -606,7 +606,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
 
                     <h2 id="huggins-pitch-check">Für strengere Anforderungen: ein Kopfhörer-Check auf Basis des Huggins-Pitch-Effekts</h2>
-                    <p>Manche Betreiber brauchen mehr als bloße Appelle an die Rücksichtnahme. Ein typisches Beispiel sind Ausflugsboote oder Reisebusse, in denen Fahrgäste einem lauten Sitznachbarn nicht einfach ausweichen können. Genau für solche Fälle hat Nubart einen Kopfhörertest entwickelt, der direkt im Browser läuft – ganz ohne App.</p>
+                    <p>Manche Betreiber brauchen mehr als bloße Appelle an die Rücksichtnahme. Ein typisches Beispiel sind Ausflugsboote oder Reisebusse, in denen Fahrgäste einem lauten Sitznachbarn nicht einfach ausweichen können. Genau für solche Fälle hat Nubart einen Kopfhörertest entwickelt, der direkt im Browser läuft – ganz ohne App. Sein Zweck ist einfach: herauszufinden, ob der Besucher wirklich Kopfhörer trägt, noch bevor ein Ton abgespielt wird. Der Besucher hört eine kurze Melodie, die sich nur mit Kopfhörern hören lässt. Wer sie erkennt, bekommt den Audioguide. Wer sie nicht erkennt, bekommt den Guide als Text und Bilder, sodass nichts über den Lautsprecher läuft.</p>
 
                     <h3>Die wissenschaftliche Grundlage: ein Ton, der nur über Kopfhörer existiert</h3>
                     <p>Der Test nutzt den sogenannten Huggins-Pitch-Effekt, ein Hörphänomen, das erstmals 1958 von Cramer und Huggins beschrieben wurde <a href="#src7">[7]</a>. Das Prinzip lässt sich gut mit einem 3D-Film vergleichen.</p>
@@ -617,7 +617,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><strong>Das Gehirn erledigt den Rest.</strong> Jedes Ohr für sich hört also nur ein gleichmäßiges Rauschen. Doch sobald das Gehirn die Signale beider Ohren vergleicht, erkennt es den feinen Unterschied und erzeugt daraus einen zarten Ton. Dieser Ton steckt weder im linken noch im rechten Audiosignal – er entsteht erst im Kopf des Zuhörers. Verschiebt man diesen veränderten Bereich schrittweise, wird aus dem einzelnen Ton eine kurze Melodie.</li>
                         <li><strong>Kopfhörer funktionieren wie die 3D-Brille.</strong> Sie leiten jedem Ohr ein getrenntes Klangsignal zu. Über einen Smartphone-Lautsprecher vermischen sich beide Kanäle dagegen bereits in der Luft, sodass beide Ohren dasselbe Gemisch empfangen. Dem Gehirn fehlt damit die Grundlage für den Vergleich – die Melodie wird extrem schwach oder verschwindet komplett.</li>
                     </ul>
-                    <p>Die Idee, diesen Effekt als Kopfhörertest einzusetzen, stammt von Forschern des University College London. Sie führten Online-Hörtests durch und mussten sichergehen, ob die Studienteilnehmer zu Hause tatsächlich Kopfhörer trugen. Also machten sie den Test: Eine Gruppe hörte über Kopfhörer, die andere über Lautsprecher. Etwa 80 % der Probanden mit Kopfhörern erkannten den versteckten Ton in jedem Durchgang. In der Lautsprechergruppe traf dies hingegen nur auf rund 20 % zu.</p>
+                    <p>Die Idee, diesen Effekt als Kopfhörertest einzusetzen, stammt von Forschern des University College London. Sie führten Online-Hörtests durch und mussten sichergehen, ob die Studienteilnehmer zu Hause tatsächlich Kopfhörer trugen. Also machten sie den Test: Eine Gruppe hörte über Kopfhörer, die andere über Lautsprecher. Etwa 80 % der Probanden mit Kopfhörern erkannten den versteckten Ton in allen sechs Durchgängen. In der Lautsprechergruppe traf dies hingegen nur auf rund 20 % zu.</p>
                     <p>Wie lässt sich diese 20-Prozent-Quote erklären? Diese Teilnehmer saßen vor herkömmlichen Computer-Lautsprechern. Die Forscher vermuten, dass man Töne bei einem gewissen physischen Abstand zwischen linkem und rechtem Lautsprecher teilweise dennoch getrennt wahrnehmen kann <a href="#src8">[8]</a>. Bei einem Smartphone hingegen ist das ausgeschlossen: Seine Lautsprecher sitzen so nah beieinander, dass sich die Audiosignale im Raum sofort vermischen. Auch in unseren eigenen Tests war die Melodie über einen Laptop-Lautsprecher phasenweise noch hörbar, über die integrierten Smartphone-Speaker dagegen absolut nicht.</p>
                     <p>Der Test entlarvt zudem einen gängigen Trick: das Hören mit nur einem einzigen Ohrhörer. Da das Gehirn in diesem Fall nur ein einzelnes Signal empfängt, fehlt ihm jegliche Vergleichsmöglichkeit – und die Melodie bleibt unhörbar.</p>
 
@@ -634,7 +634,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <ol>
                         <li>Der Gast hört drei Töne hintereinander und tippt auf denjenigen, bei dem im Hintergrund des Rauschens eine zarte Melodie zu hören ist. Während ein Signal abgespielt wird, leuchtet die entsprechende Schaltfläche auf.</li>
                         <li>Das Ganze wird dreimal wiederholt. Alle drei Antworten müssen korrekt sein.</li>
-                        <li>Bei einer falschen Antwort bekommt der Besucher einen zweiten Versuch, wobei die Sequenzen in neuer Reihenfolge abgespielt werden. Durch reines Raten kommt man hier nicht weit: Selbst mit zwei Versuchen hätten bloß etwa 7 von 100 Personen rein statistisch das Glück, zufällig zu bestehen.</li>
+                        <li>Bei einer falschen Antwort bekommt der Besucher einen zweiten Versuch für den ganzen Test, wobei die Sequenzen in neuer Reihenfolge abgespielt werden. Durch reines Raten kommt man hier nicht weit: Selbst mit zwei Versuchen hätten bloß etwa 7 von 100 Personen rein statistisch das Glück, zufällig zu bestehen.</li>
                         <li>Wer den Test besteht, startet direkt in den Audioguide. Wer auch den zweiten Versuch nicht schafft, wechselt automatisch zur Textversion.</li>
                     </ol>
                     <h3>Niemand bleibt ohne Inhalte: Text und Bilder statt Ton</h3>
@@ -660,7 +660,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li id="src6">Europäische Kommission, 28. Dezember 2024: EU-Vorschriften für einheitliche Ladegeräte (<em>EU common charger rules</em>).</li>
                         <li id="src7">Cramer, E. M., und Huggins, W. H. (1958). Creation of pitch through binaural interaction. <em>Journal of the Acoustical Society of America</em>, 30(5), 412–417.</li>
                         <li id="src8">Milne, A. E., Bianco, R., Poole, K. C., et al. (2021). An online headphone screening test based on dichotic pitch. <em>Behavior Research Methods</em>, 53, 1551–1562.</li>
-                        <li id="src9">GSMArena, 30. Dezember 2023: <em>Here are the loudest phones we tested in 2023</em>.</li>
+                        <li id="src9">GSMArena, 30. Dezember 2023: <em>These are the loudest phones we tested in 2023</em>.</li>
+                        <li id="src10">WebKit, <em>WebKit Features in Safari 18.4</em>.</li>
                     </ol>
 
 

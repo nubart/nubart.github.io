@@ -35,7 +35,7 @@
                 }
             },
             "datePublished": "2026-11-14",
-            "dateModified": "2026-11-15",
+            "dateModified": "2026-11-25",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/audio-guides/qr-code-audio-guides-without-headphones.html"
@@ -510,12 +510,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>A native app can ask the operating system to play sound in call mode, through the earpiece. Messaging apps do this when you hold the phone to your ear to hear a voice message. A web page cannot do this reliably:</p>
                     <ul>
                         <li>On Android, Chrome and Firefox do not support the browser function that selects an audio output (<code>setSinkId</code>) at all <a href="#src3">[3]</a>.</li>
-                        <li>On iPhone, Safari can move sound to the earpiece as a side effect of microphone use. Bug reports that cover several years of iOS versions show that this behaviour is inconsistent <a href="#src4">[4]</a>. A web page would also have to ask every visitor for microphone access, only to play a recording.</li>
+                        <li>On iPhone, Safari can move sound to the earpiece as a side effect of microphone use. Bug reports that cover several years of iOS versions show that this behaviour is inconsistent <a href="#src4">[4]</a>. A web page would also have to ask every visitor for microphone access, only to play a recording. Safari 18.4 added a way to choose the audio output, but WebKit announced it for Mac computers, and only after the user grants microphone access <a href="#src10">[10]</a>.</li>
                     </ul>
                     <p>So every browser-based audio guide plays through the loudspeaker, unless the visitor connects headphones. This is a property of mobile browsers, not a design decision of any provider.</p>
 
                     <h2 id="native-app">What a native app can do, and what it costs</h2>
-                    <p>A native app has more control over audio than a web page. It can play through the earpiece, as in a phone call. It can also refuse to play until headphones are connected. For the noise problem alone, this works.</p>
+                    <p>A native app has more control over audio than a web page. It can play through the earpiece, as in a phone call. It can also refuse to play until headphones are connected. A web page cannot do that. For privacy reasons, mobile browsers do not tell a website which audio device is connected, unless the visitor first grants access to the microphone. For the noise problem alone, this works.</p>
                     <p>The cost is reach. Visitors must find the app, download it and install it before they hear anything. In our <a href="museum-audio-guide-app-adoption-rates.html">analysis of 175 official museum audio guide apps, only 2.47% of visitors downloaded them</a>. On a one-hour boat trip, with mobile data and a departure time, the hurdle is even higher.</p>
                     <p>So the choice is not between a noisy web app and a quiet native app. It is between a guide that almost every visitor can open and a guide that few visitors will ever use. The better question is whether a web app can get the same control over headphones. It can, as we show below.</p>
 
@@ -587,7 +587,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
 
                     <h2 id="huggins-pitch-check">For stricter requirements: a headphone check based on Huggins pitch</h2>
-                    <p>Some operators need more than good manners. A typical case is a sightseeing boat or bus where passengers cannot move away from a noisy neighbour. For these cases, Nubart has built a headphone check that runs in the browser, with no app.</p>
+                    <p>Some operators need more than good manners. A typical case is a sightseeing boat or bus where passengers cannot move away from a noisy neighbour. For these cases, Nubart has built a headphone check that runs in the browser, with no app. Its purpose is simple: to find out whether the visitor is really wearing headphones, before any sound is played. The visitor hears a short melody that can only be heard with headphones. Whoever recognises it gets the audio guide. Whoever does not gets the guide as text and pictures, so nothing plays through the loudspeaker.</p>
 
                     <h3>The science: a sound that only exists with headphones</h3>
                     <p>The test uses Huggins pitch, a hearing effect first described by Cramer and Huggins in 1958 <a href="#src7">[7]</a>. It works a little like a 3D film.</p>
@@ -598,8 +598,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><strong>The brain does the rest.</strong> It compares what each ear hears, notices the small difference and turns it into a faint tone. This tone is not in the left sound or the right sound. It exists only in the listener's head. When we move the changed part step by step, the tone changes, creating a short melody.</li>
                         <li><strong>Headphones are the 3D glasses.</strong> They give each ear its own sound. From a loudspeaker, the two sounds mix in the air, and both ears get the same mixture. The brain has nothing to compare, so the melody becomes weak or disappears.</li>
                     </ul>
-                    <p>The idea of using this effect as a headphone test comes from researchers at University College London. They ran hearing experiments online and needed to know whether the people taking part at home were really wearing headphones. So they tried it out: one group listened with headphones, another group through loudspeakers. About 80% of the headphone group heard the hidden tone every time. In the loudspeaker group, only about 20% did.</p>
-                    <p>Where does that 20% come from? The participants listened through the loudspeakers of their own computers. The researchers' explanation is that someone who sits close to a left and a right loudspeaker, exactly between them, still gets the two sounds partly apart [8]. A phone cannot do that. Its speakers sit only a few centimetres from each other, so the two sounds mix completely. In our own tests, the melody was easy to hear on a laptop but impossible to hear through a phone's loudspeaker.</p>
+                    <p>The idea of using this effect as a headphone test comes from researchers at University College London. They ran hearing experiments online and needed to know whether the people taking part at home were really wearing headphones. So they tried it out: one group listened with headphones, another group through loudspeakers. About 80% of the headphone group heard the hidden tone in all six rounds. In the loudspeaker group, only about 20% did.</p>
+                    <p>Where does that 20% come from? The participants listened through the loudspeakers of their own computers. The researchers' explanation is that someone who sits close to a left and a right loudspeaker, exactly between them, still gets the two sounds partly apart <a href="#src8">[8]</a>. A phone cannot do that. Its speakers sit only a few centimetres from each other, so the two sounds mix completely. In our own tests, the melody was easy to hear on a laptop but impossible to hear through a phone's loudspeaker.</p>
                     <p>The test also catches a common shortcut: listening with just one earbud. With a single ear, the brain has nothing to compare, so there is no tone.</p>
 
                     <h3>How the check works for the visitor</h3>
@@ -615,7 +615,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <ol>
                         <li>The visitor hears three sounds and taps the one with a faint melody behind the hiss. Each button lights up while its sound plays.</li>
                         <li>This is repeated three times. All three answers must be correct.</li>
-                        <li>After a wrong answer, the visitor gets one more attempt, with the sounds in a new order. Guessing does not help much: even with both attempts, only about 7 in 100 visitors would pass by luck.</li>
+                        <li>After a wrong answer, the visitor gets one more attempt at the whole test, with the sounds in a new order. Guessing does not help much: even with both attempts, only about 7 in 100 visitors would pass by luck.</li>
                         <li>Visitors who pass get the audio guide. Visitors who fail twice get the text version, so nobody is left without content.</li>
                     </ol>
 
@@ -644,7 +644,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li id="src6">European Commission, 28 December 2024: EU common charger rules.</li>
                         <li id="src7">Cramer, E. M., and Huggins, W. H. (1958). Creation of pitch through binaural interaction. <em>Journal of the Acoustical Society of America</em>, 30(5), 412-417.</li>
                         <li id="src8">Milne, A. E., Bianco, R., Poole, K. C., et al. (2021). An online headphone screening test based on dichotic pitch. <em>Behavior Research Methods</em>, 53, 1551-1562.</li>
-                        <li id="src9">GSMArena, 30 December 2023: Here are the loudest phones we tested in 2023.</li>
+                        <li id="src9">GSMArena, 30 December 2023: These are the loudest phones we tested in 2023.</li>
+                        <li id="src10">WebKit, <em>WebKit Features in Safari 18.4</em>.</li>
                     </ol>
 
 

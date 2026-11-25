@@ -35,7 +35,7 @@
                 }
             },
             "datePublished": "2026-11-16",
-            "dateModified": "2026-11-16",
+            "dateModified": "2026-11-25",
             "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://www.nubart.eu/es/audioguias/audioguia-codigo-qr-sin-auriculares.html"
@@ -528,11 +528,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <p>Una app nativa puede indicar al sistema operativo que reproduzca el audio en modo de llamada a través del auricular interno. Es lo que hacen las aplicaciones de mensajería cuando nos acercamos el móvil al oído para escuchar una nota de voz. Una página web, en cambio, no puede gestionar esto de forma fiable:</p>
                     <ul>
                         <li>En Android, ni Chrome ni Firefox admiten la función del navegador que permite seleccionar una salida de audio específica (<code>setSinkId</code>) <a href="#src3">[3]</a>.</li>
-                        <li>En el iPhone, Safari puede redirigir el sonido al auricular como efecto secundario del uso del micrófono. Sin embargo, los informes de errores acumulados a lo largo de varias versiones de iOS demuestran que este comportamiento es inestable <a href="#src4">[4]</a>. Además, obligaría a la página web a solicitar el permiso de micrófono a cada visitante únicamente para reproducir un audio.</li>
+                        <li>En el iPhone, Safari puede redirigir el sonido al auricular como efecto secundario del uso del micrófono. Sin embargo, los informes de errores acumulados a lo largo de varias versiones de iOS demuestran que este comportamiento es inestable <a href="#src4">[4]</a>. Además, obligaría a la página web a solicitar el permiso de micrófono a cada visitante únicamente para reproducir un audio. Safari 18.4 incorporó una forma de elegir la salida de audio, pero WebKit la anunció para ordenadores Mac, y solo después de que el usuario conceda acceso al micrófono <a href="#src10">[10]</a>.</li>
                     </ul>
                     <p>Por este motivo, una audioguía por QR que se abre en el navegador reproduce por defecto el sonido a través del altavoz principal, a menos que el visitante conecte unos auriculares. Se trata de una restricción técnica de los navegadores móviles, y no de una decisión de diseño de los proveedores.</p>
                     <h2 id="native-app">Qué puede hacer una app nativa y qué coste conlleva</h2>
-                    <p>Una app nativa ofrece más control sobre el audio que una página web: puede dirigir el sonido al auricular interno, como en una llamada telefónica, e incluso bloquear la reproducción hasta que se conecten unos auriculares. Desde el punto de vista del control acústico, es una solución eficaz.</p>
+                    <p>Una app nativa ofrece más control sobre el audio que una página web: puede dirigir el sonido al auricular interno, como en una llamada telefónica, e incluso bloquear la reproducción hasta que se conecten unos auriculares. Una página web no puede hacerlo. Por motivos de privacidad, los navegadores móviles no indican a un sitio web qué dispositivo de audio está conectado, salvo que el visitante conceda antes acceso al micrófono. Desde el punto de vista del control acústico, es una solución eficaz.</p>
                     <p>El inconveniente es que reduce drásticamente la tasa de adopción. Antes de poder escuchar nada, los visitantes tienen que buscar la app, descargarla e instalarla. En nuestro <a href="../blog/tasa-adopcion-app-audioguia-para-museos.html">análisis de 175 apps oficiales de audioguías de museos</a>, solo el 2,47 % de los visitantes llegó a descargar la aplicación. En una excursión en barco de una hora, en la que los pasajeros dependen de sus datos móviles y hay una hora fija de salida, esa barrera es todavía mayor.</p>
                     <p>Por tanto, la elección real no está entre una app web ruidosa y una app nativa silenciosa, sino entre una audioguía que prácticamente todos los visitantes pueden abrir al instante y otra que muy pocos llegarán a utilizar. La pregunta clave es si una app web por QR puede ofrecer un control similar sobre el uso de auriculares. La respuesta es sí, como veremos a continuación.</p>
 
@@ -600,7 +600,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </table>
                     </div>
                     <h2 id="huggins-pitch-check">Para requisitos más exigentes: una comprobación de auriculares basada en el tono de Huggins</h2>
-                    <p>Algunos operadores necesitan algo más que apelar a la buena voluntad de los visitantes. Un ejemplo habitual es el de un barco turístico o un autobús donde los pasajeros no pueden cambiarse de sitio si alguien lleva el audio demasiado alto. Para estos entornos, Nubart ha desarrollado una comprobación de auriculares que se ejecuta directamente en el navegador, sin necesidad de instalar ninguna aplicación.</p>
+                    <p>Algunos operadores necesitan algo más que apelar a la buena voluntad de los visitantes. Un ejemplo habitual es el de un barco turístico o un autobús donde los pasajeros no pueden cambiarse de sitio si alguien lleva el audio demasiado alto. Para estos entornos, Nubart ha desarrollado una comprobación de auriculares que se ejecuta directamente en el navegador, sin necesidad de instalar ninguna aplicación. Su finalidad es sencilla: averiguar si el visitante lleva realmente auriculares, antes de reproducir ningún sonido. El visitante oye una melodía breve que solo se percibe con auriculares. Quien la reconoce accede a la audioguía. Quien no la reconoce recibe la guía en texto e imágenes, así que no suena nada por el altavoz.</p>
 
                     <h3>La ciencia: un sonido que solo se oye con auriculares</h3>
                     <p>La comprobación se basa en el tono de Huggins, un fenómeno auditivo descrito por primera vez por Cramer y Huggins en 1958 <a href="#src7">[7]</a>. Su funcionamiento es muy similar al de una película en 3D.</p>
@@ -611,7 +611,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li><strong>El cerebro se encarga del resto.</strong> Por separado, cada oído solo percibe el ruido blanco. Sin embargo, al comparar las señales que llegan de ambos oídos, el cerebro detecta esa pequeña diferencia y la transforma en una tenue melodía superpuesta. Esa melodía no existe ni en el canal izquierdo ni en el derecho: se genera íntegramente en la mente del oyente.</li>
                         <li><strong>Los auriculares actúan como las gafas 3D.</strong> Envían a cada oído una señal de audio independiente. En cambio, a través de un altavoz, ambas señales se mezclan en el aire antes de llegar a los oídos, que reciben prácticamente la misma combinación. Sin esa diferencia entre canales, el cerebro pierde la referencia para comparar y la melodía se debila menlita o desaparece por completo.</li>
                     </ul>
-                    <p>La idea de emplear este efecto para verificar el uso de auriculares surgió de un equipo de investigadores del University College London. Realizaban estudios auditivos por internet y necesitaban asegurarse de que los participantes que hacían las pruebas desde casa llevaban realmente los auriculares puestos. Para comprobar el funcionamiento de su idea, llevaron a cabo un experimento: un grupo escuchó con auriculares y otro mediante altavoces. Alrededor del 80 % de quienes usaron auriculares identificó el tono oculto en todos los intentos, frente a apenas un 20 % en el grupo con altavoces.</p>
+                    <p>La idea de emplear este efecto para verificar el uso de auriculares surgió de un equipo de investigadores del University College London. Realizaban estudios auditivos por internet y necesitaban asegurarse de que los participantes que hacían las pruebas desde casa llevaban realmente los auriculares puestos. Para comprobar el funcionamiento de su idea, llevaron a cabo un experimento: un grupo escuchó con auriculares y otro mediante altavoces. Alrededor del 80 % de quienes usaron auriculares identificó el tono oculto en las seis rondas, frente a apenas un 20 % en el grupo con altavoces.</p>
                     <p>¿A qué se debe ese 20 %? Los participantes utilizaron los altavoces externos de sus ordenadores. Según explican los investigadores, si alguien se sienta justo en el punto medio entre el altavoz izquierdo y el derecho, aún le es posible percibir ambas señales parcialmente separadas <a href="#src8">[8]</a>. En un teléfono móvil, en cambio, eso nunca podría suceder: sus altavoces están separados por apenas unos centímetros, por lo que las señales se mezclan al instante. En los tests que hemos realizado internamente en Nubart, la melodía resultaba inaudible a través del altavoz de un smartphone.</p>
                     <p>La comprobación también desenmascara un truco muy habitual: ponerse un solo auricular. Al recibir sonido únicamente por un oído, el cerebro carece de una segunda señal con la que contrastarlo y la melodía tampoco se percibe.</p>
                     <h3>Cómo funciona la comprobación para el visitante</h3>
@@ -627,7 +627,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <ol>
                         <li>El usuario escucha tres secuencias de audio y pulsa el botón de aquella en la que se distingue una tenue melodía oculta tras el ruido. Cada botón se ilumina mientras suena su fragmento.</li>
                         <li>El ejercicio se repite tres veces y las tres respuestas deben ser correctas.</li>
-                        <li>Si falla, dispone de un segundo intento con los sonidos en un orden distinto. Adivinar sirve de poco: incluso con dos oportunidades, apenas 7 de cada 100 personas superarían la comprobación por puro azar.</li>
+                        <li>Si falla, dispone de un segundo intento de toda la prueba, con los sonidos en un orden distinto. Adivinar sirve de poco: incluso con dos oportunidades, apenas 7 de cada 100 personas superarían la comprobación por puro azar.</li>
                         <li>Quienes superan el reto acceden a la audioguía con audio. Quienes tampoco aciertan en el segundo intento pasan automáticamente a la versión de texto, de modo que nadie se queda sin acceder a los contenidos.</li>
                     </ol>
 
@@ -651,7 +651,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <li id="src6">Comisión Europea, 28 de diciembre de 2024: normativa de la UE sobre cargadores universales (<em>EU common charger rules</em>).</li>
                         <li id="src7">Cramer, E. M., y Huggins, W. H. (1958). Creation of pitch through binaural interaction. <em>Journal of the Acoustical Society of America</em>, 30(5), 412-417.</li>
                         <li id="src8">Milne, A. E., Bianco, R., Poole, K. C., et al. (2021). An online headphone screening test based on dichotic pitch. <em>Behavior Research Methods</em>, 53, 1551-1562.</li>
-                        <li id="src9">GSMArena, 30 de diciembre de 2023: <em>Here are the loudest phones we tested in 2023</em>.</li>
+                        <li id="src9">GSMArena, 30 de diciembre de 2023: <em>These are the loudest phones we tested in 2023</em>.</li>
+                        <li id="src10">WebKit, <em>WebKit Features in Safari 18.4</em>.</li>
                     </ol>
 
                   
